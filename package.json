@@ -1,6 +1,6 @@
 {
   "name": "spinal-browser-viewer",
-  "version": "v1.0.1",
+  "version": "v1.0.2",
   "description":
     "A spinalcore browser to visualise a 3D model generated via Autodesk Forge",
   "author": "laurent <htd.laurent@gmail.com>",
@@ -18,6 +18,12 @@
   "dependencies": {
     "spinal-browser-drive":
       "git+https://github.com/spinalcom/spinal-browser-drive.git",
+    "spinal-lib-forge-env":
+      "git+https://github.com/spinalcom/spinal-lib-forge-env.git",
+    "spinal-lib-forgefile":
+      "git+https://github.com/spinalcom/spinal-lib-forgefile.git",
+    "spinal-organ-forge":
+      "git+https://github.com/spinalcom/spinal-organ-forge.git#develop",
     "babel-core": "^6.0.0",
     "babel-preset-es2015": "^6.0.0",
     "babelify": "^7.2.0",
