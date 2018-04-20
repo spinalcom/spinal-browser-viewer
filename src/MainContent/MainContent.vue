@@ -12,11 +12,9 @@ export default {
   },
   computed: {},
   created() {
-    var vm = this;
     console.log("created", this.$el);
   },
   mounted() {
-    var vm = this;
     ForgeViewer.start_viewer(this.$el);
     console.log(this);
   }
@@ -24,5 +22,4 @@ export default {
 </script>
 
 <style scoped>
-
 </style>

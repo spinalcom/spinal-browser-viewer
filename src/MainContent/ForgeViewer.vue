@@ -1,10 +1,6 @@
 
-<template>
-
-</template>
-
 <script>
-import spinal from "../SpinalSystem/spinal.js";
+import spinalSystem from "../SpinalSystem/SpinalSystem.js";
 import ForgeExtentionManager from "./ForgeExtentionManager.vue";
 // import ForgeExtention from "./ForgeExtention.vue";
 export default new class ForgeViewer {
@@ -23,7 +19,7 @@ export default new class ForgeViewer {
   start_viewer(dom) {
     let _self = this;
 
-    spinal
+    spinalSystem
       .getModel()
       .then(forgefile => {
         this.forgeFile = forgefile;
@@ -40,11 +36,11 @@ export default new class ForgeViewer {
           this.options.docid = path;
         }
         console.log();
-        this.oViewer = new Autodesk.Viewing.Private.GuiViewer3D(
+        this.oViewer = new window.Autodesk.Viewing.Private.GuiViewer3D(
           dom,
           this.config
         ); // With toolbar
-        Autodesk.Viewing.Initializer(this.options, () => {
+        window.Autodesk.Viewing.Initializer(this.options, () => {
           this.oViewer.initialize();
           this.oViewer.loadModel(
             this.options.docid,
@@ -59,19 +55,19 @@ export default new class ForgeViewer {
           );
         }
 
-        function onItemLoadSuccess(viewer, item) {
+        function onItemLoadSuccess() {
           _self.oViewer.addEventListener(
-            Autodesk.Viewing.GEOMETRY_LOADED_EVENT,
+            window.Autodesk.Viewing.GEOMETRY_LOADED_EVENT,
             onGeometryLoadEvent
           );
         }
         function onGeometryLoadEvent() {
           _self.oViewer.removeEventListener(
-            Autodesk.Viewing.GEOMETRY_LOADED_EVENT,
+            window.Autodesk.Viewing.GEOMETRY_LOADED_EVENT,
             onGeometryLoadEvent
           );
           let extensions = ForgeExtentionManager.getExtentions();
-          // let extensions = ["Autodesk.ADN.Viewing.Extension.Color"];
+          // let extensions = ["window.Autodesk.ADN.Viewing.Extension.Color"];
           for (var i = 0; i < extensions.length; i++) {
             _self.oViewer.loadExtension(extensions[i], _self.options);
           }

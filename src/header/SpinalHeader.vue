@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import spinal from "../SpinalSystem/spinal.js";
+import spinalSystem from "../SpinalSystem/SpinalSystem.js";
 import HeaderCtrl from "../header/HeaderCtrl.vue";
 
 export default {
@@ -32,7 +32,7 @@ export default {
   },
   created() {
     var vm = this;
-    vm.username = spinal.getUser().username;
+    vm.username = spinalSystem.getUser().username;
   }
 };
 </script>

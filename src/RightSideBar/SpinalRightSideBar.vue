@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import spinal from "../SpinalSystem/spinal.js";
+import spinalSystem from "../SpinalSystem/SpinalSystem.js";
 import HeaderCtrl from "../header/HeaderCtrl.vue";
 
 export default {
@@ -48,14 +48,12 @@ export default {
         window.location = "/html/drive/";
       },
       sign_out: () => {
-        spinal.signOut();
+        spinalSystem.signOut();
         window.location = "/html/drive/#!/login');";
       }
     };
   },
-  created() {
-    var vm = this;
-  }
+  created() {}
 };
 // components: { Chart }
 </script>

@@ -3,7 +3,7 @@ import * as Q from "q";
 
 function getParameterByName(name, url) {
   if (!url) url = window.location.href;
-  name = name.replace(/[\[\]]/g, "\\$&");
+  name = name.replace(/[[\]]/g, "\\$&");
   var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
     results = regex.exec(url);
   if (!results) return null;
@@ -11,7 +11,7 @@ function getParameterByName(name, url) {
   return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 
-class spinal {
+class SpinalSystem {
   constructor() {
     console.log("TEST construct spinal");
     this.user = {
@@ -27,15 +27,15 @@ class spinal {
     if (this.promiseinit) return this.promiseinit.promise;
     this.promiseinit = Q.defer();
 
-    let user = this.getUser();
+    // let user = this.getUser();
     if (this.user.username) {
-      SpinalUserManager.get_user_id(
+      window.SpinalUserManager.get_user_id(
         "http://" + window.location.host,
         this.user.username,
         this.user.password,
         response => {
           let id = parseInt(response);
-          this.conn = spinalCore.connect(
+          this.conn = window.spinalCore.connect(
             `http://${id}:${this.user.password}@${window.location.host}/`
           );
           this.promiseinit.resolve();
@@ -71,7 +71,7 @@ class spinal {
           window.location = "/html/drive/";
         }
         path = atob(path);
-        spinalCore.load(
+        window.spinalCore.load(
           this.conn,
           path,
           forgefile => {
@@ -93,7 +93,7 @@ class spinal {
     return this.promiseModel.promise;
   }
   _waitModelRdyRec(model, promise) {
-    if (!model._server_id || FileSystem._tmp_objects[model._server_id]) {
+    if (!model._server_id || window.FileSystem._tmp_objects[model._server_id]) {
       setTimeout(() => {
         this._waitModelRdyRec.call(this, model);
       }, 100);
@@ -119,5 +119,5 @@ class spinal {
     window.localStorage.setItem("spinalhome_cfg", "");
   }
 }
-
-export default new spinal();
+window.spinalSystem = new SpinalSystem();
+export default window.spinalSystem;

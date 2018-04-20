@@ -13,5 +13,5 @@ window.ForgeExtentionManager = new class ForgeExtentionManager {
     this.extentions.push(name);
   }
 }();
-export default ForgeExtentionManager;
+export default window.ForgeExtentionManager;
 </script>
