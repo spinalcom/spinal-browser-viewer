@@ -195,13 +195,13 @@ function bundle() {
     // .transform("vueify", {
     //   global: true
     // })
-    // .transform("babelify", {
-    //   global: true,
-    //   presets: ["es2015"]
-    // })
-    .transform("windowify", {
-      global: true
+    .transform("babelify", {
+      global: true,
+      presets: ["es2015"]
     })
+    // .transform("windowify", {
+    //   global: true
+    // })
     .transform("uglifyify", {
       global: true,
       mangle: {
