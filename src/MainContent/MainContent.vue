@@ -11,9 +11,7 @@ export default {
     return {};
   },
   computed: {},
-  created() {
-    console.log("created", this.$el);
-  },
+  created() {},
   mounted() {
     ForgeViewer.start_viewer(this.$el);
     console.log(this);

@@ -171,7 +171,7 @@ function compile_lib(config) {
     b = browserify({
       entries: input,
       debug: true,
-      plugin: [watchify]
+      plugin: []
     });
   }
   bundle();
@@ -192,13 +192,13 @@ function bundle() {
     //     NODE_ENV: "production"
     //   })
     // )
-    .transform("vueify", {
-      global: true
-    })
-    .transform("babelify", {
-      global: true,
-      presets: ["es2015"]
-    })
+    // .transform("vueify", {
+    //   global: true
+    // })
+    // .transform("babelify", {
+    //   global: true,
+    //   presets: ["es2015"]
+    // })
     .transform("windowify", {
       global: true
     })
