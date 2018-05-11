@@ -21,6 +21,7 @@ class SpinalSystem {
     this.promiseModel = null;
     this.promiseinit = null;
     this.modelsDictionary = {};
+    this.modelsPathDictionary = {};
   }
 
   init() {
@@ -107,16 +108,45 @@ class SpinalSystem {
     return defer.promise;
   }
   loadModelPtr(model) {
-    this.modelsDictionary[model._server_id] = Q.defer();
     if (this.modelsDictionary[model._server_id]) {
       return this.modelsDictionary[model._server_id].promise;
     }
     this.modelsDictionary[model._server_id] = Q.defer();
-
+    try {
+      model.load(m => {
+        this.modelsDictionary[model._server_id].resolve(m);
+      });
+    } catch (error) {
+      let promise = this.modelsDictionary[model._server_id];
+      this.modelsDictionary[model._server_id] = undefined;
+      promise.reject();
+    }
     return this.modelsDictionary[model._server_id].promise;
   }
   signOut() {
     window.localStorage.setItem("spinalhome_cfg", "");
+  }
+  load(path) {
+    if (this.modelsPathDictionary[path]) {
+      return this.modelsPathDictionary[path].promise;
+    }
+    this.modelsPathDictionary[path] = Q.defer();
+
+    window.spinalCore.load(
+      this.conn,
+      path,
+      m => {
+        this.modelsPathDictionary[path].resolve(m);
+      },
+      () => {
+        console.error("Failed to load model in : " + path);
+        let promise = this.modelsPathDictionary[path];
+        this.modelsPathDictionary[path] = undefined;
+        promise.reject();
+      }
+    );
+
+    return this.modelsPathDictionary[path].promise;
   }
 }
 window.spinalSystem = new SpinalSystem();
