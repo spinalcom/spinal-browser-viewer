@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "spinal-browser-drive": "git+https://github.com/spinalcom/spinal-browser-drive.git",
-    "spinal-lib-forge-env": "git+https://github.com/spinalcom/spinal-lib-forge-env.git",
+    "spinal-joint-drive_forge": "git+https://github.com/spinalcom/spinal-joint-drive_forge.git",
     "spinal-lib-forgefile": "git+https://github.com/spinalcom/spinal-lib-forgefile.git",
     "spinal-organ-forge": "git+https://github.com/spinalcom/spinal-organ-forge.git",
     "babel-core": "^6.0.0",
