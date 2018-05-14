@@ -1,12 +1,8 @@
 
 <script>
-import spinalSystem from "../SpinalSystem/SpinalSystem.js";
-import ForgeExtentionManager from "./ForgeExtentionManager.vue";
-// import ForgeExtention from "./ForgeExtention.vue";
-export default new class ForgeViewer {
+class ForgeViewer {
   constructor() {
-    console.log("forge");
-    this.oViewer;
+    this.viewer;
     this.config = {};
     this.options = {
       env: "Local",
@@ -14,12 +10,14 @@ export default new class ForgeViewer {
       useADP: false
     };
     this.docs = [];
-    ForgeExtentionManager.addExtention("Autodesk.ADN.Viewing.Extension.Color");
+    window.spinal.ForgeExtentionManager.addExtention(
+      "Autodesk.ADN.Viewing.Extension.Color"
+    );
   }
   start_viewer(dom) {
     let _self = this;
 
-    spinalSystem
+    window.spinal.spinalSystem
       .getModel()
       .then(forgefile => {
         this.forgeFile = forgefile;
@@ -35,14 +33,13 @@ export default new class ForgeViewer {
           path = window.location.origin + path;
           this.options.docid = path;
         }
-        console.log();
-        this.oViewer = new window.Autodesk.Viewing.Private.GuiViewer3D(
+        this.viewer = new window.Autodesk.Viewing.Private.GuiViewer3D(
           dom,
           this.config
         ); // With toolbar
         window.Autodesk.Viewing.Initializer(this.options, () => {
-          this.oViewer.initialize();
-          this.oViewer.loadModel(
+          this.viewer.initialize();
+          this.viewer.loadModel(
             this.options.docid,
             this.config,
             onItemLoadSuccess,
@@ -56,20 +53,9 @@ export default new class ForgeViewer {
         }
 
         function onItemLoadSuccess() {
-          _self.oViewer.addEventListener(
-            window.Autodesk.Viewing.GEOMETRY_LOADED_EVENT,
-            onGeometryLoadEvent
-          );
-        }
-        function onGeometryLoadEvent() {
-          _self.oViewer.removeEventListener(
-            window.Autodesk.Viewing.GEOMETRY_LOADED_EVENT,
-            onGeometryLoadEvent
-          );
-          let extensions = ForgeExtentionManager.getExtentions();
-          // let extensions = ["window.Autodesk.ADN.Viewing.Extension.Color"];
+          let extensions = window.spinal.ForgeExtentionManager.getExtentions();
           for (var i = 0; i < extensions.length; i++) {
-            _self.oViewer.loadExtension(extensions[i], _self.options);
+            _self.viewer.loadExtension(extensions[i], _self.options);
           }
         }
       })
@@ -77,5 +63,8 @@ export default new class ForgeViewer {
         console.error(err);
       });
   }
-}();
+}
+// ();
+
+export default ForgeViewer;
 </script>

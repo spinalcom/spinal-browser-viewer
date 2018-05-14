@@ -1,7 +1,6 @@
 <script>
-window.ForgeExtentionManager = new class ForgeExtentionManager {
+class ForgeExtentionManager {
   constructor() {
-    console.log("create ForgeExtentionManager");
     this.extentions = [];
   }
 
@@ -12,6 +11,6 @@ window.ForgeExtentionManager = new class ForgeExtentionManager {
   addExtention(name) {
     this.extentions.push(name);
   }
-}();
-export default window.ForgeExtentionManager;
+}
+export default ForgeExtentionManager;
 </script>

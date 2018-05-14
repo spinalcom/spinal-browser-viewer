@@ -13,7 +13,6 @@ function getParameterByName(name, url) {
 
 class SpinalSystem {
   constructor() {
-    console.log("TEST construct spinal");
     this.user = {
       username: "",
       password: ""
@@ -42,11 +41,15 @@ class SpinalSystem {
           this.promiseinit.resolve();
         },
         () => {
+          // console.log("TEST");
           window.location = "/html/drive/";
           // this.promiseinit.reject();
         }
       );
-    } else window.location = "/html/drive/";
+    } else {
+      // console.log("TEST2");
+      window.location = "/html/drive/";
+    }
     return this.promiseinit.promise;
   }
 
@@ -86,7 +89,8 @@ class SpinalSystem {
           }
         );
       },
-      () => {
+      err => {
+        console.error(err);
         window.location = "/html/drive/";
         // defer.reject();
       }
@@ -149,5 +153,5 @@ class SpinalSystem {
     return this.modelsPathDictionary[path].promise;
   }
 }
-window.spinalSystem = new SpinalSystem();
-export default window.spinalSystem;
+
+export default SpinalSystem;

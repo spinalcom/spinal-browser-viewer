@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import spinalSystem from "../SpinalSystem/SpinalSystem.js";
+import Vue from "vue";
 import HeaderCtrl from "../header/HeaderCtrl.vue";
 
 export default {
@@ -48,7 +48,7 @@ export default {
         window.location = "/html/drive/";
       },
       sign_out: () => {
-        spinalSystem.signOut();
+        Vue.prototype.$spinalSystem.signOut();
         window.location = "/html/drive/#!/login');";
       }
     };

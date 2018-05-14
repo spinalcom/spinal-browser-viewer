@@ -1,6 +1,6 @@
 {
   "name": "spinal-browser-viewer",
-  "version": "v1.0.4",
+  "version": "v1.0.5",
   "description": "A spinalcore browser to visualise a 3D model generated via Autodesk Forge",
   "author": "laurent <htd.laurent@gmail.com>",
   "private": true,
@@ -35,7 +35,7 @@
     "uglify-js": "^2.5.0",
     "vue": "^2.0.1",
     "vue-chartjs": "^3.2.1",
-    "vue-material": "^1.0.0-beta-7",
+    "vue-material": "1.0.0-beta-7",
     "vue-rx": "^5.0.0",
     "vueify": "^9.1.0",
     "watchify": "^3.4.0",

@@ -3,21 +3,15 @@
 </template>
 
 <script>
-import ForgeViewer from "./ForgeViewer.vue";
+import Vue from "vue";
 
 export default {
   name: "app",
   data() {
     return {};
   },
-  computed: {},
-  created() {},
   mounted() {
-    ForgeViewer.start_viewer(this.$el);
-    console.log(this);
+    Vue.prototype.$ForgeViewer.start_viewer(this.$el);
   }
 };
 </script>
-
-<style scoped>
-</style>
