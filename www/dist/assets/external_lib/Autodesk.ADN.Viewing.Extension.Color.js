@@ -3,141 +3,160 @@
 //
 ///////////////////////////////////////////////////////////////////////////////
 AutodeskNamespace("Autodesk.ADN.Viewing.Extension");
-Autodesk.ADN.Viewing.Extension.Color = function (viewer, options) {
-    Autodesk.Viewing.Extension.call(this, viewer, options);
+Autodesk.ADN.Viewing.Extension.Color = function(viewer, options) {
+  Autodesk.Viewing.Extension.call(this, viewer, options);
 
-    // var overlayName = "temperary-colored-overlay";
-    var _self = this;
-    _self.viewer = viewer;
+  // var overlayName = "temperary-colored-overlay";
+  var _self = this;
+  _self.viewer = viewer;
+  _self.materials = {};
+  _self.load = function() {
+    console.log("Autodesk.ADN.Viewing.Extension.Color loaded");
+    ///////////////////////////////////////////////////////////////////////////
+    // Generate GUID
+    //
+    ///////////////////////////////////////////////////////////////////////////
+    function newGuid() {
+      var d = new Date().getTime();
+      var guid = "xxxx-xxxx-xxxx-xxxx-xxxx".replace(/[xy]/g, function(c) {
+        var r = ((d + Math.random() * 16) % 16) | 0;
+        d = Math.floor(d / 16);
+        return (c == "x" ? r : (r & 0x7) | 0x8).toString(16);
+      });
+      return guid;
+    }
 
-    _self.load = function () {
+    ///////////////////////////////////////////////////////////////////////////
+    // add new material
+    //
+    ///////////////////////////////////////////////////////////////////////////
+    function addMaterial(color, id) {
+      _self.materials[id] = new THREE.MeshPhongMaterial({
+        color: color
+      });
+      //viewer.impl.matman().addMaterial(newGuid(), material);
 
-        console.log('Autodesk.ADN.Viewing.Extension.Color loaded');
-        ///////////////////////////////////////////////////////////////////////////
-        // Generate GUID
-        //
-        ///////////////////////////////////////////////////////////////////////////
-        function newGuid() {
-            var d = new Date().getTime();
-            var guid = 'xxxx-xxxx-xxxx-xxxx-xxxx'.replace(/[xy]/g, function (c) {
-                var r = (d + Math.random() * 16) % 16 | 0;
-                d = Math.floor(d / 16);
-                return (c == 'x' ? r : (r & 0x7 | 0x8)).toString(16);
-            });
-            return guid;
-        };
+      _self.viewer.impl.createOverlayScene(
+        id,
+        _self.materials[id],
+        _self.materials[id]
+      );
+      return _self.materials[id];
+    }
 
-        ///////////////////////////////////////////////////////////////////////////
-        // add new material
-        //
-        ///////////////////////////////////////////////////////////////////////////
-        function addMaterial(color, id) {
-            var material = new THREE.MeshPhongMaterial({
-                color: color
-            });
-            //viewer.impl.matman().addMaterial(newGuid(), material);
+    function cutHex(h) {
+      return h.charAt(0) == "#" ? h.substring(1, 7) : h;
+    }
+    ///////////////////////////////////////////////////////////////////////////
+    // Set color for nodes
+    // objectIds should be an array of dbId
+    //
+    //
+    ///////////////////////////////////////////////////////////////////////////
+    Autodesk.Viewing.Viewer3D.prototype.setColorMaterial = function(
+      objectIds,
+      color
+    ) {
+      for (var i = 0; i < objectIds.length; i++) {
+        var dbid = objectIds[i];
 
-            _self.viewer.impl.createOverlayScene(id, material, material);
-            return material;
+        if (_self.materials[dbid]) {
+          _self.materials[dbid].color.setHex(parseInt(cutHex(color), 16));
+          _self.viewer.impl.invalidate(false, false, true);
+        } else {
+          var material = addMaterial(color, dbid);
+
+          //from dbid to node, to fragid
+          var it = _self.viewer.model.getData().instanceTree;
+
+          it.enumNodeFragments(
+            dbid,
+            function(fragId) {
+              var renderProxy = _self.viewer.impl.getRenderProxy(
+                _self.viewer.model,
+                fragId
+              );
+              renderProxy[dbid] = new THREE.Mesh(
+                renderProxy.geometry,
+                material
+              );
+
+              renderProxy[dbid].matrix.copy(renderProxy.matrixWorld);
+              renderProxy[dbid].matrixWorldNeedsUpdate = true;
+              renderProxy[dbid].matrixAutoUpdate = false;
+              renderProxy[dbid].frustumCulled = false;
+
+              _self.viewer.impl.addOverlay(dbid, renderProxy[dbid]);
+              _self.viewer.impl.invalidate(true);
+            },
+            false
+          );
         }
-
-        ///////////////////////////////////////////////////////////////////////////
-        // Set color for nodes
-        // objectIds should be an array of dbId
-        // 
-        //
-        ///////////////////////////////////////////////////////////////////////////
-        Autodesk.Viewing.Viewer3D.prototype.setColorMaterial = function (objectIds, color, id) {
-
-            var material = addMaterial(color, id);
-
-            for (var i = 0; i < objectIds.length; i++) {
-
-                var dbid = objectIds[i];
-
-                //from dbid to node, to fragid
-                var it = _self.viewer.model.getData().instanceTree;
-
-                it.enumNodeFragments(dbid, function (fragId) {
-
-
-                    var renderProxy = _self.viewer.impl.getRenderProxy(_self.viewer.model, fragId);
-
-                    renderProxy[id] = new THREE.Mesh(renderProxy.geometry, renderProxy.material);
-
-                    renderProxy[id].matrix.copy(renderProxy.matrixWorld);
-                    renderProxy[id].matrixWorldNeedsUpdate = true;
-                    renderProxy[id].matrixAutoUpdate = false;
-                    renderProxy[id].frustumCulled = false;
-
-                    _self.viewer.impl.addOverlay(id, renderProxy[id]);
-                    _self.viewer.impl.invalidate(true);
-
-                }, false);
-            }
-
-        }
-
-
-        Autodesk.Viewing.Viewer3D.prototype.restoreColorMaterial = function (objectIds, id) {
-            for (var i = 0; i < objectIds.length; i++) {
-
-                var dbid = objectIds[i];
-
-
-                //from dbid to node, to fragid
-                var it = _self.viewer.model.getData().instanceTree;
-
-                it.enumNodeFragments(dbid, function (fragId) {
-
-
-                    var renderProxy = _self.viewer.impl.getRenderProxy(_self.viewer.model, fragId);
-
-                    if (renderProxy[id]) {
-
-                        //remove all overlays with same name
-                        _self.viewer.impl.clearOverlay(id);
-                        //_self.viewer.impl.removeOverlay(id, renderProxy[id]);
-                        delete renderProxy[id];
-
-
-                        //refresh the sence
-                        _self.viewer.impl.invalidate(true);
-
-
-                    }
-
-
-                }, true);
-            }
-
-
-        }
-
-
-        Autodesk.Viewing.Viewer3D.prototype.colorAllMaterials = function (objects) {
-
-            for (var i = 0; i < objects.length; i++) {
-                this.setColorMaterial(objects[i].ids, objects[i].color, objects[i].id);
-            }
-        }
-
-        Autodesk.Viewing.Viewer3D.prototype.restoreAllMaterialColor = function (objects) {
-            for (var i = 0; i < objects.length; i++) {
-                this.restoreColorMaterial(objects[i].ids, objects[i].id);
-            }
-        }
-
-
-
-        _self.unload = function () {
-            console.log('Autodesk.ADN.Viewing.Extension.Color unloaded');
-            return true;
-        };
-
-        return true;
+      }
     };
+
+    Autodesk.Viewing.Viewer3D.prototype.restoreColorMaterial = function(
+      objectIds
+    ) {
+      for (var i = 0; i < objectIds.length; i++) {
+        var dbid = objectIds[i];
+
+        //from dbid to node, to fragid
+        var it = _self.viewer.model.getData().instanceTree;
+
+        if (_self.materials[dbid]) delete _self.materials[dbid];
+
+        it.enumNodeFragments(
+          dbid,
+          function(fragId) {
+            var renderProxy = _self.viewer.impl.getRenderProxy(
+              _self.viewer.model,
+              fragId
+            );
+
+            if (renderProxy[dbid]) {
+              //remove all overlays with same name
+              _self.viewer.impl.clearOverlay(dbid);
+              //_self.viewer.impl.removeOverlay(id, renderProxy[id]);
+              delete renderProxy[dbid];
+
+              //refresh the sence
+              _self.viewer.impl.invalidate(true);
+            }
+          },
+          true
+        );
+      }
+    };
+
+    Autodesk.Viewing.Viewer3D.prototype.colorAllMaterials = function(objects) {
+      for (var i = 0; i < objects.length; i++) {
+        this.setColorMaterial(objects[i].ids, objects[i].color, objects[i].id);
+      }
+    };
+
+    Autodesk.Viewing.Viewer3D.prototype.restoreAllMaterialColor = function(
+      objects
+    ) {
+      for (var i = 0; i < objects.length; i++) {
+        this.restoreColorMaterial(objects[i].ids, objects[i].id);
+      }
+    };
+
+    _self.unload = function() {
+      console.log("Autodesk.ADN.Viewing.Extension.Color unloaded");
+      return true;
+    };
+
+    return true;
+  };
 };
-Autodesk.ADN.Viewing.Extension.Color.prototype = Object.create(Autodesk.Viewing.Extension.prototype);
-Autodesk.ADN.Viewing.Extension.Color.prototype.constructor = Autodesk.ADN.Viewing.Extension.Color;
-Autodesk.Viewing.theExtensionManager.registerExtension('Autodesk.ADN.Viewing.Extension.Color', Autodesk.ADN.Viewing.Extension.Color);
+Autodesk.ADN.Viewing.Extension.Color.prototype = Object.create(
+  Autodesk.Viewing.Extension.prototype
+);
+Autodesk.ADN.Viewing.Extension.Color.prototype.constructor =
+  Autodesk.ADN.Viewing.Extension.Color;
+Autodesk.Viewing.theExtensionManager.registerExtension(
+  "Autodesk.ADN.Viewing.Extension.Color",
+  Autodesk.ADN.Viewing.Extension.Color
+);

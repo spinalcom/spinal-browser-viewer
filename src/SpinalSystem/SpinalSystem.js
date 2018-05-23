@@ -100,14 +100,13 @@ class SpinalSystem {
   _waitModelRdyRec(model, promise) {
     if (!model._server_id || window.FileSystem._tmp_objects[model._server_id]) {
       setTimeout(() => {
-        this._waitModelRdyRec.call(this, model);
+        this._waitModelRdyRec(model, promise);
       }, 100);
-    }
-    promise.resolve(model);
+    } else promise.resolve(model);
   }
   waitModelRdy(model) {
     let defer = Q.defer();
-    this._waitModelRdyRec.call(this, model, defer);
+    this._waitModelRdyRec(model, defer);
 
     return defer.promise;
   }
