@@ -1,6 +1,6 @@
 const fs = require("fs");
 const browserify = require("browserify");
-const envify = require("envify/custom");
+// const envify = require("envify/custom");
 const externalLibs = require("../ExternalLibs");
 
 var b = browserify({
@@ -21,14 +21,14 @@ b
     minify: true,
     output: "dist/build.css"
   })
-  .transform(
-    {
-      global: true
-    },
-    envify({
-      NODE_ENV: "production"
-    })
-  )
+  // .transform(
+  //   {
+  //     global: true
+  //   },
+  //   envify({
+  //     NODE_ENV: "production"
+  //   })
+  // )
   .bundle()
   .pipe(fs.createWriteStream("dist/build.js"));
 // }
@@ -52,14 +52,14 @@ bLibs
     minify: true,
     output: "dist/libs.css"
   })
-  .transform(
-    {
-      global: true
-    },
-    envify({
-      NODE_ENV: "production"
-    })
-  )
+  // .transform(
+  //   {
+  //     global: true
+  //   },
+  //   envify({
+  //     NODE_ENV: "production"
+  //   })
+  // )
   .bundle()
   .pipe(fs.createWriteStream("./dist/libs.js"));
 // }

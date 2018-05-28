@@ -5,6 +5,10 @@
            alt="SpinalBIM Viewer"
            style="height: 42px;margin-top: 4px;">
     </div>
+    <h2>
+      {{path}}
+      <md-tooltip>{{fullPath}}</md-tooltip>
+    </h2>
     <div class="md-toolbar-section-end">
       {{username}}
       <md-button class="md-icon-button"
@@ -24,18 +28,25 @@ export default {
   data() {
     // var vm = this;
     return {
-      toggleMenu: () => {
-        HeaderCtrl.toggleMenu();
-      },
+      fullPath: "",
+      path: "",
       username: ""
     };
+  },
+  methods: {
+    toggleMenu: function() {
+      HeaderCtrl.toggleMenu();
+    }
   },
   created() {
     var vm = this;
     vm.username = spinal.spinalSystem.getUser().username;
+    vm.fullPath = spinal.spinalSystem.getPath();
+    let path = vm.fullPath.split("/");
+
+    vm.path = path[path.length - 1];
   }
 };
-// http://localhost:7777/html/viewer/?path=L19fdXNlcnNfXy9hZG1pbi9kYXRhY2VudGVyd2l0aHNlcnZlcnM=
 </script>
 
 <style scoped>

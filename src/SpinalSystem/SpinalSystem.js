@@ -26,8 +26,7 @@ class SpinalSystem {
   init() {
     if (this.promiseinit) return this.promiseinit.promise;
     this.promiseinit = Q.defer();
-
-    // let user = this.getUser();
+    this.getUser();
     if (this.user.username) {
       window.SpinalUserManager.get_user_id(
         "http://" + window.location.host,
@@ -41,16 +40,20 @@ class SpinalSystem {
           this.promiseinit.resolve();
         },
         () => {
-          // console.log("TEST");
           window.location = "/html/drive/";
           // this.promiseinit.reject();
         }
       );
     } else {
-      // console.log("TEST2");
       window.location = "/html/drive/";
     }
     return this.promiseinit.promise;
+  }
+
+  getPath() {
+    let path = getParameterByName("path");
+    if (path) return atob(path);
+    return undefined;
   }
 
   getUser() {
