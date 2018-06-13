@@ -10,8 +10,29 @@ Autodesk.ADN.Viewing.Extension.Color = function(viewer, options) {
   var _self = this;
   _self.viewer = viewer;
   _self.materials = {};
+  var promise = null;
+
+  function initialize() {
+    if (promise == null)
+      promise = new Promise(res => {
+        _self.viewer.addEventListener(
+          Autodesk.Viewing.OBJECT_TREE_CREATED_EVENT,
+          function onObjectTreeLoadEvent() {
+            _self.viewer.removeEventListener(
+              Autodesk.Viewing.OBJECT_TREE_CREATED_EVENT,
+              onObjectTreeLoadEvent
+            );
+            res();
+          }
+        );
+      })
+    return promise;
+  }
   _self.load = function() {
+    initialize();
     console.log("Autodesk.ADN.Viewing.Extension.Color loaded");
+
+
     ///////////////////////////////////////////////////////////////////////////
     // Generate GUID
     //
@@ -57,42 +78,49 @@ Autodesk.ADN.Viewing.Extension.Color = function(viewer, options) {
       objectIds,
       color
     ) {
-      for (var i = 0; i < objectIds.length; i++) {
-        var dbid = objectIds[i];
+      initialize().then(() => {
 
-        if (_self.materials[dbid]) {
-          _self.materials[dbid].color.setHex(parseInt(cutHex(color), 16));
-          _self.viewer.impl.invalidate(false, false, true);
-        } else {
-          var material = addMaterial(color, dbid);
+        for (var i = 0; i < objectIds.length; i++) {
+          var dbid = objectIds[i];
 
-          //from dbid to node, to fragid
-          var it = _self.viewer.model.getData().instanceTree;
 
-          it.enumNodeFragments(
-            dbid,
-            function(fragId) {
-              var renderProxy = _self.viewer.impl.getRenderProxy(
-                _self.viewer.model,
-                fragId
-              );
-              renderProxy[dbid] = new THREE.Mesh(
-                renderProxy.geometry,
-                material
-              );
+          if (_self.materials[dbid]) {
+            _self.materials[dbid].color.setHex(parseInt(cutHex(color),
+              16));
+            _self.viewer.impl.invalidate(false, false, true);
+          } else {
+            var material = addMaterial(color, dbid);
+            //from dbid to node, to fragid
 
-              renderProxy[dbid].matrix.copy(renderProxy.matrixWorld);
-              renderProxy[dbid].matrixWorldNeedsUpdate = true;
-              renderProxy[dbid].matrixAutoUpdate = false;
-              renderProxy[dbid].frustumCulled = false;
 
-              _self.viewer.impl.addOverlay(dbid, renderProxy[dbid]);
-              _self.viewer.impl.invalidate(true);
-            },
-            false
-          );
+            let it = _self.viewer.model.getData().instanceTree;
+            it.enumNodeFragments(
+              dbid,
+              function(fragId) {
+                var renderProxy = _self.viewer.impl.getRenderProxy(
+                  _self.viewer.model,
+                  fragId
+                );
+                renderProxy[dbid] = new THREE.Mesh(
+                  renderProxy.geometry,
+                  material
+                );
+
+                renderProxy[dbid].matrix.copy(renderProxy.matrixWorld);
+                renderProxy[dbid].matrixWorldNeedsUpdate = true;
+                renderProxy[dbid].matrixAutoUpdate = false;
+                renderProxy[dbid].frustumCulled = false;
+
+                _self.viewer.impl.addOverlay(dbid, renderProxy[dbid]);
+                _self.viewer.impl.invalidate(true);
+              },
+              false
+            );
+          }
         }
-      }
+      }).catch(err => {
+        console.error(err)
+      });
     };
 
     Autodesk.Viewing.Viewer3D.prototype.restoreColorMaterial = function(
@@ -129,9 +157,11 @@ Autodesk.ADN.Viewing.Extension.Color = function(viewer, options) {
       }
     };
 
-    Autodesk.Viewing.Viewer3D.prototype.colorAllMaterials = function(objects) {
+    Autodesk.Viewing.Viewer3D.prototype.colorAllMaterials = function(
+      objects) {
       for (var i = 0; i < objects.length; i++) {
-        this.setColorMaterial(objects[i].ids, objects[i].color, objects[i].id);
+        this.setColorMaterial(objects[i].ids, objects[i].color, objects[i]
+          .id);
       }
     };
 
