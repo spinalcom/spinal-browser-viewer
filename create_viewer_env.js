@@ -96,8 +96,13 @@ function getConfig() {
   if (fs.existsSync(configPath) === false) {
     return {};
   }
-  var _config = JSON.parse(fs.readFileSync(configPath, "utf8"));
-  return _config;
+  try {
+    var _config = JSON.parse(fs.readFileSync(configPath, "utf8"));
+    return _config;
+  } catch (error) {
+    return {};
+  }
+
 }
 
 function getOwnPlugins() {
