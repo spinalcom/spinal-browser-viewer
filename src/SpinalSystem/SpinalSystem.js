@@ -114,20 +114,32 @@ class SpinalSystem {
     return defer.promise;
   }
   loadModelPtr(model) {
-    if (this.modelsDictionary[model._server_id]) {
-      return this.modelsDictionary[model._server_id].promise;
+    if (model instanceof window.File) {
+      return this.loadModelPtr(model._ptr);
     }
-    this.modelsDictionary[model._server_id] = Q.defer();
+    if (!(model instanceof window.Ptr)) {
+      throw new Error("loadModelPtr must take Ptr as parameter");
+    }
+    if (!model.data.value && model.data.model) {
+      return Q.resolve(model.data.model);
+    } else if (!model.data.value) {
+      throw new Error("Trying to load a Ptr to 0");
+    }
+
+    if (this.modelsDictionary[model.data.value]) {
+      return this.modelsDictionary[model.data.value].promise;
+    }
+    this.modelsDictionary[model.data.value] = Q.defer();
     try {
       model.load(m => {
-        this.modelsDictionary[model._server_id].resolve(m);
+        this.modelsDictionary[model.data.value].resolve(m);
       });
     } catch (error) {
-      let promise = this.modelsDictionary[model._server_id];
-      this.modelsDictionary[model._server_id] = undefined;
+      let promise = this.modelsDictionary[model.data.value];
+      this.modelsDictionary[model.data.value] = undefined;
       promise.reject();
     }
-    return this.modelsDictionary[model._server_id].promise;
+    return this.modelsDictionary[model.data.value].promise;
   }
   signOut() {
     window.localStorage.setItem("spinalhome_cfg", "");

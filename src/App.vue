@@ -4,11 +4,11 @@
     <md-app md-waterfall
             md-mode="fixed">
       <md-app-toolbar class="app-header">
-        <spinalHeader />
+        <spinalHeader v-model="menuVisible" />
       </md-app-toolbar>
       <md-app-drawer class="md-right"
                      :md-active.sync="menuVisible">
-        <SpinalRightSideBar />
+        <SpinalRightSideBar v-model="menuVisible"/>
       </md-app-drawer>
 
       <md-app-content>
@@ -21,7 +21,6 @@
 
 <script>
 import spinalHeader from "./header/SpinalHeader.vue";
-import HeaderCtrl from "./header/HeaderCtrl.vue";
 import SpinalRightSideBar from "./RightSideBar/SpinalRightSideBar.vue";
 import MainContent from "./MainContent/MainContent.vue";
 
@@ -29,32 +28,36 @@ export default {
   name: "app",
   data() {
     return {
-      menuVisibleObs: false
+      menuVisible: false
     };
   },
-  computed: {
-    menuVisible: {
-      get: function() {
-        return this.menuVisibleObs;
-      },
-      set: function(newValue) {
-        HeaderCtrl.setViewMenu(newValue);
-      }
-    }
-  },
+  // computed: {
+  //   menuVisible: {
+  //     get: function() {
+  //       return this.menuVisibleObs;
+  //     },
+  //     set: function(newValue) {
+  //       HeaderCtrl.setViewMenu(newValue);
+  //     }
+  //   }
+  // },
   created() {
     // var vm = this;
   },
   mounted() {
-    var vm = this;
-    this.$subscribeTo(HeaderCtrl.getObservable(), function(val) {
-      vm.menuVisibleObs = val;
-    });
+    // var vm = this;
+    // this.$subscribeTo(HeaderCtrl.getObservable(), function(val) {
+    //   vm.menuVisibleObs = val;
+    // });
+  },
+  methods: {
+    closeSidebar() {
+      this.menuVisible = false
+    }
   },
 
   components: { spinalHeader, SpinalRightSideBar, MainContent }
-};
-</script>
+};</script>
 
 <style scoped>
 #app .md-app {

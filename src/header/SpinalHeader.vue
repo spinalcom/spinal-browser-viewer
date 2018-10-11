@@ -21,10 +21,10 @@
 
 <script>
 import spinal from "../SpinalSystem/spinal";
-import HeaderCtrl from "../header/HeaderCtrl.vue";
 
 export default {
   name: "spinalHeader",
+  props: ["value"],
   data() {
     // var vm = this;
     return {
@@ -35,7 +35,7 @@ export default {
   },
   methods: {
     toggleMenu: function() {
-      HeaderCtrl.toggleMenu();
+      this.$emit("input", !this.value);
     }
   },
   created() {
@@ -43,11 +43,9 @@ export default {
     vm.username = spinal.spinalSystem.getUser().username;
     vm.fullPath = spinal.spinalSystem.getPath();
     let path = vm.fullPath.split("/");
-
     vm.path = path[path.length - 1];
   }
-};
-</script>
+};</script>
 
 <style scoped>
 .md-button,

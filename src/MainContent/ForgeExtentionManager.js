@@ -1,4 +1,3 @@
-<script>
 class ForgeExtentionManager {
   constructor() {
     this.extentions = [];
@@ -13,4 +12,3 @@ class ForgeExtentionManager {
   }
 }
 export default ForgeExtentionManager;
-</script>

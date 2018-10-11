@@ -1,6 +1,6 @@
 import SpinalSystem from "./SpinalSystem";
-import ForgeViewer from "../MainContent/ForgeViewer.vue";
-import ForgeExtentionManager from "../MainContent/ForgeExtentionManager.vue";
+import ForgeViewer from "../MainContent/ForgeViewer.js";
+import ForgeExtentionManager from "../MainContent/ForgeExtentionManager.js";
 
 window.spinal = {};
 

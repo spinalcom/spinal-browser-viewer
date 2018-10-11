@@ -1,5 +1,3 @@
-
-<script>
 class ForgeViewer {
   constructor() {
     this.viewer;
@@ -67,4 +65,3 @@ class ForgeViewer {
 // ();
 
 export default ForgeViewer;
-</script>

@@ -33,30 +33,28 @@
 
 <script>
 import Vue from "vue";
-import HeaderCtrl from "../header/HeaderCtrl.vue";
 
 export default {
   name: "SpinalRightSideBar",
+  props: ["value"],
   data() {
-    // var vm = this;
-    // console.log(this.ctrlMenu);
-    return {
-      toggleMenu: () => {
-        HeaderCtrl.toggleMenu();
-      },
-      go_toDrive: () => {
-        window.location = "/html/drive/";
-      },
-      sign_out: () => {
-        Vue.prototype.$spinalSystem.signOut();
-        window.location = "/html/drive/#!/login');";
-      }
-    };
+    return {};
+  },
+  methods: {
+    toggleMenu() {
+      this.$emit("input", !this.value);
+    },
+    go_toDrive() {
+      window.location = "/html/drive/";
+    },
+    sign_out() {
+      Vue.prototype.$spinalSystem.signOut();
+      window.location = "/html/drive/#!/login');";
+    }
   },
   created() {}
 };
-// components: { Chart }
-</script>
+// components: { Chart }</script>
 
 <style scoped>
 #app .md-app {

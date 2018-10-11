@@ -34,8 +34,6 @@ var exorcist = require("exorcist");
 const externalLibs = [
   "vue",
   "vue-material",
-  "rxjs/Rx",
-  "vue-rx",
   "vue-chartjs",
   "q",
   "spinal-core-connectorjs",
@@ -102,7 +100,6 @@ function getConfig() {
   } catch (error) {
     return {};
   }
-
 }
 
 function getOwnPlugins() {
