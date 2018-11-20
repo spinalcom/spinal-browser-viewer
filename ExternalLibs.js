@@ -4,5 +4,6 @@ module.exports = [
   "vue-chartjs",
   "q",
   "spinal-core-connectorjs",
-  "axios"
+  "axios",
+  "v-tooltip"
 ];

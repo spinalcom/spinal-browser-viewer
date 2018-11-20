@@ -13,4 +13,5 @@ export default {
   mounted() {
     Vue.prototype.$ForgeViewer.start_viewer(this.$el);
   }
-};</script>
+};
+</script>

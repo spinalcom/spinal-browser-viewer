@@ -44,6 +44,7 @@ class ForgeViewer {
             onDocumentLoadFailure
           );
         });
+
         function onDocumentLoadFailure(viewerErrorCode) {
           console.error(
             "onDocumentLoadFailure() - errorCode:" + viewerErrorCode

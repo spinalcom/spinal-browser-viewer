@@ -37,7 +37,8 @@ const externalLibs = [
   "vue-chartjs",
   "q",
   "spinal-core-connectorjs",
-  "axios"
+  "axios",
+  "v-tooltip"
 ];
 
 program
@@ -184,8 +185,7 @@ function bundle() {
     console.log("start bundle");
   }
   let output = fs.createWriteStream(libPath);
-  b
-    .external(externalLibs)
+  b.external(externalLibs)
     // .transform(
     //   {
     //     global: true
