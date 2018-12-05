@@ -210,7 +210,7 @@ class ForgeViewer {
     var model = this.getRealModelItem(item);
     console.log("transformModel", item.model);
 
-    if (force === true || this.updateItem(item) === true)
+    if ((force === true && item) || this.updateItem(item) === true)
       return transformModel(this.viewer, item.model, model);
     return Promise.resolve();
   }
