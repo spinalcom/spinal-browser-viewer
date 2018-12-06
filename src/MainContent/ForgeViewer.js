@@ -150,6 +150,8 @@ class ForgeViewer {
         ); // With toolbar
         window.Autodesk.Viewing.Initializer(this.options, async () => {
           this.viewer.initialize();
+          this.onItemLoadSuccess();
+
           for (let index = 0; index < itemToLoad.length; index++) {
             const element = itemToLoad[index];
             // eslint-disable-next-line no-await-in-loop
