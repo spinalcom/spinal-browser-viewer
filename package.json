@@ -27,7 +27,6 @@
     "eslint-plugin-prettier": "^2.6.0",
     "exorcist": "^1.0.0",
     "lodash.debounce": "^4.0.8",
-    "material-design-icons-iconfont": "^3.0.3",
     "q": "^1.5.1",
     "sassify": "^4.0.1",
     "spinal-browser-drive": "git+https://github.com/spinalcom/spinal-browser-drive.git",
@@ -53,6 +52,7 @@
     "browserify-hmr": "^0.3.1",
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-prettier": "^2.6.0",
+    "material-design-icons-iconfont": "^4.0.3",
     "spinal-core-connectorjs": "git+https://github.com/spinalcom/spinal-core-connectorjs.git"
   },
   "browserify": {

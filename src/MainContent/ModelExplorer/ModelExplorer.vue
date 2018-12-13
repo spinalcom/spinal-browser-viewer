@@ -1,5 +1,5 @@
 <template>
-  <div class="spinal-forge-model-explorer-container">
+  <div class="spinal-forge-model-explorer-container noselect">
     <md-content class="spinal-forge-model-explorer"
                 :class="{'spinal-forge-model-explorer-hidden':!isListShown}">
       <btn-icon-label-transition style="width:100%"
@@ -136,5 +136,15 @@ export default {
 .slide-fade-enter, .slide-fade-leave-to
 /* .slide-fade-leave-active below version 2.1.8 */ {
   opacity: 0;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                        supported by Chrome and Opera */
 }
 </style>

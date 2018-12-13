@@ -61,6 +61,13 @@ function _transformModel(viewer, model, transform) {
 }
 
 async function transformModel(viewer, model, item) {
+  if (
+    typeof item.translate === "undefined" ||
+    typeof item.rotate === "undefined" ||
+    typeof item.scale === "undefined"
+  )
+    return;
+
   var transform = {
     translation: getTranslation(item.translate.get()),
     rotation: getRotation(item.rotate.get()),

@@ -8,7 +8,7 @@
                                       :icon="'settings'"
                                       :label="item.name"
                                       v-model="computedShow" />
-      <md-content class="model-explorer-settings-transform-container">
+      <md-content class="model-explorer-settings-transform-container md-scrollbar">
         <div class="model-explorer-settings-scale-label">scale</div>
         <sliderLabel ref="scaleblock"
                      :label="'scale'"
@@ -159,6 +159,8 @@ export default {
   border-bottom-left-radius: 5px;
   padding: 2px 8px 5px;
   width: 275px;
+  max-height: calc(100vh - 109px);
+  overflow-y: auto;
 }
 .model-explorer-settings-scale-label {
   text-align: center;
