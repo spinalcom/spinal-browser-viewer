@@ -8,7 +8,6 @@ var b = browserify({
   entries: ["./src/main.js"],
   cache: {},
   packageCache: {}
-  // basedir: "./src"
 });
 externalLibs.forEach(element => {
   if (typeof element === "string") {
@@ -16,22 +15,12 @@ externalLibs.forEach(element => {
   } else b.external(element.name);
 });
 
-b
-  .transform("browserify-css", {
-    minify: true,
-    output: "dist/build.css"
-  })
-  // .transform(
-  //   {
-  //     global: true
-  //   },
-  //   envify({
-  //     NODE_ENV: "production"
-  //   })
-  // )
+b.transform("browserify-css", {
+  output: "dist/build.css",
+  global: true
+})
   .bundle()
   .pipe(fs.createWriteStream("dist/build.js"));
-// }
 
 var bLibs = browserify({
   debug: true,
@@ -50,16 +39,9 @@ externalLibs.forEach(element => {
 bLibs
   .transform("browserify-css", {
     minify: true,
-    output: "dist/libs.css"
+    output: "dist/libs.css",
+    global: true
   })
-  // .transform(
-  //   {
-  //     global: true
-  //   },
-  //   envify({
-  //     NODE_ENV: "production"
-  //   })
-  // )
   .bundle()
   .pipe(fs.createWriteStream("./dist/libs.js"));
 // }

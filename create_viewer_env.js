@@ -99,7 +99,7 @@ function getConfig() {
     var _config = JSON.parse(fs.readFileSync(configPath, "utf8"));
     return _config;
   } catch (error) {
-    return {};
+    throw new Error("JSON.parse", error);
   }
 }
 

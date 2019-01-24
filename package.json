@@ -1,6 +1,6 @@
 {
   "name": "spinal-browser-viewer",
-  "version": "v1.1.1",
+  "version": "v1.2.1",
   "description": "A spinalcore browser to visualise a 3D model generated via Autodesk Forge",
   "author": "laurent <htd.laurent@gmail.com>",
   "private": true,
@@ -50,7 +50,8 @@
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-prettier": "^2.6.0",
     "material-design-icons-iconfont": "^4.0.3",
-    "spinal-core-connectorjs": "git+https://github.com/spinalcom/spinal-core-connectorjs.git"
+    "spinal-core-connectorjs": "git+https://github.com/spinalcom/spinal-core-connectorjs.git",
+    "vue-ctk-date-time-picker": "^2.0.4"
   },
   "browserify": {
     "transform": [
