@@ -172,11 +172,10 @@ function compile_lib(config) {
     });
     b = b.add(input).on("update", deferBundle);
   } else {
-    const stats = require("browserify-webpack-stats");
     b = browserify({
       entries: input,
       debug: true,
-      plugin: [stats]
+      plugin: []
     });
   }
   deferBundle();
