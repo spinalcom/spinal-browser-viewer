@@ -54,7 +54,7 @@ export default {
   },
   created() {}
 };
-// components: { Chart }</script>
+</script>
 
 <style scoped>
 #app .md-app {

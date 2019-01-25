@@ -8,7 +8,7 @@
       </md-app-toolbar>
       <md-app-drawer class="md-right"
                      :md-active.sync="menuVisible">
-        <SpinalRightSideBar v-model="menuVisible"/>
+        <SpinalRightSideBar v-model="menuVisible" />
       </md-app-drawer>
 
       <md-app-content>
@@ -31,33 +31,15 @@ export default {
       menuVisible: false
     };
   },
-  // computed: {
-  //   menuVisible: {
-  //     get: function() {
-  //       return this.menuVisibleObs;
-  //     },
-  //     set: function(newValue) {
-  //       HeaderCtrl.setViewMenu(newValue);
-  //     }
-  //   }
-  // },
-  created() {
-    // var vm = this;
-  },
-  mounted() {
-    // var vm = this;
-    // this.$subscribeTo(HeaderCtrl.getObservable(), function(val) {
-    //   vm.menuVisibleObs = val;
-    // });
-  },
   methods: {
     closeSidebar() {
-      this.menuVisible = false
+      this.menuVisible = false;
     }
   },
 
   components: { spinalHeader, SpinalRightSideBar, MainContent }
-};</script>
+};
+</script>
 
 <style scoped>
 #app .md-app {
