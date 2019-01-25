@@ -123,12 +123,14 @@ function getOwnPlugins() {
 function mergePlugins(config, dependencies) {
   for (var key in dependencies) {
     if (dependencies.hasOwnProperty(key)) {
-      var node_modules_package = path.resolve(
-        node_modules_path + "/" + key + "/package.json"
+      var node_modules_folder_package = path.resolve(
+        node_modules_path + "/" + key
       );
-      var _package = JSON.parse(fs.readFileSync(node_modules_package));
-      if (!_package.version) _package.version = "1.0.0";
-      config[key] = _package.version;
+      var relatif_node_modules_folder_package = path.relative(
+        rootPath,
+        node_modules_folder_package
+      );
+      config[key] = relatif_node_modules_folder_package;
     }
   }
   return config;
@@ -138,8 +140,7 @@ function save_config(config) {
   var content = JSON.stringify(config, null, 2);
   fs.writeFile(
     configPath,
-    content,
-    {
+    content, {
       flag: "w"
     },
     function(err) {
@@ -153,10 +154,28 @@ function compile_lib(config) {
   let input = [];
   for (var key in config) {
     if (config.hasOwnProperty(key)) {
-      let pack = require(path.resolve(
-        node_modules_path + "/" + key + "/package.json"
-      ));
-      input.push(path.resolve(node_modules_path + "/" + key + "/" + pack.main));
+      const packagePath = path.resolve(config[key] + "/package.json");
+
+      if (fs.existsSync(packagePath) === false) {
+        let pack = require(path.resolve(
+          node_modules_path + "/" + key + "/package.json"
+        ));
+        input.push(
+          path.resolve(node_modules_path + "/" + key + "/" + pack.main)
+        );
+      } else {
+        try {
+          let pack = require(packagePath);
+          input.push(path.resolve(config[key] + "/" + pack.main));
+        } catch (e) {
+          let pack = require(path.resolve(
+            node_modules_path + "/" + key + "/package.json"
+          ));
+          input.push(
+            path.resolve(node_modules_path + "/" + key + "/" + pack.main)
+          );
+        }
+      }
     }
   }
 
