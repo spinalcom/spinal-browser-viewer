@@ -6,7 +6,6 @@
 </template>
 
 <script>
-import Vue from "vue";
 import ForgeContent from "./ForgeContent.vue";
 import ModelExplorer from "./ModelExplorer/ModelExplorer.vue";
 export default {

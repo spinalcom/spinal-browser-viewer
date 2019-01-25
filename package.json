@@ -17,7 +17,6 @@
   "dependencies": {
     "babel-core": "^6.0.0",
     "babel-plugin-transform-runtime": "^6.23.0",
-    "babel-preset-es2015": "^6.0.0",
     "babelify": "^7.2.0",
     "browserify": "^13.0.1",
     "chart.js": "^2.7.2",
@@ -43,20 +42,23 @@
     "vue-material": "1.0.0-beta-7",
     "vue-slide-bar": "^1.1.9",
     "vueify": "^9.1.0",
-    "watchify": "^3.4.0",
-    "windowify": "^0.3.0"
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-3": "^6.24.1",
+    "watchify": "^3.4.0"
   },
   "devDependencies": {
     "axios": "^0.18.0",
     "browserify-css": "^0.14.0",
     "browserify-hmr": "^0.3.1",
+    "browserify-webpack-stats": "^0.1.0",
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-prettier": "^2.6.0",
     "lodash": "^4.17.11",
     "material-design-icons-iconfont": "^4.0.3",
     "plotly.js": "^1.44.1",
     "spinal-core-connectorjs": "git+https://github.com/spinalcom/spinal-core-connectorjs.git",
-    "vue-ctk-date-time-picker": "^2.0.4"
+    "vue-ctk-date-time-picker": "^2.0.4",
+    "webpack-bundle-analyzer": "^3.0.3"
   },
   "browserify": {
     "transform": [

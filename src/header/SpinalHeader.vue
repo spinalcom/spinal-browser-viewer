@@ -1,4 +1,4 @@
- <template>
+<template>
   <div class="md-toolbar-row">
     <div class="md-toolbar-section-start">
       <img src="dist/assets/img/SpinalBIMViewerLogo.png"
@@ -25,7 +25,6 @@ export default {
   name: "spinalHeader",
   props: ["value"],
   data() {
-    // var vm = this;
     return {
       fullPath: "",
       path: "",

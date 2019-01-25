@@ -19,11 +19,6 @@
              v-tooltip.auto-end="{content: item.name, delay: 500}">
           <span class="spinal-forge-model-explorer-list-row-label-span">{{item.name}}</span>
         </div>
-        <!-- <div v-if="item.loaded === true"
-             class="spinal-forge-model-explorer-list-row-icon"> -->
-        <!-- <md-icon v-tooltip="{content:'Open transform settings', delay: 500}"
-                   @click.native.stop="$emit('onModelExplorerSettingsSelect', item, idx)">settings</md-icon> -->
-        <!-- </div> -->
         <md-button v-if="item.loaded === true"
                    class="md-icon-button spinal-forge-model-explorer-list-row-icon spinal-forge-model-explorer-list-row-icon-first"
                    v-tooltip="{content:'Open transform settings', delay: 500}"
@@ -43,17 +38,6 @@
                    @click.native.stop="$emit('onModelCheckSelect', item, idx)">
           <md-icon :style="checkStyle(item)">check</md-icon>
         </md-button>
-
-        <!-- <div v-if="item.loaded === true"
-             class="spinal-forge-model-explorer-list-row-icon">
-          <md-icon v-tooltip="{content:'Select and fit to view', delay: 500}"
-                   @click.native.stop="$emit('onModelVisibilitySelect', item, idx)">gps_fixed</md-icon>
-        </div>
-        <div v-if="item.loaded === true"
-             class="spinal-forge-model-explorer-list-row-icon">
-          <md-icon @click.native.stop="$emit('onModelCheckSelect', item, idx)"
-                   :style="checkStyle(item)">check</md-icon>
-        </div> -->
       </div>
     </transition-group>
   </div>
