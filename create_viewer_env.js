@@ -30,6 +30,7 @@ var program = require("commander");
 var package_path, node_modules_path, rootPath, b, notifier;
 var browserify = require("browserify");
 var exorcist = require("exorcist");
+
 // const envify = require("envify/custom");
 const externalLibs = [
   "vue",
@@ -99,7 +100,7 @@ function getConfig() {
     var _config = JSON.parse(fs.readFileSync(configPath, "utf8"));
     return _config;
   } catch (error) {
-    throw new Error("JSON.parse", error);
+    throw new Error(`Error in file ${configPath}`, error);
   }
 }
 
@@ -161,78 +162,81 @@ function compile_lib(config) {
 
   if (program.watcher) {
     console.log(input);
-    var watchify = require("watchify");
+    const watchify = require("watchify");
+    const hmr = require("browserify-hmr");
     b = browserify({
-      entries: input,
       cache: {},
       packageCache: {},
       debug: true,
-      plugin: [watchify]
+      plugin: [watchify, hmr]
     });
-    b.on("update", bundle);
+    b = b.add(input).on("update", deferBundle);
   } else {
+    const stats = require("browserify-webpack-stats");
     b = browserify({
       entries: input,
       debug: true,
-      plugin: []
+      plugin: [stats]
     });
   }
-  bundle();
+  deferBundle();
+}
+
+var defer = null;
+
+function deferBundle() {
+  if (defer !== null) return defer;
+  defer = bundle().then(() => {
+    defer = null;
+  });
+  return defer;
 }
 
 function bundle() {
-  if (program.watcher) {
-    console.log("start bundle");
-  }
-  let output = fs.createWriteStream(libPath);
-  b.external(externalLibs)
-    // .transform(
-    //   {
-    //     global: true
-    //   },
-    //   envify({
-    //     NODE_ENV: "production"
-    //   })
-    // )
-    // .transform("vueify", {
-    //   global: true
-    // })
-    .transform("babelify", {
-      global: true,
-      presets: ["es2015"]
-    })
-    // .transform("windowify", {
-    //   global: true
-    // })
-    .transform("uglifyify", {
-      global: true,
-      mangle: {
-        keep_fnames: true
-      }
-    })
-    .bundle()
-    .pipe(exorcist(libPath + ".map"))
-    .pipe(output);
-  if (program.watcher) {
-    output.on("finish", function() {
-      let msg = "compile DONE in " + libPath;
-      console.log(msg);
-      if (program.notify) {
-        notifier.notify(msg);
-      }
-    });
-  }
+  return new Promise(resolve => {
+    if (program.watcher) {
+      console.log("start bundle");
+    }
+    let output = fs.createWriteStream(libPath);
+    b.external(externalLibs)
+      // .transform(
+      //   {
+      //     global: true
+      //   },
+      //   envify({
+      //     NODE_ENV: "production"
+      //   })
+      // )
+      .transform("babelify", {
+        global: true,
+        presets: ["es2015"]
+      })
+      .transform("uglifyify", {
+        global: true,
+        mangle: {
+          keep_fnames: true
+        }
+      })
+      .bundle()
+      .on("error", function(e) {
+        console.error(e);
+      })
+      .pipe(exorcist(libPath + ".map"))
+      .pipe(output);
+
+    if (program.watcher) {
+      output.on("finish", function() {
+        let msg = "compile DONE in " + libPath;
+        resolve();
+        console.log(msg);
+        if (program.notify) {
+          notifier.notify(msg);
+        }
+      });
+    } else {
+      resolve();
+    }
+  });
 }
 
 main();
-
-// var b = browserify({
-//   entries: ["./src/extentions/ForgeExtention.vue"],
-//   cache: {},
-//   packageCache: {}
-// });
-
-// b
-//   .external(externalLibs)
-//   .bundle()
-//   .pipe(fs.createWriteStream("dist/env.js"));

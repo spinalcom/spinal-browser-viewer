@@ -1,18 +1,17 @@
 import Vue from "vue";
 import App from "./App.vue";
 import VueMaterial from "vue-material";
+import VTooltip from "v-tooltip";
+import VueCtkDateTimePicker from "vue-ctk-date-time-picker";
 import spinal from "./SpinalSystem/spinal";
-Vue.use(spinal);
+window.Plotly = require("plotly.js");
+
+import "./main.css";
 import "./app.css";
 
+Vue.use(spinal);
 Vue.use(VueMaterial);
-
-import VTooltip from "v-tooltip";
 Vue.use(VTooltip);
-
-import VueCtkDateTimePicker from "vue-ctk-date-time-picker";
-import "vue-ctk-date-time-picker/dist/vue-ctk-date-time-picker.css";
-
 Vue.component("VueCtkDateTimePicker", VueCtkDateTimePicker);
 
 new Vue({

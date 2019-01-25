@@ -5,9 +5,8 @@
            alt="SpinalBIM Viewer"
            style="height: 42px;margin-top: 4px;">
     </div>
-    <h2>
+    <h2 v-tooltip="fullPath">
       {{path}}
-      <md-tooltip>{{fullPath}}</md-tooltip>
     </h2>
     <div class="md-toolbar-section-end">
       {{username}}
@@ -26,7 +25,6 @@ export default {
   name: "spinalHeader",
   props: ["value"],
   data() {
-    // var vm = this;
     return {
       fullPath: "",
       path: "",
@@ -45,7 +43,8 @@ export default {
     let path = vm.fullPath.split("/");
     vm.path = path[path.length - 1];
   }
-};</script>
+};
+</script>
 
 <style scoped>
 .md-button,
