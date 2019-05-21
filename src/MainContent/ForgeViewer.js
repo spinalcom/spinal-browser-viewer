@@ -118,7 +118,6 @@ class ForgeViewer {
   }
   
   onItemLoadSuccess() {
-    console.log(window.spinal)
     let extensions = window.spinal.ForgeExtentionManager.getExtentions();
     for (var i = 0; i < extensions.length; i++) {
       this.viewer.loadExtension( extensions[i], this.options );
