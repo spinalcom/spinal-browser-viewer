@@ -1,7 +1,6 @@
 <template>
   <div style="overflow: hidden">
     <forge-content />
-    <model-explorer style="overflow: hidden" />
   </div>
 </template>
 

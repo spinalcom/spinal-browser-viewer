@@ -1,5 +1,6 @@
 import {} from "spinal-core-connectorjs";
 import * as Q from "q";
+import { DocumentReady } from "./DocumentReady";
 
 function getParameterByName(name, url) {
   if (!url) url = window.location.href;
@@ -78,19 +79,22 @@ class SpinalSystem {
           window.location = "/html/drive/";
         }
         path = atob(path);
-        window.spinalCore.load(
-          this.conn,
-          path,
-          forgefile => {
-            this.model = forgefile;
-            this.promiseModel.resolve(this.model);
-            // defer.reject();
-          },
-          () => {
-            window.location = "/html/drive/";
-            // defer.reject();
-          }
-        );
+        DocumentReady(()=> {
+          window.spinalCore.load(
+            this.conn,
+            path,
+            forgefile => {
+              this.model = forgefile;
+              this.promiseModel.resolve(this.model);
+              // defer.reject();
+            },
+            () => {
+              window.location = "/html/drive/";
+              // defer.reject();
+            }
+          );
+        });
+        
       },
       err => {
         console.error(err);

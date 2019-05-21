@@ -2,7 +2,8 @@ import SpinalSystem from "./SpinalSystem";
 import ForgeViewer from "../MainContent/ForgeViewer.js";
 import ForgeExtentionManager from "../MainContent/ForgeExtentionManager.js";
 
-window.spinal = {};
+if (typeof window.spinal === "undefined")
+  window.spinal = {};
 
 window.spinal.spinalSystem = new SpinalSystem();
 window.spinal.ForgeExtentionManager = new ForgeExtentionManager();
