@@ -131,11 +131,12 @@ class ForgeViewer {
     ); // With toolbar
     window.Autodesk.Viewing.Initializer( this.options, async () => {
       this.viewer.initialize();
-      this.onItemLoadSuccess();
       const emptyModelPath = '/models/Resource/3D View/{3D}' +
         ' 341878/{3D}.svf';
       this.viewer.loadModel( emptyModelPath, {},
         () => {
+          this.onItemLoadSuccess();
+  
           this.rdy.resolve();
         },
         ( errorCode, errorMessage, statusCode, statusText ) => {
