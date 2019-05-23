@@ -39,8 +39,7 @@ const externalLibs = [
   "q",
   "spinal-core-connectorjs",
   "axios",
-  "v-tooltip",
-  "spinal-env-viewer-graph-service"
+  "v-tooltip"
 ];
 
 program
