@@ -1,6 +1,6 @@
 import {} from "spinal-core-connectorjs";
 import * as Q from "q";
-import { DocumentReady } from "./DocumentReady";
+import DocumentReady from "./DocumentReady";
 
 function getParameterByName(name, url) {
   if (!url) url = window.location.href;
@@ -79,7 +79,7 @@ class SpinalSystem {
           window.location = "/html/drive/";
         }
         path = atob(path);
-        DocumentReady(()=> {
+        DocumentReady(() => {
           window.spinalCore.load(
             this.conn,
             path,
@@ -94,7 +94,6 @@ class SpinalSystem {
             }
           );
         });
-        
       },
       err => {
         console.error(err);
