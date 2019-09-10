@@ -5,6 +5,8 @@
 .tooltip {
   display: block !important;
   z-index: 10000;
+  pointer-events: none;
+
 }
 
 .tooltip .tooltip-inner {
