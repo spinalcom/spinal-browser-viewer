@@ -37,21 +37,28 @@ export default {
     }
   },
 
-  components: { spinalHeader, SpinalRightSideBar, MainContent }
+  components: { spinalHeader, SpinalRightSideBar, MainContent },
+  mounted() {
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty("--vh", `${vh}px`);
+  }
 };
 </script>
 
 <style scoped>
 #app .md-app {
-  height: 100vh;
+  /* height: 100vh; */
+  height: 100vh; /* Fallback for browsers that do not support Custom Properties */
+  height: calc(var(--vh, 1vh) * 100);
   overflow: hidden;
+  /* position: relative; */
 }
 .app-header {
   color: black;
   background-color: #fff;
 }
 .md-app-content {
-  height: calc(100vh - 64px) !important;
+  height: 100%;
   position: relative;
   padding: 0;
 }
