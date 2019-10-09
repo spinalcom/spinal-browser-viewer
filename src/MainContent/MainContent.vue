@@ -104,6 +104,7 @@ export default {
   padding: 0;
   height: 100%;
   min-width: unset;
+  border-right: solid 1px #222;
 }
 .graph-manager-hide {
   display: none;
@@ -111,6 +112,7 @@ export default {
   margin: 0;
   padding: 0;
   min-width: unset;
+  border-bottom: solid 1px #222;
 }
 .spinal-browser-viewer-integration.graph-manager-0
   > .graph-manager-container
