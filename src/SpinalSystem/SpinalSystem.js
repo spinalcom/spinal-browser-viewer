@@ -1,6 +1,7 @@
 import {} from "spinal-core-connectorjs";
 import * as Q from "q";
 import DocumentReady from "./DocumentReady";
+import axios from "axios";
 
 function getParameterByName(name, url) {
   if (!url) url = window.location.href;
@@ -22,6 +23,23 @@ class SpinalSystem {
     this.promiseinit = null;
     this.modelsDictionary = {};
     this.modelsPathDictionary = {};
+    this.serverHost = null;
+    this.getServerConfigProm = null;
+  }
+
+  getServerConfig() {
+    if (this.getServerConfigProm !== null) return this.getServerConfigProm;
+    let url = "/config.json";
+    this.getServerConfigProm = axios
+      .get(url)
+      .then(res => {
+        this.serverHost = res.data.host;
+        return this.serverHost;
+      })
+      .catch(() => {
+        return window.location.origin;
+      });
+    return this.getServerConfigProm;
   }
 
   init() {
@@ -29,23 +47,32 @@ class SpinalSystem {
     this.promiseinit = Q.defer();
     this.getUser();
     if (this.user.username) {
-      window.SpinalUserManager.get_user_id(
-        "http://" + window.location.host,
-        this.user.username,
-        this.user.password,
-        response => {
-          let id = parseInt(response);
-          this.conn = window.spinalCore.connect(
-            `http://${id}:${this.user.password}@${window.location.host}/`
+      this.getServerConfig().then(serverHost => {
+        return axios
+          .get(`${serverHost}/get_user_id`, {
+            params: {
+              u: this.user.username,
+              p: this.user.password
+            }
+          })
+          .then(
+            response => {
+              let id = parseInt(response.data);
+              const host = serverHost.replace(/(http:\/\/|https:\/\/)/, "");
+              this.conn = window.spinalCore.connect(
+                `http://${id}:${this.user.password}@${host}/`
+              );
+              this.promiseinit.resolve();
+            },
+            () => {
+              // console.log("Error get_user_id FAIL");
+              window.location = "/html/drive/";
+            }
           );
-          this.promiseinit.resolve();
-        },
-        () => {
-          window.location = "/html/drive/";
-          // this.promiseinit.reject();
-        }
-      );
+      });
     } else {
+      // console.log("Error NOT LOGGED");
+
       window.location = "/html/drive/";
     }
     return this.promiseinit.promise;

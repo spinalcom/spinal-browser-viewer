@@ -26,10 +26,10 @@
     "lodash.debounce": "^4.0.8",
     "q": "^1.5.1",
     "sassify": "^4.0.1",
-    "spinal-joint-drive_forge": "git+https://github.com/spinalcom/spinal-joint-drive_forge.git",
     "spinal-browser-drive": "git+https://github.com/spinalcom/spinal-browser-drive.git",
     "spinal-core-connectorjs": "git+https://github.com/spinalcom/spinal-core-connectorjs.git",
     "spinal-forge-viewer-vue": "git+https://github.com/spinalcom/spinal-forge-viewer-vue.git",
+    "spinal-joint-drive_forge": "git+https://github.com/spinalcom/spinal-joint-drive_forge.git",
     "spinal-lib-forgefile": "git+https://github.com/spinalcom/spinal-lib-forgefile.git",
     "spinal-organ-forge": "git+https://github.com/spinalcom/spinal-organ-forge.git",
     "uglify-js": "^2.5.0",
@@ -41,6 +41,7 @@
     "vue-material": "1.0.0-beta-11",
     "vue-slide-bar": "^1.1.9",
     "vueify": "^9.1.0",
+    "vuetify": "^1.5.19",
     "watchify": "^3.4.0"
   },
   "devDependencies": {

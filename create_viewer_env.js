@@ -39,7 +39,8 @@ const externalLibs = [
   "q",
   "spinal-core-connectorjs",
   "axios",
-  "v-tooltip"
+  "v-tooltip",
+  "vuetify"
 ];
 
 program
@@ -140,7 +141,8 @@ function save_config(config) {
   var content = JSON.stringify(config, null, 2);
   fs.writeFile(
     configPath,
-    content, {
+    content,
+    {
       flag: "w"
     },
     function(err) {

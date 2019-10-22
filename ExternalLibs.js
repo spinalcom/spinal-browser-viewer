@@ -5,5 +5,6 @@ module.exports = [
   "q",
   "spinal-core-connectorjs",
   "axios",
-  "v-tooltip"
+  "v-tooltip",
+  "vuetify"
 ];

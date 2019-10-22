@@ -1,31 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-  <meta name="theme-color" content="#292929">
+  <meta name="theme-color"
+        content="#292929">
   <meta charset="utf-8" />
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0" />
   <title>Spinal Viewer</title>
 
-<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900"
-       rel="stylesheet">
- <link href="https://cdn.jsdelivr.net/npm/vuetify@1.x/dist/vuetify.min.css"
-       rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900"
+        rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/vuetify@1.x/dist/vuetify.min.css"
+        rel="stylesheet">
   <!-- Autodesk style -->
   <link href="dist/assets/external_lib/style.min.css"
         rel="stylesheet" />
   <!-- <link rel="stylesheet" -->
-  <link rel="stylesheet" href="https://developer.api.autodesk.com/modelderivative/v2/viewers/6.*/style.min.css" type="text/css">
+  <link rel="stylesheet"
+        href="https://developer.api.autodesk.com/modelderivative/v2/viewers/6.*/style.min.css"
+        type="text/css">
   <link rel="stylesheet"
         href="dist/build.css">
-  <link rel="apple-touch-icon" sizes="180x180" href="/html/icons/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/html/icons/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/html/icons/favicon-16x16.png">
-  <link rel="manifest" href="/html/icons/site.webmanifest">
-  <link rel="mask-icon" href="/html/icons/safari-pinned-tab.svg" color="#5bbad5">
-  <link rel="shortcut icon" href="/html/icons/favicon.ico">
+  <link rel="apple-touch-icon"
+        sizes="180x180"
+        href="../icons/apple-touch-icon.png">
+  <link rel="icon"
+        type="image/png"
+        sizes="32x32"
+        href="../icons/favicon-32x32.png">
+  <link rel="icon"
+        type="image/png"
+        sizes="16x16"
+        href="../icons/favicon-16x16.png">
+  <link rel="manifest"
+        href="../icons/site.webmanifest">
+  <link rel="mask-icon"
+        href="../icons/safari-pinned-tab.svg"
+        color="#5bbad5">
+  <link rel="shortcut icon"
+        href="../icons/favicon.ico">
 </head>
 
 <body>
@@ -33,9 +46,12 @@
 
   <script src="dist/assets/external_lib/three.min.js"></script>
   <!-- <script src="https://developer.api.autodesk.com/derivativeservice/v2/viewers/viewer3D.js"></script> -->
-  <script src="https://developer.api.autodesk.com/modelderivative/v2/viewers/6.*/viewer3D.js"></script>
+  <script
+          src="https://developer.api.autodesk.com/modelderivative/v2/viewers/6.*/viewer3D.js">
+  </script>
   <script type="text/javascript"
-          src="dist/assets/external_lib/Autodesk.ADN.Viewing.Extension.Color.js"></script>
+          src="dist/assets/external_lib/Autodesk.ADN.Viewing.Extension.Color.js">
+  </script>
   <script type="text/javascript"
           src="dist/assets/external_lib/panelClass.js"></script>
 
@@ -46,7 +62,7 @@
   <script src="../lib/spinal-lib-viewer-env.js"></script>
   <!-- <script src="dist/plotly-latest.min.js"></script> -->
   <script>
-    FileSystem.CONNECTOR_TYPE = "Browser";
+    FileSystem.is_cordova = true;
   </script>
 
 
