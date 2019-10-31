@@ -22,6 +22,8 @@ class SpinalSystem {
     this.promiseinit = null;
     this.modelsDictionary = {};
     this.modelsPathDictionary = {};
+    this.publicDir = "/__users__/public/digital_twin/default";
+    this.isDefaultDT = false;
   }
 
   init() {
@@ -54,7 +56,8 @@ class SpinalSystem {
   getPath() {
     let path = getParameterByName("path");
     if (path) return atob(path);
-    return undefined;
+    this.isDefaultDT = true;
+    return this.publicDir;
   }
 
   getUser() {
@@ -74,11 +77,7 @@ class SpinalSystem {
     this.promiseModel = Q.defer();
     this.init().then(
       () => {
-        let path = getParameterByName("path");
-        if (!path) {
-          window.location = "/html/drive/";
-        }
-        path = atob(path);
+        let path = this.getPath();
         DocumentReady(() => {
           window.spinalCore.load(
             this.conn,

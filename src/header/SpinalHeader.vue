@@ -40,8 +40,13 @@ export default {
     var vm = this;
     vm.username = spinal.spinalSystem.getUser().username;
     vm.fullPath = spinal.spinalSystem.getPath();
-    let path = vm.fullPath.split("/");
-    vm.path = path[path.length - 1];
+    if (spinal.spinalSystem.isDefaultDT) {
+      vm.fullPath = "";
+      vm.path = "Digital twin";
+    } else {
+      let path = vm.fullPath.split("/");
+      vm.path = path[path.length - 1];
+    }
   }
 };
 </script>
