@@ -52,7 +52,7 @@
     "browserify-webpack-stats": "^0.1.0",
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-prettier": "^2.6.0",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.19",
     "material-design-icons-iconfont": "^4.0.3",
     "plotly.js": "^1.44.1",
     "vue-ctk-date-time-picker": "^2.0.4",
