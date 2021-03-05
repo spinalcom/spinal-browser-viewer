@@ -56,13 +56,13 @@ class SpinalSystem {
     this.getUser();
     if (this.user.username) {
       window.SpinalUserManager.get_user_id(
-        window.location.protocol + "://" + window.location.host,
+        `${window.location.protocol}//${window.location.host}/`,
         this.user.username,
         this.user.password,
         response => {
           let id = parseInt(response);
           this.conn = window.spinalCore.connect(
-            `${window.location.protocol}://${id}:${this.user.password}@${window.location.host}/`
+            `${window.location.protocol}//${id}:${this.user.password}@${window.location.host}/`
           );
           this.promiseinit.resolve();
         },
