@@ -96,3 +96,16 @@
   opacity: 1;
   transition: opacity 0.15s;
 }
+
+.viewer-settings-panel .settings-tabs {
+  margin-top: 0px;
+  margin-left: 0px;
+}
+.viewer-settings-panel .settings-tabs > ul > li {
+  display: block;
+  border-color: transparent;
+}
+
+.viewer-settings-panel .settings-tabs > ul > li > a {
+  position: relative;
+}
