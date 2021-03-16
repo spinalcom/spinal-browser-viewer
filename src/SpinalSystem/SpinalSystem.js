@@ -55,6 +55,7 @@ class SpinalSystem {
     this.promiseinit = Q.defer();
     this.getUser();
     if (this.user.username) {
+      FileSystem.CONNECTOR_TYPE = "Browser";
       window.SpinalUserManager.get_user_id(
         `${window.location.protocol}//${window.location.host}/`,
         this.user.username,
