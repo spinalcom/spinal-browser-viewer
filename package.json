@@ -48,7 +48,7 @@
   },
   "devDependencies": {
     "@babel/plugin-transform-regenerator": "^7.4.5",
-    "axios": "^0.18.0",
+    "axios": "^0.21.2",
     "babel-preset-env": "^1.7.0",
     "browserify-css": "^0.15.0",
     "browserify-hmr": "^0.3.1",
