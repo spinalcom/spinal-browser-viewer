@@ -1,12 +1,13 @@
-#app .md-list-expand>.md-list .md-list-item-content {
+#app .md-list-expand > .md-list .md-list-item-content {
   padding-left: 38px !important;
 }
-
+.adsk-viewing-viewer .adsk-toolbar {
+  left: 50%;
+}
 .tooltip {
   display: block !important;
   z-index: 10000;
   pointer-events: none;
-
 }
 
 .tooltip .tooltip-inner {
@@ -25,11 +26,11 @@
   border-color: black;
 }
 
-.tooltip[x-placement^="top"] {
+.tooltip[x-placement^='top'] {
   margin-bottom: 5px;
 }
 
-.tooltip[x-placement^="top"] .tooltip-arrow {
+.tooltip[x-placement^='top'] .tooltip-arrow {
   border-width: 5px 5px 0 5px;
   border-left-color: transparent !important;
   border-right-color: transparent !important;
@@ -40,11 +41,11 @@
   margin-bottom: 0;
 }
 
-.tooltip[x-placement^="bottom"] {
+.tooltip[x-placement^='bottom'] {
   margin-top: 5px;
 }
 
-.tooltip[x-placement^="bottom"] .tooltip-arrow {
+.tooltip[x-placement^='bottom'] .tooltip-arrow {
   border-width: 0 5px 5px 5px;
   border-left-color: transparent !important;
   border-right-color: transparent !important;
@@ -55,11 +56,11 @@
   margin-bottom: 0;
 }
 
-.tooltip[x-placement^="right"] {
+.tooltip[x-placement^='right'] {
   margin-left: 5px;
 }
 
-.tooltip[x-placement^="right"] .tooltip-arrow {
+.tooltip[x-placement^='right'] .tooltip-arrow {
   border-width: 5px 5px 5px 0;
   border-left-color: transparent !important;
   border-top-color: transparent !important;
@@ -70,11 +71,11 @@
   margin-right: 0;
 }
 
-.tooltip[x-placement^="left"] {
+.tooltip[x-placement^='left'] {
   margin-right: 5px;
 }
 
-.tooltip[x-placement^="left"] .tooltip-arrow {
+.tooltip[x-placement^='left'] .tooltip-arrow {
   border-width: 5px 0 5px 5px;
   border-top-color: transparent !important;
   border-right-color: transparent !important;
@@ -85,13 +86,13 @@
   margin-right: 0;
 }
 
-.tooltip[aria-hidden="true"] {
+.tooltip[aria-hidden='true'] {
   visibility: hidden;
   opacity: 0;
   transition: opacity 0.15s, visibility 0.15s;
 }
 
-.tooltip[aria-hidden="false"] {
+.tooltip[aria-hidden='false'] {
   visibility: visible;
   opacity: 1;
   transition: opacity 0.15s;

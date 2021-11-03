@@ -1,23 +1,49 @@
+<!--
+Copyright 2021 SpinalCom - www.spinalcom.com
+
+This file is part of SpinalCore.
+
+Please read all of the following terms and conditions
+of the Free Software license Agreement ("Agreement")
+carefully.
+
+This Agreement is a legally binding contract between
+the Licensee (as defined below) and SpinalCom that
+sets forth the terms and conditions that govern your
+use of the Program. By installing and/or using the
+Program, you agree to abide by all the terms and
+conditions stated or referenced herein.
+
+If you do not agree to abide by these terms and
+conditions, do not demonstrate your acceptance and do
+not install or use the Program.
+You should have received a copy of the license along
+with this file. If not, see
+<http://resources.spinalcom.com/licenses.pdf>.
+-->
+
 <template>
-  <div style="overflow: hidden"
-       class="spinal-browser-viewer-integration"
-       :class="{
-         'graph-manager-0': grahManagerHidden === 0,
-         'graph-manager-1': grahManagerHidden === 1,
-         'graph-manager-2': grahManagerHidden === 2
-       }">
-    <spinal-forge-viewer-vue class="spinal-forge-viewer"
-                             :onInitialize="onInitialize"
-                             :model-property="{path : '/models/Resource/3D View/{3D} 341878/{3D}.svf' }"
-                             :headless="false" />
+  <div
+    style="overflow: hidden"
+    class="spinal-browser-viewer-integration"
+    :class="{
+      'graph-manager-0': grahManagerHidden === 0,
+      'graph-manager-1': grahManagerHidden === 1,
+      'graph-manager-2': grahManagerHidden === 2,
+    }"
+  >
+    <spinal-forge-viewer-vue
+      class="spinal-forge-viewer"
+      :onInitialize="onInitialize"
+      :headless="false"
+    />
+    <!-- :model-property="{path : '/models/Resource/3D View/{3D} 341878/{3D}.svf' }" -->
     <div class="graph-manager-container">
-      <md-button @click="onClickHide"
-                 class="graph-manager-hide">
-        <i class="material-icons">{{iconArrow}}</i>
+      <md-button @click="onClickHide" class="graph-manager-hide">
+        <i class="material-icons">{{ iconArrow }}</i>
       </md-button>
-      <md-button @click="onClickHide"
-                 class="graph-manager-hide-verti">
-        <i class="material-icons">{{iconArrowVerti}}</i>
+      <md-button @click="onClickHide" class="graph-manager-hide-verti">
+        <i class="material-icons">{{ iconArrowVerti }}</i>
       </md-button>
       <div id="graph-manager-side"></div>
     </div>
@@ -33,7 +59,7 @@ export default {
   components: { SpinalForgeViewerVue },
   data() {
     return {
-      grahManagerHidden: 1
+      grahManagerHidden: 1,
     };
   },
   computed: {
@@ -46,7 +72,7 @@ export default {
       return this.grahManagerHidden > 1
         ? "keyboard_arrow_right"
         : "keyboard_arrow_left";
-    }
+    },
   },
   watch: {
     grahManagerHidden() {
@@ -55,10 +81,10 @@ export default {
           Vue.prototype.$ForgeViewer.viewer.resize();
         }, 50);
       }
-    }
+    },
   },
   methods: {
-    onInitialize: function(viewerManager) {
+    onInitialize: function (viewerManager) {
       Vue.prototype.$ForgeViewer.viewer = viewerManager.viewer;
       Vue.prototype.$ForgeViewer.viewerManager = viewerManager;
       Vue.prototype.$ForgeExtentionManager.viewer = viewerManager.viewer;
@@ -66,10 +92,10 @@ export default {
     onClickHide() {
       this.grahManagerHidden = (this.grahManagerHidden + 1) % 3;
       console.log("this.grahManagerHidden", this.grahManagerHidden);
-    }
+    },
   },
 
-  mounted() {}
+  mounted() {},
 };
 </script>
 <style>
