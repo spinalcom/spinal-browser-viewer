@@ -37,7 +37,6 @@ with this file. If not, see
       :onInitialize="onInitialize"
       :headless="false"
     />
-    <!-- :model-property="{path : '/models/Resource/3D View/{3D} 341878/{3D}.svf' }" -->
     <div class="graph-manager-container">
       <md-button @click="onClickHide" class="graph-manager-hide">
         <i class="material-icons">{{ iconArrow }}</i>
@@ -50,12 +49,12 @@ with this file. If not, see
   </div>
 </template>
 <script>
-import Vue from "vue";
+import Vue from 'vue';
 
-import { SpinalForgeViewerVue } from "spinal-forge-viewer-vue";
+import { SpinalForgeViewerVue } from 'spinal-forge-viewer-vue';
 
 export default {
-  name: "app",
+  name: 'app',
   components: { SpinalForgeViewerVue },
   data() {
     return {
@@ -65,13 +64,13 @@ export default {
   computed: {
     iconArrow() {
       return this.grahManagerHidden > 1
-        ? "keyboard_arrow_down"
-        : "keyboard_arrow_up";
+        ? 'keyboard_arrow_down'
+        : 'keyboard_arrow_up';
     },
     iconArrowVerti() {
       return this.grahManagerHidden > 1
-        ? "keyboard_arrow_right"
-        : "keyboard_arrow_left";
+        ? 'keyboard_arrow_right'
+        : 'keyboard_arrow_left';
     },
   },
   watch: {
@@ -91,7 +90,7 @@ export default {
     },
     onClickHide() {
       this.grahManagerHidden = (this.grahManagerHidden + 1) % 3;
-      console.log("this.grahManagerHidden", this.grahManagerHidden);
+      console.log('this.grahManagerHidden', this.grahManagerHidden);
     },
   },
 

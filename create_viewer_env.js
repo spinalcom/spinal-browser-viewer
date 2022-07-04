@@ -32,16 +32,17 @@ var exorcist = require("exorcist");
 
 // const envify = require("envify/custom");
 const externalLibs = [
-  "vue",
-  "vue-material",
-  "vue-chartjs",
-  "q",
-  "spinal-core-connectorjs",
-  "axios",
-  "v-tooltip",
-  "vuetify",
-  "lodash",
-  "exceljs"
+  'vue',
+  'vue-material',
+  'vue-chartjs',
+  'q',
+  'spinal-core-connectorjs',
+  'spinal-core-connectorjs_type',
+  'axios',
+  'v-tooltip',
+  'vuetify',
+  'lodash',
+  'exceljs',
 ];
 
 program

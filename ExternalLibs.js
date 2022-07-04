@@ -23,14 +23,15 @@
  */
 
 module.exports = [
-  "vue",
-  "vue-material",
-  "vue-chartjs",
-  "q",
-  "spinal-core-connectorjs",
-  "axios",
-  "v-tooltip",
-  "vuetify",
-  "lodash",
-  "exceljs"
+  'vue',
+  'vue-material',
+  'vue-chartjs',
+  'q',
+  'spinal-core-connectorjs',
+  'spinal-core-connectorjs_type',
+  'axios',
+  'v-tooltip',
+  'vuetify',
+  'lodash',
+  'exceljs',
 ];
