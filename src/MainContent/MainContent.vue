@@ -52,6 +52,7 @@ with this file. If not, see
 import Vue from 'vue';
 
 import { SpinalForgeViewerVue } from 'spinal-forge-viewer-vue';
+import debounce from 'lodash.debounce';
 
 export default {
   name: 'app',
@@ -75,11 +76,7 @@ export default {
   },
   watch: {
     grahManagerHidden() {
-      if (Vue.prototype.$ForgeViewer.viewer) {
-        setTimeout(() => {
-          Vue.prototype.$ForgeViewer.viewer.resize();
-        }, 50);
-      }
+      this.resizeViewer();
     },
   },
   methods: {
@@ -90,13 +87,18 @@ export default {
     },
     onClickHide() {
       this.grahManagerHidden = (this.grahManagerHidden + 1) % 3;
-      console.log('this.grahManagerHidden', this.grahManagerHidden);
     },
   },
-
-  mounted() {},
+  beforeCreate() {
+    this.resizeViewer = debounce(() => {
+      if (Vue.prototype.$spinalViewer) {
+        Vue.prototype.$spinalViewer.resize();
+      }
+    }, 100);
+  },
 };
 </script>
+
 <style>
 .graph-manager-side {
   height: 100%;

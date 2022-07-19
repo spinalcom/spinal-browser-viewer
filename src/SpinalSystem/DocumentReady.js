@@ -1,4 +1,28 @@
-"use strict";
+/*
+ * Copyright 2022 SpinalCom - www.spinalcom.com
+ *
+ * This file is part of SpinalCore.
+ *
+ * Please read all of the following terms and conditions
+ * of the Free Software license Agreement ("Agreement")
+ * carefully.
+ *
+ * This Agreement is a legally binding contract between
+ * the Licensee (as defined below) and SpinalCom that
+ * sets forth the terms and conditions that govern your
+ * use of the Program. By installing and/or using the
+ * Program, you agree to abide by all the terms and
+ * conditions stated or referenced herein.
+ *
+ * If you do not agree to abide by these terms and
+ * conditions, do not demonstrate your acceptance and do
+ * not install or use the Program.
+ * You should have received a copy of the license along
+ * with this file. If not, see
+ * <http://resources.spinalcom.com/licenses.pdf>.
+ */
+
+'use strict';
 // The public function name defaults to window.docReady
 // but you can modify the last line of this function to pass in a different object or method name
 // if you want to put them in a different namespace and those will be used instead of
@@ -28,19 +52,19 @@ function ready() {
 }
 
 function readyStateChange() {
-  if (document.readyState === "complete") {
+  if (document.readyState === 'complete') {
     ready();
   }
 }
 
 function DocumentReady(callback, context) {
-  if (typeof callback !== "function") {
-    throw new TypeError("callback for docReady(fn) must be a function");
+  if (typeof callback !== 'function') {
+    throw new TypeError('callback for docReady(fn) must be a function');
   }
   // if ready has already fired, then just schedule the callback
   // to fire asynchronously, but right away
   if (readyFired) {
-    setTimeout(function() {
+    setTimeout(function () {
       callback(context);
     }, 1);
     return;
@@ -48,27 +72,27 @@ function DocumentReady(callback, context) {
     // add the function and context to the list
     readyList.push({
       fn: callback,
-      ctx: context
+      ctx: context,
     });
   }
   // if document already ready to go, schedule the ready function to run
   // IE only safe when readyState is "complete", others safe when readyState is "interactive"
   if (
-    document.readyState === "complete" ||
-    (!document.attachEvent && document.readyState === "interactive")
+    document.readyState === 'complete' ||
+    (!document.attachEvent && document.readyState === 'interactive')
   ) {
     setTimeout(ready, 1);
   } else if (!readyEventHandlersInstalled) {
     // otherwise if we don't have event handlers installed, install them
     if (document.addEventListener) {
       // first choice is DOMContentLoaded event
-      document.addEventListener("DOMContentLoaded", ready, false);
+      document.addEventListener('DOMContentLoaded', ready, false);
       // backup is window load event
-      window.addEventListener("load", ready, false);
+      window.addEventListener('load', ready, false);
     } else {
       // must be IE
-      document.attachEvent("onreadystatechange", readyStateChange);
-      window.attachEvent("onload", ready);
+      document.attachEvent('onreadystatechange', readyStateChange);
+      window.attachEvent('onload', ready);
     }
     readyEventHandlersInstalled = true;
   }

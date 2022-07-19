@@ -1,6 +1,6 @@
 {
   "name": "spinal-browser-viewer",
-  "version": "v2.1.0",
+  "version": "v2.2.0",
   "description": "A spinalcore browser to visualise a 3D model generated via Autodesk Forge",
   "author": "laurent <htd.laurent@gmail.com>",
   "private": true,
@@ -25,7 +25,6 @@
     "envify": "^3.4.1",
     "exceljs": "^4.2.1",
     "exorcist": "^1.0.0",
-    "lodash.debounce": "^4.0.8",
     "q": "^1.5.1",
     "sassify": "^4.0.1",
     "spinal-browser-drive": "git+https://github.com/spinalcom/spinal-browser-drive.git",
@@ -49,6 +48,7 @@
   },
   "devDependencies": {
     "@babel/plugin-transform-regenerator": "^7.4.5",
+    "@types/lodash.debounce": "^4.0.7",
     "axios": "^0.18.0",
     "babel-preset-env": "^1.7.0",
     "browserify-css": "^0.15.0",
@@ -57,6 +57,7 @@
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-prettier": "^2.6.0",
     "lodash": "^4.17.11",
+    "lodash.debounce": "^4.0.8",
     "material-design-icons-iconfont": "^4.0.3",
     "plotly.js": "^1.44.1",
     "vue-ctk-date-time-picker": "^2.0.4",

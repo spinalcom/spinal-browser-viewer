@@ -11,6 +11,7 @@ yarn-error.log
 *.njsproj
 *.sln
 
+old
 .browser_organs
 .apps.json
 .config.json
