@@ -24,7 +24,7 @@
     "commander": "^2.13.0",
     "envify": "^3.4.1",
     "exceljs": "^4.2.1",
-    "exorcist": "^1.0.0",
+    "exorcist": "^2.0.0",
     "lodash.debounce": "^4.0.8",
     "q": "^1.5.1",
     "sassify": "^4.0.1",
