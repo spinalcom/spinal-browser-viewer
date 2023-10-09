@@ -1,0 +1,122 @@
+.endpoint-chart-viewer-panel-dialog-chart-option > .md-dialog-container {
+  max-height: 80vh;
+}
+
+.endpoint-chart-viewer-panel-dialog-chart-option-container {
+  padding: 0 10px;
+}
+
+.endpoint-chart-viewer-panel-dialog-chart-option-container-legend > .endpoint-chart-viewer-panel-dialog-chart-option-container-legend-subcontainer {
+  border: 1px solid #a6a6a7;
+  margin-bottom: 10px;
+  padding: 0 10px;
+}
+
+.endpoint-chart-viewer-panel-dialog-chart-option-container-border {
+  border: 1px solid #a6a6a7;
+}
+
+.endpoint-chart-viewer-panel-dialog-chart-option-postion-header {
+  margin: unset;
+}
+
+.endpoint-chart-viewer-panel-dialog-chart-option .md-scrollbar::-webkit-scrollbar {
+  background-color: #121212;
+}
+
+.endpoint-chart-viewer-panel-dialog-chart-option .md-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #737374;
+}
+
+.chart-data-endpoint-graph-container-plotgraph .js-plotly-plot .plotly .modebar {
+  left: 0;
+}
+
+.chart-data-endpoint-graph-container[data-v-b3c772] {
+  width: 100%;
+  height: 100%;
+}
+
+.chart-data-endpoint-graph-container-empty[data-v-b3c772] {
+  max-width: unset;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+}
+
+.chart-data-endpoint-graph-container-option-button[data-v-b3c772] {
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+}
+
+.chart-data-endpoint-graph-container-option-button.autodeskv6[data-v-b3c772] {
+  bottom: 24px;
+}
+
+.endpoint-chart-viewer-panel-dialog-custom-interval {
+  width: 80vw;
+}
+
+.endpoint-chart-viewer-panel-dialog-custom-interval > .md-dialog-container {
+  max-height: 80vh;
+}
+
+.endpoint-chart-viewer-panel-dialog-custom-interval > .md-dialog-container > .md-dialog-content.md-scrollbar::-webkit-scrollbar {
+  background-color: #121212;
+}
+
+.endpoint-chart-viewer-panel-dialog-custom-interval > .md-dialog-container > .md-dialog-content.md-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #737374;
+}
+
+.endpoint-chart-viewer-panel-dialog-custom-interval-calendar-container {
+  border: 5px double #cbcbcb;
+  margin: 20px;
+}
+
+.endpoint-chart-viewer-panel-dialog-custom-interval-calendar-container > h2 {
+  text-align: center;
+}
+
+.endpoint-chart-viewer-panel-dialog-custom-interval .md-field, .endpoint-chart-viewer-panel-dialog-custom-interval .md-field label {
+  padding-left: 8px;
+}
+
+.endpoint-chart-viewer-panel {
+  height: 100%;
+}
+
+.endpoint-chart-viewer-panel, .endpoint-chart-viewer-panel * {
+  box-sizing: border-box;
+}
+
+.endpoint-chart-viewer-panel .endpoint-chart-viewer-panel-topbtn-container {
+  border-bottom: 1px solid #a6a6a7;
+  max-height: 36px;
+}
+
+.endpoint-chart-viewer-panel .topbtn {
+  margin: unset;
+  min-width: 3em;
+}
+
+.endpoint-chart-viewer-panel .endpoint-chart-viewer-panel-chart-container {
+  height: calc(100% - 36px);
+}
+
+.endpoint-chart-viewer-panel .endpoint-chart-viewer-panel-chart-container.autodeskv6 {
+  height: calc(100% - 56px);
+}
+
+.raise-disable {
+  background-color: #a6a6a7;
+  color: #3a3a3a !important;
+}
+
+.endpoint-chart-viewer-panel .md-content {
+  background-color: #42424266;
+}
+
+/*# sourceMappingURL=spinal-env-viewer-plugin-endpoint_chart_viewer.65763c6d.css.map */

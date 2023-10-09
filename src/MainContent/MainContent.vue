@@ -52,7 +52,7 @@ with this file. If not, see
 import Vue from 'vue';
 
 import { SpinalForgeViewerVue } from 'spinal-forge-viewer-vue';
-
+import debounce from 'lodash.debounce';
 export default {
   name: 'app',
   components: { SpinalForgeViewerVue },
@@ -75,11 +75,7 @@ export default {
   },
   watch: {
     grahManagerHidden() {
-      if (Vue.prototype.$ForgeViewer.viewer) {
-        setTimeout(() => {
-          Vue.prototype.$ForgeViewer.viewer.resize();
-        }, 50);
-      }
+      this.resizeViewer();
     },
   },
   methods: {
@@ -90,13 +86,48 @@ export default {
     },
     onClickHide() {
       this.grahManagerHidden = (this.grahManagerHidden + 1) % 3;
-      console.log('this.grahManagerHidden', this.grahManagerHidden);
     },
   },
-
-  mounted() {},
+  beforeCreate() {
+    this.resizeViewer = debounce(() => {
+      if (Vue.prototype.$spinalViewer) {
+        Vue.prototype.$spinalViewer.resize();
+      }
+    }, 100);
+  },
+  mounted() {
+    Vue.prototype.$spinalSystem.getModel();
+  },
 };
 </script>
+<style scoped>
+.graph-manager-hide-verti {
+  width: 16px;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  min-width: unset;
+  border-right: solid 1px #222;
+}
+.graph-manager-hide {
+  display: none;
+  width: 16px;
+  margin: 0;
+  padding: 0;
+  min-width: unset;
+  border-bottom: solid 1px #222;
+}
+@media screen and (max-width: 992px) {
+  .graph-manager-hide {
+    width: 100%;
+    display: block;
+    height: 16px !important;
+  }
+  .graph-manager-hide-verti {
+    display: none;
+  }
+}
+</style>
 <style>
 .graph-manager-side {
   height: 100%;
@@ -123,22 +154,6 @@ export default {
   width: 100%;
 }
 
-.graph-manager-hide-verti {
-  width: 16px;
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  min-width: unset;
-  border-right: solid 1px #222;
-}
-.graph-manager-hide {
-  display: none;
-  width: 16px;
-  margin: 0;
-  padding: 0;
-  min-width: unset;
-  border-bottom: solid 1px #222;
-}
 .spinal-browser-viewer-integration.graph-manager-0
   > .graph-manager-container
   > .plugin-graph-viewer {
@@ -205,14 +220,6 @@ export default {
     width: 100%;
     height: calc(100% - 16px) !important;
     position: relative;
-  }
-  .graph-manager-hide {
-    width: 100%;
-    display: block;
-    height: 16px !important;
-  }
-  .graph-manager-hide-verti {
-    display: none;
   }
 }
 </style>
