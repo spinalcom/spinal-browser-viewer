@@ -18,7 +18,10 @@ ln -s PATH/TO/spinal-browser-viewer/www viewer
 ```sh
 cd PATH/TO/spinal-browser-viewer
 spinalcom-utils i
+npm run build
 ```
+
+** The build may fail a few times, but continue to `npm run build` until it's completed **
 
 ## Add a plugin
 
