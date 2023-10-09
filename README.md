@@ -2,6 +2,26 @@
 
 ## Installation
 
+Download release `viewer.zip` file in the release and extract it in the `.browser_organs` folder.
+
+## offline mode
+
+Edit the file `index.html` update the code like the following:
+
+```html
+<!-- <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet"> <link rel="stylesheet" href="https://developer.api.autodesk.com/modelderivative/v2/viewers/7.*/style.css" type="text/css"> -->
+<link href="offline/cssroboto.css" rel="stylesheet" />
+<link rel="stylesheet" href="offline/styleoffline.css" type="text/css" />
+...
+
+<!-- <script src="https://developer.api.autodesk.com/modelderivative/v2/viewers/7.*/viewer3D.js"></script> -->
+<script src="offline/viewer3D.js"></script>
+```
+
+** Remove the `index.html.gz` file ( restart http-server if needed ) **
+
+### or via git
+
 ```sh
 git clone https://github.com/spinalcom/spinal-browser-viewer
 ```
@@ -13,15 +33,14 @@ cd PATH/TO/.browser_organs
 ln -s PATH/TO/spinal-browser-viewer/www viewer
 ```
 
-## build
+## install dependencies
+
+It use [spinalcom-utils](https://github.com/spinalcom/spinalcom-utils) cli for installation
 
 ```sh
 cd PATH/TO/spinal-browser-viewer
 spinalcom-utils i
-npm run build
 ```
-
-** The build may fail a few times, but continue to `npm run build` until it's completed **
 
 ## Add a plugin
 
