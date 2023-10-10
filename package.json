@@ -1,6 +1,6 @@
 {
   "name": "spinal-browser-viewer",
-  "version": "2.3.0",
+  "version": "2.3.1",
   "description": "A spinalcore browser to visualise a 3D model generated via Autodesk Forge",
   "author": "laurent <htd.laurent@gmail.com>",
   "private": true,
