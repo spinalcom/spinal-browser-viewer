@@ -90,8 +90,8 @@ export default {
   },
   beforeCreate() {
     this.resizeViewer = debounce(() => {
-      if (Vue.prototype.$spinalViewer) {
-        Vue.prototype.$spinalViewer.resize();
+      if (Vue.prototype.$ForgeViewer && Vue.prototype.$ForgeViewer.viewer) {
+        Vue.prototype.$ForgeViewer.viewer.resize();
       }
     }, 100);
   },
