@@ -38,9 +38,13 @@ import {
   spinalCore,
 } from 'spinal-core-connectorjs';
 import { getParameterByName } from '../utils/getParameterByName';
-import { loadPlugins } from '../loadPlugins';
 export const USE_REMOTE_CONNECT = getParameterByName('path') ? false : true;
+import { loadPlugins } from '../loadPlugins';
 
+// // for debug / dev
+// function loadPlugins() {
+//   return import('../loadPlugins');
+// }
 export default class SpinalSystem {
   loadPromise: Map<string, Promise<spinal.Model>>;
   loadedPtr: Map<number, Promise<spinal.Model>>;
@@ -153,18 +157,18 @@ export default class SpinalSystem {
       await SpinalGraphService.setGraph(m);
       return m;
     } else {
-      try {
-        const path = this.getModelPath();
-        const m = await (<Promise<SpinalGraph>>this.load(path));
-        await SpinalGraphService.setGraph(m);
-        return m;
-      } catch (e) {
-        const m = await (<Promise<SpinalGraph>>(
-          this.load('/__users__/admin/Digital twin')
-        ));
-        await SpinalGraphService.setGraph(m);
-        return m;
-      }
+      // try {
+      const path = this.getModelPath();
+      const m = await (<Promise<SpinalGraph>>this.load(path));
+      await SpinalGraphService.setGraph(m);
+      return m;
+      // } catch (e) {
+      // const m = await (<Promise<SpinalGraph>>(
+      //   this.load('/__users__/admin/Digital twin')
+      // ));
+      // await SpinalGraphService.setGraph(m);
+      // return m;
+      // }
     }
   }
   private async loadRemote(): Promise<SpinalGraph> {

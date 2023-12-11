@@ -1,14 +1,15 @@
 {
   "name": "spinal-browser-viewer",
-  "version": "2.3.2",
+  "version": "2.3.3",
   "description": "A spinalcore browser to visualise a 3D model generated via Autodesk Forge",
   "author": "laurent <htd.laurent@gmail.com>",
   "private": true,
   "scripts": {
-    "build": "rm -rf www && parcel build src/index.html --no-autoinstall --no-optimize --public-url '/html/viewer/' --dist-dir www/ --no-scope-hoist",
+    "build": "rm -rf www && parcel build src/index.html --no-autoinstall --no-optimize --public-url '/html/viewer/' --dist-dir www/ --no-scope-hoist --no-content-hash",
     "dev": "parcel watch src/index.html --no-autoinstall --public-url '/html/viewer/' --dist-dir www/",
     "spinal-register": "spinal-register --browser",
-    "cut-postinstall": "npm run spinal-register"
+    "cut-postinstall": "npm run spinal-register",
+    "spinalinstall": "spinalcom-utils install"
   },
   "dependencies": {},
   "devDependencies": {

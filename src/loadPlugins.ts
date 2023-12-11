@@ -22,6 +22,44 @@
  * <http://resources.spinalcom.com/licenses.pdf>.
  */
 
+// // for dev 
+// import 'spinal-env-viewer-context-geographic';
+// import 'spinal-env-viewer-plugin-circular-menu';
+// // import 'spinal-env-viewer-plugin-dashboard-standard';
+// import 'spinal-env-viewer-plugin-documentation';
+// // import 'spinal-env-viewer-plugin-endpoint_chart_viewer';
+// import 'spinal-env-viewer-plugin-forge';
+// import 'spinal-env-viewer-plugin-generate_geographic_context';
+// import 'spinal-env-viewer-plugin-graph-manager';
+// // import 'spinal-env-viewer-plugin-graph_export';
+// import 'spinal-env-viewer-plugin-node-inspector';
+// import 'spinal-env-viewer-plugin-scene';
+// // import 'spinal-env-viewer-plugin-spinal-linker';
+// import 'spinal-env-viewer-plugin-standard_button';
+// // import 'spinal-env-viewer-plugin-version';
+// // import 'spinal-env-viewer-room-manager';
+// // import 'spinal-env-viewer-window-selection';
+// // import 'spinal-env-viewer-plugin-item_model_selector';
+// // import 'spinal-env-viewer-plugin-task';
+// import 'spinal-env-viewer-plugin-graph_viewer';
+// // import 'spinal-env-viewer-plugin-network-tree';
+// // import 'spinal-env-viewer-plugin-analytics';
+// // import 'spinal-env-viewer-plugin-control-endpoint';
+// // import 'spinal-env-viewer-plugin-upload';
+// // import 'spinal-env-viewer-plugin-bacnet-manager';
+// // import 'spinal-env-viewer-plugin-device_profile';
+// // import 'spinal-env-viewer-task-service';
+// // import 'spinal-env-viewer-plugin-event-emitter';
+// // import 'spinal-env-viewer-plugin-park-management';
+// import 'spinal-env-viewer-service';
+// // import 'spinal-env-viewer-standard-attributs';
+// // import 'spinal-env-viewer-plugin-dashboard-panel';
+// // import 'spinal-env-viewer-plugin-filter';
+// // import 'spinal-env-viewer-plugin-ticket';
+// import './plugins/spinal-env-viewer-plugin-generate-spatial-reference';
+// // import 'spinal-env-viewer-plugin-attribute-manager';
+// // import 'spinal-env-viewer-plugin-organ_ticket_mission';
+
 async function safeImport(promise: Promise<unknown>) {
   try {
     return await promise;
@@ -29,7 +67,6 @@ async function safeImport(promise: Promise<unknown>) {
     console.error(error);
   }
 }
-
 export function loadPlugins() {
   const plugins = [
     safeImport(import('spinal-env-viewer-context-geographic')),
@@ -51,7 +88,6 @@ export function loadPlugins() {
     safeImport(import('spinal-env-viewer-plugin-item_model_selector')),
     safeImport(import('spinal-env-viewer-plugin-task')),
     safeImport(import('spinal-env-viewer-plugin-graph_viewer')),
-    safeImport(import('spinal-env-viewer-vue-components-lib')),
     safeImport(import('spinal-env-viewer-plugin-network-tree')),
     safeImport(import('spinal-env-viewer-plugin-analytics')),
     safeImport(import('spinal-env-viewer-plugin-control-endpoint')),
@@ -75,5 +111,5 @@ export function loadPlugins() {
     // safeImport(import('./plugins/spinal-env-viewer-plugin-attribute-manager')),
   ];
 
-  return Promise.all(plugins);
+  // return Promise.all(plugins);
 }
