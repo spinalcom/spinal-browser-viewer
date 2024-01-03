@@ -58,7 +58,7 @@
     "eslint-plugin-prettier": "^2.6.0",
     "lodash": "^4.17.11",
     "material-design-icons-iconfont": "^4.0.3",
-    "plotly.js": "^1.44.1",
+    "plotly.js": "^2.25.2",
     "vue-ctk-date-time-picker": "^2.0.4",
     "webpack-bundle-analyzer": "^3.0.3"
   },
