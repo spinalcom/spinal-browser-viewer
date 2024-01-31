@@ -179,263 +179,7 @@ spinalContextMenuService.registerApp(HeaderBarName, new (0, _createDashboardCont
     3
 ]);
 
-},{"ef41ea260a4b07cd":"kHlxv","./buttons/addDashBoard":"CDk90","./buttons/linkWithDashBoard":"83RUI","./buttons/linkAutoWithDashboard":"9Yg63","./buttons/createDashboardContext":"872vo","./buttons/calculateBtn":"1bJ5R","./buttons/globalCalculate":"liy8S","./js/registerDialog":"33fps","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"kHlxv":[function(require,module,exports) {
-/*
- * Copyright 2018 SpinalCom - www.spinalcom.com
- *
- * This file is part of SpinalCore.
- *
- * Please read all of the following terms and conditions
- * of the Free Software license Agreement ("Agreement")
- * carefully.
- *
- * This Agreement is a legally binding contract between
- * the Licensee (as defined below) and SpinalCom that
- * sets forth the terms and conditions that govern your
- * use of the Program. By installing and/or using the
- * Program, you agree to abide by all the terms and
- * conditions stated or referenced herein.
- *
- * If you do not agree to abide by these terms and
- * conditions, do not demonstrate your acceptance and do
- * not install or use the Program.
- * You should have received a copy of the license along
- * with this file. If not, see
- * <http://resources.spinalcom.com/licenses.pdf>.
- */ var global = arguments[3];
-const G_root = typeof window == "undefined" ? global : window;
-const SpinalContextMenuService = require("68897565c96c24c9");
-const SpinalContextApp = require("b2a1734f0374b803");
-const Constant = require("dd9afb352261d691");
-if (typeof G_root.spinal === "undefined") G_root.spinal = {};
-if (typeof G_root.spinal.spinalContextMenuService === "undefined") G_root.spinal.spinalContextMenuService = new SpinalContextMenuService();
-module.exports = {
-    constants: Constant,
-    spinalContextMenuService: G_root.spinal.spinalContextMenuService,
-    SpinalContextApp,
-    install (Vue) {
-        Vue.prototype.$spinalContextMenuService = G_root.spinal.spinalContextMenuService;
-    }
-};
-
-},{"68897565c96c24c9":"iqJit","b2a1734f0374b803":"kAFNM","dd9afb352261d691":"gmus8"}],"iqJit":[function(require,module,exports) {
-/*
- * Copyright 2018 SpinalCom - www.spinalcom.com
- *
- * This file is part of SpinalCore.
- *
- * Please read all of the following terms and conditions
- * of the Free Software license Agreement ("Agreement")
- * carefully.
- *
- * This Agreement is a legally binding contract between
- * the Licensee (as defined below) and SpinalCom that
- * sets forth the terms and conditions that govern your
- * use of the Program. By installing and/or using the
- * Program, you agree to abide by all the terms and
- * conditions stated or referenced herein.
- *
- * If you do not agree to abide by these terms and
- * conditions, do not demonstrate your acceptance and do
- * not install or use the Program.
- * You should have received a copy of the license along
- * with this file. If not, see
- * <http://resources.spinalcom.com/licenses.pdf>.
- */ var _q = require("q");
-var debounce = require("381613c6219f7bf2");
-/**
- *  Containter like service to register and get applications relative to a hookname
- *
- * @property {object} apps key = hookname, value array of apps
- * @class SpinalContextMenuService
- */ class SpinalContextMenuService {
-    /**
-   *Creates an instance of SpinalContextMenuService.
-   * @memberof SpinalContextMenuService
-   */ constructor(){
-        this.apps = {};
-        this.promiseByAppProfileId = {};
-        this.appRdy = _q.defer();
-        this.debouncedRdy = debounce(()=>{
-            this.appRdy.resolve();
-            this.debouncedRdy = ()=>{};
-        }, 1000, {
-            leading: false,
-            trailing: true
-        });
-    }
-    // waitRdy() {
-    //   this.appRdy.promise;
-    // }
-    /**
-   * Return true if user has access to this appProfile
-   * @param appProfileId
-   * @return {PromiseLike<boolean > | Promise<boolean>}
-   */ async hasUserRight(appProfileId) {
-        this.debouncedRdy();
-        await window.spinal.spinalSystem.init();
-        const path = "/etc/UserProfileDir/" + window.spinal.spinalSystem.getUser().username;
-        const userProfile = await window.spinal.spinalSystem.load(path);
-        let res = false;
-        if (userProfile) for(let i = 0; i < userProfile.appProfiles.length && !res; i++)res = (1 << userProfile.appProfiles[i] & appProfileId) !== 0;
-        return res;
-    }
-    /**
-   * method to register the Application to a hook
-   *
-   * @param {string} hookname the place where is application button is located
-   * @param {SpinalContextApp} spinalContextApp the application
-   * @param {number} appProfileId id of the group that can use the application
-   * button
-   * @memberof SpinalContextMenuService
-   */ registerApp(hookname, spinalContextApp, appProfileId) {
-        this.debouncedRdy();
-        if (typeof appProfileId === "undefined") {
-            console.warn("Deprecated: The usage of this function without the third parameter appProfileId is deprecated your button is lock for admin only until you set the third parameter");
-            appProfileId = 1;
-        }
-        // get the array of apps of the hook
-        let appsInHooks = this.apps[hookname];
-        // create the array if not exist
-        if (!(appsInHooks instanceof Array)) appsInHooks = this.apps[hookname] = [];
-        if (!this.promiseByAppProfileId.hasOwnProperty(appProfileId)) this.promiseByAppProfileId[appProfileId] = this.hasUserRight(appProfileId);
-        this.promiseByAppProfileId[appProfileId].then((hasAccess)=>{
-            // push the app if not exist ans user has access to the button
-            if (hasAccess && appsInHooks.indexOf(spinalContextApp) === -1) appsInHooks.push(spinalContextApp);
-        });
-    }
-    /**
-   * method to get the applications registered to a hookname
-   *
-   * @param {String} hookname
-   * @param {object} option
-   * @memberof SpinalContextMenuService
-   * @returns {Promise} resolve : [spinalContextApp, ...]; reject: Error
-   */ async getApps(hookname, option) {
-        await this.appRdy.promise;
-        // get the array of apps of the hook
-        let appsInHooks = this.apps[hookname];
-        // create the array if not exist
-        if (!(appsInHooks instanceof Array)) return Promise.resolve([]);
-        let promises = appsInHooks.map(async function(e, idx) {
-            try {
-                const res = await e.isShown(option);
-                return res === -1 ? -1 : e;
-            } catch (error) {
-                console.error(error);
-                return -1;
-            }
-        });
-        try {
-            const appRes = await Promise.all(promises);
-            return appRes.filter((itm)=>itm !== -1);
-        } catch (error) {
-            console.error(error);
-            return [];
-        }
-    }
-}
-module.exports = SpinalContextMenuService;
-
-},{"q":"6YRAJ","381613c6219f7bf2":"3JP5n"}],"kAFNM":[function(require,module,exports) {
-/*
- * Copyright 2018 SpinalCom - www.spinalcom.com
- *
- * This file is part of SpinalCore.
- *
- * Please read all of the following terms and conditions
- * of the Free Software license Agreement ("Agreement")
- * carefully.
- *
- * This Agreement is a legally binding contract between
- * the Licensee (as defined below) and SpinalCom that
- * sets forth the terms and conditions that govern your
- * use of the Program. By installing and/or using the
- * Program, you agree to abide by all the terms and
- * conditions stated or referenced herein.
- *
- * If you do not agree to abide by these terms and
- * conditions, do not demonstrate your acceptance and do
- * not install or use the Program.
- * You should have received a copy of the license along
- * with this file. If not, see
- * <http://resources.spinalcom.com/licenses.pdf>.
- */ /**
- *  Interface like class to define a Contextual Application button
- * @see https://material.io/tools/icons/?style=baseline for material icons
- *
- * @class SpinalContextApp
- * @property {string} label=notset short name to be shown in the application
- * @property {string} description description of what the Application button do
- * @property {object} buttonCfg Object configuration of the Application button
- * @property {string} buttonCfg.icon=tab can be a font-awsome or material icon string
- * @property {string} buttonCfg.icon_type=in Where to place the icon in the `md-icon`. Should be one of theses `class`, `in`, `src`
- * @property {string} buttonCfg.backgroundColor=#0000FF backgroud color of the button
- * @property {string} buttonCfg.fontColor=#FFFFFF font color of the button
- * @property {objet} [badgeCfg] Object configuration of the Application button badge
- * @property {string} badgeCfg.label string shown in a badge; if empty it's not shown
- * @property {string} badgeCfg.backgroundColor=#FF0000 backgroud color of the badge
- * @property {string} badgeCfg.fontColor=#FFFFFF font color of the badge
- */ class SpinalContextApp {
-    /**
-   * Creates an instance of SpinalContextApp.
-   * @param {string} label=notset short name to be shown in the application
-   * @param {string} description description of what the Application button do
-   * @param {object} buttonCfg Object configuration of the Application button
-   * @param {string} buttonCfg.icon=tab can be a font-awsome or material icon string
-   * @param {string} buttonCfg.icon_type=in Where to place the icon in the `md-icon`. Should be one of theses `class`, `in`, `src`
-   * @param {string} buttonCfg.backgroundColor=#0000FF backgroud color of the button
-   * @param {string} buttonCfg.fontColor=#FFFFFF font color of the button
-   * @param {objet} [badgeCfg] Object configuration of the Application button badge
-   * @param {string} badgeCfg.label string shown in a badge; if empty it's not shown
-   * @param {string} badgeCfg.backgroundColor=#FF0000 backgroud color of the badge
-   * @param {string} badgeCfg.fontColor=#FFFFFF font color of the badge
-   * @memberof SpinalContextApp
-   */ constructor(label, description, buttonCfg, badgeCfg = {}){
-        this.label = label || "notset";
-        this.description = description || "";
-        this.buttonCfg = {
-            icon: buttonCfg.icon || "tab",
-            icon_type: buttonCfg.icon_type || "in",
-            backgroundColor: colorHash(buttonCfg.backgroundColor || "#0000FF"),
-            fontColor: colorHash(buttonCfg.fontColor || "#FFFFFF")
-        };
-        this.badgeCfg = {
-            label: badgeCfg.label || "",
-            backgroundColor: colorHash(badgeCfg.backgroundColor || "#FF0000"),
-            fontColor: colorHash(badgeCfg.fontColor || "#FFFFFF")
-        };
-    }
-    /**
-   * Method called by `SpinalContextMenuService.getApps`
-   * to filter the Application button to show in the context hook
-   *
-   * @param {object} option
-   * @memberof SpinalContextApp
-   * @returns {Promise} Resolve: not shown if === -1;
-   */ isShown(option) {}
-    /**
-   * Method to call on click of the application button
-   *
-   * @param {object} option {}
-   * @memberof SpinalContextApp
-   */ action(option) {}
-}
-module.exports = SpinalContextApp;
-function colorHash(color) {
-    if (color[0] === "#") return color;
-    return "#" + color;
-}
-
-},{}],"gmus8":[function(require,module,exports) {
-module.exports = {
-    ADMINISTRATEUR: "ADMINISTRATEUR",
-    MAINTENEUR: "MAINTENEUR",
-    INTEGRATEUR: "INTEGRATEUR",
-    ASSET_MANAGEUR: "ASSET MANAGER"
-};
-
-},{}],"CDk90":[function(require,module,exports) {
+},{"ef41ea260a4b07cd":"kHlxv","./buttons/addDashBoard":"CDk90","./buttons/linkWithDashBoard":"83RUI","./buttons/linkAutoWithDashboard":"9Yg63","./buttons/createDashboardContext":"872vo","./buttons/calculateBtn":"1bJ5R","./buttons/globalCalculate":"liy8S","./js/registerDialog":"33fps","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"CDk90":[function(require,module,exports) {
 var _spinalEnvViewerDashboardStandardService = require("spinal-env-viewer-dashboard-standard-service");
 const { SpinalContextApp } = require("386d3e5acfce84c1");
 const { spinalPanelManagerService } = require("df0d5253527b48a8");
@@ -1552,9 +1296,9 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("fe6a971173da2de7").render;
     script.staticRenderFns = require("fe6a971173da2de7").staticRenderFns;
-    script._scopeId = "data-v-40011a";
+    script._scopeId = "data-v-5f3c43";
     require("c411635d59ed1195").default(script);
-    script.__scopeId = "data-v-40011a";
+    script.__scopeId = "data-v-5f3c43";
     script.__file = "dashBoardConfigDialog.vue";
 };
 initialize();
@@ -1841,10 +1585,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("2d73806550bbf6da").render;
     script.staticRenderFns = require("2d73806550bbf6da").staticRenderFns;
-    script._scopeId = "data-v-e6f7a4";
+    script._scopeId = "data-v-e9269f";
     script.__cssModules = require("d4978e9f2c0396c1").default;
     require("a384c3a5e69b5dd5").default(script);
-    script.__scopeId = "data-v-e6f7a4";
+    script.__scopeId = "data-v-e9269f";
     script.__file = "linkToDashBoardDialog.vue";
 };
 initialize();
@@ -2047,10 +1791,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("9275df3ca2bd0d26").render;
     script.staticRenderFns = require("9275df3ca2bd0d26").staticRenderFns;
-    script._scopeId = "data-v-42ea0e";
+    script._scopeId = "data-v-51dae9";
     script.__cssModules = require("9843e348d6e10e5b").default;
     require("174cfd1ad29c7599").default(script);
-    script.__scopeId = "data-v-42ea0e";
+    script.__scopeId = "data-v-51dae9";
     script.__file = "linkAutoWithDashboardDialog.vue";
 };
 initialize();
@@ -2337,9 +2081,9 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("5067fd0934d83cf3").render;
     script.staticRenderFns = require("5067fd0934d83cf3").staticRenderFns;
-    script._scopeId = "data-v-987c20";
+    script._scopeId = "data-v-83a0ce";
     require("7199e9ae261ce6e9").default(script);
-    script.__scopeId = "data-v-987c20";
+    script.__scopeId = "data-v-83a0ce";
     script.__file = "createDashboardContext.vue";
 };
 initialize();
@@ -2478,10 +2222,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("33ee3b7abd85410f").render;
     script.staticRenderFns = require("33ee3b7abd85410f").staticRenderFns;
-    script._scopeId = "data-v-6ee456";
+    script._scopeId = "data-v-0c69cf";
     script.__cssModules = require("db463dbccbc3df69").default;
     require("888ba2699536e601").default(script);
-    script.__scopeId = "data-v-6ee456";
+    script.__scopeId = "data-v-0c69cf";
     script.__file = "CalculParams.vue";
 };
 initialize();
@@ -2743,10 +2487,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("be9d1f950eecdd14").render;
     script.staticRenderFns = require("be9d1f950eecdd14").staticRenderFns;
-    script._scopeId = "data-v-1ebdc8";
+    script._scopeId = "data-v-524f39";
     script.__cssModules = require("b60c7f7b149ae501").default;
     require("923ffc2d9e649c42").default(script);
-    script.__scopeId = "data-v-1ebdc8";
+    script.__scopeId = "data-v-524f39";
     script.__file = "globalCalcul.vue";
 };
 initialize();
@@ -3119,9 +2863,9 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("1c0a69250b74f659").render;
     script.staticRenderFns = require("1c0a69250b74f659").staticRenderFns;
-    script._scopeId = "data-v-adb62a";
+    script._scopeId = "data-v-876eba";
     require("46187fa3d2b65bb9").default(script);
-    script.__scopeId = "data-v-adb62a";
+    script.__scopeId = "data-v-876eba";
     script.__file = "bimObjectCalculReference.vue";
 };
 initialize();
@@ -3327,167 +3071,6 @@ parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"eV0id":[function(require,module,exports) {
-"use strict";
-/*
- * Copyright 2023 SpinalCom - www.spinalcom.com
- *
- * This file is part of SpinalCore.
- *
- * Please read all of the following terms and conditions
- * of the Free Software license Agreement ("Agreement")
- * carefully.
- *
- * This Agreement is a legally binding contract between
- * the Licensee (as defined below) and SpinalCom that
- * sets forth the terms and conditions that govern your
- * use of the Program. By installing and/or using the
- * Program, you agree to abide by all the terms and
- * conditions stated or referenced herein.
- *
- * If you do not agree to abide by these terms and
- * conditions, do not demonstrate your acceptance and do
- * not install or use the Program.
- * You should have received a copy of the license along
- * with this file. If not, see
- * <http://resources.spinalcom.com/licenses.pdf>.
- */ Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.REFERENCE_ROOM_RELATION = exports.ROOM_REFERENCE_CONTEXT = exports.ZONE_REFERENCE_CONTEXT = exports.FLOOR_REFERENCE_CONTEXT = exports.BUILDING_REFERENCE_CONTEXT = exports.SITE_REFERENCE_CONTEXT = exports.REFERENCE_RELATION = exports.REFERENCE_TYPE = exports.MAP_RELATION_TYPE = exports.MAP_TYPE_RELATION = exports.GEOGRAPHIC_RELATIONS_ORDER = exports.EQUIPMENT_RELATION = exports.GEOGRAPHIC_RELATIONS = exports.ROOM_RELATION = exports.ZONE_RELATION = exports.FLOOR_RELATION = exports.BUILDING_RELATION = exports.SITE_RELATION = exports.GEOGRAPHIC_TYPES_ORDER = exports.EQUIPMENT_TYPE = exports.GEOGRAPHIC_TYPES = exports.ROOM_TYPE = exports.ZONE_TYPE = exports.FLOOR_TYPE = exports.BUILDING_TYPE = exports.SITE_TYPE = exports.CONTEXT_TYPE = void 0;
-const CONTEXT_TYPE = "geographicContext";
-exports.CONTEXT_TYPE = CONTEXT_TYPE;
-const SITE_TYPE = "geographicSite";
-exports.SITE_TYPE = SITE_TYPE;
-const BUILDING_TYPE = "geographicBuilding";
-exports.BUILDING_TYPE = BUILDING_TYPE;
-const FLOOR_TYPE = "geographicFloor";
-exports.FLOOR_TYPE = FLOOR_TYPE;
-const ZONE_TYPE = "geographicZone";
-exports.ZONE_TYPE = ZONE_TYPE;
-const ROOM_TYPE = "geographicRoom";
-exports.ROOM_TYPE = ROOM_TYPE;
-const EQUIPMENT_TYPE = "BIMObject";
-exports.EQUIPMENT_TYPE = EQUIPMENT_TYPE;
-const REFERENCE_TYPE = "geographicReference";
-exports.REFERENCE_TYPE = REFERENCE_TYPE;
-const SITE_RELATION = "hasGeographicSite";
-exports.SITE_RELATION = SITE_RELATION;
-const BUILDING_RELATION = "hasGeographicBuilding";
-exports.BUILDING_RELATION = BUILDING_RELATION;
-const FLOOR_RELATION = "hasGeographicFloor";
-exports.FLOOR_RELATION = FLOOR_RELATION;
-const ZONE_RELATION = "hasGeographicZone";
-exports.ZONE_RELATION = ZONE_RELATION;
-const ROOM_RELATION = "hasGeographicRoom";
-exports.ROOM_RELATION = ROOM_RELATION;
-const EQUIPMENT_RELATION = "hasBimObject";
-exports.EQUIPMENT_RELATION = EQUIPMENT_RELATION;
-const REFERENCE_RELATION = "hasReferenceObject";
-exports.REFERENCE_RELATION = REFERENCE_RELATION;
-const REFERENCE_ROOM_RELATION = "hasReferenceObject.ROOM";
-exports.REFERENCE_ROOM_RELATION = REFERENCE_ROOM_RELATION;
-const SITE_REFERENCE_CONTEXT = ".SiteContext";
-exports.SITE_REFERENCE_CONTEXT = SITE_REFERENCE_CONTEXT;
-const BUILDING_REFERENCE_CONTEXT = ".BuildingContext";
-exports.BUILDING_REFERENCE_CONTEXT = BUILDING_REFERENCE_CONTEXT;
-const FLOOR_REFERENCE_CONTEXT = ".FloorContext";
-exports.FLOOR_REFERENCE_CONTEXT = FLOOR_REFERENCE_CONTEXT;
-const ZONE_REFERENCE_CONTEXT = ".ZoneContext";
-exports.ZONE_REFERENCE_CONTEXT = ZONE_REFERENCE_CONTEXT;
-const ROOM_REFERENCE_CONTEXT = ".RoomContext";
-exports.ROOM_REFERENCE_CONTEXT = ROOM_REFERENCE_CONTEXT;
-const GEOGRAPHIC_TYPES = Object.freeze([
-    SITE_TYPE,
-    BUILDING_TYPE,
-    FLOOR_TYPE,
-    ZONE_TYPE,
-    ROOM_TYPE
-]);
-exports.GEOGRAPHIC_TYPES = GEOGRAPHIC_TYPES;
-const GEOGRAPHIC_TYPES_ORDER = Object.freeze([
-    CONTEXT_TYPE,
-    SITE_TYPE,
-    BUILDING_TYPE,
-    FLOOR_TYPE,
-    ZONE_TYPE,
-    ROOM_TYPE,
-    EQUIPMENT_TYPE
-]);
-exports.GEOGRAPHIC_TYPES_ORDER = GEOGRAPHIC_TYPES_ORDER;
-const GEOGRAPHIC_RELATIONS = Object.freeze([
-    SITE_RELATION,
-    BUILDING_RELATION,
-    FLOOR_RELATION,
-    ZONE_RELATION,
-    ROOM_RELATION,
-    EQUIPMENT_RELATION
-]);
-exports.GEOGRAPHIC_RELATIONS = GEOGRAPHIC_RELATIONS;
-const GEOGRAPHIC_RELATIONS_ORDER = Object.freeze([
-    SITE_RELATION,
-    BUILDING_RELATION,
-    FLOOR_RELATION,
-    ZONE_RELATION,
-    ROOM_RELATION,
-    EQUIPMENT_RELATION
-]);
-exports.GEOGRAPHIC_RELATIONS_ORDER = GEOGRAPHIC_RELATIONS_ORDER;
-const MAP_TYPE_RELATION = Object.freeze(new Map([
-    [
-        SITE_TYPE,
-        SITE_RELATION
-    ],
-    [
-        BUILDING_TYPE,
-        BUILDING_RELATION
-    ],
-    [
-        FLOOR_TYPE,
-        FLOOR_RELATION
-    ],
-    [
-        ZONE_TYPE,
-        ZONE_RELATION
-    ],
-    [
-        ROOM_TYPE,
-        ROOM_RELATION
-    ],
-    [
-        EQUIPMENT_TYPE,
-        EQUIPMENT_RELATION
-    ]
-]));
-exports.MAP_TYPE_RELATION = MAP_TYPE_RELATION;
-const MAP_RELATION_TYPE = Object.freeze(new Map([
-    [
-        SITE_RELATION,
-        SITE_TYPE
-    ],
-    [
-        BUILDING_RELATION,
-        BUILDING_TYPE
-    ],
-    [
-        FLOOR_RELATION,
-        FLOOR_TYPE
-    ],
-    [
-        ZONE_RELATION,
-        ZONE_TYPE
-    ],
-    [
-        ROOM_RELATION,
-        ROOM_TYPE
-    ],
-    [
-        EQUIPMENT_RELATION,
-        EQUIPMENT_TYPE
-    ]
-]));
-exports.MAP_RELATION_TYPE = MAP_RELATION_TYPE;
-
-},{}]},[], null, "parcelRequire02e5")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},[], null, "parcelRequire02e5")
 
 //# sourceMappingURL=spinal-env-viewer-plugin-dashboard-standard.4d56014a.js.map

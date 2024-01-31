@@ -774,10 +774,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("a0ec4736448e321f").render;
     script.staticRenderFns = require("a0ec4736448e321f").staticRenderFns;
-    script._scopeId = "data-v-8cb455";
+    script._scopeId = "data-v-73c496";
     script.__cssModules = require("c858734c905ee75c").default;
     require("48aed9c626e76d57").default(script);
-    script.__scopeId = "data-v-8cb455";
+    script.__scopeId = "data-v-73c496";
     script.__file = "panel.vue";
 };
 initialize();
@@ -1161,10 +1161,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("f99d2bee93f24e6e").render;
     script.staticRenderFns = require("f99d2bee93f24e6e").staticRenderFns;
-    script._scopeId = "data-v-e69111";
+    script._scopeId = "data-v-6db8fa";
     script.__cssModules = require("f835a18f842c9159").default;
     require("b47a3cbf86bf73c").default(script);
-    script.__scopeId = "data-v-e69111";
+    script.__scopeId = "data-v-6db8fa";
     script.__file = "typesList.vue";
 };
 initialize();
@@ -1236,10 +1236,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("ee50dcc265090d90").render;
     script.staticRenderFns = require("ee50dcc265090d90").staticRenderFns;
-    script._scopeId = "data-v-19d346";
+    script._scopeId = "data-v-20b6b3";
     script.__cssModules = require("189bc5a10f201f5").default;
     require("c74aea5bef02c650").default(script);
-    script.__scopeId = "data-v-19d346";
+    script.__scopeId = "data-v-20b6b3";
     script.__file = "tablePage.vue";
 };
 initialize();
@@ -1488,10 +1488,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("441720c91b2f1859").render;
     script.staticRenderFns = require("441720c91b2f1859").staticRenderFns;
-    script._scopeId = "data-v-2b24d1";
+    script._scopeId = "data-v-93add1";
     script.__cssModules = require("927bcc5adabd65c6").default;
     require("9922b255ce52a965").default(script);
-    script.__scopeId = "data-v-2b24d1";
+    script.__scopeId = "data-v-93add1";
     script.__file = "index.vue";
 };
 initialize();
@@ -1872,10 +1872,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("2c3fe023969701e").render;
     script.staticRenderFns = require("2c3fe023969701e").staticRenderFns;
-    script._scopeId = "data-v-4bd15e";
+    script._scopeId = "data-v-9b10f7";
     script.__cssModules = require("8ae79e92a348db16").default;
     require("6962e7b0c1ae8771").default(script);
-    script.__scopeId = "data-v-4bd15e";
+    script.__scopeId = "data-v-9b10f7";
     script.__file = "tableContent.vue";
 };
 initialize();
@@ -2258,168 +2258,7 @@ exports.BIM_NODE_RELATION_TYPE = spinal_env_viewer_graph_service_1.SPINAL_RELATI
 exports.BIM_OBJECT_RELATION_TYPE = spinal_env_viewer_graph_service_1.SPINAL_RELATION_PTR_LST_TYPE;
 exports.REFERENCE_OBJECT_RELATION_TYPE = spinal_env_viewer_graph_service_1.SPINAL_RELATION_PTR_LST_TYPE;
 
-},{"44f946b368e03b14":"9n7zp","3c0117970d993dce":"eV0id"}],"eV0id":[function(require,module,exports) {
-"use strict";
-/*
- * Copyright 2023 SpinalCom - www.spinalcom.com
- *
- * This file is part of SpinalCore.
- *
- * Please read all of the following terms and conditions
- * of the Free Software license Agreement ("Agreement")
- * carefully.
- *
- * This Agreement is a legally binding contract between
- * the Licensee (as defined below) and SpinalCom that
- * sets forth the terms and conditions that govern your
- * use of the Program. By installing and/or using the
- * Program, you agree to abide by all the terms and
- * conditions stated or referenced herein.
- *
- * If you do not agree to abide by these terms and
- * conditions, do not demonstrate your acceptance and do
- * not install or use the Program.
- * You should have received a copy of the license along
- * with this file. If not, see
- * <http://resources.spinalcom.com/licenses.pdf>.
- */ Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.REFERENCE_ROOM_RELATION = exports.ROOM_REFERENCE_CONTEXT = exports.ZONE_REFERENCE_CONTEXT = exports.FLOOR_REFERENCE_CONTEXT = exports.BUILDING_REFERENCE_CONTEXT = exports.SITE_REFERENCE_CONTEXT = exports.REFERENCE_RELATION = exports.REFERENCE_TYPE = exports.MAP_RELATION_TYPE = exports.MAP_TYPE_RELATION = exports.GEOGRAPHIC_RELATIONS_ORDER = exports.EQUIPMENT_RELATION = exports.GEOGRAPHIC_RELATIONS = exports.ROOM_RELATION = exports.ZONE_RELATION = exports.FLOOR_RELATION = exports.BUILDING_RELATION = exports.SITE_RELATION = exports.GEOGRAPHIC_TYPES_ORDER = exports.EQUIPMENT_TYPE = exports.GEOGRAPHIC_TYPES = exports.ROOM_TYPE = exports.ZONE_TYPE = exports.FLOOR_TYPE = exports.BUILDING_TYPE = exports.SITE_TYPE = exports.CONTEXT_TYPE = void 0;
-const CONTEXT_TYPE = "geographicContext";
-exports.CONTEXT_TYPE = CONTEXT_TYPE;
-const SITE_TYPE = "geographicSite";
-exports.SITE_TYPE = SITE_TYPE;
-const BUILDING_TYPE = "geographicBuilding";
-exports.BUILDING_TYPE = BUILDING_TYPE;
-const FLOOR_TYPE = "geographicFloor";
-exports.FLOOR_TYPE = FLOOR_TYPE;
-const ZONE_TYPE = "geographicZone";
-exports.ZONE_TYPE = ZONE_TYPE;
-const ROOM_TYPE = "geographicRoom";
-exports.ROOM_TYPE = ROOM_TYPE;
-const EQUIPMENT_TYPE = "BIMObject";
-exports.EQUIPMENT_TYPE = EQUIPMENT_TYPE;
-const REFERENCE_TYPE = "geographicReference";
-exports.REFERENCE_TYPE = REFERENCE_TYPE;
-const SITE_RELATION = "hasGeographicSite";
-exports.SITE_RELATION = SITE_RELATION;
-const BUILDING_RELATION = "hasGeographicBuilding";
-exports.BUILDING_RELATION = BUILDING_RELATION;
-const FLOOR_RELATION = "hasGeographicFloor";
-exports.FLOOR_RELATION = FLOOR_RELATION;
-const ZONE_RELATION = "hasGeographicZone";
-exports.ZONE_RELATION = ZONE_RELATION;
-const ROOM_RELATION = "hasGeographicRoom";
-exports.ROOM_RELATION = ROOM_RELATION;
-const EQUIPMENT_RELATION = "hasBimObject";
-exports.EQUIPMENT_RELATION = EQUIPMENT_RELATION;
-const REFERENCE_RELATION = "hasReferenceObject";
-exports.REFERENCE_RELATION = REFERENCE_RELATION;
-const REFERENCE_ROOM_RELATION = "hasReferenceObject.ROOM";
-exports.REFERENCE_ROOM_RELATION = REFERENCE_ROOM_RELATION;
-const SITE_REFERENCE_CONTEXT = ".SiteContext";
-exports.SITE_REFERENCE_CONTEXT = SITE_REFERENCE_CONTEXT;
-const BUILDING_REFERENCE_CONTEXT = ".BuildingContext";
-exports.BUILDING_REFERENCE_CONTEXT = BUILDING_REFERENCE_CONTEXT;
-const FLOOR_REFERENCE_CONTEXT = ".FloorContext";
-exports.FLOOR_REFERENCE_CONTEXT = FLOOR_REFERENCE_CONTEXT;
-const ZONE_REFERENCE_CONTEXT = ".ZoneContext";
-exports.ZONE_REFERENCE_CONTEXT = ZONE_REFERENCE_CONTEXT;
-const ROOM_REFERENCE_CONTEXT = ".RoomContext";
-exports.ROOM_REFERENCE_CONTEXT = ROOM_REFERENCE_CONTEXT;
-const GEOGRAPHIC_TYPES = Object.freeze([
-    SITE_TYPE,
-    BUILDING_TYPE,
-    FLOOR_TYPE,
-    ZONE_TYPE,
-    ROOM_TYPE
-]);
-exports.GEOGRAPHIC_TYPES = GEOGRAPHIC_TYPES;
-const GEOGRAPHIC_TYPES_ORDER = Object.freeze([
-    CONTEXT_TYPE,
-    SITE_TYPE,
-    BUILDING_TYPE,
-    FLOOR_TYPE,
-    ZONE_TYPE,
-    ROOM_TYPE,
-    EQUIPMENT_TYPE
-]);
-exports.GEOGRAPHIC_TYPES_ORDER = GEOGRAPHIC_TYPES_ORDER;
-const GEOGRAPHIC_RELATIONS = Object.freeze([
-    SITE_RELATION,
-    BUILDING_RELATION,
-    FLOOR_RELATION,
-    ZONE_RELATION,
-    ROOM_RELATION,
-    EQUIPMENT_RELATION
-]);
-exports.GEOGRAPHIC_RELATIONS = GEOGRAPHIC_RELATIONS;
-const GEOGRAPHIC_RELATIONS_ORDER = Object.freeze([
-    SITE_RELATION,
-    BUILDING_RELATION,
-    FLOOR_RELATION,
-    ZONE_RELATION,
-    ROOM_RELATION,
-    EQUIPMENT_RELATION
-]);
-exports.GEOGRAPHIC_RELATIONS_ORDER = GEOGRAPHIC_RELATIONS_ORDER;
-const MAP_TYPE_RELATION = Object.freeze(new Map([
-    [
-        SITE_TYPE,
-        SITE_RELATION
-    ],
-    [
-        BUILDING_TYPE,
-        BUILDING_RELATION
-    ],
-    [
-        FLOOR_TYPE,
-        FLOOR_RELATION
-    ],
-    [
-        ZONE_TYPE,
-        ZONE_RELATION
-    ],
-    [
-        ROOM_TYPE,
-        ROOM_RELATION
-    ],
-    [
-        EQUIPMENT_TYPE,
-        EQUIPMENT_RELATION
-    ]
-]));
-exports.MAP_TYPE_RELATION = MAP_TYPE_RELATION;
-const MAP_RELATION_TYPE = Object.freeze(new Map([
-    [
-        SITE_RELATION,
-        SITE_TYPE
-    ],
-    [
-        BUILDING_RELATION,
-        BUILDING_TYPE
-    ],
-    [
-        FLOOR_RELATION,
-        FLOOR_TYPE
-    ],
-    [
-        ZONE_RELATION,
-        ZONE_TYPE
-    ],
-    [
-        ROOM_RELATION,
-        ROOM_TYPE
-    ],
-    [
-        EQUIPMENT_RELATION,
-        EQUIPMENT_TYPE
-    ]
-]));
-exports.MAP_RELATION_TYPE = MAP_RELATION_TYPE;
-
-},{}],"9Nkbe":[function(require,module,exports) {
+},{"44f946b368e03b14":"9n7zp","3c0117970d993dce":"eV0id"}],"9Nkbe":[function(require,module,exports) {
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -2800,10 +2639,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("bd39819a9d7f1444").render;
     script.staticRenderFns = require("bd39819a9d7f1444").staticRenderFns;
-    script._scopeId = "data-v-bf4f22";
+    script._scopeId = "data-v-22bc27";
     script.__cssModules = require("ebaac81af665f0d").default;
     require("197d202768bc4a8").default(script);
-    script.__scopeId = "data-v-bf4f22";
+    script.__scopeId = "data-v-22bc27";
     script.__file = "createAttribute.vue";
 };
 initialize();
@@ -2967,9 +2806,9 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("c18d7050fdad2197").render;
     script.staticRenderFns = require("c18d7050fdad2197").staticRenderFns;
-    script._scopeId = "data-v-23f05e";
+    script._scopeId = "data-v-8e209e";
     require("56a64ba58024bdd").default(script);
-    script.__scopeId = "data-v-23f05e";
+    script.__scopeId = "data-v-8e209e";
     script.__file = "standard-buttons.vue";
 };
 initialize();
@@ -3076,10 +2915,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("9e463d5ccd9399af").render;
     script.staticRenderFns = require("9e463d5ccd9399af").staticRenderFns;
-    script._scopeId = "data-v-6a7c75";
+    script._scopeId = "data-v-0cc021";
     script.__cssModules = require("91f9b8a294f04f74").default;
     require("7f68fa221d68432a").default(script);
-    script.__scopeId = "data-v-6a7c75";
+    script.__scopeId = "data-v-0cc021";
     script.__file = "fabs.vue";
 };
 initialize();
@@ -3152,10 +2991,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("b1c1aeec10e32e99").render;
     script.staticRenderFns = require("b1c1aeec10e32e99").staticRenderFns;
-    script._scopeId = "data-v-b5bf2e";
+    script._scopeId = "data-v-a46242";
     script.__cssModules = require("6aca9b7c2a62fe8a").default;
     require("9e9b70229b39aa2").default(script);
-    script.__scopeId = "data-v-b5bf2e";
+    script.__scopeId = "data-v-a46242";
     script.__file = "changeCol.vue";
 };
 initialize();
@@ -4036,10 +3875,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("1e005ebd2e772239").render;
     script.staticRenderFns = require("1e005ebd2e772239").staticRenderFns;
-    script._scopeId = "data-v-db4c58";
+    script._scopeId = "data-v-fd60d2";
     script.__cssModules = require("759fd34271367772").default;
     require("bf12535373e5f08a").default(script);
-    script.__scopeId = "data-v-db4c58";
+    script.__scopeId = "data-v-fd60d2";
     script.__file = "configurationPanel.vue";
 };
 initialize();
@@ -4125,10 +3964,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("6cac901d656acdcd").render;
     script.staticRenderFns = require("6cac901d656acdcd").staticRenderFns;
-    script._scopeId = "data-v-08e01e";
+    script._scopeId = "data-v-928dce";
     script.__cssModules = require("4381e5fd30071113").default;
     require("fe0dea4d8906181c").default(script);
-    script.__scopeId = "data-v-08e01e";
+    script.__scopeId = "data-v-928dce";
     script.__file = "configuration-crud.vue";
 };
 initialize();
@@ -4345,10 +4184,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("91a7cedff877e636").render;
     script.staticRenderFns = require("91a7cedff877e636").staticRenderFns;
-    script._scopeId = "data-v-8e8f8a";
+    script._scopeId = "data-v-624cdc";
     script.__cssModules = require("879cb20adbe8aa93").default;
     require("9031c6b9ffe8c589").default(script);
-    script.__scopeId = "data-v-8e8f8a";
+    script.__scopeId = "data-v-624cdc";
     script.__file = "mdSelect.vue";
 };
 initialize();
@@ -4454,10 +4293,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("498570b1895ee12d").render;
     script.staticRenderFns = require("498570b1895ee12d").staticRenderFns;
-    script._scopeId = "data-v-99bd0c";
+    script._scopeId = "data-v-3ccf5d";
     script.__cssModules = require("d7c5fef2f881600c").default;
     require("b483e929af4a6131").default(script);
-    script.__scopeId = "data-v-99bd0c";
+    script.__scopeId = "data-v-3ccf5d";
     script.__file = "createItem.vue";
 };
 initialize();
@@ -4616,10 +4455,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("514ed369a0239388").render;
     script.staticRenderFns = require("514ed369a0239388").staticRenderFns;
-    script._scopeId = "data-v-c20ec9";
+    script._scopeId = "data-v-2c5745";
     script.__cssModules = require("fba86237fdccdcf9").default;
     require("a1215ad87363da8f").default(script);
-    script.__scopeId = "data-v-c20ec9";
+    script.__scopeId = "data-v-2c5745";
     script.__file = "configurations.vue";
 };
 initialize();
@@ -4746,10 +4585,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("89f0a79fa7ed865b").render;
     script.staticRenderFns = require("89f0a79fa7ed865b").staticRenderFns;
-    script._scopeId = "data-v-d4927a";
+    script._scopeId = "data-v-2eca48";
     script.__cssModules = require("3af5efd7c45217a8").default;
     require("11e15826551e04e7").default(script);
-    script.__scopeId = "data-v-d4927a";
+    script.__scopeId = "data-v-2eca48";
     script.__file = "displayList.vue";
 };
 initialize();
@@ -4801,10 +4640,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("92ab28538916bce7").render;
     script.staticRenderFns = require("92ab28538916bce7").staticRenderFns;
-    script._scopeId = "data-v-511560";
+    script._scopeId = "data-v-9b2591";
     script.__cssModules = require("6ba404904517acda").default;
     require("55b39925041223d8").default(script);
-    script.__scopeId = "data-v-511560";
+    script.__scopeId = "data-v-9b2591";
     script.__file = "addItem.vue";
 };
 initialize();
@@ -5429,10 +5268,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("add8588e4e89bd47").render;
     script.staticRenderFns = require("add8588e4e89bd47").staticRenderFns;
-    script._scopeId = "data-v-b9966f";
+    script._scopeId = "data-v-375cf9";
     script.__cssModules = require("5cc5d7188172fb40").default;
     require("471a8c72695cac0").default(script);
-    script.__scopeId = "data-v-b9966f";
+    script.__scopeId = "data-v-375cf9";
     script.__file = "currentConfiguration.vue";
 };
 initialize();
@@ -5571,10 +5410,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("8bdcbfc539a29625").render;
     script.staticRenderFns = require("8bdcbfc539a29625").staticRenderFns;
-    script._scopeId = "data-v-e6453f";
+    script._scopeId = "data-v-943298";
     script.__cssModules = require("cea67c9a95ed8243").default;
     require("eb043ed407b8d9e5").default(script);
-    script.__scopeId = "data-v-e6453f";
+    script.__scopeId = "data-v-943298";
     script.__file = "panel.vue";
 };
 initialize();
@@ -5684,10 +5523,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("738b6f3cac5c628e").render;
     script.staticRenderFns = require("738b6f3cac5c628e").staticRenderFns;
-    script._scopeId = "data-v-f2f23f";
+    script._scopeId = "data-v-86a208";
     script.__cssModules = require("7e083d70bd916fb9").default;
     require("6b529f1988a807de").default(script);
-    script.__scopeId = "data-v-f2f23f";
+    script.__scopeId = "data-v-86a208";
     script.__file = "configurationStep.vue";
 };
 initialize();
@@ -5739,10 +5578,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("f31f5661f3a671af").render;
     script.staticRenderFns = require("f31f5661f3a671af").staticRenderFns;
-    script._scopeId = "data-v-8a6181";
+    script._scopeId = "data-v-12adaf";
     script.__cssModules = require("2ec74175702e5aa4").default;
     require("6cbbf52f3db9e2c5").default(script);
-    script.__scopeId = "data-v-8a6181";
+    script.__scopeId = "data-v-12adaf";
     script.__file = "context.vue";
 };
 initialize();
@@ -5964,10 +5803,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("b751701979b7df58").render;
     script.staticRenderFns = require("b751701979b7df58").staticRenderFns;
-    script._scopeId = "data-v-9c04d3";
+    script._scopeId = "data-v-d8b201";
     script.__cssModules = require("2e02fb504955ca5").default;
     require("7b00f205630dc118").default(script);
-    script.__scopeId = "data-v-9c04d3";
+    script.__scopeId = "data-v-d8b201";
     script.__file = "category.vue";
 };
 initialize();
@@ -6043,10 +5882,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("8f518e098e51e5f8").render;
     script.staticRenderFns = require("8f518e098e51e5f8").staticRenderFns;
-    script._scopeId = "data-v-78b3fc";
+    script._scopeId = "data-v-fd45da";
     script.__cssModules = require("44c7b23fe2fad4a6").default;
     require("6232067e2acbccf4").default(script);
-    script.__scopeId = "data-v-78b3fc";
+    script.__scopeId = "data-v-fd45da";
     script.__file = "createByAttribute.vue";
 };
 initialize();
@@ -6224,10 +6063,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("f63161be9143028c").render;
     script.staticRenderFns = require("f63161be9143028c").staticRenderFns;
-    script._scopeId = "data-v-f6fc84";
+    script._scopeId = "data-v-e687f1";
     script.__cssModules = require("d88584e02248f030").default;
     require("b210f43113a6901a").default(script);
-    script.__scopeId = "data-v-f6fc84";
+    script.__scopeId = "data-v-e687f1";
     script.__file = "createByName.vue";
 };
 initialize();
@@ -6346,10 +6185,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("40a387f6f8d675a").render;
     script.staticRenderFns = require("40a387f6f8d675a").staticRenderFns;
-    script._scopeId = "data-v-5f7b0e";
+    script._scopeId = "data-v-2b767d";
     script.__cssModules = require("2ac2e8d386e6d329").default;
     require("b4f6bc3534c10a9d").default(script);
-    script.__scopeId = "data-v-5f7b0e";
+    script.__scopeId = "data-v-2b767d";
     script.__file = "createByFixedValue.vue";
 };
 initialize();
@@ -6553,10 +6392,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("c5029272f85170b1").render;
     script.staticRenderFns = require("c5029272f85170b1").staticRenderFns;
-    script._scopeId = "data-v-b870b9";
+    script._scopeId = "data-v-76ced5";
     script.__cssModules = require("9a23f62b0638f384").default;
     require("dd6f6773ab0ff6c4").default(script);
-    script.__scopeId = "data-v-b870b9";
+    script.__scopeId = "data-v-76ced5";
     script.__file = "group.vue";
 };
 initialize();
@@ -6784,10 +6623,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("7efe07b82ff3546e").render;
     script.staticRenderFns = require("7efe07b82ff3546e").staticRenderFns;
-    script._scopeId = "data-v-edee46";
+    script._scopeId = "data-v-5706d9";
     script.__cssModules = require("4ed3e348fbc8c684").default;
     require("6c1f6a8873beb06").default(script);
-    script.__scopeId = "data-v-edee46";
+    script.__scopeId = "data-v-5706d9";
     script.__file = "launchGenerationStep.vue";
 };
 initialize();
@@ -7093,10 +6932,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("d444d988083689ba").render;
     script.staticRenderFns = require("d444d988083689ba").staticRenderFns;
-    script._scopeId = "data-v-8dfd9d";
+    script._scopeId = "data-v-38a031";
     script.__cssModules = require("89362a9ce5718e03").default;
     require("85e2b6edf7047cd").default(script);
-    script.__scopeId = "data-v-8dfd9d";
+    script.__scopeId = "data-v-38a031";
     script.__file = "selectionStep.vue";
 };
 initialize();
@@ -7378,10 +7217,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("8ee45e52138c8f92").render;
     script.staticRenderFns = require("8ee45e52138c8f92").staticRenderFns;
-    script._scopeId = "data-v-ec0791";
+    script._scopeId = "data-v-dec4a0";
     script.__cssModules = require("bd7776e4b2140de7").default;
     require("28b6fc036c3ffe15").default(script);
-    script.__scopeId = "data-v-ec0791";
+    script.__scopeId = "data-v-dec4a0";
     script.__file = "paramsDialog.vue";
 };
 initialize();
@@ -7653,10 +7492,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("55356b827fbbca63").render;
     script.staticRenderFns = require("55356b827fbbca63").staticRenderFns;
-    script._scopeId = "data-v-1261ac";
+    script._scopeId = "data-v-edff4f";
     script.__cssModules = require("e7bf20573e131290").default;
     require("3853266209273dda").default(script);
-    script.__scopeId = "data-v-1261ac";
+    script.__scopeId = "data-v-edff4f";
     script.__file = "editParamsComponent.vue";
 };
 initialize();
@@ -7771,10 +7610,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("bc3ec381bf5ab633").render;
     script.staticRenderFns = require("bc3ec381bf5ab633").staticRenderFns;
-    script._scopeId = "data-v-4065af";
+    script._scopeId = "data-v-4a5864";
     script.__cssModules = require("1d8a6cd1a6fd0e18").default;
     require("f88853d207c46835").default(script);
-    script.__scopeId = "data-v-4065af";
+    script.__scopeId = "data-v-4a5864";
     script.__file = "displayList.vue";
 };
 initialize();
@@ -8134,10 +7973,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("6e100a5ae0d4b462").render;
     script.staticRenderFns = require("6e100a5ae0d4b462").staticRenderFns;
-    script._scopeId = "data-v-f07513";
+    script._scopeId = "data-v-a90295";
     script.__cssModules = require("b56a7815c8ad81ab").default;
     require("e0ffcb63798e1e1d").default(script);
-    script.__scopeId = "data-v-f07513";
+    script.__scopeId = "data-v-a90295";
     script.__file = "paramsUploaded.vue";
 };
 initialize();
@@ -8301,10 +8140,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("10988aafa6f69fef").render;
     script.staticRenderFns = require("10988aafa6f69fef").staticRenderFns;
-    script._scopeId = "data-v-eb2f91";
+    script._scopeId = "data-v-886f9e";
     script.__cssModules = require("e4999cb96603f9b9").default;
     require("79a4d7a2d8ea7b73").default(script);
-    script.__scopeId = "data-v-eb2f91";
+    script.__scopeId = "data-v-886f9e";
     script.__file = "createParamsComponent.vue";
 };
 initialize();
@@ -8589,10 +8428,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("3db377a62bfc2c7").render;
     script.staticRenderFns = require("3db377a62bfc2c7").staticRenderFns;
-    script._scopeId = "data-v-60c269";
+    script._scopeId = "data-v-0e09d1";
     script.__cssModules = require("168d54d6168f7291").default;
     require("b9952c511c9f76a2").default(script);
-    script.__scopeId = "data-v-60c269";
+    script.__scopeId = "data-v-0e09d1";
     script.__file = "importAttributeExcelDialog.vue";
 };
 initialize();
@@ -8878,9 +8717,9 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("d5434d80edd7880f").render;
     script.staticRenderFns = require("d5434d80edd7880f").staticRenderFns;
-    script._scopeId = "data-v-f47229";
+    script._scopeId = "data-v-ea7939";
     require("f98687c4f475aa42").default(script);
-    script.__scopeId = "data-v-f47229";
+    script.__scopeId = "data-v-ea7939";
     script.__file = "export.vue";
 };
 initialize();
@@ -8992,10 +8831,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("d89bd9f4f36716c3").render;
     script.staticRenderFns = require("d89bd9f4f36716c3").staticRenderFns;
-    script._scopeId = "data-v-6adad1";
+    script._scopeId = "data-v-25a896";
     script.__cssModules = require("b61c528dbf711a75").default;
     require("f498859b9203edf6").default(script);
-    script.__scopeId = "data-v-6adad1";
+    script.__scopeId = "data-v-25a896";
     script.__file = "import.vue";
 };
 initialize();
@@ -9254,10 +9093,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("8afb3aa690dc9fbb").render;
     script.staticRenderFns = require("8afb3aa690dc9fbb").staticRenderFns;
-    script._scopeId = "data-v-9834ef";
+    script._scopeId = "data-v-a9d8f7";
     script.__cssModules = require("70e107926612c471").default;
     require("81f26c8cb4e544fd").default(script);
-    script.__scopeId = "data-v-9834ef";
+    script.__scopeId = "data-v-a9d8f7";
     script.__file = "configurations.vue";
 };
 initialize();
@@ -9517,10 +9356,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("a872d0763a5bb0b7").render;
     script.staticRenderFns = require("a872d0763a5bb0b7").staticRenderFns;
-    script._scopeId = "data-v-72a62f";
+    script._scopeId = "data-v-c7e730";
     script.__cssModules = require("dc635b68836fb558").default;
     require("d819cc33b8528386").default(script);
-    script.__scopeId = "data-v-72a62f";
+    script.__scopeId = "data-v-c7e730";
     script.__file = "select-type.vue";
 };
 initialize();
@@ -10011,263 +9850,7 @@ class OpenAttributeManagerPanel extends (0, _spinalEnvViewerContextMenuService.S
 }
 exports.default = OpenAttributeManagerPanel;
 
-},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-panel-manager-service":"7Uw4d","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"kHlxv":[function(require,module,exports) {
-/*
- * Copyright 2018 SpinalCom - www.spinalcom.com
- *
- * This file is part of SpinalCore.
- *
- * Please read all of the following terms and conditions
- * of the Free Software license Agreement ("Agreement")
- * carefully.
- *
- * This Agreement is a legally binding contract between
- * the Licensee (as defined below) and SpinalCom that
- * sets forth the terms and conditions that govern your
- * use of the Program. By installing and/or using the
- * Program, you agree to abide by all the terms and
- * conditions stated or referenced herein.
- *
- * If you do not agree to abide by these terms and
- * conditions, do not demonstrate your acceptance and do
- * not install or use the Program.
- * You should have received a copy of the license along
- * with this file. If not, see
- * <http://resources.spinalcom.com/licenses.pdf>.
- */ var global = arguments[3];
-const G_root = typeof window == "undefined" ? global : window;
-const SpinalContextMenuService = require("68897565c96c24c9");
-const SpinalContextApp = require("b2a1734f0374b803");
-const Constant = require("dd9afb352261d691");
-if (typeof G_root.spinal === "undefined") G_root.spinal = {};
-if (typeof G_root.spinal.spinalContextMenuService === "undefined") G_root.spinal.spinalContextMenuService = new SpinalContextMenuService();
-module.exports = {
-    constants: Constant,
-    spinalContextMenuService: G_root.spinal.spinalContextMenuService,
-    SpinalContextApp,
-    install (Vue) {
-        Vue.prototype.$spinalContextMenuService = G_root.spinal.spinalContextMenuService;
-    }
-};
-
-},{"68897565c96c24c9":"iqJit","b2a1734f0374b803":"kAFNM","dd9afb352261d691":"gmus8"}],"iqJit":[function(require,module,exports) {
-/*
- * Copyright 2018 SpinalCom - www.spinalcom.com
- *
- * This file is part of SpinalCore.
- *
- * Please read all of the following terms and conditions
- * of the Free Software license Agreement ("Agreement")
- * carefully.
- *
- * This Agreement is a legally binding contract between
- * the Licensee (as defined below) and SpinalCom that
- * sets forth the terms and conditions that govern your
- * use of the Program. By installing and/or using the
- * Program, you agree to abide by all the terms and
- * conditions stated or referenced herein.
- *
- * If you do not agree to abide by these terms and
- * conditions, do not demonstrate your acceptance and do
- * not install or use the Program.
- * You should have received a copy of the license along
- * with this file. If not, see
- * <http://resources.spinalcom.com/licenses.pdf>.
- */ var _q = require("q");
-var debounce = require("381613c6219f7bf2");
-/**
- *  Containter like service to register and get applications relative to a hookname
- *
- * @property {object} apps key = hookname, value array of apps
- * @class SpinalContextMenuService
- */ class SpinalContextMenuService {
-    /**
-   *Creates an instance of SpinalContextMenuService.
-   * @memberof SpinalContextMenuService
-   */ constructor(){
-        this.apps = {};
-        this.promiseByAppProfileId = {};
-        this.appRdy = _q.defer();
-        this.debouncedRdy = debounce(()=>{
-            this.appRdy.resolve();
-            this.debouncedRdy = ()=>{};
-        }, 1000, {
-            leading: false,
-            trailing: true
-        });
-    }
-    // waitRdy() {
-    //   this.appRdy.promise;
-    // }
-    /**
-   * Return true if user has access to this appProfile
-   * @param appProfileId
-   * @return {PromiseLike<boolean > | Promise<boolean>}
-   */ async hasUserRight(appProfileId) {
-        this.debouncedRdy();
-        await window.spinal.spinalSystem.init();
-        const path = "/etc/UserProfileDir/" + window.spinal.spinalSystem.getUser().username;
-        const userProfile = await window.spinal.spinalSystem.load(path);
-        let res = false;
-        if (userProfile) for(let i = 0; i < userProfile.appProfiles.length && !res; i++)res = (1 << userProfile.appProfiles[i] & appProfileId) !== 0;
-        return res;
-    }
-    /**
-   * method to register the Application to a hook
-   *
-   * @param {string} hookname the place where is application button is located
-   * @param {SpinalContextApp} spinalContextApp the application
-   * @param {number} appProfileId id of the group that can use the application
-   * button
-   * @memberof SpinalContextMenuService
-   */ registerApp(hookname, spinalContextApp, appProfileId) {
-        this.debouncedRdy();
-        if (typeof appProfileId === "undefined") {
-            console.warn("Deprecated: The usage of this function without the third parameter appProfileId is deprecated your button is lock for admin only until you set the third parameter");
-            appProfileId = 1;
-        }
-        // get the array of apps of the hook
-        let appsInHooks = this.apps[hookname];
-        // create the array if not exist
-        if (!(appsInHooks instanceof Array)) appsInHooks = this.apps[hookname] = [];
-        if (!this.promiseByAppProfileId.hasOwnProperty(appProfileId)) this.promiseByAppProfileId[appProfileId] = this.hasUserRight(appProfileId);
-        this.promiseByAppProfileId[appProfileId].then((hasAccess)=>{
-            // push the app if not exist ans user has access to the button
-            if (hasAccess && appsInHooks.indexOf(spinalContextApp) === -1) appsInHooks.push(spinalContextApp);
-        });
-    }
-    /**
-   * method to get the applications registered to a hookname
-   *
-   * @param {String} hookname
-   * @param {object} option
-   * @memberof SpinalContextMenuService
-   * @returns {Promise} resolve : [spinalContextApp, ...]; reject: Error
-   */ async getApps(hookname, option) {
-        await this.appRdy.promise;
-        // get the array of apps of the hook
-        let appsInHooks = this.apps[hookname];
-        // create the array if not exist
-        if (!(appsInHooks instanceof Array)) return Promise.resolve([]);
-        let promises = appsInHooks.map(async function(e, idx) {
-            try {
-                const res = await e.isShown(option);
-                return res === -1 ? -1 : e;
-            } catch (error) {
-                console.error(error);
-                return -1;
-            }
-        });
-        try {
-            const appRes = await Promise.all(promises);
-            return appRes.filter((itm)=>itm !== -1);
-        } catch (error) {
-            console.error(error);
-            return [];
-        }
-    }
-}
-module.exports = SpinalContextMenuService;
-
-},{"q":"6YRAJ","381613c6219f7bf2":"3JP5n"}],"kAFNM":[function(require,module,exports) {
-/*
- * Copyright 2018 SpinalCom - www.spinalcom.com
- *
- * This file is part of SpinalCore.
- *
- * Please read all of the following terms and conditions
- * of the Free Software license Agreement ("Agreement")
- * carefully.
- *
- * This Agreement is a legally binding contract between
- * the Licensee (as defined below) and SpinalCom that
- * sets forth the terms and conditions that govern your
- * use of the Program. By installing and/or using the
- * Program, you agree to abide by all the terms and
- * conditions stated or referenced herein.
- *
- * If you do not agree to abide by these terms and
- * conditions, do not demonstrate your acceptance and do
- * not install or use the Program.
- * You should have received a copy of the license along
- * with this file. If not, see
- * <http://resources.spinalcom.com/licenses.pdf>.
- */ /**
- *  Interface like class to define a Contextual Application button
- * @see https://material.io/tools/icons/?style=baseline for material icons
- *
- * @class SpinalContextApp
- * @property {string} label=notset short name to be shown in the application
- * @property {string} description description of what the Application button do
- * @property {object} buttonCfg Object configuration of the Application button
- * @property {string} buttonCfg.icon=tab can be a font-awsome or material icon string
- * @property {string} buttonCfg.icon_type=in Where to place the icon in the `md-icon`. Should be one of theses `class`, `in`, `src`
- * @property {string} buttonCfg.backgroundColor=#0000FF backgroud color of the button
- * @property {string} buttonCfg.fontColor=#FFFFFF font color of the button
- * @property {objet} [badgeCfg] Object configuration of the Application button badge
- * @property {string} badgeCfg.label string shown in a badge; if empty it's not shown
- * @property {string} badgeCfg.backgroundColor=#FF0000 backgroud color of the badge
- * @property {string} badgeCfg.fontColor=#FFFFFF font color of the badge
- */ class SpinalContextApp {
-    /**
-   * Creates an instance of SpinalContextApp.
-   * @param {string} label=notset short name to be shown in the application
-   * @param {string} description description of what the Application button do
-   * @param {object} buttonCfg Object configuration of the Application button
-   * @param {string} buttonCfg.icon=tab can be a font-awsome or material icon string
-   * @param {string} buttonCfg.icon_type=in Where to place the icon in the `md-icon`. Should be one of theses `class`, `in`, `src`
-   * @param {string} buttonCfg.backgroundColor=#0000FF backgroud color of the button
-   * @param {string} buttonCfg.fontColor=#FFFFFF font color of the button
-   * @param {objet} [badgeCfg] Object configuration of the Application button badge
-   * @param {string} badgeCfg.label string shown in a badge; if empty it's not shown
-   * @param {string} badgeCfg.backgroundColor=#FF0000 backgroud color of the badge
-   * @param {string} badgeCfg.fontColor=#FFFFFF font color of the badge
-   * @memberof SpinalContextApp
-   */ constructor(label, description, buttonCfg, badgeCfg = {}){
-        this.label = label || "notset";
-        this.description = description || "";
-        this.buttonCfg = {
-            icon: buttonCfg.icon || "tab",
-            icon_type: buttonCfg.icon_type || "in",
-            backgroundColor: colorHash(buttonCfg.backgroundColor || "#0000FF"),
-            fontColor: colorHash(buttonCfg.fontColor || "#FFFFFF")
-        };
-        this.badgeCfg = {
-            label: badgeCfg.label || "",
-            backgroundColor: colorHash(badgeCfg.backgroundColor || "#FF0000"),
-            fontColor: colorHash(badgeCfg.fontColor || "#FFFFFF")
-        };
-    }
-    /**
-   * Method called by `SpinalContextMenuService.getApps`
-   * to filter the Application button to show in the context hook
-   *
-   * @param {object} option
-   * @memberof SpinalContextApp
-   * @returns {Promise} Resolve: not shown if === -1;
-   */ isShown(option) {}
-    /**
-   * Method to call on click of the application button
-   *
-   * @param {object} option {}
-   * @memberof SpinalContextApp
-   */ action(option) {}
-}
-module.exports = SpinalContextApp;
-function colorHash(color) {
-    if (color[0] === "#") return color;
-    return "#" + color;
-}
-
-},{}],"gmus8":[function(require,module,exports) {
-module.exports = {
-    ADMINISTRATEUR: "ADMINISTRATEUR",
-    MAINTENEUR: "MAINTENEUR",
-    INTEGRATEUR: "INTEGRATEUR",
-    ASSET_MANAGEUR: "ASSET MANAGER"
-};
-
-},{}],"56tJp":[function(require,module,exports) {
+},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-panel-manager-service":"7Uw4d","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"56tJp":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerContextMenuService = require("spinal-env-viewer-context-menu-service");
@@ -10338,9 +9921,6 @@ class OpenSelectTypePanel extends (0, _spinalEnvViewerContextMenuService.SpinalC
 }
 exports.default = OpenSelectTypePanel;
 
-},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-panel-manager-service":"7Uw4d","spinal-env-viewer-graph-service":"9n7zp","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jhUEF":[function(require,module,exports) {
-"use strict";
-
-},{}]},[], null, "parcelRequire02e5")
+},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-panel-manager-service":"7Uw4d","spinal-env-viewer-graph-service":"9n7zp","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},[], null, "parcelRequire02e5")
 
 //# sourceMappingURL=spinal-env-viewer-plugin-attribute-manager.d55131e7.js.map

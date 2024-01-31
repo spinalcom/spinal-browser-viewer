@@ -1,47 +1,47 @@
-.spinal-setup-organ-body[data-v-1ffcc8] {
+.spinal-setup-organ-body[data-v-8ce008] {
   height: 100%;
   position: relative;
   overflow: hidden;
 }
 
-.spinal-setup-organ-container[data-v-1ffcc8] {
+.spinal-setup-organ-container[data-v-8ce008] {
   height: calc(100% - 50px);
   position: relative;
   overflow: auto;
 }
 
-.spinal-setup-equip-body[data-v-75bddd] {
+.spinal-setup-equip-body[data-v-8a60be] {
   height: 100%;
   position: relative;
   overflow: hidden;
 }
 
-.spinal-setup-equip-container[data-v-75bddd] {
+.spinal-setup-equip-container[data-v-8a60be] {
   height: calc(100% - 50px);
   position: relative;
   overflow: auto;
 }
 
-.LinkAndManageContextTicketMission-body[data-v-2a72d7] {
+.LinkAndManageContextTicketMission-body[data-v-7f56c0] {
   height: calc(100% - 17px);
   position: relative;
   overflow: auto;
 }
 
-.spinal-modal-progress-bar[data-v-2a72d7] {
+.spinal-modal-progress-bar[data-v-7f56c0] {
   z-index: 1;
   margin: 0;
   position: absolute;
   bottom: 2px;
 }
 
-.LinkAndManageContextTicketMission-card[data-v-2a72d7] {
+.LinkAndManageContextTicketMission-card[data-v-7f56c0] {
   height: 100%;
   position: relative;
   overflow: hidden;
 }
 
-.LinkAndManageContextTicketMission-card-container[data-v-2a72d7] {
+.LinkAndManageContextTicketMission-card-container[data-v-7f56c0] {
   height: calc(100% - 50px);
   position: relative;
   overflow: auto;

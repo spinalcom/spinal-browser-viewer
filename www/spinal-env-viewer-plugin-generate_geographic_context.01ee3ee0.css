@@ -1,20 +1,20 @@
-#div-level[data-v-5ee8db] {
+#div-level[data-v-f1d322] {
   display: flex;
 }
 
-#level-field[data-v-5ee8db], #param-field[data-v-5ee8db] {
+#level-field[data-v-f1d322], #param-field[data-v-f1d322] {
   margin-right: 20px;
 }
 
-.button-add-level[data-v-84c7af] {
+.button-add-level[data-v-3a7d2d] {
   width: 45%;
 }
 
-#launch-step[data-v-1ccbe0] {
+#launch-step[data-v-ac59c0] {
   text-align: center;
 }
 
-#progress-bar[data-v-1ccbe0] {
+#progress-bar[data-v-ac59c0] {
   height: 20px;
 }
 
@@ -26,7 +26,7 @@ div#steppers {
   box-sizing: border-box;
 }
 
-#context-name[data-v-aac40e] {
+#context-name[data-v-02e99d] {
   text-align: center;
 }
 

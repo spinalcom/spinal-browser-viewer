@@ -184,263 +184,7 @@ const createControlEndpointContext = new CreateControlEndpointContextButton();
 ]);
 exports.default = createControlEndpointContext;
 
-},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-panel-manager-service":"7Uw4d","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"kHlxv":[function(require,module,exports) {
-/*
- * Copyright 2018 SpinalCom - www.spinalcom.com
- *
- * This file is part of SpinalCore.
- *
- * Please read all of the following terms and conditions
- * of the Free Software license Agreement ("Agreement")
- * carefully.
- *
- * This Agreement is a legally binding contract between
- * the Licensee (as defined below) and SpinalCom that
- * sets forth the terms and conditions that govern your
- * use of the Program. By installing and/or using the
- * Program, you agree to abide by all the terms and
- * conditions stated or referenced herein.
- *
- * If you do not agree to abide by these terms and
- * conditions, do not demonstrate your acceptance and do
- * not install or use the Program.
- * You should have received a copy of the license along
- * with this file. If not, see
- * <http://resources.spinalcom.com/licenses.pdf>.
- */ var global = arguments[3];
-const G_root = typeof window == "undefined" ? global : window;
-const SpinalContextMenuService = require("68897565c96c24c9");
-const SpinalContextApp = require("b2a1734f0374b803");
-const Constant = require("dd9afb352261d691");
-if (typeof G_root.spinal === "undefined") G_root.spinal = {};
-if (typeof G_root.spinal.spinalContextMenuService === "undefined") G_root.spinal.spinalContextMenuService = new SpinalContextMenuService();
-module.exports = {
-    constants: Constant,
-    spinalContextMenuService: G_root.spinal.spinalContextMenuService,
-    SpinalContextApp,
-    install (Vue) {
-        Vue.prototype.$spinalContextMenuService = G_root.spinal.spinalContextMenuService;
-    }
-};
-
-},{"68897565c96c24c9":"iqJit","b2a1734f0374b803":"kAFNM","dd9afb352261d691":"gmus8"}],"iqJit":[function(require,module,exports) {
-/*
- * Copyright 2018 SpinalCom - www.spinalcom.com
- *
- * This file is part of SpinalCore.
- *
- * Please read all of the following terms and conditions
- * of the Free Software license Agreement ("Agreement")
- * carefully.
- *
- * This Agreement is a legally binding contract between
- * the Licensee (as defined below) and SpinalCom that
- * sets forth the terms and conditions that govern your
- * use of the Program. By installing and/or using the
- * Program, you agree to abide by all the terms and
- * conditions stated or referenced herein.
- *
- * If you do not agree to abide by these terms and
- * conditions, do not demonstrate your acceptance and do
- * not install or use the Program.
- * You should have received a copy of the license along
- * with this file. If not, see
- * <http://resources.spinalcom.com/licenses.pdf>.
- */ var _q = require("q");
-var debounce = require("381613c6219f7bf2");
-/**
- *  Containter like service to register and get applications relative to a hookname
- *
- * @property {object} apps key = hookname, value array of apps
- * @class SpinalContextMenuService
- */ class SpinalContextMenuService {
-    /**
-   *Creates an instance of SpinalContextMenuService.
-   * @memberof SpinalContextMenuService
-   */ constructor(){
-        this.apps = {};
-        this.promiseByAppProfileId = {};
-        this.appRdy = _q.defer();
-        this.debouncedRdy = debounce(()=>{
-            this.appRdy.resolve();
-            this.debouncedRdy = ()=>{};
-        }, 1000, {
-            leading: false,
-            trailing: true
-        });
-    }
-    // waitRdy() {
-    //   this.appRdy.promise;
-    // }
-    /**
-   * Return true if user has access to this appProfile
-   * @param appProfileId
-   * @return {PromiseLike<boolean > | Promise<boolean>}
-   */ async hasUserRight(appProfileId) {
-        this.debouncedRdy();
-        await window.spinal.spinalSystem.init();
-        const path = "/etc/UserProfileDir/" + window.spinal.spinalSystem.getUser().username;
-        const userProfile = await window.spinal.spinalSystem.load(path);
-        let res = false;
-        if (userProfile) for(let i = 0; i < userProfile.appProfiles.length && !res; i++)res = (1 << userProfile.appProfiles[i] & appProfileId) !== 0;
-        return res;
-    }
-    /**
-   * method to register the Application to a hook
-   *
-   * @param {string} hookname the place where is application button is located
-   * @param {SpinalContextApp} spinalContextApp the application
-   * @param {number} appProfileId id of the group that can use the application
-   * button
-   * @memberof SpinalContextMenuService
-   */ registerApp(hookname, spinalContextApp, appProfileId) {
-        this.debouncedRdy();
-        if (typeof appProfileId === "undefined") {
-            console.warn("Deprecated: The usage of this function without the third parameter appProfileId is deprecated your button is lock for admin only until you set the third parameter");
-            appProfileId = 1;
-        }
-        // get the array of apps of the hook
-        let appsInHooks = this.apps[hookname];
-        // create the array if not exist
-        if (!(appsInHooks instanceof Array)) appsInHooks = this.apps[hookname] = [];
-        if (!this.promiseByAppProfileId.hasOwnProperty(appProfileId)) this.promiseByAppProfileId[appProfileId] = this.hasUserRight(appProfileId);
-        this.promiseByAppProfileId[appProfileId].then((hasAccess)=>{
-            // push the app if not exist ans user has access to the button
-            if (hasAccess && appsInHooks.indexOf(spinalContextApp) === -1) appsInHooks.push(spinalContextApp);
-        });
-    }
-    /**
-   * method to get the applications registered to a hookname
-   *
-   * @param {String} hookname
-   * @param {object} option
-   * @memberof SpinalContextMenuService
-   * @returns {Promise} resolve : [spinalContextApp, ...]; reject: Error
-   */ async getApps(hookname, option) {
-        await this.appRdy.promise;
-        // get the array of apps of the hook
-        let appsInHooks = this.apps[hookname];
-        // create the array if not exist
-        if (!(appsInHooks instanceof Array)) return Promise.resolve([]);
-        let promises = appsInHooks.map(async function(e, idx) {
-            try {
-                const res = await e.isShown(option);
-                return res === -1 ? -1 : e;
-            } catch (error) {
-                console.error(error);
-                return -1;
-            }
-        });
-        try {
-            const appRes = await Promise.all(promises);
-            return appRes.filter((itm)=>itm !== -1);
-        } catch (error) {
-            console.error(error);
-            return [];
-        }
-    }
-}
-module.exports = SpinalContextMenuService;
-
-},{"q":"6YRAJ","381613c6219f7bf2":"3JP5n"}],"kAFNM":[function(require,module,exports) {
-/*
- * Copyright 2018 SpinalCom - www.spinalcom.com
- *
- * This file is part of SpinalCore.
- *
- * Please read all of the following terms and conditions
- * of the Free Software license Agreement ("Agreement")
- * carefully.
- *
- * This Agreement is a legally binding contract between
- * the Licensee (as defined below) and SpinalCom that
- * sets forth the terms and conditions that govern your
- * use of the Program. By installing and/or using the
- * Program, you agree to abide by all the terms and
- * conditions stated or referenced herein.
- *
- * If you do not agree to abide by these terms and
- * conditions, do not demonstrate your acceptance and do
- * not install or use the Program.
- * You should have received a copy of the license along
- * with this file. If not, see
- * <http://resources.spinalcom.com/licenses.pdf>.
- */ /**
- *  Interface like class to define a Contextual Application button
- * @see https://material.io/tools/icons/?style=baseline for material icons
- *
- * @class SpinalContextApp
- * @property {string} label=notset short name to be shown in the application
- * @property {string} description description of what the Application button do
- * @property {object} buttonCfg Object configuration of the Application button
- * @property {string} buttonCfg.icon=tab can be a font-awsome or material icon string
- * @property {string} buttonCfg.icon_type=in Where to place the icon in the `md-icon`. Should be one of theses `class`, `in`, `src`
- * @property {string} buttonCfg.backgroundColor=#0000FF backgroud color of the button
- * @property {string} buttonCfg.fontColor=#FFFFFF font color of the button
- * @property {objet} [badgeCfg] Object configuration of the Application button badge
- * @property {string} badgeCfg.label string shown in a badge; if empty it's not shown
- * @property {string} badgeCfg.backgroundColor=#FF0000 backgroud color of the badge
- * @property {string} badgeCfg.fontColor=#FFFFFF font color of the badge
- */ class SpinalContextApp {
-    /**
-   * Creates an instance of SpinalContextApp.
-   * @param {string} label=notset short name to be shown in the application
-   * @param {string} description description of what the Application button do
-   * @param {object} buttonCfg Object configuration of the Application button
-   * @param {string} buttonCfg.icon=tab can be a font-awsome or material icon string
-   * @param {string} buttonCfg.icon_type=in Where to place the icon in the `md-icon`. Should be one of theses `class`, `in`, `src`
-   * @param {string} buttonCfg.backgroundColor=#0000FF backgroud color of the button
-   * @param {string} buttonCfg.fontColor=#FFFFFF font color of the button
-   * @param {objet} [badgeCfg] Object configuration of the Application button badge
-   * @param {string} badgeCfg.label string shown in a badge; if empty it's not shown
-   * @param {string} badgeCfg.backgroundColor=#FF0000 backgroud color of the badge
-   * @param {string} badgeCfg.fontColor=#FFFFFF font color of the badge
-   * @memberof SpinalContextApp
-   */ constructor(label, description, buttonCfg, badgeCfg = {}){
-        this.label = label || "notset";
-        this.description = description || "";
-        this.buttonCfg = {
-            icon: buttonCfg.icon || "tab",
-            icon_type: buttonCfg.icon_type || "in",
-            backgroundColor: colorHash(buttonCfg.backgroundColor || "#0000FF"),
-            fontColor: colorHash(buttonCfg.fontColor || "#FFFFFF")
-        };
-        this.badgeCfg = {
-            label: badgeCfg.label || "",
-            backgroundColor: colorHash(badgeCfg.backgroundColor || "#FF0000"),
-            fontColor: colorHash(badgeCfg.fontColor || "#FFFFFF")
-        };
-    }
-    /**
-   * Method called by `SpinalContextMenuService.getApps`
-   * to filter the Application button to show in the context hook
-   *
-   * @param {object} option
-   * @memberof SpinalContextApp
-   * @returns {Promise} Resolve: not shown if === -1;
-   */ isShown(option) {}
-    /**
-   * Method to call on click of the application button
-   *
-   * @param {object} option {}
-   * @memberof SpinalContextApp
-   */ action(option) {}
-}
-module.exports = SpinalContextApp;
-function colorHash(color) {
-    if (color[0] === "#") return color;
-    return "#" + color;
-}
-
-},{}],"gmus8":[function(require,module,exports) {
-module.exports = {
-    ADMINISTRATEUR: "ADMINISTRATEUR",
-    MAINTENEUR: "MAINTENEUR",
-    INTEGRATEUR: "INTEGRATEUR",
-    ASSET_MANAGEUR: "ASSET MANAGER"
-};
-
-},{}],"7Uw4d":[function(require,module,exports) {
+},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-panel-manager-service":"7Uw4d","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7Uw4d":[function(require,module,exports) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -832,168 +576,7 @@ const linkControlPointToGroup = new LinkControlPointToGroup();
 ]);
 exports.default = linkControlPointToGroup;
 
-},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-panel-manager-service":"7Uw4d","spinal-env-viewer-plugin-group-manager-service":"tSLpq","spinal-env-viewer-context-geographic-service/build/constants":"eV0id","../utilities/utitlities":"adP1U","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"eV0id":[function(require,module,exports) {
-"use strict";
-/*
- * Copyright 2023 SpinalCom - www.spinalcom.com
- *
- * This file is part of SpinalCore.
- *
- * Please read all of the following terms and conditions
- * of the Free Software license Agreement ("Agreement")
- * carefully.
- *
- * This Agreement is a legally binding contract between
- * the Licensee (as defined below) and SpinalCom that
- * sets forth the terms and conditions that govern your
- * use of the Program. By installing and/or using the
- * Program, you agree to abide by all the terms and
- * conditions stated or referenced herein.
- *
- * If you do not agree to abide by these terms and
- * conditions, do not demonstrate your acceptance and do
- * not install or use the Program.
- * You should have received a copy of the license along
- * with this file. If not, see
- * <http://resources.spinalcom.com/licenses.pdf>.
- */ Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.REFERENCE_ROOM_RELATION = exports.ROOM_REFERENCE_CONTEXT = exports.ZONE_REFERENCE_CONTEXT = exports.FLOOR_REFERENCE_CONTEXT = exports.BUILDING_REFERENCE_CONTEXT = exports.SITE_REFERENCE_CONTEXT = exports.REFERENCE_RELATION = exports.REFERENCE_TYPE = exports.MAP_RELATION_TYPE = exports.MAP_TYPE_RELATION = exports.GEOGRAPHIC_RELATIONS_ORDER = exports.EQUIPMENT_RELATION = exports.GEOGRAPHIC_RELATIONS = exports.ROOM_RELATION = exports.ZONE_RELATION = exports.FLOOR_RELATION = exports.BUILDING_RELATION = exports.SITE_RELATION = exports.GEOGRAPHIC_TYPES_ORDER = exports.EQUIPMENT_TYPE = exports.GEOGRAPHIC_TYPES = exports.ROOM_TYPE = exports.ZONE_TYPE = exports.FLOOR_TYPE = exports.BUILDING_TYPE = exports.SITE_TYPE = exports.CONTEXT_TYPE = void 0;
-const CONTEXT_TYPE = "geographicContext";
-exports.CONTEXT_TYPE = CONTEXT_TYPE;
-const SITE_TYPE = "geographicSite";
-exports.SITE_TYPE = SITE_TYPE;
-const BUILDING_TYPE = "geographicBuilding";
-exports.BUILDING_TYPE = BUILDING_TYPE;
-const FLOOR_TYPE = "geographicFloor";
-exports.FLOOR_TYPE = FLOOR_TYPE;
-const ZONE_TYPE = "geographicZone";
-exports.ZONE_TYPE = ZONE_TYPE;
-const ROOM_TYPE = "geographicRoom";
-exports.ROOM_TYPE = ROOM_TYPE;
-const EQUIPMENT_TYPE = "BIMObject";
-exports.EQUIPMENT_TYPE = EQUIPMENT_TYPE;
-const REFERENCE_TYPE = "geographicReference";
-exports.REFERENCE_TYPE = REFERENCE_TYPE;
-const SITE_RELATION = "hasGeographicSite";
-exports.SITE_RELATION = SITE_RELATION;
-const BUILDING_RELATION = "hasGeographicBuilding";
-exports.BUILDING_RELATION = BUILDING_RELATION;
-const FLOOR_RELATION = "hasGeographicFloor";
-exports.FLOOR_RELATION = FLOOR_RELATION;
-const ZONE_RELATION = "hasGeographicZone";
-exports.ZONE_RELATION = ZONE_RELATION;
-const ROOM_RELATION = "hasGeographicRoom";
-exports.ROOM_RELATION = ROOM_RELATION;
-const EQUIPMENT_RELATION = "hasBimObject";
-exports.EQUIPMENT_RELATION = EQUIPMENT_RELATION;
-const REFERENCE_RELATION = "hasReferenceObject";
-exports.REFERENCE_RELATION = REFERENCE_RELATION;
-const REFERENCE_ROOM_RELATION = "hasReferenceObject.ROOM";
-exports.REFERENCE_ROOM_RELATION = REFERENCE_ROOM_RELATION;
-const SITE_REFERENCE_CONTEXT = ".SiteContext";
-exports.SITE_REFERENCE_CONTEXT = SITE_REFERENCE_CONTEXT;
-const BUILDING_REFERENCE_CONTEXT = ".BuildingContext";
-exports.BUILDING_REFERENCE_CONTEXT = BUILDING_REFERENCE_CONTEXT;
-const FLOOR_REFERENCE_CONTEXT = ".FloorContext";
-exports.FLOOR_REFERENCE_CONTEXT = FLOOR_REFERENCE_CONTEXT;
-const ZONE_REFERENCE_CONTEXT = ".ZoneContext";
-exports.ZONE_REFERENCE_CONTEXT = ZONE_REFERENCE_CONTEXT;
-const ROOM_REFERENCE_CONTEXT = ".RoomContext";
-exports.ROOM_REFERENCE_CONTEXT = ROOM_REFERENCE_CONTEXT;
-const GEOGRAPHIC_TYPES = Object.freeze([
-    SITE_TYPE,
-    BUILDING_TYPE,
-    FLOOR_TYPE,
-    ZONE_TYPE,
-    ROOM_TYPE
-]);
-exports.GEOGRAPHIC_TYPES = GEOGRAPHIC_TYPES;
-const GEOGRAPHIC_TYPES_ORDER = Object.freeze([
-    CONTEXT_TYPE,
-    SITE_TYPE,
-    BUILDING_TYPE,
-    FLOOR_TYPE,
-    ZONE_TYPE,
-    ROOM_TYPE,
-    EQUIPMENT_TYPE
-]);
-exports.GEOGRAPHIC_TYPES_ORDER = GEOGRAPHIC_TYPES_ORDER;
-const GEOGRAPHIC_RELATIONS = Object.freeze([
-    SITE_RELATION,
-    BUILDING_RELATION,
-    FLOOR_RELATION,
-    ZONE_RELATION,
-    ROOM_RELATION,
-    EQUIPMENT_RELATION
-]);
-exports.GEOGRAPHIC_RELATIONS = GEOGRAPHIC_RELATIONS;
-const GEOGRAPHIC_RELATIONS_ORDER = Object.freeze([
-    SITE_RELATION,
-    BUILDING_RELATION,
-    FLOOR_RELATION,
-    ZONE_RELATION,
-    ROOM_RELATION,
-    EQUIPMENT_RELATION
-]);
-exports.GEOGRAPHIC_RELATIONS_ORDER = GEOGRAPHIC_RELATIONS_ORDER;
-const MAP_TYPE_RELATION = Object.freeze(new Map([
-    [
-        SITE_TYPE,
-        SITE_RELATION
-    ],
-    [
-        BUILDING_TYPE,
-        BUILDING_RELATION
-    ],
-    [
-        FLOOR_TYPE,
-        FLOOR_RELATION
-    ],
-    [
-        ZONE_TYPE,
-        ZONE_RELATION
-    ],
-    [
-        ROOM_TYPE,
-        ROOM_RELATION
-    ],
-    [
-        EQUIPMENT_TYPE,
-        EQUIPMENT_RELATION
-    ]
-]));
-exports.MAP_TYPE_RELATION = MAP_TYPE_RELATION;
-const MAP_RELATION_TYPE = Object.freeze(new Map([
-    [
-        SITE_RELATION,
-        SITE_TYPE
-    ],
-    [
-        BUILDING_RELATION,
-        BUILDING_TYPE
-    ],
-    [
-        FLOOR_RELATION,
-        FLOOR_TYPE
-    ],
-    [
-        ZONE_RELATION,
-        ZONE_TYPE
-    ],
-    [
-        ROOM_RELATION,
-        ROOM_TYPE
-    ],
-    [
-        EQUIPMENT_RELATION,
-        EQUIPMENT_TYPE
-    ]
-]));
-exports.MAP_RELATION_TYPE = MAP_RELATION_TYPE;
-
-},{}],"adP1U":[function(require,module,exports) {
+},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-panel-manager-service":"7Uw4d","spinal-env-viewer-plugin-group-manager-service":"tSLpq","spinal-env-viewer-context-geographic-service/build/constants":"eV0id","../utilities/utitlities":"adP1U","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"adP1U":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerGraphService = require("spinal-env-viewer-graph-service");
@@ -1269,10 +852,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("ea2a51db771c1536").render;
     script.staticRenderFns = require("ea2a51db771c1536").staticRenderFns;
-    script._scopeId = "data-v-c728a4";
+    script._scopeId = "data-v-7cbce0";
     script.__cssModules = require("911a671472c98f0f").default;
     require("2594acb2a852a3ae").default(script);
-    script.__scopeId = "data-v-c728a4";
+    script.__scopeId = "data-v-7cbce0";
     script.__file = "createContext.vue";
 };
 initialize();
@@ -1408,10 +991,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("1c7ec9cef2a50075").render;
     script.staticRenderFns = require("1c7ec9cef2a50075").staticRenderFns;
-    script._scopeId = "data-v-d3eaa1";
+    script._scopeId = "data-v-541c10";
     script.__cssModules = require("226bf9777e5ee3b2").default;
     require("a4d516f8f256f942").default(script);
-    script.__scopeId = "data-v-d3eaa1";
+    script.__scopeId = "data-v-541c10";
     script.__file = "createControlPoint.vue";
 };
 initialize();
@@ -1482,10 +1065,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("d06a8440e9003e1c").render;
     script.staticRenderFns = require("d06a8440e9003e1c").staticRenderFns;
-    script._scopeId = "data-v-21987b";
+    script._scopeId = "data-v-4ed1a1";
     script.__cssModules = require("1ea528785544b8df").default;
     require("525186675f1bb932").default(script);
-    script.__scopeId = "data-v-21987b";
+    script.__scopeId = "data-v-4ed1a1";
     script.__file = "controlPoints.vue";
 };
 initialize();
@@ -2156,10 +1739,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("c1c4f27b8c89466").render;
     script.staticRenderFns = require("c1c4f27b8c89466").staticRenderFns;
-    script._scopeId = "data-v-3103bb";
+    script._scopeId = "data-v-6b3c3d";
     script.__cssModules = require("de470a4b8effae67").default;
     require("9fd67831415c6600").default(script);
-    script.__scopeId = "data-v-3103bb";
+    script.__scopeId = "data-v-6b3c3d";
     script.__file = "configuration.vue";
 };
 initialize();
@@ -2264,10 +1847,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("5a08f1dae5a69e76").render;
     script.staticRenderFns = require("5a08f1dae5a69e76").staticRenderFns;
-    script._scopeId = "data-v-cd49e4";
+    script._scopeId = "data-v-823417";
     script.__cssModules = require("aa1bf42d398ff04e").default;
     require("a76c147145aa930d").default(script);
-    script.__scopeId = "data-v-cd49e4";
+    script.__scopeId = "data-v-823417";
     script.__file = "numberConfig.vue";
 };
 initialize();
@@ -4044,10 +3627,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("b5193516d7717b97").render;
     script.staticRenderFns = require("b5193516d7717b97").staticRenderFns;
-    script._scopeId = "data-v-c74d77";
+    script._scopeId = "data-v-34c343";
     script.__cssModules = require("123575a0a5ee048c").default;
     require("dfb0df8d42ff73c4").default(script);
-    script.__scopeId = "data-v-c74d77";
+    script.__scopeId = "data-v-34c343";
     script.__file = "booleanConfig.vue";
 };
 initialize();
@@ -4241,10 +3824,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("4ddf3f4fd87a64c4").render;
     script.staticRenderFns = require("4ddf3f4fd87a64c4").staticRenderFns;
-    script._scopeId = "data-v-7a4af8";
+    script._scopeId = "data-v-fefd7a";
     script.__cssModules = require("39b712e85a80d537").default;
     require("79b2a0a006b26751").default(script);
-    script.__scopeId = "data-v-7a4af8";
+    script.__scopeId = "data-v-fefd7a";
     script.__file = "enumConfig.vue";
 };
 initialize();
@@ -4489,10 +4072,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("1f920fb470f42ae3").render;
     script.staticRenderFns = require("1f920fb470f42ae3").staticRenderFns;
-    script._scopeId = "data-v-656d54";
+    script._scopeId = "data-v-b25aee";
     script.__cssModules = require("56ed21fc20d5c4e7").default;
     require("f71b04c8f68161c6").default(script);
-    script.__scopeId = "data-v-656d54";
+    script.__scopeId = "data-v-b25aee";
     script.__file = "linkControlPointDialog.vue";
 };
 initialize();
@@ -5283,10 +4866,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("b7caf7c3326f8962").render;
     script.staticRenderFns = require("b7caf7c3326f8962").staticRenderFns;
-    script._scopeId = "data-v-a4a4d2";
+    script._scopeId = "data-v-3d5862";
     script.__cssModules = require("422a24a2d1b43611").default;
     require("450f1b2ed133c683").default(script);
-    script.__scopeId = "data-v-a4a4d2";
+    script.__scopeId = "data-v-3d5862";
     script.__file = "linkTogroupTemplate.vue";
 };
 initialize();
@@ -6141,10 +5724,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("24ca93a65d97632a").render;
     script.staticRenderFns = require("24ca93a65d97632a").staticRenderFns;
-    script._scopeId = "data-v-8a8b91";
+    script._scopeId = "data-v-9920b9";
     script.__cssModules = require("b4adb5bb0d56c210").default;
     require("2c4eeea0810deed8").default(script);
-    script.__scopeId = "data-v-8a8b91";
+    script.__scopeId = "data-v-9920b9";
     script.__file = "selectGeoType.vue";
 };
 initialize();
@@ -6629,10 +6212,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("983154c142585fd0").render;
     script.staticRenderFns = require("983154c142585fd0").staticRenderFns;
-    script._scopeId = "data-v-fe1eb9";
+    script._scopeId = "data-v-93d1a5";
     script.__cssModules = require("77b7e1cc4f786525").default;
     require("42a58fb9b5b38fc0").default(script);
-    script.__scopeId = "data-v-fe1eb9";
+    script.__scopeId = "data-v-93d1a5";
     script.__file = "controlPointEdit.vue";
 };
 initialize();
@@ -6743,10 +6326,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("e0c4eaffd114d8e5").render;
     script.staticRenderFns = require("e0c4eaffd114d8e5").staticRenderFns;
-    script._scopeId = "data-v-5893ae";
+    script._scopeId = "data-v-a12f66";
     script.__cssModules = require("393caf86bba76c60").default;
     require("51784d02c9404db8").default(script);
-    script.__scopeId = "data-v-5893ae";
+    script.__scopeId = "data-v-a12f66";
     script.__file = "unLinkControlPointPanel.vue";
 };
 initialize();
@@ -6902,10 +6485,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("2197d627c4e45235").render;
     script.staticRenderFns = require("2197d627c4e45235").staticRenderFns;
-    script._scopeId = "data-v-a3d074";
+    script._scopeId = "data-v-1b89c9";
     script.__cssModules = require("1bf7e10a49c8dc29").default;
     require("4a9ad9773e5c61c9").default(script);
-    script.__scopeId = "data-v-a3d074";
+    script.__scopeId = "data-v-1b89c9";
     script.__file = "heatmap-container.vue";
 };
 initialize();
@@ -7014,10 +6597,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("b7ab112426355ef9").render;
     script.staticRenderFns = require("b7ab112426355ef9").staticRenderFns;
-    script._scopeId = "data-v-438436";
+    script._scopeId = "data-v-797538";
     script.__cssModules = require("720f20569cfe356e").default;
     require("21206b33b4eafe81").default(script);
-    script.__scopeId = "data-v-438436";
+    script.__scopeId = "data-v-797538";
     script.__file = "heatmap.vue";
 };
 initialize();

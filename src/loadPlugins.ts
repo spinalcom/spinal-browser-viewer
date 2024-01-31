@@ -22,7 +22,7 @@
  * <http://resources.spinalcom.com/licenses.pdf>.
  */
 
-// // for dev 
+// // for dev
 // import 'spinal-env-viewer-context-geographic';
 // import 'spinal-env-viewer-plugin-circular-menu';
 // // import 'spinal-env-viewer-plugin-dashboard-standard';
@@ -105,11 +105,22 @@ export function loadPlugins() {
     safeImport(import('spinal-env-viewer-plugin-generate-spatial-reference')),
     safeImport(import('spinal-env-viewer-plugin-attribute-manager')),
     safeImport(import('spinal-env-viewer-plugin-organ_ticket_mission')),
+    safeImport(import('spinal-env-viewer-context-menu-service')),
+    safeImport(import('spinal-env-viewer-plugin-group-manager-service')),
+    safeImport(import('spinal-env-viewer-plugin-pcvue-manager')),
+    safeImport(import('spinal-env-viewer-plugin-excel-manager-service')),
+    safeImport(
+      import('spinal-env-viewer-plugin-note-standard-buttons-service')
+    ),
+    safeImport(import('spinal-env-viewer-plugin-nomenclature-service')),
+    safeImport(import('spinal-env-viewer-context-geographic-service')),
+    safeImport(import('spinal-env-viewer-plugin-analysis')),
+
     // add plugins ex:
     // safeImport(import('spinal-env-viewer-plugin-attribute-manager')),
     // or
     // safeImport(import('./plugins/spinal-env-viewer-plugin-attribute-manager')),
   ];
 
-  // return Promise.all(plugins);
+  return Promise.all(plugins);
 }

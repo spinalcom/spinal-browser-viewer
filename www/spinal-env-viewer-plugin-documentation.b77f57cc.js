@@ -231,263 +231,7 @@ SpinalForgeExtention.registerExtention("url-right-click", (0, _documentationPane
 SpinalForgeExtention.registerExtention("delete-right-click", (0, _documentationPanelJs.deleteAutoUrlRightClick));
 (0, _documentationPanelJs.registerRightClickButton)();
 
-},{"a77090b7237ca305":"kHlxv","d994e4c01dc61fdd":"1mGHd","./buttonClass/standard_buttons/findMessageParent.js":"duwj3","./buttonClass/standard_buttons/isolateMessageParent.js":"hvUe8","./buttonClass/standard_buttons/zoomMessageParent.js":"leCTz","./buttonClass/messageDetail.js":"d566z","./buttonClass/seeMessage.js":"39MDB","./buttonClass/notesPanel.js":"1ZH5z","./view/notes/dialogs/registerDialogs.js":"iJGDm","./buttonClass/documentationPanel.js":"4J7A8","./view/rightClick/attributesRightClick.vue":"5TsHZ","spinal-env-viewer-panel-manager-service":"7Uw4d","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"kHlxv":[function(require,module,exports) {
-/*
- * Copyright 2018 SpinalCom - www.spinalcom.com
- *
- * This file is part of SpinalCore.
- *
- * Please read all of the following terms and conditions
- * of the Free Software license Agreement ("Agreement")
- * carefully.
- *
- * This Agreement is a legally binding contract between
- * the Licensee (as defined below) and SpinalCom that
- * sets forth the terms and conditions that govern your
- * use of the Program. By installing and/or using the
- * Program, you agree to abide by all the terms and
- * conditions stated or referenced herein.
- *
- * If you do not agree to abide by these terms and
- * conditions, do not demonstrate your acceptance and do
- * not install or use the Program.
- * You should have received a copy of the license along
- * with this file. If not, see
- * <http://resources.spinalcom.com/licenses.pdf>.
- */ var global = arguments[3];
-const G_root = typeof window == "undefined" ? global : window;
-const SpinalContextMenuService = require("68897565c96c24c9");
-const SpinalContextApp = require("b2a1734f0374b803");
-const Constant = require("dd9afb352261d691");
-if (typeof G_root.spinal === "undefined") G_root.spinal = {};
-if (typeof G_root.spinal.spinalContextMenuService === "undefined") G_root.spinal.spinalContextMenuService = new SpinalContextMenuService();
-module.exports = {
-    constants: Constant,
-    spinalContextMenuService: G_root.spinal.spinalContextMenuService,
-    SpinalContextApp,
-    install (Vue) {
-        Vue.prototype.$spinalContextMenuService = G_root.spinal.spinalContextMenuService;
-    }
-};
-
-},{"68897565c96c24c9":"iqJit","b2a1734f0374b803":"kAFNM","dd9afb352261d691":"gmus8"}],"iqJit":[function(require,module,exports) {
-/*
- * Copyright 2018 SpinalCom - www.spinalcom.com
- *
- * This file is part of SpinalCore.
- *
- * Please read all of the following terms and conditions
- * of the Free Software license Agreement ("Agreement")
- * carefully.
- *
- * This Agreement is a legally binding contract between
- * the Licensee (as defined below) and SpinalCom that
- * sets forth the terms and conditions that govern your
- * use of the Program. By installing and/or using the
- * Program, you agree to abide by all the terms and
- * conditions stated or referenced herein.
- *
- * If you do not agree to abide by these terms and
- * conditions, do not demonstrate your acceptance and do
- * not install or use the Program.
- * You should have received a copy of the license along
- * with this file. If not, see
- * <http://resources.spinalcom.com/licenses.pdf>.
- */ var _q = require("q");
-var debounce = require("381613c6219f7bf2");
-/**
- *  Containter like service to register and get applications relative to a hookname
- *
- * @property {object} apps key = hookname, value array of apps
- * @class SpinalContextMenuService
- */ class SpinalContextMenuService {
-    /**
-   *Creates an instance of SpinalContextMenuService.
-   * @memberof SpinalContextMenuService
-   */ constructor(){
-        this.apps = {};
-        this.promiseByAppProfileId = {};
-        this.appRdy = _q.defer();
-        this.debouncedRdy = debounce(()=>{
-            this.appRdy.resolve();
-            this.debouncedRdy = ()=>{};
-        }, 1000, {
-            leading: false,
-            trailing: true
-        });
-    }
-    // waitRdy() {
-    //   this.appRdy.promise;
-    // }
-    /**
-   * Return true if user has access to this appProfile
-   * @param appProfileId
-   * @return {PromiseLike<boolean > | Promise<boolean>}
-   */ async hasUserRight(appProfileId) {
-        this.debouncedRdy();
-        await window.spinal.spinalSystem.init();
-        const path = "/etc/UserProfileDir/" + window.spinal.spinalSystem.getUser().username;
-        const userProfile = await window.spinal.spinalSystem.load(path);
-        let res = false;
-        if (userProfile) for(let i = 0; i < userProfile.appProfiles.length && !res; i++)res = (1 << userProfile.appProfiles[i] & appProfileId) !== 0;
-        return res;
-    }
-    /**
-   * method to register the Application to a hook
-   *
-   * @param {string} hookname the place where is application button is located
-   * @param {SpinalContextApp} spinalContextApp the application
-   * @param {number} appProfileId id of the group that can use the application
-   * button
-   * @memberof SpinalContextMenuService
-   */ registerApp(hookname, spinalContextApp, appProfileId) {
-        this.debouncedRdy();
-        if (typeof appProfileId === "undefined") {
-            console.warn("Deprecated: The usage of this function without the third parameter appProfileId is deprecated your button is lock for admin only until you set the third parameter");
-            appProfileId = 1;
-        }
-        // get the array of apps of the hook
-        let appsInHooks = this.apps[hookname];
-        // create the array if not exist
-        if (!(appsInHooks instanceof Array)) appsInHooks = this.apps[hookname] = [];
-        if (!this.promiseByAppProfileId.hasOwnProperty(appProfileId)) this.promiseByAppProfileId[appProfileId] = this.hasUserRight(appProfileId);
-        this.promiseByAppProfileId[appProfileId].then((hasAccess)=>{
-            // push the app if not exist ans user has access to the button
-            if (hasAccess && appsInHooks.indexOf(spinalContextApp) === -1) appsInHooks.push(spinalContextApp);
-        });
-    }
-    /**
-   * method to get the applications registered to a hookname
-   *
-   * @param {String} hookname
-   * @param {object} option
-   * @memberof SpinalContextMenuService
-   * @returns {Promise} resolve : [spinalContextApp, ...]; reject: Error
-   */ async getApps(hookname, option) {
-        await this.appRdy.promise;
-        // get the array of apps of the hook
-        let appsInHooks = this.apps[hookname];
-        // create the array if not exist
-        if (!(appsInHooks instanceof Array)) return Promise.resolve([]);
-        let promises = appsInHooks.map(async function(e, idx) {
-            try {
-                const res = await e.isShown(option);
-                return res === -1 ? -1 : e;
-            } catch (error) {
-                console.error(error);
-                return -1;
-            }
-        });
-        try {
-            const appRes = await Promise.all(promises);
-            return appRes.filter((itm)=>itm !== -1);
-        } catch (error) {
-            console.error(error);
-            return [];
-        }
-    }
-}
-module.exports = SpinalContextMenuService;
-
-},{"q":"6YRAJ","381613c6219f7bf2":"3JP5n"}],"kAFNM":[function(require,module,exports) {
-/*
- * Copyright 2018 SpinalCom - www.spinalcom.com
- *
- * This file is part of SpinalCore.
- *
- * Please read all of the following terms and conditions
- * of the Free Software license Agreement ("Agreement")
- * carefully.
- *
- * This Agreement is a legally binding contract between
- * the Licensee (as defined below) and SpinalCom that
- * sets forth the terms and conditions that govern your
- * use of the Program. By installing and/or using the
- * Program, you agree to abide by all the terms and
- * conditions stated or referenced herein.
- *
- * If you do not agree to abide by these terms and
- * conditions, do not demonstrate your acceptance and do
- * not install or use the Program.
- * You should have received a copy of the license along
- * with this file. If not, see
- * <http://resources.spinalcom.com/licenses.pdf>.
- */ /**
- *  Interface like class to define a Contextual Application button
- * @see https://material.io/tools/icons/?style=baseline for material icons
- *
- * @class SpinalContextApp
- * @property {string} label=notset short name to be shown in the application
- * @property {string} description description of what the Application button do
- * @property {object} buttonCfg Object configuration of the Application button
- * @property {string} buttonCfg.icon=tab can be a font-awsome or material icon string
- * @property {string} buttonCfg.icon_type=in Where to place the icon in the `md-icon`. Should be one of theses `class`, `in`, `src`
- * @property {string} buttonCfg.backgroundColor=#0000FF backgroud color of the button
- * @property {string} buttonCfg.fontColor=#FFFFFF font color of the button
- * @property {objet} [badgeCfg] Object configuration of the Application button badge
- * @property {string} badgeCfg.label string shown in a badge; if empty it's not shown
- * @property {string} badgeCfg.backgroundColor=#FF0000 backgroud color of the badge
- * @property {string} badgeCfg.fontColor=#FFFFFF font color of the badge
- */ class SpinalContextApp {
-    /**
-   * Creates an instance of SpinalContextApp.
-   * @param {string} label=notset short name to be shown in the application
-   * @param {string} description description of what the Application button do
-   * @param {object} buttonCfg Object configuration of the Application button
-   * @param {string} buttonCfg.icon=tab can be a font-awsome or material icon string
-   * @param {string} buttonCfg.icon_type=in Where to place the icon in the `md-icon`. Should be one of theses `class`, `in`, `src`
-   * @param {string} buttonCfg.backgroundColor=#0000FF backgroud color of the button
-   * @param {string} buttonCfg.fontColor=#FFFFFF font color of the button
-   * @param {objet} [badgeCfg] Object configuration of the Application button badge
-   * @param {string} badgeCfg.label string shown in a badge; if empty it's not shown
-   * @param {string} badgeCfg.backgroundColor=#FF0000 backgroud color of the badge
-   * @param {string} badgeCfg.fontColor=#FFFFFF font color of the badge
-   * @memberof SpinalContextApp
-   */ constructor(label, description, buttonCfg, badgeCfg = {}){
-        this.label = label || "notset";
-        this.description = description || "";
-        this.buttonCfg = {
-            icon: buttonCfg.icon || "tab",
-            icon_type: buttonCfg.icon_type || "in",
-            backgroundColor: colorHash(buttonCfg.backgroundColor || "#0000FF"),
-            fontColor: colorHash(buttonCfg.fontColor || "#FFFFFF")
-        };
-        this.badgeCfg = {
-            label: badgeCfg.label || "",
-            backgroundColor: colorHash(badgeCfg.backgroundColor || "#FF0000"),
-            fontColor: colorHash(badgeCfg.fontColor || "#FFFFFF")
-        };
-    }
-    /**
-   * Method called by `SpinalContextMenuService.getApps`
-   * to filter the Application button to show in the context hook
-   *
-   * @param {object} option
-   * @memberof SpinalContextApp
-   * @returns {Promise} Resolve: not shown if === -1;
-   */ isShown(option) {}
-    /**
-   * Method to call on click of the application button
-   *
-   * @param {object} option {}
-   * @memberof SpinalContextApp
-   */ action(option) {}
-}
-module.exports = SpinalContextApp;
-function colorHash(color) {
-    if (color[0] === "#") return color;
-    return "#" + color;
-}
-
-},{}],"gmus8":[function(require,module,exports) {
-module.exports = {
-    ADMINISTRATEUR: "ADMINISTRATEUR",
-    MAINTENEUR: "MAINTENEUR",
-    INTEGRATEUR: "INTEGRATEUR",
-    ASSET_MANAGEUR: "ASSET MANAGER"
-};
-
-},{}],"1mGHd":[function(require,module,exports) {
+},{"a77090b7237ca305":"kHlxv","d994e4c01dc61fdd":"1mGHd","./buttonClass/standard_buttons/findMessageParent.js":"duwj3","./buttonClass/standard_buttons/isolateMessageParent.js":"hvUe8","./buttonClass/standard_buttons/zoomMessageParent.js":"leCTz","./buttonClass/messageDetail.js":"d566z","./buttonClass/seeMessage.js":"39MDB","./buttonClass/notesPanel.js":"1ZH5z","./view/notes/dialogs/registerDialogs.js":"iJGDm","./buttonClass/documentationPanel.js":"4J7A8","./view/rightClick/attributesRightClick.vue":"5TsHZ","spinal-env-viewer-panel-manager-service":"7Uw4d","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1mGHd":[function(require,module,exports) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -1788,10 +1532,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("7d22db4c4fcb5ffd").render;
     script.staticRenderFns = require("7d22db4c4fcb5ffd").staticRenderFns;
-    script._scopeId = "data-v-48bef6";
+    script._scopeId = "data-v-0746fd";
     script.__cssModules = require("92af2a3272474041").default;
     require("bd573c5b91ef6548").default(script);
-    script.__scopeId = "data-v-48bef6";
+    script.__scopeId = "data-v-0746fd";
     script.__file = "notesComponent.vue";
 };
 initialize();
@@ -1987,9 +1731,9 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("eff8d8f7d42daf8c").render;
     script.staticRenderFns = require("eff8d8f7d42daf8c").staticRenderFns;
-    script._scopeId = "data-v-ef1ae3";
+    script._scopeId = "data-v-515d2a";
     require("8f140d579b6a263c").default(script);
-    script.__scopeId = "data-v-ef1ae3";
+    script.__scopeId = "data-v-515d2a";
     script.__file = "messageDetailDialog.vue";
 };
 initialize();
@@ -2358,10 +2102,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("a2e91578ac897b37").render;
     script.staticRenderFns = require("a2e91578ac897b37").staticRenderFns;
-    script._scopeId = "data-v-e55b75";
+    script._scopeId = "data-v-b1475d";
     script.__cssModules = require("7ce88174b5134f7").default;
     require("51cf3e4d8fe9bf4d").default(script);
-    script.__scopeId = "data-v-e55b75";
+    script.__scopeId = "data-v-b1475d";
     script.__file = "documentationComponent.vue";
 };
 initialize();
@@ -2450,10 +2194,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("423b46146b18e6d3").render;
     script.staticRenderFns = require("423b46146b18e6d3").staticRenderFns;
-    script._scopeId = "data-v-1d7a8b";
+    script._scopeId = "data-v-73d335";
     script.__cssModules = require("b85aaa988e0b9e56").default;
     require("469f96b46380ad7b").default(script);
-    script.__scopeId = "data-v-1d7a8b";
+    script.__scopeId = "data-v-73d335";
     script.__file = "URLPanel.vue";
 };
 initialize();
@@ -2587,10 +2331,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("2aa69f678934ec1f").render;
     script.staticRenderFns = require("2aa69f678934ec1f").staticRenderFns;
-    script._scopeId = "data-v-8c11c4";
+    script._scopeId = "data-v-d9ab5e";
     script.__cssModules = require("6a9df5f988a34a62").default;
     require("fe224bfcc971bdf0").default(script);
-    script.__scopeId = "data-v-8c11c4";
+    script.__scopeId = "data-v-d9ab5e";
     script.__file = "menuURL.vue";
 };
 initialize();
@@ -3452,10 +3196,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("1809fc8e6f44fe2a").render;
     script.staticRenderFns = require("1809fc8e6f44fe2a").staticRenderFns;
-    script._scopeId = "data-v-e43dd7";
+    script._scopeId = "data-v-1f61dd";
     script.__cssModules = require("24ebbdf875886b7b").default;
     require("c6ac8098ef839022").default(script);
-    script.__scopeId = "data-v-e43dd7";
+    script.__scopeId = "data-v-1f61dd";
     script.__file = "FilePanel.vue";
 };
 initialize();
@@ -3868,10 +3612,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("99ddf3075a91abde").render;
     script.staticRenderFns = require("99ddf3075a91abde").staticRenderFns;
-    script._scopeId = "data-v-09f387";
+    script._scopeId = "data-v-8bae2a";
     script.__cssModules = require("852f2be99d1b5bdf").default;
     require("438ef9817b5d7e02").default(script);
-    script.__scopeId = "data-v-09f387";
+    script.__scopeId = "data-v-8bae2a";
     script.__file = "drive.vue";
 };
 initialize();
@@ -4036,10 +3780,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("31bb3753619f6af5").render;
     script.staticRenderFns = require("31bb3753619f6af5").staticRenderFns;
-    script._scopeId = "data-v-e6db37";
+    script._scopeId = "data-v-2aac06";
     script.__cssModules = require("1df0eb6b1e888354").default;
     require("24c4e604f25fd292").default(script);
-    script.__scopeId = "data-v-e6db37";
+    script.__scopeId = "data-v-2aac06";
     script.__file = "menuFile.vue";
 };
 initialize();
@@ -4361,10 +4105,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("c44633fbc28487d0").render;
     script.staticRenderFns = require("c44633fbc28487d0").staticRenderFns;
-    script._scopeId = "data-v-68ff72";
+    script._scopeId = "data-v-153544";
     script.__cssModules = require("9e76ff70e04276d").default;
     require("588edb7b2e629556").default(script);
-    script.__scopeId = "data-v-68ff72";
+    script.__scopeId = "data-v-153544";
     script.__file = "AttributesPanel.vue";
 };
 initialize();
@@ -4613,10 +4357,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("2d056e37131aa9b0").render;
     script.staticRenderFns = require("2d056e37131aa9b0").staticRenderFns;
-    script._scopeId = "data-v-2b2120";
+    script._scopeId = "data-v-84173d";
     script.__cssModules = require("e18dfeb72c197351").default;
     require("3f69a66644ba376f").default(script);
-    script.__scopeId = "data-v-2b2120";
+    script.__scopeId = "data-v-84173d";
     script.__file = "menuAttributes.vue";
 };
 initialize();
@@ -4825,10 +4569,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("d5dd34f5d136e608").render;
     script.staticRenderFns = require("d5dd34f5d136e608").staticRenderFns;
-    script._scopeId = "data-v-a367d9";
+    script._scopeId = "data-v-d9f1cf";
     script.__cssModules = require("f79be5066499e615").default;
     require("66da6889ba18ce42").default(script);
-    script.__scopeId = "data-v-a367d9";
+    script.__scopeId = "data-v-d9f1cf";
     script.__file = "menuCategoryAttributes.vue";
 };
 initialize();
@@ -4997,9 +4741,9 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("3ee21312686b29dd").render;
     script.staticRenderFns = require("3ee21312686b29dd").staticRenderFns;
-    script._scopeId = "data-v-6b17a3";
+    script._scopeId = "data-v-1a9448";
     require("33e377b78afec183").default(script);
-    script.__scopeId = "data-v-6b17a3";
+    script.__scopeId = "data-v-1a9448";
     script.__file = "attributesImport.vue";
 };
 initialize();
@@ -5696,10 +5440,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("f4bea1f5ab292e0d").render;
     script.staticRenderFns = require("f4bea1f5ab292e0d").staticRenderFns;
-    script._scopeId = "data-v-49f689";
+    script._scopeId = "data-v-e5fd3e";
     script.__cssModules = require("5bdc32c9703fb274").default;
     require("4d12c400f372a566").default(script);
-    script.__scopeId = "data-v-49f689";
+    script.__scopeId = "data-v-e5fd3e";
     script.__file = "attributesRightClick.vue";
 };
 initialize();
@@ -6106,10 +5850,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("1045a97a6aaa5ec2").render;
     script.staticRenderFns = require("1045a97a6aaa5ec2").staticRenderFns;
-    script._scopeId = "data-v-728be4";
+    script._scopeId = "data-v-af6bcd";
     script.__cssModules = require("8c96895a826e33cd").default;
     require("2ab6c443c5f18049").default(script);
-    script.__scopeId = "data-v-728be4";
+    script.__scopeId = "data-v-af6bcd";
     script.__file = "deleteUrlRightClick.vue";
 };
 initialize();
@@ -6275,10 +6019,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("728767cea8b96fd8").render;
     script.staticRenderFns = require("728767cea8b96fd8").staticRenderFns;
-    script._scopeId = "data-v-a73044";
+    script._scopeId = "data-v-5f87d6";
     script.__cssModules = require("544ed10279a9db05").default;
     require("443bb050b55fd38f").default(script);
-    script.__scopeId = "data-v-a73044";
+    script.__scopeId = "data-v-5f87d6";
     script.__file = "urlRightClick.vue";
 };
 initialize();

@@ -499,10 +499,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("ec9e9d020d7f4bcb").render;
     script.staticRenderFns = require("ec9e9d020d7f4bcb").staticRenderFns;
-    script._scopeId = "data-v-4c8161";
+    script._scopeId = "data-v-ca31f6";
     script.__cssModules = require("10daee165ae01077").default;
     require("af8ebc840a21556").default(script);
-    script.__scopeId = "data-v-4c8161";
+    script.__scopeId = "data-v-ca31f6";
     script.__file = "createContext.vue";
 };
 initialize();
@@ -1422,9 +1422,9 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("c24a548c376729f2").render;
     script.staticRenderFns = require("c24a548c376729f2").staticRenderFns;
-    script._scopeId = "data-v-723a9b";
+    script._scopeId = "data-v-35afef";
     require("566b53e63bcecc4").default(script);
-    script.__scopeId = "data-v-723a9b";
+    script.__scopeId = "data-v-35afef";
     script.__file = "createCategory.vue";
 };
 initialize();
@@ -1516,10 +1516,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("2c5c5bcba6efac90").render;
     script.staticRenderFns = require("2c5c5bcba6efac90").staticRenderFns;
-    script._scopeId = "data-v-8bf9bc";
+    script._scopeId = "data-v-9f9120";
     script.__cssModules = require("22ba047d630f6c4c").default;
     require("a39638afa74bb65a").default(script);
-    script.__scopeId = "data-v-8bf9bc";
+    script.__scopeId = "data-v-9f9120";
     script.__file = "iconsComponents.vue";
 };
 initialize();
@@ -1766,10 +1766,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("565b25f65fb50be1").render;
     script.staticRenderFns = require("565b25f65fb50be1").staticRenderFns;
-    script._scopeId = "data-v-dbad64";
+    script._scopeId = "data-v-2d9055";
     script.__cssModules = require("dfec2539a3c6a60d").default;
     require("4fcc7787d455ff8c").default(script);
-    script.__scopeId = "data-v-dbad64";
+    script.__scopeId = "data-v-2d9055";
     script.__file = "createGroup.vue";
 };
 initialize();
@@ -1980,9 +1980,9 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("edb82ec5d75c9aea").render;
     script.staticRenderFns = require("edb82ec5d75c9aea").staticRenderFns;
-    script._scopeId = "data-v-b71f9f";
+    script._scopeId = "data-v-f54ec5";
     require("18cf439fff259c3d").default(script);
-    script.__scopeId = "data-v-b71f9f";
+    script.__scopeId = "data-v-f54ec5";
     script.__file = "colorDialog.vue";
 };
 initialize();
@@ -2134,10 +2134,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("1ffc53427c81334f").render;
     script.staticRenderFns = require("1ffc53427c81334f").staticRenderFns;
-    script._scopeId = "data-v-1bc108";
+    script._scopeId = "data-v-aec7c6";
     script.__cssModules = require("f5d381085ce37970").default;
     require("bb38bc8fb4edb5f1").default(script);
-    script.__scopeId = "data-v-1bc108";
+    script.__scopeId = "data-v-aec7c6";
     script.__file = "linkToGroup.vue";
 };
 initialize();
@@ -2896,10 +2896,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("d3e3bb1a42a53864").render;
     script.staticRenderFns = require("d3e3bb1a42a53864").staticRenderFns;
-    script._scopeId = "data-v-41b24f";
+    script._scopeId = "data-v-e68179";
     script.__cssModules = require("bbad7ba8c9eb4c4e").default;
     require("7f9fb0dbfa4624e0").default(script);
-    script.__scopeId = "data-v-41b24f";
+    script.__scopeId = "data-v-e68179";
     script.__file = "linkToGroupTemplate.vue";
 };
 initialize();
@@ -3135,9 +3135,9 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("dc271c33c0bf3514").render;
     script.staticRenderFns = require("dc271c33c0bf3514").staticRenderFns;
-    script._scopeId = "data-v-7ab04c";
+    script._scopeId = "data-v-557186";
     require("b7c5eb87c99319e2").default(script);
-    script.__scopeId = "data-v-7ab04c";
+    script.__scopeId = "data-v-557186";
     script.__file = "selectTypeDialog.vue";
 };
 initialize();
@@ -3292,10 +3292,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("ef1a3b5139486e9f").render;
     script.staticRenderFns = require("ef1a3b5139486e9f").staticRenderFns;
-    script._scopeId = "data-v-f6298b";
+    script._scopeId = "data-v-bac87b";
     script.__cssModules = require("70cf4367fed8ec93").default;
     require("614b327400410b36").default(script);
-    script.__scopeId = "data-v-f6298b";
+    script.__scopeId = "data-v-bac87b";
     script.__file = "linkBimObjectToGroup.vue";
 };
 initialize();
@@ -3908,10 +3908,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("88141901a7166c42").render;
     script.staticRenderFns = require("88141901a7166c42").staticRenderFns;
-    script._scopeId = "data-v-44b74a";
+    script._scopeId = "data-v-5b2f2b";
     script.__cssModules = require("6bf14fe62dd069af").default;
     require("804cc20effe081a0").default(script);
-    script.__scopeId = "data-v-44b74a";
+    script.__scopeId = "data-v-5b2f2b";
     script.__file = "linkerDialog.vue";
 };
 initialize();
@@ -4259,10 +4259,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("a55057304c009daf").render;
     script.staticRenderFns = require("a55057304c009daf").staticRenderFns;
-    script._scopeId = "data-v-1938f5";
+    script._scopeId = "data-v-a9569c";
     script.__cssModules = require("2d5e0ae9625d8820").default;
     require("47789b8c34c4f055").default(script);
-    script.__scopeId = "data-v-1938f5";
+    script.__scopeId = "data-v-a9569c";
     script.__file = "globalLinkerPanel.vue";
 };
 initialize();
@@ -4403,9 +4403,9 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("2ddff52a76ece8f1").render;
     script.staticRenderFns = require("2ddff52a76ece8f1").staticRenderFns;
-    script._scopeId = "data-v-81dc41";
+    script._scopeId = "data-v-31fa8f";
     require("211e7debea324207").default(script);
-    script.__scopeId = "data-v-81dc41";
+    script.__scopeId = "data-v-31fa8f";
     script.__file = "tableComponent.vue";
 };
 initialize();
@@ -4470,9 +4470,9 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("2a29d62e4ae31698").render;
     script.staticRenderFns = require("2a29d62e4ae31698").staticRenderFns;
-    script._scopeId = "data-v-8f7d79";
+    script._scopeId = "data-v-37e0e8";
     require("bcc156f3ffc00546").default(script);
-    script.__scopeId = "data-v-8f7d79";
+    script.__scopeId = "data-v-37e0e8";
     script.__file = "checkBoxComponent.vue";
 };
 initialize();
@@ -4957,263 +4957,7 @@ const addBimObjectToGroup = new AddBimObjectToGroup();
 ]);
 exports.default = addBimObjectToGroup;
 
-},{"spinal-env-viewer-context-menu-service":"kHlxv","62eb59d75cca9bfa":"7Uw4d","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"kHlxv":[function(require,module,exports) {
-/*
- * Copyright 2018 SpinalCom - www.spinalcom.com
- *
- * This file is part of SpinalCore.
- *
- * Please read all of the following terms and conditions
- * of the Free Software license Agreement ("Agreement")
- * carefully.
- *
- * This Agreement is a legally binding contract between
- * the Licensee (as defined below) and SpinalCom that
- * sets forth the terms and conditions that govern your
- * use of the Program. By installing and/or using the
- * Program, you agree to abide by all the terms and
- * conditions stated or referenced herein.
- *
- * If you do not agree to abide by these terms and
- * conditions, do not demonstrate your acceptance and do
- * not install or use the Program.
- * You should have received a copy of the license along
- * with this file. If not, see
- * <http://resources.spinalcom.com/licenses.pdf>.
- */ var global = arguments[3];
-const G_root = typeof window == "undefined" ? global : window;
-const SpinalContextMenuService = require("68897565c96c24c9");
-const SpinalContextApp = require("b2a1734f0374b803");
-const Constant = require("dd9afb352261d691");
-if (typeof G_root.spinal === "undefined") G_root.spinal = {};
-if (typeof G_root.spinal.spinalContextMenuService === "undefined") G_root.spinal.spinalContextMenuService = new SpinalContextMenuService();
-module.exports = {
-    constants: Constant,
-    spinalContextMenuService: G_root.spinal.spinalContextMenuService,
-    SpinalContextApp,
-    install (Vue) {
-        Vue.prototype.$spinalContextMenuService = G_root.spinal.spinalContextMenuService;
-    }
-};
-
-},{"68897565c96c24c9":"iqJit","b2a1734f0374b803":"kAFNM","dd9afb352261d691":"gmus8"}],"iqJit":[function(require,module,exports) {
-/*
- * Copyright 2018 SpinalCom - www.spinalcom.com
- *
- * This file is part of SpinalCore.
- *
- * Please read all of the following terms and conditions
- * of the Free Software license Agreement ("Agreement")
- * carefully.
- *
- * This Agreement is a legally binding contract between
- * the Licensee (as defined below) and SpinalCom that
- * sets forth the terms and conditions that govern your
- * use of the Program. By installing and/or using the
- * Program, you agree to abide by all the terms and
- * conditions stated or referenced herein.
- *
- * If you do not agree to abide by these terms and
- * conditions, do not demonstrate your acceptance and do
- * not install or use the Program.
- * You should have received a copy of the license along
- * with this file. If not, see
- * <http://resources.spinalcom.com/licenses.pdf>.
- */ var _q = require("q");
-var debounce = require("381613c6219f7bf2");
-/**
- *  Containter like service to register and get applications relative to a hookname
- *
- * @property {object} apps key = hookname, value array of apps
- * @class SpinalContextMenuService
- */ class SpinalContextMenuService {
-    /**
-   *Creates an instance of SpinalContextMenuService.
-   * @memberof SpinalContextMenuService
-   */ constructor(){
-        this.apps = {};
-        this.promiseByAppProfileId = {};
-        this.appRdy = _q.defer();
-        this.debouncedRdy = debounce(()=>{
-            this.appRdy.resolve();
-            this.debouncedRdy = ()=>{};
-        }, 1000, {
-            leading: false,
-            trailing: true
-        });
-    }
-    // waitRdy() {
-    //   this.appRdy.promise;
-    // }
-    /**
-   * Return true if user has access to this appProfile
-   * @param appProfileId
-   * @return {PromiseLike<boolean > | Promise<boolean>}
-   */ async hasUserRight(appProfileId) {
-        this.debouncedRdy();
-        await window.spinal.spinalSystem.init();
-        const path = "/etc/UserProfileDir/" + window.spinal.spinalSystem.getUser().username;
-        const userProfile = await window.spinal.spinalSystem.load(path);
-        let res = false;
-        if (userProfile) for(let i = 0; i < userProfile.appProfiles.length && !res; i++)res = (1 << userProfile.appProfiles[i] & appProfileId) !== 0;
-        return res;
-    }
-    /**
-   * method to register the Application to a hook
-   *
-   * @param {string} hookname the place where is application button is located
-   * @param {SpinalContextApp} spinalContextApp the application
-   * @param {number} appProfileId id of the group that can use the application
-   * button
-   * @memberof SpinalContextMenuService
-   */ registerApp(hookname, spinalContextApp, appProfileId) {
-        this.debouncedRdy();
-        if (typeof appProfileId === "undefined") {
-            console.warn("Deprecated: The usage of this function without the third parameter appProfileId is deprecated your button is lock for admin only until you set the third parameter");
-            appProfileId = 1;
-        }
-        // get the array of apps of the hook
-        let appsInHooks = this.apps[hookname];
-        // create the array if not exist
-        if (!(appsInHooks instanceof Array)) appsInHooks = this.apps[hookname] = [];
-        if (!this.promiseByAppProfileId.hasOwnProperty(appProfileId)) this.promiseByAppProfileId[appProfileId] = this.hasUserRight(appProfileId);
-        this.promiseByAppProfileId[appProfileId].then((hasAccess)=>{
-            // push the app if not exist ans user has access to the button
-            if (hasAccess && appsInHooks.indexOf(spinalContextApp) === -1) appsInHooks.push(spinalContextApp);
-        });
-    }
-    /**
-   * method to get the applications registered to a hookname
-   *
-   * @param {String} hookname
-   * @param {object} option
-   * @memberof SpinalContextMenuService
-   * @returns {Promise} resolve : [spinalContextApp, ...]; reject: Error
-   */ async getApps(hookname, option) {
-        await this.appRdy.promise;
-        // get the array of apps of the hook
-        let appsInHooks = this.apps[hookname];
-        // create the array if not exist
-        if (!(appsInHooks instanceof Array)) return Promise.resolve([]);
-        let promises = appsInHooks.map(async function(e, idx) {
-            try {
-                const res = await e.isShown(option);
-                return res === -1 ? -1 : e;
-            } catch (error) {
-                console.error(error);
-                return -1;
-            }
-        });
-        try {
-            const appRes = await Promise.all(promises);
-            return appRes.filter((itm)=>itm !== -1);
-        } catch (error) {
-            console.error(error);
-            return [];
-        }
-    }
-}
-module.exports = SpinalContextMenuService;
-
-},{"q":"6YRAJ","381613c6219f7bf2":"3JP5n"}],"kAFNM":[function(require,module,exports) {
-/*
- * Copyright 2018 SpinalCom - www.spinalcom.com
- *
- * This file is part of SpinalCore.
- *
- * Please read all of the following terms and conditions
- * of the Free Software license Agreement ("Agreement")
- * carefully.
- *
- * This Agreement is a legally binding contract between
- * the Licensee (as defined below) and SpinalCom that
- * sets forth the terms and conditions that govern your
- * use of the Program. By installing and/or using the
- * Program, you agree to abide by all the terms and
- * conditions stated or referenced herein.
- *
- * If you do not agree to abide by these terms and
- * conditions, do not demonstrate your acceptance and do
- * not install or use the Program.
- * You should have received a copy of the license along
- * with this file. If not, see
- * <http://resources.spinalcom.com/licenses.pdf>.
- */ /**
- *  Interface like class to define a Contextual Application button
- * @see https://material.io/tools/icons/?style=baseline for material icons
- *
- * @class SpinalContextApp
- * @property {string} label=notset short name to be shown in the application
- * @property {string} description description of what the Application button do
- * @property {object} buttonCfg Object configuration of the Application button
- * @property {string} buttonCfg.icon=tab can be a font-awsome or material icon string
- * @property {string} buttonCfg.icon_type=in Where to place the icon in the `md-icon`. Should be one of theses `class`, `in`, `src`
- * @property {string} buttonCfg.backgroundColor=#0000FF backgroud color of the button
- * @property {string} buttonCfg.fontColor=#FFFFFF font color of the button
- * @property {objet} [badgeCfg] Object configuration of the Application button badge
- * @property {string} badgeCfg.label string shown in a badge; if empty it's not shown
- * @property {string} badgeCfg.backgroundColor=#FF0000 backgroud color of the badge
- * @property {string} badgeCfg.fontColor=#FFFFFF font color of the badge
- */ class SpinalContextApp {
-    /**
-   * Creates an instance of SpinalContextApp.
-   * @param {string} label=notset short name to be shown in the application
-   * @param {string} description description of what the Application button do
-   * @param {object} buttonCfg Object configuration of the Application button
-   * @param {string} buttonCfg.icon=tab can be a font-awsome or material icon string
-   * @param {string} buttonCfg.icon_type=in Where to place the icon in the `md-icon`. Should be one of theses `class`, `in`, `src`
-   * @param {string} buttonCfg.backgroundColor=#0000FF backgroud color of the button
-   * @param {string} buttonCfg.fontColor=#FFFFFF font color of the button
-   * @param {objet} [badgeCfg] Object configuration of the Application button badge
-   * @param {string} badgeCfg.label string shown in a badge; if empty it's not shown
-   * @param {string} badgeCfg.backgroundColor=#FF0000 backgroud color of the badge
-   * @param {string} badgeCfg.fontColor=#FFFFFF font color of the badge
-   * @memberof SpinalContextApp
-   */ constructor(label, description, buttonCfg, badgeCfg = {}){
-        this.label = label || "notset";
-        this.description = description || "";
-        this.buttonCfg = {
-            icon: buttonCfg.icon || "tab",
-            icon_type: buttonCfg.icon_type || "in",
-            backgroundColor: colorHash(buttonCfg.backgroundColor || "#0000FF"),
-            fontColor: colorHash(buttonCfg.fontColor || "#FFFFFF")
-        };
-        this.badgeCfg = {
-            label: badgeCfg.label || "",
-            backgroundColor: colorHash(badgeCfg.backgroundColor || "#FF0000"),
-            fontColor: colorHash(badgeCfg.fontColor || "#FFFFFF")
-        };
-    }
-    /**
-   * Method called by `SpinalContextMenuService.getApps`
-   * to filter the Application button to show in the context hook
-   *
-   * @param {object} option
-   * @memberof SpinalContextApp
-   * @returns {Promise} Resolve: not shown if === -1;
-   */ isShown(option) {}
-    /**
-   * Method to call on click of the application button
-   *
-   * @param {object} option {}
-   * @memberof SpinalContextApp
-   */ action(option) {}
-}
-module.exports = SpinalContextApp;
-function colorHash(color) {
-    if (color[0] === "#") return color;
-    return "#" + color;
-}
-
-},{}],"gmus8":[function(require,module,exports) {
-module.exports = {
-    ADMINISTRATEUR: "ADMINISTRATEUR",
-    MAINTENEUR: "MAINTENEUR",
-    INTEGRATEUR: "INTEGRATEUR",
-    ASSET_MANAGEUR: "ASSET MANAGER"
-};
-
-},{}],"44AcE":[function(require,module,exports) {
+},{"spinal-env-viewer-context-menu-service":"kHlxv","62eb59d75cca9bfa":"7Uw4d","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"44AcE":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerContextMenuService = require("spinal-env-viewer-context-menu-service");
