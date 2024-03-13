@@ -1,6 +1,6 @@
 {
   "name": "spinal-browser-viewer",
-  "version": "2.3.3",
+  "version": "2.3.4",
   "description": "A spinalcore browser to visualise a 3D model generated via Autodesk Forge",
   "author": "laurent <htd.laurent@gmail.com>",
   "private": true,
@@ -111,6 +111,16 @@
     "spinal-env-viewer-standard-attributs": "spinal-env-viewer-standard-attributs",
     "spinal-env-viewer-plugin-analytics-service": "spinal-env-viewer-plugin-analytics-service",
     "spinal-env-viewer-plugin-organ_ticket_mission": "spinal-env-viewer-plugin-organ_ticket_mission",
+    "spinal-env-viewer-context-menu-service": "spinal-env-viewer-context-menu-service",
+    "spinal-env-viewer-plugin-group-manager-service": "spinal-env-viewer-plugin-group-manager-service",
+    "spinal-env-viewer-plugin-pcvue-manager": "spinal-env-viewer-plugin-pcvue-manager",
+    "spinal-env-viewer-plugin-excel-manager-service": "spinal-env-viewer-plugin-excel-manager-service",
+    "spinal-env-viewer-plugin-note-standard-buttons-service": "spinal-env-viewer-plugin-note-standard-buttons-service",
+    "spinal-env-viewer-plugin-nomenclature-service": "spinal-env-viewer-plugin-nomenclature-service",
+    "spinal-env-viewer-graph-service": "Spinal-Graph-Service",
+    "spinal-env-viewer-context-geographic-service": "spinal-env-viewer-context-geographic-service",
+    "spinal-env-viewer-plugin-analysis": "spinal-env-viewer-plugin-analysis",
+    "spinal-model-analysis": "spinal-model-analysis",
     "spinal-env-viewer-plugin-offset-calcul": "spinal-env-viewer-plugin-offset-calcul"
   }
 }
