@@ -105,6 +105,7 @@ export function loadPlugins() {
     safeImport(import('spinal-env-viewer-plugin-generate-spatial-reference')),
     safeImport(import('spinal-env-viewer-plugin-attribute-manager')),
     safeImport(import('spinal-env-viewer-plugin-organ_ticket_mission')),
+    safeImport(import('spinal-env-viewer-plugin-offset-calcul')),
     // add plugins ex:
     // safeImport(import('spinal-env-viewer-plugin-attribute-manager')),
     // or

@@ -110,6 +110,7 @@
     "spinal-env-viewer-service": "spinal-env-viewer-service",
     "spinal-env-viewer-standard-attributs": "spinal-env-viewer-standard-attributs",
     "spinal-env-viewer-plugin-analytics-service": "spinal-env-viewer-plugin-analytics-service",
-    "spinal-env-viewer-plugin-organ_ticket_mission": "spinal-env-viewer-plugin-organ_ticket_mission"
+    "spinal-env-viewer-plugin-organ_ticket_mission": "spinal-env-viewer-plugin-organ_ticket_mission",
+    "spinal-env-viewer-plugin-offset-calcul": "spinal-env-viewer-plugin-offset-calcul"
   }
 }

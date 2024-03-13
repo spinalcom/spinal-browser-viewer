@@ -1399,27 +1399,27 @@ var _spinalEnvViewerGraphService = require("spinal-env-viewer-graph-service");
 var _constants = require("spinal-env-viewer-context-geographic-service/build/constants");
 var _spinalModelBmsnetwork = require("spinal-model-bmsnetwork");
 var _lodash = require("lodash");
-async function linkDevicesToRoom(geographicContextId1, geographicStartId1, pcVueDevices1, attributes1) {
-    const promises1 = [
-        getRooms(geographicContextId1, geographicStartId1),
-        getEndpoints(pcVueDevices1)
+async function linkDevicesToRoom(geographicContextId, geographicStartId, pcVueDevices, attributes) {
+    const promises = [
+        getRooms(geographicContextId, geographicStartId),
+        getEndpoints(pcVueDevices)
     ];
-    return Promise.all(promises1).then(([rooms1, endpoints1])=>{
-        const roomsMap1 = getMap(rooms1, attributes1.rooms);
-        const endpointsMap1 = getMap(endpoints1, attributes1.endpoints);
-        return linkMaps1(roomsMap1, endpointsMap1);
+    return Promise.all(promises).then(([rooms, endpoints])=>{
+        const roomsMap = getMap(rooms, attributes.rooms);
+        const endpointsMap = getMap(endpoints, attributes.endpoints);
+        return linkMaps(roomsMap, endpointsMap);
     });
-    function linkMaps1(roomsMap1, endpointsMap1) {
-        const promises1 = Object.keys(roomsMap1).map((key1)=>{
-            if (endpointsMap1[key1]) {
-                const roomData1 = roomsMap1[key1];
-                const endpointData1 = endpointsMap1[key1];
+    function linkMaps(roomsMap, endpointsMap) {
+        const promises = Object.keys(roomsMap).map((key)=>{
+            if (endpointsMap[key]) {
+                const roomData = roomsMap[key];
+                const endpointData = endpointsMap[key];
                 try {
-                    return (0, _spinalEnvViewerGraphService.SpinalGraphService).addChild(roomData1.id, endpointData1.id, (0, _spinalModelBmsnetwork.SpinalBmsEndpoint).relationName, (0, _spinalEnvViewerGraphService.SPINAL_RELATION_PTR_LST_TYPE));
-                } catch (error1) {}
+                    return (0, _spinalEnvViewerGraphService.SpinalGraphService).addChild(roomData.id, endpointData.id, (0, _spinalModelBmsnetwork.SpinalBmsEndpoint).relationName, (0, _spinalEnvViewerGraphService.SPINAL_RELATION_PTR_LST_TYPE));
+                } catch (error) {}
             }
         });
-        return Promise.all(promises1);
+        return Promise.all(promises);
     }
 // // const devices =
 // //   pcVueDevices && Array.isArray(pcVueDevices) && pcVueDevices.length > 0
@@ -1447,30 +1447,30 @@ async function linkDevicesToRoom(geographicContextId1, geographicStartId1, pcVue
 //     return false;
 //   }
 // }
-function getRooms(geographicContextId1, geographicStartId1) {
-    return findInContext(geographicContextId1, geographicStartId1, (0, _constants.ROOM_TYPE));
+function getRooms(geographicContextId, geographicStartId) {
+    return findInContext(geographicContextId, geographicStartId, (0, _constants.ROOM_TYPE));
 }
-function getEndpoints(devices1) {
-    if (!Array.isArray(devices1)) devices1 = [
-        devices1
+function getEndpoints(devices) {
+    if (!Array.isArray(devices)) devices = [
+        devices
     ];
-    const promises1 = devices1.map(({ id: id1 })=>(0, _spinalEnvViewerGraphService.SpinalGraphService).getChildren(id1, [
+    const promises = devices.map(({ id })=>(0, _spinalEnvViewerGraphService.SpinalGraphService).getChildren(id, [
             (0, _spinalModelBmsnetwork.SpinalBmsEndpoint).relationName
         ]));
-    return Promise.all(promises1).then((result1)=>{
-        return _lodash.flattenDeep(result1).map((el1)=>el1.get());
+    return Promise.all(promises).then((result)=>{
+        return _lodash.flattenDeep(result).map((el)=>el.get());
     });
 }
-function findInContext(contextId1, startId1, type1) {
-    return (0, _spinalEnvViewerGraphService.SpinalGraphService).findInContext(startId1, contextId1, (node1)=>{
-        if (node1.getType().get() === type1) {
-            (0, _spinalEnvViewerGraphService.SpinalGraphService)._addNode(node1);
+function findInContext(contextId, startId, type) {
+    return (0, _spinalEnvViewerGraphService.SpinalGraphService).findInContext(startId, contextId, (node)=>{
+        if (node.getType().get() === type) {
+            (0, _spinalEnvViewerGraphService.SpinalGraphService)._addNode(node);
             return true;
         }
         return false;
-    }).then((result1)=>{
-        return result1.map((el1)=>el1.get());
-    }).catch((err1)=>{
+    }).then((result)=>{
+        return result.map((el)=>el.get());
+    }).catch((err)=>{
         return [];
     });
 }

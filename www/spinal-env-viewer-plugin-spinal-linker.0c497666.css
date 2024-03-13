@@ -1,0 +1,170 @@
+li[data-v-53383f] {
+  list-style-type: none;
+}
+
+.plugin-linker-header[data-v-53383f] {
+  display: flex;
+}
+
+.plugin-spinal-linker * {
+  box-sizing: border-box;
+}
+
+.node-header[data-v-cd74c5] {
+  width: 100%;
+  height: 36px;
+  padding: 9px 6px 6px 13px;
+  position: relative;
+}
+
+.node-header[data-v-cd74c5]:hover {
+  cursor: pointer;
+  background-color: #0000004d;
+}
+
+.node-list-icon[data-v-cd74c5] {
+  -webkit-user-select: none;
+  user-select: none;
+  width: 21px;
+  position: absolute;
+  top: 7px;
+  left: 0;
+}
+
+.node-name[data-v-cd74c5] {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: calc(100% - 77px);
+  position: absolute;
+  left: 26px;
+  overflow: hidden;
+}
+
+.node-color[data-v-cd74c5] {
+  position: absolute;
+  right: 0;
+}
+
+.node-item[data-v-9d2f2d] {
+  width: 100%;
+  padding-left: 18px;
+}
+
+.active[data-v-9d2f2d] {
+  background-color: #365bab !important;
+}
+
+.context[data-v-9d2f2d] {
+  background-color: #2e2e2e80;
+}
+
+.arrow-disable[data-v-d93eaf] {
+  color: #7e7e7e;
+  background: unset !important;
+  cursor: alias !important;
+}
+
+.node-inspector-name[data-v-d93eaf] {
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  height: 30px;
+  font-size: 28px;
+  overflow: hidden;
+}
+
+.node-inspector-children[data-v-d93eaf] {
+  max-height: 40vh;
+  overflow-y: auto;
+}
+
+.node-inspector-btn-icon[data-v-d93eaf] {
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.node-inspector-btn-icon[data-v-d93eaf]:hover {
+  background: #7e7e7e;
+  border-radius: 50%;
+}
+
+.node-inspector-children[data-v-d93eaf]::-webkit-scrollbar {
+  background-color: #121212;
+  width: 4px;
+  -webkit-box-shadow: inset 0 0 6px #0000004d;
+}
+
+.node-inspector-children[data-v-d93eaf]::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px #0000004d;
+}
+
+.node-inspector-children[data-v-d93eaf]::-webkit-scrollbar-thumb {
+  background-color: #737374;
+  outline: 1px solid #708090;
+}
+
+.node-inspector-child[data-v-d93eaf] {
+  border: 1px solid #979797;
+  width: 100%;
+  height: 30px;
+  padding: 4px;
+  display: flex;
+  position: relative;
+}
+
+.node-inspector-child-name[data-v-d93eaf] {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding-left: 4%;
+  overflow: hidden;
+}
+
+.node-inspector-child-delete-buttons[data-v-d93eaf] {
+  display: flex;
+  position: absolute;
+  right: 4%;
+}
+
+.node-inspector[data-v-d93eaf] {
+  max-height: 70vh;
+}
+
+.tool-bar[data-v-cec321] {
+  min-width: 30px;
+  min-height: 30px;
+}
+
+.sideBar[data-v-3179be] {
+  width: 50px;
+}
+
+.top-bar[data-v-24bc64] {
+  min-height: 30px;
+}
+
+.spinal-icon-selector {
+  grid-template-columns: auto auto auto;
+  display: grid;
+}
+
+.spinal-icon-selector-item {
+  text-align: center;
+}
+
+.md-menu-content {
+  z-index: 10;
+}
+
+.item-header[data-v-6ad66b] {
+  display: flex;
+}
+
+.list-item-child[data-v-6ad66b] {
+  padding-left: 18px;
+}
+
+.active[data-v-6ad66b] {
+  color: #365bab;
+}
+/*# sourceMappingURL=spinal-env-viewer-plugin-spinal-linker.0c497666.css.map */

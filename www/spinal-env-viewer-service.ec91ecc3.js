@@ -1264,28 +1264,28 @@ const SPRITE_ICONS = {
     blind: require("4700b1f4d08d9eee")
 };
 
-},{"spinal-env-viewer-graph-service":"9n7zp","spinal-env-viewer-context-geographic-service/build/constants":"eV0id","8f9f4707eac9604c":"8Ihyu","45bd9eaee332b51c":"dPo14","529d4846e9c43fdd":"7bjsP","999048a0a84f7809":"bIlzm","367b104faa05b9bd":"j7c2S","e36a7b72b5ff178c":"iKuLE","4700b1f4d08d9eee":"lIm1A","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"8Ihyu":[function(require,module,exports) {
-module.exports = require("f47a5b3d26800533").getBundleURL("fFA7l") + require("d9b1a8b97a15a570").resolve("dqMpD");
+},{"spinal-env-viewer-graph-service":"9n7zp","spinal-env-viewer-context-geographic-service/build/constants":"eV0id","8f9f4707eac9604c":"Q457D","45bd9eaee332b51c":"8FgnL","529d4846e9c43fdd":"eUPJo","999048a0a84f7809":"eTA6P","367b104faa05b9bd":"ctmXv","e36a7b72b5ff178c":"fxvFH","4700b1f4d08d9eee":"475nu","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"Q457D":[function(require,module,exports) {
+module.exports = require("3a0b5cebf5b8e90e").getBundleURL("fFA7l") + "device.f3be3275.svg";
 
-},{"f47a5b3d26800533":"lgJ39","d9b1a8b97a15a570":"gS3k4"}],"dPo14":[function(require,module,exports) {
-module.exports = require("af53809ba1410868").getBundleURL("fFA7l") + require("90516406674d24b9").resolve("6Kt0u");
+},{"3a0b5cebf5b8e90e":"lgJ39"}],"8FgnL":[function(require,module,exports) {
+module.exports = require("5d07e33a996456e3").getBundleURL("fFA7l") + "light.807aca9d.svg";
 
-},{"af53809ba1410868":"lgJ39","90516406674d24b9":"gS3k4"}],"7bjsP":[function(require,module,exports) {
-module.exports = require("c2395631a9fb0656").getBundleURL("fFA7l") + require("3dfc5aa8e22c2f26").resolve("3CrKh");
+},{"5d07e33a996456e3":"lgJ39"}],"eUPJo":[function(require,module,exports) {
+module.exports = require("2a268f3e12677fee").getBundleURL("fFA7l") + "circle.2f8534aa.svg";
 
-},{"c2395631a9fb0656":"lgJ39","3dfc5aa8e22c2f26":"gS3k4"}],"bIlzm":[function(require,module,exports) {
-module.exports = require("4452bf57d39d0900").getBundleURL("fFA7l") + require("78369466089dfef8").resolve("jkRjr");
+},{"2a268f3e12677fee":"lgJ39"}],"eTA6P":[function(require,module,exports) {
+module.exports = require("81e78bfb9ff85884").getBundleURL("fFA7l") + "remote_controller.938c1adc.svg";
 
-},{"4452bf57d39d0900":"lgJ39","78369466089dfef8":"gS3k4"}],"j7c2S":[function(require,module,exports) {
-module.exports = require("b280eb8a73331c3b").getBundleURL("fFA7l") + require("9f3cbe4e3d1f41d4").resolve("fR1yt");
+},{"81e78bfb9ff85884":"lgJ39"}],"ctmXv":[function(require,module,exports) {
+module.exports = require("6e462805c826bb60").getBundleURL("fFA7l") + "windows_contact.dc8f7a23.svg";
 
-},{"b280eb8a73331c3b":"lgJ39","9f3cbe4e3d1f41d4":"gS3k4"}],"iKuLE":[function(require,module,exports) {
-module.exports = require("5b4458ab398394d3").getBundleURL("fFA7l") + require("cd15d5b6acc8869b").resolve("8dkej");
+},{"6e462805c826bb60":"lgJ39"}],"fxvFH":[function(require,module,exports) {
+module.exports = require("25a07fa1d8d07893").getBundleURL("fFA7l") + "fan_coil.c7b31c9b.svg";
 
-},{"5b4458ab398394d3":"lgJ39","cd15d5b6acc8869b":"gS3k4"}],"lIm1A":[function(require,module,exports) {
-module.exports = require("6be97766243dd405").getBundleURL("fFA7l") + require("31c31d00f4edff49").resolve("kklY8");
+},{"25a07fa1d8d07893":"lgJ39"}],"475nu":[function(require,module,exports) {
+module.exports = require("278277b85a6b7622").getBundleURL("fFA7l") + "blind.93d5b028.svg";
 
-},{"6be97766243dd405":"lgJ39","31c31d00f4edff49":"gS3k4"}],"fiO2z":[function(require,module,exports) {
+},{"278277b85a6b7622":"lgJ39"}],"fiO2z":[function(require,module,exports) {
 /*
  * Copyright 2021 SpinalCom - www.spinalcom.com
  * 

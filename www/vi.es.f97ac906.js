@@ -165,13 +165,13 @@ parcelHelpers.export(exports, "weekDaysShort", ()=>n);
 parcelHelpers.export(exports, "year", ()=>t);
 parcelHelpers.export(exports, "years", ()=>h);
 const a = [
-    "Thứ hai",
-    "Thứ ba",
-    "Thứ tư",
-    "Thứ năm",
-    "Thứ s\xe1u",
-    "Thứ bảy",
-    "Chủ nhật"
+    "Th\u1EE9 hai",
+    "Th\u1EE9 ba",
+    "Th\u1EE9 t\u01B0",
+    "Th\u1EE9 n\u0103m",
+    "Th\u1EE9 s\xe1u",
+    "Th\u1EE9 b\u1EA3y",
+    "Ch\u1EE7 nh\u1EADt"
 ], n = [
     "T2",
     "T3",
@@ -193,20 +193,20 @@ const a = [
     "Th\xe1ng 10",
     "Th\xe1ng 11",
     "Th\xe1ng 12"
-], h = "Năm", t = "Năm nay", T = "Th\xe1ng", s = "Tuần", y = "Ng\xe0y", g = "H\xf4m nay", d = "NKh\xf4ng c\xf3 Event", o = "Cả ng\xe0y", m = "X\xf3a", r = "Tạo event", v = "dddd MMMM D YYYY", N = {
+], h = "N\u0103m", t = "N\u0103m nay", T = "Th\xe1ng", s = "Tu\u1EA7n", y = "Ng\xe0y", g = "H\xf4m nay", d = "NKh\xf4ng c\xf3 Event", o = "C\u1EA3 ng\xe0y", m = "X\xf3a", r = "T\u1EA1o event", v = "dddd MMMM D YYYY", N = {
     weekDays: a,
     weekDaysShort: n,
     months: e,
-    years: "Năm",
-    year: "Năm nay",
+    years: "N\u0103m",
+    year: "N\u0103m nay",
     month: "Th\xe1ng",
-    week: "Tuần",
+    week: "Tu\u1EA7n",
     day: "Ng\xe0y",
     today: "H\xf4m nay",
     noEvent: "NKh\xf4ng c\xf3 Event",
-    allDay: "Cả ng\xe0y",
+    allDay: "C\u1EA3 ng\xe0y",
     deleteEvent: "X\xf3a",
-    createEvent: "Tạo event",
+    createEvent: "T\u1EA1o event",
     dateFormat: "dddd MMMM D YYYY"
 };
 

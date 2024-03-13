@@ -1074,10 +1074,10 @@ const editAutomateLink = new EditAutomateLink();
 ]);
 exports.default = editAutomateLink;
 
-},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-graph-service":"9n7zp","spinal-env-viewer-plugin-network-tree-service":"7oQhf","spinal-env-viewer-panel-manager-service":"7Uw4d","spinal-env-viewer-plugin-forge/dist/Constants":"f3Ny6","ba8cdd89170c2a8d":"ZgVJ5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ZgVJ5":[function(require,module,exports) {
-module.exports = require("4e1a9e343a250f73").getBundleURL("f4stD") + require("821589779b9c230d").resolve("jowb9");
+},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-graph-service":"9n7zp","spinal-env-viewer-plugin-network-tree-service":"7oQhf","spinal-env-viewer-panel-manager-service":"7Uw4d","spinal-env-viewer-plugin-forge/dist/Constants":"f3Ny6","ba8cdd89170c2a8d":"a0MpE","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"a0MpE":[function(require,module,exports) {
+module.exports = require("46dae52312fba1a8").getBundleURL("f4stD") + "link-edit.da5cc525.svg";
 
-},{"4e1a9e343a250f73":"lgJ39","821589779b9c230d":"gS3k4"}],"3070x":[function(require,module,exports) {
+},{"46dae52312fba1a8":"lgJ39"}],"3070x":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerContextMenuService = require("spinal-env-viewer-context-menu-service");
@@ -3720,7 +3720,7 @@ var scriptExports = {
 var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"spinal-env-viewer-plugin-network-tree-service":"7oQhf","../../../js/flags":"inSQ5","../../components/code-mirror/SpinalCodeMirror.vue":"9RF72","../../../js/personalized_functions/function":"7hX8H","b778441359b5d525":"i1tsg","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"inSQ5":[function(require,module,exports) {
+},{"spinal-env-viewer-plugin-network-tree-service":"7oQhf","../../../js/flags":"inSQ5","../../components/code-mirror/SpinalCodeMirror.vue":"9RF72","../../../js/personalized_functions/function":"7hX8H","b778441359b5d525":"2ZkKJ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"inSQ5":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 exports.default = [
@@ -3926,10 +3926,10 @@ exports.default = (0, _dedentDefault.default)`
 
 */ ;
 
-},{"dedent":"aaz23","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"i1tsg":[function(require,module,exports) {
-module.exports = require("13b5951157b1accd").getBundleURL("f4stD") + require("e1efee72bf82de6f").resolve("5TG4M");
+},{"dedent":"aaz23","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2ZkKJ":[function(require,module,exports) {
+module.exports = require("eb516bb0f3c27efe").getBundleURL("f4stD") + "slash.8ad850e2.svg";
 
-},{"13b5951157b1accd":"lgJ39","e1efee72bf82de6f":"gS3k4"}],"kzaDq":[function(require,module,exports) {
+},{"eb516bb0f3c27efe":"lgJ39"}],"kzaDq":[function(require,module,exports) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
@@ -4737,169 +4737,169 @@ exports.default = {
     getBmsDevicesContextTreeStructure () {
         return (0, _networkServiceDefault.default).getDeviceContextTreeStructure();
     },
-    getAutomateBims (nodeId1, contextId1) {
-        const nodeRef1 = (0, _spinalEnvViewerGraphService.SpinalGraphService).getInfo(nodeId1);
-        if (nodeRef1.isAutomate && nodeRef1.isAutomate.get()) return [
-            nodeRef1.get()
+    getAutomateBims (nodeId, contextId) {
+        const nodeRef = (0, _spinalEnvViewerGraphService.SpinalGraphService).getInfo(nodeId);
+        if (nodeRef.isAutomate && nodeRef.isAutomate.get()) return [
+            nodeRef.get()
         ];
-        return (0, _spinalEnvViewerGraphService.SpinalGraphService).findInContext(nodeId1, contextId1, (node1)=>{
-            if (node1.info.isAutomate && node1.info.isAutomate.get()) {
-                (0, _spinalEnvViewerGraphService.SpinalGraphService)._addNode(node1);
+        return (0, _spinalEnvViewerGraphService.SpinalGraphService).findInContext(nodeId, contextId, (node)=>{
+            if (node.info.isAutomate && node.info.isAutomate.get()) {
+                (0, _spinalEnvViewerGraphService.SpinalGraphService)._addNode(node);
                 return true;
             }
             return false;
-        }).then((result1)=>{
-            return result1.map((el1)=>el1.get());
+        }).then((result)=>{
+            return result.map((el)=>el.get());
         });
     },
-    async createLinkBetweenBimAndBms (bmsContextId1, validResultList1, percent1) {
+    async createLinkBetweenBimAndBms (bmsContextId, validResultList, percent) {
         console.log("use profile");
-        const listeLength1 = validResultList1.length;
-        let isError1 = false;
-        let counter1 = 0;
-        while(!isError1 && listeLength1 > counter1){
-            const { profileItem: profileItem1, automateItem: automateItem1 } = validResultList1[counter1];
-            console.log(profileItem1, automateItem1);
-            if (profileItem1 && automateItem1) try {
-                await (0, _spinalEnvViewerPluginNetworkTreeService.LinkBmsDeviceService).LinkBmsDeviceToBimDevices(bmsContextId1, profileItem1.id, automateItem1.id);
-                counter1++;
-                percent1 = Math.floor(100 * counter1 / listeLength1);
-            } catch (error1) {
-                console.error(error1);
-                counter1++;
+        const listeLength = validResultList.length;
+        let isError = false;
+        let counter = 0;
+        while(!isError && listeLength > counter){
+            const { profileItem, automateItem } = validResultList[counter];
+            console.log(profileItem, automateItem);
+            if (profileItem && automateItem) try {
+                await (0, _spinalEnvViewerPluginNetworkTreeService.LinkBmsDeviceService).LinkBmsDeviceToBimDevices(bmsContextId, profileItem.id, automateItem.id);
+                counter++;
+                percent = Math.floor(100 * counter / listeLength);
+            } catch (error) {
+                console.error(error);
+                counter++;
             // isError = true;
             }
         }
     },
-    async createLinkBetweenBimAndBmsUsingAttribute (bmsContextId1, validResultList1, percent1) {
-        const listeLength1 = validResultList1.length;
-        let isError1 = false;
-        let counter1 = 0;
-        while(!isError1 && listeLength1 > counter1){
-            const { profileItem: profileItem1, automateItem: automateItem1 } = validResultList1[counter1];
-            if (profileItem1 && automateItem1) try {
-                const bmsConfig1 = {
-                    contextId: bmsContextId1,
-                    deviceId: profileItem1.id,
+    async createLinkBetweenBimAndBmsUsingAttribute (bmsContextId, validResultList, percent) {
+        const listeLength = validResultList.length;
+        let isError = false;
+        let counter = 0;
+        while(!isError && listeLength > counter){
+            const { profileItem, automateItem } = validResultList[counter];
+            if (profileItem && automateItem) try {
+                const bmsConfig = {
+                    contextId: bmsContextId,
+                    deviceId: profileItem.id,
                     attribute: {
-                        attributeName: profileItem1.property.attributeName,
-                        categoryName: profileItem1.property.categoryName
+                        attributeName: profileItem.property.attributeName,
+                        categoryName: profileItem.property.categoryName
                     }
                 };
-                const bimConfig1 = {
-                    nodeId: automateItem1.id,
-                    model: window.spinal.BimObjectService.getModelByBimfile(automateItem1.bimFileId),
+                const bimConfig = {
+                    nodeId: automateItem.id,
+                    model: window.spinal.BimObjectService.getModelByBimfile(automateItem.bimFileId),
                     attribute: {
-                        attributeName: automateItem1.property.attributeName,
-                        categoryName: automateItem1.property.categoryName
+                        attributeName: automateItem.property.attributeName,
+                        categoryName: automateItem.property.categoryName
                     }
                 };
-                await (0, _spinalEnvViewerPluginNetworkTreeService.LinkBmsDeviceService).LinkBmsDeviceToBimDevicesUsingAttribute(bmsConfig1, bimConfig1);
-                counter1++;
-                percent1 = Math.floor(100 * counter1 / listeLength1);
-            } catch (error1) {
-                console.error(error1);
-                counter1++;
+                await (0, _spinalEnvViewerPluginNetworkTreeService.LinkBmsDeviceService).LinkBmsDeviceToBimDevicesUsingAttribute(bmsConfig, bimConfig);
+                counter++;
+                percent = Math.floor(100 * counter / listeLength);
+            } catch (error) {
+                console.error(error);
+                counter++;
             // isError = true;
             }
         }
     },
-    getLinkResultBetweenBimAndBms (bmsAttributeName1, contextSelected1, networkSelected1, deviceSelected1, listObj1, bimAutomates1, bimAttributeName1, configuration1) {
-        return this.getProperties(bmsAttributeName1, contextSelected1, networkSelected1, deviceSelected1, listObj1, bimAutomates1, bimAttributeName1).then(([bmsDevices1, bimDevices1])=>{
-            const res1 = {
+    getLinkResultBetweenBimAndBms (bmsAttributeName, contextSelected, networkSelected, deviceSelected, listObj, bimAutomates, bimAttributeName, configuration) {
+        return this.getProperties(bmsAttributeName, contextSelected, networkSelected, deviceSelected, listObj, bimAutomates, bimAttributeName).then(([bmsDevices, bimDevices])=>{
+            const res = {
                 valids: [],
                 invalidAutomateItems: [
-                    ...bimDevices1.invalidItems
+                    ...bimDevices.invalidItems
                 ],
                 invalidProfileItems: []
             };
-            const { bimData: bimData1, bmsData: bmsData1 } = configuration1;
-            const bmsDeviceObj1 = this.transFormToObj(bmsDevices1, bmsData1.useFunction, bmsData1.callback.code);
-            for (const bim1 of bimDevices1.validItems){
-                const bimPropValue1 = this._formatProperty(bim1.property.displayValue, bimData1.useFunction, bimData1.callback.code);
-                let found1 = bmsDeviceObj1[bimPropValue1];
-                if (found1) {
-                    delete bmsDeviceObj1[bimPropValue1];
-                    res1.valids.push({
-                        automateItem: bim1,
-                        profileItem: found1
+            const { bimData, bmsData } = configuration;
+            const bmsDeviceObj = this.transFormToObj(bmsDevices, bmsData.useFunction, bmsData.callback.code);
+            for (const bim of bimDevices.validItems){
+                const bimPropValue = this._formatProperty(bim.property.displayValue, bimData.useFunction, bimData.callback.code);
+                let found = bmsDeviceObj[bimPropValue];
+                if (found) {
+                    delete bmsDeviceObj[bimPropValue];
+                    res.valids.push({
+                        automateItem: bim,
+                        profileItem: found
                     });
-                } else res1.invalidAutomateItems.push(bim1);
+                } else res.invalidAutomateItems.push(bim);
             }
-            const keys1 = Object.keys(bmsDeviceObj1);
-            res1.invalidProfileItems = keys1.map((key1)=>bmsDeviceObj1[key1]);
-            return res1;
-        }).catch((err1)=>{
-            throw err1;
+            const keys = Object.keys(bmsDeviceObj);
+            res.invalidProfileItems = keys.map((key)=>bmsDeviceObj[key]);
+            return res;
+        }).catch((err)=>{
+            throw err;
         });
     },
-    getProperties (bmsAttributeName1, contextSelected1, networkSelected1, deviceSelected1, listObj1, bimAutomates1, bimAttributeName1) {
-        const bmsPropsProm1 = this._getBmsDevicesProperties(bmsAttributeName1, contextSelected1, networkSelected1, deviceSelected1, listObj1);
-        const bimPropsProm1 = this._getAutomateBimProperties(bimAutomates1, bimAttributeName1);
+    getProperties (bmsAttributeName, contextSelected, networkSelected, deviceSelected, listObj, bimAutomates, bimAttributeName) {
+        const bmsPropsProm = this._getBmsDevicesProperties(bmsAttributeName, contextSelected, networkSelected, deviceSelected, listObj);
+        const bimPropsProm = this._getAutomateBimProperties(bimAutomates, bimAttributeName);
         return Promise.all([
-            bmsPropsProm1,
-            bimPropsProm1
+            bmsPropsProm,
+            bimPropsProm
         ]);
     },
-    _getBmsDevicesProperties (attributeName1, contextSelected1, networkSelected1, deviceSelected1, listObj1) {
-        const bmsDevices1 = this._findDevices(contextSelected1, networkSelected1, deviceSelected1, listObj1);
-        const promises1 = bmsDevices1.map(async (el1)=>{
-            el1.property = await (0, _spinalEnvViewerPluginNetworkTreeService.AttributesUtilities).findSpinalAttributeById(el1.id, attributeName1);
-            return el1;
+    _getBmsDevicesProperties (attributeName, contextSelected, networkSelected, deviceSelected, listObj) {
+        const bmsDevices = this._findDevices(contextSelected, networkSelected, deviceSelected, listObj);
+        const promises = bmsDevices.map(async (el)=>{
+            el.property = await (0, _spinalEnvViewerPluginNetworkTreeService.AttributesUtilities).findSpinalAttributeById(el.id, attributeName);
+            return el;
         });
-        return Promise.all(promises1);
+        return Promise.all(promises);
     },
-    _findDevices (contextSelected1, networkSelected1, deviceSelected1, listObj1) {
-        const nodeId1 = deviceSelected1 || networkSelected1 || contextSelected1;
-        if (nodeId1 === deviceSelected1) return listObj1.devices.filter((el1)=>el1.id === nodeId1);
-        else if (nodeId1 === networkSelected1) {
-            const found1 = listObj1.networks.find((el1)=>el1.id === nodeId1);
-            return found1 && found1.devices ? found1.devices : [];
-        } else if (nodeId1 === contextSelected1) {
-            const devices1 = [];
-            const found1 = listObj1.tree.find((el1)=>el1.id === nodeId1);
-            if (found1 && found1.networks) {
-                for (const network1 of found1.networks)if (network1.devices) devices1.push(...network1.devices);
+    _findDevices (contextSelected, networkSelected, deviceSelected, listObj) {
+        const nodeId = deviceSelected || networkSelected || contextSelected;
+        if (nodeId === deviceSelected) return listObj.devices.filter((el)=>el.id === nodeId);
+        else if (nodeId === networkSelected) {
+            const found = listObj.networks.find((el)=>el.id === nodeId);
+            return found && found.devices ? found.devices : [];
+        } else if (nodeId === contextSelected) {
+            const devices = [];
+            const found = listObj.tree.find((el)=>el.id === nodeId);
+            if (found && found.networks) {
+                for (const network of found.networks)if (network.devices) devices.push(...network.devices);
             }
-            return devices1;
+            return devices;
         }
     },
-    _getAutomateBimProperties (bimAutomates1, attributeName1) {
-        const promises1 = bimAutomates1.map(async (el1)=>{
+    _getAutomateBimProperties (bimAutomates, attributeName) {
+        const promises = bimAutomates.map(async (el)=>{
             //   const fileName = spinal.spinalGraphService
             //     .getInfo(el.bimFileId)
             //     .name.get();
-            const { bimFileId: bimFileId1, dbid: dbid1, id: id1 } = el1;
-            const model1 = window.spinal.BimObjectService.getModelByBimfile(bimFileId1);
+            const { bimFileId, dbid, id } = el;
+            const model = window.spinal.BimObjectService.getModelByBimfile(bimFileId);
             // if (!model) throw "make sure you load all scene";
-            el1.property = await (0, _spinalEnvViewerPluginNetworkTreeService.AttributesUtilities).findAttribute(model1, dbid1, attributeName1, id1);
-            return el1;
+            el.property = await (0, _spinalEnvViewerPluginNetworkTreeService.AttributesUtilities).findAttribute(model, dbid, attributeName, id);
+            return el;
         });
         try {
-            return Promise.all(promises1).then((result1)=>{
+            return Promise.all(promises).then((result)=>{
                 return {
-                    validItems: result1.filter((el1)=>el1.property),
-                    invalidItems: result1.filter((el1)=>!el1.property)
+                    validItems: result.filter((el)=>el.property),
+                    invalidItems: result.filter((el)=>!el.property)
                 };
             });
-        } catch (error1) {
-            throw error1;
+        } catch (error) {
+            throw error;
         }
     },
-    _formatProperty (propertyValue1, useFunction1, callback1) {
-        if (useFunction1) return this._formatValue(propertyValue1, callback1);
-        return propertyValue1;
+    _formatProperty (propertyValue, useFunction, callback) {
+        if (useFunction) return this._formatValue(propertyValue, callback);
+        return propertyValue;
     },
     _formatValue (value, callback) {
         return eval(`(${callback})('${value}')`);
     },
-    transFormToObj (liste1, useFunction1, callback1) {
-        const obj1 = {};
-        for (const item1 of liste1){
-            const prop1 = this._formatProperty(item1.property.displayValue, useFunction1, callback1);
-            obj1[prop1] = item1;
+    transFormToObj (liste, useFunction, callback) {
+        const obj = {};
+        for (const item of liste){
+            const prop = this._formatProperty(item.property.displayValue, useFunction, callback);
+            obj[prop] = item;
         }
-        return obj1;
+        return obj;
     // bmsDevices.find((el, i) => {
     //   if (el.property) {
     //     const bmsPropValue = console.log(bimPropValue, bmsPropValue);

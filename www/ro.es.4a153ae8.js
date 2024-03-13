@@ -165,12 +165,12 @@ parcelHelpers.export(exports, "year", ()=>t);
 parcelHelpers.export(exports, "years", ()=>i);
 const e = [
     "Luni",
-    "Marți",
+    "Mar\u021Bi",
     "Miercuri",
     "Joi",
     "Vineri",
-    "S\xe2mbăta",
-    "Duminică"
+    "S\xe2mb\u0103ta",
+    "Duminic\u0103"
 ], a = [
     "Ianuarie",
     "Februarie",
@@ -184,19 +184,19 @@ const e = [
     "Octombrie",
     "Noiembrie",
     "Decembrie"
-], i = "Ani", t = "An", n = "Lună", r = "Săptăm\xe2nă", s = "Zi", u = "Azi", d = "Nici o interacțiune", o = "Toată ziua", m = "Șterge", M = "Adaugă un eveniment", c = "dddd D MMMM YYYY", y = {
+], i = "Ani", t = "An", n = "Lun\u0103", r = "S\u0103pt\u0103m\xe2n\u0103", s = "Zi", u = "Azi", d = "Nici o interac\u021Biune", o = "Toat\u0103 ziua", m = "\u0218terge", M = "Adaug\u0103 un eveniment", c = "dddd D MMMM YYYY", y = {
     weekDays: e,
     months: a,
     years: "Ani",
     year: "An",
-    month: "Lună",
-    week: "Săptăm\xe2nă",
+    month: "Lun\u0103",
+    week: "S\u0103pt\u0103m\xe2n\u0103",
     day: "Zi",
     today: "Azi",
-    noEvent: "Nici o interacțiune",
-    allDay: "Toată ziua",
-    deleteEvent: "Șterge",
-    createEvent: "Adaugă un eveniment",
+    noEvent: "Nici o interac\u021Biune",
+    allDay: "Toat\u0103 ziua",
+    deleteEvent: "\u0218terge",
+    createEvent: "Adaug\u0103 un eveniment",
     dateFormat: "dddd D MMMM YYYY"
 };
 

@@ -167,7 +167,7 @@ const a = [
     "Ponedeljak",
     "Utorak",
     "Sreda",
-    "Četvrtak",
+    "\u010Cetvrtak",
     "Petak",
     "Subota",
     "Nedelja"
@@ -184,7 +184,7 @@ const a = [
     "Oktobar",
     "Novembar",
     "Decembar"
-], d = "Godine", t = "Godina", r = "Mesec", n = "Sedmica", s = "Dan", o = "Danas", i = "Nema događaja", l = "Celi dan", m = "Obriši", M = "Kreiraj događaj", y = "dddd D MMMM YYYY", D = {
+], d = "Godine", t = "Godina", r = "Mesec", n = "Sedmica", s = "Dan", o = "Danas", i = "Nema doga\u0111aja", l = "Celi dan", m = "Obri\u0161i", M = "Kreiraj doga\u0111aj", y = "dddd D MMMM YYYY", D = {
     weekDays: a,
     months: e,
     years: "Godine",
@@ -193,10 +193,10 @@ const a = [
     week: "Sedmica",
     day: "Dan",
     today: "Danas",
-    noEvent: "Nema događaja",
+    noEvent: "Nema doga\u0111aja",
     allDay: "Celi dan",
-    deleteEvent: "Obriši",
-    createEvent: "Kreiraj događaj",
+    deleteEvent: "Obri\u0161i",
+    createEvent: "Kreiraj doga\u0111aj",
     dateFormat: "dddd D MMMM YYYY"
 };
 

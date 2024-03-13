@@ -164,39 +164,39 @@ parcelHelpers.export(exports, "weekDays", ()=>a);
 parcelHelpers.export(exports, "year", ()=>s);
 parcelHelpers.export(exports, "years", ()=>t);
 const a = [
-    "שני",
-    "שלישי",
-    "רביעי",
-    "חמישי",
-    "שישי",
-    "שבת",
-    "ראשון"
+    "\u05E9\u05E0\u05D9",
+    "\u05E9\u05DC\u05D9\u05E9\u05D9",
+    "\u05E8\u05D1\u05D9\u05E2\u05D9",
+    "\u05D7\u05DE\u05D9\u05E9\u05D9",
+    "\u05E9\u05D9\u05E9\u05D9",
+    "\u05E9\u05D1\u05EA",
+    "\u05E8\u05D0\u05E9\u05D5\u05DF"
 ], e = [
-    "ינואר",
-    "פברואר",
-    "מרץ",
-    "אפריל",
-    "מאי",
-    "יוני",
-    "יולי",
-    "אוגוסט",
-    "ספטמבר",
-    "אוקטובר",
-    "נובמבר",
-    "דצמבר"
-], t = "שנים", s = "שנה", d = "חודש", n = "שבוע", o = "יום", y = "היום", r = "אין אירועים", M = "כל היום", Y = "מחיקה", l = "צור אירוע", m = "dddd D MMMM YYYY", D = {
+    "\u05D9\u05E0\u05D5\u05D0\u05E8",
+    "\u05E4\u05D1\u05E8\u05D5\u05D0\u05E8",
+    "\u05DE\u05E8\u05E5",
+    "\u05D0\u05E4\u05E8\u05D9\u05DC",
+    "\u05DE\u05D0\u05D9",
+    "\u05D9\u05D5\u05E0\u05D9",
+    "\u05D9\u05D5\u05DC\u05D9",
+    "\u05D0\u05D5\u05D2\u05D5\u05E1\u05D8",
+    "\u05E1\u05E4\u05D8\u05DE\u05D1\u05E8",
+    "\u05D0\u05D5\u05E7\u05D8\u05D5\u05D1\u05E8",
+    "\u05E0\u05D5\u05D1\u05DE\u05D1\u05E8",
+    "\u05D3\u05E6\u05DE\u05D1\u05E8"
+], t = "\u05E9\u05E0\u05D9\u05DD", s = "\u05E9\u05E0\u05D4", d = "\u05D7\u05D5\u05D3\u05E9", n = "\u05E9\u05D1\u05D5\u05E2", o = "\u05D9\u05D5\u05DD", y = "\u05D4\u05D9\u05D5\u05DD", r = "\u05D0\u05D9\u05DF \u05D0\u05D9\u05E8\u05D5\u05E2\u05D9\u05DD", M = "\u05DB\u05DC \u05D4\u05D9\u05D5\u05DD", Y = "\u05DE\u05D7\u05D9\u05E7\u05D4", l = "\u05E6\u05D5\u05E8 \u05D0\u05D9\u05E8\u05D5\u05E2", m = "dddd D MMMM YYYY", D = {
     weekDays: a,
     months: e,
-    years: "שנים",
-    year: "שנה",
-    month: "חודש",
-    week: "שבוע",
-    day: "יום",
-    today: "היום",
-    noEvent: "אין אירועים",
-    allDay: "כל היום",
-    deleteEvent: "מחיקה",
-    createEvent: "צור אירוע",
+    years: "\u05E9\u05E0\u05D9\u05DD",
+    year: "\u05E9\u05E0\u05D4",
+    month: "\u05D7\u05D5\u05D3\u05E9",
+    week: "\u05E9\u05D1\u05D5\u05E2",
+    day: "\u05D9\u05D5\u05DD",
+    today: "\u05D4\u05D9\u05D5\u05DD",
+    noEvent: "\u05D0\u05D9\u05DF \u05D0\u05D9\u05E8\u05D5\u05E2\u05D9\u05DD",
+    allDay: "\u05DB\u05DC \u05D4\u05D9\u05D5\u05DD",
+    deleteEvent: "\u05DE\u05D7\u05D9\u05E7\u05D4",
+    createEvent: "\u05E6\u05D5\u05E8 \u05D0\u05D9\u05E8\u05D5\u05E2",
     dateFormat: "dddd D MMMM YYYY"
 };
 

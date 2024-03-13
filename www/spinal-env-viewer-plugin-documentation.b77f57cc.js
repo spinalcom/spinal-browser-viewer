@@ -3992,7 +3992,7 @@ var render = function() {
                                     _c("md-icon", [
                                         _vm._v(_vm._s(_vm.getIconFile(driveFiles)))
                                     ]),
-                                    _vm._v("\n                \n               " + _vm._s(driveFiles.name) + "\n            ")
+                                    _vm._v("\n               \u205F\n               " + _vm._s(driveFiles.name) + "\n            ")
                                 ], 1),
                                 _vm._v(" "),
                                 _c("md-table-cell", {

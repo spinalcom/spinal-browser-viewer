@@ -165,30 +165,30 @@ parcelHelpers.export(exports, "year", ()=>s);
 parcelHelpers.export(exports, "years", ()=>t);
 const a = [
     "Pazartesi",
-    "Salı",
-    "\xc7arşamba",
-    "Perşembe",
+    "Sal\u0131",
+    "\xc7ar\u015Famba",
+    "Per\u015Fembe",
     "Cuma",
     "Cumartesi",
     "Pazar"
 ], e = [
     "Ocak",
-    "Şubat",
+    "\u015Eubat",
     "Mart",
     "Nisan",
-    "Mayıs",
+    "May\u0131s",
     "Haziran",
     "Temmuz",
-    "Ağustos",
+    "A\u011Fustos",
     "Eyl\xfcl",
     "Ekim",
-    "Kasım",
-    "Aralık"
-], t = "Yıllar", s = "Yıl", l = "Ay", n = "Hafta", k = "G\xfcn", r = "Bug\xfcn", d = "Etkinlik Yok", m = "T\xfcm g\xfcn", y = "Sil", i = "Etkinlik ekle", o = "dddd D MMMM YYYY", Y = {
+    "Kas\u0131m",
+    "Aral\u0131k"
+], t = "Y\u0131llar", s = "Y\u0131l", l = "Ay", n = "Hafta", k = "G\xfcn", r = "Bug\xfcn", d = "Etkinlik Yok", m = "T\xfcm g\xfcn", y = "Sil", i = "Etkinlik ekle", o = "dddd D MMMM YYYY", Y = {
     weekDays: a,
     months: e,
-    years: "Yıllar",
-    year: "Yıl",
+    years: "Y\u0131llar",
+    year: "Y\u0131l",
     month: "Ay",
     week: "Hafta",
     day: "G\xfcn",

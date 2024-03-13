@@ -165,48 +165,48 @@ parcelHelpers.export(exports, "weekDaysShort", ()=>e);
 parcelHelpers.export(exports, "year", ()=>d);
 parcelHelpers.export(exports, "years", ()=>s);
 const a = [
-    "星期一",
-    "星期二",
-    "星期三",
-    "星期四",
-    "星期五",
-    "星期六",
-    "星期日"
+    "\u661F\u671F\u4E00",
+    "\u661F\u671F\u4E8C",
+    "\u661F\u671F\u4E09",
+    "\u661F\u671F\u56DB",
+    "\u661F\u671F\u4E94",
+    "\u661F\u671F\u516D",
+    "\u661F\u671F\u65E5"
 ], e = [
-    "一",
-    "二",
-    "三",
-    "四",
-    "五",
-    "六",
-    "日"
+    "\u4E00",
+    "\u4E8C",
+    "\u4E09",
+    "\u56DB",
+    "\u4E94",
+    "\u516D",
+    "\u65E5"
 ], t = [
-    "一月",
-    "二月",
-    "三月",
-    "四月",
-    "五月",
-    "六月",
-    "七月",
-    "八月",
-    "九月",
-    "十月",
-    "十一月",
-    "十二月"
-], s = "年", d = "本年", o = "月", y = "周", n = "日", r = "今日", D = "暫無活動", M = "整天", Y = "刪除", l = "新建活動", h = "YYYY MMMM D dddd", k = {
+    "\u4E00\u6708",
+    "\u4E8C\u6708",
+    "\u4E09\u6708",
+    "\u56DB\u6708",
+    "\u4E94\u6708",
+    "\u516D\u6708",
+    "\u4E03\u6708",
+    "\u516B\u6708",
+    "\u4E5D\u6708",
+    "\u5341\u6708",
+    "\u5341\u4E00\u6708",
+    "\u5341\u4E8C\u6708"
+], s = "\u5E74", d = "\u672C\u5E74", o = "\u6708", y = "\u5468", n = "\u65E5", r = "\u4ECA\u65E5", D = "\u66AB\u7121\u6D3B\u52D5", M = "\u6574\u5929", Y = "\u522A\u9664", l = "\u65B0\u5EFA\u6D3B\u52D5", h = "YYYY MMMM D dddd", k = {
     weekDays: a,
     weekDaysShort: e,
     months: t,
-    years: "年",
-    year: "本年",
-    month: "月",
-    week: "周",
-    day: "日",
-    today: "今日",
-    noEvent: "暫無活動",
-    allDay: "整天",
-    deleteEvent: "刪除",
-    createEvent: "新建活動",
+    years: "\u5E74",
+    year: "\u672C\u5E74",
+    month: "\u6708",
+    week: "\u5468",
+    day: "\u65E5",
+    today: "\u4ECA\u65E5",
+    noEvent: "\u66AB\u7121\u6D3B\u52D5",
+    allDay: "\u6574\u5929",
+    deleteEvent: "\u522A\u9664",
+    createEvent: "\u65B0\u5EFA\u6D3B\u52D5",
     dateFormat: "YYYY MMMM D dddd"
 };
 

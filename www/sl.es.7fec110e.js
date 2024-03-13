@@ -167,7 +167,7 @@ const e = [
     "Ponedeljek",
     "Torek",
     "Sreda",
-    "Četrtek",
+    "\u010Cetrtek",
     "Petek",
     "Sobota",
     "Nedelja"

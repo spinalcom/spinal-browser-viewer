@@ -164,39 +164,39 @@ parcelHelpers.export(exports, "weekDays", ()=>e);
 parcelHelpers.export(exports, "year", ()=>n);
 parcelHelpers.export(exports, "years", ()=>a);
 const e = [
-    "Ponděl\xed",
+    "Pond\u011Bl\xed",
     "\xdater\xfd",
-    "Středa",
-    "Čtvrtek",
+    "St\u0159eda",
+    "\u010Ctvrtek",
     "P\xe1tek",
     "Sobota",
-    "Neděle"
+    "Ned\u011Ble"
 ], t = [
     "Leden",
     "\xdanor",
-    "Březen",
+    "B\u0159ezen",
     "Duben",
-    "Květen",
-    "Červen",
-    "Červenec",
+    "Kv\u011Bten",
+    "\u010Cerven",
+    "\u010Cervenec",
     "Srpen",
-    "Z\xe1ř\xed",
-    "Ř\xedjen",
+    "Z\xe1\u0159\xed",
+    "\u0158\xedjen",
     "Listopad",
     "Prosinec"
-], a = "Roky", n = "Rok", s = "Měs\xedc", d = "T\xfdden", o = "Den", r = "Dnes", y = "Bez ud\xe1lost\xed", l = "Cel\xfd den", v = "Odstranit", D = "Vytvořit ud\xe1lost", k = "dddd D. MMMM YYYY", M = {
+], a = "Roky", n = "Rok", s = "M\u011Bs\xedc", d = "T\xfdden", o = "Den", r = "Dnes", y = "Bez ud\xe1lost\xed", l = "Cel\xfd den", v = "Odstranit", D = "Vytvo\u0159it ud\xe1lost", k = "dddd D. MMMM YYYY", M = {
     weekDays: e,
     months: t,
     years: "Roky",
     year: "Rok",
-    month: "Měs\xedc",
+    month: "M\u011Bs\xedc",
     week: "T\xfdden",
     day: "Den",
     today: "Dnes",
     noEvent: "Bez ud\xe1lost\xed",
     allDay: "Cel\xfd den",
     deleteEvent: "Odstranit",
-    createEvent: "Vytvořit ud\xe1lost",
+    createEvent: "Vytvo\u0159it ud\xe1lost",
     dateFormat: "dddd D. MMMM YYYY"
 };
 

@@ -166,37 +166,37 @@ parcelHelpers.export(exports, "years", ()=>i);
 const a = [
     "Pirmadienis",
     "Antradienis",
-    "Trečiadienis",
+    "Tre\u010Diadienis",
     "Ketvirtadienis",
     "Penktadienis",
-    "Šeštadienis",
+    "\u0160e\u0161tadienis",
     "Sekmadienis"
 ], e = [
     "Sausis",
     "Vasaris",
     "Kovas",
     "Balandis",
-    "Gegužė",
-    "Birželis",
+    "Gegu\u017E\u0117",
+    "Bir\u017Eelis",
     "Liepa",
-    "Rugpjūtis",
-    "Rugsėjis",
+    "Rugpj\u016Btis",
+    "Rugs\u0117jis",
     "Spalis",
     "Lapkritis",
     "Gruodis"
-], i = "Metų pasirinkimas", s = "Metai", t = "Mėnesis", n = "Savaitė", d = "Diena", r = "Šiandien", k = "Jokių įvykių", o = "Visa diena", y = "Ištrinti", v = "Sukurti įvykį", M = "dddd, D MMMM YYYY", u = {
+], i = "Met\u0173 pasirinkimas", s = "Metai", t = "M\u0117nesis", n = "Savait\u0117", d = "Diena", r = "\u0160iandien", k = "Joki\u0173 \u012Fvyki\u0173", o = "Visa diena", y = "I\u0161trinti", v = "Sukurti \u012Fvyk\u012F", M = "dddd, D MMMM YYYY", u = {
     weekDays: a,
     months: e,
     years: i,
     year: "Metai",
-    month: "Mėnesis",
-    week: "Savaitė",
+    month: "M\u0117nesis",
+    week: "Savait\u0117",
     day: "Diena",
-    today: "Šiandien",
-    noEvent: "Jokių įvykių",
+    today: "\u0160iandien",
+    noEvent: "Joki\u0173 \u012Fvyki\u0173",
     allDay: "Visa diena",
-    deleteEvent: "Ištrinti",
-    createEvent: "Sukurti įvykį",
+    deleteEvent: "I\u0161trinti",
+    createEvent: "Sukurti \u012Fvyk\u012F",
     dateFormat: "dddd, D MMMM YYYY"
 };
 

@@ -164,38 +164,38 @@ parcelHelpers.export(exports, "weekDays", ()=>e);
 parcelHelpers.export(exports, "year", ()=>i);
 parcelHelpers.export(exports, "years", ()=>t);
 const e = [
-    "Poniedziałek",
+    "Poniedzia\u0142ek",
     "Wtorek",
-    "Środa",
+    "\u015Aroda",
     "Czwartek",
-    "Piątek",
+    "Pi\u0105tek",
     "Sobota",
     "Niedziela"
 ], a = [
-    "Styczeń",
+    "Stycze\u0144",
     "Luty",
     "Marzec",
-    "Kwiecień",
+    "Kwiecie\u0144",
     "Maj",
     "Czerwiec",
     "Lipiec",
-    "Sierpień",
-    "Wrzesień",
-    "Październik",
+    "Sierpie\u0144",
+    "Wrzesie\u0144",
+    "Pa\u017Adziernik",
     "Listopad",
-    "Grudzień"
-], t = "Lata", i = "Rok", d = "Miesiąc", s = "Tydzień", r = "Dzień", z = "Dzisiaj", y = "Brak wydarzeń", o = "Cały dzień", n = "Usuń", k = "Utw\xf3rz wydarzenie", w = "dddd, D MMMM YYYY", M = {
+    "Grudzie\u0144"
+], t = "Lata", i = "Rok", d = "Miesi\u0105c", s = "Tydzie\u0144", r = "Dzie\u0144", z = "Dzisiaj", y = "Brak wydarze\u0144", o = "Ca\u0142y dzie\u0144", n = "Usu\u0144", k = "Utw\xf3rz wydarzenie", w = "dddd, D MMMM YYYY", M = {
     weekDays: e,
     months: a,
     years: "Lata",
     year: "Rok",
-    month: "Miesiąc",
-    week: "Tydzień",
-    day: "Dzień",
+    month: "Miesi\u0105c",
+    week: "Tydzie\u0144",
+    day: "Dzie\u0144",
     today: "Dzisiaj",
-    noEvent: "Brak wydarzeń",
-    allDay: "Cały dzień",
-    deleteEvent: "Usuń",
+    noEvent: "Brak wydarze\u0144",
+    allDay: "Ca\u0142y dzie\u0144",
+    deleteEvent: "Usu\u0144",
     createEvent: "Utw\xf3rz wydarzenie",
     dateFormat: "dddd, D MMMM YYYY"
 };

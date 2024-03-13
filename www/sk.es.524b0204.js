@@ -167,10 +167,10 @@ const e = [
     "Pondelok",
     "Utorok",
     "Streda",
-    "Štvrtok",
+    "\u0160tvrtok",
     "Piatok",
     "Sobota",
-    "Nedeľa"
+    "Nede\u013Ea"
 ], a = [
     "Janu\xe1r",
     "Febru\xe1r",
@@ -184,19 +184,19 @@ const e = [
     "Okt\xf3ber",
     "November",
     "December"
-], t = "Roky", s = "Rok", o = "Mesiac", d = "T\xfdždeň", r = "Deň", n = "Dnes", l = "Bez udalosti", y = "Cel\xfd deň", k = "Odstr\xe1niť", M = "Vytvoriť udalosť", D = "dddd D. MMMM YYYY", i = {
+], t = "Roky", s = "Rok", o = "Mesiac", d = "T\xfd\u017Ede\u0148", r = "De\u0148", n = "Dnes", l = "Bez udalosti", y = "Cel\xfd de\u0148", k = "Odstr\xe1ni\u0165", M = "Vytvori\u0165 udalos\u0165", D = "dddd D. MMMM YYYY", i = {
     weekDays: e,
     months: a,
     years: "Roky",
     year: "Rok",
     month: "Mesiac",
-    week: "T\xfdždeň",
-    day: "Deň",
+    week: "T\xfd\u017Ede\u0148",
+    day: "De\u0148",
     today: "Dnes",
     noEvent: "Bez udalosti",
-    allDay: "Cel\xfd deň",
-    deleteEvent: "Odstr\xe1niť",
-    createEvent: "Vytvoriť udalosť",
+    allDay: "Cel\xfd de\u0148",
+    deleteEvent: "Odstr\xe1ni\u0165",
+    createEvent: "Vytvori\u0165 udalos\u0165",
     dateFormat: "dddd D. MMMM YYYY"
 };
 

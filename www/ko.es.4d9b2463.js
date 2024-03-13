@@ -164,40 +164,40 @@ parcelHelpers.export(exports, "weekDays", ()=>a);
 parcelHelpers.export(exports, "year", ()=>s);
 parcelHelpers.export(exports, "years", ()=>t);
 const a = [
-    "월",
-    "화",
-    "수",
-    "목",
-    "금",
-    "토",
-    "일"
+    "\uC6D4",
+    "\uD654",
+    "\uC218",
+    "\uBAA9",
+    "\uAE08",
+    "\uD1A0",
+    "\uC77C"
 ], e = [
-    "1월",
-    "2월",
-    "3월",
-    "4월",
-    "5월",
-    "6월",
-    "7월",
-    "8월",
-    "9월",
-    "10월",
-    "11월",
-    "12월"
-], t = "년도", s = "연간", d = "월간", n = "주간", o = "일간", y = "오늘", r = "일정 없음", M = "하루 종일", Y = "삭제", l = "일정 추가", m = "YYYY년 MMMM D일 dddd요일", D = {
+    "1\uC6D4",
+    "2\uC6D4",
+    "3\uC6D4",
+    "4\uC6D4",
+    "5\uC6D4",
+    "6\uC6D4",
+    "7\uC6D4",
+    "8\uC6D4",
+    "9\uC6D4",
+    "10\uC6D4",
+    "11\uC6D4",
+    "12\uC6D4"
+], t = "\uB144\uB3C4", s = "\uC5F0\uAC04", d = "\uC6D4\uAC04", n = "\uC8FC\uAC04", o = "\uC77C\uAC04", y = "\uC624\uB298", r = "\uC77C\uC815 \uC5C6\uC74C", M = "\uD558\uB8E8 \uC885\uC77C", Y = "\uC0AD\uC81C", l = "\uC77C\uC815 \uCD94\uAC00", m = "YYYY\uB144 MMMM D\uC77C dddd\uC694\uC77C", D = {
     weekDays: a,
     months: e,
-    years: "년도",
-    year: "연간",
-    month: "월간",
-    week: "주간",
-    day: "일간",
-    today: "오늘",
-    noEvent: "일정 없음",
-    allDay: "하루 종일",
-    deleteEvent: "삭제",
-    createEvent: "일정 추가",
-    dateFormat: "YYYY년 MMMM D일 dddd요일"
+    years: "\uB144\uB3C4",
+    year: "\uC5F0\uAC04",
+    month: "\uC6D4\uAC04",
+    week: "\uC8FC\uAC04",
+    day: "\uC77C\uAC04",
+    today: "\uC624\uB298",
+    noEvent: "\uC77C\uC815 \uC5C6\uC74C",
+    allDay: "\uD558\uB8E8 \uC885\uC77C",
+    deleteEvent: "\uC0AD\uC81C",
+    createEvent: "\uC77C\uC815 \uCD94\uAC00",
+    dateFormat: "YYYY\uB144 MMMM D\uC77C dddd\uC694\uC77C"
 };
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},[], null, "parcelRequire02e5")

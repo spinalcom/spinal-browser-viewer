@@ -164,40 +164,40 @@ parcelHelpers.export(exports, "weekDays", ()=>a);
 parcelHelpers.export(exports, "year", ()=>s);
 parcelHelpers.export(exports, "years", ()=>t);
 const a = [
-    "月",
-    "火",
-    "水",
-    "木",
-    "金",
-    "土",
-    "日"
+    "\u6708",
+    "\u706B",
+    "\u6C34",
+    "\u6728",
+    "\u91D1",
+    "\u571F",
+    "\u65E5"
 ], e = [
-    "1月",
-    "2月",
-    "3月",
-    "4月",
-    "5月",
-    "6月",
-    "7月",
-    "8月",
-    "9月",
-    "10月",
-    "11月",
-    "12月"
-], t = "年", s = "今年", d = "月", n = "週", o = "日", y = "今日", r = "イベントなし", M = "終日", Y = "削除", l = "イベント作成", m = "YYYY年 MMMM D日 (dddd)", D = {
+    "1\u6708",
+    "2\u6708",
+    "3\u6708",
+    "4\u6708",
+    "5\u6708",
+    "6\u6708",
+    "7\u6708",
+    "8\u6708",
+    "9\u6708",
+    "10\u6708",
+    "11\u6708",
+    "12\u6708"
+], t = "\u5E74", s = "\u4ECA\u5E74", d = "\u6708", n = "\u9031", o = "\u65E5", y = "\u4ECA\u65E5", r = "\u30A4\u30D9\u30F3\u30C8\u306A\u3057", M = "\u7D42\u65E5", Y = "\u524A\u9664", l = "\u30A4\u30D9\u30F3\u30C8\u4F5C\u6210", m = "YYYY\u5E74 MMMM D\u65E5 (dddd)", D = {
     weekDays: a,
     months: e,
-    years: "年",
-    year: "今年",
-    month: "月",
-    week: "週",
-    day: "日",
-    today: "今日",
-    noEvent: "イベントなし",
-    allDay: "終日",
-    deleteEvent: "削除",
-    createEvent: "イベント作成",
-    dateFormat: "YYYY年 MMMM D日 (dddd)"
+    years: "\u5E74",
+    year: "\u4ECA\u5E74",
+    month: "\u6708",
+    week: "\u9031",
+    day: "\u65E5",
+    today: "\u4ECA\u65E5",
+    noEvent: "\u30A4\u30D9\u30F3\u30C8\u306A\u3057",
+    allDay: "\u7D42\u65E5",
+    deleteEvent: "\u524A\u9664",
+    createEvent: "\u30A4\u30D9\u30F3\u30C8\u4F5C\u6210",
+    dateFormat: "YYYY\u5E74 MMMM D\u65E5 (dddd)"
 };
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},[], null, "parcelRequire02e5")

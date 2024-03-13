@@ -5755,7 +5755,7 @@ function SSF_init_table(t /*:any*/ ) {
     t[47] = "mmss.0";
     t[48] = "##0.0E+0";
     t[49] = "@";
-    t[56] = '"上午/下午 "hh"時"mm"分"ss"秒 "';
+    t[56] = '"\u4E0A\u5348/\u4E0B\u5348 "hh"\u6642"mm"\u5206"ss"\u79D2 "';
     return t;
 }
 /* repeated to satiate webpack */ var table_fmt = {
@@ -5787,7 +5787,7 @@ function SSF_init_table(t /*:any*/ ) {
     47: "mmss.0",
     48: "##0.0E+0",
     49: "@",
-    56: '"上午/下午 "hh"時"mm"分"ss"秒 "'
+    56: '"\u4E0A\u5348/\u4E0B\u5348 "hh"\u6642"mm"\u5206"ss"\u79D2 "'
 };
 /* Defaults determined by systematically testing in Excel 2019 */ /* These formats appear to default to other formats in the table */ var SSF_default_map = {
     5: 37,
@@ -6517,10 +6517,10 @@ function fmt_is_date(fmt /*:string*/ ) /*:boolean*/ {
             return true;
         case "A":
         case "a":
-        case "上":
+        case "\u4E0A":
             if (fmt.substr(i, 3).toUpperCase() === "A/P") return true;
             if (fmt.substr(i, 5).toUpperCase() === "AM/PM") return true;
-            if (fmt.substr(i, 5).toUpperCase() === "上午/下午") return true;
+            if (fmt.substr(i, 5).toUpperCase() === "\u4E0A\u5348/\u4E0B\u5348") return true;
             ++i;
             break;
         case "[":
@@ -6652,7 +6652,7 @@ function eval_fmt(fmt /*:string*/ , v /*:any*/ , opts /*:any*/ , flen /*:number*
             break;
         case "A":
         case "a":
-        case "上":
+        case "\u4E0A":
             var q = {
                 t: c,
                 v: c
@@ -6668,8 +6668,8 @@ function eval_fmt(fmt /*:string*/ , v /*:any*/ , opts /*:any*/ , flen /*:number*
                 q.t = "T";
                 i += 5;
                 hr = "h";
-            } else if (fmt.substr(i, 5).toUpperCase() === "上午/下午") {
-                if (dt != null) q.v = dt.H >= 12 ? "下午" : "上午";
+            } else if (fmt.substr(i, 5).toUpperCase() === "\u4E0A\u5348/\u4E0B\u5348") {
+                if (dt != null) q.v = dt.H >= 12 ? "\u4E0B\u5348" : "\u4E0A\u5348";
                 q.t = "T";
                 i += 5;
                 hr = "h";
@@ -6774,7 +6774,7 @@ function eval_fmt(fmt /*:string*/ , v /*:any*/ , opts /*:any*/ , flen /*:number*
             ++i;
             break;
         default:
-            if (",$-+/():!^&'~{}<>=€acfijklopqrtuvwxzP".indexOf(c) === -1) throw new Error("unrecognized character " + c + " in " + fmt);
+            if (",$-+/():!^&'~{}<>=\u20ACacfijklopqrtuvwxzP".indexOf(c) === -1) throw new Error("unrecognized character " + c + " in " + fmt);
             out[out.length] = {
                 t: "t",
                 v: c
@@ -9286,33 +9286,33 @@ function cc2str(arr /*:Array<number>*/ , debomit) /*:string*/ {
             if (arr[0] == 0xFE && arr[1] == 0xFF) return utf8write(new TextDecoder("utf-16be").decode(arr.slice(2)));
         }
         var rev = {
-            "€": "\x80",
-            "‚": "\x82",
-            "ƒ": "\x83",
-            "„": "\x84",
-            "…": "\x85",
-            "†": "\x86",
-            "‡": "\x87",
-            "ˆ": "\x88",
-            "‰": "\x89",
-            "Š": "\x8a",
-            "‹": "\x8b",
-            "Œ": "\x8c",
-            "Ž": "\x8e",
-            "‘": "\x91",
-            "’": "\x92",
-            "“": "\x93",
-            "”": "\x94",
-            "•": "\x95",
-            "–": "\x96",
-            "—": "\x97",
-            "˜": "\x98",
-            "™": "\x99",
-            "š": "\x9a",
-            "›": "\x9b",
-            "œ": "\x9c",
-            "ž": "\x9e",
-            "Ÿ": "\x9f"
+            "\u20AC": "\x80",
+            "\u201A": "\x82",
+            "\u0192": "\x83",
+            "\u201E": "\x84",
+            "\u2026": "\x85",
+            "\u2020": "\x86",
+            "\u2021": "\x87",
+            "\u02C6": "\x88",
+            "\u2030": "\x89",
+            "\u0160": "\x8a",
+            "\u2039": "\x8b",
+            "\u0152": "\x8c",
+            "\u017D": "\x8e",
+            "\u2018": "\x91",
+            "\u2019": "\x92",
+            "\u201C": "\x93",
+            "\u201D": "\x94",
+            "\u2022": "\x95",
+            "\u2013": "\x96",
+            "\u2014": "\x97",
+            "\u02DC": "\x98",
+            "\u2122": "\x99",
+            "\u0161": "\x9a",
+            "\u203A": "\x9b",
+            "\u0153": "\x9c",
+            "\u017E": "\x9e",
+            "\u0178": "\x9f"
         };
         if (Array.isArray(arr)) arr = new Uint8Array(arr);
         return new TextDecoder("latin1").decode(arr).replace(/[€‚ƒ„…†‡ˆ‰Š‹ŒŽ‘’“”•–—˜™š›œžŸ]/g, function(c) {
@@ -12097,13 +12097,13 @@ function load_props_pairs(HP /*:string|Array<Array<any>>*/ , TOP, props, opts) {
         len = +v[i + 1].v;
         switch(v[i].v){
             case "Worksheets":
-            case "工作表":
-            case "Листы":
-            case "أوراق العمل":
-            case "ワークシート":
-            case "גליונות עבודה":
+            case "\u5DE5\u4F5C\u8868":
+            case "\u041B\u0438\u0441\u0442\u044B":
+            case "\u0623\u0648\u0631\u0627\u0642 \u0627\u0644\u0639\u0645\u0644":
+            case "\u30EF\u30FC\u30AF\u30B7\u30FC\u30C8":
+            case "\u05D2\u05DC\u05D9\u05D5\u05E0\u05D5\u05EA \u05E2\u05D1\u05D5\u05D3\u05D4":
             case "Arbeitsbl\xe4tter":
-            case "\xc7alışma Sayfaları":
+            case "\xc7al\u0131\u015Fma Sayfalar\u0131":
             case "Feuilles de calcul":
             case "Fogli di lavoro":
             case "Folhas de c\xe1lculo":
@@ -12116,7 +12116,7 @@ function load_props_pairs(HP /*:string|Array<Array<any>>*/ , TOP, props, opts) {
                 break;
             case "Named Ranges":
             case "Rangos con nombre":
-            case "名前付き一覧":
+            case "\u540D\u524D\u4ED8\u304D\u4E00\u89A7":
             case "Benannte Bereiche":
             case "Navngivne omr\xe5der":
                 props.NamedRanges = len;
@@ -14760,7 +14760,7 @@ var DBF = /*#__PURE__*/ function() {
         for(i = 0, j = 0; i < headers.length; ++i){
             if (headers[i] == null) continue;
             var hf = ba.next(32);
-            var _f = (headers[i].slice(-10) + "\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00").slice(0, 11);
+            var _f = (headers[i].slice(-10) + "\0\0\0\0\0\0\0\0\0\0\0").slice(0, 11);
             hf.write_shift(1, _f, "sbcs");
             hf.write_shift(1, coltypes[i] == "?" ? "C" : coltypes[i], "sbcs");
             hf.write_shift(4, j);
@@ -14871,9 +14871,9 @@ var SYLK = /*#__PURE__*/ function() {
         KC: "\xc7",
         Kc: "\xe7",
         q: "\xe6",
-        z: "œ",
+        z: "\u0153",
         a: "\xc6",
-        j: "Œ",
+        j: "\u0152",
         DN: 209,
         Dn: 241,
         Hy: 255,
@@ -14943,7 +14943,7 @@ var SYLK = /*#__PURE__*/ function() {
         for(; ri !== records.length; ++ri){
             Mval = 0;
             var rstr = records[ri].trim().replace(/\x1B([\x20-\x2F])([\x30-\x3F])/g, decode_sylk_char).replace(sylk_char_regex, sylk_char_fn);
-            var record = rstr.replace(/;;/g, "\x00").split(";").map(function(x) {
+            var record = rstr.replace(/;;/g, "\0").split(";").map(function(x) {
                 return x.replace(/\u0000/g, ";");
             });
             var RT = record[0], val;
@@ -19219,10 +19219,10 @@ function write_theme(Themes, opts) /*:string*/ {
     o[o.length] = '<a:latin typeface="Cambria"/>';
     o[o.length] = '<a:ea typeface=""/>';
     o[o.length] = '<a:cs typeface=""/>';
-    o[o.length] = '<a:font script="Jpan" typeface="ＭＳ Ｐゴシック"/>';
-    o[o.length] = '<a:font script="Hang" typeface="맑은 고딕"/>';
-    o[o.length] = '<a:font script="Hans" typeface="宋体"/>';
-    o[o.length] = '<a:font script="Hant" typeface="新細明體"/>';
+    o[o.length] = '<a:font script="Jpan" typeface="\uFF2D\uFF33 \uFF30\u30B4\u30B7\u30C3\u30AF"/>';
+    o[o.length] = '<a:font script="Hang" typeface="\uB9D1\uC740 \uACE0\uB515"/>';
+    o[o.length] = '<a:font script="Hans" typeface="\u5B8B\u4F53"/>';
+    o[o.length] = '<a:font script="Hant" typeface="\u65B0\u7D30\u660E\u9AD4"/>';
     o[o.length] = '<a:font script="Arab" typeface="Times New Roman"/>';
     o[o.length] = '<a:font script="Hebr" typeface="Times New Roman"/>';
     o[o.length] = '<a:font script="Thai" typeface="Tahoma"/>';
@@ -19254,10 +19254,10 @@ function write_theme(Themes, opts) /*:string*/ {
     o[o.length] = '<a:latin typeface="Calibri"/>';
     o[o.length] = '<a:ea typeface=""/>';
     o[o.length] = '<a:cs typeface=""/>';
-    o[o.length] = '<a:font script="Jpan" typeface="ＭＳ Ｐゴシック"/>';
-    o[o.length] = '<a:font script="Hang" typeface="맑은 고딕"/>';
-    o[o.length] = '<a:font script="Hans" typeface="宋体"/>';
-    o[o.length] = '<a:font script="Hant" typeface="新細明體"/>';
+    o[o.length] = '<a:font script="Jpan" typeface="\uFF2D\uFF33 \uFF30\u30B4\u30B7\u30C3\u30AF"/>';
+    o[o.length] = '<a:font script="Hang" typeface="\uB9D1\uC740 \uACE0\uB515"/>';
+    o[o.length] = '<a:font script="Hans" typeface="\u5B8B\u4F53"/>';
+    o[o.length] = '<a:font script="Hant" typeface="\u65B0\u7D30\u660E\u9AD4"/>';
     o[o.length] = '<a:font script="Arab" typeface="Arial"/>';
     o[o.length] = '<a:font script="Hebr" typeface="Arial"/>';
     o[o.length] = '<a:font script="Thai" typeface="Tahoma"/>';
@@ -32576,7 +32576,7 @@ function parse_content_xml(d /*:string*/ , _opts) /*:Workbook*/ {
     str = str.replace(/<!--([\s\S]*?)-->/mg, "").replace(/<!DOCTYPE[^\[]*\[[^\]]*\]>/gm, "");
     while(Rn = xlmlregex.exec(str))switch(Rn[3] = Rn[3].replace(/_.*$/, "")){
         case "table":
-        case "工作表":
+        case "\u5DE5\u4F5C\u8868":
             if (Rn[1] === "/") {
                 if (range.e.c >= range.s.c && range.e.r >= range.s.r) ws["!ref"] = encode_range(range);
                 else ws["!ref"] = "A1:A1";
@@ -32587,7 +32587,7 @@ function parse_content_xml(d /*:string*/ , _opts) /*:Workbook*/ {
                 }
                 if (merges.length) ws["!merges"] = merges;
                 if (rowinfo.length) ws["!rows"] = rowinfo;
-                sheetag.name = sheetag["名称"] || sheetag.name;
+                sheetag.name = sheetag["\u540D\u79F0"] || sheetag.name;
                 if (typeof JSON !== "undefined") JSON.stringify(sheetag);
                 SheetNames.push(sheetag.name);
                 Sheets[sheetag.name] = ws;
@@ -32608,14 +32608,14 @@ function parse_content_xml(d /*:string*/ , _opts) /*:Workbook*/ {
             else ++row_ol;
             break;
         case "table-row":
-        case "行":
+        case "\u884C":
             if (Rn[1] === "/") {
                 R += rowpeat;
                 rowpeat = 1;
                 break;
             }
             rowtag = parsexmltag(Rn[0], false);
-            if (rowtag["行号"]) R = rowtag["行号"] - 1;
+            if (rowtag["\u884C\u53F7"]) R = rowtag["\u884C\u53F7"] - 1;
             else if (R == -1) R = 0;
             rowpeat = +rowtag["number-rows-repeated"] || 1;
             /* TODO: remove magic */ if (rowpeat < 10) {
@@ -32644,7 +32644,7 @@ function parse_content_xml(d /*:string*/ , _opts) /*:Workbook*/ {
             textR = [];
             break; /* stub */ 
         case "table-cell":
-        case "数据":
+        case "\u6570\u636E":
             if (Rn[0].charAt(Rn[0].length - 2) === "/") {
                 ++C;
                 ctag = parsexmltag(Rn[0], false);
@@ -32654,7 +32654,7 @@ function parse_content_xml(d /*:string*/ , _opts) /*:Workbook*/ {
                     v: null
                 } /*:any*/ ;
                 if (ctag.formula && opts.cellFormula != false) q.f = ods_to_csf_formula(unescapexml(ctag.formula));
-                if ((ctag["数据类型"] || ctag["value-type"]) == "string") {
+                if ((ctag["\u6570\u636E\u7C7B\u578B"] || ctag["value-type"]) == "string") {
                     q.t = "s";
                     q.v = unescapexml(ctag["string-value"] || "");
                     if (opts.dense) {
@@ -32681,7 +32681,7 @@ function parse_content_xml(d /*:string*/ , _opts) /*:Workbook*/ {
                 comments = [];
                 comment = {} /*:any*/ ;
                 q = {
-                    t: ctag["数据类型"] || ctag["value-type"],
+                    t: ctag["\u6570\u636E\u7C7B\u578B"] || ctag["value-type"],
                     v: null
                 } /*:any*/ ;
                 if (opts.cellFormula) {
@@ -32763,7 +32763,7 @@ function parse_content_xml(d /*:string*/ , _opts) /*:Workbook*/ {
                         break;
                     case "number":
                         q.t = "n";
-                        q.v = parseFloat(ctag["数据数值"]);
+                        q.v = parseFloat(ctag["\u6570\u636E\u6570\u503C"]);
                         break;
                     default:
                         if (q.t === "string" || q.t === "text" || !q.t) {
@@ -32822,9 +32822,9 @@ function parse_content_xml(d /*:string*/ , _opts) /*:Workbook*/ {
             break; // 9.1.4 <table:table-cell>
         /* pure state */ case "document":
         case "document-content":
-        case "电子表格文档":
+        case "\u7535\u5B50\u8868\u683C\u6587\u6863":
         case "spreadsheet":
-        case "主体":
+        case "\u4E3B\u4F53":
         case "scripts":
         case "styles":
         case "font-face-decls":
@@ -32858,7 +32858,7 @@ function parse_content_xml(d /*:string*/ , _opts) /*:Workbook*/ {
             else creatoridx = Rn.index + Rn[0].length;
             break;
         /* ignore state */ case "meta":
-        case "元数据":
+        case "\u5143\u6570\u636E":
         case "settings":
         case "config-item-set":
         case "config-item-map-indexed":
@@ -32995,7 +32995,7 @@ function parse_content_xml(d /*:string*/ , _opts) /*:Workbook*/ {
         case "embedded-text":
             break; // 16.27.4 <number:embedded-text>
         case "body":
-        case "电子表格":
+        case "\u7535\u5B50\u8868\u683C":
             break; // 3.3 16.9.6 19.726.3
         case "forms":
             break; // 12.25.2 13.2
@@ -33038,7 +33038,7 @@ function parse_content_xml(d /*:string*/ , _opts) /*:Workbook*/ {
         case "span":
             break; // 6.1.7 <text:span>
         case "p":
-        case "文本串":
+        case "\u6587\u672C\u4E32":
             if ([
                 "master-styles"
             ].indexOf(state[state.length - 1][0]) > -1) break;
@@ -33066,7 +33066,7 @@ function parse_content_xml(d /*:string*/ , _opts) /*:Workbook*/ {
         case "object":
             break; // 10.4.6.2 <draw:object>
         case "title":
-        case "标题":
+        case "\u6807\u9898":
             break; // <*:title> OR <uof:标题>
         case "desc":
             break; // <*:desc>
@@ -33209,8 +33209,8 @@ function parse_content_xml(d /*:string*/ , _opts) /*:Workbook*/ {
                 case "chart:":
                 case "form:":
                 case "uof:":
-                case "表:":
-                case "字:":
+                case "\u8868:":
+                case "\u5B57:":
                     break;
                 default:
                     if (opts.WTF) throw new Error(Rn);

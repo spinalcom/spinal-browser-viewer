@@ -167,14 +167,14 @@ const a = [
     "Ponedjeljak",
     "Utorak",
     "Srijeda",
-    "Četvrtak",
+    "\u010Cetvrtak",
     "Petak",
     "Subota",
     "Nedjelja"
 ], e = [
-    "Siječanj",
-    "Veljača",
-    "Ožujak",
+    "Sije\u010Danj",
+    "Velja\u010Da",
+    "O\u017Eujak",
     "Travanj",
     "Svibanj",
     "Lipanj",
@@ -184,7 +184,7 @@ const a = [
     "Listopad",
     "Studeni",
     "Prosinac"
-], n = "Godine", d = "Godina", t = "Mjesec", j = "Tjedan", o = "Dan", s = "Današnji dan", i = "Nema događaja", r = "Cijeli dan", l = "Obriši", y = "Kreiraj događaj", D = "dddd D MMMM YYYY", M = {
+], n = "Godine", d = "Godina", t = "Mjesec", j = "Tjedan", o = "Dan", s = "Dana\u0161nji dan", i = "Nema doga\u0111aja", r = "Cijeli dan", l = "Obri\u0161i", y = "Kreiraj doga\u0111aj", D = "dddd D MMMM YYYY", M = {
     weekDays: a,
     months: e,
     years: "Godine",
@@ -192,11 +192,11 @@ const a = [
     month: "Mjesec",
     week: "Tjedan",
     day: "Dan",
-    today: "Današnji dan",
-    noEvent: "Nema događaja",
+    today: "Dana\u0161nji dan",
+    noEvent: "Nema doga\u0111aja",
     allDay: "Cijeli dan",
-    deleteEvent: "Obriši",
-    createEvent: "Kreiraj događaj",
+    deleteEvent: "Obri\u0161i",
+    createEvent: "Kreiraj doga\u0111aj",
     dateFormat: "dddd D MMMM YYYY"
 };
 
