@@ -1828,6 +1828,7 @@ var scriptExports = {
             try {
                 const id = this.endpointId;
                 const spinalPilot = await (0, _pilotageUtilitiesDefault.default).sendUpdateRequest(id, this.endpointNode, value);
+                console.log("spinalPilot", spinalPilot);
                 if (spinalPilot) this.bindState(spinalPilot, popovers, value);
                 else {
                     const changed = await this.changeEndpointValueInGraph(this.endpointElement.currentValue, value);
@@ -1928,15 +1929,20 @@ parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerGraphService = require("spinal-env-viewer-graph-service");
 var _spinalModelBmsnetwork = require("spinal-model-bmsnetwork");
 var _spinalModelBacnet = require("spinal-model-bacnet");
+var _spinalModelOpcua = require("spinal-model-opcua");
 exports.default = {
     getEndpointOrgan (endpointNodeId) {
+        const organTypes = [
+            (0, _spinalModelBacnet.BACNET_ORGAN_TYPE),
+            (0, _spinalModelOpcua.OPCUA_ORGAN_TYPE)
+        ];
         return this.findParents(endpointNodeId, [
             (0, _spinalModelBmsnetwork.SpinalBmsNetwork).relationName,
             (0, _spinalModelBmsnetwork.SpinalBmsDevice).relationName,
             (0, _spinalModelBmsnetwork.SpinalBmsEndpoint).relationName,
             (0, _spinalModelBmsnetwork.SpinalBmsEndpointGroup).relationName
         ], (node)=>{
-            if (node.getType().get() === (0, _spinalModelBacnet.BACNET_ORGAN_TYPE)) {
+            if (organTypes.includes(node.getType().get())) {
                 (0, _spinalEnvViewerGraphService.SpinalGraphService)._addNode(node);
                 return true;
             }
@@ -1956,6 +1962,20 @@ exports.default = {
             return false;
         });
     },
+    getNetwork (endpointNodeId) {
+        return this.findParents(endpointNodeId, [
+            (0, _spinalModelBmsnetwork.SpinalBmsNetwork).relationName,
+            (0, _spinalModelBmsnetwork.SpinalBmsDevice).relationName,
+            (0, _spinalModelBmsnetwork.SpinalBmsEndpoint).relationName,
+            (0, _spinalModelBmsnetwork.SpinalBmsEndpointGroup).relationName
+        ], (node)=>{
+            if (node.getType().get() === (0, _spinalModelBmsnetwork.SpinalBmsNetwork).nodeTypeName) {
+                (0, _spinalEnvViewerGraphService.SpinalGraphService)._addNode(node);
+                return true;
+            }
+            return false;
+        });
+    },
     filterContextIdsByType (contextIds, type) {
         return contextIds.filter((id)=>{
             const info = (0, _spinalEnvViewerGraphService.SpinalGraphService).getInfo(id);
@@ -1963,7 +1983,7 @@ exports.default = {
             return false;
         });
     },
-    async findParents (startId, relations, predicate) {
+    async findParents (startId, relations, predicate, stopAtFirstFound = true) {
         if (typeof predicate !== "function") throw new Error("The predicate function must be a function");
         const startNode = (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(startId);
         if (startNode) {
@@ -1982,7 +2002,10 @@ exports.default = {
                 nextGen = [];
                 for (const node of currentGen){
                     promises.push(node.getParents(relations));
-                    if (predicate(node)) found.push(node);
+                    if (predicate(node)) {
+                        found.push(node);
+                        if (stopAtFirstFound) break;
+                    }
                 }
                 const parentArrays = await Promise.all(promises);
                 for (const parents of parentArrays)for (const parent of parents){
@@ -2001,30 +2024,47 @@ exports.default = {
     async sendUpdateRequest (nodeId, endpointNode, value) {
         const [organNode] = await this.getEndpointOrgan(nodeId);
         const devices = await this.getDevices(nodeId);
-        if (organNode && devices && devices.length > 0) {
-            const organ = await organNode.getElement();
-            if (organ) {
-                const endpointElement = await endpointNode.getElement();
-                const requests = devices.map((device)=>{
-                    return {
-                        address: device.info.address && device.info.address.get(),
-                        deviceId: device.info.idNetwork && device.info.idNetwork.get(),
-                        objectId: {
-                            type: endpointElement.typeId.get(),
-                            instance: endpointElement.id.get()
-                        },
-                        value: value
-                    };
-                });
-                const spinalPilot = new (0, _spinalModelBacnet.SpinalPilotModel)(organ, requests);
-                await spinalPilot.addToNode(endpointNode);
-                return spinalPilot;
-            }
+        if (organNode && devices && devices.length > 0) switch(organNode.getType().get()){
+            case 0, _spinalModelBacnet.BACNET_ORGAN_TYPE:
+                const organ = await organNode.getElement();
+                return this.sendBacnetRequest(organ, endpointNode, devices, value);
+            case 0, _spinalModelOpcua.OPCUA_ORGAN_TYPE:
+                return this.sendOPCUARequest(organNode, endpointNode, value);
+            default:
+                break;
         }
+    },
+    async sendBacnetRequest (organ, endpointNode, devices, value) {
+        const endpointElement = await endpointNode.getElement();
+        const requests = devices.map((device)=>{
+            return {
+                address: device.info.address && device.info.address.get(),
+                deviceId: device.info.idNetwork && device.info.idNetwork.get(),
+                objectId: {
+                    type: endpointElement.typeId.get(),
+                    instance: endpointElement.id.get()
+                },
+                value: value
+            };
+        });
+        const spinalPilot = new (0, _spinalModelBacnet.SpinalPilotModel)(organ, requests);
+        await spinalPilot.addToNode(endpointNode);
+        return spinalPilot;
+    },
+    async sendOPCUARequest (organ, endpointNode, value) {
+        const [network] = await this.getNetwork(endpointNode.getId().get());
+        const request = {
+            nodeId: endpointNode.info.idNetwork && endpointNode.info.idNetwork.get(),
+            value,
+            networkInfo: network.info.serverInfo && network.info.serverInfo.get() || {}
+        };
+        const spinalPilot = new (0, _spinalModelOpcua.SpinalOPCUAPilot)(organ, request);
+        await spinalPilot.addToNode(endpointNode);
+        return spinalPilot;
     }
 };
 
-},{"spinal-env-viewer-graph-service":"9n7zp","spinal-model-bmsnetwork":"gzkbg","spinal-model-bacnet":"fxyeC","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5i76m":[function(require,module,exports) {
+},{"spinal-env-viewer-graph-service":"9n7zp","spinal-model-bmsnetwork":"gzkbg","spinal-model-bacnet":"fxyeC","spinal-model-opcua":"i5yd2","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5i76m":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;

@@ -421,6 +421,12 @@ md-button[data-v-bbdec2] {
   text-align: center;
 }
 
+.md-button[data-v-2ec450] {
+  border-radius: 5px;
+  padding: 10px 20px;
+  transition: background-color .3s;
+}
+
 .mdDialog .mdDialogContainer[data-v-2ec450] {
   width: 1200px;
   max-width: 1500px;
@@ -458,6 +464,12 @@ md-button[data-v-bbdec2] {
   text-align: center;
 }
 
+.md-button[data-v-19c5d7] {
+  border-radius: 5px;
+  padding: 10px 20px;
+  transition: background-color .3s;
+}
+
 .mdDialog .mdDialogContainer[data-v-19c5d7] {
   width: 1200px;
   max-width: 1500px;
@@ -471,8 +483,10 @@ md-button[data-v-bbdec2] {
 }
 
 .md-dialog-actions[data-v-19c5d7] {
+  justify-content: space-between;
   margin: 0;
   padding: 8px 16px;
+  display: flex;
 }
 
 .md-button[data-v-19c5d7] {

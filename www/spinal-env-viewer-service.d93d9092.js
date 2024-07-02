@@ -1049,7 +1049,7 @@ function createFctGetArchi(config) {
           let found =  false;
           for (const propertie of properties) {
             if (propertie.name.toLowerCase() === attrNameLowerCase && propertie.category !== '__internalref__') {
-              if (propertie.value !== value) {
+              if (value && propertie.value !== value) {
                 propertie.oldValue = propertie.value
                 propertie.value = value
               }
@@ -2673,7 +2673,7 @@ var EModificationType;
     EModificationType[EModificationType["updateAttr"] = 16] = "updateAttr";
     EModificationType[EModificationType["updateChildren"] = 32] = "updateChildren";
     EModificationType[EModificationType["delete"] = 64] = "delete";
-})(EModificationType = exports.EModificationType || (exports.EModificationType = {}));
+})(EModificationType || (exports.EModificationType = EModificationType = {}));
 
 },{}],"kGLxR":[function(require,module,exports) {
 "use strict";
@@ -3519,20 +3519,28 @@ var __await = this && this.__await || function(v) {
 var __asyncGenerator = this && this.__asyncGenerator || function(thisArg, _arguments, generator) {
     if (!Symbol.asyncIterator) throw new TypeError("Symbol.asyncIterator is not defined.");
     var g = generator.apply(thisArg, _arguments || []), i, q = [];
-    return i = {}, verb("next"), verb("throw"), verb("return"), i[Symbol.asyncIterator] = function() {
+    return i = {}, verb("next"), verb("throw"), verb("return", awaitReturn), i[Symbol.asyncIterator] = function() {
         return this;
     }, i;
-    function verb(n) {
-        if (g[n]) i[n] = function(v) {
-            return new Promise(function(a, b) {
-                q.push([
-                    n,
-                    v,
-                    a,
-                    b
-                ]) > 1 || resume(n, v);
-            });
+    function awaitReturn(f) {
+        return function(v) {
+            return Promise.resolve(v).then(f, reject);
         };
+    }
+    function verb(n, f) {
+        if (g[n]) {
+            i[n] = function(v) {
+                return new Promise(function(a, b) {
+                    q.push([
+                        n,
+                        v,
+                        a,
+                        b
+                    ]) > 1 || resume(n, v);
+                });
+            };
+            if (f) i[n] = f(i[n]);
+        }
     }
     function resume(n, v) {
         try {
@@ -4856,20 +4864,28 @@ var __await = this && this.__await || function(v) {
 var __asyncGenerator = this && this.__asyncGenerator || function(thisArg, _arguments, generator) {
     if (!Symbol.asyncIterator) throw new TypeError("Symbol.asyncIterator is not defined.");
     var g = generator.apply(thisArg, _arguments || []), i, q = [];
-    return i = {}, verb("next"), verb("throw"), verb("return"), i[Symbol.asyncIterator] = function() {
+    return i = {}, verb("next"), verb("throw"), verb("return", awaitReturn), i[Symbol.asyncIterator] = function() {
         return this;
     }, i;
-    function verb(n) {
-        if (g[n]) i[n] = function(v) {
-            return new Promise(function(a, b) {
-                q.push([
-                    n,
-                    v,
-                    a,
-                    b
-                ]) > 1 || resume(n, v);
-            });
+    function awaitReturn(f) {
+        return function(v) {
+            return Promise.resolve(v).then(f, reject);
         };
+    }
+    function verb(n, f) {
+        if (g[n]) {
+            i[n] = function(v) {
+                return new Promise(function(a, b) {
+                    q.push([
+                        n,
+                        v,
+                        a,
+                        b
+                    ]) > 1 || resume(n, v);
+                });
+            };
+            if (f) i[n] = f(i[n]);
+        }
     }
     function resume(n, v) {
         try {
@@ -6728,6 +6744,16 @@ const waitGetServerId_1 = require("75af6bff8a27f027");
 const getBimContextByBimFileId_1 = require("9be23858761b3dd8");
 const constant_1 = require("15e25285f848741a");
 const Constant_1 = require("76d46131c6ae3827");
+function safe_call(callback, ...attr) {
+    return ()=>__awaiter(this, void 0, void 0, function*() {
+            try {
+                return yield callback.call(null, attr);
+            } catch (error) {
+                console.error(error);
+                return undefined;
+            }
+        });
+}
 function consumeCmdGeo(cmds, nodeGenerationId, contextGenerationId, callbackProg, consumeBatchSize = 20) {
     return __awaiter(this, void 0, void 0, function*() {
         const graph = (0, graphservice_1.getGraph)();
@@ -6743,17 +6769,17 @@ function consumeCmdGeo(cmds, nodeGenerationId, contextGenerationId, callbackProg
             const proms = [];
             let isFloors = false;
             for (const cmd of cmdArr){
-                if (cmd.type === "building") proms.push(consumeNewUpdateCmd.bind(null, dico, cmd, spinal_env_viewer_context_geographic_service_1.addBuilding));
+                if (cmd.type === "building") proms.push(safe_call(consumeNewUpdateCmd, dico, cmd, spinal_env_viewer_context_geographic_service_1.addBuilding));
                 else if (cmd.type === "floor") {
-                    proms.push(consumeNewUpdateCmd.bind(null, dico, cmd, spinal_env_viewer_context_geographic_service_1.addFloor));
+                    proms.push(safe_call(consumeNewUpdateCmd, dico, cmd, spinal_env_viewer_context_geographic_service_1.addFloor));
                     isFloors = true;
-                } else if (cmd.type === "floorRef") proms.push(consumeNewUpdateRefCmd.bind(null, dico, cmd, spinal_env_viewer_context_geographic_service_1.REFERENCE_RELATION));
-                else if (cmd.type === "floorRefDel") proms.push(consumeDeleteCmd.bind(null, dico, cmd, spinal_env_viewer_context_geographic_service_1.REFERENCE_RELATION));
-                else if (cmd.type === "floorRoomDel") proms.push(consumeDeleteCmd.bind(null, dico, cmd, spinal_env_viewer_context_geographic_service_1.ROOM_RELATION, nodeGenerationId, contextGenerationId));
-                else if (cmd.type === "room") proms.push(consumeNewUpdateCmd.bind(null, dico, cmd, spinal_env_viewer_context_geographic_service_1.addRoom));
-                else if (cmd.type === "roomRef") proms.push(consumeNewUpdateRefCmd.bind(null, dico, cmd, spinal_env_viewer_context_geographic_service_1.REFERENCE_ROOM_RELATION));
-                else if (cmd.type === "roomRefDel") proms.push(consumeDeleteCmd.bind(null, dico, cmd, spinal_env_viewer_context_geographic_service_1.REFERENCE_ROOM_RELATION));
-                else if (cmd.type === "RefNode") proms.push(consumeRefNode.bind(null, dico, cmd));
+                } else if (cmd.type === "floorRef") proms.push(safe_call(consumeNewUpdateRefCmd, dico, cmd, spinal_env_viewer_context_geographic_service_1.REFERENCE_RELATION));
+                else if (cmd.type === "floorRefDel") proms.push(safe_call(consumeDeleteCmd, dico, cmd, spinal_env_viewer_context_geographic_service_1.REFERENCE_RELATION));
+                else if (cmd.type === "floorRoomDel") proms.push(safe_call(consumeDeleteCmd, dico, cmd, spinal_env_viewer_context_geographic_service_1.ROOM_RELATION, nodeGenerationId, contextGenerationId));
+                else if (cmd.type === "room") proms.push(safe_call(consumeNewUpdateCmd, dico, cmd, spinal_env_viewer_context_geographic_service_1.addRoom));
+                else if (cmd.type === "roomRef") proms.push(safe_call(consumeNewUpdateRefCmd, dico, cmd, spinal_env_viewer_context_geographic_service_1.REFERENCE_ROOM_RELATION));
+                else if (cmd.type === "roomRefDel") proms.push(safe_call(consumeDeleteCmd, dico, cmd, spinal_env_viewer_context_geographic_service_1.REFERENCE_ROOM_RELATION));
+                else if (cmd.type === "RefNode") proms.push(safe_call(consumeRefNode, dico, cmd));
             }
             yield (0, consumeBatch_1.consumeBatch)(proms, isFloors ? 1 : consumeBatchSize, (idx)=>{
                 try {
@@ -6780,9 +6806,9 @@ function consumeRefNode(dico, cmd) {
     return __awaiter(this, void 0, void 0, function*() {
         if (spinal.SHOW_LOG_GENERATION) console.log("consumeRef", cmd);
         const parentNode = dico[cmd.pNId];
-        if (!parentNode) throw new Error(`ParentId for ${cmd.type} not found.`);
+        if (!parentNode) throw new Error(`ParentId for ${cmd.pNId} not found.`);
         const context = dico[cmd.contextId];
-        if (!context) throw new Error(`contextId [${cmd.contextId}] for ${cmd.type} not found.`);
+        if (!context) throw new Error(`contextId [${cmd.contextId}] for ${cmd.pNId} not found.`);
         // find id in parentChildren
         const children = yield parentNode.getChildrenInContext(context);
         const child = children.find((node)=>node.info.id.get() === cmd.id);
@@ -6793,7 +6819,10 @@ function consumeDeleteCmd(dico, cmd, relationName, nodeGenerationId, contextGene
     return __awaiter(this, void 0, void 0, function*() {
         if (spinal.SHOW_LOG_GENERATION) console.log("consumeDeleteCmd", cmd);
         const parentNode = dico[cmd.pNId];
-        if (!parentNode) throw new Error(`ParentId for ${cmd.type} not found.`);
+        if (!parentNode) {
+            console.error(new Error(`consumeDeleteCmd skip, ParentId for ${cmd.pNId} not found.`));
+            return;
+        }
         const childrenNode = yield parentNode.getChildren(relationName);
         const nodesToDel = [];
         for (const id of cmd.nIdToDel){
@@ -6820,9 +6849,9 @@ function consumeNewUpdateCmd(dico, cmd, createMtd) {
     return __awaiter(this, void 0, void 0, function*() {
         if (spinal.SHOW_LOG_GENERATION) console.log("consumeNewUpdateCmd", cmd);
         const parentNode = dico[cmd.pNId];
-        if (!parentNode) throw new Error(`ParentId for ${cmd.type} not found.`);
+        if (!parentNode) throw new Error(`ParentId for ${cmd.pNId} not found.`);
         const context = dico[cmd.contextId];
-        if (!context) throw new Error(`contextId [${cmd.contextId}] for ${cmd.type} not found.`);
+        if (!context) throw new Error(`contextId [${cmd.contextId}] for ${cmd.pNId} not found.`);
         // find id in parentChildren
         const children = yield parentNode.getChildrenInContext(context);
         let child = children.find((node)=>node.info.id.get() === cmd.id);
@@ -7062,20 +7091,28 @@ var __await = this && this.__await || function(v) {
 var __asyncGenerator = this && this.__asyncGenerator || function(thisArg, _arguments, generator) {
     if (!Symbol.asyncIterator) throw new TypeError("Symbol.asyncIterator is not defined.");
     var g = generator.apply(thisArg, _arguments || []), i, q = [];
-    return i = {}, verb("next"), verb("throw"), verb("return"), i[Symbol.asyncIterator] = function() {
+    return i = {}, verb("next"), verb("throw"), verb("return", awaitReturn), i[Symbol.asyncIterator] = function() {
         return this;
     }, i;
-    function verb(n) {
-        if (g[n]) i[n] = function(v) {
-            return new Promise(function(a, b) {
-                q.push([
-                    n,
-                    v,
-                    a,
-                    b
-                ]) > 1 || resume(n, v);
-            });
+    function awaitReturn(f) {
+        return function(v) {
+            return Promise.resolve(v).then(f, reject);
         };
+    }
+    function verb(n, f) {
+        if (g[n]) {
+            i[n] = function(v) {
+                return new Promise(function(a, b) {
+                    q.push([
+                        n,
+                        v,
+                        a,
+                        b
+                    ]) > 1 || resume(n, v);
+                });
+            };
+            if (f) i[n] = f(i[n]);
+        }
     }
     function resume(n, v) {
         try {
@@ -19127,7 +19164,7 @@ var ETreeItemStatus;
     ETreeItemStatus[ETreeItemStatus["newItem"] = 1] = "newItem";
     ETreeItemStatus[ETreeItemStatus["deleteItem"] = 2] = "deleteItem";
     ETreeItemStatus[ETreeItemStatus["unknown"] = 3] = "unknown";
-})(ETreeItemStatus = exports.ETreeItemStatus || (exports.ETreeItemStatus = {}));
+})(ETreeItemStatus || (exports.ETreeItemStatus = ETreeItemStatus = {}));
 
 },{}],"e3aE9":[function(require,module,exports) {
 "use strict";

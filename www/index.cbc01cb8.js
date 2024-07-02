@@ -17599,6 +17599,59 @@ var Directory_1 = require("32ce6675f9c6729d");
         this._data_to_send += data;
         if (FileSystem._timer_send == null) FileSystem._timer_send = setTimeout(FileSystem._timeout_send_func, 1);
     };
+    FileSystem.prototype.make_channel_eval = function(responseText) {
+        var e_1, _a;
+        if (FileSystem._disp) console.log("chan ->", responseText);
+        var created = [];
+        var _w = function(sid, obj) {
+            var e_2, _a;
+            var _obj = FileSystem._create_model_by_name(obj);
+            if (sid != null && _obj != null) {
+                _obj._server_id = sid;
+                FileSystem._objects[sid] = _obj;
+                try {
+                    for(var _b = __values(FileSystem._type_callbacks), _d = _b.next(); !_d.done; _d = _b.next()){
+                        var _e = __read(_d.value, 2), type = _e[0], cb = _e[1];
+                        // @ts-ignore
+                        var mod_R = ModelProcessManager_1.ModelProcessManager._def[type] || ModelProcessManager_1.ModelProcessManager.spinal[type];
+                        if (_obj instanceof mod_R) created.push({
+                            cb: cb,
+                            _obj: _obj
+                        });
+                    }
+                } catch (e_2_1) {
+                    e_2 = {
+                        error: e_2_1
+                    };
+                } finally{
+                    try {
+                        if (_d && !_d.done && (_a = _b["return"])) _a.call(_b);
+                    } finally{
+                        if (e_2) throw e_2.error;
+                    }
+                }
+            }
+        };
+        FileSystem._sig_server = false;
+        eval(responseText);
+        FileSystem._sig_server = true;
+        try {
+            for(var created_1 = __values(created), created_1_1 = created_1.next(); !created_1_1.done; created_1_1 = created_1.next()){
+                var _b = created_1_1.value, cb = _b.cb, _obj = _b._obj;
+                cb(_obj);
+            }
+        } catch (e_1_1) {
+            e_1 = {
+                error: e_1_1
+            };
+        } finally{
+            try {
+                if (created_1_1 && !created_1_1.done && (_a = created_1["return"])) _a.call(created_1);
+            } finally{
+                if (e_1) throw e_1.error;
+            }
+        }
+    };
     /**
      * send a request for a "push" channel
      * @private
@@ -17610,60 +17663,17 @@ var Directory_1 = require("32ce6675f9c6729d");
         xhr_object.open("GET", path, true);
         if (fs._accessToken) xhr_object.setRequestHeader("authorization", fs._accessToken);
         xhr_object.onreadystatechange = function() {
-            var e_1, _a;
+            var _this = this;
             if (this.readyState === 4 && this.status === 200) {
                 if (fs.make_channel_error_timer !== 0) FileSystem.onConnectionError(0);
                 fs.make_channel_error_timer = 0;
-                if (FileSystem._disp) console.log("chan ->", this.responseText);
-                var created_2 = [];
-                var _w = function(sid, obj) {
-                    var e_2, _a;
-                    var _obj = FileSystem._create_model_by_name(obj);
-                    if (sid != null && _obj != null) {
-                        _obj._server_id = sid;
-                        FileSystem._objects[sid] = _obj;
-                        try {
-                            for(var _b = __values(FileSystem._type_callbacks), _d = _b.next(); !_d.done; _d = _b.next()){
-                                var _e = __read(_d.value, 2), type = _e[0], cb = _e[1];
-                                // @ts-ignore
-                                var mod_R = ModelProcessManager_1.ModelProcessManager._def[type] || ModelProcessManager_1.ModelProcessManager.spinal[type];
-                                if (_obj instanceof mod_R) created_2.push({
-                                    cb: cb,
-                                    _obj: _obj
-                                });
-                            }
-                        } catch (e_2_1) {
-                            e_2 = {
-                                error: e_2_1
-                            };
-                        } finally{
-                            try {
-                                if (_d && !_d.done && (_a = _b["return"])) _a.call(_b);
-                            } finally{
-                                if (e_2) throw e_2.error;
-                            }
-                        }
+                if (FileSystem._counter_sending === 0) fs.make_channel_eval(this.responseText);
+                else var inter_1 = setInterval(function() {
+                    if (FileSystem._counter_sending === 0) {
+                        clearInterval(inter_1);
+                        fs.make_channel_eval(_this.responseText);
                     }
-                };
-                FileSystem._sig_server = false;
-                eval(this.responseText);
-                FileSystem._sig_server = true;
-                try {
-                    for(var created_1 = __values(created_2), created_1_1 = created_1.next(); !created_1_1.done; created_1_1 = created_1.next()){
-                        var _b = created_1_1.value, cb = _b.cb, _obj = _b._obj;
-                        cb(_obj);
-                    }
-                } catch (e_1_1) {
-                    e_1 = {
-                        error: e_1_1
-                    };
-                } finally{
-                    try {
-                        if (created_1_1 && !created_1_1.done && (_a = created_1["return"])) _a.call(created_1);
-                    } finally{
-                        if (e_1) throw e_1.error;
-                    }
-                }
+                }, 50);
             } else if (this.readyState === 4 && this.status === 0) {
                 console.error("Disconnected from the server with request : ".concat(path, "."));
                 if (fs.make_channel_error_timer === 0) {
@@ -17903,10 +17913,11 @@ var Directory_1 = require("32ce6675f9c6729d");
             if (fs._accessToken) xhr_object.setRequestHeader("authorization", fs._accessToken);
             xhr_object.onreadystatechange = function() {
                 var e_3, _a, e_4, _b;
+                if (this.readyState === 4) FileSystem._counter_sending -= 1;
                 if (this.readyState === 4 && this.status === 200) {
                     if (FileSystem._disp) console.log("resp ->", this.responseText);
                     var _c = []; // callbacks
-                    var created_4 = [];
+                    var created_3 = [];
                     var _w = function(sid, obj) {
                         var e_5, _a;
                         var _obj = FileSystem._create_model_by_name(obj);
@@ -17917,7 +17928,7 @@ var Directory_1 = require("32ce6675f9c6729d");
                                 for(var _b = __values(FileSystem._type_callbacks), _d = _b.next(); !_d.done; _d = _b.next()){
                                     var _e = __read(_d.value, 2), type = _e[0], cb = _e[1];
                                     var mod_R = ModelProcessManager_1.ModelProcessManager.spinal[type] || ModelProcessManager_1.ModelProcessManager._def[type];
-                                    if (_obj instanceof mod_R) created_4.push({
+                                    if (_obj instanceof mod_R) created_3.push({
                                         cb: cb,
                                         _obj: _obj
                                     });
@@ -17939,8 +17950,8 @@ var Directory_1 = require("32ce6675f9c6729d");
                     eval(this.responseText);
                     FileSystem._sig_server = true;
                     try {
-                        for(var created_3 = __values(created_4), created_3_1 = created_3.next(); !created_3_1.done; created_3_1 = created_3.next()){
-                            var _d = created_3_1.value, cb = _d.cb, _obj = _d._obj;
+                        for(var created_2 = __values(created_3), created_2_1 = created_2.next(); !created_2_1.done; created_2_1 = created_2.next()){
+                            var _d = created_2_1.value, cb = _d.cb, _obj = _d._obj;
                             cb(_obj);
                         }
                     } catch (e_3_1) {
@@ -17949,7 +17960,7 @@ var Directory_1 = require("32ce6675f9c6729d");
                         };
                     } finally{
                         try {
-                            if (created_3_1 && !created_3_1.done && (_a = created_3["return"])) _a.call(created_3);
+                            if (created_2_1 && !created_2_1.done && (_a = created_2["return"])) _a.call(created_2);
                         } finally{
                             if (e_3) throw e_3.error;
                         }
@@ -17983,6 +17994,7 @@ var Directory_1 = require("32ce6675f9c6729d");
             };
             if (FileSystem._disp) console.log("sent ->", fs._data_to_send + "E ");
             xhr_object.setRequestHeader("Content-Type", "text/plain");
+            FileSystem._counter_sending += 1;
             xhr_object.send(fs._data_to_send + "E ");
             fs._data_to_send = "";
         }
@@ -18135,6 +18147,7 @@ var Directory_1 = require("32ce6675f9c6729d");
      * @type {('Node' | 'Browser')}
      * @memberof FileSystem
      */ FileSystem.CONNECTOR_TYPE = typeof globalThis.global != "undefined" ? "Node" : "Browser";
+    FileSystem._counter_sending = 0;
     /**
      * to be refedifined to change the handleing for connections error
      * @static
@@ -18564,7 +18577,7 @@ var ModelProcessManager = /** @class */ function() {
     ModelProcessManager._force_m = false;
     ModelProcessManager._def = {};
     ModelProcessManager.spinal = {
-        version: "2.5.16"
+        version: "2.5.17"
     };
     return ModelProcessManager;
 }();
@@ -32081,12 +32094,13 @@ function loadPlugins() {
         safeImport(require("a5d24965e4527bfc")),
         safeImport(require("82d6c2774fae243f")),
         safeImport(require("779248971d4ee820")),
-        safeImport(require("ef8fc96d66c126e6"))
+        safeImport(require("ef8fc96d66c126e6")),
+        safeImport(require("5469d7d18905b206"))
     ];
     return Promise.all(plugins);
 }
 
-},{"ea68c71bce484b63":"caGf7","bb7100ef7768402e":"l7Mq3","c8a599eab9003e7f":"i8MLU","ee396b67347df231":"3S3Iy","5f6cbb2944012b0f":"3Tb84","b84dd777bb325cf1":"tsuwP","c2ba6b18b8151d21":"kfTgf","d64d2a7528d44624":"751lp","9f5512dc0596184a":"7O3gD","4b5adcfbfc855b74":"cuPwC","5c301518a9c26313":"jIoLo","d816ae225c2ab1ad":"jwzXF","53ddbaae0002dcfb":"kEE8d","fc52d4c8c36bc18d":"3szhM","47fb03a6b741f67f":"chrFH","4a4c341d5c7ed426":"bSBuO","7b01b5a572917b38":"7J9js","1612af2b62f4c0a3":"dAYKP","beed4ed04c1cab89":"iP4kq","4d6ed4021b396bd3":"jJhfU","1059f7068169bb93":"7Xi4Z","7913f673e6d53237":"99WoJ","4098dfb20490fb50":"90H4j","22f854ac869f52eb":"hHABl","1ad3675196a5c8f3":"bdHZv","a955497571196aa4":"92uuj","a3e770e2afc86c98":"lJtbd","c80088d6d536b6c2":"bSLeM","e6304bb85d6a6d90":"9DRXc","3bba9dfa8074586b":"8tnsM","7d0023d01aab58c8":"gvbGG","37c4d9afaa8b4a52":"ckttT","5abbe4913e45efb3":"a5Jfx","8175efe9b73ee4f7":"9B5xi","82d0938a4a0d09eb":"hKENx","eec411b0f30748fb":"cotuu","43374e17a0ef3fea":"5uqBC","95cbfda1dacb984e":"3L0k9","a30a1d86b58f506e":"32NEW","4406a412e631b4c2":"032Mc","4336b6b2011a3943":"aJHN5","a5d24965e4527bfc":"k0zkH","82d6c2774fae243f":"9FlSH","779248971d4ee820":"iyu8A","ef8fc96d66c126e6":"lpkpk","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"caGf7":[function(require,module,exports) {
+},{"ea68c71bce484b63":"caGf7","bb7100ef7768402e":"l7Mq3","c8a599eab9003e7f":"i8MLU","ee396b67347df231":"3S3Iy","5f6cbb2944012b0f":"3Tb84","b84dd777bb325cf1":"tsuwP","c2ba6b18b8151d21":"kfTgf","d64d2a7528d44624":"751lp","9f5512dc0596184a":"7O3gD","4b5adcfbfc855b74":"cuPwC","5c301518a9c26313":"jIoLo","d816ae225c2ab1ad":"jwzXF","53ddbaae0002dcfb":"kEE8d","fc52d4c8c36bc18d":"3szhM","47fb03a6b741f67f":"chrFH","4a4c341d5c7ed426":"bSBuO","7b01b5a572917b38":"7J9js","1612af2b62f4c0a3":"dAYKP","beed4ed04c1cab89":"iP4kq","4d6ed4021b396bd3":"jJhfU","1059f7068169bb93":"7Xi4Z","7913f673e6d53237":"99WoJ","4098dfb20490fb50":"90H4j","22f854ac869f52eb":"21XPt","1ad3675196a5c8f3":"bdHZv","a955497571196aa4":"92uuj","a3e770e2afc86c98":"lJtbd","c80088d6d536b6c2":"bSLeM","e6304bb85d6a6d90":"9DRXc","3bba9dfa8074586b":"8tnsM","7d0023d01aab58c8":"kxw0J","37c4d9afaa8b4a52":"ckttT","5abbe4913e45efb3":"a5Jfx","8175efe9b73ee4f7":"9B5xi","82d0938a4a0d09eb":"hKENx","eec411b0f30748fb":"cotuu","43374e17a0ef3fea":"5uqBC","95cbfda1dacb984e":"3L0k9","a30a1d86b58f506e":"32NEW","4406a412e631b4c2":"032Mc","4336b6b2011a3943":"aJHN5","a5d24965e4527bfc":"k0zkH","82d6c2774fae243f":"9FlSH","779248971d4ee820":"iyu8A","ef8fc96d66c126e6":"lpkpk","5469d7d18905b206":"a4JB5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"caGf7":[function(require,module,exports) {
 module.exports = Promise.all([
     require("aad2cc70d643b75")(require("4057b93c31cfa56f").resolve("aSRO5")),
     require("aad2cc70d643b75")(require("4057b93c31cfa56f").resolve("g7eVr")),
@@ -32387,22 +32401,23 @@ module.exports = Promise.all([
     require("a931bf0a3976a2b8")(require("ad301581c33750cd").resolve("fdCK4"))
 ]).then(()=>module.bundle.root("4EGcp"));
 
-},{"1e294278f3de7955":"1MWPE","ad301581c33750cd":"gS3k4","a931bf0a3976a2b8":"61B45"}],"hHABl":[function(require,module,exports) {
+},{"1e294278f3de7955":"1MWPE","ad301581c33750cd":"gS3k4","a931bf0a3976a2b8":"61B45"}],"21XPt":[function(require,module,exports) {
 module.exports = Promise.all([
-    require("bdde19506b22ae76")(require("74f162ce099a5e23").resolve("1k0T9")),
-    require("402feace61fd48a9")(require("74f162ce099a5e23").resolve("hr5Kx")),
-    require("402feace61fd48a9")(require("74f162ce099a5e23").resolve("ahs8t")),
-    require("402feace61fd48a9")(require("74f162ce099a5e23").resolve("gCpdZ")),
-    require("402feace61fd48a9")(require("74f162ce099a5e23").resolve("bg1FH")),
-    require("402feace61fd48a9")(require("74f162ce099a5e23").resolve("jhCS2")),
-    require("402feace61fd48a9")(require("74f162ce099a5e23").resolve("aSRO5")),
-    require("402feace61fd48a9")(require("74f162ce099a5e23").resolve("dqfTF")),
-    require("402feace61fd48a9")(require("74f162ce099a5e23").resolve("3UKN1")),
-    require("402feace61fd48a9")(require("74f162ce099a5e23").resolve("g7eVr")),
-    require("402feace61fd48a9")(require("74f162ce099a5e23").resolve("kdcfB"))
+    require("a52cd416ff785899")(require("4cf6da8ced2e165f").resolve("9F0lZ")),
+    require("5e590efeaa33129d")(require("4cf6da8ced2e165f").resolve("1k0T9")),
+    require("a52cd416ff785899")(require("4cf6da8ced2e165f").resolve("hr5Kx")),
+    require("a52cd416ff785899")(require("4cf6da8ced2e165f").resolve("ahs8t")),
+    require("a52cd416ff785899")(require("4cf6da8ced2e165f").resolve("gCpdZ")),
+    require("a52cd416ff785899")(require("4cf6da8ced2e165f").resolve("bg1FH")),
+    require("a52cd416ff785899")(require("4cf6da8ced2e165f").resolve("jhCS2")),
+    require("a52cd416ff785899")(require("4cf6da8ced2e165f").resolve("aSRO5")),
+    require("a52cd416ff785899")(require("4cf6da8ced2e165f").resolve("dqfTF")),
+    require("a52cd416ff785899")(require("4cf6da8ced2e165f").resolve("3UKN1")),
+    require("a52cd416ff785899")(require("4cf6da8ced2e165f").resolve("g7eVr")),
+    require("a52cd416ff785899")(require("4cf6da8ced2e165f").resolve("kdcfB"))
 ]).then(()=>module.bundle.root("65cWI"));
 
-},{"bdde19506b22ae76":"1MWPE","74f162ce099a5e23":"gS3k4","402feace61fd48a9":"61B45"}],"bdHZv":[function(require,module,exports) {
+},{"a52cd416ff785899":"61B45","4cf6da8ced2e165f":"gS3k4","5e590efeaa33129d":"1MWPE"}],"bdHZv":[function(require,module,exports) {
 module.exports = Promise.all([
     require("c01ec4f8f5b4404c")(require("d10ed45586423e88").resolve("kCgG9")),
     require("be7269bb11963e58")(require("d10ed45586423e88").resolve("hr5Kx")),
@@ -32459,19 +32474,20 @@ module.exports = Promise.all([
     require("244a0965561fe9d7")(require("21aa92b045f57169").resolve("baVAZ"))
 ]).then(()=>module.bundle.root("a0azn"));
 
-},{"244a0965561fe9d7":"61B45","21aa92b045f57169":"gS3k4"}],"gvbGG":[function(require,module,exports) {
+},{"244a0965561fe9d7":"61B45","21aa92b045f57169":"gS3k4"}],"kxw0J":[function(require,module,exports) {
 module.exports = Promise.all([
-    require("40f95fad29895548")(require("41d8792db0fd5751").resolve("8pTeP")),
-    require("eb3745cd4ec6618f")(require("41d8792db0fd5751").resolve("hr5Kx")),
-    require("eb3745cd4ec6618f")(require("41d8792db0fd5751").resolve("ahs8t")),
-    require("eb3745cd4ec6618f")(require("41d8792db0fd5751").resolve("luuQM")),
-    require("eb3745cd4ec6618f")(require("41d8792db0fd5751").resolve("aSRO5")),
-    require("eb3745cd4ec6618f")(require("41d8792db0fd5751").resolve("3UKN1")),
-    require("eb3745cd4ec6618f")(require("41d8792db0fd5751").resolve("g7eVr")),
-    require("eb3745cd4ec6618f")(require("41d8792db0fd5751").resolve("5akQs"))
+    require("80f561fcde9d1c5b")(require("40205c908722424e").resolve("8pTeP")),
+    require("4e8b177573471a3a")(require("40205c908722424e").resolve("9F0lZ")),
+    require("4e8b177573471a3a")(require("40205c908722424e").resolve("hr5Kx")),
+    require("4e8b177573471a3a")(require("40205c908722424e").resolve("ahs8t")),
+    require("4e8b177573471a3a")(require("40205c908722424e").resolve("luuQM")),
+    require("4e8b177573471a3a")(require("40205c908722424e").resolve("aSRO5")),
+    require("4e8b177573471a3a")(require("40205c908722424e").resolve("3UKN1")),
+    require("4e8b177573471a3a")(require("40205c908722424e").resolve("g7eVr")),
+    require("4e8b177573471a3a")(require("40205c908722424e").resolve("5akQs"))
 ]).then(()=>module.bundle.root("ppOKF"));
 
-},{"40f95fad29895548":"1MWPE","41d8792db0fd5751":"gS3k4","eb3745cd4ec6618f":"61B45"}],"ckttT":[function(require,module,exports) {
+},{"80f561fcde9d1c5b":"1MWPE","40205c908722424e":"gS3k4","4e8b177573471a3a":"61B45"}],"ckttT":[function(require,module,exports) {
 module.exports = Promise.all([
     require("b4e3906a29887bb9")(require("67ba89754d553200").resolve("6elT5")),
     require("562dc8981e3b33a2")(require("67ba89754d553200").resolve("3UKN1")),
@@ -32590,7 +32606,18 @@ module.exports = Promise.all([
     require("eef0bb5e127a577a")(require("18f39738b967714c").resolve("IL6JA"))
 ]).then(()=>module.bundle.root("8oOJG"));
 
-},{"6d2b9c69e3a6ddeb":"1MWPE","18f39738b967714c":"gS3k4","eef0bb5e127a577a":"61B45"}],"9ssQ5":[function(require,module,exports) {
+},{"6d2b9c69e3a6ddeb":"1MWPE","18f39738b967714c":"gS3k4","eef0bb5e127a577a":"61B45"}],"a4JB5":[function(require,module,exports) {
+module.exports = Promise.all([
+    require("622a2686a0425697")(require("d6aa73f35deca560").resolve("gxaXV")),
+    require("bda0baac9ebfd118")(require("d6aa73f35deca560").resolve("9F0lZ")),
+    require("bda0baac9ebfd118")(require("d6aa73f35deca560").resolve("bg1FH")),
+    require("bda0baac9ebfd118")(require("d6aa73f35deca560").resolve("aSRO5")),
+    require("bda0baac9ebfd118")(require("d6aa73f35deca560").resolve("3UKN1")),
+    require("bda0baac9ebfd118")(require("d6aa73f35deca560").resolve("g7eVr")),
+    require("bda0baac9ebfd118")(require("d6aa73f35deca560").resolve("7PSmP"))
+]).then(()=>module.bundle.root("9BQJ1"));
+
+},{"622a2686a0425697":"1MWPE","d6aa73f35deca560":"gS3k4","bda0baac9ebfd118":"61B45"}],"9ssQ5":[function(require,module,exports) {
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
  * 

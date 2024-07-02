@@ -6605,6 +6605,9 @@ var Buffer = require("e8399c94bace2e95").Buffer;
         // it always points at the current tag,
         // which protos to its parent tag.
         if (parser.opt.xmlns) parser.ns = Object.create(rootNS);
+        // disallow unquoted attribute values if not otherwise configured
+        // and strict mode is true
+        if (parser.opt.unquotedAttributeValues === undefined) parser.opt.unquotedAttributeValues = !strict;
         // mostly just for error reporting
         parser.trackPosition = parser.opt.position !== false;
         if (parser.trackPosition) parser.position = parser.line = parser.column = 0;
@@ -7470,15 +7473,21 @@ var Buffer = require("e8399c94bace2e95").Buffer;
                     }
                     continue;
                 case S.SGML_DECL:
-                    if ((parser.sgmlDecl + c).toUpperCase() === CDATA) {
+                    if (parser.sgmlDecl + c === "--") {
+                        parser.state = S.COMMENT;
+                        parser.comment = "";
+                        parser.sgmlDecl = "";
+                        continue;
+                    }
+                    if (parser.doctype && parser.doctype !== true && parser.sgmlDecl) {
+                        parser.state = S.DOCTYPE_DTD;
+                        parser.doctype += "<!" + parser.sgmlDecl + c;
+                        parser.sgmlDecl = "";
+                    } else if ((parser.sgmlDecl + c).toUpperCase() === CDATA) {
                         emitNode(parser, "onopencdata");
                         parser.state = S.CDATA;
                         parser.sgmlDecl = "";
                         parser.cdata = "";
-                    } else if (parser.sgmlDecl + c === "--") {
-                        parser.state = S.COMMENT;
-                        parser.comment = "";
-                        parser.sgmlDecl = "";
                     } else if ((parser.sgmlDecl + c).toUpperCase() === DOCTYPE) {
                         parser.state = S.DOCTYPE;
                         if (parser.doctype || parser.sawRoot) strictFail(parser, "Inappropriately located doctype declaration");
@@ -7523,12 +7532,17 @@ var Buffer = require("e8399c94bace2e95").Buffer;
                     }
                     continue;
                 case S.DOCTYPE_DTD:
-                    parser.doctype += c;
-                    if (c === "]") parser.state = S.DOCTYPE;
-                    else if (isQuote(c)) {
+                    if (c === "]") {
+                        parser.doctype += c;
+                        parser.state = S.DOCTYPE;
+                    } else if (c === "<") {
+                        parser.state = S.OPEN_WAKA;
+                        parser.startTagPosition = parser.position;
+                    } else if (isQuote(c)) {
+                        parser.doctype += c;
                         parser.state = S.DOCTYPE_DTD_QUOTED;
                         parser.q = c;
-                    }
+                    } else parser.doctype += c;
                     continue;
                 case S.DOCTYPE_DTD_QUOTED:
                     parser.doctype += c;
@@ -7559,7 +7573,8 @@ var Buffer = require("e8399c94bace2e95").Buffer;
                         // which is a comment of " blah -- bloo "
                         parser.comment += "--" + c;
                         parser.state = S.COMMENT;
-                    } else parser.state = S.TEXT;
+                    } else if (parser.doctype && parser.doctype !== true) parser.state = S.DOCTYPE_DTD;
+                    else parser.state = S.TEXT;
                     continue;
                 case S.CDATA:
                     if (c === "]") parser.state = S.CDATA_ENDING;
@@ -7678,7 +7693,7 @@ var Buffer = require("e8399c94bace2e95").Buffer;
                         parser.q = c;
                         parser.state = S.ATTRIB_VALUE_QUOTED;
                     } else {
-                        strictFail(parser, "Unquoted attribute value");
+                        if (!parser.opt.unquotedAttributeValues) error(parser, "Unquoted attribute value");
                         parser.state = S.ATTRIB_VALUE_UNQUOTED;
                         parser.attribValue = c;
                     }
@@ -7759,13 +7774,13 @@ var Buffer = require("e8399c94bace2e95").Buffer;
                             break;
                     }
                     if (c === ";") {
-                        if (parser.opt.unparsedEntities) {
-                            var parsedEntity = parseEntity(parser);
+                        var parsedEntity = parseEntity(parser);
+                        if (parser.opt.unparsedEntities && !Object.values(sax.XML_ENTITIES).includes(parsedEntity)) {
                             parser.entity = "";
                             parser.state = returnState;
                             parser.write(parsedEntity);
                         } else {
-                            parser[buffer] += parseEntity(parser);
+                            parser[buffer] += parsedEntity;
                             parser.entity = "";
                             parser.state = returnState;
                         }

@@ -1260,19 +1260,21 @@ const asyncGenToArray_1 = require("c8f7ec2ed7f42bc5");
      * @param {SpinalTimeSeries} timeseries
      * @param {(string|number|Date)} [start=0]
      * @param {(string|number|Date)} [end=Date.now()]
+     * @param {boolean} [includeLastBeforeStart=false] - If true, include the last value before start.
      * @returns {Promise<SpinalDateValue[]>}
      * @memberof SpinalServiceTimeseries
-     */ getFromIntervalTime(timeseries, start = 0, end = Date.now()) {
-        return timeseries.getFromIntervalTime(start, end);
+     */ getFromIntervalTime(timeseries, start = 0, end = Date.now(), includeLastBeforeStart = false) {
+        return timeseries.getFromIntervalTime(start, end, includeLastBeforeStart);
     }
     /**
      * @param {SpinalTimeSeries} timeseries
      * @param {(string|number|Date)} [start=0]
      * @param {(string|number|Date)} [end=Date.now()]
+     * @param {boolean} [includeLastBeforeStart=false] - If true, include the last value before start.
      * @returns {Promise<AsyncIterableIterator<SpinalDateValue>>}
      * @memberof SpinalServiceTimeseries
-     */ getFromIntervalTimeGen(timeseries, start = 0, end = Date.now()) {
-        return timeseries.getFromIntervalTimeGen(start, end);
+     */ getFromIntervalTimeGen(timeseries, start = 0, end = Date.now(), includeLastBeforeStart = false) {
+        return timeseries.getFromIntervalTimeGen(start, end, includeLastBeforeStart);
     }
     /**
      * @param {EndpointId} endpointNodeId
@@ -1319,13 +1321,14 @@ const asyncGenToArray_1 = require("c8f7ec2ed7f42bc5");
     /**
      * @param {EndpointId} endpointNodeId
      * @param {TimeSeriesIntervalDate} timeSeriesIntervalDate
+     * @param {boolean} [includeLastBeforeStart=false] - If true, include the last value before start.
      * @return {Promise<SpinalDateValue[]>}
      * @memberof SpinalServiceTimeseries
-     */ getData(endpointNodeId, timeSeriesIntervalDate) {
+     */ getData(endpointNodeId, timeSeriesIntervalDate, includeLastBeforeStart = false) {
         return __awaiter(this, void 0, void 0, function*() {
             const timeSeries = yield this.getTimeSeries(endpointNodeId);
             if (!timeSeries) throw new Error("endpoint have no timeseries");
-            return (0, asyncGenToArray_1.asyncGenToArray)((yield this.getFromIntervalTimeGen(timeSeries, timeSeriesIntervalDate.start, timeSeriesIntervalDate.end)));
+            return (0, asyncGenToArray_1.asyncGenToArray)((yield this.getFromIntervalTimeGen(timeSeries, timeSeriesIntervalDate.start, timeSeriesIntervalDate.end, includeLastBeforeStart)));
         });
     }
     /**
@@ -3440,23 +3443,25 @@ const SpinalTimeSeriesConfig_1 = require("13fa6818530c41eb");
     /**
      * @param {(number|string|Date)} [start=0]
      * @param {(number|string|Date)} [end=Date.now()]
+     * @param {boolean} [includeLastBeforeStart=false] - If true, include the last value before start.
      * @returns {Promise<AsyncIterableIterator<SpinalDateValue>>}
      * @memberof SpinalTimeSeries
-     */ getFromIntervalTimeGen(start = 0, end = Date.now()) {
+     */ getFromIntervalTimeGen(start = 0, end = Date.now(), includeLastBeforeStart = false) {
         return __awaiter(this, void 0, void 0, function*() {
             const archive = yield this.getArchive();
-            return archive.getFromIntervalTimeGen(start, end);
+            return archive.getFromIntervalTimeGen(start, end, includeLastBeforeStart);
         });
     }
     /**
      * @param {(number|string|Date)} [start=0]
      * @param {(number|string|Date)} [end=Date.now()]
+     * @param {boolean} [includeLastBeforeStart=false] - If true, include the last value before start.
      * @returns {Promise<SpinalDateValue[]>}
      * @memberof SpinalTimeSeries
-     */ getFromIntervalTime(start = 0, end = Date.now()) {
+     */ getFromIntervalTime(start = 0, end = Date.now(), includeLastBeforeStart = false) {
         return __awaiter(this, void 0, void 0, function*() {
             const archive = yield this.getArchive();
-            return archive.getFromIntervalTime(start, end);
+            return archive.getFromIntervalTime(start, end, includeLastBeforeStart);
         });
     }
     /**
@@ -3917,24 +3922,45 @@ const SpinalTimeSeriesConfig_1 = require("1d2e5ea7cf84a8b8");
     /**
      * @param {(number|string)} [start=0]
      * @param {(number|string)} [end=Date.now()]
+     * @param {boolean} [includeLastBeforeStart=false] - If true, include the last value before start.
      * @returns {AsyncIterableIterator<SpinalDateValue>}
      * @memberof SpinalTimeSeriesArchive
-     */ getFromIntervalTimeGen(start = 0, end = Date.now()) {
+     */ getFromIntervalTimeGen(start = 0, end = Date.now(), includeLastBeforeStart = false) {
         return __asyncGenerator(this, arguments, function* getFromIntervalTimeGen_1() {
             this.cleanUpNaNDates();
-            const normalizedStart = SpinalTimeSeriesArchive.normalizeDate(start);
+            const normalizedStart = SpinalTimeSeriesArchive.normalizeDate(start); // Get the date at start of the day
             const normalizedEnd = typeof end === "number" || typeof end === "string" ? new Date(end).getTime() : end.getTime();
+            const startEpoch = typeof start === "number" || typeof start === "string" ? new Date(start).getTime() : start.getTime();
             if (isNaN(normalizedStart)) throw `the value 'start' [${start}] is not a valid date`;
             if (isNaN(normalizedEnd)) throw `the value 'end' [${end}] is not a valid date`;
             for(let idx = 0; idx < this.lstDate.length; idx += 1){
                 const element = this.lstDate[idx].get();
-                if (normalizedStart > element) continue;
-                const archive = yield __await(this.getArchiveAtDate(element));
+                if (normalizedStart > element) continue; // Skip until correct day.
+                const archive = yield __await(this.getArchiveAtDate(element)); // Get the archive for the day.
                 let index = 0;
                 const archiveLen = archive.length.get();
-                if (normalizedStart === element) for(; index < archiveLen; index += 1){
-                    const dateValue = archive.get(index);
-                    if (dateValue.date >= normalizedStart) break;
+                if (normalizedStart === element) {
+                    let lastData = null;
+                    for(; index < archiveLen; index += 1){
+                        const dateValue = archive.get(index);
+                        if (dateValue.date > startEpoch) break;
+                        if (dateValue.date == startEpoch) {
+                            includeLastBeforeStart = false;
+                            break;
+                        }
+                        lastData = dateValue; // retain last value before start condition is met.
+                    }
+                    if (includeLastBeforeStart) {
+                        if (!lastData) {
+                            let backtrack = idx - 1;
+                            while(!lastData && backtrack >= 0){
+                                const lastArchive = yield __await(this.getArchiveAtDate(this.lstDate[backtrack].get()));
+                                if (lastArchive.length.get() > 0) lastData = lastArchive.get(lastArchive.length.get() - 1);
+                                backtrack--;
+                            }
+                        }
+                        if (lastData) yield yield __await(lastData); // yield the last value before start.
+                    }
                 }
                 for(; index < archiveLen; index += 1){
                     const dateValue = archive.get(index);
@@ -3948,14 +3974,15 @@ const SpinalTimeSeriesConfig_1 = require("1d2e5ea7cf84a8b8");
      * getFromIntervalTimeGen is prefered.
      * @param {number} start
      * @param {(number|string)} [end=Date.now()]
+     * @param {boolean} [includeLastBeforeStart=false] - If true, include the last value before start.
      * @returns {Promise<SpinalDateValue[]>}
      * @memberof SpinalTimeSeriesArchive
-     */ getFromIntervalTime(start, end = Date.now()) {
+     */ getFromIntervalTime(start, end = Date.now(), includeLastBeforeStart = false) {
         var _a, e_1, _b, _c;
         return __awaiter(this, void 0, void 0, function*() {
             const result = [];
             try {
-                for(var _d = true, _e = __asyncValues(this.getFromIntervalTimeGen(start, end)), _f; _f = yield _e.next(), _a = _f.done, !_a;){
+                for(var _d = true, _e = __asyncValues(this.getFromIntervalTimeGen(start, end, includeLastBeforeStart)), _f; _f = yield _e.next(), _a = _f.done, !_a;){
                     _c = _f.value;
                     _d = false;
                     try {
