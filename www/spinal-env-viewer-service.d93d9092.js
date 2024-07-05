@@ -451,8 +451,8 @@ class SpatialManager {
             });
         });
     }
-    addReferenceObject(dbId, name, model, targetNode, relationName = Constant_1.GEO_REFERENCE_RELATION) {
-        return __awaiter(this, void 0, void 0, function*() {
+    addReferenceObject(dbId_1, name_1, model_1, targetNode_1) {
+        return __awaiter(this, arguments, void 0, function*(dbId, name, model, targetNode, relationName = Constant_1.GEO_REFERENCE_RELATION) {
             // @ts-ignore
             let bimObj = yield window.spinal.BimObjectService.getBIMObject(dbId, model);
             if (typeof bimObj === "undefined") // @ts-ignore
@@ -2391,8 +2391,8 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 exports.consumeBatch = void 0;
-function consumeBatch(promises, batchSize = 10, callBackProgress) {
-    return __awaiter(this, void 0, void 0, function*() {
+function consumeBatch(promises_1) {
+    return __awaiter(this, arguments, void 0, function*(promises, batchSize = 10, callBackProgress) {
         let index = 0;
         const result = [];
         while(index < promises.length){
@@ -3156,8 +3156,8 @@ function updateRoomArea(room, loadedModel) {
     });
 }
 function getADAreaProp(refRoom, loadedModel) {
-    var _a, _b;
     return __awaiter(this, void 0, void 0, function*() {
+        var _a, _b;
         try {
             const dbid = (_a = refRoom.info.dbid) === null || _a === void 0 ? void 0 : _a.get();
             if (dbid && dbid > 0) {
@@ -3820,10 +3820,14 @@ function updateRoomPos(roomNode) {
                 console.log(`${roomNode.info.name.get()}} skipped : model not loaded`);
                 continue;
             }
-            const fragIds = yield (0, getFragIds_1.getFragIds)(roomRef.info.dbid.get(), model);
-            const bbox = (0, getWorldBoundingBox_1.getWorldBoundingBox)(fragIds, model);
-            if (!roomBbox) roomBbox = bbox;
-            else roomBbox.union(bbox);
+            try {
+                const fragIds = yield (0, getFragIds_1.getFragIds)(roomRef.info.dbid.get(), model);
+                const bbox = (0, getWorldBoundingBox_1.getWorldBoundingBox)(fragIds, model);
+                if (!roomBbox) roomBbox = bbox;
+                else roomBbox.union(bbox);
+            } catch (e) {
+                console.error(e);
+            }
         }
         if (roomBbox) {
             const centerRoom = new THREE.Vector3();
@@ -3856,13 +3860,17 @@ function updateBimObj(roomNode, context, res) {
                     console.log(`${roomNode.info.name.get()}/${bimObj.info.name.get()} skipped : model not loaded`);
                     return;
                 }
-                const fragIds = yield (0, getFragIds_1.getFragIds)(bimObj.info.dbid.get(), model);
-                const bbox = (0, getWorldBoundingBox_1.getWorldBoundingBox)(fragIds, model);
-                const center = new THREE.Vector3();
-                bbox.getCenter(center);
-                const attr = yield getCenterPosAttr(bimObj);
-                const str = `${center.x};${center.y};${center.z}`;
-                attr.value.set(str);
+                try {
+                    const fragIds = yield (0, getFragIds_1.getFragIds)(bimObj.info.dbid.get(), model);
+                    const bbox = (0, getWorldBoundingBox_1.getWorldBoundingBox)(fragIds, model);
+                    const center = new THREE.Vector3();
+                    bbox.getCenter(center);
+                    const attr = yield getCenterPosAttr(bimObj);
+                    const str = `${center.x};${center.y};${center.z}`;
+                    attr.value.set(str);
+                } catch (e) {
+                    console.error(e);
+                }
             }));
     });
 }
@@ -4916,8 +4924,8 @@ const spinal_model_graph_2 = require("24b566d9cdb638f5");
 const getBimFileByBimFileId_1 = require("1bf795f60c12a7ae");
 const constant_1 = require("7e3a35b8faf0441e");
 const createBimContextIt = new Map();
-function getBimContextByBimFileId(bimFileId, doCreate = false) {
-    return __awaiter(this, void 0, void 0, function*() {
+function getBimContextByBimFileId(bimFileId_1) {
+    return __awaiter(this, arguments, void 0, function*(bimFileId, doCreate = false) {
         const bimFile = yield (0, getBimFileByBimFileId_1.getBimFileByBimFileId)(bimFileId);
         const bimContexts = yield bimFile.getChildren(constant_1.BIMCONTEXT_RELATION_NAME);
         if (bimContexts.length > 0) return bimContexts[0];
@@ -5775,8 +5783,8 @@ Object.defineProperty(exports, "__esModule", {
 exports.getPropPath = void 0;
 const getBulkProperties_1 = require("d2489edc7a0c8d64");
 function getPropPath(dbId, model) {
-    var _a;
     return __awaiter(this, void 0, void 0, function*() {
+        var _a;
         const res = [];
         const tree = model.getInstanceTree();
         const rootId = tree.nodeAccess.rootId;
@@ -6754,8 +6762,8 @@ function safe_call(callback, ...attr) {
             }
         });
 }
-function consumeCmdGeo(cmds, nodeGenerationId, contextGenerationId, callbackProg, consumeBatchSize = 20) {
-    return __awaiter(this, void 0, void 0, function*() {
+function consumeCmdGeo(cmds_1, nodeGenerationId_1, contextGenerationId_1, callbackProg_1) {
+    return __awaiter(this, arguments, void 0, function*(cmds, nodeGenerationId, contextGenerationId, callbackProg, consumeBatchSize = 20) {
         const graph = (0, graphservice_1.getGraph)();
         const contextGeo = yield (0, getContextSpatial_1.getContextSpatial)(graph);
         const dico = {};
@@ -6984,8 +6992,8 @@ function removeFromContextGen(roomNode) {
     });
 }
 function createOrUpdateBimObjByBimFileId(dico, id, bimFileId, name, dbId, externalId) {
-    var _a, _b;
     return __awaiter(this, void 0, void 0, function*() {
+        var _a, _b;
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const bimContext = yield getBimContext(dico, bimFileId);
         const bimobjs = yield bimContext.getChildren(Constant_1.GEO_EQUIPMENT_RELATION);
@@ -7150,8 +7158,8 @@ const spinal_env_viewer_context_geographic_service_1 = require("b9aafbbe7b5fbcf3
 const spinal_env_viewer_plugin_documentation_service_1 = require("da9c8315619dc65f");
 const consumeBatch_1 = require("68d248b27e2690d2");
 const lodash_throttle_1 = __importDefault(require("2313cb9ea6e7f245"));
-function consumeCmdProjection(cmds, nodeId, contextId, callbackProg, consumeBatchSize = 20) {
-    return __awaiter(this, void 0, void 0, function*() {
+function consumeCmdProjection(cmds_1, nodeId_1, contextId_1, callbackProg_1) {
+    return __awaiter(this, arguments, void 0, function*(cmds, nodeId, contextId, callbackProg, consumeBatchSize = 20) {
         const contextGeneration = (0, utils_1.getRealNode)(contextId);
         const nodeGeneration = (0, utils_1.getRealNode)(nodeId);
         const warnNodeGen = getOrCreateGenOutNode(contextGeneration, nodeGeneration, "warn");
@@ -7282,8 +7290,8 @@ function updateRevitCategory(child, revitCat, centerPos) {
     });
 }
 function removeOtherParents(child, context, parentNodeId) {
-    var _a;
     return __awaiter(this, void 0, void 0, function*() {
+        var _a;
         const parents = yield child.getParentsInContext(context);
         const toRm = [];
         try {
@@ -7326,8 +7334,8 @@ function getBimContext(dico, bimFileId) {
     });
 }
 function createOrUpdateBimObj(bimContext, bimobjs, bimFileId, name, dbid, externalId) {
-    var _a, _b;
     return __awaiter(this, void 0, void 0, function*() {
+        var _a, _b;
         if (externalId) {
             for (const bimObj of bimobjs)if (externalId === ((_a = bimObj.info.externalId) === null || _a === void 0 ? void 0 : _a.get())) {
                 updateBimObjInfo(bimObj, name, dbid, bimFileId, externalId);
@@ -7829,8 +7837,8 @@ function handleFloorUpdate(floorData, parentNodeId, skipList, bimFileId, refCont
 }
 exports.handleFloorUpdate = handleFloorUpdate;
 function getRoomCmdUp(floorData, floorNode, roomCmds, bimFileId, roomRefCmds, skipList, contextId, itemDeletes) {
-    var _a;
     return __awaiter(this, void 0, void 0, function*() {
+        var _a;
         const updatedRoomSet = new Set();
         floorData.diff.diffRoom.newRooms.forEach((roomArchi)=>{
             updatedRoomSet.add(roomArchi.properties.externalId);
@@ -14998,8 +15006,8 @@ exports.getNodeFromGeo = void 0;
 const getNodeInfoArchiAttr_1 = require("3f55e6261f57c9eb");
 const getOrLoadModel_1 = require("454c0aecf6682101");
 function getNodeFromGeo(geoNodes, nodeInfo, manualAssingment) {
-    var _a, _b;
     return __awaiter(this, void 0, void 0, function*() {
+        var _a, _b;
         // check ManualAssingment retrun it if found;
         const serverId = manualAssingment.get(nodeInfo.externalId);
         if (serverId) return (0, getOrLoadModel_1.getOrLoadModel)(serverId);
@@ -15075,8 +15083,8 @@ exports.findNodeArchiWithSpinalNode = void 0;
 const getNodeInfoArchiAttr_1 = require("51d83cf223e79ef2");
 const getOrLoadModel_1 = require("ab6f7c6097dd9e16");
 function findNodeArchiWithSpinalNode(node, nodeInfosArchi, manualAssingment) {
-    var _a, _b;
     return __awaiter(this, void 0, void 0, function*() {
+        var _a, _b;
         // check ManualAssingment retrun it if found;
         for (const [extId, serverId] of manualAssingment){
             if ((yield (0, getOrLoadModel_1.getOrLoadModel)(serverId)) === node) for (const nodeArchi of nodeInfosArchi){
@@ -15317,8 +15325,8 @@ const getNodeInfoArchiAttr_1 = require("5ccf7e7d0d60df88");
 const getOrLoadModel_1 = require("bff6a0194d1560e");
 const Constant_1 = require("1aca7c11883c4f16");
 function getFloorFromContext(context, floorArchi, manualAssingment, buildingServId) {
-    var _a;
     return __awaiter(this, void 0, void 0, function*() {
+        var _a;
         // check ManualAssingment retrun it if found;
         const serverId = manualAssingment.get(floorArchi.properties.externalId);
         if (serverId) return (0, getOrLoadModel_1.getOrLoadModel)(serverId);
@@ -15567,8 +15575,8 @@ const IGetArchi_1 = require("704b4c5e3128acb0");
 const checkDiffObj_1 = require("42dc442af3802e2e");
 const getNodeInfoArchiAttr_1 = require("cdd4539f5d85c7ad");
 function diffInfoAttr(nodeInfo, spinalNode) {
-    var _a, _b;
     return __awaiter(this, void 0, void 0, function*() {
+        var _a, _b;
         nodeInfo.spinalnodeServerId = spinalNode._server_id;
         nodeInfo.modificationType = 0;
         const diffInfo = [];
@@ -17062,8 +17070,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.getConfigFromContext = void 0;
 const constant_1 = require("4322c2981cdcc690");
-function getConfigFromContext(context, item, updateName = false) {
-    return __awaiter(this, void 0, void 0, function*() {
+function getConfigFromContext(context_1, item_1) {
+    return __awaiter(this, arguments, void 0, function*(context, item, updateName = false) {
         const configNodes = yield context.getChildren(constant_1.PROJECTION_CONFIG_RELATION);
         for (const node of configNodes)if (node.info.uid.get() === item.uid) {
             if (updateName) node.info.name.set(item.name);
@@ -18176,8 +18184,8 @@ exports.getRefFloorZMinMax = void 0;
 const getFragIds_1 = require("62143a88f1ede919");
 const getWorldBoundingBox_1 = require("35ea8087ce3fefd7");
 function getRefFloorZMinMax(data) {
-    var _a;
     return __awaiter(this, void 0, void 0, function*() {
+        var _a;
         const record = {};
         for(const id in data){
             const promise = [];
@@ -18758,8 +18766,8 @@ function getParentRoom(node, contextGeo) {
         return res[0];
     });
 }
-function getDataAssing({ contextId, selectedNodeId }) {
-    return __awaiter(this, void 0, void 0, function*() {
+function getDataAssing(_a) {
+    return __awaiter(this, arguments, void 0, function*({ contextId, selectedNodeId }) {
         const graph = (0, utils_1.getGraph)();
         const contextGeo = yield (0, utils_1.getContextSpatial)(graph);
         const context = (0, utils_1.getRealNode)(contextId);
@@ -18901,11 +18909,19 @@ const getRoomRef_1 = require("7f21c25f8c46b807");
         if (roomId) yield getRoomRefsInfo((0, utils_1.getRealNode)(roomId), aggrData, roomIdColor);
         if (parentNodeId) yield getRoomRefsInfo((0, utils_1.getRealNode)(parentNodeId), aggrData, colorParent);
         if (parentValidId) yield getRoomRefsInfo((0, utils_1.getRealNode)(parentValidId), aggrData, colorValid);
-        viewer.fitToView(Array.from(aggrData[0].dbId), aggrData[0].model);
-        const data = aggrData.map((itm)=>{
+        const dataFit = aggrData.map((itm)=>{
             return {
                 model: itm.model,
                 selection: Array.from(itm.dbId)
+            };
+        });
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        viewer.fitToView(dataFit);
+        const data = aggrData.map((itm)=>{
+            return {
+                model: itm.model,
+                ids: Array.from(itm.dbId)
             };
         });
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment

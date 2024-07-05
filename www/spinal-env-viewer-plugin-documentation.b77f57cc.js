@@ -829,25 +829,14 @@ class SpinalContextSelectBIMObject extends SpinalContextApp {
         if ((0, _utilities.isShownParam).indexOf(type) > -1) return Promise.resolve(true);
         return Promise.resolve(-1);
     }
-    action(option) {
-        let realNode = (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(option.selectedNode.id.get());
+    async action(option) {
         this.viewer = window.spinal.ForgeViewer.viewer;
-        let self = this;
-        realNode.find((0, _utilities.SELECTrelationList), function(node) {
-            if (node.info.type.get() === "BIMObject") return true;
-        }).then((lst)=>{
-            self.viewer.clearSelection();
-            (0, _utilities.utilities).sortBIMObjectByModel(lst).then((lstByModel)=>{
-                for(let i = 0; i < lstByModel.length; i++){
-                    const element = lstByModel[i];
-                    for(let j = 0; j < element.model.modelScene.length; j++){
-                        const scene = element.model.modelScene[j];
-                        // console.log("hello select", element.dbid, scene.model);
-                        scene.model.selector.setSelection(element.dbid, scene.model, "selectOnly");
-                    }
-                }
-            });
-        });
+        let realNode = (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(option.selectedNode.id.get());
+        const nodes = await realNode.find((0, _utilities.SELECTrelationList), (node)=>node.info.type.get() === "BIMObject");
+        const lstByModel = await (0, _utilities.utilities).sortBIMObjectByModel(nodes);
+        const arrayToFit = (0, _utilities.utilities).organizeBimObjectForAggregateViewer(lstByModel, "ids");
+        this.viewer.clearSelection();
+        this.viewer.setAggregateSelection(arrayToFit);
     }
 }
 
@@ -971,6 +960,23 @@ const utilities = {
             }
         }
         return arrayModel;
+    },
+    organizeBimObjectForAggregateViewer (bimObjects, name_of_key) {
+        const aggregate = bimObjects.reduce((res, el)=>{
+            if (el.dbid && el.dbid.length > 0) for (const { model } of el.model.modelScene){
+                let found = false;
+                for (const item of res)if (item.model === model) {
+                    item[name_of_key].push(...el.dbid);
+                    found = true;
+                }
+                if (!found) res.push({
+                    model,
+                    [name_of_key]: Array.from(el.dbid)
+                });
+            }
+            return res;
+        }, []);
+        return aggregate;
     }
 };
 module.exports = {
@@ -1020,28 +1026,13 @@ class SpinalContextFitToViewer extends SpinalContextApp {
         if ((0, _utilities.isShownParam).indexOf(type) > -1) return Promise.resolve(true);
         return Promise.resolve(-1);
     }
-    action(option) {
+    async action(option) {
         this.viewer = window.spinal.ForgeViewer.viewer;
-        let self = this;
         let realNode = (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(option.selectedNode.id.get());
-        this.viewer = window.spinal.ForgeViewer.viewer;
-        realNode.find((0, _utilities.SELECTrelationList), function(node) {
-            if (node.info.type.get() === "BIMObject") return true;
-        }).then((lst)=>{
-            (0, _utilities.utilities).sortBIMObjectByModel(lst).then((lstByModel)=>{
-                let arrayToFit = [];
-                for(let i = 0; i < lstByModel.length; i++){
-                    const element = lstByModel[i];
-                    let obj = {
-                        model: element.model.modelScene[0].model,
-                        selection: element.dbid
-                    };
-                    arrayToFit.push(obj);
-                    obj.model.selector.setSelection(element.dbid, obj.model, "selectOnly");
-                }
-                self.viewer.fitToView(arrayToFit);
-            });
-        });
+        const nodes = await realNode.find((0, _utilities.SELECTrelationList), (node)=>node.info.type.get() === "BIMObject");
+        const lstByModel = await (0, _utilities.utilities).sortBIMObjectByModel(nodes);
+        const arrayToFit = (0, _utilities.utilities).organizeBimObjectForAggregateViewer(lstByModel, "selection");
+        this.viewer.fitToView(arrayToFit);
     }
 }
 

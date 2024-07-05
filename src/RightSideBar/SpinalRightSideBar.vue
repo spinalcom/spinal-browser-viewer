@@ -51,9 +51,6 @@ with this file. If not, see
         <md-icon>power_settings_new</md-icon>
         <span class="md-list-item-text">Sign out</span>
       </md-list-item>
-      <md-list-item>
-        <VueCtkDateTimePicker v-model="yourValue" />
-      </md-list-item>
     </md-list>
   </div>
 </template>
@@ -65,9 +62,7 @@ export default {
   name: 'SpinalRightSideBar',
   props: ['value'],
   data() {
-    return {
-      yourValue: '',
-    };
+    return {};
   },
   methods: {
     toggleMenu() {

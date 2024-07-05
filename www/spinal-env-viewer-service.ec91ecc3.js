@@ -944,10 +944,6 @@ parcelHelpers.export(exports, "SELECTrelationList", ()=>SELECTrelationList);
 parcelHelpers.export(exports, "utilities", ()=>utilities);
 parcelHelpers.export(exports, "SPRITE_ICONS", ()=>SPRITE_ICONS);
 var _spinalEnvViewerGraphService = require("spinal-env-viewer-graph-service");
-// export const SPATIAL = {
-//     FLOOR_TO_ROOM_RELATION: "hasGeographicRoom"
-// };
-// export const SPATIAL_FLOOR_TO_ROOM_RELATION = "hasGeographicRoom";
 var _constants = require("spinal-env-viewer-context-geographic-service/build/constants");
 const SPATIAL = Object.freeze({
     // floors
@@ -995,6 +991,23 @@ const utilities = {
             }
         }
         return arrayModel;
+    },
+    organizeBimObjectForAggregateViewer (bimObjects, name_of_key) {
+        const aggregate = bimObjects.reduce((res, el)=>{
+            if (el.dbid && el.dbid.length > 0) for (const { model } of el.model.modelScene){
+                let found = false;
+                for (const item of res)if (item.model === model) {
+                    item[name_of_key].push(...el.dbid);
+                    found = true;
+                }
+                if (!found) res.push({
+                    model,
+                    [name_of_key]: Array.from(el.dbid)
+                });
+            }
+            return res;
+        }, []);
+        return aggregate;
     }
 };
 const SPRITE_ICONS = {
@@ -1404,51 +1417,26 @@ var _spinalEnvViewerGraphService = require("spinal-env-viewer-graph-service");
 async function isolateAndTopView(parentId) {
     //window.spinal.ForgeViewer.viewer.fitToView()
     this.viewer = window.spinal.ForgeViewer.viewer;
-    let viewCube = await this.viewer.loadExtension("Autodesk.ViewCubeUi");
-    viewCube.setViewCube("top"); // passage en vue de dessus : window.spinal.ForgeViewer.viewer.setViewCube("top");
-    let self = this;
+    try {
+        let viewCube = await this.viewer.loadExtension("Autodesk.ViewCubeUi");
+        viewCube.setViewCube("top"); // passage en vue de dessus : window.spinal.ForgeViewer.viewer.setViewCube("top");
+    } catch (error) {
+        console.error(error);
+    }
     let boolSameNode = false;
-    let modelResetIsolate = [];
-    let aggregateIsolation = [];
     let realNode = (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(parentId);
     if (this.lastNode == undefined) this.lastNode = realNode;
+    else if (this.lastNode.info.id.get() == realNode.info.id.get()) {
+        boolSameNode = true;
+        this.lastNode = null;
+    } else this.lastNode = realNode;
+    if (boolSameNode) this.viewer.impl.visibilityManager.aggregateIsolate();
     else {
-        aggregateIsolation = this.viewer.getAggregateIsolation();
-        if (this.lastNode.info.id.get() == realNode.info.id.get() && aggregateIsolation.length) boolSameNode = true;
-        else this.lastNode = realNode;
+        const nodes = await realNode.find((0, _constants.SELECTrelationList), (node)=>node.info.type.get() === "BIMObject");
+        const lstByModel = await (0, _constants.utilities).sortBIMObjectByModel(nodes);
+        const arrRes = (0, _constants.utilities).organizeBimObjectForAggregateViewer(lstByModel, "ids");
+        this.viewer.impl.visibilityManager.aggregateIsolate(arrRes);
     }
-    if (boolSameNode) for(let i = 0; i < aggregateIsolation.length; i++){
-        const element = aggregateIsolation[i];
-        self.viewer.isolate(0, element.model);
-    }
-    else {
-        this.viewer = window.spinal.ForgeViewer.viewer;
-        realNode.find((0, _constants.SELECTrelationList), function(node) {
-            if (node.info.type.get() === "BIMObject") return true;
-        }).then((lst)=>{
-            (0, _constants.utilities).sortBIMObjectByModel(lst).then((lstByModel)=>{
-                for(let i = 0; i < lstByModel.length; i++){
-                    const element = lstByModel[i];
-                    for(let j = 0; j < element.model.modelScene.length; j++){
-                        const scene = element.model.modelScene[j];
-                        if (element.dbid.length != 0) self.viewer.isolate(element.dbid, scene.model);
-                        else {
-                            let rootId = scene.model.getRootId();
-                            scene.model.getObjectTree((tree)=>{
-                                let dbidRoot = tree.nodeAccess.dbIdToIndex[rootId];
-                                self.viewer.isolate([
-                                    dbidRoot
-                                ], scene.model);
-                            });
-                        }
-                    }
-                }
-            });
-        });
-    }
-// return this.viewer;
-// return 0;
-// this.viewer.fitToView();
 }
 async function getPositionFromBimFileIdAndDbid(bimFileId, dbid) {
     let model = spinal.BimObjectService.getModelByBimfile(bimFileId);
@@ -1462,28 +1450,13 @@ async function getPositionFromBimFileIdAndDbid(bimFileId, dbid) {
     }
     return undefined;
 }
-function fitOn(parentId) {
+async function fitOn(parentId) {
     this.viewer = window.spinal.ForgeViewer.viewer;
-    let self = this;
     let realNode = (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(parentId);
-    this.viewer = window.spinal.ForgeViewer.viewer;
-    realNode.find((0, _constants.SELECTrelationList), function(node) {
-        if (node.info.type.get() === "BIMObject") return true;
-    }).then((lst)=>{
-        (0, _constants.utilities).sortBIMObjectByModel(lst).then((lstByModel)=>{
-            let arrayToFit = [];
-            for(let i = 0; i < lstByModel.length; i++){
-                const element = lstByModel[i];
-                let obj = {
-                    model: element.model.modelScene[0].model,
-                    selection: element.dbid
-                };
-                arrayToFit.push(obj);
-                obj.model.selector.setSelection(element.dbid, obj.model, "selectOnly");
-            }
-            self.viewer.fitToView(arrayToFit);
-        });
-    });
+    const nodes = await realNode.find((0, _constants.SELECTrelationList), (node)=>node.info.type.get() === "BIMObject");
+    const lstByModel = await (0, _constants.utilities).sortBIMObjectByModel(nodes);
+    const arrayToFit = (0, _constants.utilities).organizeBimObjectForAggregateViewer(lstByModel, "selection");
+    this.viewer.fitToView(arrayToFit);
 }
 
 },{"spinal-spatial-referential":"avADC","../constants":"7N5bS","spinal-env-viewer-graph-service":"9n7zp","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"qKRY6":[function(require,module,exports) {

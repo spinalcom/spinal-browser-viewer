@@ -570,7 +570,29 @@ const colorElementButton = new ColorElementButton();
 exports.default = colorElementButton;
 
 },{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-task-service":"4IrFb","spinal-env-viewer-plugin-note-standard-buttons-service":"9JoRD","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2dscn":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+/*
+ * Copyright 2024 SpinalCom - www.spinalcom.com
+ * 
+ * This file is part of SpinalCore.
+ * 
+ * Please read all of the following terms and conditions
+ * of the Software license Agreement ("Agreement")
+ * carefully.
+ * 
+ * This Agreement is a legally binding contract between
+ * the Licensee (as defined below) and SpinalCom that
+ * sets forth the terms and conditions that govern your
+ * use of the Program. By installing and/or using the
+ * Program, you agree to abide by all the terms and
+ * conditions stated or referenced herein.
+ * 
+ * If you do not agree to abide by these terms and
+ * conditions, do not demonstrate your acceptance and do
+ * not install or use the Program.
+ * You should have received a copy of the license along
+ * with this file. If not, see
+ * <http://resources.spinalcom.com/licenses.pdf>.
+ */ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerContextMenuService = require("spinal-env-viewer-context-menu-service");
 var _spinalEnvViewerTaskService = require("spinal-env-viewer-task-service");
@@ -599,9 +621,7 @@ class IsolateElementOnMaquette extends (0, _spinalEnvViewerContextMenuService.Sp
             window.alert("No parent on bimMaquette");
             return;
         }
-        parents.forEach((el)=>{
-            window.spinal.ForgeViewer.viewer.impl.visibilityManager.isolate(el.ids, el.model);
-        });
+        window.spinal.ForgeViewer.viewer.impl.visibilityManager.aggregateIsolate(parents);
     }
 }
 const isolateElementOnMaquette = new IsolateElementOnMaquette();
@@ -611,7 +631,29 @@ const isolateElementOnMaquette = new IsolateElementOnMaquette();
 exports.default = isolateElementOnMaquette;
 
 },{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-task-service":"4IrFb","spinal-env-viewer-plugin-note-standard-buttons-service":"9JoRD","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1EoGn":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+/*
+ * Copyright 2024 SpinalCom - www.spinalcom.com
+ * 
+ * This file is part of SpinalCore.
+ * 
+ * Please read all of the following terms and conditions
+ * of the Software license Agreement ("Agreement")
+ * carefully.
+ * 
+ * This Agreement is a legally binding contract between
+ * the Licensee (as defined below) and SpinalCom that
+ * sets forth the terms and conditions that govern your
+ * use of the Program. By installing and/or using the
+ * Program, you agree to abide by all the terms and
+ * conditions stated or referenced herein.
+ * 
+ * If you do not agree to abide by these terms and
+ * conditions, do not demonstrate your acceptance and do
+ * not install or use the Program.
+ * You should have received a copy of the license along
+ * with this file. If not, see
+ * <http://resources.spinalcom.com/licenses.pdf>.
+ */ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerContextMenuService = require("spinal-env-viewer-context-menu-service");
 var _spinalEnvViewerPluginNoteStandardButtonsService = require("spinal-env-viewer-plugin-note-standard-buttons-service");
@@ -640,9 +682,7 @@ class SelectElementOnMaquette extends (0, _spinalEnvViewerContextMenuService.Spi
             window.alert("No parent on bimMaquette");
             return;
         }
-        parents.forEach((el)=>{
-            el.model.selector.setSelection(el.ids, el.model, "selectOnly");
-        });
+        window.spinal.ForgeViewer.viewer.setAggregateSelection(parents);
     }
 }
 const selectElementOnMaquette = new SelectElementOnMaquette();
@@ -652,7 +692,29 @@ const selectElementOnMaquette = new SelectElementOnMaquette();
 exports.default = selectElementOnMaquette;
 
 },{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-plugin-note-standard-buttons-service":"9JoRD","spinal-env-viewer-task-service":"4IrFb","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"glQK8":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+/*
+ * Copyright 2024 SpinalCom - www.spinalcom.com
+ * 
+ * This file is part of SpinalCore.
+ * 
+ * Please read all of the following terms and conditions
+ * of the Software license Agreement ("Agreement")
+ * carefully.
+ * 
+ * This Agreement is a legally binding contract between
+ * the Licensee (as defined below) and SpinalCom that
+ * sets forth the terms and conditions that govern your
+ * use of the Program. By installing and/or using the
+ * Program, you agree to abide by all the terms and
+ * conditions stated or referenced herein.
+ * 
+ * If you do not agree to abide by these terms and
+ * conditions, do not demonstrate your acceptance and do
+ * not install or use the Program.
+ * You should have received a copy of the license along
+ * with this file. If not, see
+ * <http://resources.spinalcom.com/licenses.pdf>.
+ */ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "ZoomElementOnMaquette", ()=>ZoomElementOnMaquette);
 var _spinalEnvViewerContextMenuService = require("spinal-env-viewer-context-menu-service");
@@ -682,8 +744,13 @@ class ZoomElementOnMaquette extends (0, _spinalEnvViewerContextMenuService.Spina
             window.alert("No parent on bimMaquette");
             return;
         }
-        const dbIds = parents.map((el)=>el.ids);
-        window.spinal.ForgeViewer.viewer.fitToView(dbIds.flat());
+        const dbIds = parents.map((el)=>{
+            return {
+                model: el.model,
+                selection: el.ids
+            };
+        });
+        window.spinal.ForgeViewer.viewer.fitToView(dbIds);
     }
 }
 const zoomElementOnMaquette = new ZoomElementOnMaquette();

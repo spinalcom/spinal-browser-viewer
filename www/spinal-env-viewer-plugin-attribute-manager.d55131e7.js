@@ -187,57 +187,56 @@ const EventBus = new (0, _vueDefault.default)();
 exports.default = EventBus;
 
 },{"vue":"gt5MM","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"etTHp":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+/*
+ * Copyright 2024 SpinalCom - www.spinalcom.com
+ * 
+ * This file is part of SpinalCore.
+ * 
+ * Please read all of the following terms and conditions
+ * of the Software license Agreement ("Agreement")
+ * carefully.
+ * 
+ * This Agreement is a legally binding contract between
+ * the Licensee (as defined below) and SpinalCom that
+ * sets forth the terms and conditions that govern your
+ * use of the Program. By installing and/or using the
+ * Program, you agree to abide by all the terms and
+ * conditions stated or referenced herein.
+ * 
+ * If you do not agree to abide by these terms and
+ * conditions, do not demonstrate your acceptance and do
+ * not install or use the Program.
+ * You should have received a copy of the license along
+ * with this file. If not, see
+ * <http://resources.spinalcom.com/licenses.pdf>.
+ */ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerGraphService = require("spinal-env-viewer-graph-service");
 var _spinalEnvViewerContextGeographicService = require("spinal-env-viewer-context-geographic-service");
 var _spinalEnvViewerContextGeographicServiceDefault = parcelHelpers.interopDefault(_spinalEnvViewerContextGeographicService);
-var _service = require("spinal-env-viewer-room-manager/services/service");
 exports.default = {
     async selectitemInViewer (nodeId) {
         const objects = await this.getBimObjectsAndOrganizeThem(nodeId);
-        // if (nodeInfo && this._isBimobjectOrRoom(nodeInfo.type.get())) {
-        //   const bimObjects = await this._getBimObjects(nodeInfo);
-        //   const objecs = this._organizeBimObject(bimObjects);
-        objects.forEach((el)=>{
-            let model = window.spinal.BimObjectService.mappingBimFileIdModelId[el.bimFileId];
-            for(let j = 0; j < model.modelScene.length; j++){
-                const scene = model.modelScene[j];
-                spinal.ForgeViewer.viewer.impl.selector.setSelection(el.selection, scene.model);
-                spinal.ForgeViewer.viewer.isolate(el.selection, scene.model);
-                spinal.ForgeViewer.viewer.fitToView(el.selection);
-            }
-        });
+        const aggr = this._organizeBimObjectForAggregateViewer(objects, "ids");
+        spinal.ForgeViewer.viewer.setAggregateSelection(aggr);
+        spinal.ForgeViewer.viewer.impl.visibilityManager.aggregateIsolate(aggr);
+        const aggrFit = this._organizeBimObjectForAggregateViewer(objects, "selection");
+        spinal.ForgeViewer.viewer.fitToView(aggrFit);
     },
     async selectObject (nodeIds) {
         const objects = await this.getBimObjectsAndOrganizeThem(nodeIds);
-        objects.forEach((el)=>{
-            let model = window.spinal.BimObjectService.mappingBimFileIdModelId[el.bimFileId];
-            for(let j = 0; j < model.modelScene.length; j++){
-                const scene = model.modelScene[j];
-                spinal.ForgeViewer.viewer.impl.selector.setSelection(el.selection, scene.model);
-            }
-        });
+        const aggr = this._organizeBimObjectForAggregateViewer(objects, "ids");
+        spinal.ForgeViewer.viewer.setAggregateSelection(aggr);
     },
     async IsolateObject (nodeIds) {
         const objects = await this.getBimObjectsAndOrganizeThem(nodeIds);
-        objects.forEach((el)=>{
-            let model = window.spinal.BimObjectService.mappingBimFileIdModelId[el.bimFileId];
-            for(let j = 0; j < model.modelScene.length; j++){
-                const scene = model.modelScene[j];
-                spinal.ForgeViewer.viewer.isolate(el.selection, scene.model);
-            }
-        });
+        const aggr = this._organizeBimObjectForAggregateViewer(objects, "ids");
+        spinal.ForgeViewer.viewer.impl.visibilityManager.aggregateIsolate(aggr);
     },
     async zoomObject (nodeIds) {
         const objects = await this.getBimObjectsAndOrganizeThem(nodeIds);
-        objects.forEach((el)=>{
-            let model = window.spinal.BimObjectService.mappingBimFileIdModelId[el.bimFileId];
-            for(let j = 0; j < model.modelScene.length; j++){
-                const scene = model.modelScene[j];
-                spinal.ForgeViewer.viewer.fitToView(el.selection);
-            }
-        });
+        const aggr = this._organizeBimObjectForAggregateViewer(objects, "selection");
+        spinal.ForgeViewer.viewer.fitToView(aggr);
     },
     async getBimObjectsAndOrganizeThem (nodeIds) {
         if (!Array.isArray(nodeIds)) nodeIds = [
@@ -245,20 +244,37 @@ exports.default = {
         ];
         const promises = [];
         for (const nodeId of nodeIds)promises.push(this._getBimsOrganized(nodeId));
-        return Promise.all(promises).then((values)=>{
-            const res = [];
-            values = values.flat(2);
-            for (const obj of values){
-                const found = res.find((el)=>el.bimFileId === obj.bimFileId);
-                if (typeof found === "undefined") res.push(obj);
-                else found.selection.push(...obj.selection);
-            }
-            return res;
-        });
+        let values = await Promise.all(promises);
+        const res = [];
+        values = values.flat(2);
+        for (const obj of values){
+            const found = res.find((el)=>el.bimFileId === obj.bimFileId);
+            if (typeof found === "undefined") res.push(obj);
+            else found.selection.push(...obj.selection);
+        }
+        return res;
     },
     ////////////////////////////////////////////////////////////////////////////
     //                                PRIVATES
     ////////////////////////////////////////////////////////////////////////////
+    _organizeBimObjectForAggregateViewer (bimObjects, name_of_key) {
+        const aggregate = bimObjects.reduce((res, el)=>{
+            let m = window.spinal.BimObjectService.mappingBimFileIdModelId[el.bimFileId];
+            for (const { model } of m.modelScene){
+                let found = false;
+                for (const item of res)if (item.model === model) {
+                    item[name_of_key].push(...el.selection);
+                    found = true;
+                }
+                if (!found) res.push({
+                    model,
+                    [name_of_key]: Array.from(el.selection)
+                });
+            }
+            return res;
+        }, []);
+        return aggregate;
+    },
     _isBimobjectOrRoom (nodeType) {
         if (nodeType && (0, _spinalEnvViewerContextGeographicServiceDefault.default).constants.GEOGRAPHIC_TYPES_ORDER.indexOf(nodeType) !== -1) return true;
         return false;
@@ -301,346 +317,7 @@ exports.default = {
     }
 };
 
-},{"spinal-env-viewer-graph-service":"9n7zp","spinal-env-viewer-context-geographic-service":"5QjJf","spinal-env-viewer-room-manager/services/service":"19gQQ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"19gQQ":[function(require,module,exports) {
-const { SPINAL_RELATION_PTR_LST_TYPE, SpinalGraphService } = require("bae9fe1938ea9bca");
-const { Model } = require("e509c984e0dbbabc");
-const constants = require("bd6e938e9e366621");
-let groupService = {
-    constants: constants,
-    createGroupContext (name, type) {
-        const context = SpinalGraphService.getContext(name);
-        if (typeof context !== "undefined") return Promise.resolve(false);
-        return SpinalGraphService.addContext(name, type, new Model({
-            name: name
-        }));
-    },
-    addElement (contextId, elementId, elementType, elementName, iconName, color) {
-        let contextInfo = SpinalGraphService.getInfo(contextId);
-        let contextType = contextInfo && contextInfo.type ? contextInfo.type.get() : undefined;
-        let typeAndRelation = this.getTypeAndRelation(elementType, contextType);
-        let type = typeAndRelation.type;
-        let relationName = typeAndRelation.relation;
-        if (typeof type !== "undefined" && typeof relationName !== "undefined") {
-            let info = {
-                name: elementName,
-                type: type
-            };
-            if (iconName) info["icon"] = iconName;
-            if (color) info["color"] = color;
-            let childId = SpinalGraphService.createNode(info, new Model({
-                name: elementName
-            }));
-            return SpinalGraphService.addChildInContext(elementId, childId, contextId, relationName, SPINAL_RELATION_PTR_LST_TYPE);
-        }
-    // // let type =
-    // //   contextType === ROOMS_GROUP_CONTEXT ? ROOMS_GROUP : EQUIPMENTS_GROUP;
-    // // let relationName =
-    // //   contextType === ROOMS_GROUP_CONTEXT ?
-    // //   ROOMS_GROUP_RELATION :
-    // //   EQUIPMENTS_GROUP_RELATION;
-    },
-    elementIsLinkedToGroup (groupId, elementId) {
-        let realNode = SpinalGraphService.getRealNode(groupId);
-        const type = realNode.getType().get();
-        let relationName = constants.GROUP_RELATION_ASSOCIATION.get(type);
-        try {
-            let ids = realNode.children[SPINAL_RELATION_PTR_LST_TYPE][relationName].children.info.ids;
-            return Promise.resolve(ids.has((el)=>{
-                return el.get() === elementId;
-            }));
-        } catch (error) {
-            // let type = SpinalGraphService.getInfo(groupId).type.get();
-            // let relationName = type === ROOMS_GROUP ? ROOMS_TO_ELEMENT_RELATION :
-            //   EQUIPMENTS_TO_ELEMENT_RELATION;
-            return SpinalGraphService.getChildren(groupId, [
-                relationName
-            ]).then((children)=>{
-                for(let i = 0; i < children.length; i++){
-                    const element = children[i];
-                    if (element.id.get() === elementId) return true;
-                }
-                return false;
-            });
-        }
-    },
-    linkElementToGroup (groupId, elementId, contextId) {
-        let groupInfo = SpinalGraphService.getInfo(groupId);
-        let relationName = constants.GROUP_RELATION_ASSOCIATION.get(groupInfo.type.get());
-        return this.getCategorie(groupInfo).then((category)=>{
-            return this.elementIsInCategorie(category[0].id.get(), elementId).then((group)=>{
-                let result = {
-                    old_group: undefined,
-                    newGroup: groupId
-                };
-                if (typeof group !== "undefined") {
-                    this.removeLink(group.id.get(), elementId);
-                    result.old_group = group.id.get();
-                }
-                SpinalGraphService.addChildInContext(groupId, elementId, contextId, relationName, SPINAL_RELATION_PTR_LST_TYPE);
-                return result;
-            });
-        });
-    },
-    removeLink (groupId, elementId) {
-        let type = SpinalGraphService.getInfo(groupId).type.get();
-        let relationName = constants.GROUP_RELATION_ASSOCIATION.get(type);
-        return SpinalGraphService.removeChild(groupId, elementId, relationName, SPINAL_RELATION_PTR_LST_TYPE);
-    },
-    getTypeAndRelation (elementType, contextType) {
-        switch(elementType){
-            case contextType:
-                return {
-                    type: constants.CATEGORY_TYPE,
-                    relation: constants.CONTEXT_TO_CATEGORY_RELATION
-                };
-            // case ROOMS_GROUP:
-            //   return {
-            //     type: "undefined",
-            //       relation:
-            //   };
-            case constants.CATEGORY_TYPE:
-                // eslint-disable-next-line no-case-declarations
-                let type = constants.CONTEXT_GROUP_ASSOCIATION.get(contextType);
-                return {
-                    type: type,
-                    relation: constants.CATEGORY_TO_GROUP_RELATION
-                };
-            // case constants.ROOMS_GROUP:
-            // case constants.EQUIPMENTS_GROUP:
-            // case constants.ENDPOINT_GROUP:
-            //   return {
-            //     type: "",
-            //       relation: constants.GROUP_RELATION_ASSOCIATION.get(elementType)
-            //   }
-            default:
-                return {};
-        }
-    },
-    getElementsLinked (groupId) {
-        let type = SpinalGraphService.getInfo(groupId).type.get();
-        let relationName = constants.GROUP_RELATION_ASSOCIATION.get(type);
-        return SpinalGraphService.getChildren(groupId, [
-            relationName
-        ]);
-    },
-    getGroups (selectedNode) {
-        // const ROOMS_TYPES = [
-        //   ROOMS_GROUP_CONTEXT,
-        //   ROOMS_CATEGORY,
-        //   ROOMS_GROUP
-        // ]
-        let type = selectedNode.type.get();
-        let nodeId = selectedNode.id.get();
-        if (typeof constants.GROUP_RELATION_ASSOCIATION.get(type) !== "undefined") return Promise.resolve([
-            selectedNode
-        ]);
-        let relations = [
-            constants.CONTEXT_TO_CATEGORY_RELATION,
-            constants.CATEGORY_TO_GROUP_RELATION,
-            constants.GROUP_TO_ROOMS_RELATION,
-            constants.GROUP_TO_EQUIPMENTS_RELATION,
-            constants.GROUP_TO_ENDPOINT_RELATION
-        ];
-        return SpinalGraphService.findNodes(nodeId, relations, (node)=>{
-            let argType = node.getType().get();
-            return typeof constants.GROUP_RELATION_ASSOCIATION.get(argType) !== "undefined";
-        }).then((res)=>{
-            return res.map((el)=>{
-                SpinalGraphService._addNode(el);
-                return el.info;
-            });
-        });
-    },
-    getCategorie (selectedNode) {
-        let type = selectedNode.type.get();
-        let nodeId = selectedNode.id.get();
-        if (type === constants.CATEGORY_TYPE) return Promise.resolve(selectedNode);
-        else if (constants.CONTEXTS_TYPES.indexOf(type) !== -1) return SpinalGraphService.getChildren(nodeId, [
-            constants.CONTEXT_TO_CATEGORY_RELATION
-        ]);
-        else {
-            let relationRefPromises = [];
-            let node = SpinalGraphService.getRealNode(nodeId);
-            let relationList = node.parents[constants.CATEGORY_TO_GROUP_RELATION];
-            if (relationList) for(let i = 0; i < relationList.length; i++){
-                const element = relationList[i];
-                relationRefPromises.push(element.load());
-            }
-            return Promise.all(relationRefPromises).then((refs)=>{
-                let promises = refs.map((node)=>{
-                    return node.parent.load();
-                });
-                return Promise.all(promises).then((parents)=>{
-                    // let p = [];
-                    // parents.forEach(el => {
-                    //   if (el && !(el instanceof SpinalContext)) {
-                    //     p.push(new SpinalCalNode(el));
-                    //   }
-                    // })
-                    // return p;
-                    return parents.map((el)=>{
-                        return el.info;
-                    });
-                });
-            });
-        }
-    },
-    elementIsInCategorie (categoryId, elementId) {
-        // let nodeInfo = SpinalGraphService.getInfo(categoryId);
-        // let type = nodeInfo.type.get();
-        // let relationName =
-        //   type === ROOMS_CATEGORY ?
-        //   ROOMS_GROUP_RELATION :
-        //   EQUIPMENTS_GROUP_RELATION;
-        return SpinalGraphService.getChildren(categoryId, [
-            constants.CATEGORY_TO_GROUP_RELATION
-        ]).then((children)=>{
-            return children.find((child)=>{
-                return child.childrenIds.find((el)=>{
-                    return el === elementId;
-                });
-            });
-        });
-    }
-};
-module.exports = {
-    // ROOMS_GROUP_CONTEXT,
-    // ROOMS_GROUP,
-    // EQUIPMENTS_GROUP,
-    // ROOMS_GROUP_RELATION,
-    // EQUIPMENTS_GROUP_RELATION,
-    // EQUIPMENTS_GROUP_CONTEXT,
-    // ROOMS_TO_ELEMENT_RELATION,
-    // EQUIPMENTS_TO_ELEMENT_RELATION,
-    // ROOMS_CATEGORY,
-    // ROOMS_CATEGORY_RELATION,
-    // EQUIPMENTS_CATEGORY,
-    // EQUIPMENTS_CATEGORY_RELATION,
-    // typeLst,
-    // TYPE_AND_RELATION,
-    groupService
-};
-
-},{"bae9fe1938ea9bca":"9n7zp","e509c984e0dbbabc":"fRH70","bd6e938e9e366621":"gby48"}],"gby48":[function(require,module,exports) {
-// ////////////////////////////////////////////////////
-// // ROOMS
-// ////////////////////////////////////////////////////
-// const ROOMS_GROUP_CONTEXT = "RoomsGroupContext";
-// const ROOMS_GROUP = "RoomsGroup";
-// const ROOMS_GROUP_RELATION = "hasRoomsGroup";
-// const ROOMS_TO_ELEMENT_RELATION = "groupHasRooms";
-// const ROOMS_CATEGORY = "Rooms_category";
-// const ROOMS_CATEGORY_RELATION = "hasRoomsCategory";
-// ///////////////////////////////////////////////////////
-// // BimObject
-// ///////////////////////////////////////////////////////
-// const EQUIPMENTS_GROUP_CONTEXT = "EquipmentGroupContext";
-// const EQUIPMENTS_GROUP = "EquipmentGroup";
-// const EQUIPMENTS_GROUP_RELATION = "hasEquipmentsGroup";
-// const EQUIPMENTS_TO_ELEMENT_RELATION = "groupHasEquipments";
-// const EQUIPMENTS_CATEGORY = "Equipment_category";
-// const EQUIPMENTS_CATEGORY_RELATION = "hasEquipmentsCategory";
-// const typeLst = [
-//   ROOMS_GROUP_CONTEXT,
-//   ROOMS_GROUP,
-//   ROOMS_CATEGORY,
-//   EQUIPMENTS_GROUP_CONTEXT,
-//   EQUIPMENTS_GROUP,
-//   EQUIPMENTS_CATEGORY
-// ]
-// const TYPE_AND_RELATION = new Map();
-// TYPE_AND_RELATION.set(ROOMS_GROUP_CONTEXT, ROOMS_CATEGORY_RELATION)
-// TYPE_AND_RELATION.set(ROOMS_GROUP, ROOMS_TO_ELEMENT_RELATION)
-// TYPE_AND_RELATION.set(ROOMS_CATEGORY, ROOMS_GROUP_RELATION)
-// TYPE_AND_RELATION.set(EQUIPMENTS_GROUP_CONTEXT, EQUIPMENTS_CATEGORY_RELATION)
-// TYPE_AND_RELATION.set(EQUIPMENTS_GROUP, EQUIPMENTS_TO_ELEMENT_RELATION)
-// TYPE_AND_RELATION.set(EQUIPMENTS_CATEGORY, EQUIPMENTS_GROUP_RELATION)
-// const CONTEXT_TYPE = "groupingContext";
-// const CATEGORY_TYPE = "groupingCategory";
-// ///////////////////////////////////////////
-// //            Groups Types               //
-// ///////////////////////////////////////////
-// const ROOMS_GROUP = "roomsGroup";
-// const EQUIPMENTS_GROUP = "equipmentGroup";
-// const ENDPOINT_GROUP = "endpointGroup"
-// ///////////////////////////////////////////
-// //            Relations                  //
-// ///////////////////////////////////////////
-// const CONTEXT_TO_CATEGORY_RELATION = "hasCategory";
-// const CATEGORY_TO_GROUP_RELATION = "hasGroup";
-// const GROUP_TO_ROOMS_RELATION = "groupHasRooms";
-// const GROUP_TO_EQUIPMENTS_RELATION = "groupHasEquipments";
-// const GROUP_TO_ENDPOINT_RELATION = "groupHasEndpoints";
-class GroupServiceConstants {
-    constructor(){
-        ///////////////////////////////////////
-        // CONTEXT
-        ///////////////////////////////////////
-        this.ROOMS_GROUP_CONTEXT = "RoomsGroupContext";
-        this.EQUIPMENTS_GROUP_CONTEXT = "EquipmentGroupContext";
-        this.ENDPOINTS_GROUP_CONTEXT = "EndpointGroupContext";
-        this.CONTEXTS_TYPES = [
-            this.ROOMS_GROUP_CONTEXT,
-            this.EQUIPMENTS_GROUP_CONTEXT,
-            this.ENDPOINTS_GROUP_CONTEXT
-        ];
-        //Category
-        this.CATEGORY_TYPE = "groupingCategory";
-        ///////////////////////////////////////////
-        //            Groups Types               //
-        ///////////////////////////////////////////
-        this.ROOMS_GROUP = "roomsGroup";
-        this.EQUIPMENTS_GROUP = "equipmentGroup";
-        this.ENDPOINT_GROUP = "endpointGroup";
-        this.GROUPS_TYPES = [
-            this.ROOMS_GROUP,
-            this.EQUIPMENTS_GROUP,
-            this.ENDPOINT_GROUP
-        ];
-        ///////////////////////////////////////////
-        //            Relations                  //
-        ///////////////////////////////////////////
-        this.CONTEXT_TO_CATEGORY_RELATION = "hasCategory";
-        this.CATEGORY_TO_GROUP_RELATION = "hasGroup";
-        this.GROUP_TO_ROOMS_RELATION = "groupHasRooms";
-        this.GROUP_TO_EQUIPMENTS_RELATION = "groupHasEquipments";
-        this.GROUP_TO_ENDPOINT_RELATION = "groupHasEndpoints";
-        ////////////////////////////////////////////
-        // Maps
-        ////////////////////////////////////////////
-        this.CONTEXT_GROUP_ASSOCIATION = new Map([
-            [
-                this.ROOMS_GROUP_CONTEXT,
-                this.ROOMS_GROUP
-            ],
-            [
-                this.EQUIPMENTS_GROUP_CONTEXT,
-                this.EQUIPMENTS_GROUP
-            ],
-            [
-                this.ENDPOINTS_GROUP_CONTEXT,
-                this.ENDPOINT_GROUP
-            ]
-        ]);
-        this.GROUP_RELATION_ASSOCIATION = new Map([
-            [
-                this.ROOMS_GROUP,
-                this.GROUP_TO_ROOMS_RELATION
-            ],
-            [
-                this.EQUIPMENTS_GROUP,
-                this.GROUP_TO_EQUIPMENTS_RELATION
-            ],
-            [
-                this.ENDPOINT_GROUP,
-                this.GROUP_TO_ENDPOINT_RELATION
-            ]
-        ]);
-    }
-}
-module.exports = new GroupServiceConstants();
-
-},{}],"fcTTE":[function(require,module,exports) {
+},{"spinal-env-viewer-graph-service":"9n7zp","spinal-env-viewer-context-geographic-service":"5QjJf","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fcTTE":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _vue = require("vue");
 var _vueDefault = parcelHelpers.interopDefault(_vue);

@@ -915,6 +915,23 @@ const utilities = {
             }
         }
         return arrayModel;
+    },
+    organizeBimObjectForAggregateViewer (bimObjects, name_of_key) {
+        const aggregate = bimObjects.reduce((res, el)=>{
+            if (el.dbid && el.dbid.length > 0) for (const { model } of el.model.modelScene){
+                let found = false;
+                for (const item of res)if (item.model === model) {
+                    item[name_of_key].push(...el.dbid);
+                    found = true;
+                }
+                if (!found) res.push({
+                    model,
+                    [name_of_key]: Array.from(el.dbid)
+                });
+            }
+            return res;
+        }, []);
+        return aggregate;
     }
 };
 module.exports = {

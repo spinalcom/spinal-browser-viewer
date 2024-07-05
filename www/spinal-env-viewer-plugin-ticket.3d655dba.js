@@ -1362,15 +1362,33 @@ const getProcessId = async (ticketId)=>{
 };
 
 },{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-panel-manager-service":"7Uw4d","spinal-service-ticket/dist/Constants":"i0rBD","../extensions/spinalIO":"jPxZQ","spinal-env-viewer-graph-service":"9n7zp","spinal-service-ticket":"gi7V0","../extensions/Event":"4ovSF","../extensions/ticketsEvents":"iO9Cs","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fpE2i":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+/*
+ * Copyright 2024 SpinalCom - www.spinalcom.com
+ * 
+ * This file is part of SpinalCore.
+ * 
+ * Please read all of the following terms and conditions
+ * of the Software license Agreement ("Agreement")
+ * carefully.
+ * 
+ * This Agreement is a legally binding contract between
+ * the Licensee (as defined below) and SpinalCom that
+ * sets forth the terms and conditions that govern your
+ * use of the Program. By installing and/or using the
+ * Program, you agree to abide by all the terms and
+ * conditions stated or referenced herein.
+ * 
+ * If you do not agree to abide by these terms and
+ * conditions, do not demonstrate your acceptance and do
+ * not install or use the Program.
+ * You should have received a copy of the license along
+ * with this file. If not, see
+ * <http://resources.spinalcom.com/licenses.pdf>.
+ */ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "SelectElementOnMaquette", ()=>SelectElementOnMaquette);
 var _spinalEnvViewerContextMenuService = require("spinal-env-viewer-context-menu-service");
 var _constants = require("spinal-service-ticket/dist/Constants");
-var _spinalEnvViewerGraphService = require("spinal-env-viewer-graph-service");
-var _selectBIMObjectButton = require("spinal-env-viewer-plugin-standard_button/js/selectBIMObjectButton");
-var _fitToViewerButton = require("spinal-env-viewer-plugin-standard_button/js/fitToViewerButton");
-var _utilities = require("spinal-env-viewer-plugin-standard_button/js/utilities");
 var _colorElementExtension = require("../../extensions/colorElementExtension");
 var _colorElementExtensionDefault = parcelHelpers.interopDefault(_colorElementExtension);
 class SelectElementOnMaquette extends (0, _spinalEnvViewerContextMenuService.SpinalContextApp) {
@@ -1396,279 +1414,11 @@ class SelectElementOnMaquette extends (0, _spinalEnvViewerContextMenuService.Spi
             window.alert("No parent on bimMaquette");
             return;
         }
-        parents.forEach((el)=>{
-            el.model.selector.setSelection(el.ids, el.model, "selectOnly");
-        });
-    // const selectButton = new SpinalContextSelectBIMObject();
-    // // const zoomButton = new SpinalContextFitToViewer();
-    // parents.forEach((element) => {
-    //   const params = {
-    //     selectedNode: element,
-    //   };
-    //   selectButton.action(params);
-    //   // zoomButton.action(params);
-    // });
+        spinal.ForgeViewer.viewer.impl.selector.setAggregateSelection(parents);
     }
 }
 
-},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-service-ticket/dist/Constants":"i0rBD","spinal-env-viewer-graph-service":"9n7zp","spinal-env-viewer-plugin-standard_button/js/selectBIMObjectButton":"byLzT","spinal-env-viewer-plugin-standard_button/js/fitToViewerButton":"jAXW3","spinal-env-viewer-plugin-standard_button/js/utilities":"ktewa","../../extensions/colorElementExtension":"9wZn2","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"byLzT":[function(require,module,exports) {
-/*
- * Copyright 2018 SpinalCom - www.spinalcom.com
- *
- * This file is part of SpinalCore.
- *
- * Please read all of the following terms and conditions
- * of the Free Software license Agreement ("Agreement")
- * carefully.
- *
- * This Agreement is a legally binding contract between
- * the Licensee (as defined below) and SpinalCom that
- * sets forth the terms and conditions that govern your
- * use of the Program. By installing and/or using the
- * Program, you agree to abide by all the terms and
- * conditions stated or referenced herein.
- *
- * If you do not agree to abide by these terms and
- * conditions, do not demonstrate your acceptance and do
- * not install or use the Program.
- * You should have received a copy of the license along
- * with this file. If not, see
- * <http://resources.spinalcom.com/licenses.pdf>.
- */ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "SpinalContextSelectBIMObject", ()=>SpinalContextSelectBIMObject);
-var _spinalEnvViewerGraphService = require("spinal-env-viewer-graph-service");
-var _utilities = require("./utilities");
-const { SpinalContextApp } = require("6a1561c7c4b8903b");
-class SpinalContextSelectBIMObject extends SpinalContextApp {
-    constructor(){
-        super("select BIMObject button", "select BIMObject button", {
-            icon: "devices",
-            icon_type: "in"
-        });
-    }
-    isShown(option) {
-        const type = option.selectedNode.type.get();
-        if ((0, _utilities.isShownParam).indexOf(type) > -1) return Promise.resolve(true);
-        return Promise.resolve(-1);
-    }
-    action(option) {
-        let realNode = (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(option.selectedNode.id.get());
-        this.viewer = window.spinal.ForgeViewer.viewer;
-        let self = this;
-        realNode.find((0, _utilities.SELECTrelationList), function(node) {
-            if (node.info.type.get() === "BIMObject") return true;
-        }).then((lst)=>{
-            self.viewer.clearSelection();
-            (0, _utilities.utilities).sortBIMObjectByModel(lst).then((lstByModel)=>{
-                for(let i = 0; i < lstByModel.length; i++){
-                    const element = lstByModel[i];
-                    for(let j = 0; j < element.model.modelScene.length; j++){
-                        const scene = element.model.modelScene[j];
-                        // console.log("hello select", element.dbid, scene.model);
-                        scene.model.selector.setSelection(element.dbid, scene.model, "selectOnly");
-                    }
-                }
-            });
-        });
-    }
-}
-
-},{"spinal-env-viewer-graph-service":"9n7zp","6a1561c7c4b8903b":"kHlxv","./utilities":"ktewa","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ktewa":[function(require,module,exports) {
-/*
- * Copyright 2021 SpinalCom - www.spinalcom.com
- *
- * This file is part of SpinalCore.
- *
- * Please read all of the following terms and conditions
- * of the Free Software license Agreement ("Agreement")
- * carefully.
- *
- * This Agreement is a legally binding contract between
- * the Licensee (as defined below) and SpinalCom that
- * sets forth the terms and conditions that govern your
- * use of the Program. By installing and/or using the
- * Program, you agree to abide by all the terms and
- * conditions stated or referenced herein.
- *
- * If you do not agree to abide by these terms and
- * conditions, do not demonstrate your acceptance and do
- * not install or use the Program.
- * You should have received a copy of the license along
- * with this file. If not, see
- * <http://resources.spinalcom.com/licenses.pdf>.
- */ var _spinalEnvViewerGraphService = require("spinal-env-viewer-graph-service");
-// import {
-//   // ROOMS_CATEGORY_RELATION,
-//   // ROOMS_TO_ELEMENT_RELATION,
-//   // ROOMS_GROUP_RELATION,
-//   // EQUIPMENTS_CATEGORY_RELATION,
-//   // EQUIPMENTS_TO_ELEMENT_RELATION,
-//   // EQUIPMENTS_GROUP_RELATION,
-//   // ROOMS_GROUP_CONTEXT,
-//   // ROOMS_GROUP,
-//   // ROOMS_CATEGORY,
-//   // EQUIPMENTS_GROUP_CONTEXT,
-//   // EQUIPMENTS_CATEGORY,
-//   // EQUIPMENTS_GROUP
-//   groupService
-// } from 'spinal-env-viewer-room-manager/services/service';
-var _spinalEnvViewerPluginGroupManagerService = require("spinal-env-viewer-plugin-group-manager-service");
-var _constants = require("spinal-env-viewer-context-geographic-service/build/constants");
-var _spinalModelBmsnetwork = require("spinal-model-bmsnetwork");
-var _spinalEnvViewerPluginNetworkTreeService = require("spinal-env-viewer-plugin-network-tree-service");
-const SELECTrelationList = [
-    (0, _constants.SITE_RELATION),
-    (0, _constants.BUILDING_RELATION),
-    (0, _constants.FLOOR_RELATION),
-    (0, _constants.ZONE_RELATION),
-    (0, _constants.ROOM_RELATION),
-    (0, _constants.EQUIPMENT_RELATION),
-    (0, _constants.REFERENCE_RELATION),
-    `${(0, _constants.REFERENCE_RELATION)}.ROOM`,
-    "hasBIMObject",
-    // groupService.constants.CONTEXT_TO_CATEGORY_RELATION,
-    // groupService.constants.CATEGORY_TO_GROUP_RELATION,
-    // groupService.constants.GROUP_TO_ROOMS_RELATION,
-    // groupService.constants.GROUP_TO_EQUIPMENTS_RELATION,
-    // groupService.constants.GROUP_TO_ENDPOINT_RELATION,
-    (0, _spinalEnvViewerPluginGroupManagerService.groupManagerService).constants.CONTEXT_TO_CATEGORY_RELATION,
-    (0, _spinalEnvViewerPluginGroupManagerService.groupManagerService).constants.CATEGORY_TO_GROUP_RELATION,
-    ...Object.values((0, _spinalEnvViewerPluginGroupManagerService.groupManagerService).constants.OLD_RELATIONS_TYPES),
-    `groupHas${(0, _constants.ROOM_TYPE)}`,
-    `groupHas${(0, _constants.EQUIPMENT_TYPE)}`,
-    `groupHas${(0, _constants.SITE_TYPE)}`,
-    `groupHas${(0, _constants.BUILDING_TYPE)}`,
-    `groupHas${(0, _constants.FLOOR_TYPE)}`,
-    `groupHas${(0, _constants.ZONE_TYPE)}`,
-    `groupHas${(0, _spinalModelBmsnetwork.SpinalBmsEndpoint).nodeTypeName}`
-];
-const isShownParam = [
-    (0, _constants.SITE_TYPE),
-    (0, _constants.BUILDING_TYPE),
-    (0, _constants.FLOOR_TYPE),
-    (0, _constants.ZONE_TYPE),
-    (0, _constants.ROOM_TYPE),
-    (0, _constants.EQUIPMENT_TYPE),
-    // ...groupService.constants.CONTEXTS_TYPES,
-    // ...groupService.constants.GROUPS_TYPES,
-    // groupService.constants.CATEGORY_TYPE
-    ...Object.values((0, _spinalEnvViewerPluginGroupManagerService.groupManagerService).constants.OLD_CONTEXTS_TYPES),
-    ...Object.values((0, _spinalEnvViewerPluginGroupManagerService.groupManagerService).constants.OLD_GROUPS_TYPES),
-    (0, _spinalEnvViewerPluginGroupManagerService.groupManagerService).constants.CATEGORY_TYPE,
-    `${(0, _constants.ROOM_TYPE)}Group`,
-    `${(0, _constants.EQUIPMENT_TYPE)}Group`,
-    `${(0, _constants.SITE_TYPE)}Group`,
-    `${(0, _constants.BUILDING_TYPE)}Group`,
-    `${(0, _constants.FLOOR_TYPE)}Group`,
-    `${(0, _constants.ZONE_TYPE)}Group`,
-    `${(0, _constants.ROOM_TYPE)}GroupContext`,
-    `${(0, _constants.EQUIPMENT_TYPE)}GroupContext`,
-    `${(0, _constants.SITE_TYPE)}GroupContext`,
-    `${(0, _constants.BUILDING_TYPE)}GroupContext`,
-    `${(0, _constants.FLOOR_TYPE)}GroupContext`,
-    `${(0, _constants.ZONE_TYPE)}GroupContext`
-];
-const utilities = {
-    async sortBIMObjectByModel (arrayOfBIMObject) {
-        let arrayModel = [];
-        for(const key in spinal.BimObjectService.mappingBimFileIdModelId)if (spinal.BimObjectService.mappingBimFileIdModelId.hasOwnProperty(key)) {
-            const element = spinal.BimObjectService.mappingBimFileIdModelId[key];
-            let obj = {
-                dbid: [],
-                model: element
-            };
-            arrayModel.push(obj);
-        }
-        for(let i = 0; i < arrayOfBIMObject.length; i++){
-            (0, _spinalEnvViewerGraphService.SpinalGraphService)._addNode(arrayOfBIMObject[i]);
-            let bim = (0, _spinalEnvViewerGraphService.SpinalGraphService).getNode(arrayOfBIMObject[i].info.id.get());
-            try {
-                let spinalModel = window.spinal.BimObjectService.mappingBimFileIdModelId[bim.bimFileId.get()];
-                if (spinalModel) for(let j = 0; j < arrayModel.length; j++){
-                    const element = arrayModel[j];
-                    if (element.model.modelId === spinalModel.modelId) element.dbid.push(bim.dbid.get());
-                }
-            } catch (error) {
-                console.error("skip node because bimFileId is not defined", error);
-            }
-        }
-        return arrayModel;
-    }
-};
-module.exports = {
-    SELECTrelationList,
-    isShownParam,
-    utilities
-};
-
-},{"spinal-env-viewer-graph-service":"9n7zp","spinal-env-viewer-plugin-group-manager-service":"tSLpq","spinal-env-viewer-context-geographic-service/build/constants":"eV0id","spinal-model-bmsnetwork":"gzkbg","spinal-env-viewer-plugin-network-tree-service":"7oQhf"}],"jAXW3":[function(require,module,exports) {
-/*
- * Copyright 2018 SpinalCom - www.spinalcom.com
- *
- * This file is part of SpinalCore.
- *
- * Please read all of the following terms and conditions
- * of the Free Software license Agreement ("Agreement")
- * carefully.
- *
- * This Agreement is a legally binding contract between
- * the Licensee (as defined below) and SpinalCom that
- * sets forth the terms and conditions that govern your
- * use of the Program. By installing and/or using the
- * Program, you agree to abide by all the terms and
- * conditions stated or referenced herein.
- *
- * If you do not agree to abide by these terms and
- * conditions, do not demonstrate your acceptance and do
- * not install or use the Program.
- * You should have received a copy of the license along
- * with this file. If not, see
- * <http://resources.spinalcom.com/licenses.pdf>.
- */ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "SpinalContextFitToViewer", ()=>SpinalContextFitToViewer);
-var _spinalEnvViewerGraphService = require("spinal-env-viewer-graph-service");
-var _utilities = require("./utilities");
-const { SpinalContextApp } = require("5b562009692cf730");
-class SpinalContextFitToViewer extends SpinalContextApp {
-    constructor(){
-        super("fit button", "fit to viewer button", {
-            icon: "zoom_in",
-            icon_type: "in"
-        });
-    }
-    isShown(option) {
-        const type = option.selectedNode.type.get();
-        if ((0, _utilities.isShownParam).indexOf(type) > -1) return Promise.resolve(true);
-        return Promise.resolve(-1);
-    }
-    action(option) {
-        this.viewer = window.spinal.ForgeViewer.viewer;
-        let self = this;
-        let realNode = (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(option.selectedNode.id.get());
-        this.viewer = window.spinal.ForgeViewer.viewer;
-        realNode.find((0, _utilities.SELECTrelationList), function(node) {
-            if (node.info.type.get() === "BIMObject") return true;
-        }).then((lst)=>{
-            (0, _utilities.utilities).sortBIMObjectByModel(lst).then((lstByModel)=>{
-                let arrayToFit = [];
-                for(let i = 0; i < lstByModel.length; i++){
-                    const element = lstByModel[i];
-                    let obj = {
-                        model: element.model.modelScene[0].model,
-                        selection: element.dbid
-                    };
-                    arrayToFit.push(obj);
-                    obj.model.selector.setSelection(element.dbid, obj.model, "selectOnly");
-                }
-                self.viewer.fitToView(arrayToFit);
-            });
-        });
-    }
-}
-
-},{"spinal-env-viewer-graph-service":"9n7zp","5b562009692cf730":"kHlxv","./utilities":"ktewa","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9wZn2":[function(require,module,exports) {
+},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-service-ticket/dist/Constants":"i0rBD","../../extensions/colorElementExtension":"9wZn2","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9wZn2":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerGraphService = require("spinal-env-viewer-graph-service");
@@ -1881,8 +1631,175 @@ class ColorElementExtension {
 }
 exports.default = new ColorElementExtension();
 
-},{"spinal-env-viewer-graph-service":"9n7zp","spinal-env-viewer-context-geographic-service":"5QjJf","spinal-env-viewer-plugin-group-manager-service":"tSLpq","spinal-env-viewer-plugin-forge/dist/Constants":"f3Ny6","spinal-env-viewer-plugin-standard_button/js/utilities":"ktewa","spinal-service-ticket/dist/Constants":"i0rBD","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6nVeM":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+},{"spinal-env-viewer-graph-service":"9n7zp","spinal-env-viewer-context-geographic-service":"5QjJf","spinal-env-viewer-plugin-group-manager-service":"tSLpq","spinal-env-viewer-plugin-forge/dist/Constants":"f3Ny6","spinal-env-viewer-plugin-standard_button/js/utilities":"ktewa","spinal-service-ticket/dist/Constants":"i0rBD","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ktewa":[function(require,module,exports) {
+/*
+ * Copyright 2021 SpinalCom - www.spinalcom.com
+ *
+ * This file is part of SpinalCore.
+ *
+ * Please read all of the following terms and conditions
+ * of the Free Software license Agreement ("Agreement")
+ * carefully.
+ *
+ * This Agreement is a legally binding contract between
+ * the Licensee (as defined below) and SpinalCom that
+ * sets forth the terms and conditions that govern your
+ * use of the Program. By installing and/or using the
+ * Program, you agree to abide by all the terms and
+ * conditions stated or referenced herein.
+ *
+ * If you do not agree to abide by these terms and
+ * conditions, do not demonstrate your acceptance and do
+ * not install or use the Program.
+ * You should have received a copy of the license along
+ * with this file. If not, see
+ * <http://resources.spinalcom.com/licenses.pdf>.
+ */ var _spinalEnvViewerGraphService = require("spinal-env-viewer-graph-service");
+// import {
+//   // ROOMS_CATEGORY_RELATION,
+//   // ROOMS_TO_ELEMENT_RELATION,
+//   // ROOMS_GROUP_RELATION,
+//   // EQUIPMENTS_CATEGORY_RELATION,
+//   // EQUIPMENTS_TO_ELEMENT_RELATION,
+//   // EQUIPMENTS_GROUP_RELATION,
+//   // ROOMS_GROUP_CONTEXT,
+//   // ROOMS_GROUP,
+//   // ROOMS_CATEGORY,
+//   // EQUIPMENTS_GROUP_CONTEXT,
+//   // EQUIPMENTS_CATEGORY,
+//   // EQUIPMENTS_GROUP
+//   groupService
+// } from 'spinal-env-viewer-room-manager/services/service';
+var _spinalEnvViewerPluginGroupManagerService = require("spinal-env-viewer-plugin-group-manager-service");
+var _constants = require("spinal-env-viewer-context-geographic-service/build/constants");
+var _spinalModelBmsnetwork = require("spinal-model-bmsnetwork");
+var _spinalEnvViewerPluginNetworkTreeService = require("spinal-env-viewer-plugin-network-tree-service");
+const SELECTrelationList = [
+    (0, _constants.SITE_RELATION),
+    (0, _constants.BUILDING_RELATION),
+    (0, _constants.FLOOR_RELATION),
+    (0, _constants.ZONE_RELATION),
+    (0, _constants.ROOM_RELATION),
+    (0, _constants.EQUIPMENT_RELATION),
+    (0, _constants.REFERENCE_RELATION),
+    `${(0, _constants.REFERENCE_RELATION)}.ROOM`,
+    "hasBIMObject",
+    // groupService.constants.CONTEXT_TO_CATEGORY_RELATION,
+    // groupService.constants.CATEGORY_TO_GROUP_RELATION,
+    // groupService.constants.GROUP_TO_ROOMS_RELATION,
+    // groupService.constants.GROUP_TO_EQUIPMENTS_RELATION,
+    // groupService.constants.GROUP_TO_ENDPOINT_RELATION,
+    (0, _spinalEnvViewerPluginGroupManagerService.groupManagerService).constants.CONTEXT_TO_CATEGORY_RELATION,
+    (0, _spinalEnvViewerPluginGroupManagerService.groupManagerService).constants.CATEGORY_TO_GROUP_RELATION,
+    ...Object.values((0, _spinalEnvViewerPluginGroupManagerService.groupManagerService).constants.OLD_RELATIONS_TYPES),
+    `groupHas${(0, _constants.ROOM_TYPE)}`,
+    `groupHas${(0, _constants.EQUIPMENT_TYPE)}`,
+    `groupHas${(0, _constants.SITE_TYPE)}`,
+    `groupHas${(0, _constants.BUILDING_TYPE)}`,
+    `groupHas${(0, _constants.FLOOR_TYPE)}`,
+    `groupHas${(0, _constants.ZONE_TYPE)}`,
+    `groupHas${(0, _spinalModelBmsnetwork.SpinalBmsEndpoint).nodeTypeName}`
+];
+const isShownParam = [
+    (0, _constants.SITE_TYPE),
+    (0, _constants.BUILDING_TYPE),
+    (0, _constants.FLOOR_TYPE),
+    (0, _constants.ZONE_TYPE),
+    (0, _constants.ROOM_TYPE),
+    (0, _constants.EQUIPMENT_TYPE),
+    // ...groupService.constants.CONTEXTS_TYPES,
+    // ...groupService.constants.GROUPS_TYPES,
+    // groupService.constants.CATEGORY_TYPE
+    ...Object.values((0, _spinalEnvViewerPluginGroupManagerService.groupManagerService).constants.OLD_CONTEXTS_TYPES),
+    ...Object.values((0, _spinalEnvViewerPluginGroupManagerService.groupManagerService).constants.OLD_GROUPS_TYPES),
+    (0, _spinalEnvViewerPluginGroupManagerService.groupManagerService).constants.CATEGORY_TYPE,
+    `${(0, _constants.ROOM_TYPE)}Group`,
+    `${(0, _constants.EQUIPMENT_TYPE)}Group`,
+    `${(0, _constants.SITE_TYPE)}Group`,
+    `${(0, _constants.BUILDING_TYPE)}Group`,
+    `${(0, _constants.FLOOR_TYPE)}Group`,
+    `${(0, _constants.ZONE_TYPE)}Group`,
+    `${(0, _constants.ROOM_TYPE)}GroupContext`,
+    `${(0, _constants.EQUIPMENT_TYPE)}GroupContext`,
+    `${(0, _constants.SITE_TYPE)}GroupContext`,
+    `${(0, _constants.BUILDING_TYPE)}GroupContext`,
+    `${(0, _constants.FLOOR_TYPE)}GroupContext`,
+    `${(0, _constants.ZONE_TYPE)}GroupContext`
+];
+const utilities = {
+    async sortBIMObjectByModel (arrayOfBIMObject) {
+        let arrayModel = [];
+        for(const key in spinal.BimObjectService.mappingBimFileIdModelId)if (spinal.BimObjectService.mappingBimFileIdModelId.hasOwnProperty(key)) {
+            const element = spinal.BimObjectService.mappingBimFileIdModelId[key];
+            let obj = {
+                dbid: [],
+                model: element
+            };
+            arrayModel.push(obj);
+        }
+        for(let i = 0; i < arrayOfBIMObject.length; i++){
+            (0, _spinalEnvViewerGraphService.SpinalGraphService)._addNode(arrayOfBIMObject[i]);
+            let bim = (0, _spinalEnvViewerGraphService.SpinalGraphService).getNode(arrayOfBIMObject[i].info.id.get());
+            try {
+                let spinalModel = window.spinal.BimObjectService.mappingBimFileIdModelId[bim.bimFileId.get()];
+                if (spinalModel) for(let j = 0; j < arrayModel.length; j++){
+                    const element = arrayModel[j];
+                    if (element.model.modelId === spinalModel.modelId) element.dbid.push(bim.dbid.get());
+                }
+            } catch (error) {
+                console.error("skip node because bimFileId is not defined", error);
+            }
+        }
+        return arrayModel;
+    },
+    organizeBimObjectForAggregateViewer (bimObjects, name_of_key) {
+        const aggregate = bimObjects.reduce((res, el)=>{
+            if (el.dbid && el.dbid.length > 0) for (const { model } of el.model.modelScene){
+                let found = false;
+                for (const item of res)if (item.model === model) {
+                    item[name_of_key].push(...el.dbid);
+                    found = true;
+                }
+                if (!found) res.push({
+                    model,
+                    [name_of_key]: Array.from(el.dbid)
+                });
+            }
+            return res;
+        }, []);
+        return aggregate;
+    }
+};
+module.exports = {
+    SELECTrelationList,
+    isShownParam,
+    utilities
+};
+
+},{"spinal-env-viewer-graph-service":"9n7zp","spinal-env-viewer-plugin-group-manager-service":"tSLpq","spinal-env-viewer-context-geographic-service/build/constants":"eV0id","spinal-model-bmsnetwork":"gzkbg","spinal-env-viewer-plugin-network-tree-service":"7oQhf"}],"6nVeM":[function(require,module,exports) {
+/*
+ * Copyright 2024 SpinalCom - www.spinalcom.com
+ * 
+ * This file is part of SpinalCore.
+ * 
+ * Please read all of the following terms and conditions
+ * of the Software license Agreement ("Agreement")
+ * carefully.
+ * 
+ * This Agreement is a legally binding contract between
+ * the Licensee (as defined below) and SpinalCom that
+ * sets forth the terms and conditions that govern your
+ * use of the Program. By installing and/or using the
+ * Program, you agree to abide by all the terms and
+ * conditions stated or referenced herein.
+ * 
+ * If you do not agree to abide by these terms and
+ * conditions, do not demonstrate your acceptance and do
+ * not install or use the Program.
+ * You should have received a copy of the license along
+ * with this file. If not, see
+ * <http://resources.spinalcom.com/licenses.pdf>.
+ */ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "IsolateElementOnMaquette", ()=>IsolateElementOnMaquette);
 var _spinalEnvViewerContextMenuService = require("spinal-env-viewer-context-menu-service");
@@ -1912,14 +1829,34 @@ class IsolateElementOnMaquette extends (0, _spinalEnvViewerContextMenuService.Sp
             window.alert("No parent on bimMaquette");
             return;
         }
-        parents.forEach((el)=>{
-            window.spinal.ForgeViewer.viewer.impl.visibilityManager.isolate(el.ids, el.model);
-        });
+        spinal.ForgeViewer.viewer.impl.visibilityManager.aggregateIsolate(parents);
     }
 }
 
 },{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-service-ticket/dist/Constants":"i0rBD","../../extensions/colorElementExtension":"9wZn2","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"eC66R":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+/*
+ * Copyright 2024 SpinalCom - www.spinalcom.com
+ * 
+ * This file is part of SpinalCore.
+ * 
+ * Please read all of the following terms and conditions
+ * of the Software license Agreement ("Agreement")
+ * carefully.
+ * 
+ * This Agreement is a legally binding contract between
+ * the Licensee (as defined below) and SpinalCom that
+ * sets forth the terms and conditions that govern your
+ * use of the Program. By installing and/or using the
+ * Program, you agree to abide by all the terms and
+ * conditions stated or referenced herein.
+ * 
+ * If you do not agree to abide by these terms and
+ * conditions, do not demonstrate your acceptance and do
+ * not install or use the Program.
+ * You should have received a copy of the license along
+ * with this file. If not, see
+ * <http://resources.spinalcom.com/licenses.pdf>.
+ */ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "ZoomElementOnMaquette", ()=>ZoomElementOnMaquette);
 var _spinalEnvViewerContextMenuService = require("spinal-env-viewer-context-menu-service");
@@ -1949,8 +1886,13 @@ class ZoomElementOnMaquette extends (0, _spinalEnvViewerContextMenuService.Spina
             window.alert("No parent on bimMaquette");
             return;
         }
-        const dbIds = parents.map((el)=>el.ids);
-        window.spinal.ForgeViewer.viewer.fitToView(dbIds.flat());
+        const items = parents.map((el)=>{
+            return {
+                model: el.model,
+                selection: el.ids
+            };
+        });
+        window.spinal.ForgeViewer.viewer.fitToView(items);
     }
 }
 
