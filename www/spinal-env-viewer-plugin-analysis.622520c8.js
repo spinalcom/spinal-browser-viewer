@@ -13252,7 +13252,7 @@ var parseObject = function(chain, val, options, valuesParsed) {
     for(var i = chain.length - 1; i >= 0; --i){
         var obj;
         var root = chain[i];
-        if (root === "[]" && options.parseArrays) obj = options.allowEmptyArrays && leaf === "" ? [] : [].concat(leaf);
+        if (root === "[]" && options.parseArrays) obj = options.allowEmptyArrays && (leaf === "" || options.strictNullHandling && leaf === null) ? [] : [].concat(leaf);
         else {
             obj = options.plainObjects ? Object.create(null) : {};
             var cleanRoot = root.charAt(0) === "[" && root.charAt(root.length - 1) === "]" ? root.slice(1, -1) : root;
