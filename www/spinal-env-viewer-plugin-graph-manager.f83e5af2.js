@@ -1781,6 +1781,10 @@ var scriptExports = {
         option: {
             type: Object,
             required: true
+        },
+        sideBarButtonLoading: {
+            type: Boolean,
+            default: false
         }
     }
 };
@@ -1822,6 +1826,10 @@ var scriptExports = {
         },
         option: {
             type: Object
+        },
+        sideBarButtonLoading: {
+            type: Boolean,
+            default: false
         }
     }
 };
@@ -1835,27 +1843,35 @@ var render = function() {
     var _c = _vm._self._c || _h;
     return _c("div", {
         staticClass: "tool-bar"
-    }, _vm._l(_vm.buttons, function(b, index) {
-        return _c("spinal-badge-icon-button", {
-            key: index,
+    }, [
+        _vm.sideBarButtonLoading ? _c("md-progress-bar", {
             attrs: {
-                "background-color": b.button.backgroundColor,
-                "font-color": b.button.fontColor,
-                "icon": b.button.icon,
-                "icon_type": b.button.icon_type,
-                "tool-tip": b.button.toolTip,
-                "tool-tip-direction": b.button.toolTipDirection,
-                "badge_background_color": b.badge_content.backgroundColor,
-                "badge_font_color": b.badge_content.fontColor,
-                "badge_label": b.badge_content.label
-            },
-            on: {
-                "click": function($event) {
-                    return b.button.action(_vm.option);
-                }
+                "md-mode": "indeterminate"
             }
-        });
-    }), 1);
+        }) : _vm._e(),
+        _vm._v(" "),
+        _vm._l(_vm.buttons, function(b, index) {
+            return _c("spinal-badge-icon-button", {
+                key: index,
+                attrs: {
+                    "background-color": b.button.backgroundColor,
+                    "font-color": b.button.fontColor,
+                    "icon": b.button.icon,
+                    "icon_type": b.button.icon_type,
+                    "tool-tip": b.button.toolTip,
+                    "tool-tip-direction": b.button.toolTipDirection,
+                    "badge_background_color": b.badge_content.backgroundColor,
+                    "badge_font_color": b.badge_content.fontColor,
+                    "badge_label": b.badge_content.label
+                },
+                on: {
+                    "click": function($event) {
+                        return b.button.action(_vm.option);
+                    }
+                }
+            });
+        })
+    ], 2);
 };
 var staticRenderFns = [];
 exports.render = render;
@@ -1876,7 +1892,8 @@ var render = function() {
         staticClass: "sideBar",
         attrs: {
             "buttons": _vm.buttons,
-            "option": _vm.option
+            "option": _vm.option,
+            "sideBarButtonLoading": _vm.sideBarButtonLoading
         }
     });
 };

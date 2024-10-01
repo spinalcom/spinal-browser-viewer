@@ -3388,7 +3388,7 @@ var render = function() {
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
     return _c("div", {
-        staticClass: "config_container"
+        staticClass: "number-config-config_container"
     }, [
         _c("div", {
             staticClass: "values md-layout md-gutter"
@@ -3705,7 +3705,7 @@ var render = function() {
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
     return _c("div", {
-        staticClass: "config_container"
+        staticClass: "boolean-config-config_container"
     }, [
         _c("div", {
             staticClass: "values md-layout md-gutter"
@@ -3884,7 +3884,7 @@ var render = function() {
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
     return _c("div", {
-        staticClass: "config_container"
+        staticClass: "enum-config-config_container"
     }, [
         _c("md-content", {
             staticClass: "colors md-scrollbar"

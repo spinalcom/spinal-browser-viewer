@@ -37933,12 +37933,14 @@ class ConvertExcel {
         return result;
     }
     _getValueByColumnHeader(sheet, rowNumber, headers, header) {
+        var _a;
         let row = sheet.getRow(rowNumber);
         let result;
         row.eachCell(function(cell, colNumber) {
             let fetchedHeader = headers[colNumber - 1];
             if (fetchedHeader && header && fetchedHeader.toLowerCase().trim() === header.toLowerCase().trim()) result = cell;
         });
+        if ((_a = result === null || result === void 0 ? void 0 : result.value) === null || _a === void 0 ? void 0 : _a.result) return result.value.result;
         return result ? result.value : "";
     }
     configurationToJson(data, headerRow) {

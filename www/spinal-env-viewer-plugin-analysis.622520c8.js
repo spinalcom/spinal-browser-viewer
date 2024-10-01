@@ -145,9 +145,8 @@
 })({"4FK6p":[function(require,module,exports) {
 var _buttons = require("./src/buttons");
 var _dialogs = require("./src/vues/dialogs");
-var _panels = require("./src/vues/panels");
 
-},{"./src/buttons":"btyz6","./src/vues/dialogs":"kVtLQ","./src/vues/panels":"5z9f7"}],"btyz6":[function(require,module,exports) {
+},{"./src/buttons":"btyz6","./src/vues/dialogs":"kVtLQ"}],"btyz6":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "createEntity", ()=>(0, _createEntityDefault.default));
@@ -186,7 +185,7 @@ class CreateEntity extends (0, _spinalEnvViewerContextMenuService.SpinalContextA
     }
     isShown(option) {
         const id = option.selectedNode.id.get();
-        const isAnalyticContext = option.selectedNode.type.get() === (0, _spinalModelAnalysis.CONTEXT_TYPE);
+        const isAnalyticContext = option.selectedNode.type.get() === (0, _spinalModelAnalysis.CONSTANTS).CONTEXT_TYPE;
         return Promise.resolve(isAnalyticContext ? true : -1);
     }
     action(option) {
@@ -453,13 +452,11 @@ function getDialog() {
 };
 
 },{}],"apm5J":[function(require,module,exports) {
-var global = arguments[3];
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.getCronMissingExecutionTimes = exports.getValueModelFromEntry = exports.ATTRIBUTE_TIMESERIES_VALUE_AT_START = exports.ATTRIBUTE_LAST_EXECUTION_TIME = exports.ATTRIBUTE_VALUE_SEPARATOR = exports.ATTRIBUTE_ALARM_PRIORITY = exports.ATTRIBUTE_CREATE_ENDPOINT_UNIT = exports.ATTRIBUTE_CREATE_ENDPOINT_MAX_DAYS = exports.ATTRIBUTE_CREATE_ENDPOINT_IF_NOT_EXIST = exports.ATTRIBUTE_TICKET_PROCESS_ID = exports.ATTRIBUTE_TICKET_CONTEXT_ID = exports.ATTRIBUTE_TRIGGER_AT_START = exports.ATTRIBUTE_ANALYTIC_PAST_EXECUTIONS = exports.ATTRIBUTE_ANALYTIC_DESCRIPTION = exports.ATTRIBUTE_ANALYTIC_STATUS = exports.ATTRIBUTE_RESULT_TYPE = exports.ATTRIBUTE_RESULT_NAME = exports.ATTRIBUTE_SEPARATOR = exports.ATTRIBUTE_SEARCH_RELATIONS = exports.ATTRIBUTE_STRICT_DEPTH = exports.ATTRIBUTE_SEARCH_DEPTH = exports.ATTRIBUTE_TIMESERIES = exports.ATTRIBUTE_FILTER_VALUE = exports.ATTRIBUTE_TRACKING_METHOD = exports.ATTRIBUTE_PHONE_MESSAGE = exports.ATTRIBUTE_PHONE_NUMBER = exports.ATTRIBUTE_GCHAT_SPACE = exports.ATTRIBUTE_GCHAT_MESSAGE = exports.CATEGORY_ATTRIBUTE_GCHAT_PARAMETERS = exports.CATEGORY_ATTRIBUTE_ALGORITHM_INDEX_MAPPING = exports.CATEGORY_ATTRIBUTE_TRIGGER_PARAMETERS = exports.CATEGORY_ATTRIBUTE_IO_DEPENDENCIES = exports.CATEGORY_ATTRIBUTE_ANALYTIC_PARAMETERS = exports.CATEGORY_ATTRIBUTE_TWILIO_PARAMETERS = exports.CATEGORY_ATTRIBUTE_TRACKING_METHOD_PARAMETERS = exports.CATEGORY_ATTRIBUTE_RESULT_PARAMETERS = exports.CATEGORY_ATTRIBUTE_ALGORTHM_PARAMETERS = exports.CATEGORY_ATTRIBUTE_ENDPOINT_PARAMETERS = exports.CATEGORY_ATTRIBUTE_TICKET_LOCALIZATION_PARAMETERS = exports.ENTITY_TYPE = exports.CONTEXT_TYPE = exports.TRIGGER_TYPE = exports.TRACK_METHOD = exports.ANALYTIC_TYPE = exports.ANALYTIC_RESULT_TYPE = exports.ENTITY_TYPES = exports.TrackingMethodModel = exports.AnalyticModel = exports.spinalAnalyticService = exports.AnalyticService = void 0;
-exports.ANALYTIC_STATUS = exports.ALGORITHMS = exports.algos = exports.isGChatOrganCardResult = exports.isGChatMessageResult = exports.isResultSuccess = exports.getAvailableData = exports.getChoiceRelationsWithDepth = exports.getIntervalTimeMissingExecutionTimes = void 0;
+exports.ALGORITHMS = exports.algos = exports.isGChatOrganCardResult = exports.isGChatMessageResult = exports.isResultSuccess = exports.CONSTANTS = exports.TrackingMethodModel = exports.AnalyticModel = exports.spinalAnalyticOutputManagerService = exports.spinalAnalyticInputManagerService = exports.spinalAnalyticNodeManagerService = exports.spinalAnalyticExecutionService = void 0;
 const AnalyticModel_1 = require("bd4f04811876fe06");
 Object.defineProperty(exports, "AnalyticModel", {
     enumerable: true,
@@ -493,277 +490,8 @@ Object.defineProperty(exports, "isGChatOrganCardResult", {
         return IAnalyticResult_1.isGChatOrganCardResult;
     }
 });
-const constants_1 = require("15091bfe302456c3");
-Object.defineProperty(exports, "ANALYTIC_RESULT_TYPE", {
-    enumerable: true,
-    get: function() {
-        return constants_1.ANALYTIC_RESULT_TYPE;
-    }
-});
-Object.defineProperty(exports, "ANALYTIC_TYPE", {
-    enumerable: true,
-    get: function() {
-        return constants_1.ANALYTIC_TYPE;
-    }
-});
-Object.defineProperty(exports, "TRACK_METHOD", {
-    enumerable: true,
-    get: function() {
-        return constants_1.TRACK_METHOD;
-    }
-});
-Object.defineProperty(exports, "ENTITY_TYPES", {
-    enumerable: true,
-    get: function() {
-        return constants_1.ENTITY_TYPES;
-    }
-});
-Object.defineProperty(exports, "CONTEXT_TYPE", {
-    enumerable: true,
-    get: function() {
-        return constants_1.CONTEXT_TYPE;
-    }
-});
-Object.defineProperty(exports, "ENTITY_TYPE", {
-    enumerable: true,
-    get: function() {
-        return constants_1.ENTITY_TYPE;
-    }
-});
-Object.defineProperty(exports, "TRIGGER_TYPE", {
-    enumerable: true,
-    get: function() {
-        return constants_1.TRIGGER_TYPE;
-    }
-});
-Object.defineProperty(exports, "CATEGORY_ATTRIBUTE_TICKET_LOCALIZATION_PARAMETERS", {
-    enumerable: true,
-    get: function() {
-        return constants_1.CATEGORY_ATTRIBUTE_TICKET_LOCALIZATION_PARAMETERS;
-    }
-});
-Object.defineProperty(exports, "CATEGORY_ATTRIBUTE_ENDPOINT_PARAMETERS", {
-    enumerable: true,
-    get: function() {
-        return constants_1.CATEGORY_ATTRIBUTE_ENDPOINT_PARAMETERS;
-    }
-});
-Object.defineProperty(exports, "CATEGORY_ATTRIBUTE_ALGORTHM_PARAMETERS", {
-    enumerable: true,
-    get: function() {
-        return constants_1.CATEGORY_ATTRIBUTE_ALGORTHM_PARAMETERS;
-    }
-});
-Object.defineProperty(exports, "CATEGORY_ATTRIBUTE_RESULT_PARAMETERS", {
-    enumerable: true,
-    get: function() {
-        return constants_1.CATEGORY_ATTRIBUTE_RESULT_PARAMETERS;
-    }
-});
-Object.defineProperty(exports, "CATEGORY_ATTRIBUTE_TRACKING_METHOD_PARAMETERS", {
-    enumerable: true,
-    get: function() {
-        return constants_1.CATEGORY_ATTRIBUTE_TRACKING_METHOD_PARAMETERS;
-    }
-});
-Object.defineProperty(exports, "CATEGORY_ATTRIBUTE_TWILIO_PARAMETERS", {
-    enumerable: true,
-    get: function() {
-        return constants_1.CATEGORY_ATTRIBUTE_TWILIO_PARAMETERS;
-    }
-});
-Object.defineProperty(exports, "CATEGORY_ATTRIBUTE_ANALYTIC_PARAMETERS", {
-    enumerable: true,
-    get: function() {
-        return constants_1.CATEGORY_ATTRIBUTE_ANALYTIC_PARAMETERS;
-    }
-});
-Object.defineProperty(exports, "CATEGORY_ATTRIBUTE_IO_DEPENDENCIES", {
-    enumerable: true,
-    get: function() {
-        return constants_1.CATEGORY_ATTRIBUTE_IO_DEPENDENCIES;
-    }
-});
-Object.defineProperty(exports, "CATEGORY_ATTRIBUTE_TRIGGER_PARAMETERS", {
-    enumerable: true,
-    get: function() {
-        return constants_1.CATEGORY_ATTRIBUTE_TRIGGER_PARAMETERS;
-    }
-});
-Object.defineProperty(exports, "CATEGORY_ATTRIBUTE_ALGORITHM_INDEX_MAPPING", {
-    enumerable: true,
-    get: function() {
-        return constants_1.CATEGORY_ATTRIBUTE_ALGORITHM_INDEX_MAPPING;
-    }
-});
-Object.defineProperty(exports, "CATEGORY_ATTRIBUTE_GCHAT_PARAMETERS", {
-    enumerable: true,
-    get: function() {
-        return constants_1.CATEGORY_ATTRIBUTE_GCHAT_PARAMETERS;
-    }
-});
-Object.defineProperty(exports, "ATTRIBUTE_GCHAT_SPACE", {
-    enumerable: true,
-    get: function() {
-        return constants_1.ATTRIBUTE_GCHAT_SPACE;
-    }
-});
-Object.defineProperty(exports, "ATTRIBUTE_GCHAT_MESSAGE", {
-    enumerable: true,
-    get: function() {
-        return constants_1.ATTRIBUTE_GCHAT_MESSAGE;
-    }
-});
-Object.defineProperty(exports, "ATTRIBUTE_PHONE_NUMBER", {
-    enumerable: true,
-    get: function() {
-        return constants_1.ATTRIBUTE_PHONE_NUMBER;
-    }
-});
-Object.defineProperty(exports, "ATTRIBUTE_PHONE_MESSAGE", {
-    enumerable: true,
-    get: function() {
-        return constants_1.ATTRIBUTE_PHONE_MESSAGE;
-    }
-});
-Object.defineProperty(exports, "ATTRIBUTE_TRACKING_METHOD", {
-    enumerable: true,
-    get: function() {
-        return constants_1.ATTRIBUTE_TRACKING_METHOD;
-    }
-});
-Object.defineProperty(exports, "ATTRIBUTE_FILTER_VALUE", {
-    enumerable: true,
-    get: function() {
-        return constants_1.ATTRIBUTE_FILTER_VALUE;
-    }
-});
-Object.defineProperty(exports, "ATTRIBUTE_TIMESERIES", {
-    enumerable: true,
-    get: function() {
-        return constants_1.ATTRIBUTE_TIMESERIES;
-    }
-});
-Object.defineProperty(exports, "ATTRIBUTE_SEARCH_DEPTH", {
-    enumerable: true,
-    get: function() {
-        return constants_1.ATTRIBUTE_SEARCH_DEPTH;
-    }
-});
-Object.defineProperty(exports, "ATTRIBUTE_STRICT_DEPTH", {
-    enumerable: true,
-    get: function() {
-        return constants_1.ATTRIBUTE_STRICT_DEPTH;
-    }
-});
-Object.defineProperty(exports, "ATTRIBUTE_SEARCH_RELATIONS", {
-    enumerable: true,
-    get: function() {
-        return constants_1.ATTRIBUTE_SEARCH_RELATIONS;
-    }
-});
-Object.defineProperty(exports, "ATTRIBUTE_SEPARATOR", {
-    enumerable: true,
-    get: function() {
-        return constants_1.ATTRIBUTE_SEPARATOR;
-    }
-});
-Object.defineProperty(exports, "ATTRIBUTE_VALUE_SEPARATOR", {
-    enumerable: true,
-    get: function() {
-        return constants_1.ATTRIBUTE_VALUE_SEPARATOR;
-    }
-});
-Object.defineProperty(exports, "ATTRIBUTE_RESULT_NAME", {
-    enumerable: true,
-    get: function() {
-        return constants_1.ATTRIBUTE_RESULT_NAME;
-    }
-});
-Object.defineProperty(exports, "ATTRIBUTE_RESULT_TYPE", {
-    enumerable: true,
-    get: function() {
-        return constants_1.ATTRIBUTE_RESULT_TYPE;
-    }
-});
-Object.defineProperty(exports, "ATTRIBUTE_ANALYTIC_STATUS", {
-    enumerable: true,
-    get: function() {
-        return constants_1.ATTRIBUTE_ANALYTIC_STATUS;
-    }
-});
-Object.defineProperty(exports, "ATTRIBUTE_ANALYTIC_DESCRIPTION", {
-    enumerable: true,
-    get: function() {
-        return constants_1.ATTRIBUTE_ANALYTIC_DESCRIPTION;
-    }
-});
-Object.defineProperty(exports, "ATTRIBUTE_TRIGGER_AT_START", {
-    enumerable: true,
-    get: function() {
-        return constants_1.ATTRIBUTE_TRIGGER_AT_START;
-    }
-});
-Object.defineProperty(exports, "ATTRIBUTE_TICKET_CONTEXT_ID", {
-    enumerable: true,
-    get: function() {
-        return constants_1.ATTRIBUTE_TICKET_CONTEXT_ID;
-    }
-});
-Object.defineProperty(exports, "ATTRIBUTE_TICKET_PROCESS_ID", {
-    enumerable: true,
-    get: function() {
-        return constants_1.ATTRIBUTE_TICKET_PROCESS_ID;
-    }
-});
-Object.defineProperty(exports, "ATTRIBUTE_CREATE_ENDPOINT_IF_NOT_EXIST", {
-    enumerable: true,
-    get: function() {
-        return constants_1.ATTRIBUTE_CREATE_ENDPOINT_IF_NOT_EXIST;
-    }
-});
-Object.defineProperty(exports, "ATTRIBUTE_CREATE_ENDPOINT_UNIT", {
-    enumerable: true,
-    get: function() {
-        return constants_1.ATTRIBUTE_CREATE_ENDPOINT_UNIT;
-    }
-});
-Object.defineProperty(exports, "ATTRIBUTE_CREATE_ENDPOINT_MAX_DAYS", {
-    enumerable: true,
-    get: function() {
-        return constants_1.ATTRIBUTE_CREATE_ENDPOINT_MAX_DAYS;
-    }
-});
-Object.defineProperty(exports, "ATTRIBUTE_ALARM_PRIORITY", {
-    enumerable: true,
-    get: function() {
-        return constants_1.ATTRIBUTE_ALARM_PRIORITY;
-    }
-});
-Object.defineProperty(exports, "ATTRIBUTE_ANALYTIC_PAST_EXECUTIONS", {
-    enumerable: true,
-    get: function() {
-        return constants_1.ATTRIBUTE_ANALYTIC_PAST_EXECUTIONS;
-    }
-});
-Object.defineProperty(exports, "ATTRIBUTE_TIMESERIES_VALUE_AT_START", {
-    enumerable: true,
-    get: function() {
-        return constants_1.ATTRIBUTE_TIMESERIES_VALUE_AT_START;
-    }
-});
-Object.defineProperty(exports, "ATTRIBUTE_LAST_EXECUTION_TIME", {
-    enumerable: true,
-    get: function() {
-        return constants_1.ATTRIBUTE_LAST_EXECUTION_TIME;
-    }
-});
-Object.defineProperty(exports, "ANALYTIC_STATUS", {
-    enumerable: true,
-    get: function() {
-        return constants_1.ANALYTIC_STATUS;
-    }
-});
+const CONSTANTS = require("15091bfe302456c3");
+exports.CONSTANTS = CONSTANTS;
 const algos = require("b5cbb7d75b37f0f9");
 exports.algos = algos;
 const algorithms_1 = require("b5cbb7d75b37f0f9");
@@ -773,54 +501,21 @@ Object.defineProperty(exports, "ALGORITHMS", {
         return algorithms_1.ALGORITHMS;
     }
 });
-const AnalyticService_1 = require("30b69a6e6f2e536f");
-Object.defineProperty(exports, "AnalyticService", {
-    enumerable: true,
-    get: function() {
-        return AnalyticService_1.AnalyticService;
-    }
-});
-const utils_1 = require("273499501dafc854");
-Object.defineProperty(exports, "getValueModelFromEntry", {
-    enumerable: true,
-    get: function() {
-        return utils_1.getValueModelFromEntry;
-    }
-});
-Object.defineProperty(exports, "getChoiceRelationsWithDepth", {
-    enumerable: true,
-    get: function() {
-        return utils_1.getChoiceRelationsWithDepth;
-    }
-});
-Object.defineProperty(exports, "getAvailableData", {
-    enumerable: true,
-    get: function() {
-        return utils_1.getAvailableData;
-    }
-});
-Object.defineProperty(exports, "getCronMissingExecutionTimes", {
-    enumerable: true,
-    get: function() {
-        return utils_1.getCronMissingExecutionTimes;
-    }
-});
-Object.defineProperty(exports, "getIntervalTimeMissingExecutionTimes", {
-    enumerable: true,
-    get: function() {
-        return utils_1.getIntervalTimeMissingExecutionTimes;
-    }
-});
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const globalRoot = typeof window === "undefined" ? global : window;
-const spinalAnalyticService = new AnalyticService_1.AnalyticService();
-exports.spinalAnalyticService = spinalAnalyticService;
-if (typeof globalRoot.spinal === "undefined") globalRoot.spinal = {};
-if (typeof globalRoot.spinal.spinalAnalyticService === "undefined") globalRoot.spinal.spinalAnalyticService = spinalAnalyticService;
-if (typeof globalRoot.spinal.spinalAnalyticService === "undefined") globalRoot.spinal.spinalAnalyticService = spinalAnalyticService;
-exports.default = spinalAnalyticService;
+const AnalyticExecutionManagerService_1 = require("1b7c8aae456a9e13");
+const AnalyticNodeManagerService_1 = require("a9537eec833b1ee7");
+const AnalyticInputManagerService_1 = require("7650e6cdfbebff7a");
+const AnalyticOutputManagerService_1 = require("42b8c086105a42c");
+const spinalAnalyticNodeManagerService = new AnalyticNodeManagerService_1.default();
+exports.spinalAnalyticNodeManagerService = spinalAnalyticNodeManagerService;
+const spinalAnalyticInputManagerService = new AnalyticInputManagerService_1.default(spinalAnalyticNodeManagerService);
+exports.spinalAnalyticInputManagerService = spinalAnalyticInputManagerService;
+const spinalAnalyticOutputManagerService = new AnalyticOutputManagerService_1.default(spinalAnalyticNodeManagerService, spinalAnalyticInputManagerService);
+exports.spinalAnalyticOutputManagerService = spinalAnalyticOutputManagerService;
+const spinalAnalyticExecutionService = new AnalyticExecutionManagerService_1.default(spinalAnalyticNodeManagerService, spinalAnalyticInputManagerService, spinalAnalyticOutputManagerService);
+exports.spinalAnalyticExecutionService = spinalAnalyticExecutionService;
+exports.default = spinalAnalyticExecutionService;
 
-},{"bd4f04811876fe06":"9ovXf","346b732d03dffb52":"4rJ3F","75545a2a14e5f4c1":"5On9c","15091bfe302456c3":"2CVgx","b5cbb7d75b37f0f9":"a1B4H","30b69a6e6f2e536f":"jVEQx","273499501dafc854":"3BNTc"}],"9ovXf":[function(require,module,exports) {
+},{"bd4f04811876fe06":"9ovXf","346b732d03dffb52":"4rJ3F","75545a2a14e5f4c1":"5On9c","15091bfe302456c3":"2CVgx","b5cbb7d75b37f0f9":"a1B4H","1b7c8aae456a9e13":"lvmoz","a9537eec833b1ee7":"5w9Yd","7650e6cdfbebff7a":"3iXbQ","42b8c086105a42c":"8Is1I"}],"9ovXf":[function(require,module,exports) {
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -901,8 +596,8 @@ exports.isGChatOrganCardResult = isGChatOrganCardResult;
  */ Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.ATTRIBUTE_ANALYTIC_STATUS = exports.ATTRIBUTE_CREATE_ENDPOINT_UNIT = exports.ATTRIBUTE_CREATE_ENDPOINT_MAX_DAYS = exports.ATTRIBUTE_CREATE_ENDPOINT_IF_NOT_EXIST = exports.ATTRIBUTE_ALARM_PRIORITY = exports.ATTRIBUTE_TICKET_PROCESS_ID = exports.ATTRIBUTE_TICKET_CONTEXT_ID = exports.ATTRIBUTE_GCHAT_MESSAGE = exports.ATTRIBUTE_GCHAT_SPACE = exports.ATTRIBUTE_PHONE_MESSAGE = exports.ATTRIBUTE_PHONE_NUMBER = exports.ATTRIBUTE_RESULT_NAME = exports.ATTRIBUTE_RESULT_TYPE = exports.ATTRIBUTE_TIMESERIES_VALUE_AT_START = exports.ATTRIBUTE_SEARCH_RELATIONS = exports.ATTRIBUTE_STRICT_DEPTH = exports.ATTRIBUTE_SEARCH_DEPTH = exports.ATTRIBUTE_TIMESERIES = exports.ATTRIBUTE_FILTER_VALUE = exports.ATTRIBUTE_TRACKING_METHOD = exports.ATTRIBUTE_LAST_EXECUTION_TIME = exports.ATTRIBUTE_VALUE_SEPARATOR = exports.ATTRIBUTE_SEPARATOR = exports.CATEGORY_ATTRIBUTE_ALGORITHM_INDEX_MAPPING = exports.CATEGORY_ATTRIBUTE_ANALYTIC_PARAMETERS = exports.CATEGORY_ATTRIBUTE_IO_DEPENDENCIES = exports.CATEGORY_ATTRIBUTE_TRIGGER_PARAMETERS = exports.CATEGORY_ATTRIBUTE_ENDPOINT_PARAMETERS = exports.CATEGORY_ATTRIBUTE_GCHAT_PARAMETERS = exports.CATEGORY_ATTRIBUTE_TWILIO_PARAMETERS = exports.CATEGORY_ATTRIBUTE_TRACKING_METHOD_PARAMETERS = exports.CATEGORY_ATTRIBUTE_RESULT_PARAMETERS = exports.CATEGORY_ATTRIBUTE_TICKET_LOCALIZATION_PARAMETERS = exports.CATEGORY_ATTRIBUTE_ALGORTHM_PARAMETERS = exports.TARGET_NODE_TYPES = exports.GROUP_RELATION_PREFIX = exports.ANALYTIC_INPUTS_TO_TRACKING_METHOD_RELATION = exports.ANALYTIC_INPUTS_TO_FOLLOWED_ENTITY_RELATION = exports.ANALYTIC_TO_CONFIG_RELATION = exports.ANALYTIC_TO_OUTPUTS_RELATION = exports.ANALYTIC_TO_INPUTS_RELATION = exports.ENTITY_TO_ANALYTIC_RELATION = exports.CONTEXT_TO_ENTITY_RELATION = exports.CONFIG_TYPE = exports.OUTPUTS_TYPE = exports.INPUTS_TYPE = exports.TRACKING_METHOD_TYPE = exports.ANALYTIC_TYPE = exports.ENTITY_TYPE = exports.CONTEXT_TYPE = void 0;
-exports.ENTITY_TYPES = exports.ANALYTIC_STATUS = exports.TRIGGER_TYPE = exports.TRACK_METHOD = exports.ANALYTIC_RESULT_TYPE = exports.ENDPOINT_NODE_TYPE = exports.CONTROL_ENDPOINT_RELATIONS = exports.ENDPOINT_RELATIONS = exports.ATTRIBUTE_ANALYTIC_PAST_EXECUTIONS = exports.ATTRIBUTE_TRIGGER_AT_START = exports.ATTRIBUTE_ANALYTIC_DESCRIPTION = void 0;
+exports.ATTRIBUTE_CREATE_ENDPOINT_MAX_DAYS = exports.ATTRIBUTE_CREATE_ENDPOINT_IF_NOT_EXIST = exports.ATTRIBUTE_ALARM_PRIORITY = exports.ATTRIBUTE_TICKET_PROCESS_ID = exports.ATTRIBUTE_TICKET_CONTEXT_ID = exports.ATTRIBUTE_GCHAT_MESSAGE = exports.ATTRIBUTE_GCHAT_SPACE = exports.ATTRIBUTE_PHONE_MESSAGE = exports.ATTRIBUTE_PHONE_NUMBER = exports.ATTRIBUTE_RESULT_NAME = exports.ATTRIBUTE_RESULT_TYPE = exports.ATTRIBUTE_MULTIPLE_MODELS = exports.ATTRIBUTE_AGGREGATE_EXECUTION_TIME = exports.ATTRIBUTE_TIMESERIES_VALUE_AT_START = exports.ATTRIBUTE_SEARCH_RELATIONS = exports.ATTRIBUTE_STRICT_DEPTH = exports.ATTRIBUTE_SEARCH_DEPTH = exports.ATTRIBUTE_TIMESERIES = exports.ATTRIBUTE_FILTER_VALUE = exports.ATTRIBUTE_TRACKING_METHOD = exports.ATTRIBUTE_LAST_EXECUTION_TIME = exports.ATTRIBUTE_VALUE_SEPARATOR = exports.ATTRIBUTE_SEPARATOR = exports.CATEGORY_ATTRIBUTE_ALGORITHM_INDEX_MAPPING = exports.CATEGORY_ATTRIBUTE_ANALYTIC_PARAMETERS = exports.CATEGORY_ATTRIBUTE_IO_DEPENDENCIES = exports.CATEGORY_ATTRIBUTE_TRIGGER_PARAMETERS = exports.CATEGORY_ATTRIBUTE_ENDPOINT_PARAMETERS = exports.CATEGORY_ATTRIBUTE_GCHAT_PARAMETERS = exports.CATEGORY_ATTRIBUTE_TWILIO_PARAMETERS = exports.CATEGORY_ATTRIBUTE_TRACKING_METHOD_PARAMETERS = exports.CATEGORY_ATTRIBUTE_RESULT_PARAMETERS = exports.CATEGORY_ATTRIBUTE_TICKET_LOCALIZATION_PARAMETERS = exports.CATEGORY_ATTRIBUTE_ALGORTHM_PARAMETERS = exports.TARGET_NODE_TYPES = exports.GROUP_RELATION_PREFIX = exports.ANALYTIC_INPUTS_TO_TRACKING_METHOD_RELATION = exports.ANALYTIC_INPUTS_TO_FOLLOWED_ENTITY_RELATION = exports.ANALYTIC_TO_CONFIG_RELATION = exports.ANALYTIC_TO_OUTPUTS_RELATION = exports.ANALYTIC_TO_INPUTS_RELATION = exports.ENTITY_TO_ANALYTIC_RELATION = exports.CONTEXT_TO_ENTITY_RELATION = exports.CONFIG_TYPE = exports.OUTPUTS_TYPE = exports.INPUTS_TYPE = exports.TRACKING_METHOD_TYPE = exports.ANALYTIC_TYPE = exports.ENTITY_TYPE = exports.CONTEXT_TYPE = void 0;
+exports.ENTITY_TYPES = exports.ANALYTIC_STATUS = exports.TRIGGER_TYPE = exports.TRACK_METHOD = exports.ANALYTIC_RESULT_TYPE = exports.ENDPOINT_NODE_TYPE = exports.CONTROL_ENDPOINT_RELATIONS = exports.ENDPOINT_RELATIONS = exports.ATTRIBUTE_ANALYTIC_PAST_EXECUTIONS = exports.ATTRIBUTE_TRIGGER_AT_START = exports.ATTRIBUTE_ANALYTIC_DESCRIPTION = exports.ATTRIBUTE_ANALYTIC_STATUS = exports.ATTRIBUTE_CREATE_ENDPOINT_UNIT = void 0;
 exports.CONTEXT_TYPE = "analysisContext";
 exports.ENTITY_TYPE = "entity";
 exports.ANALYTIC_TYPE = "analytic";
@@ -950,6 +645,8 @@ exports.ATTRIBUTE_SEARCH_DEPTH = "Search depth";
 exports.ATTRIBUTE_STRICT_DEPTH = "Strict depth";
 exports.ATTRIBUTE_SEARCH_RELATIONS = "Search relations";
 exports.ATTRIBUTE_TIMESERIES_VALUE_AT_START = "Get timeseries value at start";
+exports.ATTRIBUTE_AGGREGATE_EXECUTION_TIME = "Aggregate execution time";
+exports.ATTRIBUTE_MULTIPLE_MODELS = "Capture multiple models";
 exports.ATTRIBUTE_RESULT_TYPE = "Result type";
 exports.ATTRIBUTE_RESULT_NAME = "Result name";
 exports.ATTRIBUTE_PHONE_NUMBER = "Phone number";
@@ -1037,7 +734,7 @@ var ENTITY_TYPES;
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.ALGORITHMS = exports.EXIT = exports.RANDOM_BOOLEAN = exports.RANDOM_BOOLEAN_NUMBER = exports.RANDOM_INTEGER = exports.RANDOM_NUMBER = exports.SUBTRACT_BY = exports.SUM = exports.SUBTRACT = exports.CURRENT_EPOCH_TIME = exports.CONV_NUMBER_TO_BOOLEAN = exports.CONV_BOOLEAN_TO_NUMBER = exports.IS_EMPTY = exports.EQUAL_TO = exports.STANDARD_DEVIATION = exports.DIFFERENCE_THRESHOLD = exports.NOT = exports.OR = exports.AND = exports.TIMESERIES_EDGE_SUBSTRACT = exports.TIMESERIES_SUM = exports.TIMESERIES_IS_EMPTY = exports.TIMESERIES_BOOLEAN_RATE = exports.TIMESERIES_TIME_WEIGHTED_AVERAGE = exports.TIMESERIES_AVERAGE = exports.AVERAGE = exports.THRESHOLD_ZSCORE = exports.THRESHOLD_BETWEEN_OUT = exports.THRESHOLD_BETWEEN_IN = exports.THRESHOLD_BELOW = exports.THRESHOLD_ABOVE = exports.MULTIPLY = exports.MULTIPLY_BY = exports.DIVIDE_BY = exports.DIVIDE = exports.COPY = exports.PUTVALUE = void 0;
+exports.ALGORITHMS = exports.EXIT = exports.RANDOM_BOOLEAN = exports.RANDOM_BOOLEAN_NUMBER = exports.RANDOM_INTEGER = exports.RANDOM_NUMBER = exports.SUBTRACT_BY = exports.SUM = exports.SUBTRACT = exports.CURRENT_EPOCH_TIME = exports.CONV_NUMBER_TO_BOOLEAN = exports.CONV_BOOLEAN_TO_NUMBER = exports.IS_EMPTY = exports.EQUAL_TO = exports.STANDARD_DEVIATION = exports.DIFFERENCE_THRESHOLD = exports.NOT = exports.OR = exports.AND = exports.TIMESERIES_EDGE_SUBSTRACT = exports.TIMESERIES_SUM = exports.TIMESERIES_IS_EMPTY = exports.TIMESERIES_BOOLEAN_RATE = exports.TIMESERIES_TIME_WEIGHTED_AVERAGE = exports.TIMESERIES_AVERAGE = exports.TIMESERIES_THRESHOLD_ZSCORE = exports.AVERAGE = exports.THRESHOLD_BETWEEN_OUT = exports.THRESHOLD_BETWEEN_IN = exports.THRESHOLD_BELOW = exports.THRESHOLD_ABOVE = exports.MULTIPLY = exports.MULTIPLY_BY = exports.DIVIDE_BY = exports.DIVIDE = exports.COPY = exports.PUTVALUE = void 0;
 class Algorithm {
     constructor(name, description, inputTypes, outputType, requiredParams, run){
         this.name = name;
@@ -1192,7 +889,12 @@ exports.THRESHOLD_BETWEEN_OUT = new Algorithm("THRESHOLD_BETWEEN_OUT", "This alg
     }
     return false;
 });
-exports.THRESHOLD_ZSCORE = new Algorithm("THRESHOLD_ZSCORE", `This algorithm is used to detect anomalies in a timeseries. 
+exports.AVERAGE = new Algorithm("AVERAGE", "This algorithm returns the average of the inputs", [
+    "number"
+], "number", [], (input)=>{
+    return input.reduce((acc, current)=>acc + current, 0) / input.length;
+});
+exports.TIMESERIES_THRESHOLD_ZSCORE = new Algorithm("TIMESERIES_THRESHOLD_ZSCORE", `This algorithm is used to detect anomalies in a timeseries. 
    The Z-score is a measure of how many standard deviations an element is from the mean.
    It's calculated as Z = (X - mean) / stdDev 
    where X is the value, mean is the average of the timeserie and stdDev is the standard deviation of the timeserie.
@@ -1216,11 +918,6 @@ exports.THRESHOLD_ZSCORE = new Algorithm("THRESHOLD_ZSCORE", `This algorithm is 
     const stdDev = Math.sqrt(variance);
     const zScore = (dataInput[dataInput.length - 1].value - mean) / stdDev;
     return zScore > threshold;
-});
-exports.AVERAGE = new Algorithm("AVERAGE", "This algorithm returns the average of the inputs", [
-    "number"
-], "number", [], (input)=>{
-    return input.reduce((acc, current)=>acc + current, 0) / input.length;
 });
 exports.TIMESERIES_AVERAGE = new Algorithm("TIMESERIES_AVERAGE", "This algorithm returns the average of the timeseries", [
     "Timeseries"
@@ -1463,8 +1160,8 @@ exports.ALGORITHMS = {
     THRESHOLD_BELOW: exports.THRESHOLD_BELOW,
     THRESHOLD_BETWEEN_IN: exports.THRESHOLD_BETWEEN_IN,
     THRESHOLD_BETWEEN_OUT: exports.THRESHOLD_BETWEEN_OUT,
-    THRESHOLD_ZSCORE: exports.THRESHOLD_ZSCORE,
     AVERAGE: exports.AVERAGE,
+    TIMESERIES_THRESHOLD_ZSCORE: exports.TIMESERIES_THRESHOLD_ZSCORE,
     TIMESERIES_IS_EMPTY: exports.TIMESERIES_IS_EMPTY,
     TIMESERIES_AVERAGE: exports.TIMESERIES_AVERAGE,
     TIMESERIES_TIME_WEIGHTED_AVERAGE: exports.TIMESERIES_TIME_WEIGHTED_AVERAGE,
@@ -1491,7 +1188,7 @@ exports.ALGORITHMS = {
     EXIT: exports.EXIT
 };
 
-},{}],"jVEQx":[function(require,module,exports) {
+},{}],"lvmoz":[function(require,module,exports) {
 "use strict";
 var __awaiter = this && this.__awaiter || function(thisArg, _arguments, P, generator) {
     function adopt(value) {
@@ -1523,807 +1220,35 @@ var __awaiter = this && this.__awaiter || function(thisArg, _arguments, P, gener
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.AnalyticService = void 0;
-/* eslint-disable @typescript-eslint/no-explicit-any */ const spinal_env_viewer_graph_service_1 = require("84742e2837e24d3b");
-const CONSTANTS = require("ab099baa5bc4dcd4");
-const ConfigModel_1 = require("96694bfffb82fe38");
-const AnalyticModel_1 = require("ba6004bd8f5b7210");
-const EntityModel_1 = require("e0ff123ace339ff9");
-const TrackingMethodModel_1 = require("9b0a772027d1e940");
-const InputsModel_1 = require("89679a198a351a56");
-const OutputsModel_1 = require("a7ef2ed4d2a4b5d2");
-const spinal_env_viewer_plugin_documentation_service_1 = require("afce19c865fe8fd0");
-const utils_1 = require("6eac5aca4b2a8fb8");
-const SingletonTimeSeries_1 = require("57aed6b4a1f01a2b");
-const algorithms_1 = require("5ef2c727f601ca1b");
-const axios_1 = require("36fa03571c49f998");
-const qs_1 = require("60a970666a1a566a");
-const Errors_1 = require("86de144a8fb8ffa");
-const cronParser = require("14d3963a1cf01691");
-// Logging function
-function logMessage(message) {}
+exports.AnalyticExecutionManagerService = void 0;
+/* eslint-disable @typescript-eslint/no-explicit-any */ const spinal_env_viewer_graph_service_1 = require("571e42a8c9e6324a");
+const CONSTANTS = require("f7d2d78aecd8bf09");
+const spinal_env_viewer_plugin_documentation_service_1 = require("82cf3e40ee2bde4c");
+const algorithms_1 = require("22aebbcb50efab87");
+const Errors_1 = require("81eb22fb3c935b57");
+const cronParser = require("1bbd3a5a09ff8fc7");
 /**
- * This class handles most of the logic for analytics. It provides methods for creating and retrieving analytics, entities, and contexts.
+ * This class handles the execution for analytics.
  * It also provides methods for applying tracking methods to followed entities and applying algorithms to inputs.
  *
  * @export
  * @class AnalyticService
- */ class AnalyticService {
-    //private googleChatService: GoogleChatService;
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
-    constructor(){
-        /**
-         * The singleton instance of the Timeseries service.
-         *
-         * @private
-         * @type {SpinalServiceTimeseries}
-         * @memberof AnalyticService
-         */ this.spinalServiceTimeseries = SingletonTimeSeries_1.SingletonServiceTimeseries.getInstance();
+ */ class AnalyticExecutionManagerService {
+    constructor(analyticNodeManagerService, analyticInputManagerService, analyticOutputManagerService){
+        this.analyticNodeManagerService = analyticNodeManagerService;
+        this.analyticInputManagerService = analyticInputManagerService;
+        this.analyticOutputManagerService = analyticOutputManagerService;
     }
-    /**
-     * Initialize private attributes with necessary information to use the the messaging service.
-     *
-     * @param {string} accountSid
-     * @param {string} authToken
-     * @param {string} fromNumber
-     * @return {*}  {void}
-     * @memberof AnalyticService
-     */ initTwilioCredentials(accountSid, authToken, fromNumber) {
-        if (!accountSid || !authToken || !fromNumber) {
-            console.error("Twilio credentials not set, Messaging services will not work");
-            return;
-        }
-        console.log("Init connection to messaging services...");
-        this.twilioFromNumber = fromNumber;
-        this.twilioAccountSid = accountSid;
-        this.twilioAuthToken = authToken;
-        console.log("Done.");
-    }
-    /**
-     * This method creates a new context and returns the info of the newly created context.
-     * If the context already exists (same name), it just returns the info of that context instead of creating a new one.
-     * @param {string} contextName
-     * @return {*}  {Promise<SpinalNodeRef>}
-     * @memberof AnalyticService
-     */ createContext(contextName) {
-        return __awaiter(this, void 0, void 0, function*() {
-            const alreadyExists = this.getContext(contextName);
-            if (alreadyExists) {
-                console.error(`Context ${contextName} already exists`);
-                return alreadyExists;
-            }
-            return spinal_env_viewer_graph_service_1.SpinalGraphService.addContext(contextName, CONSTANTS.CONTEXT_TYPE, undefined).then((context)=>{
-                const contextId = context.getId().get();
-                return spinal_env_viewer_graph_service_1.SpinalGraphService.getInfo(contextId);
-            });
-        });
-    }
-    /**
-     * Retrieves and returns all contexts
-     * handled by this service (type analysisContext)
-     * @return {*}  {(SpinalNodeRef[] | undefined)}
-     * @memberof AnalyticService
-     */ getContexts() {
-        const contexts = spinal_env_viewer_graph_service_1.SpinalGraphService.getContextWithType(CONSTANTS.CONTEXT_TYPE);
-        const argContexts = contexts.map((el)=>spinal_env_viewer_graph_service_1.SpinalGraphService.getInfo(el.info.id.get()));
-        return argContexts;
-    }
-    /**
-     * This method use the context name to find and return the info of that context. If the context does not exist, it returns undefined.
-     * If multiple contexts have the same name, it returns the first one.
-     * @param {string} contextName
-     * @return {*}  {(SpinalNodeRef | undefined)}
-     * @memberof AnalyticService
-     */ getContext(contextName) {
-        const contexts = this.getContexts();
-        if (!contexts) return undefined;
-        return contexts.find((context)=>context.name.get() === contextName);
-    }
-    getContextIdOfAnalytic(analyticId) {
-        const contexts = this.getContexts();
-        if (!contexts) return undefined;
-        const analyticNode = spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(analyticId);
-        const contextId = analyticNode.getContextIds()[0];
-        return contextId;
-    }
-    ////////////////////////////////////////////////////
-    /////////////////// ENTITY /////////////////////////
-    ////////////////////////////////////////////////////
-    /**
-     * This method creates a new entity and returns the info of the newly created entity.
-     *
-     * @param {IEntity} entityInfo
-     * @param {string} contextId
-     * @return {*}  {Promise<SpinalNodeRef>}
-     * @memberof AnalyticService
-     */ addEntity(entityInfo, contextId) {
-        return __awaiter(this, void 0, void 0, function*() {
-            entityInfo.type = CONSTANTS.ENTITY_TYPE;
-            const entityModel = new EntityModel_1.EntityModel(entityInfo);
-            const entityNodeId = spinal_env_viewer_graph_service_1.SpinalGraphService.createNode(entityInfo, entityModel);
-            yield spinal_env_viewer_graph_service_1.SpinalGraphService.addChildInContext(contextId, entityNodeId, contextId, CONSTANTS.CONTEXT_TO_ENTITY_RELATION, spinal_env_viewer_graph_service_1.SPINAL_RELATION_PTR_LST_TYPE);
-            return spinal_env_viewer_graph_service_1.SpinalGraphService.getInfo(entityNodeId);
-        });
-    }
-    /**
-     * Returns all the entities withing a context that have the specified type.
-     *
-     * @param {SpinalContext<any>} context
-     * @param {string} targetType
-     * @return {*}  {(Promise<SpinalNode<any> | undefined>)}
-     * @memberof AnalyticService
-     */ findEntityByTargetType(context, targetType) {
-        return __awaiter(this, void 0, void 0, function*() {
-            const entities = yield context.getChildren(CONSTANTS.CONTEXT_TO_ENTITY_RELATION);
-            const result = entities.find((e)=>e.info.entityType.get() == targetType);
-            spinal_env_viewer_graph_service_1.SpinalGraphService._addNode(result);
-            return result;
-        });
-    }
-    /**
-     * Retrieves a SpinalNodeRef for the specified entity within the specified context.
-     * @async
-     * @param {string} contextName - The name of the context to search within.
-     * @param {string} entityName - The name of the entity to retrieve.
-     * @returns {Promise<SpinalNodeRef|undefined>} A Promise that resolves to the SpinalNodeRef for the entity, or undefined if the context or entity cannot be found.
-     * @memberof AnalyticService
-     */ getEntity(contextName, entityName) {
-        return __awaiter(this, void 0, void 0, function*() {
-            const context = this.getContext(contextName);
-            if (!context) return undefined;
-            const contextNode = spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(context.id.get());
-            const entities = yield contextNode.getChildren(CONSTANTS.CONTEXT_TO_ENTITY_RELATION);
-            const entitiesModels = entities.map((el)=>spinal_env_viewer_graph_service_1.SpinalGraphService.getInfo(el.info.id.get()));
-            return entitiesModels.find((entity)=>entity.name.get() === entityName);
-        });
-    }
-    /**
-     * Retrieves the parent entity of the specified analytic.
-     * @async
-     * @param {string} analyticId - The ID of the analytic for which to retrieve the parent entity.
-     * @returns {Promise<SpinalNodeRef|undefined>} A Promise that resolves to the parent entity, or undefined if the parent entity cannot be found.
-     * @memberof AnalyticService
-     */ getEntityFromAnalytic(analyticId) {
-        return __awaiter(this, void 0, void 0, function*() {
-            const nodes = yield spinal_env_viewer_graph_service_1.SpinalGraphService.getParents(analyticId, [
-                CONSTANTS.ENTITY_TO_ANALYTIC_RELATION
-            ]);
-            if (nodes.length != 0) return nodes[0];
-            return undefined;
-        });
-    }
-    ////////////////////////////////////////////////////
-    //////////////// Analytic //////////////////////////
-    ////////////////////////////////////////////////////
-    /**
-     * Adds a new analytic to the specified entity within the specified context.
-     * @async
-     * @param {IAnalytic} analyticInfo - The information for the new analytic to add.
-     * @param {string} contextId - The ID of the context in which to add the analytic.
-     * @param {string} entityId - The ID of the entity to which to add the analytic.
-     * @returns {Promise<SpinalNodeRef>} A Promise that resolves to the newly created analytic info.
-     * @memberof AnalyticService
-     */ addAnalytic(analyticInfo, contextId, entityId) {
-        return __awaiter(this, void 0, void 0, function*() {
-            analyticInfo.type = CONSTANTS.ANALYTIC_TYPE;
-            const analyticModel = new AnalyticModel_1.AnalyticModel(analyticInfo);
-            const analyticNodeId = spinal_env_viewer_graph_service_1.SpinalGraphService.createNode(analyticInfo, analyticModel);
-            yield spinal_env_viewer_graph_service_1.SpinalGraphService.addChildInContext(entityId, analyticNodeId, contextId, CONSTANTS.ENTITY_TO_ANALYTIC_RELATION, spinal_env_viewer_graph_service_1.SPINAL_RELATION_PTR_LST_TYPE);
-            yield this.addInputsNode(analyticNodeId, contextId);
-            yield this.addOutputsNode(analyticNodeId, contextId);
-            return spinal_env_viewer_graph_service_1.SpinalGraphService.getInfo(analyticNodeId);
-        });
-    }
-    /**
-     * Retrieves all analytics within the specified context.
-     * @async
-     * @param {string} contextId - The ID of the context in which to retrieve analytics.
-     * @returns {Promise<SpinalNodeRef[]>} A Promise that resolves to an array of SpinalNodeRefs for all analytics in the context.
-     * @memberof AnalyticService
-     */ getAllAnalytics(contextId) {
-        return __awaiter(this, void 0, void 0, function*() {
-            const analytics = yield spinal_env_viewer_graph_service_1.SpinalGraphService.findInContext(contextId, contextId, (node)=>{
-                if (node.getType().get() === CONSTANTS.ANALYTIC_TYPE) {
-                    spinal_env_viewer_graph_service_1.SpinalGraphService._addNode(node);
-                    return true;
-                }
-                return false;
-            });
-            return analytics;
-        });
-    }
-    /**
-     * Retrieves the SpinalNodeRef for the specified analytic within the specified context.
-     * @async
-     * @param {string} contextId - The ID of the context in which to search for the analytic.
-     * @param {string} analyticName - The name of the analytic to retrieve.
-     * @returns {Promise<SpinalNodeRef|undefined>} A Promise that resolves to the SpinalNodeRef for the analytic, or undefined if the analytic cannot be found.
-     * @memberof AnalyticService
-     */ getAnalytic(contextId, analyticName) {
-        return __awaiter(this, void 0, void 0, function*() {
-            const analytics = yield spinal_env_viewer_graph_service_1.SpinalGraphService.findInContext(contextId, contextId, (node)=>{
-                if (node.getType().get() === CONSTANTS.ANALYTIC_TYPE) {
-                    spinal_env_viewer_graph_service_1.SpinalGraphService._addNode(node);
-                    return true;
-                }
-                return false;
-            });
-            const analytic = analytics.find((el)=>el.info.name.get() == analyticName);
-            return spinal_env_viewer_graph_service_1.SpinalGraphService.getInfo(analytic.id.get());
-        });
-    }
-    /**
-     * Adds an Inputs node to the specified analytic within the specified context.
-     * @async
-     * @param {string} analyticId - The ID of the analytic to which to add the Inputs node.
-     * @param {string} contextId - The ID of the context in which to add the Inputs node.
-     * @returns {Promise<SpinalNodeRef>} A Promise that resolves to the newly created Inputs node.
-     * @memberof AnalyticService
-     */ addInputsNode(analyticId, contextId) {
-        return __awaiter(this, void 0, void 0, function*() {
-            const inputsInfo = {
-                name: "Inputs",
-                description: "",
-                type: CONSTANTS.INPUTS_TYPE
-            };
-            const inputsModel = new InputsModel_1.InputsModel(inputsInfo);
-            const inputsId = spinal_env_viewer_graph_service_1.SpinalGraphService.createNode(inputsInfo, inputsModel);
-            yield spinal_env_viewer_graph_service_1.SpinalGraphService.addChildInContext(analyticId, inputsId, contextId, CONSTANTS.ANALYTIC_TO_INPUTS_RELATION, spinal_env_viewer_graph_service_1.SPINAL_RELATION_PTR_LST_TYPE);
-            return spinal_env_viewer_graph_service_1.SpinalGraphService.getInfo(inputsId);
-        });
-    }
-    /**
-     * Adds an Outputs node to the specified analytic within the specified context.
-     * @async
-     * @param {string} analyticId - The ID of the analytic to which to add the Outputs node.
-     * @param {string} contextId - The ID of the context in which to add the Outputs node.
-     * @returns {Promise<SpinalNodeRef>} A Promise that resolves to the newly created Outputs node.
-     * @memberof AnalyticService
-     */ addOutputsNode(analyticId, contextId) {
-        return __awaiter(this, void 0, void 0, function*() {
-            const outputsInfo = {
-                name: "Outputs",
-                description: "",
-                type: CONSTANTS.OUTPUTS_TYPE
-            };
-            const outputsModel = new OutputsModel_1.OutputsModel(outputsInfo);
-            const outputsId = spinal_env_viewer_graph_service_1.SpinalGraphService.createNode(outputsInfo, outputsModel);
-            yield spinal_env_viewer_graph_service_1.SpinalGraphService.addChildInContext(analyticId, outputsId, contextId, CONSTANTS.ANALYTIC_TO_OUTPUTS_RELATION, spinal_env_viewer_graph_service_1.SPINAL_RELATION_PTR_LST_TYPE);
-            return spinal_env_viewer_graph_service_1.SpinalGraphService.getInfo(outputsId);
-        });
-    }
-    /**
-     * Adds a new Config node to the specified analytic within the specified context, with the specified attributes.
-     *
-     * @param {INodeDocumentation} configAttributes - The attributes to add to the Config node.
-     * @param {string} analyticId - The ID of the analytic to which to add the Config node.
-     * @param {string} contextId - The ID of the context in which to add the Config node.
-     * @return {*}  {Promise<SpinalNodeRef>}
-     * @memberof AnalyticService
-     */ addConfig(configAttributes, analyticId, contextId) {
-        return __awaiter(this, void 0, void 0, function*() {
-            const configNodeInfo = {
-                name: "Config",
-                type: CONSTANTS.CONFIG_TYPE
-            };
-            const configModel = new ConfigModel_1.ConfigModel(configNodeInfo);
-            const configId = spinal_env_viewer_graph_service_1.SpinalGraphService.createNode(configNodeInfo, configModel);
-            const configNode = yield spinal_env_viewer_graph_service_1.SpinalGraphService.addChildInContext(analyticId, configId, contextId, CONSTANTS.ANALYTIC_TO_CONFIG_RELATION, spinal_env_viewer_graph_service_1.SPINAL_RELATION_PTR_LST_TYPE);
-            this.addAttributesToNode(configNode, configAttributes);
-            return spinal_env_viewer_graph_service_1.SpinalGraphService.getInfo(configId);
-        });
+    initTwilioManagerService(twilioCredentials) {
+        this.analyticOutputManagerService.initTwilioManagerService(twilioCredentials);
     }
     updateLastExecutionTime(analyticId) {
         return __awaiter(this, void 0, void 0, function*() {
-            const configNode = yield this.getConfig(analyticId);
+            const configNode = yield this.analyticNodeManagerService.getConfig(analyticId);
             if (!configNode) throw Error("Config node not found");
             const realNode = spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(configNode.id.get());
             yield spinal_env_viewer_plugin_documentation_service_1.attributeService.addAttributeByCategoryName(realNode, CONSTANTS.CATEGORY_ATTRIBUTE_ANALYTIC_PARAMETERS, CONSTANTS.ATTRIBUTE_LAST_EXECUTION_TIME, Date.now().toString(), "number");
         });
-    }
-    /**
-     * Retrieves the Config node for the specified analytic
-     *
-     * @async
-     * @param {string} analyticId - The ID of the analytic for which to retrieve the Config node.
-     * @return {*}  {(Promise<SpinalNodeRef | undefined>)} A Promise that resolves to the Config node, or undefined if the Config node cannot be found.
-     * @memberof AnalyticService
-     */ getConfig(analyticId) {
-        return __awaiter(this, void 0, void 0, function*() {
-            const nodes = yield spinal_env_viewer_graph_service_1.SpinalGraphService.getChildren(analyticId, [
-                CONSTANTS.ANALYTIC_TO_CONFIG_RELATION
-            ]);
-            if (nodes.length === 0) return undefined;
-            return spinal_env_viewer_graph_service_1.SpinalGraphService.getInfo(nodes[0].id.get());
-        });
-    }
-    deleteConfigNode(analyticId) {
-        return __awaiter(this, void 0, void 0, function*() {
-            const configNode = yield this.getConfig(analyticId);
-            if (configNode) yield (0, utils_1.safeDeleteNode)(configNode.id.get());
-        });
-    }
-    /**
-     * Retrieves the Inputs node for the specified analytic.
-     * @async
-     * @param {string} analyticId - The ID of the analytic for which to retrieve the Inputs node.
-     * @return {*}  {(Promise<SpinalNodeRef | undefined>)} - A Promise that resolves to the Inputs node, or undefined if the Inputs node cannot be found.
-     * @memberof AnalyticService
-     */ getInputsNode(analyticId) {
-        return __awaiter(this, void 0, void 0, function*() {
-            const nodes = yield spinal_env_viewer_graph_service_1.SpinalGraphService.getChildren(analyticId, [
-                CONSTANTS.ANALYTIC_TO_INPUTS_RELATION
-            ]);
-            if (nodes.length === 0) return undefined;
-            return spinal_env_viewer_graph_service_1.SpinalGraphService.getInfo(nodes[0].id.get());
-        });
-    }
-    /**
-     * Retrieves the Outputs node for the specified analytic.
-     * @async
-     * @param {string} analyticId - The ID of the analytic for which to retrieve the Outputs node.
-     * @returns {*} {(Promise<SpinalNodeRef | undefined>)} - A Promise that resolves to the Outputs node, or undefined if the Outputs node cannot be found.
-     * @memberof AnalyticService
-     */ getOutputsNode(analyticId) {
-        return __awaiter(this, void 0, void 0, function*() {
-            const nodes = yield spinal_env_viewer_graph_service_1.SpinalGraphService.getChildren(analyticId, [
-                CONSTANTS.ANALYTIC_TO_OUTPUTS_RELATION
-            ]);
-            if (nodes.length === 0) return undefined;
-            return spinal_env_viewer_graph_service_1.SpinalGraphService.getInfo(nodes[0].id.get());
-        });
-    }
-    deleteInputsNode(analyticId) {
-        return __awaiter(this, void 0, void 0, function*() {
-            const inputsNode = yield this.getInputsNode(analyticId);
-            if (inputsNode) yield (0, utils_1.safeDeleteNode)(inputsNode.id.get(), false);
-        });
-    }
-    deleteOutputsNode(analyticId, shouldDeleteChildren = false) {
-        return __awaiter(this, void 0, void 0, function*() {
-            const outputsNode = yield this.getOutputsNode(analyticId);
-            if (outputsNode) yield (0, utils_1.safeDeleteNode)(outputsNode.id.get(), shouldDeleteChildren);
-        });
-    }
-    deleteAnalytic(analyticId, shouldDeleteChildren = false) {
-        return __awaiter(this, void 0, void 0, function*() {
-            const inputsNode = yield this.getInputsNode(analyticId);
-            const outputsNode = yield this.getOutputsNode(analyticId);
-            if (inputsNode) yield (0, utils_1.safeDeleteNode)(inputsNode.id.get());
-            if (outputsNode) yield (0, utils_1.safeDeleteNode)(outputsNode.id.get(), shouldDeleteChildren);
-            yield (0, utils_1.safeDeleteNode)(analyticId);
-        });
-    }
-    ////////////////////////////////////////////////////
-    //////////////// TRACKED VARIABLE //////////////////
-    ////////////////////////////////////////////////////
-    /**
-     * Adds a new Tracking Method node to the specified Input node within the specified context.
-     * @async
-     * @param {INodeDocumentation} trackingMethodAttributes
-     * @param {string} contextId - The ID of the context in which to add the Tracking Method node.
-     * @param {string} inputId - The ID of the Input node to which to add the Tracking Method node.
-     * @return {*}  {Promise<SpinalNodeRef>} - A Promise that resolves to the newly created Tracking Method node.
-     * @memberof AnalyticService
-     */ addTrackingMethod(trackingMethodAttributes, contextId, inputId) {
-        return __awaiter(this, void 0, void 0, function*() {
-            const trackingMethodNodeInfo = {
-                name: "TrackingMethod",
-                type: CONSTANTS.TRACKING_METHOD_TYPE
-            };
-            const trackingMethodModel = new TrackingMethodModel_1.TrackingMethodModel(trackingMethodNodeInfo);
-            const trackingMethodNodeId = spinal_env_viewer_graph_service_1.SpinalGraphService.createNode(trackingMethodNodeInfo, trackingMethodModel);
-            const createdNode = yield spinal_env_viewer_graph_service_1.SpinalGraphService.addChildInContext(inputId, trackingMethodNodeId, contextId, CONSTANTS.ANALYTIC_INPUTS_TO_TRACKING_METHOD_RELATION, spinal_env_viewer_graph_service_1.SPINAL_RELATION_PTR_LST_TYPE);
-            this.addAttributesToNode(createdNode, trackingMethodAttributes);
-            return spinal_env_viewer_graph_service_1.SpinalGraphService.getInfo(trackingMethodNodeId);
-        });
-    }
-    /**
-     * Adds a new Tracking Method node to the Inputs node of the specified analytic within the specified context.
-     *
-     * @async
-     * @param {INodeDocumentation} trackingMethodAttributes - The attributes to add to the Tracking Method node.
-     * @param {string} contextId - The ID of the context in which to add the Tracking Method node.
-     * @param {string} analyticId - The ID of the analytic for which to add the Tracking Method node.
-     * @return {*}  {Promise<SpinalNodeRef>} - A Promise that resolves to the newly created Tracking Method node.
-     * @memberof AnalyticService
-     */ addInputTrackingMethod(trackingMethodAttributes, contextId, analyticId) {
-        return __awaiter(this, void 0, void 0, function*() {
-            const inputs = yield this.getInputsNode(analyticId);
-            if (inputs === undefined) throw Error("Inputs node not found");
-            return this.addTrackingMethod(trackingMethodAttributes, contextId, inputs.id.get());
-        });
-    }
-    /**
-     * Retrieves all Tracking Method nodes associated with the Inputs node of the specified analytic.
-     * @async
-     * @param {string} analyticId - The ID of the analytic for which to retrieve the Tracking Method nodes.
-     * @returns {Promise<SpinalNodeRef[]|undefined>} A Promise that resolves to an array of Tracking Method nodes, or undefined if the Inputs node or Tracking Method nodes cannot be found.
-     * @memberof AnalyticService
-     */ getTrackingMethods(analyticId) {
-        return __awaiter(this, void 0, void 0, function*() {
-            const inputs = yield this.getInputsNode(analyticId);
-            if (inputs === undefined) return undefined;
-            const nodes = yield spinal_env_viewer_graph_service_1.SpinalGraphService.getChildren(inputs.id.get(), [
-                CONSTANTS.ANALYTIC_INPUTS_TO_TRACKING_METHOD_RELATION
-            ]);
-            return nodes;
-        });
-    }
-    /**
-     * Retrieves the first Tracking Method node associated with the Inputs node of the specified analytic.
-     * @async
-     * @param {string} analyticId - The ID of the analytic for which to retrieve the Tracking Method node.
-     * @returns {Promise<SpinalNodeRef|undefined>} A Promise that resolves to the first Tracking Method node, or undefined if the Inputs node or Tracking Method nodes cannot be found.
-     * @memberof AnalyticService
-     */ getTrackingMethod(analyticId) {
-        return __awaiter(this, void 0, void 0, function*() {
-            const trackingMethods = yield this.getTrackingMethods(analyticId);
-            if (trackingMethods === undefined) return undefined;
-            return trackingMethods[0];
-        });
-    }
-    /**
-     * Removes the specified Tracking Method node from the specified Inputs node and deletes it from the graph.
-     * @async
-     * @param {string} inputId - The ID of the Inputs node from which to remove the Tracking Method node.
-     * @param {string} trackingMethodId - The ID of the Tracking Method node to remove and delete.
-     * @returns {Promise<void>} A Promise that resolves when the Tracking Method node has been removed and deleted.
-     * @memberof AnalyticService
-     */ removeTrackingMethod(inputId, trackingMethodId) {
-        return __awaiter(this, void 0, void 0, function*() {
-            yield spinal_env_viewer_graph_service_1.SpinalGraphService.removeChild(inputId, trackingMethodId, CONSTANTS.ANALYTIC_INPUTS_TO_FOLLOWED_ENTITY_RELATION, spinal_env_viewer_graph_service_1.SPINAL_RELATION_PTR_LST_TYPE);
-            yield spinal_env_viewer_graph_service_1.SpinalGraphService.removeFromGraph(trackingMethodId);
-        });
-    }
-    /**
-     * Removes the specified Tracking Method node from the Inputs node of the specified analytic and deletes it from the graph.
-     * @async
-     * @param {string} analyticId - The ID of the analytic from which to remove the Tracking Method node.
-     * @param {string} trackingMethodId - The ID of the Tracking Method node to remove and delete.
-     * @throws {Error} Throws an error if the Inputs node cannot be found.
-     * @returns {Promise<void>} A Promise that resolves when the Tracking Method node has been removed and deleted.
-     * @memberof AnalyticService
-     */ removeInputTrackingMethod(analyticId, trackingMethodId) {
-        return __awaiter(this, void 0, void 0, function*() {
-            const inputs = yield this.getInputsNode(analyticId);
-            if (inputs === undefined) throw Error("Inputs node not found");
-            yield this.removeTrackingMethod(inputs.id.get(), trackingMethodId);
-        });
-    }
-    /**
-     *
-     * @async
-     * @param {string} trackMethod - The type of filter.
-     * @param {string} filterValue - The filter value to use.
-     * @param {SpinalNodeRef} followedEntity - The SpinalNodeRef object representing the Followed Entity to which the Tracking Method should be applied.
-     * @returns {*} {Promise<SpinalNodeRef[] | SpinalNodeRef | undefined>} - A Promise that resolves with the results of the applied Tracking Method.
-     * @memberof AnalyticService
-     */ applyTrackingMethodWithParams(followedEntity, trackMethod, filterValue, depth, strictDepth, authorizedRelations) {
-        return __awaiter(this, void 0, void 0, function*() {
-            if (followedEntity) switch(trackMethod){
-                case CONSTANTS.TRACK_METHOD.ENDPOINT_NAME_FILTER:
-                    {
-                        const endpoint = yield (0, utils_1.findEndpoint)(followedEntity.id.get(), filterValue, depth, strictDepth, authorizedRelations, CONSTANTS.ENDPOINT_RELATIONS, CONSTANTS.ENDPOINT_NODE_TYPE);
-                        return endpoint;
-                    }
-                case CONSTANTS.TRACK_METHOD.CONTROL_ENDPOINT_NAME_FILTER:
-                    {
-                        const controlEndpoint = yield (0, utils_1.findEndpoint)(followedEntity.id.get(), filterValue, depth, strictDepth, authorizedRelations, CONSTANTS.CONTROL_ENDPOINT_RELATIONS, CONSTANTS.ENDPOINT_NODE_TYPE);
-                        return controlEndpoint;
-                    }
-                case CONSTANTS.TRACK_METHOD.ATTRIBUTE_NAME_FILTER:
-                    {
-                        const [first, second] = filterValue.split(":");
-                        const foundAttribute = yield (0, utils_1.findAttribute)(followedEntity.id.get(), first, second, depth, strictDepth, authorizedRelations);
-                        if (foundAttribute == -1) return undefined;
-                        return foundAttribute;
-                    //}
-                    }
-                default:
-                    console.log("Track method not recognized");
-            }
-        });
-    }
-    ////////////////////////////////////////////////////
-    //////////////// FOLLOWED ENTITY ///////////////////
-    ////////////////////////////////////////////////////
-    /**
-     * Adds a link between an input and a followed entity.
-     * @param {string} contextId - The id of the context where the link will be created.
-     * @param {string} inputId - The id of the input node.
-     * @param {string} followedEntityId - The id of the followed entity node.
-     * @returns {Promise<SpinalNodeRef>} The linked node.
-     * @memberof AnalyticService
-     */ addLinkToFollowedEntity(contextId, inputId, followedEntityId) {
-        return __awaiter(this, void 0, void 0, function*() {
-            const link = yield spinal_env_viewer_graph_service_1.SpinalGraphService.addChildInContext(inputId, followedEntityId, contextId, CONSTANTS.ANALYTIC_INPUTS_TO_FOLLOWED_ENTITY_RELATION, spinal_env_viewer_graph_service_1.SPINAL_RELATION_PTR_LST_TYPE);
-            const id = link.info.id.get();
-            return spinal_env_viewer_graph_service_1.SpinalGraphService.getInfo(id);
-        });
-    }
-    /**
-     * Adds a link between the input node of the specified analytic and a followed entity.
-     * @param {string} contextId - The id of the context where the link will be created.
-     * @param {string} analyticId - The id of the analytic node.
-     * @param {string} followedEntityId - The id of the followed entity node.
-     * @returns {Promise<SpinalNodeRef>} The linked node.
-     * @memberof AnalyticService
-     */ addInputLinkToFollowedEntity(contextId, analyticId, followedEntityId) {
-        return __awaiter(this, void 0, void 0, function*() {
-            const inputs = yield this.getInputsNode(analyticId);
-            if (inputs === undefined) throw Error("Inputs node not found");
-            return this.addLinkToFollowedEntity(contextId, inputs.id.get(), followedEntityId);
-        });
-    }
-    /**
-     * Removes the link between an input node and a followed entity node.
-     *
-     * @async
-     * @param {string} analyticId - The ID of the analytic node.
-     * @param {string} followedEntityId - The ID of the followed entity node.
-     * @returns {Promise<void>}
-     * @memberof AnalyticService
-     */ removeLinkToFollowedEntity(analyticId, followedEntityId) {
-        return __awaiter(this, void 0, void 0, function*() {
-            const inputNodeRef = yield this.getInputsNode(analyticId);
-            if (inputNodeRef === undefined) throw Error("Inputs node not found");
-            yield spinal_env_viewer_graph_service_1.SpinalGraphService.removeChild(inputNodeRef.id.get(), followedEntityId, CONSTANTS.ANALYTIC_INPUTS_TO_FOLLOWED_ENTITY_RELATION, spinal_env_viewer_graph_service_1.SPINAL_RELATION_PTR_LST_TYPE);
-        });
-    }
-    /**
-     * Get the followed entity node of an analytic.
-     * @async
-     * @param {string} analyticId - The id of the analytic.
-     * @returns {Promise<SpinalNodeRef|undefined>} The followed entity node or undefined if it does not exist.
-     * @memberof AnalyticService
-     */ getFollowedEntity(analyticId) {
-        return __awaiter(this, void 0, void 0, function*() {
-            const inputsNode = yield this.getInputsNode(analyticId);
-            if (inputsNode === undefined) return undefined;
-            const nodes = yield spinal_env_viewer_graph_service_1.SpinalGraphService.getChildren(inputsNode.id.get(), [
-                CONSTANTS.ANALYTIC_INPUTS_TO_FOLLOWED_ENTITY_RELATION
-            ]);
-            if (nodes === undefined) return undefined;
-            return nodes[0];
-        });
-    }
-    ///////////////////////////////////////////////////
-    ///////////////////// GLOBAL //////////////////////
-    ///////////////////////////////////////////////////
-    /**
-     * Adds the specified attributes to the node with the specified ID.
-     * @async
-     * @param {SpinalNode<any>} node - The node to which to add the attributes.
-     * @param {INodeDocumentation} attributes - An array of objects representing the attributes to add to the node.
-     * @returns {Promise<void>} A Promise that resolves when the attributes have been added.
-     * @memberof AnalyticService
-     */ addAttributesToNode(node, attributes) {
-        return __awaiter(this, void 0, void 0, function*() {
-            for (const categoryName of Object.keys(attributes))for (const attribute of attributes[categoryName])yield spinal_env_viewer_plugin_documentation_service_1.default.addAttributeByCategoryName(node, categoryName, attribute.name, attribute.value, attribute.type, "");
-        });
-    }
-    /**
-     * Gets the attributes from a node.
-     *
-     * @param {string} nodeId - The ID of the node from which to retrieve the attributes.
-     * @param {string} category - The category of the attributes to retrieve.
-     * @return {*}  {Promise<any>} An object containing the attributes.
-     * @memberof AnalyticService
-     */ getAttributesFromNode(nodeId, category) {
-        return __awaiter(this, void 0, void 0, function*() {
-            const node = spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(nodeId);
-            const res = {};
-            const parameters = yield spinal_env_viewer_plugin_documentation_service_1.attributeService.getAttributesByCategory(node, category);
-            for (const param of parameters){
-                const obj = param.get();
-                res[obj.label] = obj.value;
-            }
-            return res;
-        });
-    }
-    /**
-     * Gets the attribute from a node.
-     *
-     * @param {string} nodeId - The ID of the node from which to retrieve the attribute.
-     * @param {string} category - The category of the attribute to retrieve.
-     * @param {string} label - The label of the attribute to retrieve.
-     * @return {*}  {Promise<any>}  An object containing the attribute { label: value}.
-     * @memberof AnalyticService
-     */ getAttributeFromNode(nodeId, category, label) {
-        return __awaiter(this, void 0, void 0, function*() {
-            const node = spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(nodeId);
-            const parameters = yield spinal_env_viewer_plugin_documentation_service_1.attributeService.getAttributesByCategory(node, category);
-            for (const param of parameters){
-                const obj = param.get();
-                if (obj.label === label) return {
-                    [obj.label]: obj.value
-                };
-            }
-            return undefined;
-        });
-    }
-    getAllCategoriesAndAttributesFromNode(nodeId) {
-        return __awaiter(this, void 0, void 0, function*() {
-            const node = spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(nodeId);
-            const res = {};
-            const categories = yield spinal_env_viewer_plugin_documentation_service_1.attributeService.getCategory(node);
-            for (const cat of categories){
-                const categoryName = cat.nameCat;
-                res[categoryName] = {};
-                const attributes = yield spinal_env_viewer_plugin_documentation_service_1.attributeService.getAttributesByCategory(node, categoryName);
-                for (const attribute of attributes){
-                    const obj = attribute.get();
-                    res[categoryName][obj.label] = obj.value;
-                }
-            }
-            return res;
-        });
-    }
-    /**
-     * Gets the targeted entities for an analytic.
-     *
-     * @param {string} analyticId The ID of the analytic.
-     * @return {*}  {(Promise<SpinalNodeRef[]|undefined>)} An array of SpinalNodeRefs for the entities
-     * @memberof AnalyticService
-     */ getWorkingFollowedEntities(analyticId) {
-        return __awaiter(this, void 0, void 0, function*() {
-            const followedEntity = yield this.getFollowedEntity(analyticId);
-            const trackingMethod = yield this.getTrackingMethod(analyticId);
-            const config = yield this.getConfig(analyticId);
-            const entityInfo = yield this.getEntityFromAnalytic(analyticId);
-            if (!entityInfo) return;
-            const entityType = entityInfo.entityType.get();
-            if (followedEntity && trackingMethod && config) {
-                if (entityType == followedEntity.type.get()) // we can continue as planned
-                return [
-                    followedEntity
-                ];
-                if (followedEntity.type.get().includes("group") || followedEntity.type.get().includes("Group")) {
-                    console.log("Anchor entity is a group, trying to find the correct entities with the relation name: ", CONSTANTS.GROUP_RELATION_PREFIX + entityType);
-                    return yield spinal_env_viewer_graph_service_1.SpinalGraphService.getChildren(followedEntity.id.get(), [
-                        CONSTANTS.GROUP_RELATION_PREFIX + entityType
-                    ]);
-                }
-                if (followedEntity.type.get().includes("context") || followedEntity.type.get().includes("Context")) {
-                    console.log("Anchor entity is a context, trying to find the correct entities");
-                    return yield spinal_env_viewer_graph_service_1.SpinalGraphService.findInContextByType(followedEntity.id.get(), followedEntity.id.get(), entityType);
-                }
-                console.log("Failed to deduct the correct entities from the anchor entity");
-                return [];
-            }
-        });
-    }
-    getWorkingFollowedEntitiesWithParam(followedEntity, entityType) {
-        return __awaiter(this, void 0, void 0, function*() {
-            if (entityType == followedEntity.type.get()) // we can continue as planned
-            return [
-                followedEntity
-            ];
-            if (followedEntity.type.get().includes("group") || followedEntity.type.get().includes("Group")) {
-                console.log("Anchor entity is a group, trying to find the correct entities with the relation name: ", CONSTANTS.GROUP_RELATION_PREFIX + entityType);
-                return yield spinal_env_viewer_graph_service_1.SpinalGraphService.getChildren(followedEntity.id.get(), [
-                    CONSTANTS.GROUP_RELATION_PREFIX + entityType
-                ]);
-            }
-            if (followedEntity.type.get().includes("context") || followedEntity.type.get().includes("Context")) {
-                console.log("Anchor entity is a context, trying to find the correct entities");
-                return yield spinal_env_viewer_graph_service_1.SpinalGraphService.findInContextByType(followedEntity.id.get(), followedEntity.id.get(), entityType);
-            }
-            console.log("Failed to deduct the correct entities from the anchor entity");
-            return [];
-        });
-    }
-    getEntryDataModelByInputIndex(analyticId, followedEntity, inputIndex) {
-        return __awaiter(this, void 0, void 0, function*() {
-            const trackingMethod = yield this.getTrackingMethod(analyticId);
-            if (!trackingMethod) return undefined;
-            const inputParams = yield this.getAttributesFromNode(trackingMethod.id.get(), inputIndex);
-            return yield this.applyTrackingMethodWithParams(followedEntity, inputParams[CONSTANTS.ATTRIBUTE_TRACKING_METHOD], inputParams[CONSTANTS.ATTRIBUTE_FILTER_VALUE], inputParams[CONSTANTS.ATTRIBUTE_SEARCH_DEPTH], inputParams[CONSTANTS.ATTRIBUTE_STRICT_DEPTH], inputParams[CONSTANTS.ATTRIBUTE_SEARCH_RELATIONS].split(CONSTANTS.ATTRIBUTE_VALUE_SEPARATOR));
-        });
-    }
-    getFormattedInputDataByIndex(analyticId, followedEntity, inputIndex, referenceEpochTime = Date.now()) {
-        return __awaiter(this, void 0, void 0, function*() {
-            const entryDataModel = yield this.getEntryDataModelByInputIndex(analyticId, followedEntity, inputIndex);
-            if (!entryDataModel) return undefined;
-            const trackingMethod = yield this.getTrackingMethod(analyticId);
-            if (!trackingMethod) return undefined;
-            const trackingParams = yield this.getAttributesFromNode(trackingMethod.id.get(), inputIndex);
-            if (!trackingParams[CONSTANTS.ATTRIBUTE_TIMESERIES] || trackingParams[CONSTANTS.ATTRIBUTE_TIMESERIES] == 0) {
-                const currentValue = yield (0, utils_1.getValueModelFromEntry)(entryDataModel);
-                const assertedValue = currentValue.get();
-                return assertedValue;
-            } else {
-                const spinalTs = yield this.spinalServiceTimeseries.getOrCreateTimeSeries(entryDataModel.id.get());
-                const end = referenceEpochTime;
-                const start = end - trackingParams[CONSTANTS.ATTRIBUTE_TIMESERIES];
-                const injectLastValueBeforeStart = trackingParams[CONSTANTS.ATTRIBUTE_TIMESERIES_VALUE_AT_START];
-                let data = injectLastValueBeforeStart ? yield spinalTs.getFromIntervalTime(start, end, true) : yield spinalTs.getFromIntervalTime(start, end);
-                if (injectLastValueBeforeStart) data = (0, utils_1.timeseriesPreProcessing)(start, end, data); // tidy up the data mainly at start and end
-                return data;
-            }
-        });
-    }
-    getAnalyticDetails(analyticId) {
-        return __awaiter(this, void 0, void 0, function*() {
-            const config = yield this.getConfig(analyticId);
-            const trackingMethod = yield this.getTrackingMethod(analyticId);
-            const followedEntity = yield this.getFollowedEntity(analyticId);
-            const entity = yield this.getEntityFromAnalytic(analyticId);
-            const analyticNode = spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(analyticId);
-            if (!analyticNode) throw new Error("No analytic node found");
-            if (!config) throw new Error("No config node found");
-            if (!trackingMethod) throw new Error("No tracking method node found");
-            if (!followedEntity) throw new Error("No followed entity node found");
-            if (!entity) throw new Error("No entity node found");
-            const configNode = spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(config.id.get());
-            const trackingMethodNode = spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(trackingMethod.id.get());
-            const configCategoryAttributes = (yield spinal_env_viewer_plugin_documentation_service_1.attributeService.getCategory(configNode)).map((el)=>{
-                return el.nameCat;
-            });
-            const trackingMethodCategoryAttributes = (yield spinal_env_viewer_plugin_documentation_service_1.attributeService.getCategory(trackingMethodNode)).map((el)=>{
-                return el.nameCat;
-            });
-            const configInfo = {};
-            const trackingMethodInfo = {};
-            for (const cat of configCategoryAttributes){
-                const attributes = yield spinal_env_viewer_plugin_documentation_service_1.attributeService.getAttributesByCategory(configNode, cat);
-                configInfo[cat] = attributes;
-            }
-            for (const cat of trackingMethodCategoryAttributes){
-                const attributes = yield spinal_env_viewer_plugin_documentation_service_1.attributeService.getAttributesByCategory(trackingMethodNode, cat);
-                trackingMethodInfo[cat] = attributes;
-            }
-            const analyticDetails = spinal_env_viewer_graph_service_1.SpinalGraphService.getInfo(analyticId);
-            const followedEntityId = followedEntity.id.get();
-            const res = {
-                entityNodeInfo: entity,
-                analyticName: analyticDetails.name.get(),
-                config: configInfo,
-                trackingMethod: trackingMethodInfo,
-                followedEntityId
-            };
-            return res;
-        });
-    }
-    /*public async createAnalytic(contextId : string, entityId :string , analyticDetails : IAnalyticDetails){
-      const analyticCreationInfo : IAnalytic = {name : analyticDetails.analyticName, description : ''};
-      const analyticNode = await this.addAnalytic(analyticCreationInfo,contextId,entityId)
-      const InputNode = await this.addInputsNode(analyticNode.id.get(),contextId);
-      const OutputNode = await this.addOutputsNode(analyticNode.id.get(),contextId);
-      //const configNode = await this.addConfig(analyticDetails.config,analyticNode.id.get(),contextId);
-    }*/ findExecutionOrder(dependencies) {
-        const graph = {};
-        const visited = {};
-        const stack = [];
-        // Create graph from dependency map
-        for (const algo of Object.keys(dependencies)){
-            graph[algo] = graph[algo] || [];
-            const dependency = dependencies[algo];
-            graph[dependency] = graph[dependency] || [];
-            graph[dependency].push(algo);
-        }
-        const visit = (node)=>{
-            if (!visited[node]) {
-                visited[node] = true;
-                if (graph[node]) for (const neighbor of graph[node])visit(neighbor);
-                stack.push(node);
-            }
-        };
-        for (const node of Object.keys(graph))if (!visited[node]) visit(node);
-        // Check for circular dependencies (not handled in this simple implementation)
-        for (const node of Object.keys(graph)){
-            if (stack.indexOf(node) > stack.indexOf(dependencies[node])) return null; // Circular dependency detected
-        }
-        return stack.filter((x)=>x.startsWith("A"));
-    }
-    filterAlgorithmParametersAttributesByIndex(algoParams, indexName) {
-        const result = {};
-        for(const key in algoParams)if (key.startsWith(indexName)) {
-            const newKey = key.replace(indexName + CONSTANTS.ATTRIBUTE_SEPARATOR, "");
-            result[newKey] = algoParams[key];
-        }
-        return result;
     }
     recExecuteAlgorithm(analyticId, entity, algoIndexName, ioDependencies, algoIndexMapping, algoParams, referenceEpochTime = Date.now()) {
         var _a, _b;
@@ -2339,14 +1264,43 @@ function logMessage(message) {}
                     inputs.push(res);
                 } else {
                     // if dependency is an input then get the value of the input
-                    const inputData = yield this.getFormattedInputDataByIndex(analyticId, entity, dependency, referenceEpochTime);
+                    const inputData = yield this.analyticInputManagerService.getFormattedInputDataByIndex(analyticId, entity, dependency, referenceEpochTime);
+                    if (inputData == undefined) throw new Error(`Input data ${dependency} could not be retrieved`);
+                    if (Array.isArray(inputData)) inputs.push(...inputData);
+                    else inputs.push(inputData);
+                }
+            }
+            // after the inputs are ready we can execute the algorithm
+            const algorithm_name = algoIndexMapping[algoIndexName];
+            const algorithmParameters = this.analyticInputManagerService.filterAlgorithmParametersAttributesByIndex(algoParams, algoIndexName);
+            const result = algorithms_1.ALGORITHMS[algorithm_name].run(inputs, algorithmParameters);
+            if (result == undefined) throw new Error(`Algorithm ${algorithm_name} returned undefined`);
+            if (algorithm_name === "EXIT" && result === true) throw new Errors_1.ExitAnalyticError("EXIT algorithm triggered");
+            return result;
+        });
+    }
+    optExecuteAlgorithm(analyticId, entity, algoIndexName, ioDependencies, algoIndexMapping, algoParams, referenceEpochTime = Date.now(), formattedData) {
+        var _a, _b;
+        return __awaiter(this, void 0, void 0, function*() {
+            const inputs = [];
+            const myDependencies = (_b = (_a = ioDependencies[algoIndexName]) === null || _a === void 0 ? void 0 : _a.split(CONSTANTS.ATTRIBUTE_VALUE_SEPARATOR)) !== null && _b !== void 0 ? _b : [];
+            for (const dependency of myDependencies){
+                if (!dependency) continue; // if the dependency is empty
+                // if dependency is an algorithm then rec call with that algorithm
+                if (dependency.startsWith("A")) {
+                    // save the result of the algorithm in the inputs array
+                    const res = yield this.optExecuteAlgorithm(analyticId, entity, dependency, ioDependencies, algoIndexMapping, algoParams, referenceEpochTime, formattedData);
+                    inputs.push(res);
+                } else {
+                    // if dependency is an input then get the value of the input
+                    const inputData = formattedData[dependency][referenceEpochTime];
                     if (inputData == undefined) throw new Error(`Input data ${dependency} could not be retrieved`);
                     inputs.push(inputData);
                 }
             }
             // after the inputs are ready we can execute the algorithm
             const algorithm_name = algoIndexMapping[algoIndexName];
-            const algorithmParameters = this.filterAlgorithmParametersAttributesByIndex(algoParams, algoIndexName);
+            const algorithmParameters = this.analyticInputManagerService.filterAlgorithmParametersAttributesByIndex(algoParams, algoIndexName);
             const result = algorithms_1.ALGORITHMS[algorithm_name].run(inputs, algorithmParameters);
             if (result == undefined) throw new Error(`Algorithm ${algorithm_name} returned undefined`);
             if (algorithm_name === "EXIT" && result === true) throw new Errors_1.ExitAnalyticError("EXIT algorithm triggered");
@@ -2359,48 +1313,149 @@ function logMessage(message) {}
      * @param {SpinalNodeRef} entity The SpinalNodeRef for the entity to analyze.
      * @returns {*} {Promise<void>}
      * @memberof AnalyticService
-     */ doAnalysisOnEntity(analyticId, entity, configAttributes, executionTime = Date.now()) {
+     */ /*public async doAnalysisOnEntity(
+      analyticId: string,
+      entity: SpinalNodeRef,
+      executionTime: number = Date.now(),
+      configAttributes?: IAnalyticConfig,
+    ): Promise<IResult> {
+      try {
+        // Get the io dependencies of the analytic
+        if (!configAttributes) {
+          const configNode = await this.analyticNodeManagerService.getConfig(
+            analyticId
+          );
+          if (!configNode)
+            return { success: false, error: 'No config node found' };
+          configAttributes =
+            await this.analyticNodeManagerService.getAllCategoriesAndAttributesFromNode(
+              configNode.id.get()
+            );
+        }
+  
+        const ioDependencies =
+          configAttributes[CONSTANTS.CATEGORY_ATTRIBUTE_IO_DEPENDENCIES];
+  
+        const algoIndexMapping =
+          configAttributes[CONSTANTS.CATEGORY_ATTRIBUTE_ALGORITHM_INDEX_MAPPING];
+  
+        const algoParams =
+          configAttributes[CONSTANTS.CATEGORY_ATTRIBUTE_ALGORTHM_PARAMETERS];
+  
+        const R = ioDependencies['R'] as string;
+  
+        const result = await this.recExecuteAlgorithm(
+          analyticId,
+          entity,
+          R,
+          ioDependencies,
+          algoIndexMapping,
+          algoParams,
+          executionTime
+        );
+  
+        return await this.analyticOutputManagerService.applyResult(
+          result,
+          analyticId,
+          configAttributes,
+          entity,
+          executionTime
+        );
+      } catch (error) {
+        const analyticInfo = SpinalGraphService.getInfo(analyticId);
+        const positionString =
+          ' on ' +
+          entity.name.get() +
+          ' in analytic : ' +
+          analyticInfo.name.get() +
+          ' at ' +
+          Date.now();
+        if (error instanceof Error || error instanceof ExitAnalyticError) {
+          return { success: false, error: error.message + positionString };
+        } else {
+          return {
+            success: false,
+            error: 'An unknown error occurred' + positionString,
+          };
+        }
+      }
+    }*/ doAnalysisOnEntity(analyticId, entity, executionTimes = [
+        Date.now()
+    ], configAttributes) {
         return __awaiter(this, void 0, void 0, function*() {
             try {
                 // Get the io dependencies of the analytic
                 if (!configAttributes) {
-                    const configNode = yield this.getConfig(analyticId);
-                    if (!configNode) return {
-                        success: false,
-                        error: "No config node found"
-                    };
-                    configAttributes = yield this.getAllCategoriesAndAttributesFromNode(configNode.id.get());
+                    const configNode = yield this.analyticNodeManagerService.getConfig(analyticId);
+                    if (!configNode) return [
+                        {
+                            success: false,
+                            error: "No config node found"
+                        }
+                    ];
+                    configAttributes = yield this.analyticNodeManagerService.getAllCategoriesAndAttributesFromNode(configNode.id.get());
                 }
-                // const ioDependencies = await this.getAttributesFromNode(
-                //   configNode.id.get(),
-                //   CONSTANTS.CATEGORY_ATTRIBUTE_IO_DEPENDENCIES
-                // );
-                // const algoIndexMapping = await this.getAttributesFromNode(
-                //   configNode.id.get(),
-                //   CONSTANTS.CATEGORY_ATTRIBUTE_ALGORITHM_INDEX_MAPPING
-                // );
-                // const algoParams = await this.getAttributesFromNode(
-                //   configNode.id.get(),
-                //   CONSTANTS.CATEGORY_ATTRIBUTE_ALGORTHM_PARAMETERS
-                // );
                 const ioDependencies = configAttributes[CONSTANTS.CATEGORY_ATTRIBUTE_IO_DEPENDENCIES];
                 const algoIndexMapping = configAttributes[CONSTANTS.CATEGORY_ATTRIBUTE_ALGORITHM_INDEX_MAPPING];
                 const algoParams = configAttributes[CONSTANTS.CATEGORY_ATTRIBUTE_ALGORTHM_PARAMETERS];
                 const R = ioDependencies["R"];
-                const result = yield this.recExecuteAlgorithm(analyticId, entity, R, ioDependencies, algoIndexMapping, algoParams, executionTime);
-                return yield this.applyResult(result, analyticId, configAttributes, entity, executionTime);
+                // Here we need to call a function that will get all the data required for the analysis to run
+                const formattedData = yield this.analyticInputManagerService.getAllDataFromAnalyticConfiguration(analyticId, entity, ioDependencies, executionTimes);
+                const results = [];
+                for (const execTime of executionTimes){
+                    const result = yield this.optExecuteAlgorithm(analyticId, entity, R, ioDependencies, algoIndexMapping, algoParams, execTime, formattedData);
+                    results.push((yield this.analyticOutputManagerService.applyResult(result, analyticId, configAttributes, entity, execTime)));
+                }
+                return results;
             } catch (error) {
                 const analyticInfo = spinal_env_viewer_graph_service_1.SpinalGraphService.getInfo(analyticId);
                 const positionString = " on " + entity.name.get() + " in analytic : " + analyticInfo.name.get() + " at " + Date.now();
-                if (error instanceof Error || error instanceof Errors_1.ExitAnalyticError) return {
-                    success: false,
-                    error: error.message + positionString
-                };
-                else return {
-                    success: false,
-                    error: "An unknown error occurred" + positionString
-                };
+                if (error instanceof Error || error instanceof Errors_1.ExitAnalyticError) return [
+                    {
+                        success: false,
+                        error: error.message + positionString
+                    }
+                ];
+                else return [
+                    {
+                        success: false,
+                        error: "An unknown error occurred" + positionString
+                    }
+                ];
             }
+        });
+    }
+    doAnalysis(analyticId, triggerObject) {
+        return __awaiter(this, void 0, void 0, function*() {
+            const entities = yield this.analyticInputManagerService.getWorkingFollowedEntities(analyticId);
+            if (!entities) return [
+                {
+                    success: false,
+                    error: "No entities found"
+                }
+            ];
+            const configNode = yield this.analyticNodeManagerService.getConfig(analyticId);
+            if (!configNode) return [
+                {
+                    success: false,
+                    error: "No config node found"
+                }
+            ];
+            const configAttributes = yield this.analyticNodeManagerService.getAllCategoriesAndAttributesFromNode(configNode.id.get());
+            const lastExecutionTime = parseInt(configAttributes[CONSTANTS.CATEGORY_ATTRIBUTE_ANALYTIC_PARAMETERS][CONSTANTS.ATTRIBUTE_LAST_EXECUTION_TIME]);
+            const aggregateExecutionTime = configAttributes[CONSTANTS.CATEGORY_ATTRIBUTE_ANALYTIC_PARAMETERS][CONSTANTS.ATTRIBUTE_AGGREGATE_EXECUTION_TIME] || undefined;
+            if (aggregateExecutionTime && triggerObject.triggerType === CONSTANTS.TRIGGER_TYPE.CRON) {
+                const executionTimes = this.getExecutionTimestamps(aggregateExecutionTime, triggerObject.triggerValue, lastExecutionTime);
+                console.log(`executionTimes aggretegate feature : ${executionTimes}`);
+                const analysisPromises = entities.map((entity)=>this.doAnalysisOnEntity(analyticId, entity, executionTimes, configAttributes));
+                const results = (yield Promise.all(analysisPromises)).flat();
+                return results;
+            }
+            const executionsTimes = [];
+            executionsTimes.push(Date.now());
+            const analysisPromises = entities.map((entity)=>this.doAnalysisOnEntity(analyticId, entity, executionsTimes, configAttributes));
+            const results = (yield Promise.all(analysisPromises)).flat();
+            return results;
         });
     }
     /**
@@ -2408,1159 +1463,163 @@ function logMessage(message) {}
      * @param {string} analyticId The ID of the analytic.
      * @return {*}  {Promise<void>}
      * @memberof AnalyticService
-     */ doAnalysis(analyticId, triggerObject) {
-        return __awaiter(this, void 0, void 0, function*() {
-            const entities = yield this.getWorkingFollowedEntities(analyticId);
-            if (!entities) return [
-                {
-                    success: false,
-                    error: "No entities found"
-                }
-            ];
-            const configNode = yield this.getConfig(analyticId);
-            if (!configNode) return [
-                {
-                    success: false,
-                    error: "No config node found"
-                }
-            ];
-            const configAttributes = yield this.getAllCategoriesAndAttributesFromNode(configNode.id.get());
-            const lastExecutionTime = parseInt(configAttributes[CONSTANTS.CATEGORY_ATTRIBUTE_ANALYTIC_PARAMETERS][CONSTANTS.ATTRIBUTE_LAST_EXECUTION_TIME]);
-            const shouldCatchUpMissedExecutions = configAttributes[CONSTANTS.CATEGORY_ATTRIBUTE_ANALYTIC_PARAMETERS][CONSTANTS.ATTRIBUTE_ANALYTIC_PAST_EXECUTIONS];
-            let executionsTimes = [];
-            if (shouldCatchUpMissedExecutions) {
-                if (triggerObject.triggerType === CONSTANTS.TRIGGER_TYPE.CRON) executionsTimes = (0, utils_1.getCronMissingExecutionTimes)(triggerObject.triggerValue, lastExecutionTime);
-                if (triggerObject.triggerType === CONSTANTS.TRIGGER_TYPE.INTERVAL_TIME) executionsTimes = (0, utils_1.getIntervalTimeMissingExecutionTimes)(parseInt(triggerObject.triggerValue), lastExecutionTime);
-            }
-            executionsTimes.push(Date.now());
-            // Adjust the last execution time for cron triggers to match the exact time
-            if (triggerObject.triggerType === CONSTANTS.TRIGGER_TYPE.CRON) {
-                const interval = cronParser.parseExpression(triggerObject.triggerValue);
-                const nextExecutionTime = interval.prev().getTime();
-                executionsTimes[executionsTimes.length - 1] = nextExecutionTime;
-            }
-            logMessage(`executionsTimes : ${executionsTimes}`);
-            const analysisPromises = entities.map((entity)=>executionsTimes.map((executionTime)=>this.doAnalysisOnEntity(analyticId, entity, configAttributes, executionTime)));
-            const results = yield Promise.all(analysisPromises.flat());
-            return results;
-        });
-    }
-    ///////////////////////////////////////////////////
-    ///////////////// RESULT HANDLING /////////////////
-    ///////////////////////////////////////////////////
-    /**
-     * Applies the result of an algorithm.
-     *
-     * @param {*} result The result of the algorithm used.
-     * @param {string} analyticId The ID of the analytic.
-     * @param {SpinalNodeRef} configNode The SpinalNodeRef of the configuration of the analytic.
-     * @param {SpinalNodeRef} followedEntityNode The SpinalNodeRef of the entity.
-     * @return {*}
-     * @memberof AnalyticService
-     */ applyResult(result, analyticId, configAttributes, followedEntityNode, referenceEpochTime = Date.now()) {
-        return __awaiter(this, void 0, void 0, function*() {
-            if (result === undefined) return {
-                success: false,
-                error: "Result is undefined"
-            };
-            //const params = configAttributes[CONSTANTS.CATEGORY_ATTRIBUTE_RESULT_PARAMETERS];
-            switch(configAttributes[CONSTANTS.CATEGORY_ATTRIBUTE_RESULT_PARAMETERS][CONSTANTS.ATTRIBUTE_RESULT_TYPE]){
-                case CONSTANTS.ANALYTIC_RESULT_TYPE.TICKET:
-                    yield this.handleTicketResult(result, analyticId, configAttributes, followedEntityNode, "Ticket");
-                    return {
-                        success: true,
-                        resultValue: result,
-                        error: "",
-                        resultType: CONSTANTS.ANALYTIC_RESULT_TYPE.TICKET
-                    };
-                case CONSTANTS.ANALYTIC_RESULT_TYPE.CONTROL_ENDPOINT:
-                    yield this.handleControlEndpointResult(result, followedEntityNode, configAttributes, referenceEpochTime);
-                    return {
-                        success: true,
-                        resultValue: result,
-                        error: "",
-                        resultType: CONSTANTS.ANALYTIC_RESULT_TYPE.CONTROL_ENDPOINT
-                    };
-                case CONSTANTS.ANALYTIC_RESULT_TYPE.ENDPOINT:
-                    yield this.handleEndpointResult(result, followedEntityNode, configAttributes, referenceEpochTime);
-                    return {
-                        success: true,
-                        resultValue: result,
-                        error: "",
-                        resultType: CONSTANTS.ANALYTIC_RESULT_TYPE.ENDPOINT
-                    };
-                case CONSTANTS.ANALYTIC_RESULT_TYPE.ALARM:
-                    return yield this.handleTicketResult(result, analyticId, configAttributes, followedEntityNode, "Alarm");
-                case CONSTANTS.ANALYTIC_RESULT_TYPE.SMS:
-                    return yield this.handleSMSResult(result, analyticId, configAttributes, followedEntityNode);
-                case CONSTANTS.ANALYTIC_RESULT_TYPE.LOG:
-                    console.log(`LOG : ${configAttributes[CONSTANTS.CATEGORY_ATTRIBUTE_RESULT_PARAMETERS][CONSTANTS.ATTRIBUTE_RESULT_NAME]} \t|\t Result : ${result}`);
-                    return {
-                        success: true,
-                        resultValue: result,
-                        error: "",
-                        resultType: CONSTANTS.ANALYTIC_RESULT_TYPE.LOG
-                    };
-                case CONSTANTS.ANALYTIC_RESULT_TYPE.GCHAT_MESSAGE:
-                    return this.handleGChatMessageResult(result, analyticId, configAttributes, followedEntityNode);
-                case CONSTANTS.ANALYTIC_RESULT_TYPE.GCHAT_ORGAN_CARD:
-                    return this.handleGChatOrganCardResult(result, analyticId, configAttributes, followedEntityNode);
-                default:
-                    return {
-                        success: false,
-                        error: "Result type not recognized"
-                    };
-            }
-        });
-    }
-    /**
-     * Handles the result of an algorithm that creates a ticket or an alarm.
-     *
-     * @private
-     * @param {*} result
-     * @param {string} analyticId
-     * @param {SpinalNodeRef} configNode
-     * @param {SpinalNodeRef} followedEntityNode
-     * @param {*} params
-     * @param {string} ticketType
-     * @return {*}  {Promise<void>}
-     * @memberof AnalyticService
-     */ handleTicketResult(result, analyticId, configAttributes, followedEntityNode, ticketType // Alarm or Ticket
-    ) {
-        return __awaiter(this, void 0, void 0, function*() {
-            if (result == false) return {
-                success: true,
-                error: "",
-                resultValue: result,
-                resultType: CONSTANTS.ANALYTIC_RESULT_TYPE.TICKET
-            };
-            const outputNode = yield this.getOutputsNode(analyticId);
-            if (!outputNode) return {
-                success: false,
-                error: " Output Node not found"
-            };
-            const analyticContextId = this.getContextIdOfAnalytic(analyticId);
-            if (!analyticContextId) return {
-                success: false,
-                error: " Analytic context id not found"
-            };
-            const ticketInfo = {
-                name: `${configAttributes[CONSTANTS.CATEGORY_ATTRIBUTE_RESULT_PARAMETERS][CONSTANTS.ATTRIBUTE_RESULT_NAME]} : ${followedEntityNode.name.get()}`
-            };
-            (0, utils_1.addTicketAlarm)(ticketInfo, configAttributes, analyticContextId, outputNode.id.get(), followedEntityNode.id.get(), ticketType);
-            return {
-                success: true,
-                error: "",
-                resultValue: result,
-                resultType: CONSTANTS.ANALYTIC_RESULT_TYPE.TICKET
-            };
-        });
-    }
-    /**
-     * Handles the result of an algorithm that modifies a control point.
-     *
-     * @private
-     * @param {*} result
-     * @param {SpinalNodeRef} followedEntityNode
-     * @param {*} params
-     * @return {*}  {Promise<void>}
-     * @memberof AnalyticService
-     */ handleControlEndpointResult(result, followedEntityNode, configAttributes, referenceEpochTime) {
-        return __awaiter(this, void 0, void 0, function*() {
-            const controlEndpointNode = yield (0, utils_1.findEndpoint)(followedEntityNode.id.get(), configAttributes[CONSTANTS.CATEGORY_ATTRIBUTE_RESULT_PARAMETERS][CONSTANTS.ATTRIBUTE_RESULT_NAME], 0, true, [], CONSTANTS.CONTROL_ENDPOINT_RELATIONS, CONSTANTS.ENDPOINT_NODE_TYPE);
-            if (!controlEndpointNode) return {
-                success: false,
-                error: " Control endpoint node not found"
-            };
-            const controlEndpoint = yield controlEndpointNode.element.load();
-            controlEndpoint.currentValue.set(result);
-            const bool = yield this.spinalServiceTimeseries.insertFromEndpoint(controlEndpointNode.id.get(), result, referenceEpochTime);
-            if (!bool) throw new Error("Failed to insert data in timeseries");
-            logMessage(`CP ${controlEndpointNode.name.get()} updated with value : ${result} on ${followedEntityNode.name.get()} at ${referenceEpochTime}`);
-            //console.log(`CP ${controlEndpointNode.name.get()} updated with value : , ${result},  on , ${followedEntityNode.name.get()}`)
-            return {
-                success: true,
-                resultValue: result,
-                error: "",
-                resultType: CONSTANTS.ANALYTIC_RESULT_TYPE.CONTROL_ENDPOINT
-            };
-        });
-    }
-    /**
-     * Handles the result of an algorithm that modifies an Endpoint.
-     *
-     * @private
-     * @param {*} result
-     * @param {SpinalNodeRef} followedEntityNode
-     * @param {*} params
-     * @return {*}  {Promise<void>}
-     * @memberof AnalyticService
-     */ handleEndpointResult(result, followedEntityNode, configAttributes, referenceEpochTime) {
-        return __awaiter(this, void 0, void 0, function*() {
-            let endpointNode = yield (0, utils_1.findEndpoint)(followedEntityNode.id.get(), configAttributes[CONSTANTS.CATEGORY_ATTRIBUTE_RESULT_PARAMETERS][CONSTANTS.ATTRIBUTE_RESULT_NAME], 0, true, [], CONSTANTS.ENDPOINT_RELATIONS, CONSTANTS.ENDPOINT_NODE_TYPE);
-            if (!endpointNode && !configAttributes[CONSTANTS.CATEGORY_ATTRIBUTE_RESULT_PARAMETERS][CONSTANTS.ATTRIBUTE_CREATE_ENDPOINT_IF_NOT_EXIST]) return {
-                success: false,
-                error: "Endpoint node not found"
-            };
-            if (!endpointNode) {
-                endpointNode = yield (0, utils_1.createEndpoint)(referenceEpochTime, followedEntityNode.id.get(), configAttributes[CONSTANTS.CATEGORY_ATTRIBUTE_RESULT_PARAMETERS][CONSTANTS.ATTRIBUTE_RESULT_NAME], result, configAttributes[CONSTANTS.CATEGORY_ATTRIBUTE_ENDPOINT_PARAMETERS][CONSTANTS.ATTRIBUTE_CREATE_ENDPOINT_UNIT], configAttributes[CONSTANTS.CATEGORY_ATTRIBUTE_ENDPOINT_PARAMETERS][CONSTANTS.ATTRIBUTE_CREATE_ENDPOINT_MAX_DAYS]);
-                if (!endpointNode) return {
-                    success: false,
-                    error: "Failed endpoint creation"
-                };
-            }
-            const endpoint = yield endpointNode.element.load();
-            endpoint.currentValue.set(result);
-            const bool = yield this.spinalServiceTimeseries.insertFromEndpoint(endpointNode.id.get(), result, referenceEpochTime);
-            if (!bool) return {
-                success: false,
-                error: "Failed to insert data in timeseries"
-            };
-            logMessage(`EP ${endpointNode.name.get()} updated with value : ${result} on ${followedEntityNode.name.get()} at ${referenceEpochTime}`);
-            return {
-                success: true,
-                resultValue: result,
-                error: "",
-                resultType: CONSTANTS.ANALYTIC_RESULT_TYPE.ENDPOINT
-            };
-        });
-    }
-    /**
-     * Handles the result of an algorithm that sends an SMS.
-     *
-     * @private
-     * @param {*} result
-     * @param {SpinalNodeRef} configNode
-     * @param {SpinalNodeRef} followedEntityNode
-     * @return {*}  {Promise<void>}
-     * @memberof AnalyticService
-     */ handleSMSResult(result, analyticId, configAttributes, followedEntityNode) {
-        return __awaiter(this, void 0, void 0, function*() {
-            if (!this.twilioAccountSid || !this.twilioAuthToken || !this.twilioFromNumber) return {
-                success: false,
-                error: "Twilio parameters not found"
-            };
-            if (result == false) return {
-                success: true,
-                resultValue: result,
-                error: "",
-                resultType: CONSTANTS.ANALYTIC_RESULT_TYPE.SMS
-            };
-            console.log("SMS result");
-            const twilioParams = configAttributes[CONSTANTS.CATEGORY_ATTRIBUTE_TWILIO_PARAMETERS];
-            const toNumber = twilioParams[CONSTANTS.ATTRIBUTE_PHONE_NUMBER];
-            let message = twilioParams[CONSTANTS.ATTRIBUTE_PHONE_MESSAGE];
-            const variables = message.match(/[^{}]+(?=\})/g);
-            if (variables) for (const variable of variables){
-                const value = yield this.getFormattedInputDataByIndex(analyticId, followedEntityNode, variable);
-                message = message.replace(`{${variable}}`, "" + value);
-            }
-            const url = `https://api.twilio.com/2010-04-01/Accounts/${this.twilioAccountSid}/Messages.json`;
-            const entityName = followedEntityNode.name.get().replace(/[0-9]/g, "*");
-            const data = {
-                Body: `Analytic on ${entityName} triggered with the following message : ${message}`,
-                From: this.twilioFromNumber,
-                To: toNumber
-            };
-            const config = {
-                method: "POST",
-                headers: {
-                    "content-type": "application/x-www-form-urlencoded"
-                },
-                auth: {
-                    username: this.twilioAccountSid,
-                    password: this.twilioAuthToken
-                },
-                data: (0, qs_1.stringify)(data),
-                url
-            };
-            const axiosResult = yield (0, axios_1.default)(config);
-            console.log({
-                status: axiosResult.status,
-                data: axiosResult.data
-            });
-            return {
-                success: true,
-                resultValue: result,
-                error: "",
-                resultType: CONSTANTS.ANALYTIC_RESULT_TYPE.SMS
-            };
-        });
-    }
-    handleGChatMessageResult(result, analyticId, configAttributes, followedEntityNode) {
-        return __awaiter(this, void 0, void 0, function*() {
-            console.log("Handling Google chat message result");
-            if (result == false) return {
-                success: true,
-                resultValue: result,
-                error: "",
-                resultType: CONSTANTS.ANALYTIC_RESULT_TYPE.GCHAT_MESSAGE
-            };
-            const analyticParams = configAttributes[CONSTANTS.CATEGORY_ATTRIBUTE_ANALYTIC_PARAMETERS];
-            const gChatParams = configAttributes[CONSTANTS.CATEGORY_ATTRIBUTE_GCHAT_PARAMETERS];
-            const spaceName = gChatParams[CONSTANTS.ATTRIBUTE_GCHAT_SPACE];
-            let message = gChatParams[CONSTANTS.ATTRIBUTE_GCHAT_MESSAGE];
-            const analyticDescription = analyticParams[CONSTANTS.ATTRIBUTE_ANALYTIC_DESCRIPTION];
-            const variables = message.match(/[^{}]+(?=\})/g);
-            if (variables) for (const variable of variables){
-                const value = yield this.getFormattedInputDataByIndex(analyticId, followedEntityNode, variable);
-                message = message.replace(`{${variable}}`, "" + value);
-            }
-            const resultInfo = {
-                success: true,
-                resultValue: result,
-                error: "",
-                spaceName: spaceName,
-                message: "The following message has been triggered by an analytic.\n \nAnalysis on item : " + followedEntityNode.name.get() + "\nDescription : " + analyticDescription + "\nMessage : " + message,
-                resultType: CONSTANTS.ANALYTIC_RESULT_TYPE.GCHAT_MESSAGE
-            };
-            return resultInfo;
-        });
-    }
-    handleGChatOrganCardResult(result, analyticId, configAttributes, followedEntityNode) {
-        var _a, _b, _c, _d, _e;
-        return __awaiter(this, void 0, void 0, function*() {
-            console.log("Handling Google chat organ card result");
-            if (result == false) return {
-                success: true,
-                resultValue: result,
-                error: "",
-                resultType: CONSTANTS.ANALYTIC_RESULT_TYPE.GCHAT_MESSAGE
-            };
-            const analyticParams = configAttributes[CONSTANTS.CATEGORY_ATTRIBUTE_ANALYTIC_PARAMETERS];
-            const resultParams = configAttributes[CONSTANTS.CATEGORY_ATTRIBUTE_RESULT_PARAMETERS];
-            const gChatParams = configAttributes[CONSTANTS.CATEGORY_ATTRIBUTE_GCHAT_PARAMETERS];
-            const title = resultParams[CONSTANTS.ATTRIBUTE_RESULT_NAME];
-            const spaceName = gChatParams[CONSTANTS.ATTRIBUTE_GCHAT_SPACE];
-            let message = gChatParams[CONSTANTS.ATTRIBUTE_GCHAT_MESSAGE];
-            const variables = message.match(/[^{}]+(?=\})/g);
-            if (variables) for (const variable of variables){
-                const value = yield this.getFormattedInputDataByIndex(analyticId, followedEntityNode, variable);
-                message = message.replace(`{${variable}}`, "" + value);
-            }
-            const analyticDescription = analyticParams[CONSTANTS.ATTRIBUTE_ANALYTIC_DESCRIPTION];
-            const lastPing = yield (0, utils_1.findEndpoint)(followedEntityNode.id.get(), "last_ping", 0, true, [], CONSTANTS.ENDPOINT_RELATIONS, CONSTANTS.ENDPOINT_NODE_TYPE);
-            if (!lastPing) return {
-                success: false,
-                error: "endpoint lastPing not found on organ node"
-            };
-            const lastPingValue = yield (0, utils_1.getValueModelFromEntry)(lastPing);
-            const lastPingDate = new Date(lastPingValue.get()).toString();
-            const parents = yield spinal_env_viewer_graph_service_1.SpinalGraphService.getParents(followedEntityNode.id.get(), "HasOrgan");
-            let platformName = "Couldn't find the platform name";
-            let ipAddress = "Couldn't find the ip adress";
-            for (const parent of parents)if (parent.id.get() == ((_a = followedEntityNode.platformId) === null || _a === void 0 ? void 0 : _a.get())) {
-                platformName = (_b = parent.name) === null || _b === void 0 ? void 0 : _b.get();
-                ipAddress = (_c = parent.ipAdress) === null || _c === void 0 ? void 0 : _c.get();
-            }
-            const card = {
-                header: {
-                    title: title,
-                    subtitle: new Date().toLocaleDateString()
-                },
-                sections: [
-                    {
-                        header: "Analytic details",
-                        widgets: [
-                            {
-                                keyValue: {
-                                    topLabel: "Analytic description",
-                                    content: analyticDescription
-                                }
-                            },
-                            {
-                                keyValue: {
-                                    topLabel: "Message",
-                                    content: message
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        header: "Organ details",
-                        widgets: [
-                            {
-                                keyValue: {
-                                    topLabel: "Organ name",
-                                    content: followedEntityNode.name.get()
-                                }
-                            },
-                            {
-                                keyValue: {
-                                    topLabel: "Organ type",
-                                    content: (_d = followedEntityNode.organType) === null || _d === void 0 ? void 0 : _d.get()
-                                }
-                            },
-                            {
-                                keyValue: {
-                                    topLabel: "Last ping",
-                                    content: lastPingDate
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        header: "Platform details",
-                        widgets: [
-                            {
-                                keyValue: {
-                                    topLabel: "Platform name",
-                                    content: platformName
-                                }
-                            },
-                            {
-                                keyValue: {
-                                    topLabel: "Platform id",
-                                    content: (_e = followedEntityNode.platformId) === null || _e === void 0 ? void 0 : _e.get()
-                                }
-                            },
-                            {
-                                keyValue: {
-                                    topLabel: "Ip Address",
-                                    content: ipAddress
-                                }
-                            }
-                        ]
-                    }
-                ]
-            };
-            const resultInfo = {
-                success: true,
-                resultValue: result,
-                error: "",
-                spaceName: spaceName,
-                resultType: CONSTANTS.ANALYTIC_RESULT_TYPE.GCHAT_ORGAN_CARD,
-                card: card
-            };
-            return resultInfo;
-        });
-    }
-}
-exports.default = AnalyticService;
-exports.AnalyticService = AnalyticService;
-
-},{"84742e2837e24d3b":"9n7zp","ab099baa5bc4dcd4":"2CVgx","96694bfffb82fe38":"eVs5c","ba6004bd8f5b7210":"9ovXf","e0ff123ace339ff9":"fR5zB","9b0a772027d1e940":"4rJ3F","89679a198a351a56":"h4DC9","a7ef2ed4d2a4b5d2":"SIBaV","afce19c865fe8fd0":"5rYVR","6eac5aca4b2a8fb8":"3BNTc","57aed6b4a1f01a2b":"3VBF8","5ef2c727f601ca1b":"a1B4H","36fa03571c49f998":"jo6P5","60a970666a1a566a":"kW4GH","86de144a8fb8ffa":"8QYUj","14d3963a1cf01691":"d00sa"}],"eVs5c":[function(require,module,exports) {
-"use strict";
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.ConfigModel = void 0;
-const spinal_core_connectorjs_type_1 = require("87f392c163896816");
-class ConfigModel extends spinal_core_connectorjs_type_1.Model {
-    constructor(nodeInfo){
-        super();
-        this.add_attr(nodeInfo);
-    }
-}
-exports.ConfigModel = ConfigModel;
-spinal_core_connectorjs_type_1.spinalCore.register_models(ConfigModel);
-exports.default = ConfigModel;
-
-},{"87f392c163896816":"fRH70"}],"fR5zB":[function(require,module,exports) {
-"use strict";
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.EntityModel = void 0;
-const spinal_core_connectorjs_type_1 = require("30b6806a9befdbc5");
-class EntityModel extends spinal_core_connectorjs_type_1.Model {
-    constructor(entity){
-        super();
-        this.add_attr(entity);
-    }
-}
-exports.EntityModel = EntityModel;
-spinal_core_connectorjs_type_1.spinalCore.register_models(EntityModel);
-exports.default = EntityModel;
-
-},{"30b6806a9befdbc5":"fRH70"}],"h4DC9":[function(require,module,exports) {
-"use strict";
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.InputsModel = void 0;
-const spinal_core_connectorjs_type_1 = require("edba9546fee3d09e");
-class InputsModel extends spinal_core_connectorjs_type_1.Model {
-    constructor(inputInfo){
-        super();
-        this.add_attr(inputInfo);
-    }
-}
-exports.InputsModel = InputsModel;
-spinal_core_connectorjs_type_1.spinalCore.register_models(InputsModel);
-exports.default = InputsModel;
-
-},{"edba9546fee3d09e":"fRH70"}],"SIBaV":[function(require,module,exports) {
-"use strict";
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.OutputsModel = void 0;
-const spinal_core_connectorjs_type_1 = require("62a6631c4392c52b");
-class OutputsModel extends spinal_core_connectorjs_type_1.Model {
-    constructor(outputInfo){
-        super();
-        this.add_attr(outputInfo);
-    }
-}
-exports.OutputsModel = OutputsModel;
-spinal_core_connectorjs_type_1.spinalCore.register_models(OutputsModel);
-exports.default = OutputsModel;
-
-},{"62a6631c4392c52b":"fRH70"}],"3BNTc":[function(require,module,exports) {
-"use strict";
-/* eslint-disable @typescript-eslint/no-explicit-any */ /*
- * Copyright 2022 SpinalCom - www.spinalcom.com
- *
- * This file is part of SpinalCore.
- *
- * Please read all of the following terms and conditions
- * of the Free Software license Agreement ("Agreement")
- * carefully.
- *
- * This Agreement is a legally binding contract between
- * the Licensee (as defined below) and SpinalCom that
- * sets forth the terms and conditions that govern your
- * use of the Program. By installing and/or using the
- * Program, you agree to abide by all the terms and
- * conditions stated or referenced herein.
- *
- * If you do not agree to abide by these terms and
- * conditions, do not demonstrate your acceptance and do
- * not install or use the Program.
- * You should have received a copy of the license along
- * with this file. If not, see
- * <http://resources.spinalcom.com/licenses.pdf>.
- */ var __awaiter = this && this.__awaiter || function(thisArg, _arguments, P, generator) {
-    function adopt(value) {
-        return value instanceof P ? value : new P(function(resolve) {
-            resolve(value);
-        });
-    }
-    return new (P || (P = Promise))(function(resolve, reject) {
-        function fulfilled(value) {
-            try {
-                step(generator.next(value));
-            } catch (e) {
-                reject(e);
-            }
+     */ /*public async doAnalysis(
+      analyticId: string,
+      triggerObject: { triggerType: string; triggerValue: string }
+    ): Promise<IResult[]> {
+      const entities =
+        await this.analyticInputManagerService.getWorkingFollowedEntities(
+          analyticId
+        );
+      if (!entities) return [{ success: false, error: 'No entities found' }];
+  
+      const configNode = await this.analyticNodeManagerService.getConfig(
+        analyticId
+      );
+      if (!configNode) return [{ success: false, error: 'No config node found' }];
+  
+      const configAttributes =
+        await this.analyticNodeManagerService.getAllCategoriesAndAttributesFromNode(
+          configNode.id.get()
+        );
+  
+      const lastExecutionTime = parseInt(
+        configAttributes[CONSTANTS.CATEGORY_ATTRIBUTE_ANALYTIC_PARAMETERS][
+          CONSTANTS.ATTRIBUTE_LAST_EXECUTION_TIME
+        ] as string
+      );
+      const shouldCatchUpMissedExecutions: boolean =
+        configAttributes[CONSTANTS.CATEGORY_ATTRIBUTE_ANALYTIC_PARAMETERS][
+          CONSTANTS.ATTRIBUTE_ANALYTIC_PAST_EXECUTIONS
+        ] as boolean;
+      let executionsTimes: number[] = [];
+  
+      if (shouldCatchUpMissedExecutions) {
+        if (triggerObject.triggerType === CONSTANTS.TRIGGER_TYPE.CRON) {
+          executionsTimes = this.getCronMissingExecutionTimes(
+            triggerObject.triggerValue,
+            lastExecutionTime
+          );
         }
-        function rejected(value) {
-            try {
-                step(generator["throw"](value));
-            } catch (e) {
-                reject(e);
-            }
+        if (triggerObject.triggerType === CONSTANTS.TRIGGER_TYPE.INTERVAL_TIME) {
+          executionsTimes = this.getIntervalTimeMissingExecutionTimes(
+            parseInt(triggerObject.triggerValue),
+            lastExecutionTime
+          );
         }
-        function step(result) {
-            result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected);
-        }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.createEndpoint = exports.timeseriesPreProcessing = exports.getIntervalTimeMissingExecutionTimes = exports.getCronMissingExecutionTimes = exports.safeDeleteNode = exports.addTicketAlarm = exports.formatTrackingMethodsToList = exports.getValueModelFromEntry = exports.findAllCategoriesAndAttributes = exports.findAttributes = exports.findAttribute = exports.findEndpoints = exports.findEndpoint = exports.findNodes = exports.getAvailableData = exports.getChoiceRelationsWithDepth = exports.getRelationsWithDepth = exports.getTicketLocalizationParameters = exports.getAlgorithmParameters = void 0;
-const spinal_env_viewer_graph_service_1 = require("9d30dc6765dfaf3f");
-const spinal_env_viewer_plugin_documentation_service_1 = require("c7a64ffb1839efda");
-const spinal_service_ticket_1 = require("1a169e5a3c86739a");
-const spinal_model_bmsnetwork_1 = require("6f4627f209812112");
-const InputDataEndpoint_1 = require("26efe0b30d34fce4");
-const CONSTANTS = require("164af0ed33d3fe16");
-const spinal_models_documentation_1 = require("d0f9dc2618ecd426");
-const SingletonTimeSeries_1 = require("d25d62dee5469eb1");
-const cronParser = require("e6a19589fa0a1287");
-const serviceTimeseries = SingletonTimeSeries_1.SingletonServiceTimeseries.getInstance();
-/**
- * Uses the documentation service to get the attributes related to the algorithm parameters
- *
- * @export
- * @param {SpinalNodeRef} config
- * @return {*}
- */ function getAlgorithmParameters(config) {
-    return __awaiter(this, void 0, void 0, function*() {
-        const configNode = spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(config.id.get());
-        const res = {};
-        const algorithmParameters = yield spinal_env_viewer_plugin_documentation_service_1.attributeService.getAttributesByCategory(configNode, CONSTANTS.CATEGORY_ATTRIBUTE_ALGORTHM_PARAMETERS);
-        for (const param of algorithmParameters){
-            const obj = param.get();
-            res[obj.label] = obj.value;
-        }
-        return res;
-    });
-}
-exports.getAlgorithmParameters = getAlgorithmParameters;
-/**
- * Uses the documentation service to get the attributes related to the ticket localization
- * (context and process) parameters
- *
- * @export
- * @param {SpinalNodeRef} config
- * @return {*}
- */ function getTicketLocalizationParameters(config) {
-    return __awaiter(this, void 0, void 0, function*() {
-        const configNode = spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(config.id.get());
-        const res = {};
-        const localizationParameters = yield spinal_env_viewer_plugin_documentation_service_1.attributeService.getAttributesByCategory(configNode, CONSTANTS.CATEGORY_ATTRIBUTE_TICKET_LOCALIZATION_PARAMETERS);
-        for (const param of localizationParameters){
-            const obj = param.get();
-            res[obj.label] = obj.value;
-        }
-        return res;
-    });
-}
-exports.getTicketLocalizationParameters = getTicketLocalizationParameters;
-function getRelationsWithDepth(nodeId, depth) {
-    return __awaiter(this, void 0, void 0, function*() {
-        const relations = spinal_env_viewer_graph_service_1.SpinalGraphService.getRelationNames(nodeId);
-        if (depth <= 0) return relations;
-        const children = yield spinal_env_viewer_graph_service_1.SpinalGraphService.getChildren(nodeId);
-        for (const child of children){
-            const childRelations = yield getRelationsWithDepth(child.id.get(), depth - 1);
-            for (const childRelation of childRelations)if (!relations.includes(childRelation)) relations.push(childRelation);
-        }
-        return relations;
-    });
-}
-exports.getRelationsWithDepth = getRelationsWithDepth;
-function getChoiceRelationsWithDepth(nodeId, depth) {
-    return __awaiter(this, void 0, void 0, function*() {
-        const relations = yield getRelationsWithDepth(nodeId, depth);
-        const usefullRelations = relations.filter((relation)=>{
-            return !CONSTANTS.ENDPOINT_RELATIONS.includes(relation) && !CONSTANTS.CONTROL_ENDPOINT_RELATIONS.includes(relation);
-        });
-        return usefullRelations;
-    });
-}
-exports.getChoiceRelationsWithDepth = getChoiceRelationsWithDepth;
-function getAvailableData(trackMethod, nodeId, filterValue, depth, stricDepth, authorizedRelations) {
-    return __awaiter(this, void 0, void 0, function*() {
-        switch(trackMethod){
-            case CONSTANTS.TRACK_METHOD.ENDPOINT_NAME_FILTER:
-                {
-                    const data = yield findEndpoints(nodeId, filterValue, depth, stricDepth, authorizedRelations, CONSTANTS.ENDPOINT_RELATIONS, CONSTANTS.ENDPOINT_NODE_TYPE);
-                    return data.map((endpoint)=>endpoint.name.get());
-                }
-            case CONSTANTS.TRACK_METHOD.CONTROL_ENDPOINT_NAME_FILTER:
-                {
-                    const data = yield findEndpoints(nodeId, filterValue, depth, stricDepth, authorizedRelations, CONSTANTS.CONTROL_ENDPOINT_RELATIONS, CONSTANTS.ENDPOINT_NODE_TYPE);
-                    return data.map((endpoint)=>endpoint.name.get());
-                }
-            case CONSTANTS.TRACK_METHOD.ATTRIBUTE_NAME_FILTER:
-                {
-                    const [category, attribute] = filterValue.split(":");
-                    const data = yield findAttributes(nodeId, category, attribute, depth, stricDepth, authorizedRelations);
-                    return data;
-                }
-            default:
-                console.log("Get available data not implemented yet for this tracking method");
-                return [];
-        }
-    });
-}
-exports.getAvailableData = getAvailableData;
-function findNodes(nodeId, authorizedRelations, nodeType) {
-    return __awaiter(this, void 0, void 0, function*() {
-        let res = [];
-        const children = yield spinal_env_viewer_graph_service_1.SpinalGraphService.getChildren(nodeId, authorizedRelations);
-        for (const child of children)if (child.type.get() === nodeType) res.push(child);
-        else res = res.concat((yield findNodes(child.id.get(), authorizedRelations, nodeType)));
-        return res;
-    });
-}
-exports.findNodes = findNodes;
-function findSpecificNode(nodeId, filterNameValue, trackedRelations, nodeType) {
-    return __awaiter(this, void 0, void 0, function*() {
-        const endpoints = yield findNodes(nodeId, trackedRelations, nodeType);
-        return endpoints.find((endpoint)=>endpoint.name.get() === filterNameValue);
-    });
-}
-function findMatchingNodes(nodeId, filterNameValue, trackedRelations, nodeType) {
-    return __awaiter(this, void 0, void 0, function*() {
-        const endpoints = yield findNodes(nodeId, trackedRelations, nodeType);
-        return endpoints.filter((endpoint)=>endpoint.name.get().includes(filterNameValue));
-    });
-}
-function findEndpoint(nodeId, filterNameValue, depth, strictDepth, authorizedRelations, trackedRelations, nodeType) {
-    return __awaiter(this, void 0, void 0, function*() {
-        if (depth < 0) return undefined;
-        // we dont look further
-        if (depth == 0) return yield findSpecificNode(nodeId, filterNameValue, trackedRelations, nodeType);
-        // depth > 0
-        if (!strictDepth) {
-            const foundEndpoint = yield findSpecificNode(nodeId, filterNameValue, trackedRelations, nodeType);
-            if (foundEndpoint) return foundEndpoint;
-        }
-        const allRelations = spinal_env_viewer_graph_service_1.SpinalGraphService.getRelationNames(nodeId);
-        const checkedRelations = allRelations.filter((relation)=>authorizedRelations.includes(relation));
-        if (checkedRelations.length === 0) return undefined;
-        const children = yield spinal_env_viewer_graph_service_1.SpinalGraphService.getChildren(nodeId, checkedRelations);
-        for (const child of children){
-            const endpoint = yield findEndpoint(child.id.get(), filterNameValue, depth - 1, strictDepth, authorizedRelations, trackedRelations, nodeType);
-            if (endpoint) return endpoint;
-        }
-        return undefined;
-    });
-}
-exports.findEndpoint = findEndpoint;
-function findEndpoints(nodeId, filterNameValue, depth, strictDepth, authorizedRelations, trackedRelations, nodeType) {
-    return __awaiter(this, void 0, void 0, function*() {
-        if (depth == 0) return yield findMatchingNodes(nodeId, filterNameValue, trackedRelations, nodeType);
-        let results = [];
-        if (!strictDepth) results = results.concat((yield findMatchingNodes(nodeId, filterNameValue, trackedRelations, nodeType)));
-        if (depth <= 0) return results;
-        const allRelations = spinal_env_viewer_graph_service_1.SpinalGraphService.getRelationNames(nodeId);
-        const checkedRelations = allRelations.filter((relation)=>authorizedRelations.includes(relation));
-        if (checkedRelations.length === 0) return results;
-        const children = yield spinal_env_viewer_graph_service_1.SpinalGraphService.getChildren(nodeId, checkedRelations);
-        for (const child of children)results = results.concat((yield findEndpoints(child.id.get(), filterNameValue, depth - 1, strictDepth, authorizedRelations, trackedRelations, nodeType)));
-        return results;
-    });
-}
-exports.findEndpoints = findEndpoints;
-function findAttribute(nodeId, categoryName, attributeName, depth, strictDepth, authorizedRelations) {
-    return __awaiter(this, void 0, void 0, function*() {
-        if (depth < 0) return -1;
-        const node = spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(nodeId);
-        // we dont look further
-        if (depth == 0) return yield spinal_env_viewer_plugin_documentation_service_1.attributeService.findOneAttributeInCategory(node, categoryName, attributeName);
-        // depth > 0
-        if (!strictDepth) {
-            const foundAttribute = yield spinal_env_viewer_plugin_documentation_service_1.attributeService.findOneAttributeInCategory(node, categoryName, attributeName);
-            if (foundAttribute != -1) return foundAttribute;
-        }
-        const allRelations = spinal_env_viewer_graph_service_1.SpinalGraphService.getRelationNames(nodeId);
-        const checkedRelations = allRelations.filter((relation)=>authorizedRelations.includes(relation));
-        if (checkedRelations.length === 0) return -1;
-        const children = yield spinal_env_viewer_graph_service_1.SpinalGraphService.getChildren(nodeId, checkedRelations);
-        for (const child of children){
-            const attribute = yield findAttribute(child.id.get(), categoryName, attributeName, depth - 1, strictDepth, authorizedRelations);
-            if (attribute != -1) return attribute;
-        }
-        return -1;
-    });
-}
-exports.findAttribute = findAttribute;
-function findAttributes(nodeId, categoryName, attributeName, depth, strictDepth, authorizedRelations) {
-    return __awaiter(this, void 0, void 0, function*() {
-        if (depth == 0) return yield findAllCategoriesAndAttributes(nodeId);
-        let results = [];
-        if (!strictDepth) results = results.concat((yield findAllCategoriesAndAttributes(nodeId)));
-        if (depth <= 0) return results;
-        const allRelations = spinal_env_viewer_graph_service_1.SpinalGraphService.getRelationNames(nodeId);
-        const checkedRelations = allRelations.filter((relation)=>authorizedRelations.includes(relation));
-        if (checkedRelations.length === 0) return results;
-        const children = yield spinal_env_viewer_graph_service_1.SpinalGraphService.getChildren(nodeId, checkedRelations);
-        for (const child of children)results = results.concat((yield findAttributes(child.id.get(), categoryName, attributeName, depth - 1, strictDepth, authorizedRelations)));
-        return results;
-    });
-}
-exports.findAttributes = findAttributes;
-function findAllCategoriesAndAttributes(followedEntityId) {
-    return __awaiter(this, void 0, void 0, function*() {
-        const node = spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(followedEntityId);
-        const res = [];
-        const categories = yield spinal_env_viewer_plugin_documentation_service_1.attributeService.getCategory(node);
-        for (const category of categories){
-            const attributes = yield spinal_env_viewer_plugin_documentation_service_1.attributeService.getAttributesByCategory(node, category);
-            for (const attribute of attributes){
-                const obj = attribute.get();
-                res.push(`${category.nameCat}:${obj.label}`);
-            }
-        }
-        return res;
-    });
-}
-exports.findAllCategoriesAndAttributes = findAllCategoriesAndAttributes;
-function getValueModelFromEntry(entryDataModel) {
-    return __awaiter(this, void 0, void 0, function*() {
-        if (!(entryDataModel instanceof spinal_models_documentation_1.SpinalAttribute)) {
-            const element = yield entryDataModel.element.load();
-            return element.currentValue;
-        }
-        return entryDataModel.value;
-    });
-}
-exports.getValueModelFromEntry = getValueModelFromEntry;
-function formatTrackingMethodsToList(obj) {
-    const result = [];
-    const keys = Object.keys(obj);
-    const length = (keys.length - 1) / 4;
-    for(let i = 0; i < length; i++){
-        const item = {
-            trackingMethod: obj[`trackingMethod${i}`],
-            filterValue: obj[`filterValue${i}`],
-            removeFromAnalysis: obj[`removeFromAnalysis${i}`],
-            removeFromBinding: obj[`removeFromBinding${i}`]
-        };
-        result.push(item);
-    }
-    return result;
-}
-exports.formatTrackingMethodsToList = formatTrackingMethodsToList;
-// ticket creation
-/**
- * Gets the ticket context that has the corresponding contextId
- *
- * @param {string} contextId
- * @return {*}
- */ function getTicketContext(contextId) {
-    const contexts = spinal_env_viewer_graph_service_1.SpinalGraphService.getContextWithType("SpinalSystemServiceTicket");
-    const context = contexts.find((ctx)=>{
-        return ctx.info.id.get() == contextId;
-    });
-    return context;
-}
-/**
- * Gets the ticket process that has the corresponding processId in the context that has the corresponding contextId
- *
- * @param {string} contextId
- * @param {string} processId
- * @return {*}
- */ function getTicketProcess(contextId, processId) {
-    return __awaiter(this, void 0, void 0, function*() {
-        const processes = yield spinal_env_viewer_graph_service_1.SpinalGraphService.getChildrenInContext(contextId, contextId);
-        const process = processes.find((process)=>{
-            return process.id.get() == processId;
-        });
-        return process;
-    });
-}
-/**
- * Checks if an alarm is already declared in the context and process.
- *
- * @param {string} nodeId
- * @param {string} contextId
- * @param {string} processId
- * @param {string} ticketName
- * @return {*}
- */ function alarmAlreadyDeclared(nodeId, contextId, processId, ticketName) {
-    return __awaiter(this, void 0, void 0, function*() {
-        //SpinalNode
-        const tickets = yield spinal_service_ticket_1.spinalServiceTicket.getAlarmsFromNode(nodeId);
-        const found = tickets.find((ticket)=>{
-            return contextId == ticket.contextId && processId == ticket.processId && ticket.name == ticketName;
-        });
-        return found;
-    });
-}
-/**
- * Adds a ticket alarm to the context and process and link it with the node
- *
- * @export
- * @param {*} ticketInfos
- * @param {SpinalNodeRef} configInfo
- * @param {string} nodeId
- */ function addTicketAlarm(ticketInfos, configAttributes, analyticContextId, outputNodeId, entityNodeId, ticketType) {
-    return __awaiter(this, void 0, void 0, function*() {
-        const localizationInfo = configAttributes[CONSTANTS.CATEGORY_ATTRIBUTE_TICKET_LOCALIZATION_PARAMETERS];
-        const contextId = localizationInfo[CONSTANTS.ATTRIBUTE_TICKET_CONTEXT_ID];
-        const processId = localizationInfo[CONSTANTS.ATTRIBUTE_TICKET_PROCESS_ID];
-        const context = getTicketContext(contextId);
-        const process = yield getTicketProcess(context.info.id.get(), processId);
-        const alreadyDeclared = yield alarmAlreadyDeclared(entityNodeId, contextId, processId, ticketInfos.name);
-        if (alreadyDeclared) {
-            //just update the ticket
-            const firstStep = yield spinal_service_ticket_1.serviceTicketPersonalized.getFirstStep(processId, contextId);
-            console.log("update ticket " + ticketInfos.name);
-            const declaredTicketNode = spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(alreadyDeclared.id);
-            if (declaredTicketNode.info.stepId.get() == firstStep) {
-                const attr = yield spinal_env_viewer_plugin_documentation_service_1.attributeService.findOneAttributeInCategory(declaredTicketNode, "default", "Occurrence number");
-                if (attr != -1) {
-                    // found the attribute
-                    const value = attr.value.get();
-                    const str = value.toString();
-                    const newValueInt = parseInt(str) + 1;
-                    yield spinal_env_viewer_plugin_documentation_service_1.attributeService.updateAttribute(declaredTicketNode, "default", "Occurrence number", {
-                        value: newValueInt.toString()
-                    });
-                    yield updateEndpointOccurenceNumber(declaredTicketNode, newValueInt);
-                }
-            } else {
-                // move the ticket to the first step and reset the occurrence number
-                yield spinal_service_ticket_1.serviceTicketPersonalized.moveTicket(declaredTicketNode.info.id.get(), declaredTicketNode.info.stepId.get(), firstStep, contextId);
-                yield spinal_env_viewer_plugin_documentation_service_1.attributeService.updateAttribute(declaredTicketNode, "default", "Occurrence number", {
-                    value: "1"
-                });
-                yield updateEndpointOccurenceNumber(declaredTicketNode, 1);
-                console.log(`${ticketInfos.name} has been re-triggered and moved back to the first step`);
-            }
-        } else {
-            console.log("create ticket " + ticketInfos.name);
-            if (process) try {
-                const ticketId = yield spinal_service_ticket_1.spinalServiceTicket.addTicket(ticketInfos, process.id.get(), context.info.id.get(), entityNodeId, ticketType);
-                if (ticketId instanceof Error) return;
-                if (ticketType == "Alarm") spinal_env_viewer_graph_service_1.SpinalGraphService.addChildInContext(outputNodeId, ticketId, analyticContextId, spinal_service_ticket_1.ALARM_RELATION_NAME, spinal_service_ticket_1.TICKET_RELATION_TYPE);
-                else spinal_env_viewer_graph_service_1.SpinalGraphService.addChildInContext(outputNodeId, ticketId, analyticContextId, spinal_service_ticket_1.TICKET_RELATION_NAME, spinal_service_ticket_1.TICKET_RELATION_TYPE);
-                if (typeof ticketId === "string") {
-                    const declaredTicketNode = spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(ticketId);
-                    yield spinal_env_viewer_plugin_documentation_service_1.attributeService.updateAttribute(declaredTicketNode, "default", "Occurrence number", {
-                        value: "1"
-                    });
-                    const endpoint = new InputDataEndpoint_1.InputDataEndpoint("Occurence number", 1, "", spinal_model_bmsnetwork_1.InputDataEndpointDataType.Integer, spinal_model_bmsnetwork_1.InputDataEndpointType.Alarm);
-                    const res = new spinal_model_bmsnetwork_1.SpinalBmsEndpoint(endpoint.name, endpoint.path, endpoint.currentValue, endpoint.unit, spinal_model_bmsnetwork_1.InputDataEndpointDataType[endpoint.dataType], spinal_model_bmsnetwork_1.InputDataEndpointType[endpoint.type], endpoint.id);
-                    const childId = spinal_env_viewer_graph_service_1.SpinalGraphService.createNode({
-                        type: spinal_model_bmsnetwork_1.SpinalBmsEndpoint.nodeTypeName,
-                        name: endpoint.name
-                    }, res);
-                    spinal_env_viewer_graph_service_1.SpinalGraphService.addChild(ticketId, childId, spinal_model_bmsnetwork_1.SpinalBmsEndpoint.relationName, spinal_env_viewer_graph_service_1.SPINAL_RELATION_PTR_LST_TYPE);
-                    yield serviceTimeseries.getOrCreateTimeSeries(childId);
-                    serviceTimeseries.pushFromEndpoint(childId, 1);
-                }
-            } catch (error) {
-                console.log("Ticket creation failed");
-            }
-        }
-    });
-}
-exports.addTicketAlarm = addTicketAlarm;
-function updateEndpointOccurenceNumber(ticketNode, newValue) {
-    return __awaiter(this, void 0, void 0, function*() {
-        const endpoints = yield ticketNode.getChildren("hasBmsEndpoint");
-        endpoints.map((endpoint)=>__awaiter(this, void 0, void 0, function*() {
-                var _a;
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                // @ts-ignore
-                spinal_env_viewer_graph_service_1.SpinalGraphService._addNode(endpoint);
-                if (endpoint.info.name.get() == "Occurence number") {
-                    serviceTimeseries.pushFromEndpoint(endpoint.info.id.get(), newValue);
-                    const element = yield (_a = endpoint.element) === null || _a === void 0 ? void 0 : _a.load();
-                    element.currentValue.set(newValue);
-                }
-            }));
-    });
-}
-function removeChild(parentNode, childNode, relation) {
-    return __awaiter(this, void 0, void 0, function*() {
+      }
+      executionsTimes.push(Date.now());
+  
+      // Adjust the last execution time for cron triggers to match the exact time
+      if (triggerObject.triggerType === CONSTANTS.TRIGGER_TYPE.CRON) {
+        const interval = cronParser.parseExpression(triggerObject.triggerValue);
+        const nextExecutionTime = interval.prev().getTime();
+        executionsTimes[executionsTimes.length - 1] = nextExecutionTime;
+      }
+  
+      logMessage(`executionsTimes : ${executionsTimes}`);
+  
+      const analysisPromises = entities.map((entity) =>
+        executionsTimes.map((executionTime) =>
+          this.doAnalysisOnEntity(
+            analyticId,
+            entity,
+            executionTime,
+            configAttributes
+          )
+        )
+      );
+      const results = await Promise.all(analysisPromises.flat());
+      return results;
+    }*/ getCronMissingExecutionTimes(cronSyntax, lastExecutedTime) {
+        const now = new Date();
+        const lastExecutedDate = new Date(lastExecutedTime);
+        const executionTimes = [];
         try {
-            yield parentNode.removeChild(childNode, relation, spinal_env_viewer_graph_service_1.SPINAL_RELATION_PTR_LST_TYPE);
-        } catch (e) {
-            try {
-                yield parentNode.removeChild(childNode, relation, spinal_env_viewer_graph_service_1.SPINAL_RELATION_LST_PTR_TYPE);
-            } catch (e) {
-                console.log(e);
+            // Initialize options for cron-parser
+            const options = {
+                currentDate: lastExecutedDate,
+                endDate: now
+            };
+            // Parse the cron syntax with the provided options
+            const interval = cronParser.parseExpression(cronSyntax, options);
+            // Using a while loop to fetch the next valid date within the range
+            let nextDate = interval.next();
+            while(nextDate && nextDate.toDate() <= now){
+                executionTimes.push(nextDate.getTime());
+                try {
+                    nextDate = interval.next();
+                } catch (e) {
+                    break;
+                }
             }
+        } catch (err) {
+            console.error("Failed to parse cron syntax:", err);
         }
-    });
-}
-function safeDeleteNode(nodeId, shouldDeleteChildren = false) {
-    return __awaiter(this, void 0, void 0, function*() {
-        const realNode = spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(nodeId);
-        const relations = realNode.getRelationNames();
-        for (const relation of relations){
-            const children = yield realNode.getChildren(relation);
-            for (const child of children){
-                yield removeChild(realNode, child, relation);
-                if (shouldDeleteChildren) yield child.removeFromGraph();
+        executionTimes.pop(); // Remove the last date (current time ) as it is
+        return executionTimes;
+    }
+    getIntervalTimeMissingExecutionTimes(intervalTime, lastExecutedTime) {
+        const now = new Date();
+        const lastExecutedDate = new Date(lastExecutedTime);
+        const executionTimes = [];
+        try {
+            let nextDate = new Date(lastExecutedDate.getTime() + intervalTime);
+            while(nextDate <= now){
+                executionTimes.push(nextDate.getTime());
+                nextDate = new Date(nextDate.getTime() + intervalTime);
             }
+        } catch (err) {
+            console.error("Failed to parse interval time:", err);
         }
-        yield realNode.removeFromGraph();
-    });
-}
-exports.safeDeleteNode = safeDeleteNode;
-function getCronMissingExecutionTimes(cronSyntax, lastExecutedTime) {
-    const now = new Date();
-    const lastExecutedDate = new Date(lastExecutedTime);
-    const executionTimes = [];
-    try {
-        // Initialize options for cron-parser
+        return executionTimes;
+    }
+    getExecutionTimestamps(aggregateExecutionTime, executionTime, lastExecutionTime) {
+        // Parsing options with a current date set to the lastExecutionTime
         const options = {
-            currentDate: lastExecutedDate,
-            endDate: now
+            currentDate: new Date(lastExecutionTime),
+            tz: "Europe/Paris" // Set to UTC or the appropriate timezone
         };
-        // Parse the cron syntax with the provided options
-        const interval = cronParser.parseExpression(cronSyntax, options);
-        // Using a while loop to fetch the next valid date within the range
-        let nextDate = interval.next();
-        while(nextDate && nextDate.toDate() <= now){
-            executionTimes.push(nextDate.getTime());
-            try {
-                nextDate = interval.next();
-            } catch (e) {
-                break;
+        // Initialize the parser for the aggregate execution time
+        const aggregateIterator = cronParser.parseExpression(aggregateExecutionTime, options);
+        // Calculate the next aggregate execution time
+        const nextAggregateExecTime = aggregateIterator.next().toDate().getTime();
+        // Modify options for regular execution time parsing
+        options.currentDate = new Date(lastExecutionTime); // Reset the currentDate
+        const executionIterator = cronParser.parseExpression(executionTime, options);
+        // Array to store the timestamps
+        const timestamps = [];
+        try {
+            // Iterate over the scheduled execution times and collect them
+            let nextExecTime = executionIterator.next().toDate().getTime();
+            while(nextExecTime <= nextAggregateExecTime){
+                timestamps.push(nextExecTime);
+                nextExecTime = executionIterator.next().toDate().getTime();
             }
+        } catch (err) {
+            if (!(err instanceof Error && err.message === "Out of the timespan range")) throw err; // Re-throw unexpected errors
         }
-    } catch (err) {
-        console.error("Failed to parse cron syntax:", err);
-    }
-    executionTimes.pop(); // Remove the last date (current time ) as it is
-    return executionTimes;
-}
-exports.getCronMissingExecutionTimes = getCronMissingExecutionTimes;
-function getIntervalTimeMissingExecutionTimes(intervalTime, lastExecutedTime) {
-    const now = new Date();
-    const lastExecutedDate = new Date(lastExecutedTime);
-    const executionTimes = [];
-    try {
-        let nextDate = new Date(lastExecutedDate.getTime() + intervalTime);
-        while(nextDate <= now){
-            executionTimes.push(nextDate.getTime());
-            nextDate = new Date(nextDate.getTime() + intervalTime);
-        }
-    } catch (err) {
-        console.error("Failed to parse interval time:", err);
-    }
-    return executionTimes;
-}
-exports.getIntervalTimeMissingExecutionTimes = getIntervalTimeMissingExecutionTimes;
-function timeseriesPreProcessing(start, end, timeseries) {
-    if (timeseries.length === 0) return [];
-    //shifting the first timeseries to start if it is before start
-    if (timeseries[0].date < start) timeseries[0].date = start;
-    //copy last value to the end of the timeseries
-    timeseries.push({
-        date: end,
-        value: timeseries[timeseries.length - 1].value
-    });
-    return timeseries;
-}
-exports.timeseriesPreProcessing = timeseriesPreProcessing;
-function createEndpoint(referenceEpochTime, parentId, endpointName, initialValue, unit, maxDays) {
-    return __awaiter(this, void 0, void 0, function*() {
-        const endpoint = new InputDataEndpoint_1.InputDataEndpoint(endpointName, initialValue, unit !== null && unit !== void 0 ? unit : "", spinal_model_bmsnetwork_1.InputDataEndpointDataType.Integer, spinal_model_bmsnetwork_1.InputDataEndpointType.Other);
-        const res = new spinal_model_bmsnetwork_1.SpinalBmsEndpoint(endpoint.name, endpoint.path, endpoint.currentValue, endpoint.unit, spinal_model_bmsnetwork_1.InputDataEndpointDataType[endpoint.dataType], spinal_model_bmsnetwork_1.InputDataEndpointType[endpoint.type], endpoint.id);
-        const childId = spinal_env_viewer_graph_service_1.SpinalGraphService.createNode({
-            type: spinal_model_bmsnetwork_1.SpinalBmsEndpoint.nodeTypeName,
-            name: endpoint.name
-        }, res);
-        spinal_env_viewer_graph_service_1.SpinalGraphService.addChild(parentId, childId, spinal_model_bmsnetwork_1.SpinalBmsEndpoint.relationName, spinal_env_viewer_graph_service_1.SPINAL_RELATION_PTR_LST_TYPE);
-        yield serviceTimeseries.getOrCreateTimeSeries(childId);
-        serviceTimeseries.insertFromEndpoint(childId, initialValue, referenceEpochTime);
-        const realNode = spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(childId);
-        yield spinal_env_viewer_plugin_documentation_service_1.attributeService.updateAttribute(realNode, "default", "timeSeries maxDay", {
-            value: maxDays
-        });
-        return spinal_env_viewer_graph_service_1.SpinalGraphService.getInfo(childId);
-    });
-}
-exports.createEndpoint = createEndpoint;
-
-},{"9d30dc6765dfaf3f":"9n7zp","c7a64ffb1839efda":"5rYVR","1a169e5a3c86739a":"gi7V0","6f4627f209812112":"gzkbg","26efe0b30d34fce4":"l7xEW","164af0ed33d3fe16":"2CVgx","d0f9dc2618ecd426":"dcbQz","d25d62dee5469eb1":"3VBF8","e6a19589fa0a1287":"d00sa"}],"l7xEW":[function(require,module,exports) {
-"use strict";
-/*
- * Copyright 2018 SpinalCom - www.spinalcom.com
- *
- * This file is part of SpinalCore.
- *
- * Please read all of the following terms and conditions
- * of the Free Software license Agreement ("Agreement")
- * carefully.
- *
- * This Agreement is a legally binding contract between
- * the Licensee (as defined below) and SpinalCom that
- * sets forth the terms and conditions that govern your
- * use of the Program. By installing and/or using the
- * Program, you agree to abide by all the terms and
- * conditions stated or referenced herein.
- *
- * If you do not agree to abide by these terms and
- * conditions, do not demonstrate your acceptance and do
- * not install or use the Program.
- * You should have received a copy of the license along
- * with this file. If not, see
- * <http://resources.spinalcom.com/licenses.pdf>.
- */ Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.InputDataEndpoint = void 0;
-const spinal_model_bmsnetwork_1 = require("e04a7e576c664fcd");
-const genUID_1 = require("8354bb2eeff008e1");
-/**
- * @property {string} id
- * @property {string} name
- * @property {string} path
- * @property {number | string} currentValue
- * @property {string} unit
- * @property {InputDataEndpointDataType} dataType
- * @property {InputDataEndpointType} type
- * @property {string} nodeTypeName equal SpinalBmsEndpoint.nodeTypeName
- * @property {any[]} timeseries
- * @export
- * @class InputDataEndpoint
- * @implements {idEndpoint}
- */ class InputDataEndpoint {
-    /**
-     *Creates an instance of InputDataEndpoint.
-     * @param {string} [name='default endpoint name']
-     * @param {(number | string)} [currentValue=0]
-     * @param {string} [unit='unit']
-     * @param {InputDataEndpointDataType} [dataType=InputDataEndpointDataType.Integer]
-     * @param {InputDataEndpointType} [type=InputDataEndpointType.Other]
-     * @param {string} [id=genUID('InputDataEndpoint')]
-     * @param {string} [path='default endpoint path']
-     * @memberof InputDataEndpoint
-     */ constructor(name = "default endpoint name", currentValue = 0, unit = "unit", dataType = spinal_model_bmsnetwork_1.InputDataEndpointDataType.Integer, type = spinal_model_bmsnetwork_1.InputDataEndpointType.Other, id = (0, genUID_1.genUID)("InputDataEndpoint"), path = "default endpoint path"){
-        this.nodeTypeName = spinal_model_bmsnetwork_1.SpinalBmsEndpoint.nodeTypeName;
-        this.id = id;
-        this.name = name;
-        this.type = type;
-        this.path = path;
-        this.currentValue = currentValue;
-        this.unit = unit;
-        this.dataType = dataType;
-        this.timeseries = [];
-        this.idx = Math.floor(Math.random() * 100);
+        return timestamps;
     }
 }
-exports.InputDataEndpoint = InputDataEndpoint;
+exports.default = AnalyticExecutionManagerService;
+exports.AnalyticExecutionManagerService = AnalyticExecutionManagerService;
 
-},{"e04a7e576c664fcd":"gzkbg","8354bb2eeff008e1":"jWwjU"}],"jWwjU":[function(require,module,exports) {
-"use strict";
-/*
- * Copyright 2018 SpinalCom - www.spinalcom.com
- *
- * This file is part of SpinalCore.
- *
- * Please read all of the following terms and conditions
- * of the Free Software license Agreement ("Agreement")
- * carefully.
- *
- * This Agreement is a legally binding contract between
- * the Licensee (as defined below) and SpinalCom that
- * sets forth the terms and conditions that govern your
- * use of the Program. By installing and/or using the
- * Program, you agree to abide by all the terms and
- * conditions stated or referenced herein.
- *
- * If you do not agree to abide by these terms and
- * conditions, do not demonstrate your acceptance and do
- * not install or use the Program.
- * You should have received a copy of the license along
- * with this file. If not, see
- * <http://resources.spinalcom.com/licenses.pdf>.
- */ Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.genUID = void 0;
-function s4() {
-    return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
-}
-function genUID(constructor) {
-    const res = `${constructor}-${s4() + s4()}-${s4()}-${s4()}-${s4()}-${s4() + s4() + s4()}-${Date.now().toString(16)}`;
-    return res;
-}
-exports.genUID = genUID;
-
-},{}],"3VBF8":[function(require,module,exports) {
+},{"571e42a8c9e6324a":"9n7zp","f7d2d78aecd8bf09":"2CVgx","82cf3e40ee2bde4c":"5rYVR","22aebbcb50efab87":"a1B4H","81eb22fb3c935b57":"8QYUj","1bbd3a5a09ff8fc7":"d00sa"}],"8QYUj":[function(require,module,exports) {
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.SingletonServiceTimeseries = void 0;
-const spinal_model_timeseries_1 = require("23feab8669d4c2ca");
-class SingletonServiceTimeseries {
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
-    constructor(){}
-    static getInstance() {
-        if (!SingletonServiceTimeseries.instance) SingletonServiceTimeseries.instance = new spinal_model_timeseries_1.SpinalServiceTimeseries();
-        return SingletonServiceTimeseries.instance;
+exports.ExitAnalyticError = void 0;
+class ExitAnalyticError extends Error {
+    constructor(message){
+        super(message);
+        this.name = "ExitAlgorithmError";
     }
 }
-exports.SingletonServiceTimeseries = SingletonServiceTimeseries;
-SingletonServiceTimeseries.instance = new spinal_model_timeseries_1.SpinalServiceTimeseries();
+exports.ExitAnalyticError = ExitAnalyticError;
 
-},{"23feab8669d4c2ca":"hIcty"}],"d00sa":[function(require,module,exports) {
+},{}],"d00sa":[function(require,module,exports) {
 "use strict";
 var CronExpression = require("c58e2f27069c4f50");
 function CronParser() {}
@@ -5213,7 +3272,7 @@ var ianaZoneCache = {};
    * @param {string} s - The string to check validity on
    * @example IANAZone.isValidSpecifier("America/New_York") //=> true
    * @example IANAZone.isValidSpecifier("Sport~~blorp") //=> false
-   * @deprecated This method returns false for some valid IANA names. Use isValidZone instead.
+   * @deprecated For backward compatibility, this forwards to isValidZone, better use `isValidZone()` directly instead.
    * @return {boolean}
    */ ;
     IANAZone.isValidSpecifier = function isValidSpecifier(s) {
@@ -5244,14 +3303,38 @@ var ianaZoneCache = {};
         /** @private **/ _this.valid = IANAZone.isValidZone(name);
         return _this;
     }
-    /** @override **/ var _proto = IANAZone.prototype;
-    /** @override **/ _proto.offsetName = function offsetName(ts, _ref) {
+    /**
+   * The type of zone. `iana` for all instances of `IANAZone`.
+   * @override
+   * @type {string}
+   */ var _proto = IANAZone.prototype;
+    /**
+   * Returns the offset's common name (such as EST) at the specified timestamp
+   * @override
+   * @param {number} ts - Epoch milliseconds for which to get the name
+   * @param {Object} opts - Options to affect the format
+   * @param {string} opts.format - What style of offset to return. Accepts 'long' or 'short'.
+   * @param {string} opts.locale - What locale to return the offset name in.
+   * @return {string}
+   */ _proto.offsetName = function offsetName(ts, _ref) {
         var format = _ref.format, locale = _ref.locale;
         return parseZoneInfo(ts, format, locale, this.name);
-    } /** @override **/ ;
+    } /**
+   * Returns the offset's value as a string
+   * @override
+   * @param {number} ts - Epoch milliseconds for which to get the offset
+   * @param {string} format - What style of offset to return.
+   *                          Accepts 'narrow', 'short', or 'techie'. Returning '+6', '+06:00', or '+0600' respectively
+   * @return {string}
+   */ ;
     _proto.formatOffset = function formatOffset$1(ts, format) {
         return formatOffset(this.offset(ts), format);
-    } /** @override **/ ;
+    } /**
+   * Return the offset in minutes for this zone at the specified timestamp.
+   * @override
+   * @param {number} ts - Epoch milliseconds for which to compute the offset
+   * @return {number}
+   */ ;
     _proto.offset = function offset(ts) {
         var date = new Date(ts);
         if (isNaN(date)) return NaN;
@@ -5273,10 +3356,19 @@ var ianaZoneCache = {};
         var over = asTS % 1000;
         asTS -= over >= 0 ? over : 1000 + over;
         return (asUTC - asTS) / 60000;
-    } /** @override **/ ;
+    } /**
+   * Return whether this Zone is equal to another zone
+   * @override
+   * @param {Zone} otherZone - the zone to compare
+   * @return {boolean}
+   */ ;
     _proto.equals = function equals(otherZone) {
         return otherZone.type === "iana" && otherZone.name === this.name;
-    } /** @override **/ ;
+    } /**
+   * Return whether this Zone is valid.
+   * @override
+   * @type {boolean}
+   */ ;
     _createClass(IANAZone, [
         {
             key: "type",
@@ -5604,7 +3696,7 @@ var fallbackWeekSettings = {
     Locale.create = function create(locale, numberingSystem, outputCalendar, weekSettings, defaultToEN) {
         if (defaultToEN === void 0) defaultToEN = false;
         var specifiedLocale = locale || Settings.defaultLocale;
-        // the system locale is useful for human readable strings but annoying for parsing/formatting known formats
+        // the system locale is useful for human-readable strings but annoying for parsing/formatting known formats
         var localeR = specifiedLocale || (defaultToEN ? "en-US" : systemLocale());
         var numberingSystemR = numberingSystem || Settings.defaultNumberingSystem;
         var outputCalendarR = outputCalendar || Settings.defaultOutputCalendar;
@@ -5780,6 +3872,9 @@ var fallbackWeekSettings = {
     _proto4.equals = function equals(other) {
         return this.locale === other.locale && this.numberingSystem === other.numberingSystem && this.outputCalendar === other.outputCalendar;
     };
+    _proto4.toString = function toString() {
+        return "Locale(" + this.locale + ", " + this.numberingSystem + ", " + this.outputCalendar + ")";
+    };
     _createClass(Locale, [
         {
             key: "fastNumbers",
@@ -5824,19 +3919,56 @@ var singleton = null;
         /** @private **/ _this.fixed = offset;
         return _this;
     }
-    /** @override **/ var _proto = FixedOffsetZone.prototype;
-    /** @override **/ _proto.offsetName = function offsetName() {
+    /**
+   * The type of zone. `fixed` for all instances of `FixedOffsetZone`.
+   * @override
+   * @type {string}
+   */ var _proto = FixedOffsetZone.prototype;
+    /**
+   * Returns the offset's common name at the specified timestamp.
+   *
+   * For fixed offset zones this equals to the zone name.
+   * @override
+   */ _proto.offsetName = function offsetName() {
         return this.name;
-    } /** @override **/ ;
+    } /**
+   * Returns the offset's value as a string
+   * @override
+   * @param {number} ts - Epoch milliseconds for which to get the offset
+   * @param {string} format - What style of offset to return.
+   *                          Accepts 'narrow', 'short', or 'techie'. Returning '+6', '+06:00', or '+0600' respectively
+   * @return {string}
+   */ ;
     _proto.formatOffset = function formatOffset$1(ts, format) {
         return formatOffset(this.fixed, format);
-    } /** @override **/ ;
-    /** @override **/ _proto.offset = function offset() {
+    } /**
+   * Returns whether the offset is known to be fixed for the whole year:
+   * Always returns true for all fixed offset zones.
+   * @override
+   * @type {boolean}
+   */ ;
+    /**
+   * Return the offset in minutes for this zone at the specified timestamp.
+   *
+   * For fixed offset zones, this is constant and does not depend on a timestamp.
+   * @override
+   * @return {number}
+   */ _proto.offset = function offset() {
         return this.fixed;
-    } /** @override **/ ;
+    } /**
+   * Return whether this Zone is equal to another zone (i.e. also fixed and same offset)
+   * @override
+   * @param {Zone} otherZone - the zone to compare
+   * @return {boolean}
+   */ ;
     _proto.equals = function equals(otherZone) {
         return otherZone.type === "fixed" && otherZone.fixed === this.fixed;
-    } /** @override **/ ;
+    } /**
+   * Return whether this Zone is valid:
+   * All fixed offset zones are valid.
+   * @override
+   * @type {boolean}
+   */ ;
     _createClass(FixedOffsetZone, [
         {
             key: "type",
@@ -5952,6 +4084,136 @@ var singleton = null;
     return input;
     else return new InvalidZone(input);
 }
+var numberingSystems = {
+    arab: "[\u0660-\u0669]",
+    arabext: "[\u06F0-\u06F9]",
+    bali: "[\u1B50-\u1B59]",
+    beng: "[\u09E6-\u09EF]",
+    deva: "[\u0966-\u096F]",
+    fullwide: "[\uFF10-\uFF19]",
+    gujr: "[\u0AE6-\u0AEF]",
+    hanidec: "[\u3007|\u4E00|\u4E8C|\u4E09|\u56DB|\u4E94|\u516D|\u4E03|\u516B|\u4E5D]",
+    khmr: "[\u17E0-\u17E9]",
+    knda: "[\u0CE6-\u0CEF]",
+    laoo: "[\u0ED0-\u0ED9]",
+    limb: "[\u1946-\u194F]",
+    mlym: "[\u0D66-\u0D6F]",
+    mong: "[\u1810-\u1819]",
+    mymr: "[\u1040-\u1049]",
+    orya: "[\u0B66-\u0B6F]",
+    tamldec: "[\u0BE6-\u0BEF]",
+    telu: "[\u0C66-\u0C6F]",
+    thai: "[\u0E50-\u0E59]",
+    tibt: "[\u0F20-\u0F29]",
+    latn: "\\d"
+};
+var numberingSystemsUTF16 = {
+    arab: [
+        1632,
+        1641
+    ],
+    arabext: [
+        1776,
+        1785
+    ],
+    bali: [
+        6992,
+        7001
+    ],
+    beng: [
+        2534,
+        2543
+    ],
+    deva: [
+        2406,
+        2415
+    ],
+    fullwide: [
+        65296,
+        65303
+    ],
+    gujr: [
+        2790,
+        2799
+    ],
+    khmr: [
+        6112,
+        6121
+    ],
+    knda: [
+        3302,
+        3311
+    ],
+    laoo: [
+        3792,
+        3801
+    ],
+    limb: [
+        6470,
+        6479
+    ],
+    mlym: [
+        3430,
+        3439
+    ],
+    mong: [
+        6160,
+        6169
+    ],
+    mymr: [
+        4160,
+        4169
+    ],
+    orya: [
+        2918,
+        2927
+    ],
+    tamldec: [
+        3046,
+        3055
+    ],
+    telu: [
+        3174,
+        3183
+    ],
+    thai: [
+        3664,
+        3673
+    ],
+    tibt: [
+        3872,
+        3881
+    ]
+};
+var hanidecChars = numberingSystems.hanidec.replace(/[\[|\]]/g, "").split("");
+function parseDigits(str) {
+    var value = parseInt(str, 10);
+    if (isNaN(value)) {
+        value = "";
+        for(var i = 0; i < str.length; i++){
+            var code = str.charCodeAt(i);
+            if (str[i].search(numberingSystems.hanidec) !== -1) value += hanidecChars.indexOf(str[i]);
+            else for(var key in numberingSystemsUTF16){
+                var _numberingSystemsUTF = numberingSystemsUTF16[key], min = _numberingSystemsUTF[0], max = _numberingSystemsUTF[1];
+                if (code >= min && code <= max) value += code - min;
+            }
+        }
+        return parseInt(value, 10);
+    } else return value;
+}
+// cache of {numberingSystem: {append: regex}}
+var digitRegexCache = {};
+function resetDigitRegexCache() {
+    digitRegexCache = {};
+}
+function digitRegex(_ref, append) {
+    var numberingSystem = _ref.numberingSystem;
+    if (append === void 0) append = "";
+    var ns = numberingSystem || "latn";
+    if (!digitRegexCache[ns]) digitRegexCache[ns] = {};
+    if (!digitRegexCache[ns][append]) digitRegexCache[ns][append] = new RegExp("" + numberingSystems[ns] + append);
+    return digitRegexCache[ns][append];
+}
 var now = function now() {
     return Date.now();
 }, defaultZone = "system", defaultLocale = null, defaultNumberingSystem = null, defaultOutputCalendar = null, twoDigitCutoffYear = 60, throwOnInvalid, defaultWeekSettings = null;
@@ -5965,6 +4227,8 @@ var now = function now() {
    */ Settings.resetCaches = function resetCaches() {
         Locale.resetCache();
         IANAZone.resetCache();
+        DateTime.resetCache();
+        resetDigitRegexCache();
     };
     _createClass(Settings, null, [
         {
@@ -6432,7 +4696,13 @@ function normalizeObject(obj, normalizer) {
     }
     return normalized;
 }
-function formatOffset(offset, format) {
+/**
+ * Returns the offset's value as a string
+ * @param {number} ts - Epoch milliseconds for which to get the offset
+ * @param {string} format - What style of offset to return.
+ *                          Accepts 'narrow', 'short', or 'techie'. Returning '+6', '+06:00', or '+0600' respectively
+ * @return {string}
+ */ function formatOffset(offset, format) {
     var hours = Math.trunc(Math.abs(offset / 60)), minutes = Math.trunc(Math.abs(offset % 60)), sign = offset >= 0 ? "+" : "-";
     switch(format){
         case "short":
@@ -8454,7 +6724,7 @@ function validateStartEnd(start, end) {
         if (!this.isValid) return false;
         return +other.e === +this.s;
     } /**
-   * Return whether this Interval engulfs the start and end of the specified Interval.
+   * Returns true if this Interval fully contains the specified Interval, specifically if the intersect (of this Interval and the other Interval) is equal to the other Interval; false otherwise.
    * @param {Interval} other
    * @return {boolean}
    */ ;
@@ -8996,128 +7266,6 @@ function _diff(earlier, later, units, opts) {
         return (_Duration$fromMillis = Duration.fromMillis(remainingMillis, opts)).shiftTo.apply(_Duration$fromMillis, lowerOrderUnits).plus(duration);
     } else return duration;
 }
-var numberingSystems = {
-    arab: "[\u0660-\u0669]",
-    arabext: "[\u06F0-\u06F9]",
-    bali: "[\u1B50-\u1B59]",
-    beng: "[\u09E6-\u09EF]",
-    deva: "[\u0966-\u096F]",
-    fullwide: "[\uFF10-\uFF19]",
-    gujr: "[\u0AE6-\u0AEF]",
-    hanidec: "[\u3007|\u4E00|\u4E8C|\u4E09|\u56DB|\u4E94|\u516D|\u4E03|\u516B|\u4E5D]",
-    khmr: "[\u17E0-\u17E9]",
-    knda: "[\u0CE6-\u0CEF]",
-    laoo: "[\u0ED0-\u0ED9]",
-    limb: "[\u1946-\u194F]",
-    mlym: "[\u0D66-\u0D6F]",
-    mong: "[\u1810-\u1819]",
-    mymr: "[\u1040-\u1049]",
-    orya: "[\u0B66-\u0B6F]",
-    tamldec: "[\u0BE6-\u0BEF]",
-    telu: "[\u0C66-\u0C6F]",
-    thai: "[\u0E50-\u0E59]",
-    tibt: "[\u0F20-\u0F29]",
-    latn: "\\d"
-};
-var numberingSystemsUTF16 = {
-    arab: [
-        1632,
-        1641
-    ],
-    arabext: [
-        1776,
-        1785
-    ],
-    bali: [
-        6992,
-        7001
-    ],
-    beng: [
-        2534,
-        2543
-    ],
-    deva: [
-        2406,
-        2415
-    ],
-    fullwide: [
-        65296,
-        65303
-    ],
-    gujr: [
-        2790,
-        2799
-    ],
-    khmr: [
-        6112,
-        6121
-    ],
-    knda: [
-        3302,
-        3311
-    ],
-    laoo: [
-        3792,
-        3801
-    ],
-    limb: [
-        6470,
-        6479
-    ],
-    mlym: [
-        3430,
-        3439
-    ],
-    mong: [
-        6160,
-        6169
-    ],
-    mymr: [
-        4160,
-        4169
-    ],
-    orya: [
-        2918,
-        2927
-    ],
-    tamldec: [
-        3046,
-        3055
-    ],
-    telu: [
-        3174,
-        3183
-    ],
-    thai: [
-        3664,
-        3673
-    ],
-    tibt: [
-        3872,
-        3881
-    ]
-};
-var hanidecChars = numberingSystems.hanidec.replace(/[\[|\]]/g, "").split("");
-function parseDigits(str) {
-    var value = parseInt(str, 10);
-    if (isNaN(value)) {
-        value = "";
-        for(var i = 0; i < str.length; i++){
-            var code = str.charCodeAt(i);
-            if (str[i].search(numberingSystems.hanidec) !== -1) value += hanidecChars.indexOf(str[i]);
-            else for(var key in numberingSystemsUTF16){
-                var _numberingSystemsUTF = numberingSystemsUTF16[key], min = _numberingSystemsUTF[0], max = _numberingSystemsUTF[1];
-                if (code >= min && code <= max) value += code - min;
-            }
-        }
-        return parseInt(value, 10);
-    } else return value;
-}
-function digitRegex(_ref, append) {
-    var numberingSystem = _ref.numberingSystem;
-    if (append === void 0) append = "";
-    return new RegExp("" + numberingSystems[numberingSystem || "latn"] + append);
-}
 var MISSING_FTP = "missing Intl.DateTimeFormat.formatToParts support";
 function intUnit(regex, post) {
     if (post === void 0) post = function post(i) {
@@ -9499,35 +7647,68 @@ function expandMacroTokens(tokens, locale) {
 }
 /**
  * @private
- */ function explainFromTokens(locale, input, format) {
-    var tokens = expandMacroTokens(Formatter.parseFormat(format), locale), units = tokens.map(function(t) {
-        return unitForToken(t, locale);
-    }), disqualifyingUnit = units.find(function(t) {
-        return t.invalidReason;
-    });
-    if (disqualifyingUnit) return {
-        input: input,
-        tokens: tokens,
-        invalidReason: disqualifyingUnit.invalidReason
-    };
-    else {
-        var _buildRegex = buildRegex(units), regexString = _buildRegex[0], handlers = _buildRegex[1], regex = RegExp(regexString, "i"), _match = match(input, regex, handlers), rawMatches = _match[0], matches = _match[1], _ref6 = matches ? dateTimeFromMatches(matches) : [
-            null,
-            null,
-            undefined
-        ], result = _ref6[0], zone = _ref6[1], specificOffset = _ref6[2];
-        if (hasOwnProperty(matches, "a") && hasOwnProperty(matches, "H")) throw new ConflictingSpecificationError("Can't include meridiem when specifying 24-hour format");
-        return {
-            input: input,
-            tokens: tokens,
-            regex: regex,
-            rawMatches: rawMatches,
-            matches: matches,
-            result: result,
-            zone: zone,
-            specificOffset: specificOffset
-        };
+ */ var TokenParser = /*#__PURE__*/ function() {
+    function TokenParser(locale, format) {
+        this.locale = locale;
+        this.format = format;
+        this.tokens = expandMacroTokens(Formatter.parseFormat(format), locale);
+        this.units = this.tokens.map(function(t) {
+            return unitForToken(t, locale);
+        });
+        this.disqualifyingUnit = this.units.find(function(t) {
+            return t.invalidReason;
+        });
+        if (!this.disqualifyingUnit) {
+            var _buildRegex = buildRegex(this.units), regexString = _buildRegex[0], handlers = _buildRegex[1];
+            this.regex = RegExp(regexString, "i");
+            this.handlers = handlers;
+        }
     }
+    var _proto = TokenParser.prototype;
+    _proto.explainFromTokens = function explainFromTokens(input) {
+        if (!this.isValid) return {
+            input: input,
+            tokens: this.tokens,
+            invalidReason: this.invalidReason
+        };
+        else {
+            var _match = match(input, this.regex, this.handlers), rawMatches = _match[0], matches = _match[1], _ref6 = matches ? dateTimeFromMatches(matches) : [
+                null,
+                null,
+                undefined
+            ], result = _ref6[0], zone = _ref6[1], specificOffset = _ref6[2];
+            if (hasOwnProperty(matches, "a") && hasOwnProperty(matches, "H")) throw new ConflictingSpecificationError("Can't include meridiem when specifying 24-hour format");
+            return {
+                input: input,
+                tokens: this.tokens,
+                regex: this.regex,
+                rawMatches: rawMatches,
+                matches: matches,
+                result: result,
+                zone: zone,
+                specificOffset: specificOffset
+            };
+        }
+    };
+    _createClass(TokenParser, [
+        {
+            key: "isValid",
+            get: function get() {
+                return !this.disqualifyingUnit;
+            }
+        },
+        {
+            key: "invalidReason",
+            get: function get() {
+                return this.disqualifyingUnit ? this.disqualifyingUnit.invalidReason : null;
+            }
+        }
+    ]);
+    return TokenParser;
+}();
+function explainFromTokens(locale, input, format) {
+    var parser = new TokenParser(locale, format);
+    return parser.explainFromTokens(input);
 }
 function parseFromTokens(locale, input, format) {
     var _explainFromTokens = explainFromTokens(locale, input, format), result = _explainFromTokens.result, zone = _explainFromTokens.zone, specificOffset = _explainFromTokens.specificOffset, invalidReason = _explainFromTokens.invalidReason;
@@ -9814,11 +7995,39 @@ function normalizeUnitWithLocalWeeks(unit) {
             return normalizeUnit(unit);
     }
 }
+// cache offsets for zones based on the current timestamp when this function is
+// first called. When we are handling a datetime from components like (year,
+// month, day, hour) in a time zone, we need a guess about what the timezone
+// offset is so that we can convert into a UTC timestamp. One way is to find the
+// offset of now in the zone. The actual date may have a different offset (for
+// example, if we handle a date in June while we're in December in a zone that
+// observes DST), but we can check and adjust that.
+//
+// When handling many dates, calculating the offset for now every time is
+// expensive. It's just a guess, so we can cache the offset to use even if we
+// are right on a time change boundary (we'll just correct in the other
+// direction). Using a timestamp from first read is a slight optimization for
+// handling dates close to the current date, since those dates will usually be
+// in the same offset (we could set the timestamp statically, instead). We use a
+// single timestamp for all zones to make things a bit more predictable.
+//
+// This is safe for quickDT (used by local() and utc()) because we don't fill in
+// higher-order units from tsNow (as we do in fromObject, this requires that
+// offset is calculated from tsNow).
+function guessOffsetForZone(zone) {
+    if (!zoneOffsetGuessCache[zone]) {
+        if (zoneOffsetTs === undefined) zoneOffsetTs = Settings.now();
+        zoneOffsetGuessCache[zone] = zone.offset(zoneOffsetTs);
+    }
+    return zoneOffsetGuessCache[zone];
+}
 // this is a dumbed down version of fromObject() that runs about 60% faster
 // but doesn't do any validation, makes a bunch of assumptions about what units
 // are present, and so on.
 function quickDT(obj, opts) {
-    var zone = normalizeZone(opts.zone, Settings.defaultZone), loc = Locale.fromObject(opts), tsNow = Settings.now();
+    var zone = normalizeZone(opts.zone, Settings.defaultZone);
+    if (!zone.isValid) return DateTime.invalid(unsupportedZone(zone));
+    var loc = Locale.fromObject(opts);
     var ts, o;
     // assume we have the higher-order units
     if (!isUndefined(obj.year)) {
@@ -9828,11 +8037,11 @@ function quickDT(obj, opts) {
         }
         var invalid = hasInvalidGregorianData(obj) || hasInvalidTimeData(obj);
         if (invalid) return DateTime.invalid(invalid);
-        var offsetProvis = zone.offset(tsNow);
+        var offsetProvis = guessOffsetForZone(zone);
         var _objToTS = objToTS(obj, offsetProvis, zone);
         ts = _objToTS[0];
         o = _objToTS[1];
-    } else ts = tsNow;
+    } else ts = Settings.now();
     return new DateTime({
         ts: ts,
         zone: zone,
@@ -9870,6 +8079,15 @@ function lastOpts(argList) {
         args
     ];
 }
+/**
+ * Timestamp to use for cached zone offset guesses (exposed for test)
+ */ var zoneOffsetTs;
+/**
+ * Cache for zone offset guesses (exposed for test).
+ *
+ * This optimizes quickDT via guessOffsetForZone to avoid repeated calls of
+ * zone.offset().
+ */ var zoneOffsetGuessCache = {};
 /**
  * A DateTime is an immutable data structure representing a specific date and time and accompanying methods. It contains class and instance methods for creating, parsing, interrogating, transforming, and formatting them.
  *
@@ -9909,7 +8127,9 @@ function lastOpts(argList) {
                 c = _ref[0];
                 o = _ref[1];
             } else {
-                var ot = zone.offset(this.ts);
+                // If an offset has been passed and we have not been called from
+                // clone(), we can trust it and avoid the offset calculation.
+                var ot = isNumber(config.o) && !config.old ? config.o : zone.offset(this.ts);
                 c = tsToObj(this.ts, ot);
                 invalid = Number.isNaN(c.year) ? new Invalid("invalid input") : null;
                 c = invalid ? null : c;
@@ -9995,6 +8215,7 @@ function lastOpts(argList) {
    * @param {string} [options.locale] - a locale to set on the resulting DateTime instance
    * @param {string} [options.outputCalendar] - the output calendar to set on the resulting DateTime instance
    * @param {string} [options.numberingSystem] - the numbering system to set on the resulting DateTime instance
+   * @param {string} [options.weekSettings] - the week settings to set on the resulting DateTime instance
    * @example DateTime.utc()                                              //~> now
    * @example DateTime.utc(2017)                                          //~> 2017-01-01T00:00:00Z
    * @example DateTime.utc(2017, 3)                                       //~> 2017-03-01T00:00:00Z
@@ -10044,12 +8265,13 @@ function lastOpts(argList) {
    * @param {string} [options.locale] - a locale to set on the resulting DateTime instance
    * @param {string} options.outputCalendar - the output calendar to set on the resulting DateTime instance
    * @param {string} options.numberingSystem - the numbering system to set on the resulting DateTime instance
+   * @param {string} options.weekSettings - the week settings to set on the resulting DateTime instance
    * @return {DateTime}
    */ ;
     DateTime.fromMillis = function fromMillis(milliseconds, options) {
         if (options === void 0) options = {};
         if (!isNumber(milliseconds)) throw new InvalidArgumentError("fromMillis requires a numerical input, but received a " + typeof milliseconds + " with value " + milliseconds);
-        else if (milliseconds < -MAX_DATE || milliseconds > MAX_DATE) // this isn't perfect because because we can still end up out of range because of additional shifting, but it's a start
+        else if (milliseconds < -MAX_DATE || milliseconds > MAX_DATE) // this isn't perfect because we can still end up out of range because of additional shifting, but it's a start
         return DateTime.invalid("Timestamp out of range");
         else return new DateTime({
             ts: milliseconds,
@@ -10064,6 +8286,7 @@ function lastOpts(argList) {
    * @param {string} [options.locale] - a locale to set on the resulting DateTime instance
    * @param {string} options.outputCalendar - the output calendar to set on the resulting DateTime instance
    * @param {string} options.numberingSystem - the numbering system to set on the resulting DateTime instance
+   * @param {string} options.weekSettings - the week settings to set on the resulting DateTime instance
    * @return {DateTime}
    */ ;
     DateTime.fromSeconds = function fromSeconds(seconds, options) {
@@ -10096,6 +8319,7 @@ function lastOpts(argList) {
    * @param {string} [opts.locale='system\'s locale'] - a locale to set on the resulting DateTime instance
    * @param {string} opts.outputCalendar - the output calendar to set on the resulting DateTime instance
    * @param {string} opts.numberingSystem - the numbering system to set on the resulting DateTime instance
+   * @param {string} opts.weekSettings - the week settings to set on the resulting DateTime instance
    * @example DateTime.fromObject({ year: 1982, month: 5, day: 25}).toISODate() //=> '1982-05-25'
    * @example DateTime.fromObject({ year: 1982 }).toISODate() //=> '1982-01-01'
    * @example DateTime.fromObject({ hour: 10, minute: 26, second: 6 }) //~> today at 10:26:06
@@ -10158,6 +8382,7 @@ function lastOpts(argList) {
         });
         // gregorian data + weekday serves only to validate
         if (normalized.weekday && containsGregor && obj.weekday !== inst.weekday) return DateTime.invalid("mismatched weekday", "you can't specify both a weekday of " + normalized.weekday + " and a date of " + inst.toISO());
+        if (!inst.isValid) return DateTime.invalid(inst.invalid);
         return inst;
     } /**
    * Create a DateTime from an ISO 8601 string
@@ -10168,6 +8393,7 @@ function lastOpts(argList) {
    * @param {string} [opts.locale='system's locale'] - a locale to set on the resulting DateTime instance
    * @param {string} [opts.outputCalendar] - the output calendar to set on the resulting DateTime instance
    * @param {string} [opts.numberingSystem] - the numbering system to set on the resulting DateTime instance
+   * @param {string} [opts.weekSettings] - the week settings to set on the resulting DateTime instance
    * @example DateTime.fromISO('2016-05-25T09:08:34.123')
    * @example DateTime.fromISO('2016-05-25T09:08:34.123+06:00')
    * @example DateTime.fromISO('2016-05-25T09:08:34.123+06:00', {setZone: true})
@@ -10188,6 +8414,7 @@ function lastOpts(argList) {
    * @param {string} [opts.locale='system's locale'] - a locale to set on the resulting DateTime instance
    * @param {string} opts.outputCalendar - the output calendar to set on the resulting DateTime instance
    * @param {string} opts.numberingSystem - the numbering system to set on the resulting DateTime instance
+   * @param {string} opts.weekSettings - the week settings to set on the resulting DateTime instance
    * @example DateTime.fromRFC2822('25 Nov 2016 13:23:12 GMT')
    * @example DateTime.fromRFC2822('Fri, 25 Nov 2016 13:23:12 +0600')
    * @example DateTime.fromRFC2822('25 Nov 2016 13:23 Z')
@@ -10207,6 +8434,7 @@ function lastOpts(argList) {
    * @param {string} [opts.locale='system's locale'] - a locale to set on the resulting DateTime instance
    * @param {string} opts.outputCalendar - the output calendar to set on the resulting DateTime instance
    * @param {string} opts.numberingSystem - the numbering system to set on the resulting DateTime instance
+   * @param {string} opts.weekSettings - the week settings to set on the resulting DateTime instance
    * @example DateTime.fromHTTP('Sun, 06 Nov 1994 08:49:37 GMT')
    * @example DateTime.fromHTTP('Sunday, 06-Nov-94 08:49:37 GMT')
    * @example DateTime.fromHTTP('Sun Nov  6 08:49:37 1994')
@@ -10226,6 +8454,7 @@ function lastOpts(argList) {
    * @param {boolean} [opts.setZone=false] - override the zone with a zone specified in the string itself, if it specifies one
    * @param {string} [opts.locale='en-US'] - a locale string to use when parsing. Will also set the DateTime to this locale
    * @param {string} opts.numberingSystem - the numbering system to use when parsing. Will also set the resulting DateTime to this numbering system
+   * @param {string} opts.weekSettings - the week settings to set on the resulting DateTime instance
    * @param {string} opts.outputCalendar - the output calendar to set on the resulting DateTime instance
    * @return {DateTime}
    */ ;
@@ -10254,6 +8483,7 @@ function lastOpts(argList) {
    * @param {boolean} [opts.setZone=false] - override the zone with a zone specified in the string itself, if it specifies one
    * @param {string} [opts.locale='en-US'] - a locale string to use when parsing. Will also set the DateTime to this locale
    * @param {string} opts.numberingSystem - the numbering system to use when parsing. Will also set the resulting DateTime to this numbering system
+   * @param {string} opts.weekSettings - the week settings to set on the resulting DateTime instance
    * @param {string} opts.outputCalendar - the output calendar to set on the resulting DateTime instance
    * @example DateTime.fromSQL('2017-05-15')
    * @example DateTime.fromSQL('2017-05-15 09:12:34')
@@ -10315,6 +8545,10 @@ function lastOpts(argList) {
         return expanded.map(function(t) {
             return t.val;
         }).join("");
+    };
+    DateTime.resetCache = function resetCache() {
+        zoneOffsetTs = undefined;
+        zoneOffsetGuessCache = {};
     } /**
    * Get the value of unit.
    * @param {string} unit - a unit such as 'minute' or 'day'
@@ -11019,6 +9253,48 @@ function lastOpts(argList) {
         if (options === void 0) options = {};
         return DateTime.fromFormatExplain(text, fmt, options);
     } /**
+   * Build a parser for `fmt` using the given locale. This parser can be passed
+   * to {@link DateTime.fromFormatParser} to a parse a date in this format. This
+   * can be used to optimize cases where many dates need to be parsed in a
+   * specific format.
+   *
+   * @param {String} fmt - the format the string is expected to be in (see
+   * description)
+   * @param {Object} options - options used to set locale and numberingSystem
+   * for parser
+   * @returns {TokenParser} - opaque object to be used
+   */ ;
+    DateTime.buildFormatParser = function buildFormatParser(fmt, options) {
+        if (options === void 0) options = {};
+        var _options2 = options, _options2$locale = _options2.locale, locale = _options2$locale === void 0 ? null : _options2$locale, _options2$numberingSy = _options2.numberingSystem, numberingSystem = _options2$numberingSy === void 0 ? null : _options2$numberingSy, localeToUse = Locale.fromOpts({
+            locale: locale,
+            numberingSystem: numberingSystem,
+            defaultToEN: true
+        });
+        return new TokenParser(localeToUse, fmt);
+    } /**
+   * Create a DateTime from an input string and format parser.
+   *
+   * The format parser must have been created with the same locale as this call.
+   *
+   * @param {String} text - the string to parse
+   * @param {TokenParser} formatParser - parser from {@link DateTime.buildFormatParser}
+   * @param {Object} opts - options taken by fromFormat()
+   * @returns {DateTime}
+   */ ;
+    DateTime.fromFormatParser = function fromFormatParser(text, formatParser, opts) {
+        if (opts === void 0) opts = {};
+        if (isUndefined(text) || isUndefined(formatParser)) throw new InvalidArgumentError("fromFormatParser requires an input string and a format parser");
+        var _opts2 = opts, _opts2$locale = _opts2.locale, locale = _opts2$locale === void 0 ? null : _opts2$locale, _opts2$numberingSyste = _opts2.numberingSystem, numberingSystem = _opts2$numberingSyste === void 0 ? null : _opts2$numberingSyste, localeToUse = Locale.fromOpts({
+            locale: locale,
+            numberingSystem: numberingSystem,
+            defaultToEN: true
+        });
+        if (!localeToUse.equals(formatParser.locale)) throw new InvalidArgumentError("fromFormatParser called with a locale of " + localeToUse + ", " + ("but the format parser was created for " + formatParser.locale));
+        var _formatParser$explain = formatParser.explainFromTokens(text), result = _formatParser$explain.result, zone = _formatParser$explain.zone, specificOffset = _formatParser$explain.specificOffset, invalidReason = _formatParser$explain.invalidReason;
+        if (invalidReason) return DateTime.invalid(invalidReason);
+        else return parseDataToDateTime(result, zone, opts, "format " + formatParser.format, text, specificOffset);
+    } /**
    * {@link DateTime#toLocaleString} format like 10/14/1983
    * @type {Object}
    */ ;
@@ -11415,7 +9691,7 @@ function friendlyDateTime(dateTimeish) {
     else if (dateTimeish && typeof dateTimeish === "object") return DateTime.fromObject(dateTimeish);
     else throw new InvalidArgumentError("Unknown datetime argument: " + dateTimeish + ", of type " + typeof dateTimeish);
 }
-var VERSION = "3.4.4";
+var VERSION = "3.5.0";
 exports.DateTime = DateTime;
 exports.Duration = Duration;
 exports.FixedOffsetZone = FixedOffsetZone;
@@ -11529,7 +9805,1842 @@ module.exports = compactField;
 },{}],"jhUEF":[function(require,module,exports) {
 "use strict";
 
-},{}],"kW4GH":[function(require,module,exports) {
+},{}],"5w9Yd":[function(require,module,exports) {
+"use strict";
+var __awaiter = this && this.__awaiter || function(thisArg, _arguments, P, generator) {
+    function adopt(value) {
+        return value instanceof P ? value : new P(function(resolve) {
+            resolve(value);
+        });
+    }
+    return new (P || (P = Promise))(function(resolve, reject) {
+        function fulfilled(value) {
+            try {
+                step(generator.next(value));
+            } catch (e) {
+                reject(e);
+            }
+        }
+        function rejected(value) {
+            try {
+                step(generator["throw"](value));
+            } catch (e) {
+                reject(e);
+            }
+        }
+        function step(result) {
+            result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected);
+        }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+/* eslint-disable @typescript-eslint/no-explicit-any */ const spinal_env_viewer_graph_service_1 = require("c3a59c8970091084");
+const CONSTANTS = require("6c67449c51cd01");
+const ConfigModel_1 = require("d5f7a1fec079d05c");
+const AnalyticModel_1 = require("94b49308811f97f8");
+const TrackingMethodModel_1 = require("4521602391679e75");
+const EntityModel_1 = require("105589ec012d945b");
+const InputsModel_1 = require("a5ef27f319369412");
+const OutputsModel_1 = require("a05d0a34f760483e");
+const spinal_env_viewer_plugin_documentation_service_1 = require("bb4c818c4c0b9f78");
+class AnalyticNodeManagerService {
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
+    constructor(){}
+    // #region CONTEXT
+    /**
+     * Retrieves and returns all contexts
+     * handled by this service (type analysisContext)
+     * @return {*}  {(SpinalNodeRef[] | undefined)}
+     * @memberof AnalyticService
+     */ getContexts() {
+        const contexts = spinal_env_viewer_graph_service_1.SpinalGraphService.getContextWithType(CONSTANTS.CONTEXT_TYPE);
+        const argContexts = contexts.map((el)=>spinal_env_viewer_graph_service_1.SpinalGraphService.getInfo(el.info.id.get()));
+        return argContexts;
+    }
+    /**
+     * This method use the context name to find and return the info of that context. If the context does not exist, it returns undefined.
+     * If multiple contexts have the same name, it returns the first one.
+     * @param {string} contextName
+     * @return {*}  {(SpinalNodeRef | undefined)}
+     * @memberof AnalyticService
+     */ getContext(contextName) {
+        const contexts = this.getContexts();
+        if (!contexts) return undefined;
+        return contexts.find((context)=>context.name.get() === contextName);
+    }
+    /**
+     * This method creates a new context and returns the info of the newly created context.
+     * If the context already exists (same name), it just returns the info of that context instead of creating a new one.
+     * @param {string} contextName
+     * @return {*}  {Promise<SpinalNodeRef>}
+     * @memberof AnalyticService
+     */ createContext(contextName) {
+        return __awaiter(this, void 0, void 0, function*() {
+            const alreadyExists = this.getContext(contextName);
+            if (alreadyExists) {
+                console.error(`Context ${contextName} already exists`);
+                return alreadyExists;
+            }
+            return spinal_env_viewer_graph_service_1.SpinalGraphService.addContext(contextName, CONSTANTS.CONTEXT_TYPE, undefined).then((context)=>{
+                const contextId = context.getId().get();
+                return spinal_env_viewer_graph_service_1.SpinalGraphService.getInfo(contextId);
+            });
+        });
+    }
+    getContextIdOfAnalytic(analyticId) {
+        const contexts = this.getContexts();
+        if (!contexts) return undefined;
+        const analyticNode = spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(analyticId);
+        const contextId = analyticNode.getContextIds()[0];
+        return contextId;
+    }
+    // #endregion CONTEXT
+    // #region ENTITY
+    /**
+     * This method creates a new entity and returns the info of the newly created entity.
+     *
+     * @param {IEntity} entityInfo
+     * @param {string} contextId
+     * @return {*}  {Promise<SpinalNodeRef>}
+     * @memberof AnalyticService
+     */ addEntity(entityInfo, contextId) {
+        return __awaiter(this, void 0, void 0, function*() {
+            entityInfo.type = CONSTANTS.ENTITY_TYPE;
+            const entityModel = new EntityModel_1.EntityModel(entityInfo);
+            const entityNodeId = spinal_env_viewer_graph_service_1.SpinalGraphService.createNode(entityInfo, entityModel);
+            yield spinal_env_viewer_graph_service_1.SpinalGraphService.addChildInContext(contextId, entityNodeId, contextId, CONSTANTS.CONTEXT_TO_ENTITY_RELATION, spinal_env_viewer_graph_service_1.SPINAL_RELATION_PTR_LST_TYPE);
+            return spinal_env_viewer_graph_service_1.SpinalGraphService.getInfo(entityNodeId);
+        });
+    }
+    /**
+     * Returns all the entities withing a context that have the specified type.
+     *
+     * @param {SpinalContext<any>} context
+     * @param {string} targetType
+     * @return {*}  {(Promise<SpinalNode<any> | undefined>)}
+     * @memberof AnalyticService
+     */ findEntityByTargetType(context, targetType) {
+        return __awaiter(this, void 0, void 0, function*() {
+            const entities = yield context.getChildren(CONSTANTS.CONTEXT_TO_ENTITY_RELATION);
+            const result = entities.find((e)=>e.info.entityType.get() == targetType);
+            spinal_env_viewer_graph_service_1.SpinalGraphService._addNode(result);
+            return result;
+        });
+    }
+    /**
+     * Retrieves a SpinalNodeRef for the specified entity within the specified context.
+     * @async
+     * @param {string} contextName - The name of the context to search within.
+     * @param {string} entityName - The name of the entity to retrieve.
+     * @returns {Promise<SpinalNodeRef|undefined>} A Promise that resolves to the SpinalNodeRef for the entity, or undefined if the context or entity cannot be found.
+     * @memberof AnalyticService
+     */ getEntity(contextName, entityName) {
+        return __awaiter(this, void 0, void 0, function*() {
+            const context = this.getContext(contextName);
+            if (!context) return undefined;
+            const contextNode = spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(context.id.get());
+            const entities = yield contextNode.getChildren(CONSTANTS.CONTEXT_TO_ENTITY_RELATION);
+            const entitiesModels = entities.map((el)=>spinal_env_viewer_graph_service_1.SpinalGraphService.getInfo(el.info.id.get()));
+            return entitiesModels.find((entity)=>entity.name.get() === entityName);
+        });
+    }
+    /**
+     * Retrieves the parent entity of the specified analytic.
+     * @async
+     * @param {string} analyticId - The ID of the analytic for which to retrieve the parent entity.
+     * @returns {Promise<SpinalNodeRef|undefined>} A Promise that resolves to the parent entity, or undefined if the parent entity cannot be found.
+     * @memberof AnalyticService
+     */ getEntityFromAnalytic(analyticId) {
+        return __awaiter(this, void 0, void 0, function*() {
+            const nodes = yield spinal_env_viewer_graph_service_1.SpinalGraphService.getParents(analyticId, [
+                CONSTANTS.ENTITY_TO_ANALYTIC_RELATION
+            ]);
+            if (nodes.length != 0) return nodes[0];
+            return undefined;
+        });
+    }
+    // #endregion ENTITY
+    // #region ANALYTIC
+    /**
+     * Adds a new analytic to the specified entity within the specified context.
+     * @async
+     * @param {IAnalytic} analyticInfo - The information for the new analytic to add.
+     * @param {string} contextId - The ID of the context in which to add the analytic.
+     * @param {string} entityId - The ID of the entity to which to add the analytic.
+     * @returns {Promise<SpinalNodeRef>} A Promise that resolves to the newly created analytic info.
+     * @memberof AnalyticService
+     */ addAnalytic(analyticInfo, contextId, entityId) {
+        return __awaiter(this, void 0, void 0, function*() {
+            analyticInfo.type = CONSTANTS.ANALYTIC_TYPE;
+            const analyticModel = new AnalyticModel_1.AnalyticModel(analyticInfo);
+            const analyticNodeId = spinal_env_viewer_graph_service_1.SpinalGraphService.createNode(analyticInfo, analyticModel);
+            yield spinal_env_viewer_graph_service_1.SpinalGraphService.addChildInContext(entityId, analyticNodeId, contextId, CONSTANTS.ENTITY_TO_ANALYTIC_RELATION, spinal_env_viewer_graph_service_1.SPINAL_RELATION_PTR_LST_TYPE);
+            yield this.addInputsNode(analyticNodeId, contextId);
+            yield this.addOutputsNode(analyticNodeId, contextId);
+            return spinal_env_viewer_graph_service_1.SpinalGraphService.getInfo(analyticNodeId);
+        });
+    }
+    /**
+     * Retrieves all analytics within the specified context.
+     * @async
+     * @param {string} contextId - The ID of the context in which to retrieve analytics.
+     * @returns {Promise<SpinalNodeRef[]>} A Promise that resolves to an array of SpinalNodeRefs for all analytics in the context.
+     * @memberof AnalyticService
+     */ getAllAnalytics(contextId) {
+        return __awaiter(this, void 0, void 0, function*() {
+            const analytics = yield spinal_env_viewer_graph_service_1.SpinalGraphService.findInContext(contextId, contextId, (node)=>{
+                if (node.getType().get() === CONSTANTS.ANALYTIC_TYPE) {
+                    spinal_env_viewer_graph_service_1.SpinalGraphService._addNode(node);
+                    return true;
+                }
+                return false;
+            });
+            return analytics;
+        });
+    }
+    /**
+     * Retrieves the SpinalNodeRef for the specified analytic within the specified context.
+     * @async
+     * @param {string} contextId - The ID of the context in which to search for the analytic.
+     * @param {string} analyticName - The name of the analytic to retrieve.
+     * @returns {Promise<SpinalNodeRef|undefined>} A Promise that resolves to the SpinalNodeRef for the analytic, or undefined if the analytic cannot be found.
+     * @memberof AnalyticService
+     */ getAnalytic(contextId, analyticName) {
+        return __awaiter(this, void 0, void 0, function*() {
+            const analytics = yield spinal_env_viewer_graph_service_1.SpinalGraphService.findInContext(contextId, contextId, (node)=>{
+                if (node.getType().get() === CONSTANTS.ANALYTIC_TYPE) {
+                    spinal_env_viewer_graph_service_1.SpinalGraphService._addNode(node);
+                    return true;
+                }
+                return false;
+            });
+            const analytic = analytics.find((el)=>el.info.name.get() == analyticName);
+            return spinal_env_viewer_graph_service_1.SpinalGraphService.getInfo(analytic.id.get());
+        });
+    }
+    deleteAnalytic(analyticId, shouldDeleteChildren = false) {
+        return __awaiter(this, void 0, void 0, function*() {
+            const inputsNode = yield this.getInputsNode(analyticId);
+            const outputsNode = yield this.getOutputsNode(analyticId);
+            if (inputsNode) yield this.safeDeleteNode(inputsNode.id.get());
+            if (outputsNode) yield this.safeDeleteNode(outputsNode.id.get(), shouldDeleteChildren);
+            yield this.safeDeleteNode(analyticId);
+        });
+    }
+    getAnalyticDetails(analyticId) {
+        return __awaiter(this, void 0, void 0, function*() {
+            const config = yield this.getConfig(analyticId);
+            const trackingMethod = yield this.getTrackingMethod(analyticId);
+            const followedEntity = yield this.getFollowedEntity(analyticId);
+            const entity = yield this.getEntityFromAnalytic(analyticId);
+            const analyticNode = spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(analyticId);
+            if (!analyticNode) throw new Error("No analytic node found");
+            if (!config) throw new Error("No config node found");
+            if (!trackingMethod) throw new Error("No tracking method node found");
+            if (!followedEntity) throw new Error("No followed entity node found");
+            if (!entity) throw new Error("No entity node found");
+            const configNode = spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(config.id.get());
+            const trackingMethodNode = spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(trackingMethod.id.get());
+            const configCategoryAttributes = (yield spinal_env_viewer_plugin_documentation_service_1.attributeService.getCategory(configNode)).map((el)=>{
+                return el.nameCat;
+            });
+            const trackingMethodCategoryAttributes = (yield spinal_env_viewer_plugin_documentation_service_1.attributeService.getCategory(trackingMethodNode)).map((el)=>{
+                return el.nameCat;
+            });
+            const configInfo = {};
+            const trackingMethodInfo = {};
+            for (const cat of configCategoryAttributes){
+                const attributes = yield spinal_env_viewer_plugin_documentation_service_1.attributeService.getAttributesByCategory(configNode, cat);
+                configInfo[cat] = attributes;
+            }
+            for (const cat of trackingMethodCategoryAttributes){
+                const attributes = yield spinal_env_viewer_plugin_documentation_service_1.attributeService.getAttributesByCategory(trackingMethodNode, cat);
+                trackingMethodInfo[cat] = attributes;
+            }
+            const analyticDetails = spinal_env_viewer_graph_service_1.SpinalGraphService.getInfo(analyticId);
+            const followedEntityId = followedEntity.id.get();
+            const res = {
+                entityNodeInfo: entity,
+                analyticName: analyticDetails.name.get(),
+                config: configInfo,
+                trackingMethod: trackingMethodInfo,
+                followedEntityId
+            };
+            return res;
+        });
+    }
+    // #endregion ANALYTIC
+    // #region INPUTS/OUTPUTS
+    /**
+     * Adds an Inputs node to the specified analytic within the specified context.
+     * @async
+     * @param {string} analyticId - The ID of the analytic to which to add the Inputs node.
+     * @param {string} contextId - The ID of the context in which to add the Inputs node.
+     * @returns {Promise<SpinalNodeRef>} A Promise that resolves to the newly created Inputs node.
+     * @memberof AnalyticService
+     */ addInputsNode(analyticId, contextId) {
+        return __awaiter(this, void 0, void 0, function*() {
+            const inputsInfo = {
+                name: "Inputs",
+                description: "",
+                type: CONSTANTS.INPUTS_TYPE
+            };
+            const inputsModel = new InputsModel_1.InputsModel(inputsInfo);
+            const inputsId = spinal_env_viewer_graph_service_1.SpinalGraphService.createNode(inputsInfo, inputsModel);
+            yield spinal_env_viewer_graph_service_1.SpinalGraphService.addChildInContext(analyticId, inputsId, contextId, CONSTANTS.ANALYTIC_TO_INPUTS_RELATION, spinal_env_viewer_graph_service_1.SPINAL_RELATION_PTR_LST_TYPE);
+            return spinal_env_viewer_graph_service_1.SpinalGraphService.getInfo(inputsId);
+        });
+    }
+    /**
+     * Adds an Outputs node to the specified analytic within the specified context.
+     * @async
+     * @param {string} analyticId - The ID of the analytic to which to add the Outputs node.
+     * @param {string} contextId - The ID of the context in which to add the Outputs node.
+     * @returns {Promise<SpinalNodeRef>} A Promise that resolves to the newly created Outputs node.
+     * @memberof AnalyticService
+     */ addOutputsNode(analyticId, contextId) {
+        return __awaiter(this, void 0, void 0, function*() {
+            const outputsInfo = {
+                name: "Outputs",
+                description: "",
+                type: CONSTANTS.OUTPUTS_TYPE
+            };
+            const outputsModel = new OutputsModel_1.OutputsModel(outputsInfo);
+            const outputsId = spinal_env_viewer_graph_service_1.SpinalGraphService.createNode(outputsInfo, outputsModel);
+            yield spinal_env_viewer_graph_service_1.SpinalGraphService.addChildInContext(analyticId, outputsId, contextId, CONSTANTS.ANALYTIC_TO_OUTPUTS_RELATION, spinal_env_viewer_graph_service_1.SPINAL_RELATION_PTR_LST_TYPE);
+            return spinal_env_viewer_graph_service_1.SpinalGraphService.getInfo(outputsId);
+        });
+    }
+    /**
+     * Retrieves the Inputs node for the specified analytic.
+     * @async
+     * @param {string} analyticId - The ID of the analytic for which to retrieve the Inputs node.
+     * @return {*}  {(Promise<SpinalNodeRef | undefined>)} - A Promise that resolves to the Inputs node, or undefined if the Inputs node cannot be found.
+     * @memberof AnalyticService
+     */ getInputsNode(analyticId) {
+        return __awaiter(this, void 0, void 0, function*() {
+            const nodes = yield spinal_env_viewer_graph_service_1.SpinalGraphService.getChildren(analyticId, [
+                CONSTANTS.ANALYTIC_TO_INPUTS_RELATION
+            ]);
+            if (nodes.length === 0) return undefined;
+            return spinal_env_viewer_graph_service_1.SpinalGraphService.getInfo(nodes[0].id.get());
+        });
+    }
+    /**
+     * Retrieves the Outputs node for the specified analytic.
+     * @async
+     * @param {string} analyticId - The ID of the analytic for which to retrieve the Outputs node.
+     * @returns {*} {(Promise<SpinalNodeRef | undefined>)} - A Promise that resolves to the Outputs node, or undefined if the Outputs node cannot be found.
+     * @memberof AnalyticService
+     */ getOutputsNode(analyticId) {
+        return __awaiter(this, void 0, void 0, function*() {
+            const nodes = yield spinal_env_viewer_graph_service_1.SpinalGraphService.getChildren(analyticId, [
+                CONSTANTS.ANALYTIC_TO_OUTPUTS_RELATION
+            ]);
+            if (nodes.length === 0) return undefined;
+            return spinal_env_viewer_graph_service_1.SpinalGraphService.getInfo(nodes[0].id.get());
+        });
+    }
+    deleteInputsNode(analyticId) {
+        return __awaiter(this, void 0, void 0, function*() {
+            const inputsNode = yield this.getInputsNode(analyticId);
+            if (inputsNode) yield this.safeDeleteNode(inputsNode.id.get(), false);
+        });
+    }
+    deleteOutputsNode(analyticId, shouldDeleteChildren = false) {
+        return __awaiter(this, void 0, void 0, function*() {
+            const outputsNode = yield this.getOutputsNode(analyticId);
+            if (outputsNode) yield this.safeDeleteNode(outputsNode.id.get(), shouldDeleteChildren);
+        });
+    }
+    // #endregion INPUTS/OUTPUTS
+    // #region CONFIG
+    /**
+     * Adds a new Config node to the specified analytic within the specified context, with the specified attributes.
+     *
+     * @param {INodeDocumentation} configAttributes - The attributes to add to the Config node.
+     * @param {string} analyticId - The ID of the analytic to which to add the Config node.
+     * @param {string} contextId - The ID of the context in which to add the Config node.
+     * @return {*}  {Promise<SpinalNodeRef>}
+     * @memberof AnalyticService
+     */ addConfig(configAttributes, analyticId, contextId) {
+        return __awaiter(this, void 0, void 0, function*() {
+            const configNodeInfo = {
+                name: "Config",
+                type: CONSTANTS.CONFIG_TYPE
+            };
+            const configModel = new ConfigModel_1.ConfigModel(configNodeInfo);
+            const configId = spinal_env_viewer_graph_service_1.SpinalGraphService.createNode(configNodeInfo, configModel);
+            const configNode = yield spinal_env_viewer_graph_service_1.SpinalGraphService.addChildInContext(analyticId, configId, contextId, CONSTANTS.ANALYTIC_TO_CONFIG_RELATION, spinal_env_viewer_graph_service_1.SPINAL_RELATION_PTR_LST_TYPE);
+            this.addAttributesToNode(configNode, configAttributes);
+            return spinal_env_viewer_graph_service_1.SpinalGraphService.getInfo(configId);
+        });
+    }
+    /**
+     * Retrieves the Config node for the specified analytic
+     *
+     * @async
+     * @param {string} analyticId - The ID of the analytic for which to retrieve the Config node.
+     * @return {*}  {(Promise<SpinalNodeRef | undefined>)} A Promise that resolves to the Config node, or undefined if the Config node cannot be found.
+     * @memberof AnalyticService
+     */ getConfig(analyticId) {
+        return __awaiter(this, void 0, void 0, function*() {
+            const nodes = yield spinal_env_viewer_graph_service_1.SpinalGraphService.getChildren(analyticId, [
+                CONSTANTS.ANALYTIC_TO_CONFIG_RELATION
+            ]);
+            if (nodes.length === 0) return undefined;
+            return spinal_env_viewer_graph_service_1.SpinalGraphService.getInfo(nodes[0].id.get());
+        });
+    }
+    deleteConfigNode(analyticId) {
+        return __awaiter(this, void 0, void 0, function*() {
+            const configNode = yield this.getConfig(analyticId);
+            if (configNode) yield this.safeDeleteNode(configNode.id.get());
+        });
+    }
+    // #endregion CONFIG
+    // #region TRACKING METHOD
+    addInputTrackingMethod(trackingMethodAttributes, contextId, analyticId) {
+        return __awaiter(this, void 0, void 0, function*() {
+            const inputs = yield this.getInputsNode(analyticId);
+            if (inputs === undefined) throw Error("Inputs node not found");
+            return this.addTrackingMethod(trackingMethodAttributes, contextId, inputs.id.get());
+        });
+    }
+    /**
+     * Retrieves all Tracking Method nodes associated with the Inputs node of the specified analytic.
+     * @async
+     * @param {string} analyticId - The ID of the analytic for which to retrieve the Tracking Method nodes.
+     * @returns {Promise<SpinalNodeRef[]|undefined>} A Promise that resolves to an array of Tracking Method nodes, or undefined if the Inputs node or Tracking Method nodes cannot be found.
+     * @memberof AnalyticService
+     */ getTrackingMethods(analyticId) {
+        return __awaiter(this, void 0, void 0, function*() {
+            const inputs = yield this.getInputsNode(analyticId);
+            if (inputs === undefined) return undefined;
+            const nodes = yield spinal_env_viewer_graph_service_1.SpinalGraphService.getChildren(inputs.id.get(), [
+                CONSTANTS.ANALYTIC_INPUTS_TO_TRACKING_METHOD_RELATION
+            ]);
+            return nodes;
+        });
+    }
+    /**
+     * Retrieves the first Tracking Method node associated with the Inputs node of the specified analytic.
+     * @async
+     * @param {string} analyticId - The ID of the analytic for which to retrieve the Tracking Method node.
+     * @returns {Promise<SpinalNodeRef|undefined>} A Promise that resolves to the first Tracking Method node, or undefined if the Inputs node or Tracking Method nodes cannot be found.
+     * @memberof AnalyticService
+     */ getTrackingMethod(analyticId) {
+        return __awaiter(this, void 0, void 0, function*() {
+            const trackingMethods = yield this.getTrackingMethods(analyticId);
+            if (trackingMethods === undefined) return undefined;
+            return trackingMethods[0];
+        });
+    }
+    /**
+     * Adds a new Tracking Method node to the specified Input node within the specified context.
+     * @async
+     * @param {INodeDocumentation} trackingMethodAttributes
+     * @param {string} contextId - The ID of the context in which to add the Tracking Method node.
+     * @param {string} inputId - The ID of the Input node to which to add the Tracking Method node.
+     * @return {*}  {Promise<SpinalNodeRef>} - A Promise that resolves to the newly created Tracking Method node.
+     * @memberof AnalyticService
+     */ addTrackingMethod(trackingMethodAttributes, contextId, inputId) {
+        return __awaiter(this, void 0, void 0, function*() {
+            const trackingMethodNodeInfo = {
+                name: "TrackingMethod",
+                type: CONSTANTS.TRACKING_METHOD_TYPE
+            };
+            const trackingMethodModel = new TrackingMethodModel_1.TrackingMethodModel(trackingMethodNodeInfo);
+            const trackingMethodNodeId = spinal_env_viewer_graph_service_1.SpinalGraphService.createNode(trackingMethodNodeInfo, trackingMethodModel);
+            const createdNode = yield spinal_env_viewer_graph_service_1.SpinalGraphService.addChildInContext(inputId, trackingMethodNodeId, contextId, CONSTANTS.ANALYTIC_INPUTS_TO_TRACKING_METHOD_RELATION, spinal_env_viewer_graph_service_1.SPINAL_RELATION_PTR_LST_TYPE);
+            this.addAttributesToNode(createdNode, trackingMethodAttributes);
+            return spinal_env_viewer_graph_service_1.SpinalGraphService.getInfo(trackingMethodNodeId);
+        });
+    }
+    /**
+     * Removes the specified Tracking Method node from the specified Inputs node and deletes it from the graph.
+     * @async
+     * @param {string} inputId - The ID of the Inputs node from which to remove the Tracking Method node.
+     * @param {string} trackingMethodId - The ID of the Tracking Method node to remove and delete.
+     * @returns {Promise<void>} A Promise that resolves when the Tracking Method node has been removed and deleted.
+     * @memberof AnalyticService
+     */ removeTrackingMethod(inputId, trackingMethodId) {
+        return __awaiter(this, void 0, void 0, function*() {
+            yield spinal_env_viewer_graph_service_1.SpinalGraphService.removeChild(inputId, trackingMethodId, CONSTANTS.ANALYTIC_INPUTS_TO_FOLLOWED_ENTITY_RELATION, spinal_env_viewer_graph_service_1.SPINAL_RELATION_PTR_LST_TYPE);
+            yield spinal_env_viewer_graph_service_1.SpinalGraphService.removeFromGraph(trackingMethodId);
+        });
+    }
+    /**
+     * Removes the specified Tracking Method node from the Inputs node of the specified analytic and deletes it from the graph.
+     * @async
+     * @param {string} analyticId - The ID of the analytic from which to remove the Tracking Method node.
+     * @param {string} trackingMethodId - The ID of the Tracking Method node to remove and delete.
+     * @throws {Error} Throws an error if the Inputs node cannot be found.
+     * @returns {Promise<void>} A Promise that resolves when the Tracking Method node has been removed and deleted.
+     * @memberof AnalyticService
+     */ removeInputTrackingMethod(analyticId, trackingMethodId) {
+        return __awaiter(this, void 0, void 0, function*() {
+            const inputs = yield this.getInputsNode(analyticId);
+            if (inputs === undefined) throw Error("Inputs node not found");
+            yield this.removeTrackingMethod(inputs.id.get(), trackingMethodId);
+        });
+    }
+    // #endregion TRACKING METHOD
+    // #region FOLLOWED ENTITY
+    /**
+     * Adds a link between an input and a followed entity.
+     * @param {string} contextId - The id of the context where the link will be created.
+     * @param {string} inputId - The id of the input node.
+     * @param {string} followedEntityId - The id of the followed entity node.
+     * @returns {Promise<SpinalNodeRef>} The linked node.
+     * @memberof AnalyticService
+     */ addLinkToFollowedEntity(contextId, inputId, followedEntityId) {
+        return __awaiter(this, void 0, void 0, function*() {
+            const link = yield spinal_env_viewer_graph_service_1.SpinalGraphService.addChildInContext(inputId, followedEntityId, contextId, CONSTANTS.ANALYTIC_INPUTS_TO_FOLLOWED_ENTITY_RELATION, spinal_env_viewer_graph_service_1.SPINAL_RELATION_PTR_LST_TYPE);
+            const id = link.info.id.get();
+            return spinal_env_viewer_graph_service_1.SpinalGraphService.getInfo(id);
+        });
+    }
+    /**
+     * Adds a link between the input node of the specified analytic and a followed entity.
+     * @param {string} contextId - The id of the context where the link will be created.
+     * @param {string} analyticId - The id of the analytic node.
+     * @param {string} followedEntityId - The id of the followed entity node.
+     * @returns {Promise<SpinalNodeRef>} The linked node.
+     * @memberof AnalyticService
+     */ addInputLinkToFollowedEntity(contextId, analyticId, followedEntityId) {
+        return __awaiter(this, void 0, void 0, function*() {
+            const inputs = yield this.getInputsNode(analyticId);
+            if (inputs === undefined) throw Error("Inputs node not found");
+            return this.addLinkToFollowedEntity(contextId, inputs.id.get(), followedEntityId);
+        });
+    }
+    /**
+     * Removes the link between an input node and a followed entity node.
+     *
+     * @async
+     * @param {string} analyticId - The ID of the analytic node.
+     * @param {string} followedEntityId - The ID of the followed entity node.
+     * @returns {Promise<void>}
+     * @memberof AnalyticService
+     */ removeLinkToFollowedEntity(analyticId, followedEntityId) {
+        return __awaiter(this, void 0, void 0, function*() {
+            const inputNodeRef = yield this.getInputsNode(analyticId);
+            if (inputNodeRef === undefined) throw Error("Inputs node not found");
+            yield spinal_env_viewer_graph_service_1.SpinalGraphService.removeChild(inputNodeRef.id.get(), followedEntityId, CONSTANTS.ANALYTIC_INPUTS_TO_FOLLOWED_ENTITY_RELATION, spinal_env_viewer_graph_service_1.SPINAL_RELATION_PTR_LST_TYPE);
+        });
+    }
+    /**
+     * Get the followed entity node of an analytic.
+     * @async
+     * @param {string} analyticId - The id of the analytic.
+     * @returns {Promise<SpinalNodeRef|undefined>} The followed entity node or undefined if it does not exist.
+     * @memberof AnalyticService
+     */ getFollowedEntity(analyticId) {
+        return __awaiter(this, void 0, void 0, function*() {
+            const inputsNode = yield this.getInputsNode(analyticId);
+            if (inputsNode === undefined) return undefined;
+            const nodes = yield spinal_env_viewer_graph_service_1.SpinalGraphService.getChildren(inputsNode.id.get(), [
+                CONSTANTS.ANALYTIC_INPUTS_TO_FOLLOWED_ENTITY_RELATION
+            ]);
+            if (nodes === undefined) return undefined;
+            return nodes[0];
+        });
+    }
+    // #endregion FOLLOWED ENTITY
+    // #region NODE DOCUMENTATION
+    /**
+     * Adds the specified attributes to the node with the specified ID.
+     * @async
+     * @param {SpinalNode<any>} node - The node to which to add the attributes.
+     * @param {INodeDocumentation} attributes - An array of objects representing the attributes to add to the node.
+     * @returns {Promise<void>} A Promise that resolves when the attributes have been added.
+     * @memberof AnalyticService
+     */ addAttributesToNode(node, attributes) {
+        return __awaiter(this, void 0, void 0, function*() {
+            for (const categoryName of Object.keys(attributes))for (const attribute of attributes[categoryName])yield spinal_env_viewer_plugin_documentation_service_1.default.addAttributeByCategoryName(node, categoryName, attribute.name, attribute.value, attribute.type, "");
+        });
+    }
+    /**
+     * Gets the attributes from a node.
+     *
+     * @param {string} nodeId - The ID of the node from which to retrieve the attributes.
+     * @param {string} category - The category of the attributes to retrieve.
+     * @return {*}  {Promise<any>} An object containing the attributes.
+     * @memberof AnalyticServiceimport AttributeService, {
+    attributeService,
+  } from 'spinal-env-viewer-plugin-documentation-service';
+     */ getAttributesFromNode(nodeId, category) {
+        return __awaiter(this, void 0, void 0, function*() {
+            const node = spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(nodeId);
+            const res = {};
+            const parameters = yield spinal_env_viewer_plugin_documentation_service_1.attributeService.getAttributesByCategory(node, category);
+            for (const param of parameters){
+                const obj = param.get();
+                res[obj.label] = obj.value;
+            }
+            return res;
+        });
+    }
+    /**
+     * Gets the attribute from a node.
+     *
+     * @param {string} nodeId - The ID of the node from which to retrieve the attribute.
+     * @param {string} category - The category of the attribute to retrieve.
+     * @param {string} label - The label of the attribute to retrieve.
+     * @return {*}  {Promise<any>}  An object containing the attribute { label: value}.
+     * @memberof AnalyticService
+     */ getAttributeFromNode(nodeId, category, label) {
+        return __awaiter(this, void 0, void 0, function*() {
+            const node = spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(nodeId);
+            const parameters = yield spinal_env_viewer_plugin_documentation_service_1.attributeService.getAttributesByCategory(node, category);
+            for (const param of parameters){
+                const obj = param.get();
+                if (obj.label === label) return {
+                    [obj.label]: obj.value
+                };
+            }
+            return undefined;
+        });
+    }
+    getAllCategoriesAndAttributesFromNode(nodeId) {
+        return __awaiter(this, void 0, void 0, function*() {
+            const node = spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(nodeId);
+            const res = {};
+            const categories = yield spinal_env_viewer_plugin_documentation_service_1.attributeService.getCategory(node);
+            for (const cat of categories){
+                const categoryName = cat.nameCat;
+                res[categoryName] = {};
+                const attributes = yield spinal_env_viewer_plugin_documentation_service_1.attributeService.getAttributesByCategory(node, categoryName);
+                for (const attribute of attributes){
+                    const obj = attribute.get();
+                    res[categoryName][obj.label] = obj.value;
+                }
+            }
+            return res;
+        });
+    }
+    //#endregion NODE DOCUMENTATION
+    // #region NODE GLOBAL
+    removeChild(parentNode, childNode, relation) {
+        return __awaiter(this, void 0, void 0, function*() {
+            try {
+                yield parentNode.removeChild(childNode, relation, spinal_env_viewer_graph_service_1.SPINAL_RELATION_PTR_LST_TYPE);
+            } catch (e) {
+                try {
+                    yield parentNode.removeChild(childNode, relation, spinal_env_viewer_graph_service_1.SPINAL_RELATION_LST_PTR_TYPE);
+                } catch (e) {
+                    console.log(e);
+                }
+            }
+        });
+    }
+    safeDeleteNode(nodeId, shouldDeleteChildren = false) {
+        return __awaiter(this, void 0, void 0, function*() {
+            const realNode = spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(nodeId);
+            const relations = realNode.getRelationNames();
+            for (const relation of relations){
+                const children = yield realNode.getChildren(relation);
+                for (const child of children){
+                    yield this.removeChild(realNode, child, relation);
+                    if (shouldDeleteChildren) yield child.removeFromGraph();
+                }
+            }
+            yield realNode.removeFromGraph();
+        });
+    }
+}
+exports.default = AnalyticNodeManagerService;
+
+},{"c3a59c8970091084":"9n7zp","6c67449c51cd01":"2CVgx","d5f7a1fec079d05c":"eVs5c","94b49308811f97f8":"9ovXf","4521602391679e75":"4rJ3F","105589ec012d945b":"fR5zB","a5ef27f319369412":"h4DC9","a05d0a34f760483e":"SIBaV","bb4c818c4c0b9f78":"5rYVR"}],"eVs5c":[function(require,module,exports) {
+"use strict";
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.ConfigModel = void 0;
+const spinal_core_connectorjs_type_1 = require("87f392c163896816");
+class ConfigModel extends spinal_core_connectorjs_type_1.Model {
+    constructor(nodeInfo){
+        super();
+        this.add_attr(nodeInfo);
+    }
+}
+exports.ConfigModel = ConfigModel;
+spinal_core_connectorjs_type_1.spinalCore.register_models(ConfigModel);
+exports.default = ConfigModel;
+
+},{"87f392c163896816":"fRH70"}],"fR5zB":[function(require,module,exports) {
+"use strict";
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.EntityModel = void 0;
+const spinal_core_connectorjs_type_1 = require("30b6806a9befdbc5");
+class EntityModel extends spinal_core_connectorjs_type_1.Model {
+    constructor(entity){
+        super();
+        this.add_attr(entity);
+    }
+}
+exports.EntityModel = EntityModel;
+spinal_core_connectorjs_type_1.spinalCore.register_models(EntityModel);
+exports.default = EntityModel;
+
+},{"30b6806a9befdbc5":"fRH70"}],"h4DC9":[function(require,module,exports) {
+"use strict";
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.InputsModel = void 0;
+const spinal_core_connectorjs_type_1 = require("edba9546fee3d09e");
+class InputsModel extends spinal_core_connectorjs_type_1.Model {
+    constructor(inputInfo){
+        super();
+        this.add_attr(inputInfo);
+    }
+}
+exports.InputsModel = InputsModel;
+spinal_core_connectorjs_type_1.spinalCore.register_models(InputsModel);
+exports.default = InputsModel;
+
+},{"edba9546fee3d09e":"fRH70"}],"SIBaV":[function(require,module,exports) {
+"use strict";
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.OutputsModel = void 0;
+const spinal_core_connectorjs_type_1 = require("62a6631c4392c52b");
+class OutputsModel extends spinal_core_connectorjs_type_1.Model {
+    constructor(outputInfo){
+        super();
+        this.add_attr(outputInfo);
+    }
+}
+exports.OutputsModel = OutputsModel;
+spinal_core_connectorjs_type_1.spinalCore.register_models(OutputsModel);
+exports.default = OutputsModel;
+
+},{"62a6631c4392c52b":"fRH70"}],"3iXbQ":[function(require,module,exports) {
+"use strict";
+var __awaiter = this && this.__awaiter || function(thisArg, _arguments, P, generator) {
+    function adopt(value) {
+        return value instanceof P ? value : new P(function(resolve) {
+            resolve(value);
+        });
+    }
+    return new (P || (P = Promise))(function(resolve, reject) {
+        function fulfilled(value) {
+            try {
+                step(generator.next(value));
+            } catch (e) {
+                reject(e);
+            }
+        }
+        function rejected(value) {
+            try {
+                step(generator["throw"](value));
+            } catch (e) {
+                reject(e);
+            }
+        }
+        function step(result) {
+            result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected);
+        }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+const spinal_env_viewer_graph_service_1 = require("f3ee6fdb863ad814");
+const spinal_env_viewer_plugin_documentation_service_1 = require("c8a76932075cb370");
+const spinal_models_documentation_1 = require("50479a2175769208");
+const SingletonTimeSeries_1 = require("c7eca02903460257");
+const CONSTANTS = require("7678e0b295c94e80");
+class AnalyticInputManagerService {
+    constructor(analyticNodeManagerService){
+        this.analyticNodeManagerService = analyticNodeManagerService;
+        this.spinalServiceTimeseries = SingletonTimeSeries_1.SingletonServiceTimeseries.getInstance();
+    }
+    /**
+     *
+     * @async
+     * @param {string} trackMethod - The type of filter.
+     * @param {string} filterValue - The filter value to use.
+     * @param {SpinalNodeRef} followedEntity - The SpinalNodeRef object representing the Followed Entity to which the Tracking Method should be applied.
+     * @returns {*} {Promise<SpinalNodeRef[] | SpinalNodeRef | undefined>} - A Promise that resolves with the results of the applied Tracking Method.
+     * @memberof AnalyticService
+     */ applyTrackingMethodWithParams(followedEntity, trackMethod, filterValue, depth, strictDepth, authorizedRelations, multipleModels = false) {
+        return __awaiter(this, void 0, void 0, function*() {
+            if (followedEntity) switch(trackMethod){
+                case CONSTANTS.TRACK_METHOD.ENDPOINT_NAME_FILTER:
+                    {
+                        if (multipleModels) {
+                            const endpoints = yield this.findEndpoints(followedEntity.id.get(), filterValue, depth, strictDepth, authorizedRelations, CONSTANTS.ENDPOINT_RELATIONS, CONSTANTS.ENDPOINT_NODE_TYPE);
+                            return endpoints;
+                        }
+                        const endpoint = yield this.findEndpoint(followedEntity.id.get(), filterValue, depth, strictDepth, authorizedRelations, CONSTANTS.ENDPOINT_RELATIONS, CONSTANTS.ENDPOINT_NODE_TYPE);
+                        return endpoint;
+                    }
+                case CONSTANTS.TRACK_METHOD.CONTROL_ENDPOINT_NAME_FILTER:
+                    {
+                        if (multipleModels) {
+                            const controlEndpoints = yield this.findEndpoints(followedEntity.id.get(), filterValue, depth, strictDepth, authorizedRelations, CONSTANTS.CONTROL_ENDPOINT_RELATIONS, CONSTANTS.ENDPOINT_NODE_TYPE);
+                            return controlEndpoints;
+                        }
+                        const controlEndpoint = yield this.findEndpoint(followedEntity.id.get(), filterValue, depth, strictDepth, authorizedRelations, CONSTANTS.CONTROL_ENDPOINT_RELATIONS, CONSTANTS.ENDPOINT_NODE_TYPE);
+                        return controlEndpoint;
+                    }
+                case CONSTANTS.TRACK_METHOD.ATTRIBUTE_NAME_FILTER:
+                    {
+                        const [first, second] = filterValue.split(":");
+                        const foundAttribute = yield this.findAttribute(followedEntity.id.get(), first, second, depth, strictDepth, authorizedRelations);
+                        if (foundAttribute == -1) return undefined;
+                        return foundAttribute;
+                    //}
+                    }
+                default:
+                    console.log("Track method not recognized");
+            }
+        });
+    }
+    /**
+     * Gets the targeted entities for an analytic.
+     *
+     * @param {string} analyticId The ID of the analytic.
+     * @return {*}  {(Promise<SpinalNodeRef[]|undefined>)} An array of SpinalNodeRefs for the entities
+     * @memberof AnalyticService
+     */ getWorkingFollowedEntities(analyticId) {
+        return __awaiter(this, void 0, void 0, function*() {
+            const followedEntity = yield this.analyticNodeManagerService.getFollowedEntity(analyticId);
+            const trackingMethod = yield this.analyticNodeManagerService.getTrackingMethod(analyticId);
+            const config = yield this.analyticNodeManagerService.getConfig(analyticId);
+            const entityInfo = yield this.analyticNodeManagerService.getEntityFromAnalytic(analyticId);
+            if (!entityInfo) return;
+            const entityType = entityInfo.entityType.get();
+            if (followedEntity && trackingMethod && config) {
+                if (entityType == followedEntity.type.get()) // we can continue as planned
+                return [
+                    followedEntity
+                ];
+                if (followedEntity.type.get().includes("group") || followedEntity.type.get().includes("Group")) {
+                    console.log("Anchor entity is a group, trying to find the correct entities with the relation name: ", CONSTANTS.GROUP_RELATION_PREFIX + entityType);
+                    return yield spinal_env_viewer_graph_service_1.SpinalGraphService.getChildren(followedEntity.id.get(), [
+                        CONSTANTS.GROUP_RELATION_PREFIX + entityType
+                    ]);
+                }
+                if (followedEntity.type.get().includes("context") || followedEntity.type.get().includes("Context")) {
+                    console.log("Anchor entity is a context, trying to find the correct entities");
+                    return yield spinal_env_viewer_graph_service_1.SpinalGraphService.findInContextByType(followedEntity.id.get(), followedEntity.id.get(), entityType);
+                }
+                console.log("Failed to deduct the correct entities from the anchor entity");
+                return [];
+            }
+        });
+    }
+    getWorkingFollowedEntitiesWithParam(followedEntity, entityType) {
+        return __awaiter(this, void 0, void 0, function*() {
+            if (entityType == followedEntity.type.get()) // we can continue as planned
+            return [
+                followedEntity
+            ];
+            if (followedEntity.type.get().includes("group") || followedEntity.type.get().includes("Group")) {
+                console.log("Anchor entity is a group, trying to find the correct entities with the relation name: ", CONSTANTS.GROUP_RELATION_PREFIX + entityType);
+                return yield spinal_env_viewer_graph_service_1.SpinalGraphService.getChildren(followedEntity.id.get(), [
+                    CONSTANTS.GROUP_RELATION_PREFIX + entityType
+                ]);
+            }
+            if (followedEntity.type.get().includes("context") || followedEntity.type.get().includes("Context")) {
+                console.log("Anchor entity is a context, trying to find the correct entities");
+                return yield spinal_env_viewer_graph_service_1.SpinalGraphService.findInContextByType(followedEntity.id.get(), followedEntity.id.get(), entityType);
+            }
+            console.log("Failed to deduct the correct entities from the anchor entity");
+            return [];
+        });
+    }
+    getEntryDataModelByInputIndex(analyticId, followedEntity, inputIndex, multipleModels = false) {
+        return __awaiter(this, void 0, void 0, function*() {
+            const trackingMethod = yield this.analyticNodeManagerService.getTrackingMethod(analyticId);
+            if (!trackingMethod) return undefined;
+            const inputParams = yield this.analyticNodeManagerService.getAttributesFromNode(trackingMethod.id.get(), inputIndex);
+            return yield this.applyTrackingMethodWithParams(followedEntity, inputParams[CONSTANTS.ATTRIBUTE_TRACKING_METHOD], inputParams[CONSTANTS.ATTRIBUTE_FILTER_VALUE], inputParams[CONSTANTS.ATTRIBUTE_SEARCH_DEPTH], inputParams[CONSTANTS.ATTRIBUTE_STRICT_DEPTH], inputParams[CONSTANTS.ATTRIBUTE_SEARCH_RELATIONS].split(CONSTANTS.ATTRIBUTE_VALUE_SEPARATOR), multipleModels);
+        });
+    }
+    getRelationsWithDepth(nodeId, depth) {
+        return __awaiter(this, void 0, void 0, function*() {
+            const relations = spinal_env_viewer_graph_service_1.SpinalGraphService.getRelationNames(nodeId);
+            if (depth <= 0) return relations;
+            const children = yield spinal_env_viewer_graph_service_1.SpinalGraphService.getChildren(nodeId);
+            for (const child of children){
+                const childRelations = yield this.getRelationsWithDepth(child.id.get(), depth - 1);
+                for (const childRelation of childRelations)if (!relations.includes(childRelation)) relations.push(childRelation);
+            }
+            return relations;
+        });
+    }
+    getChoiceRelationsWithDepth(nodeId, depth) {
+        return __awaiter(this, void 0, void 0, function*() {
+            const relations = yield this.getRelationsWithDepth(nodeId, depth);
+            const usefullRelations = relations.filter((relation)=>{
+                return !CONSTANTS.ENDPOINT_RELATIONS.includes(relation) && !CONSTANTS.CONTROL_ENDPOINT_RELATIONS.includes(relation);
+            });
+            return usefullRelations;
+        });
+    }
+    getAvailableData(trackMethod, nodeId, filterValue, depth, stricDepth, authorizedRelations) {
+        return __awaiter(this, void 0, void 0, function*() {
+            switch(trackMethod){
+                case CONSTANTS.TRACK_METHOD.ENDPOINT_NAME_FILTER:
+                    {
+                        const data = yield this.findEndpoints(nodeId, filterValue, depth, stricDepth, authorizedRelations, CONSTANTS.ENDPOINT_RELATIONS, CONSTANTS.ENDPOINT_NODE_TYPE);
+                        return data.map((endpoint)=>endpoint.name.get());
+                    }
+                case CONSTANTS.TRACK_METHOD.CONTROL_ENDPOINT_NAME_FILTER:
+                    {
+                        const data = yield this.findEndpoints(nodeId, filterValue, depth, stricDepth, authorizedRelations, CONSTANTS.CONTROL_ENDPOINT_RELATIONS, CONSTANTS.ENDPOINT_NODE_TYPE);
+                        return data.map((endpoint)=>endpoint.name.get());
+                    }
+                case CONSTANTS.TRACK_METHOD.ATTRIBUTE_NAME_FILTER:
+                    {
+                        const [category, attribute] = filterValue.split(":");
+                        const data = yield this.findAttributes(nodeId, category, attribute, depth, stricDepth, authorizedRelations);
+                        return data;
+                    }
+                default:
+                    console.log("Get available data not implemented yet for this tracking method");
+                    return [];
+            }
+        });
+    }
+    findNodes(nodeId, authorizedRelations, nodeType) {
+        return __awaiter(this, void 0, void 0, function*() {
+            let res = [];
+            const children = yield spinal_env_viewer_graph_service_1.SpinalGraphService.getChildren(nodeId, authorizedRelations);
+            for (const child of children)if (child.type.get() === nodeType) res.push(child);
+            else res = res.concat((yield this.findNodes(child.id.get(), authorizedRelations, nodeType)));
+            return res;
+        });
+    }
+    findSpecificNode(nodeId, filterNameValue, trackedRelations, nodeType) {
+        return __awaiter(this, void 0, void 0, function*() {
+            const endpoints = yield this.findNodes(nodeId, trackedRelations, nodeType);
+            return endpoints.find((endpoint)=>endpoint.name.get() === filterNameValue);
+        });
+    }
+    findMatchingNodes(nodeId, filterNameValue, trackedRelations, nodeType) {
+        return __awaiter(this, void 0, void 0, function*() {
+            const endpoints = yield this.findNodes(nodeId, trackedRelations, nodeType);
+            return endpoints.filter((endpoint)=>endpoint.name.get().includes(filterNameValue));
+        });
+    }
+    findEndpoint(nodeId, filterNameValue, depth, strictDepth, authorizedRelations, trackedRelations, nodeType) {
+        return __awaiter(this, void 0, void 0, function*() {
+            if (depth < 0) return undefined;
+            // we dont look further
+            if (depth == 0) return yield this.findSpecificNode(nodeId, filterNameValue, trackedRelations, nodeType);
+            // depth > 0
+            if (!strictDepth) {
+                const foundEndpoint = yield this.findSpecificNode(nodeId, filterNameValue, trackedRelations, nodeType);
+                if (foundEndpoint) return foundEndpoint;
+            }
+            const allRelations = spinal_env_viewer_graph_service_1.SpinalGraphService.getRelationNames(nodeId);
+            const checkedRelations = allRelations.filter((relation)=>authorizedRelations.includes(relation));
+            if (checkedRelations.length === 0) return undefined;
+            const children = yield spinal_env_viewer_graph_service_1.SpinalGraphService.getChildren(nodeId, checkedRelations);
+            for (const child of children){
+                const endpoint = yield this.findEndpoint(child.id.get(), filterNameValue, depth - 1, strictDepth, authorizedRelations, trackedRelations, nodeType);
+                if (endpoint) return endpoint;
+            }
+            return undefined;
+        });
+    }
+    findEndpoints(nodeId, filterNameValue, depth, strictDepth, authorizedRelations, trackedRelations, nodeType) {
+        return __awaiter(this, void 0, void 0, function*() {
+            if (depth == 0) return yield this.findMatchingNodes(nodeId, filterNameValue, trackedRelations, nodeType);
+            let results = [];
+            if (!strictDepth) results = results.concat((yield this.findMatchingNodes(nodeId, filterNameValue, trackedRelations, nodeType)));
+            if (depth <= 0) return results;
+            const allRelations = spinal_env_viewer_graph_service_1.SpinalGraphService.getRelationNames(nodeId);
+            const checkedRelations = allRelations.filter((relation)=>authorizedRelations.includes(relation));
+            if (checkedRelations.length === 0) return results;
+            const children = yield spinal_env_viewer_graph_service_1.SpinalGraphService.getChildren(nodeId, checkedRelations);
+            for (const child of children)results = results.concat((yield this.findEndpoints(child.id.get(), filterNameValue, depth - 1, strictDepth, authorizedRelations, trackedRelations, nodeType)));
+            return results;
+        });
+    }
+    findAttribute(nodeId, categoryName, attributeName, depth, strictDepth, authorizedRelations) {
+        return __awaiter(this, void 0, void 0, function*() {
+            if (depth < 0) return -1;
+            const node = spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(nodeId);
+            // we dont look further
+            if (depth == 0) return yield spinal_env_viewer_plugin_documentation_service_1.attributeService.findOneAttributeInCategory(node, categoryName, attributeName);
+            // depth > 0
+            if (!strictDepth) {
+                const foundAttribute = yield spinal_env_viewer_plugin_documentation_service_1.attributeService.findOneAttributeInCategory(node, categoryName, attributeName);
+                if (foundAttribute != -1) return foundAttribute;
+            }
+            const allRelations = spinal_env_viewer_graph_service_1.SpinalGraphService.getRelationNames(nodeId);
+            const checkedRelations = allRelations.filter((relation)=>authorizedRelations.includes(relation));
+            if (checkedRelations.length === 0) return -1;
+            const children = yield spinal_env_viewer_graph_service_1.SpinalGraphService.getChildren(nodeId, checkedRelations);
+            for (const child of children){
+                const attribute = yield this.findAttribute(child.id.get(), categoryName, attributeName, depth - 1, strictDepth, authorizedRelations);
+                if (attribute != -1) return attribute;
+            }
+            return -1;
+        });
+    }
+    findAttributes(nodeId, categoryName, attributeName, depth, strictDepth, authorizedRelations) {
+        return __awaiter(this, void 0, void 0, function*() {
+            if (depth == 0) return yield this.findAllCategoriesAndAttributes(nodeId);
+            let results = [];
+            if (!strictDepth) results = results.concat((yield this.findAllCategoriesAndAttributes(nodeId)));
+            if (depth <= 0) return results;
+            const allRelations = spinal_env_viewer_graph_service_1.SpinalGraphService.getRelationNames(nodeId);
+            const checkedRelations = allRelations.filter((relation)=>authorizedRelations.includes(relation));
+            if (checkedRelations.length === 0) return results;
+            const children = yield spinal_env_viewer_graph_service_1.SpinalGraphService.getChildren(nodeId, checkedRelations);
+            for (const child of children)results = results.concat((yield this.findAttributes(child.id.get(), categoryName, attributeName, depth - 1, strictDepth, authorizedRelations)));
+            return results;
+        });
+    }
+    findAllCategoriesAndAttributes(followedEntityId) {
+        return __awaiter(this, void 0, void 0, function*() {
+            const node = spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(followedEntityId);
+            const res = [];
+            const categories = yield spinal_env_viewer_plugin_documentation_service_1.attributeService.getCategory(node);
+            for (const category of categories){
+                const attributes = yield spinal_env_viewer_plugin_documentation_service_1.attributeService.getAttributesByCategory(node, category);
+                for (const attribute of attributes){
+                    const obj = attribute.get();
+                    res.push(`${category.nameCat}:${obj.label}`);
+                }
+            }
+            return res;
+        });
+    }
+    getValueModelFromEntry(entryDataModel) {
+        return __awaiter(this, void 0, void 0, function*() {
+            if (!(entryDataModel instanceof spinal_models_documentation_1.SpinalAttribute)) {
+                const element = yield entryDataModel.element.load();
+                return element.currentValue;
+            }
+            return entryDataModel.value;
+        });
+    }
+    formatTrackingMethodsToList(obj) {
+        const result = [];
+        const keys = Object.keys(obj);
+        const length = (keys.length - 1) / 4;
+        for(let i = 0; i < length; i++){
+            const item = {
+                trackingMethod: obj[`trackingMethod${i}`],
+                filterValue: obj[`filterValue${i}`],
+                removeFromAnalysis: obj[`removeFromAnalysis${i}`],
+                removeFromBinding: obj[`removeFromBinding${i}`]
+            };
+            result.push(item);
+        }
+        return result;
+    }
+    filterAlgorithmParametersAttributesByIndex(algoParams, indexName) {
+        const result = {};
+        for(const key in algoParams)if (key.startsWith(indexName)) {
+            const newKey = key.replace(indexName + CONSTANTS.ATTRIBUTE_SEPARATOR, "");
+            result[newKey] = algoParams[key];
+        }
+        return result;
+    }
+    getFormattedInputDataByIndex(analyticId, followedEntity, inputIndex, referenceEpochTime = Date.now()) {
+        return __awaiter(this, void 0, void 0, function*() {
+            const trackingMethod = yield this.analyticNodeManagerService.getTrackingMethod(analyticId);
+            if (!trackingMethod) return undefined;
+            const trackingParams = yield this.analyticNodeManagerService.getAttributesFromNode(trackingMethod.id.get(), inputIndex);
+            const entryDataModel = yield this.getEntryDataModelByInputIndex(analyticId, followedEntity, inputIndex, trackingParams[CONSTANTS.ATTRIBUTE_MULTIPLE_MODELS] || false);
+            if (!entryDataModel) return undefined;
+            if (!trackingParams[CONSTANTS.ATTRIBUTE_TIMESERIES] || trackingParams[CONSTANTS.ATTRIBUTE_TIMESERIES] == 0) {
+                //test if entryDataModel is array ( spinalNodeRed[] )
+                if (Array.isArray(entryDataModel)) {
+                    const res = [];
+                    for (const entry of entryDataModel){
+                        const currentValue = yield this.getValueModelFromEntry(entry);
+                        const assertedValue = currentValue.get();
+                        res.push(assertedValue);
+                    }
+                    return res;
+                }
+                const currentValue = yield this.getValueModelFromEntry(entryDataModel);
+                const assertedValue = currentValue.get();
+                return assertedValue;
+            } else {
+                if (Array.isArray(entryDataModel)) throw new Error("Does not support multiple timeseries in 1 input");
+                const spinalTs = yield this.spinalServiceTimeseries.getOrCreateTimeSeries(entryDataModel.id.get());
+                const end = referenceEpochTime;
+                const start = end - trackingParams[CONSTANTS.ATTRIBUTE_TIMESERIES];
+                const injectLastValueBeforeStart = trackingParams[CONSTANTS.ATTRIBUTE_TIMESERIES_VALUE_AT_START];
+                let data = injectLastValueBeforeStart ? yield spinalTs.getFromIntervalTime(start, end, true) : yield spinalTs.getFromIntervalTime(start, end);
+                if (injectLastValueBeforeStart) data = this.timeseriesPreProcessing(start, end, data); // tidy up the data mainly at start and end
+                return data;
+            }
+        });
+    }
+    getFormattedInputData(analyticId, followedEntity, inputIndex, executionTimes = [
+        Date.now()
+    ]) {
+        return __awaiter(this, void 0, void 0, function*() {
+            const inputData = {};
+            const trackingMethod = yield this.analyticNodeManagerService.getTrackingMethod(analyticId);
+            if (!trackingMethod) return undefined;
+            const trackingParams = yield this.analyticNodeManagerService.getAttributesFromNode(trackingMethod.id.get(), inputIndex);
+            const entryDataModel = yield this.getEntryDataModelByInputIndex(analyticId, followedEntity, inputIndex, trackingParams[CONSTANTS.ATTRIBUTE_MULTIPLE_MODELS] || false);
+            if (!entryDataModel) return undefined;
+            if (trackingParams[CONSTANTS.ATTRIBUTE_TIMESERIES] < 0) throw new Error("Timeseries intervalTime cannot be negative");
+            if (!trackingParams[CONSTANTS.ATTRIBUTE_TIMESERIES] || trackingParams[CONSTANTS.ATTRIBUTE_TIMESERIES] == 0) {
+                //add the current value for each executionTime
+                if (Array.isArray(entryDataModel)) {
+                    const res = [];
+                    for (const entry of entryDataModel){
+                        const currentValue = yield this.getValueModelFromEntry(entry);
+                        const assertedValue = currentValue.get();
+                        res.push(assertedValue);
+                    }
+                    for (const execTime of executionTimes)inputData[execTime] = res;
+                } else {
+                    const currentValue = yield this.getValueModelFromEntry(entryDataModel);
+                    const assertedValue = currentValue.get();
+                    for (const execTime of executionTimes)inputData[execTime] = assertedValue;
+                }
+            } else {
+                if (Array.isArray(entryDataModel)) throw new Error("Timeseries and multiple input capture is not compatible");
+                // add the timeseries data for each executionTime
+                const oldestTime = Math.min(...executionTimes);
+                const closestTime = Math.max(...executionTimes);
+                const spinalTs = yield this.spinalServiceTimeseries.getOrCreateTimeSeries(entryDataModel.id.get());
+                const end = closestTime;
+                const start = oldestTime - trackingParams[CONSTANTS.ATTRIBUTE_TIMESERIES];
+                const injectLastValueBeforeStart = trackingParams[CONSTANTS.ATTRIBUTE_TIMESERIES_VALUE_AT_START];
+                const data = yield spinalTs.getFromIntervalTime(start, end, injectLastValueBeforeStart);
+                for (const execTime of executionTimes){
+                    const execTimeStart = execTime - trackingParams[CONSTANTS.ATTRIBUTE_TIMESERIES];
+                    const processedData = this.timeseriesPreProcessingData(execTimeStart, execTime, data, injectLastValueBeforeStart);
+                    inputData[execTime] = processedData;
+                }
+            }
+            return inputData;
+        });
+    }
+    getAllDataFromAnalyticConfiguration(analyticId, entity, ioDependencies, executionTimes) {
+        var _a, _b;
+        return __awaiter(this, void 0, void 0, function*() {
+            const resultData = {};
+            // Get all the inputs (I0, I1, I2, ...)
+            const inputs = [];
+            const keys = Object.keys(ioDependencies);
+            for (const key of keys){
+                const myDependencies = (_b = (_a = ioDependencies[key]) === null || _a === void 0 ? void 0 : _a.split(CONSTANTS.ATTRIBUTE_VALUE_SEPARATOR)) !== null && _b !== void 0 ? _b : [];
+                for (const dep of myDependencies)if (dep.startsWith("I") && !inputs.includes(dep)) inputs.push(dep);
+            } // end for
+            for (const input of inputs){
+                const data = yield this.getFormattedInputData(analyticId, entity, input, executionTimes);
+                if (data) resultData[input] = data;
+            }
+            return resultData;
+        });
+    }
+    timeseriesPreProcessing(start, end, timeseries) {
+        if (timeseries.length === 0) return [];
+        //shifting the first timeseries to start if it is before start
+        if (timeseries[0].date < start) timeseries[0].date = start;
+        //copy last value to the end of the timeseries
+        timeseries.push({
+            date: end,
+            value: timeseries[timeseries.length - 1].value
+        });
+        return timeseries;
+    }
+    timeseriesPreProcessingData(startTime, endTime, timeseries, injectLastValueBeforeStart) {
+        let hasInjectedValue = false;
+        const resultTimeseries = [];
+        if (timeseries.length === 0) return [];
+        for (const timeserie of timeseries){
+            if (timeserie.date == startTime) {
+                hasInjectedValue = true;
+                resultTimeseries.push(timeserie);
+            } else if (timeserie.date > startTime && timeserie.date < endTime) resultTimeseries.push(timeserie);
+        } // end for
+        if (!hasInjectedValue && injectLastValueBeforeStart) {
+            for(let i = timeseries.length - 1; i >= 0; i--)if (timeseries[i].date < startTime) {
+                resultTimeseries.unshift({
+                    date: startTime,
+                    value: timeseries[i].value
+                });
+                break;
+            }
+        }
+        if (resultTimeseries.length != 0 && resultTimeseries[resultTimeseries.length - 1].date < endTime) resultTimeseries.push({
+            date: endTime,
+            value: resultTimeseries[resultTimeseries.length - 1].value
+        });
+        return resultTimeseries;
+    }
+}
+exports.default = AnalyticInputManagerService;
+
+},{"f3ee6fdb863ad814":"9n7zp","c8a76932075cb370":"5rYVR","50479a2175769208":"dcbQz","c7eca02903460257":"3VBF8","7678e0b295c94e80":"2CVgx"}],"3VBF8":[function(require,module,exports) {
+"use strict";
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.SingletonServiceTimeseries = void 0;
+const spinal_model_timeseries_1 = require("23feab8669d4c2ca");
+class SingletonServiceTimeseries {
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
+    constructor(){}
+    static getInstance() {
+        if (!SingletonServiceTimeseries.instance) SingletonServiceTimeseries.instance = new spinal_model_timeseries_1.SpinalServiceTimeseries();
+        return SingletonServiceTimeseries.instance;
+    }
+}
+exports.SingletonServiceTimeseries = SingletonServiceTimeseries;
+SingletonServiceTimeseries.instance = new spinal_model_timeseries_1.SpinalServiceTimeseries();
+
+},{"23feab8669d4c2ca":"hIcty"}],"8Is1I":[function(require,module,exports) {
+"use strict";
+var __awaiter = this && this.__awaiter || function(thisArg, _arguments, P, generator) {
+    function adopt(value) {
+        return value instanceof P ? value : new P(function(resolve) {
+            resolve(value);
+        });
+    }
+    return new (P || (P = Promise))(function(resolve, reject) {
+        function fulfilled(value) {
+            try {
+                step(generator.next(value));
+            } catch (e) {
+                reject(e);
+            }
+        }
+        function rejected(value) {
+            try {
+                step(generator["throw"](value));
+            } catch (e) {
+                reject(e);
+            }
+        }
+        function step(result) {
+            result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected);
+        }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+const SingletonTimeSeries_1 = require("9c3790ecd89717f1");
+const AnalyticTwilioManagerService_1 = require("867ef50e99cc3884");
+const spinal_env_viewer_plugin_documentation_service_1 = require("d7798a8526e25607");
+const InputDataEndpoint_1 = require("77bfefaf799d0bfe");
+const spinal_model_bmsnetwork_1 = require("67b5433537ce916f");
+const spinal_env_viewer_graph_service_1 = require("4814c03ba9f614ac");
+const utils_1 = require("975f1411a9144777");
+const CONSTANTS = require("7edecf8529f34667");
+const spinal_service_ticket_1 = require("cc6c6389418d336f");
+class AnalyticOutputManagerService {
+    constructor(analyticNodeManagerService, analyticInputManagerService){
+        this.analyticNodeManagerService = analyticNodeManagerService;
+        this.analyticInputManagerService = analyticInputManagerService;
+        this.spinalServiceTimeseries = SingletonTimeSeries_1.SingletonServiceTimeseries.getInstance();
+    }
+    initTwilioManagerService(twilioCredentials) {
+        if (!twilioCredentials || !twilioCredentials.accountSid || !twilioCredentials.authToken || !twilioCredentials.fromNumber) return;
+        console.log("Creating twilio manager service instance...");
+        this.analyticTwilioManagerService = new AnalyticTwilioManagerService_1.default(twilioCredentials.accountSid, twilioCredentials.authToken, twilioCredentials.fromNumber);
+    }
+    /**
+     * Handles the result of an algorithm that creates a ticket or an alarm.
+     *
+     * @private
+     * @param {*} result
+     * @param {string} analyticId
+     * @param {SpinalNodeRef} configNode
+     * @param {SpinalNodeRef} followedEntityNode
+     * @param {*} params
+     * @param {string} ticketType
+     * @return {*}  {Promise<void>}
+     * @memberof AnalyticService
+     */ handleTicketResult(result, analyticId, configAttributes, followedEntityNode, ticketType // Alarm or Ticket
+    ) {
+        return __awaiter(this, void 0, void 0, function*() {
+            if (result == false) return {
+                success: true,
+                error: "",
+                resultValue: result,
+                resultType: CONSTANTS.ANALYTIC_RESULT_TYPE.TICKET
+            };
+            const outputNode = yield this.analyticNodeManagerService.getOutputsNode(analyticId);
+            if (!outputNode) return {
+                success: false,
+                error: " Output Node not found"
+            };
+            const analyticContextId = this.analyticNodeManagerService.getContextIdOfAnalytic(analyticId);
+            if (!analyticContextId) return {
+                success: false,
+                error: " Analytic context id not found"
+            };
+            const ticketInfo = {
+                name: `${configAttributes[CONSTANTS.CATEGORY_ATTRIBUTE_RESULT_PARAMETERS][CONSTANTS.ATTRIBUTE_RESULT_NAME]} : ${followedEntityNode.name.get()}`
+            };
+            this.addTicketAlarm(ticketInfo, configAttributes, analyticContextId, outputNode.id.get(), followedEntityNode.id.get(), ticketType);
+            return {
+                success: true,
+                error: "",
+                resultValue: result,
+                resultType: CONSTANTS.ANALYTIC_RESULT_TYPE.TICKET
+            };
+        });
+    }
+    /**
+     * Handles the result of an algorithm that modifies a control point.
+     *
+     * @private
+     * @param {*} result
+     * @param {SpinalNodeRef} followedEntityNode
+     * @param {*} params
+     * @return {*}  {Promise<void>}
+     * @memberof AnalyticService
+     */ handleControlEndpointResult(result, followedEntityNode, configAttributes, referenceEpochTime) {
+        return __awaiter(this, void 0, void 0, function*() {
+            const controlEndpointNode = yield this.analyticInputManagerService.findEndpoint(followedEntityNode.id.get(), configAttributes[CONSTANTS.CATEGORY_ATTRIBUTE_RESULT_PARAMETERS][CONSTANTS.ATTRIBUTE_RESULT_NAME], 0, true, [], CONSTANTS.CONTROL_ENDPOINT_RELATIONS, CONSTANTS.ENDPOINT_NODE_TYPE);
+            if (!controlEndpointNode) return {
+                success: false,
+                error: " Control endpoint node not found"
+            };
+            const controlEndpoint = yield controlEndpointNode.element.load();
+            controlEndpoint.currentValue.set(result);
+            const bool = yield this.spinalServiceTimeseries.insertFromEndpoint(controlEndpointNode.id.get(), result, referenceEpochTime);
+            if (!bool) throw new Error("Failed to insert data in timeseries");
+            (0, utils_1.logMessage)(`CP ${controlEndpointNode.name.get()} updated with value : ${result} on ${followedEntityNode.name.get()} at ${referenceEpochTime}`);
+            //console.log(`CP ${controlEndpointNode.name.get()} updated with value : , ${result},  on , ${followedEntityNode.name.get()}`)
+            return {
+                success: true,
+                resultValue: result,
+                error: "",
+                resultType: CONSTANTS.ANALYTIC_RESULT_TYPE.CONTROL_ENDPOINT
+            };
+        });
+    }
+    /**
+     * Handles the result of an algorithm that modifies an Endpoint.
+     *
+     * @private
+     * @param {*} result
+     * @param {SpinalNodeRef} followedEntityNode
+     * @param {*} params
+     * @return {*}  {Promise<void>}
+     * @memberof AnalyticService
+     */ handleEndpointResult(result, followedEntityNode, configAttributes, referenceEpochTime) {
+        return __awaiter(this, void 0, void 0, function*() {
+            let endpointNode = yield this.analyticInputManagerService.findEndpoint(followedEntityNode.id.get(), configAttributes[CONSTANTS.CATEGORY_ATTRIBUTE_RESULT_PARAMETERS][CONSTANTS.ATTRIBUTE_RESULT_NAME], 0, true, [], CONSTANTS.ENDPOINT_RELATIONS, CONSTANTS.ENDPOINT_NODE_TYPE);
+            if (!endpointNode && !configAttributes[CONSTANTS.CATEGORY_ATTRIBUTE_RESULT_PARAMETERS][CONSTANTS.ATTRIBUTE_CREATE_ENDPOINT_IF_NOT_EXIST]) return {
+                success: false,
+                error: "Endpoint node not found"
+            };
+            if (!endpointNode) {
+                endpointNode = yield this.createEndpoint(referenceEpochTime, followedEntityNode.id.get(), configAttributes[CONSTANTS.CATEGORY_ATTRIBUTE_RESULT_PARAMETERS][CONSTANTS.ATTRIBUTE_RESULT_NAME], result, configAttributes[CONSTANTS.CATEGORY_ATTRIBUTE_ENDPOINT_PARAMETERS][CONSTANTS.ATTRIBUTE_CREATE_ENDPOINT_UNIT], configAttributes[CONSTANTS.CATEGORY_ATTRIBUTE_ENDPOINT_PARAMETERS][CONSTANTS.ATTRIBUTE_CREATE_ENDPOINT_MAX_DAYS]);
+                if (!endpointNode) return {
+                    success: false,
+                    error: "Failed endpoint creation"
+                };
+            }
+            const endpoint = yield endpointNode.element.load();
+            endpoint.currentValue.set(result);
+            const bool = yield this.spinalServiceTimeseries.insertFromEndpoint(endpointNode.id.get(), result, referenceEpochTime);
+            if (!bool) return {
+                success: false,
+                error: "Failed to insert data in timeseries"
+            };
+            (0, utils_1.logMessage)(`EP ${endpointNode.name.get()} updated with value : ${result} on ${followedEntityNode.name.get()} at ${referenceEpochTime}`);
+            return {
+                success: true,
+                resultValue: result,
+                error: "",
+                resultType: CONSTANTS.ANALYTIC_RESULT_TYPE.ENDPOINT
+            };
+        });
+    }
+    /**
+     * Handles the result of an algorithm that sends an SMS.
+     *
+     * @private
+     * @param {*} result
+     * @param {SpinalNodeRef} configNode
+     * @param {SpinalNodeRef} followedEntityNode
+     * @return {*}  {Promise<void>}
+     * @memberof AnalyticService
+     */ handleSMSResult(result, analyticId, configAttributes, followedEntityNode) {
+        return __awaiter(this, void 0, void 0, function*() {
+            if (!this.analyticTwilioManagerService) return {
+                success: false,
+                error: "Twilio parameters not found"
+            };
+            if (result == false) return {
+                success: true,
+                resultValue: result,
+                error: "",
+                resultType: CONSTANTS.ANALYTIC_RESULT_TYPE.SMS
+            };
+            console.log("SMS result");
+            const twilioParams = configAttributes[CONSTANTS.CATEGORY_ATTRIBUTE_TWILIO_PARAMETERS];
+            const toNumber = twilioParams[CONSTANTS.ATTRIBUTE_PHONE_NUMBER];
+            let message = twilioParams[CONSTANTS.ATTRIBUTE_PHONE_MESSAGE];
+            const variables = message.match(/[^{}]+(?=\})/g);
+            if (variables) for (const variable of variables){
+                const value = yield this.analyticInputManagerService.getFormattedInputDataByIndex(analyticId, followedEntityNode, variable);
+                message = message.replace(`{${variable}}`, "" + value);
+            }
+            const entityName = followedEntityNode.name.get().replace(/[0-9]/g, "*");
+            const axiosResult = yield this.analyticTwilioManagerService.sendMessage(message, toNumber, entityName);
+            console.log({
+                status: axiosResult.status,
+                data: axiosResult.data
+            });
+            return {
+                success: true,
+                resultValue: result,
+                error: "",
+                resultType: CONSTANTS.ANALYTIC_RESULT_TYPE.SMS
+            };
+        });
+    }
+    handleGChatMessageResult(result, analyticId, configAttributes, followedEntityNode) {
+        return __awaiter(this, void 0, void 0, function*() {
+            console.log("Handling Google chat message result");
+            if (result == false) return {
+                success: true,
+                resultValue: result,
+                error: "",
+                resultType: CONSTANTS.ANALYTIC_RESULT_TYPE.GCHAT_MESSAGE
+            };
+            const analyticParams = configAttributes[CONSTANTS.CATEGORY_ATTRIBUTE_ANALYTIC_PARAMETERS];
+            const gChatParams = configAttributes[CONSTANTS.CATEGORY_ATTRIBUTE_GCHAT_PARAMETERS];
+            const spaceName = gChatParams[CONSTANTS.ATTRIBUTE_GCHAT_SPACE];
+            let message = gChatParams[CONSTANTS.ATTRIBUTE_GCHAT_MESSAGE];
+            const analyticDescription = analyticParams[CONSTANTS.ATTRIBUTE_ANALYTIC_DESCRIPTION];
+            const variables = message.match(/[^{}]+(?=\})/g);
+            if (variables) for (const variable of variables){
+                const value = yield this.analyticInputManagerService.getFormattedInputDataByIndex(analyticId, followedEntityNode, variable);
+                message = message.replace(`{${variable}}`, "" + value);
+            }
+            const resultInfo = {
+                success: true,
+                resultValue: result,
+                error: "",
+                spaceName: spaceName,
+                message: "The following message has been triggered by an analytic.\n \nAnalysis on item : " + followedEntityNode.name.get() + "\nDescription : " + analyticDescription + "\nMessage : " + message,
+                resultType: CONSTANTS.ANALYTIC_RESULT_TYPE.GCHAT_MESSAGE
+            };
+            return resultInfo;
+        });
+    }
+    handleGChatOrganCardResult(result, analyticId, configAttributes, followedEntityNode) {
+        var _a, _b, _c, _d, _e;
+        return __awaiter(this, void 0, void 0, function*() {
+            console.log("Handling Google chat organ card result");
+            if (result == false) return {
+                success: true,
+                resultValue: result,
+                error: "",
+                resultType: CONSTANTS.ANALYTIC_RESULT_TYPE.GCHAT_MESSAGE
+            };
+            const analyticParams = configAttributes[CONSTANTS.CATEGORY_ATTRIBUTE_ANALYTIC_PARAMETERS];
+            const resultParams = configAttributes[CONSTANTS.CATEGORY_ATTRIBUTE_RESULT_PARAMETERS];
+            const gChatParams = configAttributes[CONSTANTS.CATEGORY_ATTRIBUTE_GCHAT_PARAMETERS];
+            const title = resultParams[CONSTANTS.ATTRIBUTE_RESULT_NAME];
+            const spaceName = gChatParams[CONSTANTS.ATTRIBUTE_GCHAT_SPACE];
+            let message = gChatParams[CONSTANTS.ATTRIBUTE_GCHAT_MESSAGE];
+            const variables = message.match(/[^{}]+(?=\})/g);
+            if (variables) for (const variable of variables){
+                const value = yield this.analyticInputManagerService.getFormattedInputDataByIndex(analyticId, followedEntityNode, variable);
+                message = message.replace(`{${variable}}`, "" + value);
+            }
+            const analyticDescription = analyticParams[CONSTANTS.ATTRIBUTE_ANALYTIC_DESCRIPTION];
+            const lastPing = yield this.analyticInputManagerService.findEndpoint(followedEntityNode.id.get(), "last_ping", 0, true, [], CONSTANTS.ENDPOINT_RELATIONS, CONSTANTS.ENDPOINT_NODE_TYPE);
+            if (!lastPing) return {
+                success: false,
+                error: "endpoint lastPing not found on organ node"
+            };
+            const lastPingValue = yield this.analyticInputManagerService.getValueModelFromEntry(lastPing);
+            const lastPingDate = new Date(lastPingValue.get()).toString();
+            const parents = yield spinal_env_viewer_graph_service_1.SpinalGraphService.getParents(followedEntityNode.id.get(), "HasOrgan");
+            let platformName = "Couldn't find the platform name";
+            let ipAddress = "Couldn't find the ip adress";
+            for (const parent of parents)if (parent.id.get() == ((_a = followedEntityNode.platformId) === null || _a === void 0 ? void 0 : _a.get())) {
+                platformName = (_b = parent.name) === null || _b === void 0 ? void 0 : _b.get();
+                ipAddress = (_c = parent.ipAdress) === null || _c === void 0 ? void 0 : _c.get();
+            }
+            const card = {
+                header: {
+                    title: title,
+                    subtitle: new Date().toLocaleDateString()
+                },
+                sections: [
+                    {
+                        header: "Analytic details",
+                        widgets: [
+                            {
+                                keyValue: {
+                                    topLabel: "Analytic description",
+                                    content: analyticDescription
+                                }
+                            },
+                            {
+                                keyValue: {
+                                    topLabel: "Message",
+                                    content: message
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        header: "Organ details",
+                        widgets: [
+                            {
+                                keyValue: {
+                                    topLabel: "Organ name",
+                                    content: followedEntityNode.name.get()
+                                }
+                            },
+                            {
+                                keyValue: {
+                                    topLabel: "Organ type",
+                                    content: (_d = followedEntityNode.organType) === null || _d === void 0 ? void 0 : _d.get()
+                                }
+                            },
+                            {
+                                keyValue: {
+                                    topLabel: "Last ping",
+                                    content: lastPingDate
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        header: "Platform details",
+                        widgets: [
+                            {
+                                keyValue: {
+                                    topLabel: "Platform name",
+                                    content: platformName
+                                }
+                            },
+                            {
+                                keyValue: {
+                                    topLabel: "Platform id",
+                                    content: (_e = followedEntityNode.platformId) === null || _e === void 0 ? void 0 : _e.get()
+                                }
+                            },
+                            {
+                                keyValue: {
+                                    topLabel: "Ip Address",
+                                    content: ipAddress
+                                }
+                            }
+                        ]
+                    }
+                ]
+            };
+            const resultInfo = {
+                success: true,
+                resultValue: result,
+                error: "",
+                spaceName: spaceName,
+                resultType: CONSTANTS.ANALYTIC_RESULT_TYPE.GCHAT_ORGAN_CARD,
+                card: card
+            };
+            return resultInfo;
+        });
+    }
+    /**
+     * Applies the result of an algorithm.
+     *
+     * @param {*} result The result of the algorithm used.
+     * @param {string} analyticId The ID of the analytic.
+     * @param {SpinalNodeRef} configNode The SpinalNodeRef of the configuration of the analytic.
+     * @param {SpinalNodeRef} followedEntityNode The SpinalNodeRef of the entity.
+     * @return {*}
+     * @memberof AnalyticService
+     */ applyResult(result, analyticId, configAttributes, followedEntityNode, referenceEpochTime = Date.now()) {
+        return __awaiter(this, void 0, void 0, function*() {
+            if (result === undefined) return {
+                success: false,
+                error: "Result is undefined"
+            };
+            //const params = configAttributes[CONSTANTS.CATEGORY_ATTRIBUTE_RESULT_PARAMETERS];
+            switch(configAttributes[CONSTANTS.CATEGORY_ATTRIBUTE_RESULT_PARAMETERS][CONSTANTS.ATTRIBUTE_RESULT_TYPE]){
+                case CONSTANTS.ANALYTIC_RESULT_TYPE.TICKET:
+                    yield this.handleTicketResult(result, analyticId, configAttributes, followedEntityNode, "Ticket");
+                    return {
+                        success: true,
+                        resultValue: result,
+                        error: "",
+                        resultType: CONSTANTS.ANALYTIC_RESULT_TYPE.TICKET
+                    };
+                case CONSTANTS.ANALYTIC_RESULT_TYPE.CONTROL_ENDPOINT:
+                    yield this.handleControlEndpointResult(result, followedEntityNode, configAttributes, referenceEpochTime);
+                    return {
+                        success: true,
+                        resultValue: result,
+                        error: "",
+                        resultType: CONSTANTS.ANALYTIC_RESULT_TYPE.CONTROL_ENDPOINT
+                    };
+                case CONSTANTS.ANALYTIC_RESULT_TYPE.ENDPOINT:
+                    yield this.handleEndpointResult(result, followedEntityNode, configAttributes, referenceEpochTime);
+                    return {
+                        success: true,
+                        resultValue: result,
+                        error: "",
+                        resultType: CONSTANTS.ANALYTIC_RESULT_TYPE.ENDPOINT
+                    };
+                case CONSTANTS.ANALYTIC_RESULT_TYPE.ALARM:
+                    return yield this.handleTicketResult(result, analyticId, configAttributes, followedEntityNode, "Alarm");
+                case CONSTANTS.ANALYTIC_RESULT_TYPE.SMS:
+                    return yield this.handleSMSResult(result, analyticId, configAttributes, followedEntityNode);
+                case CONSTANTS.ANALYTIC_RESULT_TYPE.LOG:
+                    console.log(`LOG | ${followedEntityNode.name.get()}: ${configAttributes[CONSTANTS.CATEGORY_ATTRIBUTE_RESULT_PARAMETERS][CONSTANTS.ATTRIBUTE_RESULT_NAME]} \t|\t Result : ${result}`);
+                    return {
+                        success: true,
+                        resultValue: result,
+                        error: "",
+                        resultType: CONSTANTS.ANALYTIC_RESULT_TYPE.LOG
+                    };
+                case CONSTANTS.ANALYTIC_RESULT_TYPE.GCHAT_MESSAGE:
+                    return this.handleGChatMessageResult(result, analyticId, configAttributes, followedEntityNode);
+                case CONSTANTS.ANALYTIC_RESULT_TYPE.GCHAT_ORGAN_CARD:
+                    return this.handleGChatOrganCardResult(result, analyticId, configAttributes, followedEntityNode);
+                default:
+                    return {
+                        success: false,
+                        error: "Result type not recognized"
+                    };
+            }
+        });
+    }
+    // #region Private methods
+    /**
+     * Gets the ticket context that has the corresponding contextId
+     *
+     * @param {string} contextId
+     * @return {*}
+     */ getTicketContext(contextId) {
+        const contexts = spinal_env_viewer_graph_service_1.SpinalGraphService.getContextWithType("SpinalSystemServiceTicket");
+        const context = contexts.find((ctx)=>{
+            return ctx.info.id.get() == contextId;
+        });
+        return context;
+    }
+    /**
+     * Gets the ticket process that has the corresponding processId in the context that has the corresponding contextId
+     *
+     * @param {string} contextId
+     * @param {string} processId
+     * @return {*}
+     */ getTicketProcess(contextId, processId) {
+        return __awaiter(this, void 0, void 0, function*() {
+            const processes = yield spinal_env_viewer_graph_service_1.SpinalGraphService.getChildrenInContext(contextId, contextId);
+            const process = processes.find((process)=>{
+                return process.id.get() == processId;
+            });
+            return process;
+        });
+    }
+    /**
+     * Checks if an alarm is already declared in the context and process.
+     *
+     * @param {string} nodeId
+     * @param {string} contextId
+     * @param {string} processId
+     * @param {string} ticketName
+     * @return {*}
+     */ alarmAlreadyDeclared(nodeId, contextId, processId, ticketName) {
+        return __awaiter(this, void 0, void 0, function*() {
+            //SpinalNode
+            const tickets = yield spinal_service_ticket_1.spinalServiceTicket.getAlarmsFromNode(nodeId);
+            const found = tickets.find((ticket)=>{
+                return contextId == ticket.contextId && processId == ticket.processId && ticket.name == ticketName;
+            });
+            return found;
+        });
+    }
+    addTicketAlarm(ticketInfos, configAttributes, analyticContextId, outputNodeId, entityNodeId, ticketType) {
+        return __awaiter(this, void 0, void 0, function*() {
+            const localizationInfo = configAttributes[CONSTANTS.CATEGORY_ATTRIBUTE_TICKET_LOCALIZATION_PARAMETERS];
+            const contextId = localizationInfo[CONSTANTS.ATTRIBUTE_TICKET_CONTEXT_ID];
+            const processId = localizationInfo[CONSTANTS.ATTRIBUTE_TICKET_PROCESS_ID];
+            const context = this.getTicketContext(contextId);
+            const process = yield this.getTicketProcess(context.info.id.get(), processId);
+            const alreadyDeclared = yield this.alarmAlreadyDeclared(entityNodeId, contextId, processId, ticketInfos.name);
+            if (alreadyDeclared) {
+                //just update the ticket
+                const firstStep = yield spinal_service_ticket_1.serviceTicketPersonalized.getFirstStep(processId, contextId);
+                console.log("update ticket " + ticketInfos.name);
+                const declaredTicketNode = spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(alreadyDeclared.id);
+                if (declaredTicketNode.info.stepId.get() == firstStep) {
+                    const attr = yield spinal_env_viewer_plugin_documentation_service_1.attributeService.findOneAttributeInCategory(declaredTicketNode, "default", "Occurrence number");
+                    if (attr != -1) {
+                        // found the attribute
+                        const value = attr.value.get();
+                        const str = value.toString();
+                        const newValueInt = parseInt(str) + 1;
+                        yield spinal_env_viewer_plugin_documentation_service_1.attributeService.updateAttribute(declaredTicketNode, "default", "Occurrence number", {
+                            value: newValueInt.toString()
+                        });
+                        yield this.updateEndpointOccurenceNumber(declaredTicketNode, newValueInt);
+                    }
+                } else {
+                    // move the ticket to the first step and reset the occurrence number
+                    yield spinal_service_ticket_1.serviceTicketPersonalized.moveTicket(declaredTicketNode.info.id.get(), declaredTicketNode.info.stepId.get(), firstStep, contextId);
+                    yield spinal_env_viewer_plugin_documentation_service_1.attributeService.updateAttribute(declaredTicketNode, "default", "Occurrence number", {
+                        value: "1"
+                    });
+                    yield this.updateEndpointOccurenceNumber(declaredTicketNode, 1);
+                    console.log(`${ticketInfos.name} has been re-triggered and moved back to the first step`);
+                }
+            } else {
+                console.log("create ticket " + ticketInfos.name);
+                if (process) try {
+                    const ticketId = yield spinal_service_ticket_1.spinalServiceTicket.addTicket(ticketInfos, process.id.get(), context.info.id.get(), entityNodeId, ticketType);
+                    if (ticketId instanceof Error) return;
+                    if (ticketType == "Alarm") spinal_env_viewer_graph_service_1.SpinalGraphService.addChildInContext(outputNodeId, ticketId, analyticContextId, spinal_service_ticket_1.ALARM_RELATION_NAME, spinal_service_ticket_1.TICKET_RELATION_TYPE);
+                    else spinal_env_viewer_graph_service_1.SpinalGraphService.addChildInContext(outputNodeId, ticketId, analyticContextId, spinal_service_ticket_1.TICKET_RELATION_NAME, spinal_service_ticket_1.TICKET_RELATION_TYPE);
+                    if (typeof ticketId === "string") {
+                        const declaredTicketNode = spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(ticketId);
+                        yield spinal_env_viewer_plugin_documentation_service_1.attributeService.updateAttribute(declaredTicketNode, "default", "Occurrence number", {
+                            value: "1"
+                        });
+                        const endpoint = new InputDataEndpoint_1.InputDataEndpoint("Occurence number", 1, "", spinal_model_bmsnetwork_1.InputDataEndpointDataType.Integer, spinal_model_bmsnetwork_1.InputDataEndpointType.Alarm);
+                        const res = new spinal_model_bmsnetwork_1.SpinalBmsEndpoint(endpoint.name, endpoint.path, endpoint.currentValue, endpoint.unit, spinal_model_bmsnetwork_1.InputDataEndpointDataType[endpoint.dataType], spinal_model_bmsnetwork_1.InputDataEndpointType[endpoint.type], endpoint.id);
+                        const childId = spinal_env_viewer_graph_service_1.SpinalGraphService.createNode({
+                            type: spinal_model_bmsnetwork_1.SpinalBmsEndpoint.nodeTypeName,
+                            name: endpoint.name
+                        }, res);
+                        spinal_env_viewer_graph_service_1.SpinalGraphService.addChild(ticketId, childId, spinal_model_bmsnetwork_1.SpinalBmsEndpoint.relationName, spinal_env_viewer_graph_service_1.SPINAL_RELATION_PTR_LST_TYPE);
+                        yield this.spinalServiceTimeseries.getOrCreateTimeSeries(childId);
+                        yield this.spinalServiceTimeseries.pushFromEndpoint(childId, 1);
+                    }
+                } catch (error) {
+                    console.log("Ticket creation failed");
+                }
+            }
+        });
+    }
+    updateEndpointOccurenceNumber(ticketNode, newValue) {
+        return __awaiter(this, void 0, void 0, function*() {
+            const endpoints = yield ticketNode.getChildren("hasBmsEndpoint");
+            endpoints.map((endpoint)=>__awaiter(this, void 0, void 0, function*() {
+                    var _a;
+                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                    // @ts-ignore
+                    spinal_env_viewer_graph_service_1.SpinalGraphService._addNode(endpoint);
+                    if (endpoint.info.name.get() == "Occurence number") {
+                        this.spinalServiceTimeseries.pushFromEndpoint(endpoint.info.id.get(), newValue);
+                        const element = yield (_a = endpoint.element) === null || _a === void 0 ? void 0 : _a.load();
+                        element.currentValue.set(newValue);
+                    }
+                }));
+        });
+    }
+    createEndpoint(referenceEpochTime, parentId, endpointName, initialValue, unit, maxDays) {
+        return __awaiter(this, void 0, void 0, function*() {
+            const endpoint = new InputDataEndpoint_1.InputDataEndpoint(endpointName, initialValue, unit !== null && unit !== void 0 ? unit : "", spinal_model_bmsnetwork_1.InputDataEndpointDataType.Integer, spinal_model_bmsnetwork_1.InputDataEndpointType.Other);
+            const res = new spinal_model_bmsnetwork_1.SpinalBmsEndpoint(endpoint.name, endpoint.path, endpoint.currentValue, endpoint.unit, spinal_model_bmsnetwork_1.InputDataEndpointDataType[endpoint.dataType], spinal_model_bmsnetwork_1.InputDataEndpointType[endpoint.type], endpoint.id);
+            const childId = spinal_env_viewer_graph_service_1.SpinalGraphService.createNode({
+                type: spinal_model_bmsnetwork_1.SpinalBmsEndpoint.nodeTypeName,
+                name: endpoint.name
+            }, res);
+            spinal_env_viewer_graph_service_1.SpinalGraphService.addChild(parentId, childId, spinal_model_bmsnetwork_1.SpinalBmsEndpoint.relationName, spinal_env_viewer_graph_service_1.SPINAL_RELATION_PTR_LST_TYPE);
+            yield this.spinalServiceTimeseries.getOrCreateTimeSeries(childId);
+            yield this.spinalServiceTimeseries.insertFromEndpoint(childId, initialValue, referenceEpochTime);
+            const realNode = spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(childId);
+            yield spinal_env_viewer_plugin_documentation_service_1.attributeService.updateAttribute(realNode, "default", "timeSeries maxDay", {
+                value: maxDays
+            });
+            return spinal_env_viewer_graph_service_1.SpinalGraphService.getInfo(childId);
+        });
+    }
+}
+exports.default = AnalyticOutputManagerService;
+
+},{"9c3790ecd89717f1":"3VBF8","867ef50e99cc3884":"lACKa","d7798a8526e25607":"5rYVR","77bfefaf799d0bfe":"l7xEW","67b5433537ce916f":"gzkbg","4814c03ba9f614ac":"9n7zp","975f1411a9144777":"3BNTc","7edecf8529f34667":"2CVgx","cc6c6389418d336f":"gi7V0"}],"lACKa":[function(require,module,exports) {
+"use strict";
+var __awaiter = this && this.__awaiter || function(thisArg, _arguments, P, generator) {
+    function adopt(value) {
+        return value instanceof P ? value : new P(function(resolve) {
+            resolve(value);
+        });
+    }
+    return new (P || (P = Promise))(function(resolve, reject) {
+        function fulfilled(value) {
+            try {
+                step(generator.next(value));
+            } catch (e) {
+                reject(e);
+            }
+        }
+        function rejected(value) {
+            try {
+                step(generator["throw"](value));
+            } catch (e) {
+                reject(e);
+            }
+        }
+        function step(result) {
+            result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected);
+        }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+/* eslint-disable @typescript-eslint/no-explicit-any */ const axios_1 = require("64dc60951ebbbfae");
+const qs_1 = require("d5e6c8edff8e97bd");
+class TwilioManagerService {
+    constructor(accountSid, authToken, fromNumber){
+        this.twilioAccountSid = accountSid;
+        this.twilioAuthToken = authToken;
+        this.twilioFromNumber = fromNumber;
+    }
+    sendMessage(message, toNumber, entityName) {
+        return __awaiter(this, void 0, void 0, function*() {
+            const url = `https://api.twilio.com/2010-04-01/Accounts/${this.twilioAccountSid}/Messages.json`;
+            const data = {
+                Body: `Analytic on ${entityName} triggered with the following message : ${message}`,
+                From: this.twilioFromNumber,
+                To: toNumber
+            };
+            const config = {
+                method: "POST",
+                headers: {
+                    "content-type": "application/x-www-form-urlencoded"
+                },
+                auth: {
+                    username: this.twilioAccountSid,
+                    password: this.twilioAuthToken
+                },
+                data: (0, qs_1.stringify)(data),
+                url
+            };
+            const axiosResult = yield (0, axios_1.default)(config);
+            return axiosResult;
+        });
+    }
+}
+exports.default = TwilioManagerService;
+
+},{"64dc60951ebbbfae":"jo6P5","d5e6c8edff8e97bd":"kW4GH"}],"kW4GH":[function(require,module,exports) {
 "use strict";
 var stringify = require("a472ccaa2f2351e9");
 var parse = require("7ffa4249597bf32b");
@@ -13184,6 +13295,7 @@ var defaults = {
     parameterLimit: 1000,
     parseArrays: true,
     plainObjects: false,
+    strictDepth: false,
     strictNullHandling: false
 };
 var interpretNumericEntities = function(str) {
@@ -13298,8 +13410,11 @@ var parseKeys = function parseQueryStringKeys(givenKey, val, options, valuesPars
         }
         keys.push(segment[1]);
     }
-    // If there's a remainder, just add whatever is left
-    if (segment) keys.push("[" + key.slice(segment.index) + "]");
+    // If there's a remainder, check strictDepth option for throw, else just add whatever is left
+    if (segment) {
+        if (options.strictDepth === true) throw new RangeError("Input depth exceeded depth option of " + options.depth + " and strictDepth is true");
+        keys.push("[" + key.slice(segment.index) + "]");
+    }
     return parseObject(keys, val, options, valuesParsed);
 };
 var normalizeParseOptions = function normalizeParseOptions(opts) {
@@ -13332,6 +13447,7 @@ var normalizeParseOptions = function normalizeParseOptions(opts) {
         parameterLimit: typeof opts.parameterLimit === "number" ? opts.parameterLimit : defaults.parameterLimit,
         parseArrays: opts.parseArrays !== false,
         plainObjects: typeof opts.plainObjects === "boolean" ? opts.plainObjects : defaults.plainObjects,
+        strictDepth: typeof opts.strictDepth === "boolean" ? !!opts.strictDepth : defaults.strictDepth,
         strictNullHandling: typeof opts.strictNullHandling === "boolean" ? opts.strictNullHandling : defaults.strictNullHandling
     };
 };
@@ -13351,19 +13467,143 @@ module.exports = function(str, opts) {
     return utils.compact(obj);
 };
 
-},{"e76649c95dd0e736":"chmkc"}],"8QYUj":[function(require,module,exports) {
+},{"e76649c95dd0e736":"chmkc"}],"l7xEW":[function(require,module,exports) {
 "use strict";
-Object.defineProperty(exports, "__esModule", {
+/*
+ * Copyright 2018 SpinalCom - www.spinalcom.com
+ *
+ * This file is part of SpinalCore.
+ *
+ * Please read all of the following terms and conditions
+ * of the Free Software license Agreement ("Agreement")
+ * carefully.
+ *
+ * This Agreement is a legally binding contract between
+ * the Licensee (as defined below) and SpinalCom that
+ * sets forth the terms and conditions that govern your
+ * use of the Program. By installing and/or using the
+ * Program, you agree to abide by all the terms and
+ * conditions stated or referenced herein.
+ *
+ * If you do not agree to abide by these terms and
+ * conditions, do not demonstrate your acceptance and do
+ * not install or use the Program.
+ * You should have received a copy of the license along
+ * with this file. If not, see
+ * <http://resources.spinalcom.com/licenses.pdf>.
+ */ Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.ExitAnalyticError = void 0;
-class ExitAnalyticError extends Error {
-    constructor(message){
-        super(message);
-        this.name = "ExitAlgorithmError";
+exports.InputDataEndpoint = void 0;
+const spinal_model_bmsnetwork_1 = require("e04a7e576c664fcd");
+const genUID_1 = require("8354bb2eeff008e1");
+/**
+ * @property {string} id
+ * @property {string} name
+ * @property {string} path
+ * @property {number | string} currentValue
+ * @property {string} unit
+ * @property {InputDataEndpointDataType} dataType
+ * @property {InputDataEndpointType} type
+ * @property {string} nodeTypeName equal SpinalBmsEndpoint.nodeTypeName
+ * @property {any[]} timeseries
+ * @export
+ * @class InputDataEndpoint
+ * @implements {idEndpoint}
+ */ class InputDataEndpoint {
+    /**
+     *Creates an instance of InputDataEndpoint.
+     * @param {string} [name='default endpoint name']
+     * @param {(number | string)} [currentValue=0]
+     * @param {string} [unit='unit']
+     * @param {InputDataEndpointDataType} [dataType=InputDataEndpointDataType.Integer]
+     * @param {InputDataEndpointType} [type=InputDataEndpointType.Other]
+     * @param {string} [id=genUID('InputDataEndpoint')]
+     * @param {string} [path='default endpoint path']
+     * @memberof InputDataEndpoint
+     */ constructor(name = "default endpoint name", currentValue = 0, unit = "unit", dataType = spinal_model_bmsnetwork_1.InputDataEndpointDataType.Integer, type = spinal_model_bmsnetwork_1.InputDataEndpointType.Other, id = (0, genUID_1.genUID)("InputDataEndpoint"), path = "default endpoint path"){
+        this.nodeTypeName = spinal_model_bmsnetwork_1.SpinalBmsEndpoint.nodeTypeName;
+        this.id = id;
+        this.name = name;
+        this.type = type;
+        this.path = path;
+        this.currentValue = currentValue;
+        this.unit = unit;
+        this.dataType = dataType;
+        this.timeseries = [];
+        this.idx = Math.floor(Math.random() * 100);
     }
 }
-exports.ExitAnalyticError = ExitAnalyticError;
+exports.InputDataEndpoint = InputDataEndpoint;
+
+},{"e04a7e576c664fcd":"gzkbg","8354bb2eeff008e1":"jWwjU"}],"jWwjU":[function(require,module,exports) {
+"use strict";
+/*
+ * Copyright 2018 SpinalCom - www.spinalcom.com
+ *
+ * This file is part of SpinalCore.
+ *
+ * Please read all of the following terms and conditions
+ * of the Free Software license Agreement ("Agreement")
+ * carefully.
+ *
+ * This Agreement is a legally binding contract between
+ * the Licensee (as defined below) and SpinalCom that
+ * sets forth the terms and conditions that govern your
+ * use of the Program. By installing and/or using the
+ * Program, you agree to abide by all the terms and
+ * conditions stated or referenced herein.
+ *
+ * If you do not agree to abide by these terms and
+ * conditions, do not demonstrate your acceptance and do
+ * not install or use the Program.
+ * You should have received a copy of the license along
+ * with this file. If not, see
+ * <http://resources.spinalcom.com/licenses.pdf>.
+ */ Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.genUID = void 0;
+function s4() {
+    return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
+}
+function genUID(constructor) {
+    const res = `${constructor}-${s4() + s4()}-${s4()}-${s4()}-${s4()}-${s4() + s4() + s4()}-${Date.now().toString(16)}`;
+    return res;
+}
+exports.genUID = genUID;
+
+},{}],"3BNTc":[function(require,module,exports) {
+"use strict";
+/* eslint-disable @typescript-eslint/no-explicit-any */ /*
+ * Copyright 2022 SpinalCom - www.spinalcom.com
+ *
+ * This file is part of SpinalCore.
+ *
+ * Please read all of the following terms and conditions
+ * of the Free Software license Agreement ("Agreement")
+ * carefully.
+ *
+ * This Agreement is a legally binding contract between
+ * the Licensee (as defined below) and SpinalCom that
+ * sets forth the terms and conditions that govern your
+ * use of the Program. By installing and/or using the
+ * Program, you agree to abide by all the terms and
+ * conditions stated or referenced herein.
+ *
+ * If you do not agree to abide by these terms and
+ * conditions, do not demonstrate your acceptance and do
+ * not install or use the Program.
+ * You should have received a copy of the license along
+ * with this file. If not, see
+ * <http://resources.spinalcom.com/licenses.pdf>.
+ */ Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.logMessage = void 0;
+// Logging function
+function logMessage(message) {}
+exports.logMessage = logMessage;
 
 },{}],"b1pPQ":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -13383,7 +13623,7 @@ class CreateAnalytic extends (0, _spinalEnvViewerContextMenuService.SpinalContex
     }
     isShown(option) {
         const id = option.selectedNode.id.get();
-        const isAnalyticEntity = option.selectedNode.type.get() === (0, _spinalModelAnalysis.ENTITY_TYPE);
+        const isAnalyticEntity = option.selectedNode.type.get() === (0, _spinalModelAnalysis.CONSTANTS).ENTITY_TYPE;
         return Promise.resolve(isAnalyticEntity ? true : -1);
     }
     action(option) {
@@ -13414,7 +13654,7 @@ class ModifyAnalytic extends (0, _spinalEnvViewerContextMenuService.SpinalContex
     }
     isShown(option) {
         const id = option.selectedNode.id.get();
-        const isAnalytic = option.selectedNode.type.get() === (0, _spinalModelAnalysis.ANALYTIC_TYPE);
+        const isAnalytic = option.selectedNode.type.get() === (0, _spinalModelAnalysis.CONSTANTS).ANALYTIC_TYPE;
         return Promise.resolve(isAnalytic ? true : -1);
     }
     action(option) {
@@ -13541,7 +13781,7 @@ var scriptExports = {
         },
         async removed (res) {
             if (res.closeResult) {
-                const context = await (0, _spinalModelAnalysis.spinalAnalyticService).createContext(res.inputValue.trim());
+                const context = await (0, _spinalModelAnalysis.spinalAnalyticNodeManagerService).createContext(res.inputValue.trim());
                 for (const entity of res.entities){
                     console.log("entity :", entity);
                     const newEntity = {
@@ -13550,7 +13790,7 @@ var scriptExports = {
                         entityType: entity.entityType,
                         description: ""
                     };
-                    const entityInfo = await (0, _spinalModelAnalysis.spinalAnalyticService).addEntity(newEntity, context.id.get());
+                    const entityInfo = await (0, _spinalModelAnalysis.spinalAnalyticNodeManagerService).addEntity(newEntity, context.id.get());
                 }
             }
             this.showDialog = false;
@@ -13609,49 +13849,49 @@ var scriptExports = {
                 {
                     name: "Building",
                     standard_name: "Building",
-                    entityType: (0, _spinalModelAnalysis.ENTITY_TYPES).BUILDING,
+                    entityType: (0, _spinalModelAnalysis.CONSTANTS).ENTITY_TYPES.BUILDING,
                     description: "",
                     order: 0
                 },
                 {
                     name: "Floor",
                     standard_name: "Floor",
-                    entityType: (0, _spinalModelAnalysis.ENTITY_TYPES).FLOOR,
+                    entityType: (0, _spinalModelAnalysis.CONSTANTS).ENTITY_TYPES.FLOOR,
                     description: "",
                     order: 1
                 },
                 {
                     name: "Room",
                     standard_name: "Room",
-                    entityType: (0, _spinalModelAnalysis.ENTITY_TYPES).ROOM,
+                    entityType: (0, _spinalModelAnalysis.CONSTANTS).ENTITY_TYPES.ROOM,
                     description: "",
                     order: 2
                 },
                 {
                     name: "Equipment",
                     standard_name: "Equipment",
-                    entityType: (0, _spinalModelAnalysis.ENTITY_TYPES).EQUIPMENT,
+                    entityType: (0, _spinalModelAnalysis.CONSTANTS).ENTITY_TYPES.EQUIPMENT,
                     description: "",
                     order: 3
                 },
                 {
                     name: "Floor Group",
                     standard_name: "Floor Group",
-                    entityType: (0, _spinalModelAnalysis.ENTITY_TYPES).FLOOR_GROUP,
+                    entityType: (0, _spinalModelAnalysis.CONSTANTS).ENTITY_TYPES.FLOOR_GROUP,
                     description: "",
                     order: 4
                 },
                 {
                     name: "Room Group",
                     standard_name: "Room Group",
-                    entityType: (0, _spinalModelAnalysis.ENTITY_TYPES).ROOM_GROUP,
+                    entityType: (0, _spinalModelAnalysis.CONSTANTS).ENTITY_TYPES.ROOM_GROUP,
                     description: "",
                     order: 5
                 },
                 {
                     name: "Equipment Group",
                     standard_name: "Equipment Group",
-                    entityType: (0, _spinalModelAnalysis.ENTITY_TYPES).EQUIPMENT_GROUP,
+                    entityType: (0, _spinalModelAnalysis.CONSTANTS).ENTITY_TYPES.EQUIPMENT_GROUP,
                     description: "",
                     order: 6
                 }
@@ -14235,7 +14475,7 @@ var scriptExports = {
                     entityType: this.types[this.entity.entityType],
                     description: ""
                 };
-                const entityInfo = await (0, _spinalModelAnalysis.spinalAnalyticService).addEntity(newEntity, this.contextId);
+                const entityInfo = await (0, _spinalModelAnalysis.spinalAnalyticNodeManagerService).addEntity(newEntity, this.contextId);
             }
             this.showDialog = false;
         },
@@ -14438,7 +14678,7 @@ var scriptExports = {
         "algorithm-configuration": (0, _algorithmConfigurationVueDefault.default),
         "result-configuration": (0, _resultConfigurationVueDefault.default),
         "io-dependencies": (0, _iodependenciesVueDefault.default),
-        "configuration": (0, _configurationVueDefault.default),
+        configuration: (0, _configurationVueDefault.default),
         "summary-analytic": (0, _summaryVueDefault.default)
     },
     data () {
@@ -14460,6 +14700,7 @@ var scriptExports = {
             analyticDescription: "",
             analyticShouldTriggerAtStart: false,
             analyticShouldCatchUpPastExecutions: false,
+            analyticAggregateExecution: "",
             analyticStatus: false,
             // Inputs -> Followed Entity -> attribute data
             followedEntity: undefined,
@@ -14502,7 +14743,7 @@ var scriptExports = {
         };
     },
     created () {
-        this.ANALYTIC_STATUS = (0, _spinalModelAnalysis.ANALYTIC_STATUS);
+        this.ANALYTIC_STATUS = (0, _spinalModelAnalysis.CONSTANTS).ANALYTIC_STATUS;
     },
     methods: {
         opened (option) {
@@ -14518,49 +14759,49 @@ var scriptExports = {
                     name: this.analyticName,
                     description: ""
                 };
-                const analyticInfo = await (0, _spinalModelAnalysis.spinalAnalyticService).addAnalytic(IAnalytic, contextId, this.selectedNode.id.get());
+                const analyticInfo = await (0, _spinalModelAnalysis.spinalAnalyticNodeManagerService).addAnalytic(IAnalytic, contextId, this.selectedNode.id.get());
                 //create trackingMethod Node
                 const trackingMethodAttributes = this.getTrackingMethodAttributes();
                 console.log("trackingMethodAttributes :", trackingMethodAttributes);
-                const trackingMethodInfo = await (0, _spinalModelAnalysis.spinalAnalyticService).addInputTrackingMethod(trackingMethodAttributes, contextId, analyticInfo.id.get());
+                const trackingMethodInfo = await (0, _spinalModelAnalysis.spinalAnalyticNodeManagerService).addInputTrackingMethod(trackingMethodAttributes, contextId, analyticInfo.id.get());
                 //create followedEntity Node
-                const followedEntityInfo = await (0, _spinalModelAnalysis.spinalAnalyticService).addInputLinkToFollowedEntity(contextId, analyticInfo.id.get(), this.followedEntity);
+                const followedEntityInfo = await (0, _spinalModelAnalysis.spinalAnalyticNodeManagerService).addInputLinkToFollowedEntity(contextId, analyticInfo.id.get(), this.followedEntity);
                 //create config Node
                 const configAttributes = {};
                 //Add all analytic parameters ( description, status, triggerAtStart)
                 const analyticAttributes = this.getAnalyticAttributes();
-                configAttributes[0, _spinalModelAnalysis.CATEGORY_ATTRIBUTE_ANALYTIC_PARAMETERS] = analyticAttributes;
+                configAttributes[(0, _spinalModelAnalysis.CONSTANTS).CATEGORY_ATTRIBUTE_ANALYTIC_PARAMETERS] = analyticAttributes;
                 const triggerAttributes = this.getTriggerAttributes();
-                configAttributes[0, _spinalModelAnalysis.CATEGORY_ATTRIBUTE_TRIGGER_PARAMETERS] = triggerAttributes;
+                configAttributes[(0, _spinalModelAnalysis.CONSTANTS).CATEGORY_ATTRIBUTE_TRIGGER_PARAMETERS] = triggerAttributes;
                 const resultAttributes = this.getResultAttributes();
-                configAttributes[0, _spinalModelAnalysis.CATEGORY_ATTRIBUTE_RESULT_PARAMETERS] = resultAttributes;
+                configAttributes[(0, _spinalModelAnalysis.CONSTANTS).CATEGORY_ATTRIBUTE_RESULT_PARAMETERS] = resultAttributes;
                 const algorithmParametersAttributes = this.getAlgorithmParametersAttributes();
-                configAttributes[0, _spinalModelAnalysis.CATEGORY_ATTRIBUTE_ALGORTHM_PARAMETERS] = algorithmParametersAttributes;
+                configAttributes[(0, _spinalModelAnalysis.CONSTANTS).CATEGORY_ATTRIBUTE_ALGORTHM_PARAMETERS] = algorithmParametersAttributes;
                 const algorithmMappingAttributes = this.getAlgorithmMappingAttributes();
-                configAttributes[0, _spinalModelAnalysis.CATEGORY_ATTRIBUTE_ALGORITHM_INDEX_MAPPING] = algorithmMappingAttributes;
+                configAttributes[(0, _spinalModelAnalysis.CONSTANTS).CATEGORY_ATTRIBUTE_ALGORITHM_INDEX_MAPPING] = algorithmMappingAttributes;
                 const ioAttributes = this.getIOAttributes();
-                configAttributes[0, _spinalModelAnalysis.CATEGORY_ATTRIBUTE_IO_DEPENDENCIES] = ioAttributes;
+                configAttributes[(0, _spinalModelAnalysis.CONSTANTS).CATEGORY_ATTRIBUTE_IO_DEPENDENCIES] = ioAttributes;
                 if (this.ticketContextId && this.ticketProcessId) {
                     const ticketAttributes = this.getTicketAttributes();
-                    configAttributes[0, _spinalModelAnalysis.CATEGORY_ATTRIBUTE_TICKET_LOCALIZATION_PARAMETERS] = ticketAttributes;
+                    configAttributes[(0, _spinalModelAnalysis.CONSTANTS).CATEGORY_ATTRIBUTE_TICKET_LOCALIZATION_PARAMETERS] = ticketAttributes;
                 }
-                if (this.resultType == (0, _spinalModelAnalysis.ANALYTIC_RESULT_TYPE).SMS) {
+                if (this.resultType == (0, _spinalModelAnalysis.CONSTANTS).ANALYTIC_RESULT_TYPE.SMS) {
                     const smsAttributes = this.getSMSAttributes();
-                    configAttributes[0, _spinalModelAnalysis.CATEGORY_ATTRIBUTE_TWILIO_PARAMETERS] = smsAttributes;
+                    configAttributes[(0, _spinalModelAnalysis.CONSTANTS).CATEGORY_ATTRIBUTE_TWILIO_PARAMETERS] = smsAttributes;
                 }
                 if ([
-                    (0, _spinalModelAnalysis.ANALYTIC_RESULT_TYPE).GCHAT_MESSAGE,
-                    (0, _spinalModelAnalysis.ANALYTIC_RESULT_TYPE).GCHAT_ORGAN_CARD
+                    (0, _spinalModelAnalysis.CONSTANTS).ANALYTIC_RESULT_TYPE.GCHAT_MESSAGE,
+                    (0, _spinalModelAnalysis.CONSTANTS).ANALYTIC_RESULT_TYPE.GCHAT_ORGAN_CARD
                 ].includes(this.resultType)) {
                     const gChatAttributes = this.getGChatAttributes();
-                    configAttributes[0, _spinalModelAnalysis.CATEGORY_ATTRIBUTE_GCHAT_PARAMETERS] = gChatAttributes;
+                    configAttributes[(0, _spinalModelAnalysis.CONSTANTS).CATEGORY_ATTRIBUTE_GCHAT_PARAMETERS] = gChatAttributes;
                 }
-                if (this.resultType == (0, _spinalModelAnalysis.ANALYTIC_RESULT_TYPE).ENDPOINT && this.shouldCreateEndpointIfNotExist) {
+                if (this.resultType == (0, _spinalModelAnalysis.CONSTANTS).ANALYTIC_RESULT_TYPE.ENDPOINT && this.shouldCreateEndpointIfNotExist) {
                     const endpointCreationAttributes = this.getEndpointCreationAttributes();
-                    configAttributes[0, _spinalModelAnalysis.CATEGORY_ATTRIBUTE_ENDPOINT_PARAMETERS] = endpointCreationAttributes;
+                    configAttributes[(0, _spinalModelAnalysis.CONSTANTS).CATEGORY_ATTRIBUTE_ENDPOINT_PARAMETERS] = endpointCreationAttributes;
                 }
                 console.log("configAttributes :", configAttributes);
-                const configInfo = await (0, _spinalModelAnalysis.spinalAnalyticService).addConfig(configAttributes, analyticInfo.id.get(), contextId);
+                const configInfo = await (0, _spinalModelAnalysis.spinalAnalyticNodeManagerService).addConfig(configAttributes, analyticInfo.id.get(), contextId);
             }
             this.showDialog = false;
         },
@@ -14582,7 +14823,8 @@ var scriptExports = {
                     strictDepth: false,
                     searchRelations: "",
                     timeseriesIntervalTime: 0,
-                    timeseriesValueAtStart: false
+                    timeseriesValueAtStart: false,
+                    captureAllModels: false
                 }
             };
         },
@@ -14704,43 +14946,48 @@ var scriptExports = {
             for (const inputKey of Object.keys(this.inputs)){
                 trackingMethodAttributes[inputKey] = [];
                 trackingMethodAttributes[inputKey].push({
-                    name: `${(0, _spinalModelAnalysis.ATTRIBUTE_TRACKING_METHOD)}`,
+                    name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_TRACKING_METHOD}`,
                     type: "string",
                     value: this.inputs[inputKey].trackingMethod
                 });
                 trackingMethodAttributes[inputKey].push({
-                    name: `${(0, _spinalModelAnalysis.ATTRIBUTE_FILTER_VALUE)}`,
+                    name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_FILTER_VALUE}`,
                     type: "string",
                     value: this.inputs[inputKey].filterValue
                 });
                 trackingMethodAttributes[inputKey].push({
-                    name: `${(0, _spinalModelAnalysis.ATTRIBUTE_SEARCH_DEPTH)}`,
+                    name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_SEARCH_DEPTH}`,
                     type: "number",
                     value: this.inputs[inputKey].searchDepth
                 });
                 trackingMethodAttributes[inputKey].push({
-                    name: `${(0, _spinalModelAnalysis.ATTRIBUTE_STRICT_DEPTH)}`,
+                    name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_STRICT_DEPTH}`,
                     type: "boolean",
                     value: this.inputs[inputKey].strictDepth
                 });
                 trackingMethodAttributes[inputKey].push({
-                    name: `${(0, _spinalModelAnalysis.ATTRIBUTE_SEARCH_RELATIONS)}`,
+                    name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_SEARCH_RELATIONS}`,
                     type: "string",
                     value: this.inputs[inputKey].searchRelations
                 });
                 if ([
-                    (0, _spinalModelAnalysis.TRACK_METHOD).CONTROL_ENDPOINT_NAME_FILTER,
-                    (0, _spinalModelAnalysis.TRACK_METHOD).ENDPOINT_NAME_FILTER
+                    (0, _spinalModelAnalysis.CONSTANTS).TRACK_METHOD.CONTROL_ENDPOINT_NAME_FILTER,
+                    (0, _spinalModelAnalysis.CONSTANTS).TRACK_METHOD.ENDPOINT_NAME_FILTER
                 ].includes(this.inputs[inputKey].trackingMethod)) {
                     trackingMethodAttributes[inputKey].push({
-                        name: `${(0, _spinalModelAnalysis.ATTRIBUTE_TIMESERIES)}`,
+                        name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_TIMESERIES}`,
                         type: "number",
                         value: this.inputs[inputKey].timeseriesIntervalTime
                     });
                     trackingMethodAttributes[inputKey].push({
-                        name: `${(0, _spinalModelAnalysis.ATTRIBUTE_TIMESERIES_VALUE_AT_START)}`,
+                        name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_TIMESERIES_VALUE_AT_START}`,
                         type: "boolean",
                         value: this.inputs[inputKey].timeseriesValueAtStart
+                    });
+                    trackingMethodAttributes[inputKey].push({
+                        name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_MULTIPLE_MODELS}`,
+                        type: "boolean",
+                        value: this.inputs[inputKey].captureAllModels
                     });
                 }
             }
@@ -14749,46 +14996,47 @@ var scriptExports = {
         getAnalyticAttributes () {
             const analyticAttributes = [];
             analyticAttributes.push({
-                name: `${(0, _spinalModelAnalysis.ATTRIBUTE_ANALYTIC_DESCRIPTION)}`,
+                name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_ANALYTIC_DESCRIPTION}`,
                 type: "string",
                 value: this.analyticDescription
             });
             analyticAttributes.push({
-                name: `${(0, _spinalModelAnalysis.ATTRIBUTE_ANALYTIC_STATUS)}`,
+                name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_ANALYTIC_STATUS}`,
                 type: "string",
-                value: this.analyticStatus ? (0, _spinalModelAnalysis.ANALYTIC_STATUS).ACTIVE : (0, _spinalModelAnalysis.ANALYTIC_STATUS).INACTIVE
+                value: this.analyticStatus ? (0, _spinalModelAnalysis.CONSTANTS).ANALYTIC_STATUS.ACTIVE : (0, _spinalModelAnalysis.CONSTANTS).ANALYTIC_STATUS.INACTIVE
             });
             analyticAttributes.push({
-                name: `${(0, _spinalModelAnalysis.ATTRIBUTE_TRIGGER_AT_START)}`,
+                name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_TRIGGER_AT_START}`,
                 type: "boolean",
                 value: this.analyticShouldTriggerAtStart
             });
-            analyticAttributes.push({
-                name: `${(0, _spinalModelAnalysis.ATTRIBUTE_ANALYTIC_PAST_EXECUTIONS)}`,
-                type: "boolean",
-                value: this.analyticShouldCatchUpPastExecutions
-            });
-            analyticAttributes.push({
-                name: `${(0, _spinalModelAnalysis.ATTRIBUTE_LAST_EXECUTION_TIME)}`,
+            if (this.analyticAggregateExecution) analyticAttributes.push({
+                name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_AGGREGATE_EXECUTION_TIME}`,
                 type: "string",
-                value: Date.now()
+                value: this.analyticAggregateExecution
+            });
+            const tmp = Date.now();
+            analyticAttributes.push({
+                name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_LAST_EXECUTION_TIME}`,
+                type: "number",
+                value: tmp
             });
             return analyticAttributes;
         },
         getResultAttributes () {
             const resultAttributes = [];
             resultAttributes.push({
-                name: `${(0, _spinalModelAnalysis.ATTRIBUTE_RESULT_TYPE)}`,
+                name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_RESULT_TYPE}`,
                 type: "string",
                 value: this.resultType
             });
             resultAttributes.push({
-                name: `${(0, _spinalModelAnalysis.ATTRIBUTE_RESULT_NAME)}`,
+                name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_RESULT_NAME}`,
                 type: "string",
                 value: this.resultName
             });
-            if (this.resultType === (0, _spinalModelAnalysis.ANALYTIC_RESULT_TYPE).ENDPOINT) resultAttributes.push({
-                name: `${(0, _spinalModelAnalysis.ATTRIBUTE_CREATE_ENDPOINT_IF_NOT_EXIST)}`,
+            if (this.resultType === (0, _spinalModelAnalysis.CONSTANTS).ANALYTIC_RESULT_TYPE.ENDPOINT) resultAttributes.push({
+                name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_CREATE_ENDPOINT_IF_NOT_EXIST}`,
                 type: "boolean",
                 value: this.shouldCreateEndpointIfNotExist
             });
@@ -14800,7 +15048,7 @@ var scriptExports = {
                 let algoName = this.algorithms[algorithmIndexName].name;
                 const doc = (0, _spinalModelAnalysis.ALGORITHMS)[algoName].requiredParams;
                 for(let i = 0; i < this.algorithms[algorithmIndexName].params.length; i++)algorithmParametersAttributes.push({
-                    name: `${algorithmIndexName}${(0, _spinalModelAnalysis.ATTRIBUTE_SEPARATOR)}${doc[i].name}`,
+                    name: `${algorithmIndexName}${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_SEPARATOR}${doc[i].name}`,
                     value: doc[i].type === "number" ? +this.algorithms[algorithmIndexName].params[i] : this.algorithms[algorithmIndexName].params[i],
                     type: doc[i].type
                 });
@@ -14819,17 +15067,17 @@ var scriptExports = {
         getTicketAttributes () {
             const ticketAttributes = [];
             ticketAttributes.push({
-                name: `${(0, _spinalModelAnalysis.ATTRIBUTE_TICKET_CONTEXT_ID)}`,
+                name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_TICKET_CONTEXT_ID}`,
                 type: "string",
                 value: this.ticketContextId
             });
             ticketAttributes.push({
-                name: `${(0, _spinalModelAnalysis.ATTRIBUTE_TICKET_PROCESS_ID)}`,
+                name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_TICKET_PROCESS_ID}`,
                 type: "string",
                 value: this.ticketProcessId
             });
             if (this.alarmPriority) ticketAttributes.push({
-                name: `${(0, _spinalModelAnalysis.ATTRIBUTE_ALARM_PRIORITY)}`,
+                name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_ALARM_PRIORITY}`,
                 value: this.alarmPriority,
                 type: "number"
             });
@@ -14838,12 +15086,12 @@ var scriptExports = {
         getEndpointCreationAttributes () {
             const endpointCreationAttributes = [];
             endpointCreationAttributes.push({
-                name: `${(0, _spinalModelAnalysis.ATTRIBUTE_CREATE_ENDPOINT_UNIT)}`,
+                name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_CREATE_ENDPOINT_UNIT}`,
                 type: "string",
                 value: this.endpointCreationUnit
             });
             endpointCreationAttributes.push({
-                name: `${(0, _spinalModelAnalysis.ATTRIBUTE_CREATE_ENDPOINT_MAX_DAYS)}`,
+                name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_CREATE_ENDPOINT_MAX_DAYS}`,
                 type: "number",
                 value: this.endpointCreationMaxDays
             });
@@ -14852,12 +15100,12 @@ var scriptExports = {
         getSMSAttributes () {
             const smsAttributes = [];
             smsAttributes.push({
-                name: `${(0, _spinalModelAnalysis.ATTRIBUTE_PHONE_NUMBER)}`,
+                name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_PHONE_NUMBER}`,
                 type: "string",
                 value: this.phoneNumber
             });
             smsAttributes.push({
-                name: `${(0, _spinalModelAnalysis.ATTRIBUTE_PHONE_MESSAGE)}`,
+                name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_PHONE_MESSAGE}`,
                 type: "string",
                 value: this.phoneMessage
             });
@@ -14866,12 +15114,12 @@ var scriptExports = {
         getGChatAttributes () {
             const gChatAttributes = [];
             gChatAttributes.push({
-                name: `${(0, _spinalModelAnalysis.ATTRIBUTE_GCHAT_MESSAGE)}`,
+                name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_GCHAT_MESSAGE}`,
                 type: "string",
                 value: this.gChatMessage
             });
             gChatAttributes.push({
-                name: `${(0, _spinalModelAnalysis.ATTRIBUTE_GCHAT_SPACE)}`,
+                name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_GCHAT_SPACE}`,
                 type: "string",
                 value: this.gChatSpaceName
             });
@@ -14881,7 +15129,7 @@ var scriptExports = {
             const ioAttributes = [];
             for (const ioDependencyName of Object.keys(this.ioDependencies)){
                 let str = "";
-                for (const ioDependency of this.ioDependencies[ioDependencyName])str += `${ioDependency}${0, _spinalModelAnalysis.ATTRIBUTE_VALUE_SEPARATOR}`;
+                for (const ioDependency of this.ioDependencies[ioDependencyName])str += `${ioDependency}${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_VALUE_SEPARATOR}`;
                 str = str.slice(0, -1);
                 ioAttributes.push({
                     name: `${ioDependencyName}`,
@@ -14894,8 +15142,8 @@ var scriptExports = {
         getTriggerAttributes () {
             const triggerAttributes = [];
             for (const triggerIndex of Object.keys(this.triggers)){
-                let str = `${this.triggers[triggerIndex].triggerType}${(0, _spinalModelAnalysis.ATTRIBUTE_VALUE_SEPARATOR)}${this.triggers[triggerIndex].triggerValue}`;
-                if (this.triggers[triggerIndex].changeOfValueThreshold !== null) str += `${0, _spinalModelAnalysis.ATTRIBUTE_VALUE_SEPARATOR}${this.triggers[triggerIndex].changeOfValueThreshold}`;
+                let str = `${this.triggers[triggerIndex].triggerType}${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_VALUE_SEPARATOR}${this.triggers[triggerIndex].triggerValue}`;
+                if (this.triggers[triggerIndex].changeOfValueThreshold !== null) str += `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_VALUE_SEPARATOR}${this.triggers[triggerIndex].changeOfValueThreshold}`;
                 triggerAttributes.push({
                     name: `${triggerIndex}`,
                     type: "string",
@@ -14937,7 +15185,8 @@ var scriptExports = {
         "analyticName",
         "analyticDescription",
         "analyticShouldTriggerAtStart",
-        "analyticShouldCatchUpPastExecutions",
+        //'analyticShouldCatchUpPastExecutions',
+        "analyticAggregateExecution",
         "analyticStatus",
         "editable"
     ],
@@ -14946,20 +15195,21 @@ var scriptExports = {
             localAnalyticName: this.analyticName,
             localAnalyticDescription: this.analyticDescription,
             localAnalyticShouldTriggerAtStart: this.analyticShouldTriggerAtStart,
-            localAnalyticShouldCatchUpPastExecutions: this.analyticShouldCatchUpPastExecutions,
+            //localAnalyticShouldCatchUpPastExecutions : this.analyticShouldCatchUpPastExecutions,
+            localAnalyticAggregateExecution: this.analyticAggregateExecution,
             localAnalyticStatus: this.analyticStatus,
             statuSwitchValue: this.computedStatuSwitchValue
         };
     },
     created () {
-        this.ANALYTIC_STATUS = (0, _spinalModelAnalysis.ANALYTIC_STATUS);
+        this.ANALYTIC_STATUS = (0, _spinalModelAnalysis.CONSTANTS).ANALYTIC_STATUS;
     },
     computed: {
         computedAnalyticStatus () {
-            return this.statuSwitchValue ? (0, _spinalModelAnalysis.ANALYTIC_STATUS).ACTIVE : (0, _spinalModelAnalysis.ANALYTIC_STATUS).INACTIVE;
+            return this.statuSwitchValue ? (0, _spinalModelAnalysis.CONSTANTS).ANALYTIC_STATUS.ACTIVE : (0, _spinalModelAnalysis.CONSTANTS).ANALYTIC_STATUS.INACTIVE;
         },
         computedStatuSwitchValue () {
-            return this.localAnalyticStatus === (0, _spinalModelAnalysis.ANALYTIC_STATUS).ACTIVE;
+            return this.localAnalyticStatus === (0, _spinalModelAnalysis.CONSTANTS).ANALYTIC_STATUS.ACTIVE;
         }
     },
     methods: {
@@ -14983,6 +15233,9 @@ var scriptExports = {
         },
         analyticStatus () {
             this.localAnalyticStatus = this.analyticStatus;
+        },
+        analyticAggregateExecution () {
+            this.localAnalyticAggregateExecution = this.analyticAggregateExecution;
         }
     }
 };
@@ -15085,26 +15338,6 @@ var render = function() {
             _c("md-switch", {
                 on: {
                     "change": function($event) {
-                        return _vm.update("analyticShouldCatchUpPastExecutions", _vm.localAnalyticShouldCatchUpPastExecutions);
-                    }
-                },
-                model: {
-                    value: _vm.localAnalyticShouldCatchUpPastExecutions,
-                    callback: function($$v) {
-                        _vm.localAnalyticShouldCatchUpPastExecutions = $$v;
-                    },
-                    expression: "localAnalyticShouldCatchUpPastExecutions"
-                }
-            }, [
-                _vm._v("Should catch up missed executions (only works for timeseries based calculations and cron or interval time triggers ) : "),
-                _c("b", [
-                    _vm._v(_vm._s(_vm.localAnalyticShouldCatchUpPastExecutions ? "Yes" : "No") + " ")
-                ])
-            ]),
-            _vm._v(" "),
-            _c("md-switch", {
-                on: {
-                    "change": function($event) {
                         return _vm.update("analyticStatus", _vm.localAnalyticStatus);
                     }
                 },
@@ -15120,6 +15353,33 @@ var render = function() {
                 _c("b", [
                     _vm._v(" " + _vm._s(_vm.localAnalyticStatus ? "Active" : "Inactive") + " ")
                 ])
+            ]),
+            _vm._v(" "),
+            _c("md-field", {
+                staticClass: "fixed-size-field"
+            }, [
+                _c("label", [
+                    _vm._v(" Cron syntax ")
+                ]),
+                _vm._v(" "),
+                _c("md-input", {
+                    on: {
+                        "change": function($event) {
+                            return _vm.update("analyticAggregateExecution", _vm.localAnalyticAggregateExecution);
+                        }
+                    },
+                    model: {
+                        value: _vm.localAnalyticAggregateExecution,
+                        callback: function($$v) {
+                            _vm.localAnalyticAggregateExecution = $$v;
+                        },
+                        expression: "localAnalyticAggregateExecution"
+                    }
+                })
+            ], 1),
+            _vm._v(" "),
+            _c("p", [
+                _vm._v("\n        Aggregate Execution to a specific time : (leave empty to disable this feature)\n      ")
             ])
         ], 1)
     ], 1);
@@ -16652,7 +16912,7 @@ var scriptExports = {
         };
     },
     created () {
-        this.TRACK_METHOD = (0, _spinalModelAnalysis.TRACK_METHOD);
+        this.TRACK_METHOD = (0, _spinalModelAnalysis.CONSTANTS).TRACK_METHOD;
     },
     methods: {
         addInput () {
@@ -16664,7 +16924,7 @@ var scriptExports = {
         },
         async getCapturedInputs (tracking, entity) {
             console.log("Calling getCapturedInputs tracking:", tracking);
-            const capturedInput = await (0, _spinalModelAnalysis.spinalAnalyticService).applyTrackingMethodWithParams(entity, tracking.trackingMethod, tracking.filterValue, tracking.searchDepth, tracking.strictDepth, tracking.searchRelations.split((0, _spinalModelAnalysis.ATTRIBUTE_VALUE_SEPARATOR)));
+            const capturedInput = await (0, _spinalModelAnalysis.spinalAnalyticInputManagerService).applyTrackingMethodWithParams(entity, tracking.trackingMethod, tracking.filterValue, tracking.searchDepth, tracking.strictDepth, tracking.searchRelations.split((0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_VALUE_SEPARATOR), tracking.captureAllModels);
             if (!capturedInput) return "!! Not found !!";
             console.log("capturedInput :", capturedInput);
             if (tracking.trackingMethod === this.TRACK_METHOD.ATTRIBUTE_NAME_FILTER) {
@@ -16680,11 +16940,11 @@ var scriptExports = {
             console.log("Calling scanRelations");
             const followedEntityInfo = (0, _spinalEnvViewerGraphService.SpinalGraphService).getInfo(this.followedEntity);
             const previewData = {};
-            const entities = await (0, _spinalModelAnalysis.spinalAnalyticService).getWorkingFollowedEntitiesWithParam(followedEntityInfo, this.entityType);
+            const entities = await (0, _spinalModelAnalysis.spinalAnalyticInputManagerService).getWorkingFollowedEntitiesWithParam(followedEntityInfo, this.entityType);
             for (const subEntity of entities){
                 let subEntityName = subEntity.name.get();
                 subEntityName = subEntityName.replace(/(\r\n|\n|\r)/gm, "");
-                const relations = await (0, _spinalModelAnalysis.getChoiceRelationsWithDepth)(subEntity.id.get(), tracking.searchDepth);
+                const relations = await (0, _spinalModelAnalysis.spinalAnalyticInputManagerService).getChoiceRelationsWithDepth(subEntity.id.get(), tracking.searchDepth);
                 previewData[subEntityName] = relations;
             }
             this.previewData = previewData;
@@ -16694,12 +16954,12 @@ var scriptExports = {
             this.previewData = "";
             console.log("Calling getPreviewAvailableData");
             const followedEntityInfo = (0, _spinalEnvViewerGraphService.SpinalGraphService).getInfo(this.followedEntity);
-            const entities = await (0, _spinalModelAnalysis.spinalAnalyticService).getWorkingFollowedEntitiesWithParam(followedEntityInfo, this.entityType);
+            const entities = await (0, _spinalModelAnalysis.spinalAnalyticInputManagerService).getWorkingFollowedEntitiesWithParam(followedEntityInfo, this.entityType);
             const previewData = {};
             for (const subEntity of entities){
                 let subEntityName = subEntity.name.get();
                 subEntityName = subEntityName.replace(/(\r\n|\n|\r)/gm, "");
-                const availableData = await (0, _spinalModelAnalysis.getAvailableData)(tracking.trackingMethod, subEntity.id.get(), tracking.filterValue, tracking.searchDepth, tracking.strictDepth, tracking.searchRelations.split((0, _spinalModelAnalysis.ATTRIBUTE_VALUE_SEPARATOR)));
+                const availableData = await (0, _spinalModelAnalysis.spinalAnalyticInputManagerService).getAvailableData(tracking.trackingMethod, subEntity.id.get(), tracking.filterValue, tracking.searchDepth, tracking.strictDepth, tracking.searchRelations.split((0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_VALUE_SEPARATOR));
                 previewData[subEntityName] = availableData;
             }
             this.previewData = previewData;
@@ -16709,7 +16969,7 @@ var scriptExports = {
             this.previewData = "";
             console.log("Calling getPreviewData");
             const followedEntityInfo = (0, _spinalEnvViewerGraphService.SpinalGraphService).getInfo(this.followedEntity);
-            const entities = await (0, _spinalModelAnalysis.spinalAnalyticService).getWorkingFollowedEntitiesWithParam(followedEntityInfo, this.entityType);
+            const entities = await (0, _spinalModelAnalysis.spinalAnalyticInputManagerService).getWorkingFollowedEntitiesWithParam(followedEntityInfo, this.entityType);
             const previewData = {};
             for (const subEntity of entities){
                 let subEntityName = subEntity.name.get();
@@ -17012,7 +17272,7 @@ var render = function() {
                         staticClass: "fixed-size-field"
                     }, [
                         _c("label", [
-                            _vm._v(" \n          Search Relations separated by comma (example: hasBimObject,relation2,... )\n        ")
+                            _vm._v("\n          Search Relations separated by comma (example: hasBimObject,relation2,... )\n        ")
                         ]),
                         _vm._v(" "),
                         _c("md-input", {
@@ -17043,6 +17303,24 @@ var render = function() {
                             }
                         })
                     ], 1) : _vm._e(),
+                    _vm._v(" "),
+                    [
+                        _vm.TRACK_METHOD.ENDPOINT_NAME_FILTER,
+                        _vm.TRACK_METHOD.CONTROL_ENDPOINT_NAME_FILTER
+                    ].includes(value.trackingMethod) && value.timeseriesIntervalTime == 0 ? _c("md-switch", {
+                        model: {
+                            value: value.captureAllModels,
+                            callback: function($$v) {
+                                _vm.$set(value, "captureAllModels", $$v);
+                            },
+                            expression: "value.captureAllModels"
+                        }
+                    }, [
+                        _vm._v("Should capture all models sharing the same name : "),
+                        _c("b", [
+                            _vm._v(_vm._s(value.captureAllModels ? "Yes" : "No") + " ")
+                        ])
+                    ]) : _vm._e(),
                     _vm._v(" "),
                     value.trackingMethod != "" && value.searchDepth > 0 ? _c("md-switch", {
                         model: {
@@ -17197,7 +17475,7 @@ var scriptExports = {
         };
     },
     created () {
-        this.TRIGGER_TYPE = (0, _spinalModelAnalysis.TRIGGER_TYPE);
+        this.TRIGGER_TYPE = (0, _spinalModelAnalysis.CONSTANTS).TRIGGER_TYPE;
     },
     methods: {
         addTrigger () {
@@ -17209,8 +17487,8 @@ var scriptExports = {
         },
         showInputSelection (triggerType) {
             return [
-                (0, _spinalModelAnalysis.TRIGGER_TYPE).CHANGE_OF_VALUE_WITH_THRESHOLD,
-                (0, _spinalModelAnalysis.TRIGGER_TYPE).CHANGE_OF_VALUE
+                (0, _spinalModelAnalysis.CONSTANTS).TRIGGER_TYPE.CHANGE_OF_VALUE_WITH_THRESHOLD,
+                (0, _spinalModelAnalysis.CONSTANTS).TRIGGER_TYPE.CHANGE_OF_VALUE
             ].includes(triggerType);
         },
         showCronHelper () {
@@ -17891,7 +18169,7 @@ var scriptExports = {
         };
     },
     created () {
-        this.CONST_ANALYTIC_RESULT_TYPE = (0, _spinalModelAnalysis.ANALYTIC_RESULT_TYPE);
+        this.CONST_ANALYTIC_RESULT_TYPE = (0, _spinalModelAnalysis.CONSTANTS).ANALYTIC_RESULT_TYPE;
         this.alarmContexts = (0, _spinalServiceTicket.spinalServiceTicket).getContexts();
     },
     methods: {
@@ -18364,7 +18642,6 @@ var _inputSelectionTableVue = require("./inputSelectionTable.vue");
 var _inputSelectionTableVueDefault = parcelHelpers.interopDefault(_inputSelectionTableVue);
 var _vuedraggable = require("vuedraggable");
 var _vuedraggableDefault = parcelHelpers.interopDefault(_vuedraggable);
-var _spinalModelAnalysis = require("spinal-model-analysis");
 var scriptExports = {
     props: [
         "STEPPERS_DATA",
@@ -18410,7 +18687,7 @@ var scriptExports = {
 var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"./inputSelectionTable.vue":"bzqdG","vuedraggable":"1J17x","spinal-model-analysis":"apm5J","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"bzqdG":[function(require,module,exports) {
+},{"./inputSelectionTable.vue":"bzqdG","vuedraggable":"1J17x","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"bzqdG":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -18964,7 +19241,7 @@ var scriptExports = {
         };
     },
     created () {
-        this.CONST_ANALYTIC_RESULT_TYPE = (0, _spinalModelAnalysis.ANALYTIC_RESULT_TYPE);
+        this.CONST_ANALYTIC_RESULT_TYPE = (0, _spinalModelAnalysis.CONSTANTS).ANALYTIC_RESULT_TYPE;
     },
     methods: {
         update (key, value) {
@@ -19619,7 +19896,7 @@ var render = function() {
                         "analyticName": _vm.analyticName,
                         "analyticDescription": _vm.analyticDescription,
                         "analyticShouldTriggerAtStart": _vm.analyticShouldTriggerAtStart,
-                        "analyticShouldCatchUpPastExecutions": _vm.analyticShouldCatchUpPastExecutions,
+                        "analyticAggregateExecution": _vm.analyticAggregateExecution,
                         "analyticStatus": _vm.analyticStatus,
                         "editable": true
                     },
@@ -19642,11 +19919,11 @@ var render = function() {
                         "update:analytic-should-trigger-at-start": function($event) {
                             _vm.analyticShouldTriggerAtStart = $event;
                         },
-                        "update:analyticShouldCatchUpPastExecutions": function($event) {
-                            _vm.analyticShouldCatchUpPastExecutions = $event;
+                        "update:analyticAggregateExecution": function($event) {
+                            _vm.analyticAggregateExecution = $event;
                         },
-                        "update:analytic-should-catch-up-past-executions": function($event) {
-                            _vm.analyticShouldCatchUpPastExecutions = $event;
+                        "update:analytic-aggregate-execution": function($event) {
+                            _vm.analyticAggregateExecution = $event;
                         },
                         "update:analyticStatus": function($event) {
                             _vm.analyticStatus = $event;
@@ -19961,7 +20238,7 @@ var scriptExports = {
         "algorithm-configuration": (0, _algorithmConfigurationVueDefault.default),
         "result-configuration": (0, _resultConfigurationVueDefault.default),
         "io-dependencies": (0, _iodependenciesVueDefault.default),
-        "configuration": (0, _configurationVueDefault.default),
+        configuration: (0, _configurationVueDefault.default),
         "summary-analytic": (0, _summaryVueDefault.default)
     },
     data () {
@@ -19982,7 +20259,8 @@ var scriptExports = {
             analyticName: "",
             analyticDescription: "",
             analyticShouldTriggerAtStart: undefined,
-            analyticShouldCatchUpPastExecutions: undefined,
+            //analyticShouldCatchUpPastExecutions: undefined,
+            analyticAggregateExecution: undefined,
             analyticStatus: undefined,
             analyticLastExecutionTime: undefined,
             // Inputs -> Followed Entity -> attribute data
@@ -20030,38 +20308,40 @@ var scriptExports = {
             this.selectedNode = option.selectedNode;
             // selectedNode is the analytic node
             const selectedNodeId = this.selectedNode.id.get();
-            const entity = await (0, _spinalModelAnalysis.spinalAnalyticService).getEntityFromAnalytic(selectedNodeId);
+            const entity = await (0, _spinalModelAnalysis.spinalAnalyticNodeManagerService).getEntityFromAnalytic(selectedNodeId);
             this.entityType = entity.entityType.get();
             this.analyticName = this.selectedNode.name.get();
-            const followedEntityNode = await (0, _spinalModelAnalysis.spinalAnalyticService).getFollowedEntity(selectedNodeId);
+            const followedEntityNode = await (0, _spinalModelAnalysis.spinalAnalyticNodeManagerService).getFollowedEntity(selectedNodeId);
             this.followedEntity = followedEntityNode ? followedEntityNode.id.get() : undefined;
             // need to get all the category names first
-            const trackingMethodNodeRef = await (0, _spinalModelAnalysis.spinalAnalyticService).getTrackingMethod(selectedNodeId);
-            const parseInputs = await (0, _spinalModelAnalysis.spinalAnalyticService).getAllCategoriesAndAttributesFromNode(trackingMethodNodeRef.id.get());
+            const trackingMethodNodeRef = await (0, _spinalModelAnalysis.spinalAnalyticNodeManagerService).getTrackingMethod(selectedNodeId);
+            const parseInputs = await (0, _spinalModelAnalysis.spinalAnalyticNodeManagerService).getAllCategoriesAndAttributesFromNode(trackingMethodNodeRef.id.get());
             for (const inputKey of Object.keys(parseInputs))this.inputs[inputKey] = {
-                trackingMethod: parseInputs[inputKey][0, _spinalModelAnalysis.ATTRIBUTE_TRACKING_METHOD],
-                filterValue: parseInputs[inputKey][0, _spinalModelAnalysis.ATTRIBUTE_FILTER_VALUE],
-                searchDepth: parseInputs[inputKey][0, _spinalModelAnalysis.ATTRIBUTE_SEARCH_DEPTH],
-                strictDepth: parseInputs[inputKey][0, _spinalModelAnalysis.ATTRIBUTE_STRICT_DEPTH],
-                searchRelations: parseInputs[inputKey][0, _spinalModelAnalysis.ATTRIBUTE_SEARCH_RELATIONS],
-                timeseriesIntervalTime: parseInputs[inputKey][0, _spinalModelAnalysis.ATTRIBUTE_TIMESERIES],
-                timeseriesValueAtStart: parseInputs[inputKey][0, _spinalModelAnalysis.ATTRIBUTE_TIMESERIES_VALUE_AT_START]
+                trackingMethod: parseInputs[inputKey][(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_TRACKING_METHOD],
+                filterValue: parseInputs[inputKey][(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_FILTER_VALUE],
+                searchDepth: parseInputs[inputKey][(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_SEARCH_DEPTH],
+                strictDepth: parseInputs[inputKey][(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_STRICT_DEPTH],
+                searchRelations: parseInputs[inputKey][(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_SEARCH_RELATIONS],
+                timeseriesIntervalTime: parseInputs[inputKey][(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_TIMESERIES],
+                timeseriesValueAtStart: parseInputs[inputKey][(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_TIMESERIES_VALUE_AT_START]
             };
             this.inputs = {
                 ...this.inputs
             };
             //this.input = Object.assign({}, this.inputs);
             console.log(this.inputs);
-            const configNode = await (0, _spinalModelAnalysis.spinalAnalyticService).getConfig(selectedNodeId);
-            const analyticAttributes = await (0, _spinalModelAnalysis.spinalAnalyticService).getAttributesFromNode(configNode.id.get(), (0, _spinalModelAnalysis.CATEGORY_ATTRIBUTE_ANALYTIC_PARAMETERS));
-            this.analyticDescription = analyticAttributes[0, _spinalModelAnalysis.ATTRIBUTE_ANALYTIC_DESCRIPTION];
-            this.analyticStatus = analyticAttributes[0, _spinalModelAnalysis.ATTRIBUTE_ANALYTIC_STATUS] === (0, _spinalModelAnalysis.ANALYTIC_STATUS).ACTIVE;
-            this.analyticShouldTriggerAtStart = analyticAttributes[0, _spinalModelAnalysis.ATTRIBUTE_TRIGGER_AT_START];
-            this.analyticShouldCatchUpPastExecutions = analyticAttributes[0, _spinalModelAnalysis.ATTRIBUTE_ANALYTIC_PAST_EXECUTIONS];
-            this.analyticLastExecutionTime = analyticAttributes[0, _spinalModelAnalysis.ATTRIBUTE_LAST_EXECUTION_TIME];
-            const triggerAttributes = await (0, _spinalModelAnalysis.spinalAnalyticService).getAttributesFromNode(configNode.id.get(), (0, _spinalModelAnalysis.CATEGORY_ATTRIBUTE_TRIGGER_PARAMETERS));
+            const configNode = await (0, _spinalModelAnalysis.spinalAnalyticNodeManagerService).getConfig(selectedNodeId);
+            const analyticAttributes = await (0, _spinalModelAnalysis.spinalAnalyticNodeManagerService).getAttributesFromNode(configNode.id.get(), (0, _spinalModelAnalysis.CONSTANTS).CATEGORY_ATTRIBUTE_ANALYTIC_PARAMETERS);
+            console.log("analyticAttributes :", analyticAttributes);
+            this.analyticDescription = analyticAttributes[(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_ANALYTIC_DESCRIPTION];
+            this.analyticStatus = analyticAttributes[(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_ANALYTIC_STATUS] === (0, _spinalModelAnalysis.CONSTANTS).ANALYTIC_STATUS.ACTIVE;
+            this.analyticShouldTriggerAtStart = analyticAttributes[(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_TRIGGER_AT_START];
+            this.analyticShouldCatchUpPastExecutions = analyticAttributes[(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_ANALYTIC_PAST_EXECUTIONS];
+            this.analyticAggregateExecution = analyticAttributes[(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_AGGREGATE_EXECUTION_TIME];
+            this.analyticLastExecutionTime = analyticAttributes[(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_LAST_EXECUTION_TIME];
+            const triggerAttributes = await (0, _spinalModelAnalysis.spinalAnalyticNodeManagerService).getAttributesFromNode(configNode.id.get(), (0, _spinalModelAnalysis.CONSTANTS).CATEGORY_ATTRIBUTE_TRIGGER_PARAMETERS);
             for (const triggerKey of Object.keys(triggerAttributes)){
-                let triggerValue = triggerAttributes[triggerKey].split((0, _spinalModelAnalysis.ATTRIBUTE_VALUE_SEPARATOR));
+                let triggerValue = triggerAttributes[triggerKey].split((0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_VALUE_SEPARATOR);
                 this.triggers[triggerKey] = {
                     triggerType: triggerValue[0],
                     triggerValue: triggerValue[1],
@@ -20071,56 +20351,56 @@ var scriptExports = {
             this.triggers = {
                 ...this.triggers
             };
-            const algorithmMappingAttributes = await (0, _spinalModelAnalysis.spinalAnalyticService).getAttributesFromNode(configNode.id.get(), (0, _spinalModelAnalysis.CATEGORY_ATTRIBUTE_ALGORITHM_INDEX_MAPPING));
+            const algorithmMappingAttributes = await (0, _spinalModelAnalysis.spinalAnalyticNodeManagerService).getAttributesFromNode(configNode.id.get(), (0, _spinalModelAnalysis.CONSTANTS).CATEGORY_ATTRIBUTE_ALGORITHM_INDEX_MAPPING);
             for (const algorithmIndexName of Object.keys(algorithmMappingAttributes))this.algorithms[algorithmIndexName] = {
                 name: algorithmMappingAttributes[algorithmIndexName],
                 params: []
             };
-            const algorithmParametersAttributes = await (0, _spinalModelAnalysis.spinalAnalyticService).getAttributesFromNode(configNode.id.get(), (0, _spinalModelAnalysis.CATEGORY_ATTRIBUTE_ALGORTHM_PARAMETERS));
+            const algorithmParametersAttributes = await (0, _spinalModelAnalysis.spinalAnalyticNodeManagerService).getAttributesFromNode(configNode.id.get(), (0, _spinalModelAnalysis.CONSTANTS).CATEGORY_ATTRIBUTE_ALGORTHM_PARAMETERS);
             for (const algorithmIndexName of Object.keys(this.algorithms)){
                 let algoName = this.algorithms[algorithmIndexName].name;
                 const doc = (0, _spinalModelAnalysis.ALGORITHMS)[algoName].requiredParams;
-                for(let i = 0; i < doc.length; i++)this.algorithms[algorithmIndexName].params.push(algorithmParametersAttributes[`${algorithmIndexName}${0, _spinalModelAnalysis.ATTRIBUTE_SEPARATOR}${doc[i].name}`]);
+                for(let i = 0; i < doc.length; i++)this.algorithms[algorithmIndexName].params.push(algorithmParametersAttributes[`${algorithmIndexName}${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_SEPARATOR}${doc[i].name}`]);
             }
             this.algorithms = {
                 ...this.algorithms
             };
-            const resultAttributes = await (0, _spinalModelAnalysis.spinalAnalyticService).getAttributesFromNode(configNode.id.get(), (0, _spinalModelAnalysis.CATEGORY_ATTRIBUTE_RESULT_PARAMETERS));
-            this.resultType = resultAttributes[0, _spinalModelAnalysis.ATTRIBUTE_RESULT_TYPE];
-            this.resultName = resultAttributes[0, _spinalModelAnalysis.ATTRIBUTE_RESULT_NAME];
-            this.shouldCreateEndpointIfNotExist = resultAttributes[0, _spinalModelAnalysis.ATTRIBUTE_CREATE_ENDPOINT_IF_NOT_EXIST];
+            const resultAttributes = await (0, _spinalModelAnalysis.spinalAnalyticNodeManagerService).getAttributesFromNode(configNode.id.get(), (0, _spinalModelAnalysis.CONSTANTS).CATEGORY_ATTRIBUTE_RESULT_PARAMETERS);
+            this.resultType = resultAttributes[(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_RESULT_TYPE];
+            this.resultName = resultAttributes[(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_RESULT_NAME];
+            this.shouldCreateEndpointIfNotExist = resultAttributes[(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_CREATE_ENDPOINT_IF_NOT_EXIST];
             if ([
-                (0, _spinalModelAnalysis.ANALYTIC_RESULT_TYPE).TICKET,
-                (0, _spinalModelAnalysis.ANALYTIC_RESULT_TYPE).ALARM
+                (0, _spinalModelAnalysis.CONSTANTS).ANALYTIC_RESULT_TYPE.TICKET,
+                (0, _spinalModelAnalysis.CONSTANTS).ANALYTIC_RESULT_TYPE.ALARM
             ].includes(this.resultType)) {
-                const ticketAttributes = await (0, _spinalModelAnalysis.spinalAnalyticService).getAttributesFromNode(configNode.id.get(), (0, _spinalModelAnalysis.CATEGORY_ATTRIBUTE_TICKET_LOCALIZATION_PARAMETERS));
-                this.ticketContextId = ticketAttributes[0, _spinalModelAnalysis.ATTRIBUTE_TICKET_CONTEXT_ID];
-                this.ticketProcessId = ticketAttributes[0, _spinalModelAnalysis.ATTRIBUTE_TICKET_PROCESS_ID];
-                if (this.resultType === (0, _spinalModelAnalysis.ANALYTIC_RESULT_TYPE).ALARM) this.alarmPriority = ticketAttributes[0, _spinalModelAnalysis.ATTRIBUTE_ALARM_PRIORITY];
-            }
-            if ([
-                (0, _spinalModelAnalysis.ANALYTIC_RESULT_TYPE).SMS
-            ].includes(this.resultType)) {
-                const smsAttributes = await (0, _spinalModelAnalysis.spinalAnalyticService).getAttributesFromNode(configNode.id.get(), (0, _spinalModelAnalysis.CATEGORY_ATTRIBUTE_TWILIO_PARAMETERS));
-                this.phoneNumber = smsAttributes[0, _spinalModelAnalysis.ATTRIBUTE_PHONE_NUMBER];
-                this.phoneMessage = smsAttributes[0, _spinalModelAnalysis.ATTRIBUTE_PHONE_MESSAGE];
+                const ticketAttributes = await (0, _spinalModelAnalysis.spinalAnalyticNodeManagerService).getAttributesFromNode(configNode.id.get(), (0, _spinalModelAnalysis.CONSTANTS).CATEGORY_ATTRIBUTE_TICKET_LOCALIZATION_PARAMETERS);
+                this.ticketContextId = ticketAttributes[(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_TICKET_CONTEXT_ID];
+                this.ticketProcessId = ticketAttributes[(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_TICKET_PROCESS_ID];
+                if (this.resultType === (0, _spinalModelAnalysis.CONSTANTS).ANALYTIC_RESULT_TYPE.ALARM) this.alarmPriority = ticketAttributes[(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_ALARM_PRIORITY];
             }
             if ([
-                (0, _spinalModelAnalysis.ANALYTIC_RESULT_TYPE).GCHAT_MESSAGE,
-                (0, _spinalModelAnalysis.ANALYTIC_RESULT_TYPE).GCHAT_ORGAN_CARD
+                (0, _spinalModelAnalysis.CONSTANTS).ANALYTIC_RESULT_TYPE.SMS
             ].includes(this.resultType)) {
-                const gChatAttributes = await (0, _spinalModelAnalysis.spinalAnalyticService).getAttributesFromNode(configNode.id.get(), (0, _spinalModelAnalysis.CATEGORY_ATTRIBUTE_GCHAT_PARAMETERS));
-                this.gChatMessage = gChatAttributes[0, _spinalModelAnalysis.ATTRIBUTE_GCHAT_MESSAGE];
-                this.gChatSpaceName = gChatAttributes[0, _spinalModelAnalysis.ATTRIBUTE_GCHAT_SPACE];
+                const smsAttributes = await (0, _spinalModelAnalysis.spinalAnalyticNodeManagerService).getAttributesFromNode(configNode.id.get(), (0, _spinalModelAnalysis.CONSTANTS).CATEGORY_ATTRIBUTE_TWILIO_PARAMETERS);
+                this.phoneNumber = smsAttributes[(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_PHONE_NUMBER];
+                this.phoneMessage = smsAttributes[(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_PHONE_MESSAGE];
             }
-            if (this.resultType === (0, _spinalModelAnalysis.ANALYTIC_RESULT_TYPE).ENDPOINT) {
-                const endpointCreationAttributes = await (0, _spinalModelAnalysis.spinalAnalyticService).getAttributesFromNode(configNode.id.get(), (0, _spinalModelAnalysis.CATEGORY_ATTRIBUTE_ENDPOINT_PARAMETERS));
-                this.endpointCreationUnit = endpointCreationAttributes[0, _spinalModelAnalysis.ATTRIBUTE_CREATE_ENDPOINT_UNIT];
-                this.endpointCreationMaxDays = endpointCreationAttributes[0, _spinalModelAnalysis.ATTRIBUTE_CREATE_ENDPOINT_MAX_DAYS];
+            if ([
+                (0, _spinalModelAnalysis.CONSTANTS).ANALYTIC_RESULT_TYPE.GCHAT_MESSAGE,
+                (0, _spinalModelAnalysis.CONSTANTS).ANALYTIC_RESULT_TYPE.GCHAT_ORGAN_CARD
+            ].includes(this.resultType)) {
+                const gChatAttributes = await (0, _spinalModelAnalysis.spinalAnalyticNodeManagerService).getAttributesFromNode(configNode.id.get(), (0, _spinalModelAnalysis.CONSTANTS).CATEGORY_ATTRIBUTE_GCHAT_PARAMETERS);
+                this.gChatMessage = gChatAttributes[(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_GCHAT_MESSAGE];
+                this.gChatSpaceName = gChatAttributes[(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_GCHAT_SPACE];
             }
-            const ioAttributes = await (0, _spinalModelAnalysis.spinalAnalyticService).getAttributesFromNode(configNode.id.get(), (0, _spinalModelAnalysis.CATEGORY_ATTRIBUTE_IO_DEPENDENCIES));
+            if (this.resultType === (0, _spinalModelAnalysis.CONSTANTS).ANALYTIC_RESULT_TYPE.ENDPOINT) {
+                const endpointCreationAttributes = await (0, _spinalModelAnalysis.spinalAnalyticNodeManagerService).getAttributesFromNode(configNode.id.get(), (0, _spinalModelAnalysis.CONSTANTS).CATEGORY_ATTRIBUTE_ENDPOINT_PARAMETERS);
+                this.endpointCreationUnit = endpointCreationAttributes[(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_CREATE_ENDPOINT_UNIT];
+                this.endpointCreationMaxDays = endpointCreationAttributes[(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_CREATE_ENDPOINT_MAX_DAYS];
+            }
+            const ioAttributes = await (0, _spinalModelAnalysis.spinalAnalyticNodeManagerService).getAttributesFromNode(configNode.id.get(), (0, _spinalModelAnalysis.CONSTANTS).CATEGORY_ATTRIBUTE_IO_DEPENDENCIES);
             for (const ioDependencyName of Object.keys(ioAttributes)){
-                let ioDependencyValue = ioAttributes[ioDependencyName].split((0, _spinalModelAnalysis.ATTRIBUTE_VALUE_SEPARATOR));
+                let ioDependencyValue = ioAttributes[ioDependencyName].split((0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_VALUE_SEPARATOR);
                 this.ioDependencies[ioDependencyName] = ioDependencyValue;
             }
             this.ioDependencies = {
@@ -20131,59 +20411,60 @@ var scriptExports = {
             if (res.closeResult) {
                 // there must be a better way to get the context id...
                 const contextId = Object.keys(this.selectedNode.contextIds.get())[0];
-                const followedEntityNodeRef = await (0, _spinalModelAnalysis.spinalAnalyticService).getFollowedEntity(this.selectedNode.id.get());
+                const followedEntityNodeRef = await (0, _spinalModelAnalysis.spinalAnalyticNodeManagerService).getFollowedEntity(this.selectedNode.id.get());
                 if (followedEntityNodeRef && followedEntityNodeRef.id.get() !== this.followedEntity) {
                     console.log("change followed entity");
-                    await (0, _spinalModelAnalysis.spinalAnalyticService).removeLinkToFollowedEntity(this.selectedNode.id.get(), followedEntityNodeRef.id.get());
-                    await (0, _spinalModelAnalysis.spinalAnalyticService).addInputLinkToFollowedEntity(contextId, this.selectedNode.id.get(), this.followedEntity);
+                    await (0, _spinalModelAnalysis.spinalAnalyticNodeManagerService).removeLinkToFollowedEntity(this.selectedNode.id.get(), followedEntityNodeRef.id.get());
+                    await (0, _spinalModelAnalysis.spinalAnalyticNodeManagerService).addInputLinkToFollowedEntity(contextId, this.selectedNode.id.get(), this.followedEntity);
                 }
-                if (!followedEntityNodeRef) await (0, _spinalModelAnalysis.spinalAnalyticService).addInputLinkToFollowedEntity(contextId, this.selectedNode.id.get(), this.followedEntity);
+                if (!followedEntityNodeRef) await (0, _spinalModelAnalysis.spinalAnalyticNodeManagerService).addInputLinkToFollowedEntity(contextId, this.selectedNode.id.get(), this.followedEntity);
                 const trackingMethodAttributes = this.getTrackingMethodAttributes();
                 console.log("trackingMethodAttributes :", trackingMethodAttributes);
-                const trackingMethodNodeRef = await (0, _spinalModelAnalysis.spinalAnalyticService).getTrackingMethod(this.selectedNode.id.get());
+                const trackingMethodNodeRef = await (0, _spinalModelAnalysis.spinalAnalyticNodeManagerService).getTrackingMethod(this.selectedNode.id.get());
                 const trackingMethodNode = (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(trackingMethodNodeRef.id.get());
-                await (0, _spinalModelAnalysis.spinalAnalyticService).addAttributesToNode(trackingMethodNode, trackingMethodAttributes);
+                await (0, _spinalModelAnalysis.spinalAnalyticNodeManagerService).addAttributesToNode(trackingMethodNode, trackingMethodAttributes);
                 const configAttributes = {};
                 const analyticAttributes = this.getAnalyticAttributes();
-                configAttributes[0, _spinalModelAnalysis.CATEGORY_ATTRIBUTE_ANALYTIC_PARAMETERS] = analyticAttributes;
+                configAttributes[(0, _spinalModelAnalysis.CONSTANTS).CATEGORY_ATTRIBUTE_ANALYTIC_PARAMETERS] = analyticAttributes;
                 const resultAttributes = this.getResultAttributes();
-                configAttributes[0, _spinalModelAnalysis.CATEGORY_ATTRIBUTE_RESULT_PARAMETERS] = resultAttributes;
+                configAttributes[(0, _spinalModelAnalysis.CONSTANTS).CATEGORY_ATTRIBUTE_RESULT_PARAMETERS] = resultAttributes;
                 const algorithmParametersAttributes = this.getAlgorithmParametersAttributes();
-                configAttributes[0, _spinalModelAnalysis.CATEGORY_ATTRIBUTE_ALGORTHM_PARAMETERS] = algorithmParametersAttributes;
+                configAttributes[(0, _spinalModelAnalysis.CONSTANTS).CATEGORY_ATTRIBUTE_ALGORTHM_PARAMETERS] = algorithmParametersAttributes;
                 const algorithmMappingAttributes = this.getAlgorithmMappingAttributes();
-                configAttributes[0, _spinalModelAnalysis.CATEGORY_ATTRIBUTE_ALGORITHM_INDEX_MAPPING] = algorithmMappingAttributes;
+                configAttributes[(0, _spinalModelAnalysis.CONSTANTS).CATEGORY_ATTRIBUTE_ALGORITHM_INDEX_MAPPING] = algorithmMappingAttributes;
                 if (this.ticketContextId && this.ticketProcessId) {
                     const ticketAttributes = this.getTicketAttributes();
-                    configAttributes[0, _spinalModelAnalysis.CATEGORY_ATTRIBUTE_TICKET_LOCALIZATION_PARAMETERS] = ticketAttributes;
+                    configAttributes[(0, _spinalModelAnalysis.CONSTANTS).CATEGORY_ATTRIBUTE_TICKET_LOCALIZATION_PARAMETERS] = ticketAttributes;
                 }
-                if (this.resultType == (0, _spinalModelAnalysis.ANALYTIC_RESULT_TYPE).SMS) {
+                if (this.resultType == (0, _spinalModelAnalysis.CONSTANTS).ANALYTIC_RESULT_TYPE.SMS) {
                     const smsAttributes = this.getSMSAttributes();
-                    configAttributes[0, _spinalModelAnalysis.CATEGORY_ATTRIBUTE_TWILIO_PARAMETERS] = smsAttributes;
+                    configAttributes[(0, _spinalModelAnalysis.CONSTANTS).CATEGORY_ATTRIBUTE_TWILIO_PARAMETERS] = smsAttributes;
                 }
                 if ([
-                    (0, _spinalModelAnalysis.ANALYTIC_RESULT_TYPE).GCHAT_MESSAGE,
-                    (0, _spinalModelAnalysis.ANALYTIC_RESULT_TYPE).GCHAT_ORGAN_CARD
+                    (0, _spinalModelAnalysis.CONSTANTS).ANALYTIC_RESULT_TYPE.GCHAT_MESSAGE,
+                    (0, _spinalModelAnalysis.CONSTANTS).ANALYTIC_RESULT_TYPE.GCHAT_ORGAN_CARD
                 ].includes(this.resultType)) {
                     const gChatAttributes = this.getGChatAttributes();
-                    configAttributes[0, _spinalModelAnalysis.CATEGORY_ATTRIBUTE_GCHAT_PARAMETERS] = gChatAttributes;
+                    configAttributes[(0, _spinalModelAnalysis.CONSTANTS).CATEGORY_ATTRIBUTE_GCHAT_PARAMETERS] = gChatAttributes;
                 }
-                if (this.resultType == (0, _spinalModelAnalysis.ANALYTIC_RESULT_TYPE).ENDPOINT && this.shouldCreateEndpointIfNotExist) {
+                if (this.resultType == (0, _spinalModelAnalysis.CONSTANTS).ANALYTIC_RESULT_TYPE.ENDPOINT && this.shouldCreateEndpointIfNotExist) {
                     const endpointCreationAttributes = this.getEndpointCreationAttributes();
-                    configAttributes[0, _spinalModelAnalysis.CATEGORY_ATTRIBUTE_ENDPOINT_PARAMETERS] = endpointCreationAttributes;
+                    configAttributes[(0, _spinalModelAnalysis.CONSTANTS).CATEGORY_ATTRIBUTE_ENDPOINT_PARAMETERS] = endpointCreationAttributes;
                 }
                 const ioAttributes = this.getIOAttributes();
-                configAttributes[0, _spinalModelAnalysis.CATEGORY_ATTRIBUTE_IO_DEPENDENCIES] = ioAttributes;
+                configAttributes[(0, _spinalModelAnalysis.CONSTANTS).CATEGORY_ATTRIBUTE_IO_DEPENDENCIES] = ioAttributes;
                 const triggerAttributes = this.getTriggerAttributes();
-                configAttributes[0, _spinalModelAnalysis.CATEGORY_ATTRIBUTE_TRIGGER_PARAMETERS] = triggerAttributes;
-                await (0, _spinalModelAnalysis.spinalAnalyticService).deleteConfigNode(this.selectedNode.id.get());
-                const configInfo = await (0, _spinalModelAnalysis.spinalAnalyticService).addConfig(configAttributes, this.selectedNode.id.get(), contextId);
-            /*const configNodeRef = await spinalAnalyticService.getConfig(
+                configAttributes[(0, _spinalModelAnalysis.CONSTANTS).CATEGORY_ATTRIBUTE_TRIGGER_PARAMETERS] = triggerAttributes;
+                await (0, _spinalModelAnalysis.spinalAnalyticNodeManagerService).deleteConfigNode(this.selectedNode.id.get());
+                console.log("configAttributes :", configAttributes);
+                const configInfo = await (0, _spinalModelAnalysis.spinalAnalyticNodeManagerService).addConfig(configAttributes, this.selectedNode.id.get(), contextId);
+            /*const configNodeRef = await spinalAnalyticNodeManagerService.getConfig(
           this.selectedNode.id.get()
         );
         const configNode = SpinalGraphService.getRealNode(
           configNodeRef.id.get()
         );
-        await spinalAnalyticService.addAttributesToNode(
+        await spinalAnalyticNodeManagerService.addAttributesToNode(
           configNode,
           configAttributes
         );*/ }
@@ -20196,11 +20477,11 @@ var scriptExports = {
             });
         },
         deleteAnalytic () {
-            (0, _spinalModelAnalysis.spinalAnalyticService).deleteAnalytic(this.selectedNode.id.get());
+            (0, _spinalModelAnalysis.spinalAnalyticNodeManagerService).deleteAnalytic(this.selectedNode.id.get());
             this.closeDialog(false);
         },
         updateLastExecutionTime () {
-            this.analyticLastExecutionTime = (0, _spinalModelAnalysis.spinalAnalyticService).updateLastExecutionTime(this.selectedNode.id.get());
+            this.analyticLastExecutionTime = (0, _spinalModelAnalysis.spinalAnalyticExecutionService).updateLastExecutionTime(this.selectedNode.id.get());
             this.closeDialog(false);
         },
         addInput () {
@@ -20215,7 +20496,8 @@ var scriptExports = {
                     strictDepth: false,
                     searchRelations: "",
                     timeseriesIntervalTime: 0,
-                    timeseriesValueAtStart: false
+                    timeseriesValueAtStart: false,
+                    captureAllModels: false
                 }
             };
         },
@@ -20337,43 +20619,48 @@ var scriptExports = {
             for (const inputKey of Object.keys(this.inputs)){
                 trackingMethodAttributes[inputKey] = [];
                 trackingMethodAttributes[inputKey].push({
-                    name: `${(0, _spinalModelAnalysis.ATTRIBUTE_TRACKING_METHOD)}`,
+                    name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_TRACKING_METHOD}`,
                     type: "string",
                     value: this.inputs[inputKey].trackingMethod
                 });
                 trackingMethodAttributes[inputKey].push({
-                    name: `${(0, _spinalModelAnalysis.ATTRIBUTE_FILTER_VALUE)}`,
+                    name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_FILTER_VALUE}`,
                     type: "string",
                     value: this.inputs[inputKey].filterValue
                 });
                 trackingMethodAttributes[inputKey].push({
-                    name: `${(0, _spinalModelAnalysis.ATTRIBUTE_SEARCH_DEPTH)}`,
+                    name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_SEARCH_DEPTH}`,
                     type: "number",
                     value: this.inputs[inputKey].searchDepth
                 });
                 trackingMethodAttributes[inputKey].push({
-                    name: `${(0, _spinalModelAnalysis.ATTRIBUTE_STRICT_DEPTH)}`,
+                    name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_STRICT_DEPTH}`,
                     type: "boolean",
                     value: this.inputs[inputKey].strictDepth
                 });
                 trackingMethodAttributes[inputKey].push({
-                    name: `${(0, _spinalModelAnalysis.ATTRIBUTE_SEARCH_RELATIONS)}`,
+                    name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_SEARCH_RELATIONS}`,
                     type: "string",
                     value: this.inputs[inputKey].searchRelations
                 });
                 if ([
-                    (0, _spinalModelAnalysis.TRACK_METHOD).CONTROL_ENDPOINT_NAME_FILTER,
-                    (0, _spinalModelAnalysis.TRACK_METHOD).ENDPOINT_NAME_FILTER
+                    (0, _spinalModelAnalysis.CONSTANTS).TRACK_METHOD.CONTROL_ENDPOINT_NAME_FILTER,
+                    (0, _spinalModelAnalysis.CONSTANTS).TRACK_METHOD.ENDPOINT_NAME_FILTER
                 ].includes(this.inputs[inputKey].trackingMethod)) {
                     trackingMethodAttributes[inputKey].push({
-                        name: `${(0, _spinalModelAnalysis.ATTRIBUTE_TIMESERIES)}`,
+                        name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_TIMESERIES}`,
                         type: "number",
                         value: this.inputs[inputKey].timeseriesIntervalTime
                     });
                     trackingMethodAttributes[inputKey].push({
-                        name: `${(0, _spinalModelAnalysis.ATTRIBUTE_TIMESERIES_VALUE_AT_START)}`,
+                        name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_TIMESERIES_VALUE_AT_START}`,
                         type: "boolean",
                         value: this.inputs[inputKey].timeseriesValueAtStart
+                    });
+                    trackingMethodAttributes[inputKey].push({
+                        name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_MULTIPLE_MODELS}`,
+                        type: "boolean",
+                        value: this.inputs[inputKey].captureAllModels
                     });
                 }
             }
@@ -20382,27 +20669,27 @@ var scriptExports = {
         getAnalyticAttributes () {
             const analyticAttributes = [];
             analyticAttributes.push({
-                name: `${(0, _spinalModelAnalysis.ATTRIBUTE_ANALYTIC_DESCRIPTION)}`,
+                name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_ANALYTIC_DESCRIPTION}`,
                 type: "string",
                 value: this.analyticDescription
             });
             analyticAttributes.push({
-                name: `${(0, _spinalModelAnalysis.ATTRIBUTE_ANALYTIC_STATUS)}`,
+                name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_ANALYTIC_STATUS}`,
                 type: "string",
-                value: this.analyticStatus ? (0, _spinalModelAnalysis.ANALYTIC_STATUS).ACTIVE : (0, _spinalModelAnalysis.ANALYTIC_STATUS).INACTIVE
+                value: this.analyticStatus ? (0, _spinalModelAnalysis.CONSTANTS).ANALYTIC_STATUS.ACTIVE : (0, _spinalModelAnalysis.CONSTANTS).ANALYTIC_STATUS.INACTIVE
             });
             analyticAttributes.push({
-                name: `${(0, _spinalModelAnalysis.ATTRIBUTE_TRIGGER_AT_START)}`,
+                name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_TRIGGER_AT_START}`,
                 type: "boolean",
                 value: this.analyticShouldTriggerAtStart
             });
             analyticAttributes.push({
-                name: `${(0, _spinalModelAnalysis.ATTRIBUTE_ANALYTIC_PAST_EXECUTIONS)}`,
-                type: "boolean",
-                value: this.analyticShouldCatchUpPastExecutions
+                name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_AGGREGATE_EXECUTION_TIME}`,
+                type: "string",
+                value: this.analyticAggregateExecution
             });
             analyticAttributes.push({
-                name: `${(0, _spinalModelAnalysis.ATTRIBUTE_LAST_EXECUTION_TIME)}`,
+                name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_LAST_EXECUTION_TIME}`,
                 type: "number",
                 value: this.analyticLastExecutionTime
             });
@@ -20411,17 +20698,17 @@ var scriptExports = {
         getResultAttributes () {
             const resultAttributes = [];
             resultAttributes.push({
-                name: `${(0, _spinalModelAnalysis.ATTRIBUTE_RESULT_TYPE)}`,
+                name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_RESULT_TYPE}`,
                 type: "string",
                 value: this.resultType
             });
             resultAttributes.push({
-                name: `${(0, _spinalModelAnalysis.ATTRIBUTE_RESULT_NAME)}`,
+                name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_RESULT_NAME}`,
                 type: "string",
                 value: this.resultName
             });
-            if (this.resultType === (0, _spinalModelAnalysis.ANALYTIC_RESULT_TYPE).ENDPOINT) resultAttributes.push({
-                name: `${(0, _spinalModelAnalysis.ATTRIBUTE_CREATE_ENDPOINT_IF_NOT_EXIST)}`,
+            if (this.resultType === (0, _spinalModelAnalysis.CONSTANTS).ANALYTIC_RESULT_TYPE.ENDPOINT) resultAttributes.push({
+                name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_CREATE_ENDPOINT_IF_NOT_EXIST}`,
                 type: "boolean",
                 value: this.shouldCreateEndpointIfNotExist
             });
@@ -20433,7 +20720,7 @@ var scriptExports = {
                 let algoName = this.algorithms[algorithmIndexName].name;
                 const doc = (0, _spinalModelAnalysis.ALGORITHMS)[algoName].requiredParams;
                 for(let i = 0; i < this.algorithms[algorithmIndexName].params.length; i++)algorithmParametersAttributes.push({
-                    name: `${algorithmIndexName}${(0, _spinalModelAnalysis.ATTRIBUTE_SEPARATOR)}${doc[i].name}`,
+                    name: `${algorithmIndexName}${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_SEPARATOR}${doc[i].name}`,
                     value: doc[i].type === "number" ? +this.algorithms[algorithmIndexName].params[i] : this.algorithms[algorithmIndexName].params[i],
                     type: doc[i].type
                 });
@@ -20452,17 +20739,17 @@ var scriptExports = {
         getTicketAttributes () {
             const ticketAttributes = [];
             ticketAttributes.push({
-                name: `${(0, _spinalModelAnalysis.ATTRIBUTE_TICKET_CONTEXT_ID)}`,
+                name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_TICKET_CONTEXT_ID}`,
                 type: "string",
                 value: this.ticketContextId
             });
             ticketAttributes.push({
-                name: `${(0, _spinalModelAnalysis.ATTRIBUTE_TICKET_PROCESS_ID)}`,
+                name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_TICKET_PROCESS_ID}`,
                 type: "string",
                 value: this.ticketProcessId
             });
             if (this.alarmPriority) ticketAttributes.push({
-                name: `${(0, _spinalModelAnalysis.ATTRIBUTE_ALARM_PRIORITY)}`,
+                name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_ALARM_PRIORITY}`,
                 value: this.alarmPriority,
                 type: "number"
             });
@@ -20471,12 +20758,12 @@ var scriptExports = {
         getEndpointCreationAttributes () {
             const endpointCreationAttributes = [];
             endpointCreationAttributes.push({
-                name: `${(0, _spinalModelAnalysis.ATTRIBUTE_CREATE_ENDPOINT_UNIT)}`,
+                name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_CREATE_ENDPOINT_UNIT}`,
                 type: "string",
                 value: this.endpointCreationUnit
             });
             endpointCreationAttributes.push({
-                name: `${(0, _spinalModelAnalysis.ATTRIBUTE_CREATE_ENDPOINT_MAX_DAYS)}`,
+                name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_CREATE_ENDPOINT_MAX_DAYS}`,
                 type: "number",
                 value: this.endpointCreationMaxDays
             });
@@ -20485,12 +20772,12 @@ var scriptExports = {
         getSMSAttributes () {
             const smsAttributes = [];
             smsAttributes.push({
-                name: `${(0, _spinalModelAnalysis.ATTRIBUTE_PHONE_NUMBER)}`,
+                name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_PHONE_NUMBER}`,
                 type: "string",
                 value: this.phoneNumber
             });
             smsAttributes.push({
-                name: `${(0, _spinalModelAnalysis.ATTRIBUTE_PHONE_MESSAGE)}`,
+                name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_PHONE_MESSAGE}`,
                 type: "string",
                 value: this.phoneMessage
             });
@@ -20499,12 +20786,12 @@ var scriptExports = {
         getGChatAttributes () {
             const gChatAttributes = [];
             gChatAttributes.push({
-                name: `${(0, _spinalModelAnalysis.ATTRIBUTE_GCHAT_MESSAGE)}`,
+                name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_GCHAT_MESSAGE}`,
                 type: "string",
                 value: this.gChatMessage
             });
             gChatAttributes.push({
-                name: `${(0, _spinalModelAnalysis.ATTRIBUTE_GCHAT_SPACE)}`,
+                name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_GCHAT_SPACE}`,
                 type: "string",
                 value: this.gChatSpaceName
             });
@@ -20514,7 +20801,7 @@ var scriptExports = {
             const ioAttributes = [];
             for (const ioDependencyName of Object.keys(this.ioDependencies)){
                 let str = "";
-                for (const ioDependency of this.ioDependencies[ioDependencyName])str += `${ioDependency}${0, _spinalModelAnalysis.ATTRIBUTE_VALUE_SEPARATOR}`;
+                for (const ioDependency of this.ioDependencies[ioDependencyName])str += `${ioDependency}${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_VALUE_SEPARATOR}`;
                 str = str.slice(0, -1);
                 ioAttributes.push({
                     name: `${ioDependencyName}`,
@@ -20527,8 +20814,8 @@ var scriptExports = {
         getTriggerAttributes () {
             const triggerAttributes = [];
             for (const triggerIndex of Object.keys(this.triggers)){
-                let str = `${this.triggers[triggerIndex].triggerType}${(0, _spinalModelAnalysis.ATTRIBUTE_VALUE_SEPARATOR)}${this.triggers[triggerIndex].triggerValue}`;
-                if (this.triggers[triggerIndex].changeOfValueThreshold !== null) str += `${0, _spinalModelAnalysis.ATTRIBUTE_VALUE_SEPARATOR}${this.triggers[triggerIndex].changeOfValueThreshold}`;
+                let str = `${this.triggers[triggerIndex].triggerType}${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_VALUE_SEPARATOR}${this.triggers[triggerIndex].triggerValue}`;
+                if (this.triggers[triggerIndex].changeOfValueThreshold !== null) str += `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_VALUE_SEPARATOR}${this.triggers[triggerIndex].changeOfValueThreshold}`;
                 triggerAttributes.push({
                     name: `${triggerIndex}`,
                     type: "string",
@@ -20596,7 +20883,7 @@ var render = function() {
                         "analyticName": _vm.analyticName,
                         "analyticDescription": _vm.analyticDescription,
                         "analyticShouldTriggerAtStart": _vm.analyticShouldTriggerAtStart,
-                        "analyticShouldCatchUpPastExecutions": _vm.analyticShouldCatchUpPastExecutions,
+                        "analyticAggregateExecution": _vm.analyticAggregateExecution,
                         "analyticStatus": _vm.analyticStatus,
                         "editable": false
                     },
@@ -20619,11 +20906,11 @@ var render = function() {
                         "update:analytic-should-trigger-at-start": function($event) {
                             _vm.analyticShouldTriggerAtStart = $event;
                         },
-                        "update:analyticShouldCatchUpPastExecutions": function($event) {
-                            _vm.analyticShouldCatchUpPastExecutions = $event;
+                        "update:analyticAggregateExecution": function($event) {
+                            _vm.analyticAggregateExecution = $event;
                         },
-                        "update:analytic-should-catch-up-past-executions": function($event) {
-                            _vm.analyticShouldCatchUpPastExecutions = $event;
+                        "update:analytic-aggregate-execution": function($event) {
+                            _vm.analyticAggregateExecution = $event;
                         },
                         "update:analyticStatus": function($event) {
                             _vm.analyticStatus = $event;
@@ -20844,7 +21131,7 @@ var render = function() {
                     "click": _vm.updateLastExecutionTime
                 }
             }, [
-                _vm._v(" Force update last execution time ")
+                _vm._v("\n      Force update last execution time\n    ")
             ]),
             _vm._v(" "),
             _c("div", [
@@ -20865,7 +21152,7 @@ var render = function() {
                         "click": _vm.PassToNextStep
                     }
                 }, [
-                    _vm._v("Next\n    ")
+                    _vm._v("Next\n      ")
                 ]) : _vm._e(),
                 _vm._v(" "),
                 _vm.stepper.active === this.STEPPERS_DATA.summary ? _c("md-button", {
@@ -20890,561 +21177,6 @@ exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
 },{}],"7JQQW":[function() {},{}],"2LSbk":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-let NOOP = ()=>{};
-exports.default = (script)=>{};
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5z9f7":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-var _vue = require("vue");
-var _vueDefault = parcelHelpers.interopDefault(_vue);
-var _linkGroupToAnalyticsVue = require("./linkGroupToAnalytics.vue");
-var _linkGroupToAnalyticsVueDefault = parcelHelpers.interopDefault(_linkGroupToAnalyticsVue);
-const { SpinalForgeExtention } = require("df2b481f45530d1e");
-let panels = [
-    {
-        name: "linkGroupToAnalyticsPanel",
-        vueMountComponent: (0, _vueDefault.default).extend((0, _linkGroupToAnalyticsVueDefault.default)),
-        panel: {
-            title: "Link Group to Analytic Panel",
-            closeBehaviour: "hide"
-        },
-        style: {
-            height: "475px",
-            left: "400px"
-        }
-    }
-];
-for(let index = 0; index < panels.length; index++){
-    const element = panels[index];
-    const panelExtension = SpinalForgeExtention.createExtention(element);
-    SpinalForgeExtention.registerExtention(element.name, panelExtension);
-}
-
-},{"vue":"gt5MM","df2b481f45530d1e":"1mGHd","./linkGroupToAnalytics.vue":"f18fM","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1mGHd":[function(require,module,exports) {
-/*
- * Copyright 2018 SpinalCom - www.spinalcom.com
- *
- * This file is part of SpinalCore.
- *
- * Please read all of the following terms and conditions
- * of the Free Software license Agreement ("Agreement")
- * carefully.
- *
- * This Agreement is a legally binding contract between
- * the Licensee (as defined below) and SpinalCom that
- * sets forth the terms and conditions that govern your
- * use of the Program. By installing and/or using the
- * Program, you agree to abide by all the terms and
- * conditions stated or referenced herein.
- *
- * If you do not agree to abide by these terms and
- * conditions, do not demonstrate your acceptance and do
- * not install or use the Program.
- * You should have received a copy of the license along
- * with this file. If not, see
- * <http://resources.spinalcom.com/licenses.pdf>.
- */ const { spinalPanelManagerService, SpinalPanelApp } = require("bf7edd8450503e22");
-const SpinalForgeExtention = require("64bd1569b4ded066")(spinalPanelManagerService, SpinalPanelApp);
-module.exports = {
-    SpinalForgeExtention
-};
-
-},{"bf7edd8450503e22":"7Uw4d","64bd1569b4ded066":"gsEky"}],"gsEky":[function(require,module,exports) {
-/*
- * Copyright 2023 SpinalCom - www.spinalcom.com
- * 
- * This file is part of SpinalCore.
- * 
- * Please read all of the following terms and conditions
- * of the Free Software license Agreement ("Agreement")
- * carefully.
- * 
- * This Agreement is a legally binding contract between
- * the Licensee (as defined below) and SpinalCom that
- * sets forth the terms and conditions that govern your
- * use of the Program. By installing and/or using the
- * Program, you agree to abide by all the terms and
- * conditions stated or referenced herein.
- * 
- * If you do not agree to abide by these terms and
- * conditions, do not demonstrate your acceptance and do
- * not install or use the Program.
- * You should have received a copy of the license along
- * with this file. If not, see
- * <http://resources.spinalcom.com/licenses.pdf>.
- */ function configInit(option) {
-    const cfg = {};
-    if (typeof option.toolbar !== "undefined") {
-        cfg.toolbar = {
-            icon: option.toolbar.icon || "done",
-            label: option.toolbar.label || "label",
-            subToolbarName: option.toolbar.subToolbarName || "spinalcom",
-            styleBtn: {},
-            styleIcon: {}
-        };
-        Object.assign(cfg.toolbar.styleBtn, option.toolbar.styleBtn);
-        Object.assign(cfg.toolbar.styleIcon, option.toolbar.styleIcon);
-    }
-    if (typeof option.panel !== "undefined") {
-        cfg.panel = {
-            title: option.panel.title || "Spinalcom Panel",
-            classname: option.panel.classname || "spinal-pannel",
-            closeBehaviour: option.panel.closeBehaviour || "hide"
-        };
-        if (typeof option.style !== "undefined") {
-            cfg.style = {};
-            Object.assign(cfg.style, option.style);
-        }
-    }
-    cfg.name = option.name || "spinalExtention";
-    cfg.vueMountComponent = option.vueMountComponent;
-    cfg.onLoad = option.onLoad;
-    cfg.onUnLoad = option.onUnLoad;
-    return cfg;
-}
-function onToolbarCreated() {
-    this.viewer.removeEventListener(window.Autodesk.Viewing.TOOLBAR_CREATED_EVENT, this.onToolbarCreatedBinded);
-    this.onToolbarCreatedBinded = null;
-    createToolbar.call(this);
-}
-function createToolbar() {
-    this.toolbarButton = new window.Autodesk.Viewing.UI.Button(this.cfg.toolbar.label);
-    this.toolbarButton.onClick = ()=>{
-        this.tooglePanel(this.cfg);
-    };
-    var icon = this.toolbarButton.container.firstChild;
-    icon.className = "adsk-button-icon md-icon md-icon-font md-theme-default";
-    icon.innerHTML = this.cfg.toolbar.icon;
-    for(var key in this.cfg.toolbar.styleIcon)if (this.cfg.toolbar.styleIcon.hasOwnProperty(key)) icon.style[key] = this.cfg.toolbar.styleIcon[key];
-    for(var key in this.cfg.toolbar.styleBtn)if (this.cfg.toolbar.styleBtn.hasOwnProperty(key)) this.toolbarButton.container.style[key] = this.cfg.toolbar.styleBtn[key];
-    this.toolbarButton.setToolTip(this.cfg.toolbar.label);
-    this.subToolbar = this.viewer.toolbar.getControl(this.cfg.toolbar.subToolbarName);
-    if (!this.subToolbar) {
-        this.subToolbar = new window.Autodesk.Viewing.UI.ControlGroup(this.cfg.toolbar.subToolbarName);
-        this.viewer.toolbar.addControl(this.subToolbar);
-    }
-    this.subToolbar.addControl(this.toolbarButton);
-}
-function closeComponent() {
-    if (this.cfg.panel.closeBehaviour !== "hide") {
-        try {
-            this.component.removed.call(this.component);
-        } catch (e) {
-            console.error(e);
-        }
-        this.panel.container.remove();
-        this.panel = null;
-    } else try {
-        this.component.closed.call(this.component);
-    } catch (e) {
-        console.error(e);
-    }
-}
-function getPanel() {
-    if (this.panel === null) {
-        this.panel = new window.PanelClass(this.viewer, this.cfg.panel.title);
-        var _container = document.createElement("div");
-        var _scrollContainer = this.panel.createScrollContainer();
-        _container.className += this.panel.container.id + "-panelcontainer " + this.cfg.panel.classname;
-        for(var key in this.cfg.style)if (this.cfg.style.hasOwnProperty(key)) this.panel.container.style[key] = this.cfg.style[key];
-        if (this.panel.container.style.left) this.panel.container.style.left = "0";
-        this.panel.container.appendChild(_scrollContainer);
-        _scrollContainer.style.height = "calc(100% - 52px)";
-        _scrollContainer.appendChild(_container);
-        var _footer = this.panel.createFooter();
-        this.panel.container.appendChild(_footer);
-        if (this.cfg.vueMountComponent) this.component = new this.cfg.vueMountComponent().$mount(_container);
-        const _this = this;
-        this.panel.addVisibilityListener((open)=>{
-            if (!open) closeComponent.call(_this);
-        });
-    }
-    return this.panel;
-}
-/**
- *
- *
- * @param {*} spinalPanelManagerService
- * @param {*} SpinalPanelApp
- * @returns {object} { createExtention, registerExtention }
- */ module.exports = function(spinalPanelManagerService, SpinalPanelApp) {
-    return {
-        /**
-     * factory function to create a dynamic class that extends the `SpinalPanelApp` class
-     *```js
-{
-  name: "extention_name",
-  vueMountComponent: Vue.extend(aVueCompoment),
-  onLoad: () => {console.log("onLoad");},
-  onUnLoad: () => {console.log("onUnLoad");},
-  toolbar: {
-    icon: "done",
-    label: "testLabel",
-    subToolbarName: "spinalcom"
-  },
-  panel: {
-    title: "Spinalcom Panel",
-    classname: "spinal-pannel",
-    closeBehaviour: "hide"
-  },
-  style: {}
-}
-```
-     * @param {object} option see description
-     * @returns SpinalForgeExtention
-     */ createExtention (option) {
-            const cfg = configInit(option);
-            /**
-       * class returned by createExtention
-       * this extention is also registered in autodesk viweer
-       * @extends SpinalPanelApp
-       * @property {AutodeskViewer} viewer the autodesk view
-       * @property {AutodeskPanel} panel the panel
-       * @property {Vue.component} component the component mounted
-       * @property {Object} cfg the option given on creation
-       */ const SpinalForgeExtention = class extends SpinalPanelApp {
-                constructor(viewer, options){
-                    super();
-                    window.Autodesk.Viewing.Extension.call(this, viewer, options);
-                    this.viewer = viewer;
-                    this.panel = null;
-                    this.cfg = cfg;
-                    spinalPanelManagerService.registerPanel(cfg.name, this);
-                }
-                /**
-         * method called on load of the extention (managed by the autodesk viewer)
-         * the method create a button in the toolbar if put in the option of `createExtention`.
-         */ load() {
-                    if (typeof cfg.toolbar !== "undefined") {
-                        // add toolbar
-                        if (this.viewer.toolbar) createToolbar.call(this);
-                        else {
-                            this.onToolbarCreatedBinded = onToolbarCreated.bind(this);
-                            this.viewer.addEventListener(window.Autodesk.Viewing.TOOLBAR_CREATED_EVENT, this.onToolbarCreatedBinded);
-                        }
-                    }
-                    if (typeof cfg.onLoad !== "undefined") cfg.onLoad.call(this);
-                    return true;
-                }
-                /**
-         * method called when the viewer unload of the extention
-         * (managed by the autodesk viewer)
-         */ unload() {
-                    if (typeof cfg.toolbar !== "undefined") this.viewer.subToolbar.removeControl(this.toolbarButton);
-                    if (typeof cfg.onUnLoad !== "undefined") cfg.onUnLoad.call(this);
-                    return true;
-                }
-                activate() {
-                    return this.load();
-                }
-                deactivate() {
-                    return this.unload();
-                }
-                /**
-         *
-         * @param {*} option
-         */ openPanel(option) {
-                    const panel = getPanel.call(this);
-                    panel.setVisible(true);
-                    try {
-                        this.component.opened.call(this.component, option, this.viewer);
-                    } catch (e) {
-                        console.error(e);
-                    }
-                }
-                /**
-         *
-         *
-         * @param {*} option
-         */ closePanel(option) {
-                    const panel = getPanel.call(this);
-                    panel.setVisible(false);
-                }
-                /**
-         *
-         *
-         * @param {*} option
-         */ tooglePanel(option) {
-                    if (this.panel === null || this.panel.isVisible() === false) this.openPanel.call(this, option);
-                    else this.closePanel.call(this, option);
-                }
-            };
-            return SpinalForgeExtention;
-        },
-        /**
-     * Method to register an extention to the viewer and the forge viewer
-     * @param {string} name name of the extention
-     * @param {*} classExtention an extention created by `createExtention`
-     */ registerExtention (name, classExtention) {
-            // register to forge
-            window.Autodesk.Viewing.theExtensionManager.registerExtension(name, classExtention);
-            // register to viewer
-            window.spinal.ForgeExtentionManager.addExtention(name);
-        }
-    };
-};
-
-},{}],"f18fM":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-let script;
-let initialize = ()=>{
-    script = require("c804a383260d0472");
-    if (script.__esModule) script = script.default;
-    script.render = require("46d7583a1da3698a").render;
-    script.staticRenderFns = require("46d7583a1da3698a").staticRenderFns;
-    script._scopeId = "data-v-c61071";
-    script.__cssModules = require("bba408841fa11549").default;
-    require("cc7493a291e7dd7").default(script);
-    script.__scopeId = "data-v-c61071";
-    script.__file = "linkGroupToAnalytics.vue";
-};
-initialize();
-exports.default = script;
-
-},{"c804a383260d0472":"6JrAy","46d7583a1da3698a":"9iSlv","bba408841fa11549":"3dJNM","cc7493a291e7dd7":"kF1kr","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6JrAy":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _vue = require("vue");
-var _vueDefault = parcelHelpers.interopDefault(_vue);
-var _spinalEnvViewerPluginGroupManagerService = require("spinal-env-viewer-plugin-group-manager-service");
-var _spinalEnvViewerPluginAnalyticsService = require("spinal-env-viewer-plugin-analytics-service");
-var _vueVirtualScroller = require("vue-virtual-scroller");
-(0, _vueDefault.default).component("RecycleScroller", (0, _vueVirtualScroller.RecycleScroller));
-var scriptExports = {
-    name: "linkGroupToAnalyticPanel",
-    components: {
-    },
-    data () {
-        this.STATES = {
-            normal: 1,
-            loading: 2,
-            error: 3
-        };
-        this.contextId;
-        this.analyticId;
-        this.childrenType;
-        this.data = [];
-        this.countPerPage = 10;
-        return {
-            search: "",
-            isOpened: false,
-            tempList: [],
-            dataLinked: [],
-            currentPage: 1,
-            appState: this.STATES.normal
-        };
-    },
-    methods: {
-        async opened (option) {
-            this.appState = this.STATES.loading;
-            this.contextId = option.contextId;
-            this.analyticId = option.analyticId;
-            this.childrenType = option.childrenType;
-            Promise.all([
-                this.getGroupsLinked(this.analyticId),
-                this.getAllGroups(this.childrenType)
-            ]).then(([linked, groups])=>{
-                this.data = groups;
-                this.tempList = groups;
-                this.dataLinked = linked;
-                this.appState = this.STATES.normal;
-            }).catch((err)=>{
-                this.appState = this.STATES.error;
-            });
-        },
-        isLinked (item) {
-            return this.dataLinked.find((el)=>{
-                return item.id === el.id;
-            });
-        },
-        getIcon (item) {
-            return typeof this.isLinked(item) === "undefined" ? "link" : "link_off";
-        },
-        // eventMethod(eventName, item) {
-        // 	EventBus.$emit(eventName, item);
-        // },
-        openSearchBar () {
-            this.isOpened = !this.isOpened;
-        },
-        async linkUnlink (item) {
-            if (!this.isLinked(item)) {
-                await (0, _spinalEnvViewerPluginAnalyticsService.spinalAnalyticService).linkGroupToAnalytic(this.contextId, this.analyticId, item.id);
-                this.dataLinked.push(item);
-            } else {
-                const removed = await (0, _spinalEnvViewerPluginAnalyticsService.spinalAnalyticService).unLinkGroupToAnalytic(this.analyticId, item.id);
-                if (removed) this.dataLinked = this.dataLinked.filter((el)=>el.id !== item.id);
-            }
-        },
-        async getGroupsLinked (analyticId) {
-            const groups = await (0, _spinalEnvViewerPluginAnalyticsService.spinalAnalyticService).getGroupsLinked(analyticId);
-            return groups.map((group)=>group.get());
-        },
-        async getAllGroups (type) {
-            const contexts = await (0, _spinalEnvViewerPluginGroupManagerService.groupManagerService).getGroupContexts(type);
-            const promises = contexts.map((el)=>{
-                return (0, _spinalEnvViewerPluginGroupManagerService.groupManagerService).getGroups(el.id);
-            });
-            return Promise.all(promises).then((result)=>{
-                const _result = result.flat();
-                return _result.map((el)=>el.get());
-            });
-        }
-    },
-    watch: {
-        search: function(newValue) {
-            newValue = newValue.trim();
-            // console.log("newValue", newValue);
-            if (newValue.length === 0) this.tempList = [
-                ...this.data
-            ];
-            else this.tempList = this.data.filter((el)=>{
-                return el.name.toLowerCase().includes(newValue.toLowerCase());
-            });
-        }
-    }
-};
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
-exports.default = options; // parcel transformer vue2 compiler hack
-
-},{"vue":"gt5MM","spinal-env-viewer-plugin-group-manager-service":"tSLpq","spinal-env-viewer-plugin-analytics-service":"74iWe","vue-virtual-scroller":"kl5Fe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9iSlv":[function(require,module,exports) {
-var render = function() {
-    var _vm = this;
-    var _h = _vm.$createElement;
-    var _c = _vm._self._c || _h;
-    return _c("md-content", {
-        staticClass: "mdContent"
-    }, [
-        _c("div", {
-            staticClass: "header"
-        }, [
-            _c("div", {
-                staticClass: "buscar-caja",
-                class: {
-                    isOpened: _vm.isOpened
-                }
-            }, [
-                _c("input", {
-                    directives: [
-                        {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.search,
-                            expression: "search"
-                        }
-                    ],
-                    staticClass: "buscar-txt",
-                    class: {
-                        isOpened: _vm.isOpened
-                    },
-                    attrs: {
-                        "type": "text",
-                        "name": "",
-                        "placeholder": "Search..."
-                    },
-                    domProps: {
-                        "value": _vm.search
-                    },
-                    on: {
-                        "input": function($event) {
-                            if ($event.target.composing) return;
-                            _vm.search = $event.target.value;
-                        }
-                    }
-                }),
-                _vm._v(" "),
-                _c("a", {
-                    staticClass: "md-icon-button buscar-btn",
-                    on: {
-                        "click": _vm.openSearchBar
-                    }
-                }, [
-                    _c("md-icon", [
-                        _vm._v("search")
-                    ])
-                ], 1)
-            ])
-        ]),
-        _vm._v(" "),
-        _vm.tempList.length > 0 && _vm.appState === _vm.STATES.normal ? _c("div", {
-            staticClass: "_container"
-        }, [
-            _c("md-content", {
-                staticClass: "listItem md-scrollbar"
-            }, [
-                _c("RecycleScroller", {
-                    attrs: {
-                        "items": _vm.tempList,
-                        "item-size": 60,
-                        "key-field": "id"
-                    },
-                    scopedSlots: _vm._u([
-                        {
-                            key: "default",
-                            fn: function(ref) {
-                                var item = ref.item;
-                                return [
-                                    _c("div", {
-                                        staticClass: "listContainer"
-                                    }, [
-                                        _c("span", {
-                                            staticClass: "md-list-item-text"
-                                        }, [
-                                            _vm._v(_vm._s(item.name))
-                                        ]),
-                                        _vm._v(" "),
-                                        _c("md-button", {
-                                            staticClass: "md-icon-button panel_link_button",
-                                            on: {
-                                                "click": function($event) {
-                                                    return _vm.linkUnlink(item);
-                                                }
-                                            }
-                                        }, [
-                                            _c("md-icon", [
-                                                _vm._v(_vm._s(_vm.getIcon(item)))
-                                            ])
-                                        ], 1)
-                                    ], 1)
-                                ];
-                            }
-                        }
-                    ], null, false, 2818732962)
-                })
-            ], 1)
-        ], 1) : _vm._e(),
-        _vm._v(" "),
-        _vm.tempList.length === 0 && _vm.appState === _vm.STATES.normal ? _c("div", {
-            staticClass: "_container empty"
-        }, [
-            _vm._v("\n		No Data found !\n	")
-        ]) : _vm._e(),
-        _vm._v(" "),
-        _vm.appState === _vm.STATES.loading ? _c("div", {
-            staticClass: "_container empty"
-        }, [
-            _c("md-progress-spinner", {
-                staticClass: "spiner",
-                attrs: {
-                    "md-mode": "indeterminate"
-                }
-            })
-        ], 1) : _vm._e(),
-        _vm._v(" "),
-        _vm.appState === _vm.STATES.error ? _c("div", {
-            staticClass: "_container empty"
-        }, [
-            _vm._v("\n		Sorry, Something was wrong. Please retry !!\n	")
-        ]) : _vm._e()
-    ]);
-};
-var staticRenderFns = [];
-exports.render = render;
-exports.staticRenderFns = staticRenderFns;
-
-},{}],"3dJNM":[function() {},{}],"kF1kr":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};

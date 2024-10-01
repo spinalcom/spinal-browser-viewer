@@ -142,7 +142,115 @@
       this[globalName] = mainExports;
     }
   }
-})({"avd3d":[function(require,module,exports) {
+})({"9RF72":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+let script;
+let initialize = ()=>{
+    script = require("a01cb652e226c527");
+    if (script.__esModule) script = script.default;
+    script.render = require("6cf183a77759acb8").render;
+    script.staticRenderFns = require("6cf183a77759acb8").staticRenderFns;
+    script._scopeId = "data-v-787510";
+    script.__cssModules = require("9fe5f60dbadd6d9f").default;
+    require("ba29e279f3f9e303").default(script);
+    script.__scopeId = "data-v-787510";
+    script.__file = "SpinalCodeMirror.vue";
+};
+initialize();
+exports.default = script;
+
+},{"a01cb652e226c527":"gPLqM","6cf183a77759acb8":"jAov1","9fe5f60dbadd6d9f":"kjpb3","ba29e279f3f9e303":"jWDCp","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gPLqM":[function(require,module,exports) {
+// import dedent from "dedent";
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _vueCodemirror = require("vue-codemirror");
+// language
+var _javascript = require("codemirror/mode/javascript/javascript");
+// theme css
+// import "codemirror/theme/monokai.css";
+// require active-line
+var _activeLine = require("codemirror/addon/selection/active-line");
+// styleSelectedText
+var _markSelection = require("codemirror/addon/selection/mark-selection");
+var _searchcursor = require("codemirror/addon/search/searchcursor");
+// hint
+var _showHint = require("codemirror/addon/hint/show-hint");
+// import "codemirror/addon/hint/show-hint.css";
+var _javascriptHint = require("codemirror/addon/hint/javascript-hint");
+// highlightSelectionMatches
+var _annotatescrollbar = require("codemirror/addon/scroll/annotatescrollbar");
+var _matchesonscrollbar = require("codemirror/addon/search/matchesonscrollbar");
+var _matchHighlighter = require("codemirror/addon/search/match-highlighter");
+// keyMap
+var _clike = require("codemirror/mode/clike/clike");
+var _matchbrackets = require("codemirror/addon/edit/matchbrackets");
+var _comment = require("codemirror/addon/comment/comment");
+var _dialog = require("codemirror/addon/dialog/dialog");
+var _search = require("codemirror/addon/search/search");
+var _sublime = require("codemirror/keymap/sublime");
+// foldGutter
+// import "codemirror/addon/fold/foldgutter.css";
+var _braceFold = require("codemirror/addon/fold/brace-fold");
+var _commentFold = require("codemirror/addon/fold/comment-fold");
+var _foldcode = require("codemirror/addon/fold/foldcode");
+var _foldgutter = require("codemirror/addon/fold/foldgutter");
+var _indentFold = require("codemirror/addon/fold/indent-fold");
+var _markdownFold = require("codemirror/addon/fold/markdown-fold");
+var _xmlFold = require("codemirror/addon/fold/xml-fold");
+var scriptExports = {
+    name: "SpinalCodeMirror",
+    components: {
+        codemirror: (0, _vueCodemirror.codemirror)
+    },
+    props: {
+        codeObj: {}
+    },
+    data () {
+        return {
+            // code: this.codeObj.code,
+            cmOption: {
+                tabSize: 4,
+                styleActiveLine: true,
+                lineNumbers: true,
+                // styleSelectedText: false,
+                line: true,
+                // foldGutter: true,
+                lineWrapping: true,
+                gutters: [
+                    "CodeMirror-linenumbers",
+                    "CodeMirror-foldgutter"
+                ],
+                // highlightSelectionMatches: {
+                //    showToken: /\w/,
+                //    annotateScrollbar: true,
+                // },
+                mode: "text/javascript",
+                // hint.js options
+                hintOptions: {
+                    completeSingle: false
+                },
+                keyMap: "sublime",
+                matchBrackets: true,
+                showCursorWhenSelecting: true,
+                theme: "monokai",
+                extraKeys: {
+                    "Ctrl-Space": "autocomplete"
+                }
+            }
+        };
+    },
+    mounted () {
+    // setTimeout(() => {
+    //    (this.styleSelectedText = true),
+    //       (this.cmOption.styleActiveLine = true);
+    // }, 1800);
+    }
+};
+var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+exports.default = options; // parcel transformer vue2 compiler hack
+
+},{"vue-codemirror":"avd3d","codemirror/mode/javascript/javascript":"6YWC8","codemirror/addon/selection/active-line":"cUu2f","codemirror/addon/selection/mark-selection":"aTwo9","codemirror/addon/search/searchcursor":"5LZeT","codemirror/addon/hint/show-hint":"i59ce","codemirror/addon/hint/javascript-hint":"69sna","codemirror/addon/scroll/annotatescrollbar":"dqF5T","codemirror/addon/search/matchesonscrollbar":"6axA6","codemirror/addon/search/match-highlighter":"ep4wi","codemirror/mode/clike/clike":"2HhSs","codemirror/addon/edit/matchbrackets":"fNcgb","codemirror/addon/comment/comment":"6b2Hy","codemirror/addon/dialog/dialog":"k1Qcs","codemirror/addon/search/search":"a81NO","codemirror/keymap/sublime":"bjKP1","codemirror/addon/fold/brace-fold":"bBZ8N","codemirror/addon/fold/comment-fold":"4TN95","codemirror/addon/fold/foldcode":"X0E3X","codemirror/addon/fold/foldgutter":"2v6kd","codemirror/addon/fold/indent-fold":"cRLCr","codemirror/addon/fold/markdown-fold":"j14BT","codemirror/addon/fold/xml-fold":"gYEyJ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"avd3d":[function(require,module,exports) {
 !function(e, t) {
     module.exports = t(require("83a52d97b7469f9c"));
 }(this, function(e) {
@@ -3674,7 +3782,7 @@
         }
     }
     // Compute the lines that are visible in a given viewport (defaults
-    // the the current scroll position). viewport may contain top,
+    // the current scroll position). viewport may contain top,
     // height, and ensure (see op.scrollToPos) properties.
     function visibleLines(display, doc, viewport) {
         var top = viewport && viewport.top != null ? Math.max(0, viewport.top) : display.scroller.scrollTop;
@@ -10012,7 +10120,7 @@
     };
     CodeMirror.fromTextArea = fromTextArea;
     addLegacyProps(CodeMirror);
-    CodeMirror.version = "5.65.16";
+    CodeMirror.version = "5.65.18";
     return CodeMirror;
 });
 
@@ -13246,7 +13354,7 @@
         var afterCursor = config && config.afterCursor;
         if (afterCursor == null) afterCursor = /(^| )cm-fat-cursor($| )/.test(cm.getWrapperElement().className);
         var re = bracketRegex(config);
-        // A cursor is defined as between two characters, but in in vim command mode
+        // A cursor is defined as between two characters, but in vim command mode
         // (i.e. not insert mode), the cursor is visually represented as a
         // highlighted box on top of the 2nd character. Otherwise, we allow matches
         // from before or after the cursor.
@@ -15481,7 +15589,35 @@
     };
 });
 
-},{"d1c956379f910bed":"2Peje"}],"aaz23":[function(require,module,exports) {
+},{"d1c956379f910bed":"2Peje"}],"jAov1":[function(require,module,exports) {
+var render = function() {
+    var _vm = this;
+    var _h = _vm.$createElement;
+    var _c = _vm._self._c || _h;
+    return _c("codemirror", {
+        attrs: {
+            "options": _vm.cmOption
+        },
+        model: {
+            value: _vm.codeObj.code,
+            callback: function($$v) {
+                _vm.$set(_vm.codeObj, "code", $$v);
+            },
+            expression: "codeObj.code"
+        }
+    });
+};
+var staticRenderFns = [];
+exports.render = render;
+exports.staticRenderFns = staticRenderFns;
+
+},{}],"kjpb3":[function() {},{}],"jWDCp":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+let NOOP = ()=>{};
+exports.default = (script)=>{};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"aaz23":[function(require,module,exports) {
 "use strict";
 function dedent(strings) {
     var raw = void 0;
@@ -15520,6 +15656,343 @@ function dedent(strings) {
 }
 module.exports = dedent;
 
-},{}]},[], null, "parcelRequire02e5")
+},{}],"hs5g2":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _spinalEnvViewerGraphService = require("spinal-env-viewer-graph-service");
+var _spinalModelBmsnetwork = require("spinal-model-bmsnetwork");
+var _spinalModelBacnet = require("spinal-model-bacnet");
+const CONTEXT_TYPE = "Network";
+exports.default = {
+    getDeviceContextTreeStructure () {
+        const contexts = this.getContexts().map((el)=>el.info.get());
+        const promises = contexts.map(async (context)=>{
+            const networks = await this.getNetwork(context.id);
+            const promises2 = networks.map(async (network)=>{
+                const devices = await this.getDevices(network.id);
+                network.devices = devices;
+                return network;
+            });
+            context.networks = await Promise.all(promises2);
+            return context;
+        });
+        return Promise.all(promises);
+    },
+    getContexts () {
+        return (0, _spinalEnvViewerGraphService.SpinalGraphService).getContextWithType(CONTEXT_TYPE);
+    },
+    async getNetwork (contextId) {
+        // return SpinalGraphService.getChildren(contextId, SpinalBmsNetwork.relationName).then((result) => {
+        //    return result.map(el => el.get())
+        // })
+        const networks = await (0, _spinalEnvViewerGraphService.SpinalGraphService).getChildrenInContext(contextId, contextId);
+        const promises = networks.map((el)=>{
+            if (el.type.get() === (0, _spinalModelBacnet.SpinalOrganConfigModel).TYPE) return this.getNetworkFromOrgan(el.id.get());
+            return Promise.resolve(el);
+        });
+        return Promise.all(promises).then((result)=>{
+            return result.flat().map((el)=>el.get());
+        });
+    },
+    getNetworkFromOrgan (organId) {
+        return (0, _spinalEnvViewerGraphService.SpinalGraphService).getChildren(organId, (0, _spinalModelBmsnetwork.SpinalBmsNetwork).relationName);
+    //  const promises = organs.map((el) =>
+    // SpinalGraphService.getChildren(el.id.get(), SpinalBmsNetwork.relationName)
+    //  );
+    //  return Promise.all(promises).then((result) => {
+    //    return result.flat().map((el) => el.get());
+    //  });
+    },
+    getDevices (networkId) {
+        return (0, _spinalEnvViewerGraphService.SpinalGraphService).getChildren(networkId, (0, _spinalModelBmsnetwork.SpinalBmsDevice).relationName).then((result)=>{
+            return result.map((el)=>el.get());
+        });
+    }
+};
 
-//# sourceMappingURL=spinal-env-viewer-plugin-network-tree.5757b1f9.js.map
+},{"spinal-env-viewer-graph-service":"9n7zp","spinal-model-bmsnetwork":"gzkbg","spinal-model-bacnet":"fxyeC","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dyEHh":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+let script;
+let initialize = ()=>{
+    script = require("2185b1bd6c17c1ec");
+    if (script.__esModule) script = script.default;
+    script.render = require("298ed84a989a440a").render;
+    script.staticRenderFns = require("298ed84a989a440a").staticRenderFns;
+    script._scopeId = "data-v-079095";
+    script.__cssModules = require("4fc3099cf12646ad").default;
+    require("e60a990dc63c6143").default(script);
+    script.__scopeId = "data-v-079095";
+    script.__file = "configuration.vue";
+};
+initialize();
+exports.default = script;
+
+},{"2185b1bd6c17c1ec":"bizYF","298ed84a989a440a":"9ByRa","4fc3099cf12646ad":"iBCxS","e60a990dc63c6143":"jjMoM","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"bizYF":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _spinalModelBmsnetwork = require("spinal-model-bmsnetwork");
+var _spinalCodeMirrorVue = require("../../components/code-mirror/SpinalCodeMirror.vue");
+var _spinalCodeMirrorVueDefault = parcelHelpers.interopDefault(_spinalCodeMirrorVue);
+var scriptExports = {
+    name: "configurationTemplate",
+    props: {
+        bimData: {},
+        bmsData: {},
+        properties: {}
+    },
+    components: {
+        "spinal-code-mirror": (0, _spinalCodeMirrorVueDefault.default)
+    },
+    data () {
+        return {
+            bmsProperties: []
+        };
+    },
+    mounted () {
+        this.bmsProperties = this.getBmsProperties();
+    },
+    methods: {
+        getBmsProperties () {
+            // const device = new SpinalBmsDevice();
+            // return device._attribute_names.map((element) => ({
+            //    name: element,
+            //    value: element,
+            // }));
+            return [
+                {
+                    name: "Device ID",
+                    value: "id"
+                },
+                {
+                    name: "Device Name",
+                    value: "name"
+                },
+                {
+                    name: "IP address",
+                    value: "address"
+                },
+                {
+                    name: "Mac address",
+                    value: "hostId"
+                }
+            ];
+        }
+    }
+};
+var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+exports.default = options; // parcel transformer vue2 compiler hack
+
+},{"spinal-model-bmsnetwork":"gzkbg","../../components/code-mirror/SpinalCodeMirror.vue":"9RF72","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9ByRa":[function(require,module,exports) {
+var render = function() {
+    var _vm = this;
+    var _h = _vm.$createElement;
+    var _c = _vm._self._c || _h;
+    return _c("div", {
+        staticClass: "config_content"
+    }, [
+        _c("div", {
+            staticClass: "useThese"
+        }, [
+            _c("md-checkbox", {
+                staticClass: "md-primary",
+                model: {
+                    value: _vm.properties.useTheseAttributes,
+                    callback: function($$v) {
+                        _vm.$set(_vm.properties, "useTheseAttributes", $$v);
+                    },
+                    expression: "properties.useTheseAttributes"
+                }
+            }, [
+                _vm._v("\n      Use also these configurations to link subItems")
+            ])
+        ], 1),
+        _vm._v(" "),
+        _c("div", {
+            staticClass: "_container"
+        }, [
+            _c("div", {
+                staticClass: "subcontent"
+            }, [
+                _c("div", {
+                    staticClass: "title"
+                }, [
+                    _vm._v("BMS Attribute")
+                ]),
+                _vm._v(" "),
+                _c("div", {
+                    staticClass: "content"
+                }, [
+                    _c("div", {
+                        staticClass: "div_select"
+                    }, [
+                        _c("md-field", [
+                            _c("label", [
+                                _vm._v("BMS Property")
+                            ]),
+                            _vm._v(" "),
+                            _c("md-input", {
+                                model: {
+                                    value: _vm.bmsData.property,
+                                    callback: function($$v) {
+                                        _vm.$set(_vm.bmsData, "property", $$v);
+                                    },
+                                    expression: "bmsData.property"
+                                }
+                            })
+                        ], 1)
+                    ], 1),
+                    _vm._v(" "),
+                    _c("div", {
+                        staticClass: "div_code"
+                    }, [
+                        _c("div", {
+                            staticClass: "checkbox_div"
+                        }, [
+                            _c("md-checkbox", {
+                                staticClass: "md-primary",
+                                model: {
+                                    value: _vm.bmsData.useFunction,
+                                    callback: function($$v) {
+                                        _vm.$set(_vm.bmsData, "useFunction", $$v);
+                                    },
+                                    expression: "bmsData.useFunction"
+                                }
+                            }, [
+                                _vm._v("Use function to format\n              value")
+                            ])
+                        ], 1),
+                        _vm._v(" "),
+                        _vm.bmsData.useFunction ? _c("div", {
+                            staticClass: "text_editor"
+                        }, [
+                            _c("spinal-code-mirror", {
+                                staticClass: "editorContainer",
+                                attrs: {
+                                    "codeObj": _vm.bmsData.callback
+                                }
+                            })
+                        ], 1) : _vm._e()
+                    ])
+                ])
+            ]),
+            _vm._v(" "),
+            _c("div", {
+                staticClass: "subcontent"
+            }, [
+                _c("div", {
+                    staticClass: "title"
+                }, [
+                    _vm._v("BIM Attribute")
+                ]),
+                _vm._v(" "),
+                _c("div", {
+                    staticClass: "content"
+                }, [
+                    _c("div", {
+                        staticClass: "div_select"
+                    }, [
+                        _c("md-field", [
+                            _c("label", [
+                                _vm._v("BIM Property")
+                            ]),
+                            _vm._v(" "),
+                            _c("md-input", {
+                                model: {
+                                    value: _vm.bimData.property,
+                                    callback: function($$v) {
+                                        _vm.$set(_vm.bimData, "property", $$v);
+                                    },
+                                    expression: "bimData.property"
+                                }
+                            })
+                        ], 1)
+                    ], 1),
+                    _vm._v(" "),
+                    _c("div", {
+                        staticClass: "div_code"
+                    }, [
+                        _c("div", {
+                            staticClass: "checkbox_div"
+                        }, [
+                            _c("md-checkbox", {
+                                staticClass: "md-primary",
+                                model: {
+                                    value: _vm.bimData.useFunction,
+                                    callback: function($$v) {
+                                        _vm.$set(_vm.bimData, "useFunction", $$v);
+                                    },
+                                    expression: "bimData.useFunction"
+                                }
+                            }, [
+                                _vm._v("Use function to format\n              value")
+                            ])
+                        ], 1),
+                        _vm._v(" "),
+                        _vm.bimData.useFunction ? _c("div", {
+                            staticClass: "text_editor"
+                        }, [
+                            _c("spinal-code-mirror", {
+                                staticClass: "editorContainer",
+                                attrs: {
+                                    "codeObj": _vm.bimData.callback
+                                }
+                            })
+                        ], 1) : _vm._e()
+                    ])
+                ])
+            ])
+        ])
+    ]);
+};
+var staticRenderFns = [];
+exports.render = render;
+exports.staticRenderFns = staticRenderFns;
+
+},{}],"iBCxS":[function() {},{}],"jjMoM":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+let NOOP = ()=>{};
+exports.default = (script)=>{};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dWyo6":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _dedent = require("dedent");
+var _dedentDefault = parcelHelpers.interopDefault(_dedent);
+exports.default = (0, _dedentDefault.default)`
+   /**
+   *   1 - Don't change the function name and parameters
+   *   2 - This function must return a String (the naming convention)
+   *   3 - Change function content to match with your test
+   *   4 - All your code must be inside the function
+   */
+
+   function formatAttributeValue(attributeValue) {
+      return attributeValue.replaceAll('_', '-');
+   }
+
+`;
+
+},{"dedent":"aaz23","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"k55R4":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _dedent = require("dedent");
+var _dedentDefault = parcelHelpers.interopDefault(_dedent);
+exports.default = (0, _dedentDefault.default)`
+   /**
+   *   1 - Don't change the function name and parameters
+   *   2 - This function must return a String (the naming convention)
+   *   3 - Change function content to match with your test
+   *   4 - All your code must be inside the function
+   */
+
+   function formatAttributeValue(attributeValue) {
+      return attributeValue.replaceAll('-', '_');
+   }
+
+`;
+
+},{"dedent":"aaz23","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},[], null, "parcelRequire02e5")
+
+//# sourceMappingURL=spinal-env-viewer-plugin-network-tree.51d1397c.js.map

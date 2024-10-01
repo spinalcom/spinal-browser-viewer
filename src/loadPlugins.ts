@@ -89,14 +89,12 @@ export function loadPlugins() {
     safeImport(import('spinal-env-viewer-plugin-task')),
     safeImport(import('spinal-env-viewer-plugin-graph_viewer')),
     safeImport(import('spinal-env-viewer-plugin-network-tree')),
-    safeImport(import('spinal-env-viewer-plugin-analytics')),
     safeImport(import('spinal-env-viewer-plugin-control-endpoint')),
     safeImport(import('spinal-env-viewer-plugin-upload')),
     safeImport(import('spinal-env-viewer-plugin-bacnet-manager')),
     safeImport(import('spinal-env-viewer-plugin-device_profile')),
     safeImport(import('spinal-env-viewer-task-service')),
     safeImport(import('spinal-env-viewer-plugin-event-emitter')),
-    safeImport(import('spinal-env-viewer-plugin-park-management')),
     safeImport(import('spinal-env-viewer-service')),
     safeImport(import('spinal-env-viewer-standard-attributs')),
     safeImport(import('spinal-env-viewer-plugin-dashboard-panel')),
@@ -107,7 +105,6 @@ export function loadPlugins() {
     safeImport(import('spinal-env-viewer-plugin-organ_ticket_mission')),
     safeImport(import('spinal-env-viewer-context-menu-service')),
     safeImport(import('spinal-env-viewer-plugin-group-manager-service')),
-    safeImport(import('spinal-env-viewer-plugin-pcvue-manager')),
     safeImport(import('spinal-env-viewer-plugin-excel-manager-service')),
     safeImport(
       import('spinal-env-viewer-plugin-note-standard-buttons-service')

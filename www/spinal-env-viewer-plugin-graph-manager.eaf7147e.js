@@ -243,6 +243,7 @@ var scriptExports = {
     computed: test((0, _vuex.mapState)([
         "topBarButton",
         "sideBarButton",
+        "sideBarButtonLoading",
         "contextsId",
         "nodes",
         "activeNodesId",
@@ -273,7 +274,7 @@ var scriptExports = {
         }
     },
     watch: {
-        "searchText": {
+        searchText: {
             handler: function(value) {
                 this.$store.commit("SEARCH_TEXT", value);
                 if (value.length === 0) {
@@ -378,6 +379,7 @@ var render = function() {
             _c("side-bar", {
                 staticClass: "graph-manager-side-bar",
                 attrs: {
+                    "sideBarButtonLoading": _vm.sideBarButtonLoading,
                     "buttons": _vm.sideBarButton,
                     "option": _vm.selectedNode
                 }
