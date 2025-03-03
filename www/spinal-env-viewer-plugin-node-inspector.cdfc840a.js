@@ -73,7 +73,7 @@
         localRequire,
         module,
         module.exports,
-        this
+        globalObject
       );
     }
 
@@ -142,7 +142,7 @@
       this[globalName] = mainExports;
     }
   }
-})({"bwC6W":[function(require,module,exports) {
+})({"bwC6W":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _vue = require("vue");
 var _vueDefault = parcelHelpers.interopDefault(_vue);
@@ -160,12 +160,12 @@ const circularMenu = "circularMenu";
     7
 ]);
 (0, _spinalEnvViewerPanelManagerService.SpinalMountExtention).mount({
-    name: "plugin-node-inspector",
+    name: 'plugin-node-inspector',
     vueMountComponent: (0, _vueDefault.default).extend((0, _nodeInspectorModalVueDefault.default)),
     parentContainer: document.body
 });
 
-},{"vue":"gt5MM","spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-panel-manager-service":"7Uw4d","./src/node-inspector-modal.vue":"ix5R8","./src/button/NodeInspectorButton":"7szi3","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7Uw4d":[function(require,module,exports) {
+},{"vue":"gt5MM","spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-panel-manager-service":"7Uw4d","./src/node-inspector-modal.vue":"ix5R8","./src/button/NodeInspectorButton":"7szi3","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7Uw4d":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -204,7 +204,7 @@ module.exports = {
     }
 };
 
-},{"8b71a79dcc12420e":"h7sS1","e47c36529e942a76":"cvBJ6","cfd4c6200ba55765":"9SKSV"}],"h7sS1":[function(require,module,exports) {
+},{"8b71a79dcc12420e":"h7sS1","e47c36529e942a76":"cvBJ6","cfd4c6200ba55765":"9SKSV"}],"h7sS1":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -284,7 +284,7 @@ module.exports = {
 }
 module.exports = SpinalPanelManagerService;
 
-},{}],"cvBJ6":[function(require,module,exports) {
+},{}],"cvBJ6":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -319,7 +319,7 @@ module.exports = SpinalPanelManagerService;
 }
 module.exports = SpinalPanelApp;
 
-},{}],"9SKSV":[function(require,module,exports) {
+},{}],"9SKSV":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -418,7 +418,7 @@ function getDialog() {
     };
 };
 
-},{}],"ix5R8":[function(require,module,exports) {
+},{}],"ix5R8":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -427,16 +427,16 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("1c34bb601c14db2e").render;
     script.staticRenderFns = require("1c34bb601c14db2e").staticRenderFns;
-    script._scopeId = "data-v-40b1e6";
+    script._scopeId = "data-v-b8b03a";
     script.__cssModules = require("86cb022f1af5adb9").default;
     require("4a6a41709bbb4ccf").default(script);
-    script.__scopeId = "data-v-40b1e6";
+    script.__scopeId = 'data-v-b8b03a';
     script.__file = "node-inspector-modal.vue";
 };
 initialize();
 exports.default = script;
 
-},{"a17d6a0a5fd933f6":"g02xa","1c34bb601c14db2e":"4gO6X","86cb022f1af5adb9":"jelyw","4a6a41709bbb4ccf":"gDEhQ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"g02xa":[function(require,module,exports) {
+},{"a17d6a0a5fd933f6":"g02xa","1c34bb601c14db2e":"4gO6X","86cb022f1af5adb9":"jelyw","4a6a41709bbb4ccf":"gDEhQ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"g02xa":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerVueComponentsLib = require("spinal-env-viewer-vue-components-lib");
@@ -554,10 +554,10 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"spinal-env-viewer-vue-components-lib":"f8kzc","spinal-env-viewer-graph-service":"9n7zp","spinal-core-connectorjs_type":"fRH70","./reorderUtils":"9iZ4O","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9iZ4O":[function(require,module,exports) {
+},{"spinal-env-viewer-vue-components-lib":"f8kzc","spinal-env-viewer-graph-service":"9n7zp","spinal-core-connectorjs_type":"fRH70","./reorderUtils":"9iZ4O","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9iZ4O":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2021 SpinalCom - www.spinalcom.com
  *
@@ -640,12 +640,12 @@ async function reorderLstPtr(relation, orderArr) {
     arr.forEach((itm)=>relation.children.push(itm));
 }
 
-},{"spinal-env-viewer-graph-service":"9n7zp","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"4gO6X":[function(require,module,exports) {
+},{"spinal-env-viewer-graph-service":"9n7zp","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"4gO6X":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("md-dialog", {
+    return _c('md-dialog', {
         staticStyle: {
             "min-width": "50vw"
         },
@@ -653,11 +653,11 @@ var render = function() {
             "md-active": _vm.display
         }
     }, [
-        _c("md-dialog-title", [
+        _c('md-dialog-title', [
             _vm._v(_vm._s(_vm.name))
         ]),
         _vm._v(" "),
-        _c("node-inspector", {
+        _c('node-inspector', {
             ref: "nodeInspector",
             staticClass: "node-inspector",
             attrs: {
@@ -679,12 +679,12 @@ var render = function() {
             }
         }),
         _vm._v(" "),
-        _c("md-dialog-actions", {
+        _c('md-dialog-actions', {
             staticStyle: {
                 "justify-content": "space-between"
             }
         }, [
-            _vm.editMode === false ? _c("md-button", {
+            _vm.editMode === false ? _c('md-button', {
                 staticClass: "md-fab md-mini md-primary",
                 staticStyle: {
                     "min-width": "0"
@@ -693,11 +693,11 @@ var render = function() {
                     "click": _vm.startEditBtn
                 }
             }, [
-                _c("md-icon", [
+                _c('md-icon', [
                     _vm._v("edit")
                 ])
-            ], 1) : _c("div", [
-                _c("md-button", {
+            ], 1) : _c('div', [
+                _c('md-button', {
                     staticClass: "md-fab md-mini",
                     staticStyle: {
                         "min-width": "0"
@@ -706,12 +706,12 @@ var render = function() {
                         "click": _vm.cancelBtn
                     }
                 }, [
-                    _c("md-icon", [
+                    _c('md-icon', [
                         _vm._v("cancel")
                     ])
                 ], 1),
                 _vm._v(" "),
-                _c("md-button", {
+                _c('md-button', {
                     staticClass: "md-fab md-mini md-primary",
                     staticStyle: {
                         "min-width": "0"
@@ -720,13 +720,13 @@ var render = function() {
                         "click": _vm.validBtn
                     }
                 }, [
-                    _c("md-icon", [
+                    _c('md-icon', [
                         _vm._v("check")
                     ])
                 ], 1)
             ], 1),
             _vm._v(" "),
-            _c("md-button", {
+            _c('md-button', {
                 staticClass: "md-primary",
                 on: {
                     "click": function($event) {
@@ -743,13 +743,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"jelyw":[function() {},{}],"gDEhQ":[function(require,module,exports) {
+},{}],"jelyw":[function() {},{}],"gDEhQ":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7szi3":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7szi3":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2021 SpinalCom - www.spinalcom.com
  *
@@ -787,8 +787,8 @@ class NodeInspectorButton extends (0, _spinalEnvViewerContextMenuService.SpinalC
         });
     }
     isShown(option) {
-        if (option.hasOwnProperty("selectedNode")) return Promise.resolve(true);
-        if (option.exist || option.hasOwnProperty("selectedNode")) return Promise.resolve(true);
+        if (option.hasOwnProperty('selectedNode')) return Promise.resolve(true);
+        if (option.exist || option.hasOwnProperty('selectedNode')) return Promise.resolve(true);
         else return Promise.resolve(-1);
     }
     action(option) {
@@ -804,6 +804,6 @@ class NodeInspectorButton extends (0, _spinalEnvViewerContextMenuService.SpinalC
     }
 }
 
-},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-panel-manager-service":"7Uw4d","spinal-env-viewer-graph-service":"9n7zp","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},[], null, "parcelRequire02e5")
+},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-panel-manager-service":"7Uw4d","spinal-env-viewer-graph-service":"9n7zp","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},[], null, "parcelRequire94c2")
 
 //# sourceMappingURL=spinal-env-viewer-plugin-node-inspector.cdfc840a.js.map

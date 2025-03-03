@@ -73,7 +73,7 @@
         localRequire,
         module,
         module.exports,
-        this
+        globalObject
       );
     }
 
@@ -142,7 +142,7 @@
       this[globalName] = mainExports;
     }
   }
-})({"8upIS":[function(require,module,exports) {
+})({"8upIS":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2019 SpinalCom - www.spinalcom.com
  *
@@ -176,7 +176,7 @@ new (0, _vueDefault.default)({
     mounted: ()=>new (0, _graphManagerJsDefault.default)((0, _vue.Store))
 }).$mount("#graph-manager-side");
 
-},{"./src/vue":"kqJpq","./src/GraphManager.js":"4BM2z","vue":"gt5MM","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"kqJpq":[function(require,module,exports) {
+},{"./src/vue":"kqJpq","./src/GraphManager.js":"4BM2z","vue":"gt5MM","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"kqJpq":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "GraphManagerVue", ()=>GraphManagerVue);
@@ -197,7 +197,7 @@ let GraphManagerVue = (0, _vueDefault.default).extend({
     store: (0, _storeDefault.default)
 });
 
-},{"./store":"lNoWE","./App.vue":"ewdSU","vue":"gt5MM","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ewdSU":[function(require,module,exports) {
+},{"./store":"lNoWE","./App.vue":"ewdSU","vue":"gt5MM","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ewdSU":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -206,16 +206,16 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("f314a449993d0ac8").render;
     script.staticRenderFns = require("f314a449993d0ac8").staticRenderFns;
-    script._scopeId = "data-v-7e428c";
+    script._scopeId = "data-v-c25f75";
     script.__cssModules = require("e3cc5b751337aea8").default;
     require("bc000dd42f3cb9c1").default(script);
-    script.__scopeId = "data-v-7e428c";
+    script.__scopeId = 'data-v-c25f75';
     script.__file = "App.vue";
 };
 initialize();
 exports.default = script;
 
-},{"57dfa15550cfdcc1":"1PUQg","f314a449993d0ac8":"1NEJH","e3cc5b751337aea8":"CCNVU","bc000dd42f3cb9c1":"5da5Y","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1PUQg":[function(require,module,exports) {
+},{"57dfa15550cfdcc1":"1PUQg","f314a449993d0ac8":"1NEJH","e3cc5b751337aea8":"CCNVU","bc000dd42f3cb9c1":"5da5Y","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1PUQg":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerVueComponentsLib = require("spinal-env-viewer-vue-components-lib");
@@ -226,7 +226,7 @@ function test() {
     return res;
 }
 var scriptExports = {
-    name: "graph-manager",
+    name: 'graph-manager',
     components: {
         SpinalIconButton: (0, _spinalEnvViewerVueComponentsLib.SpinalIconButton),
         sideBar: (0, _spinalEnvViewerVueComponentsLib.SideBar),
@@ -236,47 +236,47 @@ var scriptExports = {
     data: function() {
         return {
             isSearchActive: false,
-            searchText: "",
+            searchText: '',
             displayNodes: []
         };
     },
     computed: test((0, _vuex.mapState)([
-        "topBarButton",
-        "sideBarButton",
-        "sideBarButtonLoading",
-        "contextsId",
-        "nodes",
-        "activeNodesId",
-        "selectedNode",
-        "searchId",
-        "nodes"
+        'topBarButton',
+        'sideBarButton',
+        'sideBarButtonLoading',
+        'contextsId',
+        'nodes',
+        'activeNodesId',
+        'selectedNode',
+        'searchId',
+        'nodes'
     ]), (0, _vuex.mapGetters)([
-        "arrayNode",
-        "getChildrenId",
-        "hasChildInContext"
+        'arrayNode',
+        'getChildrenId',
+        'hasChildInContext'
     ]), {
         isV6: function() {
-            return LMV_VIEWER_VERSION.includes("6");
+            return LMV_VIEWER_VERSION.includes('6');
         }
     }),
     methods: {
         onNodeSelected: function(event) {
-            this.$store.dispatch("onNodeSelected", event).then().catch((e)=>console.error(e));
+            this.$store.dispatch('onNodeSelected', event).then().catch((e)=>console.error(e));
         },
         height: function() {
-            return "100%";
+            return '100%';
         },
         onHideBimObject: function(event) {
-            console.log("hide bim obj event", event);
+            console.log('hide bim obj event', event);
         },
         refresh: function() {
-            this.$store.commit("REFRESH");
+            this.$store.commit('REFRESH');
         }
     },
     watch: {
         searchText: {
             handler: function(value) {
-                this.$store.commit("SEARCH_TEXT", value);
+                this.$store.commit('SEARCH_TEXT', value);
                 if (value.length === 0) {
                     this.displayNodes = this.contextsId;
                     this.isSearchActive = false;
@@ -289,29 +289,28 @@ var scriptExports = {
         this.displayNodes = this.contextsId;
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"spinal-env-viewer-vue-components-lib":"f8kzc","vuex":"cMZ5L","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1NEJH":[function(require,module,exports) {
+},{"spinal-env-viewer-vue-components-lib":"f8kzc","vuex":"cMZ5L","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1NEJH":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("div", {
+    return _c('div', {
         staticClass: "plugin-graph-viewer"
     }, [
-        _c("div", {
+        _c('div', {
             staticClass: "graph-manager-top-bar"
         }, [
-            _c("top-bar", {
+            _c('top-bar', {
                 staticClass: "graph-manager-top-tools-bar",
                 attrs: {
-                    "buttons": _vm.topBarButton,
-                    "option": _vm.graph
+                    "buttons": _vm.topBarButton
                 }
             }),
             _vm._v(" "),
-            _vm.isSearchActive ? _c("input", {
+            _vm.isSearchActive ? _c('input', {
                 directives: [
                     {
                         name: "model",
@@ -332,7 +331,7 @@ var render = function() {
                         _vm.searchText = $event.target.value;
                     }
                 }
-            }) : _c("spinal-icon-button", {
+            }) : _c('spinal-icon-button', {
                 staticClass: "plugin-graph-viewer-refresh",
                 attrs: {
                     "icon": "search",
@@ -345,7 +344,7 @@ var render = function() {
                 }
             }),
             _vm._v(" "),
-            _c("spinal-icon-button", {
+            _c('spinal-icon-button', {
                 staticClass: "plugin-graph-viewer-refresh",
                 attrs: {
                     "icon": "refresh",
@@ -357,10 +356,10 @@ var render = function() {
             })
         ], 1),
         _vm._v(" "),
-        _c("div", {
+        _c('div', {
             staticClass: "graph-manager-body"
         }, [
-            _c("nodes-list", {
+            _c('nodes-list', {
                 staticClass: "graph-viewer",
                 attrs: {
                     "active-nodes-id": _vm.activeNodesId,
@@ -376,7 +375,7 @@ var render = function() {
                 }
             }),
             _vm._v(" "),
-            _c("side-bar", {
+            _c('side-bar', {
                 staticClass: "graph-manager-side-bar",
                 attrs: {
                     "sideBarButtonLoading": _vm.sideBarButtonLoading,
@@ -391,13 +390,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"CCNVU":[function() {},{}],"5da5Y":[function(require,module,exports) {
+},{}],"CCNVU":[function() {},{}],"5da5Y":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"4BM2z":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"4BM2z":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2019 SpinalCom - www.spinalcom.com
  *
@@ -433,23 +432,23 @@ class GraphManager {
         this.onNodeAdded = (function(nodeId) {
             const node = (0, _spinalEnvViewerGraphService.SpinalGraphService).getNode(nodeId);
             (0, _spinalEnvViewerGraphService.SpinalGraphService).bindNode(nodeId, this, this.bindNode);
-            this.store.commit("ADD_NODE", node);
+            this.store.commit('ADD_NODE', node);
         }).bind(this);
         this.removeNode = (function(nodeId) {
-            this.store.commit("REMOVE_NODE", nodeId);
+            this.store.commit('REMOVE_NODE', nodeId);
         }).bind(this);
         this.graphChange = (function() {
             (0, _spinalEnvViewerGraphService.SpinalGraphService).getChildren(this.graphId, [
-                "hasContext"
+                'hasContext'
             ]).then((contexts)=>{
                 for(let i = 0; i < contexts.length; i++){
                     const contextId = contexts[i].id.get();
-                    if (!this.contexts.hasOwnProperty(contextId) && contexts[i].name.get().indexOf(".") !== 0 && !contexts[i].name.get().includes("BIMObjectContext")) {
+                    if (!this.contexts.hasOwnProperty(contextId) && contexts[i].name.get().indexOf('.') !== 0 && !contexts[i].name.get().includes('BIMObjectContext')) {
                         this.contexts[contextId] = contexts[i];
                         (0, _spinalEnvViewerGraphService.SpinalGraphService).bindNode(contextId, this, this.bindNode);
                     }
                 }
-                this.store.commit("UPDATE_CONTEXTS", contexts);
+                this.store.commit('UPDATE_CONTEXTS', contexts);
             });
         }).bind(this);
         this.store = store;
@@ -461,27 +460,27 @@ class GraphManager {
     }
     reset() {
         if (typeof this.unbind === "function") this.unbind();
-        if (typeof this.stopListeningOnNodeAdded === "function") this.stopListeningOnNodeAdded();
+        if (typeof this.stopListeningOnNodeAdded === 'function') this.stopListeningOnNodeAdded();
         if (typeof this.stopListeningOnNodeRemove === "function") this.stopListeningOnNodeRemove();
         this.setNodes();
-        this.init().then(()=>this.store.commit("REFRESHED"));
+        this.init().then(()=>this.store.commit('REFRESHED'));
     }
     init() {
         this.store.subscribe((mutation)=>{
-            if (mutation.type === "REFRESH") this.reset();
-            if (mutation.type === "GET_NODE" && typeof mutation.payload !== "undefined" && !this.nodes.hasOwnProperty(mutation.payload)) {
+            if (mutation.type === 'REFRESH') this.reset();
+            if (mutation.type === 'GET_NODE' && typeof mutation.payload !== "undefined" && !this.nodes.hasOwnProperty(mutation.payload)) {
                 const nodeId = mutation.payload;
                 const node = (0, _spinalEnvViewerGraphService.SpinalGraphService).getNode(nodeId);
                 if (typeof node !== "undefined") {
                     this.nodes[mutation.payload] = node;
-                    this.store.commit("ADD_NODE", node);
+                    this.store.commit('ADD_NODE', node);
                     (0, _spinalEnvViewerGraphService.SpinalGraphService).getChildren(nodeId, []).then((children)=>{
-                        this.store.commit("ADD_NODES", children);
+                        this.store.commit('ADD_NODES', children);
                     });
                 } else (0, _spinalEnvViewerGraphService.SpinalGraphService).findNode(nodeId).then((node)=>{
-                    this.store.commit("ADD_NODE", node);
+                    this.store.commit('ADD_NODE', node);
                     (0, _spinalEnvViewerGraphService.SpinalGraphService).getChildren(nodeId, []).then((children)=>{
-                        this.store.commit("ADD_NODES", children);
+                        this.store.commit('ADD_NODES', children);
                     });
                 });
             }
@@ -494,25 +493,25 @@ class GraphManager {
         this.store.commit("SET_GRAPH", this.graph);
         this.setNodes();
         return (0, _spinalEnvViewerGraphService.SpinalGraphService).getChildren(this.graphId, [
-            "hasContext"
+            'hasContext'
         ]).then((contexts)=>{
             for(let i = 0; i < contexts.length; i++){
                 const contextId = contexts[i].id.get();
-                if (!this.contexts.hasOwnProperty(contextId) && contexts[i].name.get().indexOf(".") !== 0 && !contexts[i].name.get().includes("BIMObjectContext")) {
+                if (!this.contexts.hasOwnProperty(contextId) && contexts[i].name.get().indexOf('.') !== 0 && !contexts[i].name.get().includes('BIMObjectContext')) {
                     this.contexts[contextId] = contexts[i];
                     (0, _spinalEnvViewerGraphService.SpinalGraphService).bindNode(contextId, this, this.bindNode);
                 }
             }
-            this.store.commit("UPDATE_CONTEXTS", contexts);
+            this.store.commit('UPDATE_CONTEXTS', contexts);
         }).catch((e)=>console.error(e, (0, _spinalEnvViewerGraphService.SpinalGraphService)));
     }
     setNodes() {
         const nodes = (0, _spinalEnvViewerGraphService.SpinalGraphService).getNodes();
-        for(let key in nodes)if (nodes.hasOwnProperty(key)) this.store.commit("ADD_NODE", (0, _spinalEnvViewerGraphService.SpinalGraphService).getInfo(nodes[key].getId().get()));
+        for(let key in nodes)if (nodes.hasOwnProperty(key)) this.store.commit('ADD_NODE', (0, _spinalEnvViewerGraphService.SpinalGraphService).getInfo(nodes[key].getId().get()));
     }
 }
 exports.default = GraphManager;
 
-},{"spinal-env-viewer-graph-service":"9n7zp","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},[], null, "parcelRequire02e5")
+},{"spinal-env-viewer-graph-service":"9n7zp","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},[], null, "parcelRequire94c2")
 
 //# sourceMappingURL=spinal-env-viewer-plugin-graph-manager.eaf7147e.js.map

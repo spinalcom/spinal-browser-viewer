@@ -73,7 +73,7 @@
         localRequire,
         module,
         module.exports,
-        this
+        globalObject
       );
     }
 
@@ -142,7 +142,7 @@
       this[globalName] = mainExports;
     }
   }
-})({"1O8SZ":[function(require,module,exports) {
+})({"1O8SZ":[function(require,module,exports,__globalThis) {
 /**
   * vue-cal v3.11.0
   * (c) 2022 Antoni Andre <antoniandre.web@gmail.com>
@@ -164,11 +164,11 @@ parcelHelpers.export(exports, "weekDays", ()=>e);
 parcelHelpers.export(exports, "year", ()=>t);
 parcelHelpers.export(exports, "years", ()=>o);
 const e = [
-    "Luned\xec",
-    "Marted\xec",
-    "Mercoled\xec",
-    "Gioved\xec",
-    "Venerd\xec",
+    "Luned\xEC",
+    "Marted\xEC",
+    "Mercoled\xEC",
+    "Gioved\xEC",
+    "Venerd\xEC",
     "Sabato",
     "Domenica"
 ], a = [
@@ -200,6 +200,6 @@ const e = [
     dateFormat: "dddd D MMMM YYYY"
 };
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},[], null, "parcelRequire02e5")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},[], null, "parcelRequire94c2")
 
 //# sourceMappingURL=it.es.3c105c09.js.map

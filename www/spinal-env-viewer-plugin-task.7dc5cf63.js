@@ -73,7 +73,7 @@
         localRequire,
         module,
         module.exports,
-        this
+        globalObject
       );
     }
 
@@ -142,7 +142,7 @@
       this[globalName] = mainExports;
     }
   }
-})({"1jv1j":[function(require,module,exports) {
+})({"1jv1j":[function(require,module,exports,__globalThis) {
 // import "./src/js/registerPanel";
 // import {
 //   spinalContextMenuService
@@ -160,7 +160,7 @@ var _buttons = require("./src/buttons");
 var _dialogs = require("./src/vue/dialogs");
 var _panels = require("./src/vue/panels");
 
-},{"./src/buttons":"lLeOD","./src/vue/dialogs":"71SVR","./src/vue/panels":"9BbSS"}],"lLeOD":[function(require,module,exports) {
+},{"./src/buttons":"lLeOD","./src/vue/dialogs":"71SVR","./src/vue/panels":"9BbSS"}],"lLeOD":[function(require,module,exports,__globalThis) {
 var _createContext = require("./createContext");
 var _createTask = require("./createTask");
 var _eventDetail = require("./event_detail");
@@ -169,7 +169,7 @@ var _isolate = require("./standard_buttons/isolate");
 var _select = require("./standard_buttons/select");
 var _zoom = require("./standard_buttons/zoom");
 
-},{"./createContext":"iq9Rl","./createTask":"jsG4e","./event_detail":"cT6rS","./standard_buttons/color":"71SWh","./standard_buttons/isolate":"2dscn","./standard_buttons/select":"1EoGn","./standard_buttons/zoom":"glQK8"}],"iq9Rl":[function(require,module,exports) {
+},{"./createContext":"iq9Rl","./createTask":"jsG4e","./event_detail":"cT6rS","./standard_buttons/color":"71SWh","./standard_buttons/isolate":"2dscn","./standard_buttons/select":"1EoGn","./standard_buttons/zoom":"glQK8"}],"iq9Rl":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerContextMenuService = require("spinal-env-viewer-context-menu-service");
@@ -196,7 +196,7 @@ exports.default = CreateTaskContextButton;
     3
 ]);
 
-},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-panel-manager-service":"7Uw4d","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7Uw4d":[function(require,module,exports) {
+},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-panel-manager-service":"7Uw4d","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7Uw4d":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -235,7 +235,7 @@ module.exports = {
     }
 };
 
-},{"8b71a79dcc12420e":"h7sS1","e47c36529e942a76":"cvBJ6","cfd4c6200ba55765":"9SKSV"}],"h7sS1":[function(require,module,exports) {
+},{"8b71a79dcc12420e":"h7sS1","e47c36529e942a76":"cvBJ6","cfd4c6200ba55765":"9SKSV"}],"h7sS1":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -315,7 +315,7 @@ module.exports = {
 }
 module.exports = SpinalPanelManagerService;
 
-},{}],"cvBJ6":[function(require,module,exports) {
+},{}],"cvBJ6":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -350,7 +350,7 @@ module.exports = SpinalPanelManagerService;
 }
 module.exports = SpinalPanelApp;
 
-},{}],"9SKSV":[function(require,module,exports) {
+},{}],"9SKSV":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -449,7 +449,7 @@ function getDialog() {
     };
 };
 
-},{}],"jsG4e":[function(require,module,exports) {
+},{}],"jsG4e":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerContextMenuService = require("spinal-env-viewer-context-menu-service");
@@ -491,7 +491,7 @@ exports.default = CreateTaskButton;
     3
 ]);
 
-},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-panel-manager-service":"7Uw4d","spinal-env-viewer-task-service":"4IrFb","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"cT6rS":[function(require,module,exports) {
+},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-panel-manager-service":"7Uw4d","spinal-env-viewer-task-service":"4IrFb","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"cT6rS":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerContextMenuService = require("spinal-env-viewer-context-menu-service");
@@ -521,7 +521,7 @@ exports.default = SeeDetailBtn;
     3
 ]);
 
-},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-panel-manager-service":"7Uw4d","spinal-env-viewer-task-service":"4IrFb","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"71SWh":[function(require,module,exports) {
+},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-panel-manager-service":"7Uw4d","spinal-env-viewer-task-service":"4IrFb","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"71SWh":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "ColorElementButton", ()=>ColorElementButton);
@@ -569,7 +569,7 @@ const colorElementButton = new ColorElementButton();
 ]);
 exports.default = colorElementButton;
 
-},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-task-service":"4IrFb","spinal-env-viewer-plugin-note-standard-buttons-service":"9JoRD","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2dscn":[function(require,module,exports) {
+},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-task-service":"4IrFb","spinal-env-viewer-plugin-note-standard-buttons-service":"9JoRD","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2dscn":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2024 SpinalCom - www.spinalcom.com
  * 
@@ -630,7 +630,7 @@ const isolateElementOnMaquette = new IsolateElementOnMaquette();
 ]);
 exports.default = isolateElementOnMaquette;
 
-},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-task-service":"4IrFb","spinal-env-viewer-plugin-note-standard-buttons-service":"9JoRD","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1EoGn":[function(require,module,exports) {
+},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-task-service":"4IrFb","spinal-env-viewer-plugin-note-standard-buttons-service":"9JoRD","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1EoGn":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2024 SpinalCom - www.spinalcom.com
  * 
@@ -691,7 +691,7 @@ const selectElementOnMaquette = new SelectElementOnMaquette();
 ]);
 exports.default = selectElementOnMaquette;
 
-},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-plugin-note-standard-buttons-service":"9JoRD","spinal-env-viewer-task-service":"4IrFb","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"glQK8":[function(require,module,exports) {
+},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-plugin-note-standard-buttons-service":"9JoRD","spinal-env-viewer-task-service":"4IrFb","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"glQK8":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2024 SpinalCom - www.spinalcom.com
  * 
@@ -759,7 +759,7 @@ const zoomElementOnMaquette = new ZoomElementOnMaquette();
 ]);
 exports.default = zoomElementOnMaquette;
 
-},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-plugin-note-standard-buttons-service":"9JoRD","spinal-env-viewer-task-service":"4IrFb","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"71SVR":[function(require,module,exports) {
+},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-plugin-note-standard-buttons-service":"9JoRD","spinal-env-viewer-task-service":"4IrFb","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"71SVR":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _spinalEnvViewerPanelManagerService = require("spinal-env-viewer-panel-manager-service");
 var _vue = require("vue");
@@ -803,7 +803,7 @@ const dialogs = [
 ];
 for(let index = 0; index < dialogs.length; index++)(0, _spinalEnvViewerPanelManagerService.SpinalMountExtention).mount(dialogs[index]);
 
-},{"spinal-env-viewer-panel-manager-service":"7Uw4d","vue":"gt5MM","./createContext.vue":"jtTvw","./createTask.vue":"cDaBN","./editTask.vue":"irCJb","./confirm-dialog.vue":"hNLxP","./delete-all.vue":"jVpnz","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jtTvw":[function(require,module,exports) {
+},{"spinal-env-viewer-panel-manager-service":"7Uw4d","vue":"gt5MM","./createContext.vue":"jtTvw","./createTask.vue":"cDaBN","./editTask.vue":"irCJb","./confirm-dialog.vue":"hNLxP","./delete-all.vue":"jVpnz","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jtTvw":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -812,16 +812,16 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("afaf2aca2b688c41").render;
     script.staticRenderFns = require("afaf2aca2b688c41").staticRenderFns;
-    script._scopeId = "data-v-0f46e5";
+    script._scopeId = "data-v-ca28c0";
     script.__cssModules = require("eddd5913f351f4d9").default;
     require("bcd742a27c4e10ed").default(script);
-    script.__scopeId = "data-v-0f46e5";
+    script.__scopeId = 'data-v-ca28c0';
     script.__file = "createContext.vue";
 };
 initialize();
 exports.default = script;
 
-},{"ca5b71e57bf6db16":"5zgC5","afaf2aca2b688c41":"gB5eY","eddd5913f351f4d9":"5rOop","bcd742a27c4e10ed":"3chTn","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5zgC5":[function(require,module,exports) {
+},{"ca5b71e57bf6db16":"5zgC5","afaf2aca2b688c41":"gB5eY","eddd5913f351f4d9":"5rOop","bcd742a27c4e10ed":"3chTn","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5zgC5":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerTaskService = require("spinal-env-viewer-task-service");
@@ -856,15 +856,15 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"spinal-env-viewer-task-service":"4IrFb","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gB5eY":[function(require,module,exports) {
+},{"spinal-env-viewer-task-service":"4IrFb","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gB5eY":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("md-dialog", {
+    return _c('md-dialog', {
         attrs: {
             "md-active": _vm.showDialog
         },
@@ -880,19 +880,19 @@ var render = function() {
             }
         }
     }, [
-        _c("md-dialog-title", {
+        _c('md-dialog-title', {
             staticClass: "_dialogTitle"
         }, [
             _vm._v("Create Event Context")
         ]),
         _vm._v(" "),
-        _c("md-dialog-content", [
-            _c("md-field", [
-                _c("label", [
+        _c('md-dialog-content', [
+            _c('md-field', [
+                _c('label', [
                     _vm._v("Context name")
                 ]),
                 _vm._v(" "),
-                _c("md-input", {
+                _c('md-input', {
                     model: {
                         value: _vm.name,
                         callback: function($$v) {
@@ -904,8 +904,8 @@ var render = function() {
             ], 1)
         ], 1),
         _vm._v(" "),
-        _c("md-dialog-actions", [
-            _c("md-button", {
+        _c('md-dialog-actions', [
+            _c('md-button', {
                 staticClass: "md-primary",
                 on: {
                     "click": function($event) {
@@ -916,7 +916,7 @@ var render = function() {
                 _vm._v("Cancel")
             ]),
             _vm._v(" "),
-            _c("md-button", {
+            _c('md-button', {
                 staticClass: "md-primary",
                 attrs: {
                     "disabled": _vm.disabled()
@@ -936,13 +936,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"5rOop":[function() {},{}],"3chTn":[function(require,module,exports) {
+},{}],"5rOop":[function() {},{}],"3chTn":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"cDaBN":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"cDaBN":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -951,16 +951,16 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("eab3ad9ba127c69c").render;
     script.staticRenderFns = require("eab3ad9ba127c69c").staticRenderFns;
-    script._scopeId = "data-v-c561d8";
+    script._scopeId = "data-v-278503";
     script.__cssModules = require("d9daa9149bef7af8").default;
     require("121d70f81f8324ea").default(script);
-    script.__scopeId = "data-v-c561d8";
+    script.__scopeId = 'data-v-278503';
     script.__file = "createTask.vue";
 };
 initialize();
 exports.default = script;
 
-},{"96390a4e342be4a1":"hph9p","eab3ad9ba127c69c":"e4MdJ","d9daa9149bef7af8":"1tZBA","121d70f81f8324ea":"8uduj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hph9p":[function(require,module,exports) {
+},{"96390a4e342be4a1":"hph9p","eab3ad9ba127c69c":"e4MdJ","d9daa9149bef7af8":"1tZBA","121d70f81f8324ea":"8uduj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hph9p":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerTaskService = require("spinal-env-viewer-task-service");
@@ -1137,10 +1137,10 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"spinal-env-viewer-task-service":"4IrFb","vue-datetime":"1I8ef","../components/selectTaskGroup.vue":"TjfyS","../components/taskForm.vue":"doRPm","moment":"jwcsj","../../js/event":"kMoPM","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1I8ef":[function(require,module,exports) {
+},{"spinal-env-viewer-task-service":"4IrFb","vue-datetime":"1I8ef","../components/selectTaskGroup.vue":"TjfyS","../components/taskForm.vue":"doRPm","moment":"jwcsj","../../js/event":"kMoPM","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1I8ef":[function(require,module,exports,__globalThis) {
 /*!
  * vue-datetime v1.0.0-beta.14
  * (c) 2020 Mario Juárez
@@ -1148,7 +1148,7 @@ exports.default = options; // parcel transformer vue2 compiler hack
  */ (function(global, factory) {
     factory(exports, require("ae54e1f81463f742"));
 })(this, function(exports1, luxon) {
-    "use strict";
+    'use strict';
     var FlowManager = function FlowManager(flow, endStatus) {
         if (flow === void 0) flow = [];
         if (endStatus === void 0) endStatus = null;
@@ -1195,12 +1195,12 @@ exports.default = options; // parcel transformer vue2 compiler hack
             year: year,
             month: month,
             day: day,
-            zone: "UTC"
+            zone: 'UTC'
         });
-        minDate = minDate ? startOfDay(minDate.setZone("UTC", {
+        minDate = minDate ? startOfDay(minDate.setZone('UTC', {
             keepLocalTime: true
         })) : null;
-        maxDate = maxDate ? startOfDay(maxDate.setZone("UTC", {
+        maxDate = maxDate ? startOfDay(maxDate.setZone('UTC', {
             keepLocalTime: true
         })) : null;
         return minDate && date < minDate || maxDate && date > maxDate;
@@ -1218,7 +1218,7 @@ exports.default = options; // parcel transformer vue2 compiler hack
     }
     function weekdays(weekStart) {
         if (--weekStart < 0) weekStart = 6;
-        var weekDays = luxon.Info.weekdays("short").map(function(weekday) {
+        var weekDays = luxon.Info.weekdays('short').map(function(weekday) {
             return capitalize(weekday);
         });
         weekDays = weekDays.concat(weekDays.splice(0, weekStart));
@@ -1245,34 +1245,34 @@ exports.default = options; // parcel transformer vue2 compiler hack
         });
     }
     function pad(number) {
-        return number < 10 ? "0" + number : number;
+        return number < 10 ? '0' + number : number;
     }
     function startOfDay(datetime) {
-        return datetime.startOf("day");
+        return datetime.startOf('day');
     }
     function createFlowManager(flow) {
-        return new FlowManager(flow, "end");
+        return new FlowManager(flow, 'end');
     }
     function createFlowManagerFromType(type) {
         var flow = [];
         switch(type){
-            case "datetime":
+            case 'datetime':
                 flow = [
-                    "date",
-                    "time"
+                    'date',
+                    'time'
                 ];
                 break;
-            case "time":
+            case 'time':
                 flow = [
-                    "time"
+                    'time'
                 ];
                 break;
             default:
                 flow = [
-                    "date"
+                    'date'
                 ];
         }
-        return new FlowManager(flow, "end");
+        return new FlowManager(flow, 'end');
     }
     function weekStart() {
         var weekstart;
@@ -1289,25 +1289,25 @@ exports.default = options; // parcel transformer vue2 compiler hack
             var _vm = this;
             var _h = _vm.$createElement;
             var _c = _vm._self._c || _h;
-            return _c("div", {
+            return _c('div', {
                 staticClass: "vdatetime-calendar"
             }, [
-                _c("div", {
+                _c('div', {
                     staticClass: "vdatetime-calendar__navigation"
                 }, [
-                    _c("div", {
+                    _c('div', {
                         staticClass: "vdatetime-calendar__navigation--previous",
                         on: {
                             "click": _vm.previousMonth
                         }
                     }, [
-                        _c("svg", {
+                        _c('svg', {
                             attrs: {
                                 "xmlns": "http://www.w3.org/2000/svg",
                                 "viewBox": "0 0 61.3 102.8"
                             }
                         }, [
-                            _c("path", {
+                            _c('path', {
                                 attrs: {
                                     "fill": "none",
                                     "stroke": "#444",
@@ -1319,25 +1319,25 @@ exports.default = options; // parcel transformer vue2 compiler hack
                         ])
                     ]),
                     _vm._v(" "),
-                    _c("div", {
+                    _c('div', {
                         staticClass: "vdatetime-calendar__current--month"
                     }, [
                         _vm._v(_vm._s(_vm.monthName) + " " + _vm._s(_vm.newYear))
                     ]),
                     _vm._v(" "),
-                    _c("div", {
+                    _c('div', {
                         staticClass: "vdatetime-calendar__navigation--next",
                         on: {
                             "click": _vm.nextMonth
                         }
                     }, [
-                        _c("svg", {
+                        _c('svg', {
                             attrs: {
                                 "xmlns": "http://www.w3.org/2000/svg",
                                 "viewBox": "0 0 61.3 102.8"
                             }
                         }, [
-                            _c("path", {
+                            _c('path', {
                                 attrs: {
                                     "fill": "none",
                                     "stroke": "#444",
@@ -1350,11 +1350,11 @@ exports.default = options; // parcel transformer vue2 compiler hack
                     ])
                 ]),
                 _vm._v(" "),
-                _c("div", {
+                _c('div', {
                     staticClass: "vdatetime-calendar__month"
                 }, [
                     _vm._l(_vm.weekdays, function(weekday) {
-                        return _c("div", {
+                        return _c('div', {
                             staticClass: "vdatetime-calendar__month__weekday"
                         }, [
                             _vm._v(_vm._s(weekday))
@@ -1362,11 +1362,11 @@ exports.default = options; // parcel transformer vue2 compiler hack
                     }),
                     _vm._v(" "),
                     _vm._l(_vm.days, function(day) {
-                        return _c("div", {
+                        return _c('div', {
                             staticClass: "vdatetime-calendar__month__day",
                             class: {
-                                "vdatetime-calendar__month__day--selected": day.selected,
-                                "vdatetime-calendar__month__day--disabled": day.disabled
+                                'vdatetime-calendar__month__day--selected': day.selected,
+                                'vdatetime-calendar__month__day--disabled': day.disabled
                             },
                             on: {
                                 "click": function($event) {
@@ -1374,8 +1374,8 @@ exports.default = options; // parcel transformer vue2 compiler hack
                                 }
                             }
                         }, [
-                            _c("span", [
-                                _c("span", [
+                            _c('span', [
+                                _c('span', [
                                     _vm._v(_vm._s(day.number))
                                 ])
                             ])
@@ -1419,7 +1419,7 @@ exports.default = options; // parcel transformer vue2 compiler hack
                 newDate: luxon.DateTime.fromObject({
                     year: this.year,
                     month: this.month,
-                    zone: "UTC"
+                    zone: 'UTC'
                 }),
                 weekdays: weekdays(this.weekStart),
                 months: months()
@@ -1449,7 +1449,7 @@ exports.default = options; // parcel transformer vue2 compiler hack
         methods: {
             selectDay: function selectDay(day) {
                 if (day.disabled) return;
-                this.$emit("change", this.newYear, this.newMonth, day.number);
+                this.$emit('change', this.newYear, this.newMonth, day.number);
             },
             previousMonth: function previousMonth() {
                 this.newDate = this.newDate.minus({
@@ -1468,21 +1468,21 @@ exports.default = options; // parcel transformer vue2 compiler hack
             var _vm = this;
             var _h = _vm.$createElement;
             var _c = _vm._self._c || _h;
-            return _c("div", {
+            return _c('div', {
                 class: {
-                    "vdatetime-time-picker": true,
-                    "vdatetime-time-picker__with-suffix": _vm.use12Hour
+                    'vdatetime-time-picker': true,
+                    'vdatetime-time-picker__with-suffix': _vm.use12Hour
                 }
             }, [
-                _c("div", {
+                _c('div', {
                     ref: "hourList",
                     staticClass: "vdatetime-time-picker__list vdatetime-time-picker__list--hours"
                 }, _vm._l(_vm.hours, function(hour) {
-                    return _c("div", {
+                    return _c('div', {
                         staticClass: "vdatetime-time-picker__item",
                         class: {
-                            "vdatetime-time-picker__item--selected": hour.selected,
-                            "vdatetime-time-picker__item--disabled": hour.disabled
+                            'vdatetime-time-picker__item--selected': hour.selected,
+                            'vdatetime-time-picker__item--disabled': hour.disabled
                         },
                         on: {
                             "click": function($event) {
@@ -1494,15 +1494,15 @@ exports.default = options; // parcel transformer vue2 compiler hack
                     ]);
                 })),
                 _vm._v(" "),
-                _c("div", {
+                _c('div', {
                     ref: "minuteList",
                     staticClass: "vdatetime-time-picker__list vdatetime-time-picker__list--minutes"
                 }, _vm._l(_vm.minutes, function(minute) {
-                    return _c("div", {
+                    return _c('div', {
                         staticClass: "vdatetime-time-picker__item",
                         class: {
-                            "vdatetime-time-picker__item--selected": minute.selected,
-                            "vdatetime-time-picker__item--disabled": minute.disabled
+                            'vdatetime-time-picker__item--selected': minute.selected,
+                            'vdatetime-time-picker__item--disabled': minute.disabled
                         },
                         on: {
                             "click": function($event) {
@@ -1514,32 +1514,32 @@ exports.default = options; // parcel transformer vue2 compiler hack
                     ]);
                 })),
                 _vm._v(" "),
-                _vm.use12Hour ? _c("div", {
+                _vm.use12Hour ? _c('div', {
                     ref: "suffixList",
                     staticClass: "vdatetime-time-picker__list vdatetime-time-picker__list--suffix"
                 }, [
-                    _c("div", {
+                    _c('div', {
                         staticClass: "vdatetime-time-picker__item",
                         class: {
-                            "vdatetime-time-picker__item--selected": _vm.hour < 12
+                            'vdatetime-time-picker__item--selected': _vm.hour < 12
                         },
                         on: {
                             "click": function($event) {
-                                _vm.selectSuffix("am");
+                                _vm.selectSuffix('am');
                             }
                         }
                     }, [
                         _vm._v("am")
                     ]),
                     _vm._v(" "),
-                    _c("div", {
+                    _c('div', {
                         staticClass: "vdatetime-time-picker__item",
                         class: {
-                            "vdatetime-time-picker__item--selected": _vm.hour >= 12
+                            'vdatetime-time-picker__item--selected': _vm.hour >= 12
                         },
                         on: {
                             "click": function($event) {
-                                _vm.selectSuffix("pm");
+                                _vm.selectSuffix('pm');
                             }
                         }
                     }, [
@@ -1607,40 +1607,40 @@ exports.default = options; // parcel transformer vue2 compiler hack
                 });
             },
             minHour: function minHour() {
-                return this.minTime ? parseInt(this.minTime.split(":")[0]) : null;
+                return this.minTime ? parseInt(this.minTime.split(':')[0]) : null;
             },
             minMinute: function minMinute() {
-                return this.minTime && this.minHour === this.hour ? parseInt(this.minTime.split(":")[1]) : null;
+                return this.minTime && this.minHour === this.hour ? parseInt(this.minTime.split(':')[1]) : null;
             },
             maxHour: function maxHour() {
-                return this.maxTime ? parseInt(this.maxTime.split(":")[0]) : null;
+                return this.maxTime ? parseInt(this.maxTime.split(':')[0]) : null;
             },
             maxMinute: function maxMinute() {
-                return this.maxTime && this.maxHour === this.hour ? parseInt(this.maxTime.split(":")[1]) : null;
+                return this.maxTime && this.maxHour === this.hour ? parseInt(this.maxTime.split(':')[1]) : null;
             }
         },
         methods: {
             selectHour: function selectHour(hour) {
                 if (hour.disabled) return;
-                this.$emit("change", {
+                this.$emit('change', {
                     hour: parseInt(hour.number)
                 });
             },
             selectMinute: function selectMinute(minute) {
                 if (minute.disabled) return;
-                this.$emit("change", {
+                this.$emit('change', {
                     minute: parseInt(minute.number)
                 });
             },
             selectSuffix: function selectSuffix(suffix) {
-                if (suffix === "am") {
-                    if (this.hour >= 12) this.$emit("change", {
+                if (suffix === 'am') {
+                    if (this.hour >= 12) this.$emit('change', {
                         hour: parseInt(this.hour - 12),
                         suffixTouched: true
                     });
                 }
-                if (suffix === "pm") {
-                    if (this.hour < 12) this.$emit("change", {
+                if (suffix === 'pm') {
+                    if (this.hour < 12) this.$emit('change', {
                         hour: parseInt(this.hour + 12),
                         suffixTouched: true
                     });
@@ -1657,8 +1657,8 @@ exports.default = options; // parcel transformer vue2 compiler hack
             }
         },
         mounted: function mounted() {
-            var selectedHour = this.$refs.hourList.querySelector(".vdatetime-time-picker__item--selected");
-            var selectedMinute = this.$refs.minuteList.querySelector(".vdatetime-time-picker__item--selected");
+            var selectedHour = this.$refs.hourList.querySelector('.vdatetime-time-picker__item--selected');
+            var selectedMinute = this.$refs.minuteList.querySelector('.vdatetime-time-picker__item--selected');
             this.$refs.hourList.scrollTop = selectedHour ? selectedHour.offsetTop - 250 : 0;
             this.$refs.minuteList.scrollTop = selectedMinute ? selectedMinute.offsetTop - 250 : 0;
         }
@@ -1668,18 +1668,18 @@ exports.default = options; // parcel transformer vue2 compiler hack
             var _vm = this;
             var _h = _vm.$createElement;
             var _c = _vm._self._c || _h;
-            return _c("div", {
+            return _c('div', {
                 staticClass: "vdatetime-year-picker"
             }, [
-                _c("div", {
+                _c('div', {
                     ref: "yearList",
                     staticClass: "vdatetime-year-picker__list vdatetime-year-picker__list"
                 }, _vm._l(_vm.years, function(year) {
-                    return _c("div", {
+                    return _c('div', {
                         staticClass: "vdatetime-year-picker__item",
                         class: {
-                            "vdatetime-year-picker__item--selected": year.selected,
-                            "vdatetime-year-picker__item--disabled": year.disabled
+                            'vdatetime-year-picker__item--selected': year.selected,
+                            'vdatetime-year-picker__item--disabled': year.disabled
                         },
                         on: {
                             "click": function($event) {
@@ -1722,11 +1722,11 @@ exports.default = options; // parcel transformer vue2 compiler hack
         methods: {
             select: function select(year) {
                 if (year.disabled) return;
-                this.$emit("change", parseInt(year.number));
+                this.$emit('change', parseInt(year.number));
             },
             scrollToCurrent: function scrollToCurrent() {
                 if (this.$refs.yearList) {
-                    var selectedYear = this.$refs.yearList.querySelector(".vdatetime-year-picker__item--selected");
+                    var selectedYear = this.$refs.yearList.querySelector('.vdatetime-year-picker__item--selected');
                     this.$refs.yearList.scrollTop = selectedYear ? selectedYear.offsetTop - 250 : 0;
                 }
             }
@@ -1743,18 +1743,18 @@ exports.default = options; // parcel transformer vue2 compiler hack
             var _vm = this;
             var _h = _vm.$createElement;
             var _c = _vm._self._c || _h;
-            return _c("div", {
+            return _c('div', {
                 staticClass: "vdatetime-month-picker"
             }, [
-                _c("div", {
+                _c('div', {
                     ref: "monthList",
                     staticClass: "vdatetime-month-picker__list vdatetime-month-picker__list"
                 }, _vm._l(_vm.months, function(month) {
-                    return _c("div", {
+                    return _c('div', {
                         staticClass: "vdatetime-month-picker__item",
                         class: {
-                            "vdatetime-month-picker__item--selected": month.selected,
-                            "vdatetime-month-picker__item--disabled": month.disabled
+                            'vdatetime-month-picker__item--selected': month.selected,
+                            'vdatetime-month-picker__item--disabled': month.disabled
                         },
                         on: {
                             "click": function($event) {
@@ -1802,10 +1802,10 @@ exports.default = options; // parcel transformer vue2 compiler hack
         methods: {
             select: function select(month) {
                 if (month.disabled) return;
-                this.$emit("change", parseInt(month.number));
+                this.$emit('change', parseInt(month.number));
             },
             scrollToCurrent: function scrollToCurrent() {
-                var selectedMonth = this.$refs.monthList.querySelector(".vdatetime-month-picker__item--selected");
+                var selectedMonth = this.$refs.monthList.querySelector('.vdatetime-month-picker__item--selected');
                 this.$refs.monthList.scrollTop = selectedMonth ? selectedMonth.offsetTop - 250 : 0;
             }
         },
@@ -1824,19 +1824,19 @@ exports.default = options; // parcel transformer vue2 compiler hack
             var _vm = this;
             var _h = _vm.$createElement;
             var _c = _vm._self._c || _h;
-            return _c("div", {
+            return _c('div', {
                 staticClass: "vdatetime-popup"
             }, [
-                _c("div", {
+                _c('div', {
                     staticClass: "vdatetime-popup__header"
                 }, [
-                    _vm.title ? _c("div", {
+                    _vm.title ? _c('div', {
                         staticClass: "vdatetime-popup__title"
                     }, [
                         _vm._v(_vm._s(_vm.title))
                     ]) : _vm._e(),
                     _vm._v(" "),
-                    _vm.type !== "time" ? _c("div", {
+                    _vm.type !== 'time' ? _c('div', {
                         staticClass: "vdatetime-popup__year",
                         on: {
                             "click": _vm.showYear
@@ -1845,7 +1845,7 @@ exports.default = options; // parcel transformer vue2 compiler hack
                         _vm._v(_vm._s(_vm.year))
                     ]) : _vm._e(),
                     _vm._v(" "),
-                    _vm.type !== "time" ? _c("div", {
+                    _vm.type !== 'time' ? _c('div', {
                         staticClass: "vdatetime-popup__date",
                         on: {
                             "click": _vm.showMonth
@@ -1855,10 +1855,10 @@ exports.default = options; // parcel transformer vue2 compiler hack
                     ]) : _vm._e()
                 ]),
                 _vm._v(" "),
-                _c("div", {
+                _c('div', {
                     staticClass: "vdatetime-popup__body"
                 }, [
-                    _vm.step === "year" ? _c("datetime-year-picker", {
+                    _vm.step === 'year' ? _c('datetime-year-picker', {
                         attrs: {
                             "min-date": _vm.minDatetime,
                             "max-date": _vm.maxDatetime,
@@ -1869,7 +1869,7 @@ exports.default = options; // parcel transformer vue2 compiler hack
                         }
                     }) : _vm._e(),
                     _vm._v(" "),
-                    _vm.step === "month" ? _c("datetime-month-picker", {
+                    _vm.step === 'month' ? _c('datetime-month-picker', {
                         attrs: {
                             "min-date": _vm.minDatetime,
                             "max-date": _vm.maxDatetime,
@@ -1881,7 +1881,7 @@ exports.default = options; // parcel transformer vue2 compiler hack
                         }
                     }) : _vm._e(),
                     _vm._v(" "),
-                    _vm.step === "date" ? _c("datetime-calendar", {
+                    _vm.step === 'date' ? _c('datetime-calendar', {
                         attrs: {
                             "year": _vm.year,
                             "month": _vm.month,
@@ -1895,7 +1895,7 @@ exports.default = options; // parcel transformer vue2 compiler hack
                         }
                     }) : _vm._e(),
                     _vm._v(" "),
-                    _vm.step === "time" ? _c("datetime-time-picker", {
+                    _vm.step === 'time' ? _c('datetime-time-picker', {
                         attrs: {
                             "hour": _vm.hour,
                             "minute": _vm.minute,
@@ -1911,10 +1911,10 @@ exports.default = options; // parcel transformer vue2 compiler hack
                     }) : _vm._e()
                 ], 1),
                 _vm._v(" "),
-                _c("div", {
+                _c('div', {
                     staticClass: "vdatetime-popup__actions"
                 }, [
-                    _c("div", {
+                    _c('div', {
                         staticClass: "vdatetime-popup__actions__button vdatetime-popup__actions__button--cancel",
                         on: {
                             "click": _vm.cancel
@@ -1927,7 +1927,7 @@ exports.default = options; // parcel transformer vue2 compiler hack
                         })
                     ], 2),
                     _vm._v(" "),
-                    _c("div", {
+                    _c('div', {
                         staticClass: "vdatetime-popup__actions__button vdatetime-popup__actions__button--confirm",
                         on: {
                             "click": _vm.confirm
@@ -1958,14 +1958,14 @@ exports.default = options; // parcel transformer vue2 compiler hack
                 type: Object,
                 default: function default$1() {
                     return {
-                        cancel: "Cancel",
-                        ok: "Ok"
+                        cancel: 'Cancel',
+                        ok: 'Ok'
                     };
                 }
             },
             type: {
                 type: String,
-                default: "date"
+                default: 'date'
             },
             use12Hour: {
                 type: Boolean,
@@ -2012,10 +2012,10 @@ exports.default = options; // parcel transformer vue2 compiler hack
             };
         },
         created: function created() {
-            document.addEventListener("keydown", this.onKeyDown);
+            document.addEventListener('keydown', this.onKeyDown);
         },
         beforeDestroy: function beforeDestroy() {
-            document.removeEventListener("keydown", this.onKeyDown);
+            document.removeEventListener('keydown', this.onKeyDown);
         },
         computed: {
             year: function year() {
@@ -2035,36 +2035,36 @@ exports.default = options; // parcel transformer vue2 compiler hack
             },
             dateFormatted: function dateFormatted() {
                 return this.newDatetime.toLocaleString({
-                    month: "long",
-                    day: "numeric"
+                    month: 'long',
+                    day: 'numeric'
                 });
             },
             minTime: function minTime() {
-                return this.minDatetime && this.minDatetime.year === this.year && this.minDatetime.month === this.month && this.minDatetime.day === this.day ? this.minDatetime.toFormat("HH:mm") : null;
+                return this.minDatetime && this.minDatetime.year === this.year && this.minDatetime.month === this.month && this.minDatetime.day === this.day ? this.minDatetime.toFormat('HH:mm') : null;
             },
             maxTime: function maxTime() {
-                return this.maxDatetime && this.maxDatetime.year === this.year && this.maxDatetime.month === this.month && this.maxDatetime.day === this.day ? this.maxDatetime.toFormat("HH:mm") : null;
+                return this.maxDatetime && this.maxDatetime.year === this.year && this.maxDatetime.month === this.month && this.maxDatetime.day === this.day ? this.maxDatetime.toFormat('HH:mm') : null;
             }
         },
         methods: {
             nextStep: function nextStep() {
                 this.step = this.flowManager.next(this.step);
                 this.timePartsTouched = [];
-                if (this.step === "end") this.$emit("confirm", this.newDatetime);
+                if (this.step === 'end') this.$emit('confirm', this.newDatetime);
             },
             showYear: function showYear() {
-                this.step = "year";
-                this.flowManager.diversion("date");
+                this.step = 'year';
+                this.flowManager.diversion('date');
             },
             showMonth: function showMonth() {
-                this.step = "month";
-                this.flowManager.diversion("date");
+                this.step = 'month';
+                this.flowManager.diversion('date');
             },
             confirm: function confirm() {
                 this.nextStep();
             },
             cancel: function cancel() {
-                this.$emit("cancel");
+                this.$emit('cancel');
             },
             onChangeYear: function onChangeYear(year) {
                 this.newDatetime = this.newDatetime.set({
@@ -2090,20 +2090,20 @@ exports.default = options; // parcel transformer vue2 compiler hack
                 var hour = ref.hour;
                 var minute = ref.minute;
                 var suffixTouched = ref.suffixTouched;
-                if (suffixTouched) this.timePartsTouched["suffix"] = true;
+                if (suffixTouched) this.timePartsTouched['suffix'] = true;
                 if (Number.isInteger(hour)) {
                     this.newDatetime = this.newDatetime.set({
                         hour: hour
                     });
-                    this.timePartsTouched["hour"] = true;
+                    this.timePartsTouched['hour'] = true;
                 }
                 if (Number.isInteger(minute)) {
                     this.newDatetime = this.newDatetime.set({
                         minute: minute
                     });
-                    this.timePartsTouched["minute"] = true;
+                    this.timePartsTouched['minute'] = true;
                 }
-                var goNext = this.auto && this.timePartsTouched["hour"] && this.timePartsTouched["minute"] && (this.timePartsTouched["suffix"] || !this.use12Hour);
+                var goNext = this.auto && this.timePartsTouched['hour'] && this.timePartsTouched['minute'] && (this.timePartsTouched['suffix'] || !this.use12Hour);
                 if (goNext) this.nextStep();
             },
             onKeyDown: function onKeyDown(event) {
@@ -2124,12 +2124,12 @@ exports.default = options; // parcel transformer vue2 compiler hack
             var _vm = this;
             var _h = _vm.$createElement;
             var _c = _vm._self._c || _h;
-            return _c("div", {
+            return _c('div', {
                 staticClass: "vdatetime"
             }, [
                 _vm._t("before"),
                 _vm._v(" "),
-                _c("input", _vm._g(_vm._b({
+                _c('input', _vm._g(_vm._b({
                     staticClass: "vdatetime-input",
                     class: _vm.inputClass,
                     style: _vm.inputStyle,
@@ -2144,9 +2144,9 @@ exports.default = options; // parcel transformer vue2 compiler hack
                         "click": _vm.open,
                         "focus": _vm.open
                     }
-                }, "input", _vm.$attrs, false), _vm.$listeners)),
+                }, 'input', _vm.$attrs, false), _vm.$listeners)),
                 _vm._v(" "),
-                _vm.hiddenName ? _c("input", {
+                _vm.hiddenName ? _c('input', {
                     attrs: {
                         "type": "hidden",
                         "name": _vm.hiddenName
@@ -2161,13 +2161,13 @@ exports.default = options; // parcel transformer vue2 compiler hack
                 _vm._v(" "),
                 _vm._t("after"),
                 _vm._v(" "),
-                _c("transition-group", {
+                _c('transition-group', {
                     attrs: {
                         "name": "vdatetime-fade",
                         "tag": "div"
                     }
                 }, [
-                    _vm.isOpen && !_vm.hideBackdrop ? _c("div", {
+                    _vm.isOpen && !_vm.hideBackdrop ? _c('div', {
                         key: "overlay",
                         staticClass: "vdatetime-overlay",
                         on: {
@@ -2178,7 +2178,7 @@ exports.default = options; // parcel transformer vue2 compiler hack
                         }
                     }) : _vm._e(),
                     _vm._v(" "),
-                    _vm.isOpen ? _c("datetime-popup", {
+                    _vm.isOpen ? _c('datetime-popup', {
                         key: "popup",
                         attrs: {
                             "type": _vm.type,
@@ -2239,7 +2239,7 @@ exports.default = options; // parcel transformer vue2 compiler hack
             },
             valueZone: {
                 type: String,
-                default: "UTC"
+                default: 'UTC'
             },
             inputId: {
                 type: String,
@@ -2251,7 +2251,7 @@ exports.default = options; // parcel transformer vue2 compiler hack
                     Array,
                     String
                 ],
-                default: ""
+                default: ''
             },
             inputStyle: {
                 type: [
@@ -2259,14 +2259,14 @@ exports.default = options; // parcel transformer vue2 compiler hack
                     Array,
                     String
                 ],
-                default: ""
+                default: ''
             },
             hiddenName: {
                 type: String
             },
             zone: {
                 type: String,
-                default: "local"
+                default: 'local'
             },
             format: {
                 type: [
@@ -2277,14 +2277,14 @@ exports.default = options; // parcel transformer vue2 compiler hack
             },
             type: {
                 type: String,
-                default: "date"
+                default: 'date'
             },
             phrases: {
                 type: Object,
                 default: function default$1() {
                     return {
-                        cancel: "Cancel",
-                        ok: "Ok"
+                        cancel: 'Cancel',
+                        ok: 'Ok'
                     };
                 }
             },
@@ -2351,19 +2351,19 @@ exports.default = options; // parcel transformer vue2 compiler hack
             inputValue: function inputValue() {
                 var format = this.format;
                 if (!format) switch(this.type){
-                    case "date":
+                    case 'date':
                         format = luxon.DateTime.DATE_MED;
                         break;
-                    case "time":
+                    case 'time':
                         format = luxon.DateTime.TIME_24_SIMPLE;
                         break;
-                    case "datetime":
-                    case "default":
+                    case 'datetime':
+                    case 'default':
                         format = luxon.DateTime.DATETIME_MED;
                         break;
                 }
-                if (typeof format === "string") return this.datetime ? luxon.DateTime.fromISO(this.datetime).setZone(this.zone).toFormat(format) : "";
-                else return this.datetime ? this.datetime.setZone(this.zone).toLocaleString(format) : "";
+                if (typeof format === 'string') return this.datetime ? luxon.DateTime.fromISO(this.datetime).setZone(this.zone).toFormat(format) : '';
+                else return this.datetime ? this.datetime.setZone(this.zone).toLocaleString(format) : '';
             },
             popupDate: function popupDate() {
                 return this.datetime ? this.datetime.setZone(this.zone) : this.newPopupDatetime();
@@ -2378,8 +2378,8 @@ exports.default = options; // parcel transformer vue2 compiler hack
         methods: {
             emitInput: function emitInput() {
                 var datetime = this.datetime ? this.datetime.setZone(this.valueZone) : null;
-                if (datetime && this.type === "date") datetime = startOfDay(datetime);
-                this.$emit("input", datetime ? datetime.toISO() : "");
+                if (datetime && this.type === 'date') datetime = startOfDay(datetime);
+                this.$emit('input', datetime ? datetime.toISO() : '');
             },
             open: function open(event) {
                 event.target.blur();
@@ -2387,7 +2387,7 @@ exports.default = options; // parcel transformer vue2 compiler hack
             },
             close: function close() {
                 this.isOpen = false;
-                this.$emit("close");
+                this.$emit('close');
             },
             confirm: function confirm(datetime) {
                 this.datetime = datetime.toUTC();
@@ -2431,24 +2431,24 @@ exports.default = options; // parcel transformer vue2 compiler hack
         }
     };
     function plugin(Vue) {
-        Vue.component("datetime", Datetime);
-        Vue.component("datetime-popup", DatetimePopup);
+        Vue.component('datetime', Datetime);
+        Vue.component('datetime-popup', DatetimePopup);
     }
     // Install by default if using the script tag
-    if (typeof window !== "undefined" && window.Vue) window.Vue.use(plugin);
-    var version = "1.0.0-beta.14";
-    exports1["default"] = plugin;
+    if (typeof window !== 'undefined' && window.Vue) window.Vue.use(plugin);
+    var version = '1.0.0-beta.14';
+    exports1['default'] = plugin;
     exports1.Datetime = Datetime;
     exports1.DatetimePopup = DatetimePopup;
     exports1.version = version;
-    Object.defineProperty(exports1, "__esModule", {
+    Object.defineProperty(exports1, '__esModule', {
         value: true
     });
 });
 
-},{"ae54e1f81463f742":"dpK6X","a49acbbfa3fae061":"eCo7f","3a81313891da69d5":"17COp"}],"dpK6X":[function(require,module,exports) {
-"use strict";
-Object.defineProperty(exports, "__esModule", {
+},{"ae54e1f81463f742":"dpK6X","a49acbbfa3fae061":"eCo7f","3a81313891da69d5":"17COp"}],"dpK6X":[function(require,module,exports,__globalThis) {
+'use strict';
+Object.defineProperty(exports, '__esModule', {
     value: true
 });
 function _defineProperties(target, props) {
@@ -5135,7 +5135,7 @@ function normalizeValues(matrix, vals) {
         if (parsed) {
             var obj = Object.assign(parsed, opts);
             return Duration.fromObject(obj);
-        } else return Duration.invalid("unparsable", 'the input "' + text + "\" can't be parsed as ISO 8601");
+        } else return Duration.invalid("unparsable", "the input \"" + text + "\" can't be parsed as ISO 8601");
     } /**
    * Create a Duration from an ISO 8601 time string.
    * @param {string} text - text to parse
@@ -5156,7 +5156,7 @@ function normalizeValues(matrix, vals) {
         if (parsed) {
             var obj = Object.assign(parsed, opts);
             return Duration.fromObject(obj);
-        } else return Duration.invalid("unparsable", 'the input "' + text + "\" can't be parsed as ISO 8601");
+        } else return Duration.invalid("unparsable", "the input \"" + text + "\" can't be parsed as ISO 8601");
     } /**
    * Create an invalid Duration.
    * @param {string} reason - simple string of why this datetime is invalid. Should not contain parameters or anything else data-dependent
@@ -5722,7 +5722,7 @@ function validateStartEnd(start, end) {
                 if (_dur.isValid) return Interval.before(end, _dur);
             }
         }
-        return Interval.invalid("unparsable", 'the input "' + text + "\" can't be parsed as ISO 8601");
+        return Interval.invalid("unparsable", "the input \"" + text + "\" can't be parsed as ISO 8601");
     } /**
    * Check if an object is an Interval. Works across context boundaries
    * @param {object} o
@@ -6989,7 +6989,7 @@ function hasInvalidTimeData(obj) {
 var INVALID$2 = "Invalid DateTime";
 var MAX_DATE = 8.64e15;
 function unsupportedZone(zone) {
-    return new Invalid("unsupported zone", 'the zone "' + zone.name + '" is not supported');
+    return new Invalid("unsupported zone", "the zone \"" + zone.name + "\" is not supported");
 } // we cache week data on the DT object and this intermediates the cache
 function possiblyCachedWeekData(dt) {
     if (dt.weekData === null) dt.weekData = gregorianToWeek(dt.c);
@@ -7083,7 +7083,7 @@ function parseDataToDateTime(parsed, parsedZone, opts, format, text) {
             setZone: undefined
         }));
         return setZone ? inst : inst.setZone(zone);
-    } else return DateTime.invalid(new Invalid("unparsable", 'the input "' + text + "\" can't be parsed as " + format));
+    } else return DateTime.invalid(new Invalid("unparsable", "the input \"" + text + "\" can't be parsed as " + format));
 } // if you want to output a technical format (e.g. RFC 2822), this helper
 // helps handle the details
 function toTechFormat(dt, format, allowZ) {
@@ -8628,10 +8628,10 @@ exports.Settings = Settings;
 exports.VERSION = VERSION;
 exports.Zone = Zone;
 
-},{}],"eCo7f":[function(require,module,exports) {
-module.exports = JSON.parse('{"name":"weekstart","version":"1.1.0","description":"Library to get first day of week.","homepage":"https://github.com/gamtiq/weekstart","main":"dist/commonjs/main.js","module":"dist/es-module/main.js","umd:main":"dist/main.js","files":["dist","full.js","full.d.ts","index.d.ts","src","History.md"],"keywords":["week","start","first","day","locale","country","region"],"devDependencies":{"@babel/preset-env":"^7.13.10","eslint":"^7.22.0","eslint-config-guard":"^2.0.1","ink-docstrap":"1.3.2","jest":"^26.6.3","jsdoc":"^3.6.6","jsdoc-file":"^1.0.1","microbundle":"0.4.4","version-bump-prompt":"^6.1.0"},"scripts":{"lint":"eslint --cache --max-warnings 0 \\"**/*.js\\"","lint-error":"eslint --cache \\"**/*.js\\"","lint-all":"eslint --max-warnings 0 \\"**/*.js\\"","lint-all-error":"eslint \\"**/*.js\\"","test":"jest","check":"npm run lint && npm test","check-all":"npm run lint-all && npm test","doc":"jsdoc -c jsdoc-conf.js","build-commonjs":"microbundle build \\"src/!(*.test).js\\" --output dist/commonjs --format cjs --strict --no-compress","build-esm":"microbundle build \\"src/!(*.test).js\\" --output dist/es-module --format es --no-compress","build-umd":"microbundle build src/main.js src/full.js --output dist --format umd --strict --no-compress","build-umd-min":"microbundle build src/main.js src/full.js --output dist/min --format umd --strict","build":"npm run build-umd && npm run build-commonjs && npm run build-esm && npm run build-umd-min","all":"npm run check-all && npm run doc && npm run build","release":"bump patch --commit --tag --all --push package.json package-lock.json bower.json component.json","release-minor":"bump minor --commit --tag --all --push package.json package-lock.json bower.json component.json","release-major":"bump major --commit --tag --all --push package.json package-lock.json bower.json component.json"},"author":{"name":"Denis Sikuler"},"repository":{"type":"git","url":"git://github.com/gamtiq/weekstart.git"},"bugs":{"url":"https://github.com/gamtiq/weekstart/issues"},"license":"MIT","types":"./index.d.ts"}');
+},{}],"eCo7f":[function(require,module,exports,__globalThis) {
+module.exports = JSON.parse("{\"_from\":\"weekstart@^1.0.1\",\"_id\":\"weekstart@1.1.0\",\"_inBundle\":false,\"_integrity\":\"sha512-ZO3I7c7J9nwGN1PZKZeBYAsuwWEsCOZi5T68cQoVNYrzrpp5Br0Bgi0OF4l8kH/Ez7nKfxa5mSsXjsgris3+qg==\",\"_location\":\"/weekstart\",\"_phantomChildren\":{},\"_requested\":{\"type\":\"range\",\"registry\":true,\"raw\":\"weekstart@^1.0.1\",\"name\":\"weekstart\",\"escapedName\":\"weekstart\",\"rawSpec\":\"^1.0.1\",\"saveSpec\":null,\"fetchSpec\":\"^1.0.1\"},\"_requiredBy\":[\"/spinal-env-viewer-plugin-task\"],\"_resolved\":\"https://registry.npmjs.org/weekstart/-/weekstart-1.1.0.tgz\",\"_shasum\":\"af642eb10dc24b1af9d4dcc0415056edc087b897\",\"_spec\":\"weekstart@^1.0.1\",\"_where\":\"/tmp/spinal-utils/cda5c64d-642e-45c0-b5b9-109b2edfe075/repositories\",\"author\":{\"name\":\"Denis Sikuler\"},\"bugs\":{\"url\":\"https://github.com/gamtiq/weekstart/issues\"},\"bundleDependencies\":false,\"deprecated\":false,\"description\":\"Library to get first day of week.\",\"devDependencies\":{\"@babel/preset-env\":\"^7.13.10\",\"eslint\":\"^7.22.0\",\"eslint-config-guard\":\"^2.0.1\",\"ink-docstrap\":\"1.3.2\",\"jest\":\"^26.6.3\",\"jsdoc\":\"^3.6.6\",\"jsdoc-file\":\"^1.0.1\",\"microbundle\":\"0.4.4\",\"version-bump-prompt\":\"^6.1.0\"},\"files\":[\"dist\",\"full.js\",\"full.d.ts\",\"index.d.ts\",\"src\",\"History.md\"],\"homepage\":\"https://github.com/gamtiq/weekstart\",\"keywords\":[\"week\",\"start\",\"first\",\"day\",\"locale\",\"country\",\"region\"],\"license\":\"MIT\",\"main\":\"dist/commonjs/main.js\",\"module\":\"dist/es-module/main.js\",\"name\":\"weekstart\",\"repository\":{\"type\":\"git\",\"url\":\"git://github.com/gamtiq/weekstart.git\"},\"scripts\":{\"all\":\"npm run check-all && npm run doc && npm run build\",\"build\":\"npm run build-umd && npm run build-commonjs && npm run build-esm && npm run build-umd-min\",\"build-commonjs\":\"microbundle build \\\"src/!(*.test).js\\\" --output dist/commonjs --format cjs --strict --no-compress\",\"build-esm\":\"microbundle build \\\"src/!(*.test).js\\\" --output dist/es-module --format es --no-compress\",\"build-umd\":\"microbundle build src/main.js src/full.js --output dist --format umd --strict --no-compress\",\"build-umd-min\":\"microbundle build src/main.js src/full.js --output dist/min --format umd --strict\",\"check\":\"npm run lint && npm test\",\"check-all\":\"npm run lint-all && npm test\",\"doc\":\"jsdoc -c jsdoc-conf.js\",\"lint\":\"eslint --cache --max-warnings 0 \\\"**/*.js\\\"\",\"lint-all\":\"eslint --max-warnings 0 \\\"**/*.js\\\"\",\"lint-all-error\":\"eslint \\\"**/*.js\\\"\",\"lint-error\":\"eslint --cache \\\"**/*.js\\\"\",\"release\":\"bump patch --commit --tag --all --push package.json package-lock.json bower.json component.json\",\"release-major\":\"bump major --commit --tag --all --push package.json package-lock.json bower.json component.json\",\"release-minor\":\"bump minor --commit --tag --all --push package.json package-lock.json bower.json component.json\",\"test\":\"jest\"},\"types\":\"./index.d.ts\",\"umd:main\":\"dist/main.js\",\"version\":\"1.1.0\"}");
 
-},{}],"17COp":[function(require,module,exports) {
+},{}],"17COp":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "getWeekStartByRegion", ()=>getWeekStartByRegion$1);
@@ -8648,14 +8648,14 @@ function getWeekStartByLocale$1(locale) {
     return (0, _apiJs.getWeekStartByLocale)(locale, (0, _langRegionMapJsDefault.default), (0, _regionDayMapJsDefault.default));
 }
 
-},{"./api.js":"3XpX3","./langRegionMap.js":"3q2vM","./regionDayMap.js":"5YuOH","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3XpX3":[function(require,module,exports) {
+},{"./api.js":"3XpX3","./langRegionMap.js":"3q2vM","./regionDayMap.js":"5YuOH","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3XpX3":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "getWeekStartByRegion", ()=>getWeekStartByRegion);
 parcelHelpers.export(exports, "getWeekStartByLocale", ()=>getWeekStartByLocale);
 function getWeekStartByRegion(regionCode, regionDayMap) {
-    var code = regionDayMap[typeof regionCode === "string" ? regionCode.toUpperCase() : regionCode];
-    return typeof code === "number" ? code : 1;
+    var code = regionDayMap[typeof regionCode === 'string' ? regionCode.toUpperCase() : regionCode];
+    return typeof code === 'number' ? code : 1;
 }
 function getWeekStartByLocale(locale, langRegionMap, regionDayMap) {
     if (locale) {
@@ -8672,92 +8672,92 @@ function getWeekStartByLocale(locale, langRegionMap, regionDayMap) {
     return 1;
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3q2vM":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3q2vM":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var langRegionMap = {
-    en: "US",
-    zh: "CN",
-    zh_hans: "CN",
-    hans: "CN",
-    wuu: "CN",
-    hsn: "CN",
-    hak: "CN",
-    nan: "CN",
-    gan: "CN",
-    hi: "IN",
-    te: "IN",
-    mr: "IN",
-    ta: "IN",
-    gu: "IN",
-    kn: "IN",
-    or: "IN",
-    ml: "IN",
-    pa_guru: "IN",
-    bho: "IN",
-    awa: "IN",
-    as: "IN",
-    mwr: "IN",
-    mai: "IN",
-    mag: "IN",
-    bgc: "IN",
-    hne: "IN",
-    dcc: "IN",
-    dz: "BT",
-    tn: "BW",
-    am: "ET",
-    om: "ET",
-    quc: "GT",
-    id: "ID",
-    jv: "ID",
-    su: "ID",
-    mad: "ID",
-    ms_arab: "ID",
-    ga: "IE",
-    he: "IL",
-    jam: "JM",
-    ja: "JP",
-    km: "KH",
-    ko: "KR",
-    lo: "LA",
-    mh: "MH",
-    my: "MM",
-    mt: "MT",
-    ne: "NP",
-    fil: "PH",
-    ceb: "PH",
-    ilo: "PH",
-    ur: "PK",
-    pa: "PK",
-    pa_arab: "PK",
-    arab: "PK",
-    lah: "PK",
-    ps: "PK",
-    sd: "PK",
-    sd_arab: "PK",
-    skr: "PK",
-    gn: "PY",
-    th: "TH",
-    tts: "TH",
-    aeb: "TN",
-    zh_hant: "TW",
-    hant: "TW",
-    sm: "WS",
-    zu: "ZA",
-    sn: "ZW",
-    arq: "DZ",
-    ar: "EG",
-    arz: "EG",
-    fa: "IR",
-    az_arab: "IR",
-    ary: "MA",
-    bn: "BD",
-    rkt: "BD",
-    dv: "MV"
+    en: 'US',
+    zh: 'CN',
+    zh_hans: 'CN',
+    hans: 'CN',
+    wuu: 'CN',
+    hsn: 'CN',
+    hak: 'CN',
+    nan: 'CN',
+    gan: 'CN',
+    hi: 'IN',
+    te: 'IN',
+    mr: 'IN',
+    ta: 'IN',
+    gu: 'IN',
+    kn: 'IN',
+    or: 'IN',
+    ml: 'IN',
+    pa_guru: 'IN',
+    bho: 'IN',
+    awa: 'IN',
+    as: 'IN',
+    mwr: 'IN',
+    mai: 'IN',
+    mag: 'IN',
+    bgc: 'IN',
+    hne: 'IN',
+    dcc: 'IN',
+    dz: 'BT',
+    tn: 'BW',
+    am: 'ET',
+    om: 'ET',
+    quc: 'GT',
+    id: 'ID',
+    jv: 'ID',
+    su: 'ID',
+    mad: 'ID',
+    ms_arab: 'ID',
+    ga: 'IE',
+    he: 'IL',
+    jam: 'JM',
+    ja: 'JP',
+    km: 'KH',
+    ko: 'KR',
+    lo: 'LA',
+    mh: 'MH',
+    my: 'MM',
+    mt: 'MT',
+    ne: 'NP',
+    fil: 'PH',
+    ceb: 'PH',
+    ilo: 'PH',
+    ur: 'PK',
+    pa: 'PK',
+    pa_arab: 'PK',
+    arab: 'PK',
+    lah: 'PK',
+    ps: 'PK',
+    sd: 'PK',
+    sd_arab: 'PK',
+    skr: 'PK',
+    gn: 'PY',
+    th: 'TH',
+    tts: 'TH',
+    aeb: 'TN',
+    zh_hant: 'TW',
+    hant: 'TW',
+    sm: 'WS',
+    zu: 'ZA',
+    sn: 'ZW',
+    arq: 'DZ',
+    ar: 'EG',
+    arz: 'EG',
+    fa: 'IR',
+    az_arab: 'IR',
+    ary: 'MA',
+    bn: 'BD',
+    rkt: 'BD',
+    dv: 'MV'
 };
 exports.default = langRegionMap;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5YuOH":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5YuOH":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var regionDayMap = {
@@ -8995,7 +8995,7 @@ var regionDayMap = {
 };
 exports.default = regionDayMap;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"TjfyS":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"TjfyS":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -9004,16 +9004,16 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("4c9610db9930cda0").render;
     script.staticRenderFns = require("4c9610db9930cda0").staticRenderFns;
-    script._scopeId = "data-v-1e9849";
+    script._scopeId = "data-v-b175ae";
     script.__cssModules = require("a490e9667cd5bd7b").default;
     require("1b7c393ee2db24ae").default(script);
-    script.__scopeId = "data-v-1e9849";
+    script.__scopeId = 'data-v-b175ae';
     script.__file = "selectTaskGroup.vue";
 };
 initialize();
 exports.default = script;
 
-},{"cc5defb3a6280ac7":"epCYy","4c9610db9930cda0":"jRRHn","a490e9667cd5bd7b":"43Y2x","1b7c393ee2db24ae":"2cmvE","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"epCYy":[function(require,module,exports) {
+},{"cc5defb3a6280ac7":"epCYy","4c9610db9930cda0":"jRRHn","a490e9667cd5bd7b":"43Y2x","1b7c393ee2db24ae":"2cmvE","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"epCYy":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerTaskService = require("spinal-env-viewer-task-service");
@@ -9179,10 +9179,10 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"spinal-env-viewer-task-service":"4IrFb","./linkerTemplate.vue":"4CM8J","spinal-env-viewer-panel-manager-service":"7Uw4d","spinal-env-viewer-graph-service":"9n7zp","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"4CM8J":[function(require,module,exports) {
+},{"spinal-env-viewer-task-service":"4IrFb","./linkerTemplate.vue":"4CM8J","spinal-env-viewer-panel-manager-service":"7Uw4d","spinal-env-viewer-graph-service":"9n7zp","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"4CM8J":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -9191,16 +9191,16 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("45c800af33994312").render;
     script.staticRenderFns = require("45c800af33994312").staticRenderFns;
-    script._scopeId = "data-v-c2c714";
+    script._scopeId = "data-v-67c390";
     script.__cssModules = require("e9a23165bbfba54b").default;
     require("b3b0f83539f0b032").default(script);
-    script.__scopeId = "data-v-c2c714";
+    script.__scopeId = 'data-v-67c390';
     script.__file = "linkerTemplate.vue";
 };
 initialize();
 exports.default = script;
 
-},{"abf5d0d10603585b":"4Uq6H","45c800af33994312":"hlccH","e9a23165bbfba54b":"fP7yq","b3b0f83539f0b032":"gtftj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"4Uq6H":[function(require,module,exports) {
+},{"abf5d0d10603585b":"4Uq6H","45c800af33994312":"hlccH","e9a23165bbfba54b":"fP7yq","b3b0f83539f0b032":"gtftj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"4Uq6H":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var scriptExports = {
@@ -9221,28 +9221,28 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hlccH":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hlccH":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("div", {
+    return _c('div', {
         staticClass: "subContent"
     }, [
-        _c("md-list", {
+        _c('md-list', {
             staticClass: "title"
         }, [
-            _c("md-list-item", [
-                _c("span", {
+            _c('md-list-item', [
+                _c('span', {
                     staticClass: "md-list-item-text"
                 }, [
                     _vm._v(_vm._s(_vm.title))
                 ]),
                 _vm._v(" "),
-                _c("md-button", {
+                _c('md-button', {
                     staticClass: "md-icon-button",
                     attrs: {
                         "disabled": !_vm.showBtn
@@ -9251,22 +9251,22 @@ var render = function() {
                         "click": _vm.createEvent
                     }
                 }, [
-                    _c("md-icon", [
+                    _c('md-icon', [
                         _vm._v("control_point")
                     ])
                 ], 1)
             ], 1)
         ], 1),
         _vm._v(" "),
-        _c("md-content", {
+        _c('md-content', {
             staticClass: "container md-scrollbar"
         }, [
-            _c("md-list", _vm._l(_vm.data, function(item, index) {
-                return _c("md-list-item", {
+            _c('md-list', _vm._l(_vm.data, function(item, index) {
+                return _c('md-list-item', {
                     key: index,
                     staticClass: "list-item",
                     class: {
-                        "selected": item.id === _vm.itemSelected
+                        'selected': item.id === _vm.itemSelected
                     },
                     on: {
                         "click": function($event) {
@@ -9274,7 +9274,7 @@ var render = function() {
                         }
                     }
                 }, [
-                    _c("md-list-item-text", {
+                    _c('md-list-item-text', {
                         staticClass: "text"
                     }, [
                         _vm._v(_vm._s(item.name))
@@ -9288,29 +9288,29 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"fP7yq":[function() {},{}],"gtftj":[function(require,module,exports) {
+},{}],"fP7yq":[function() {},{}],"gtftj":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jRRHn":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jRRHn":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("div", {
+    return _c('div', {
         staticClass: "select_container"
     }, [
-        _c("div", {
+        _c('div', {
             staticClass: "content"
         }, [
-            _c("div", {
+            _c('div', {
                 staticClass: "section"
             }, [
-                _c("link-template", {
+                _c('link-template', {
                     attrs: {
-                        "title": "Contexts",
+                        "title": 'Contexts',
                         "data": _vm.data,
                         "itemSelected": _vm.contextId,
                         "showBtn": true
@@ -9322,12 +9322,12 @@ var render = function() {
                 })
             ], 1),
             _vm._v(" "),
-            _c("div", {
+            _c('div', {
                 staticClass: "section"
             }, [
-                _c("link-template", {
+                _c('link-template', {
                     attrs: {
-                        "title": "Categories",
+                        "title": 'Categories',
                         "data": _vm.categories,
                         "itemSelected": _vm.categoryId,
                         "showBtn": _vm.contextId && _vm.contextId.length > 0
@@ -9339,12 +9339,12 @@ var render = function() {
                 })
             ], 1),
             _vm._v(" "),
-            _c("div", {
+            _c('div', {
                 staticClass: "section"
             }, [
-                _c("link-template", {
+                _c('link-template', {
                     attrs: {
-                        "title": "Groups",
+                        "title": 'Groups',
                         "data": _vm.groups,
                         "itemSelected": _vm.groupId,
                         "showBtn": _vm.showCreatBtn()
@@ -9362,13 +9362,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"43Y2x":[function() {},{}],"2cmvE":[function(require,module,exports) {
+},{}],"43Y2x":[function() {},{}],"2cmvE":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"doRPm":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"doRPm":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -9377,16 +9377,16 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("a563f5172073b9f4").render;
     script.staticRenderFns = require("a563f5172073b9f4").staticRenderFns;
-    script._scopeId = "data-v-2d2621";
+    script._scopeId = "data-v-91c9e1";
     script.__cssModules = require("9517306d6cc6f344").default;
     require("a9d689fe9e3b139f").default(script);
-    script.__scopeId = "data-v-2d2621";
+    script.__scopeId = 'data-v-91c9e1';
     script.__file = "taskForm.vue";
 };
 initialize();
 exports.default = script;
 
-},{"a1ae8767a841b679":"kBAUB","a563f5172073b9f4":"8HQMM","9517306d6cc6f344":"jv9sl","a9d689fe9e3b139f":"b2UYH","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"kBAUB":[function(require,module,exports) {
+},{"a1ae8767a841b679":"kBAUB","a563f5172073b9f4":"8HQMM","9517306d6cc6f344":"jv9sl","a9d689fe9e3b139f":"b2UYH","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"kBAUB":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var scriptExports = {
@@ -9400,45 +9400,45 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"8HQMM":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"8HQMM":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("div", {
+    return _c('div', {
         staticClass: "taskForm"
     }, [
-        _c("md-toolbar", {
+        _c('md-toolbar', {
             staticClass: "toolbarHeader",
             attrs: {
                 "md-elevation": "0"
             }
         }, [
-            _c("md-button", {
+            _c('md-button', {
                 staticClass: "md-dense md-primary",
                 on: {
                     "click": _vm.goBack
                 }
             }, [
-                _c("md-icon", [
+                _c('md-icon', [
                     _vm._v("keyboard_backspace")
                 ]),
                 _vm._v("\n      BACK\n    ")
             ], 1)
         ], 1),
         _vm._v(" "),
-        _c("div", {
+        _c('div', {
             staticClass: "container"
         }, [
-            _c("md-field", [
-                _c("label", [
+            _c('md-field', [
+                _c('label', [
                     _vm._v("Name")
                 ]),
                 _vm._v(" "),
-                _c("md-input", {
+                _c('md-input', {
                     on: {
                         "blur": _vm.setName
                     }
@@ -9451,13 +9451,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"jv9sl":[function() {},{}],"b2UYH":[function(require,module,exports) {
+},{}],"jv9sl":[function() {},{}],"b2UYH":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"kMoPM":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"kMoPM":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "EVENT_TYPES", ()=>EVENT_TYPES);
@@ -9465,18 +9465,18 @@ var _vue = require("vue");
 var _vueDefault = parcelHelpers.interopDefault(_vue);
 const EventBus = new (0, _vueDefault.default)();
 const EVENT_TYPES = {
-    CREATED: "eventCreated",
-    UPDATED: "eventUpdated",
-    DELETED: "eventDeleted"
+    CREATED: 'eventCreated',
+    UPDATED: 'eventUpdated',
+    DELETED: 'eventDeleted'
 };
 exports.default = EventBus;
 
-},{"vue":"gt5MM","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"e4MdJ":[function(require,module,exports) {
+},{"vue":"gt5MM","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"e4MdJ":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("md-dialog", {
+    return _c('md-dialog', {
         staticClass: "eventMdDialog",
         attrs: {
             "md-active": _vm.showDialog
@@ -9493,56 +9493,56 @@ var render = function() {
             }
         }
     }, [
-        _c("md-dialog-title", {
+        _c('md-dialog-title', {
             staticClass: "_dialogTitle"
         }, [
             _vm._v("Add Event")
         ]),
         _vm._v(" "),
-        _c("md-dialog-content", {
+        _c('md-dialog-content', {
             staticClass: "_dialogContainer",
             class: {
-                "created": _vm.pageSelected === _vm.PAGES.creation
+                'created': _vm.pageSelected === _vm.PAGES.creation
             }
         }, [
-            _vm.pageSelected === _vm.PAGES.selection ? _c("select-task-group", {
+            _vm.pageSelected === _vm.PAGES.selection ? _c('select-task-group', {
                 ref: "select-task-group",
                 on: {
                     "selectContext": _vm.selectContext,
                     "selectCategory": _vm.selectCategory,
                     "selectGroup": _vm.selectGroup
                 }
-            }) : _vm.pageSelected === _vm.PAGES.creation ? _c("div", {
+            }) : _vm.pageSelected === _vm.PAGES.creation ? _c('div', {
                 staticClass: "taskForm"
             }, [
-                _c("md-toolbar", {
+                _c('md-toolbar', {
                     staticClass: "toolbarHeader",
                     attrs: {
                         "md-elevation": "0"
                     }
                 }, [
-                    _c("md-button", {
+                    _c('md-button', {
                         staticClass: "md-dense md-primary",
                         on: {
                             "click": _vm.goToBack
                         }
                     }, [
-                        _c("md-icon", [
+                        _c('md-icon', [
                             _vm._v("keyboard_backspace")
                         ]),
                         _vm._v("\n               BACK\n            ")
                     ], 1)
                 ], 1),
                 _vm._v(" "),
-                _c("md-content", {
+                _c('md-content', {
                     staticClass: "container md-scrollbar"
                 }, [
-                    _c("md-field", [
-                        _c("label", [
+                    _c('md-field', [
+                        _c('label', [
                             _vm._v("Name")
                         ]),
                         _vm._v(" "),
-                        _c("md-input", {
+                        _c('md-input', {
                             model: {
                                 value: _vm.event.name,
                                 callback: function($$v) {
@@ -9553,19 +9553,19 @@ var render = function() {
                         })
                     ], 1),
                     _vm._v(" "),
-                    _c("div", {
+                    _c('div', {
                         staticClass: "dates"
                     }, [
-                        _c("div", {
+                        _c('div', {
                             staticClass: "begin"
                         }, [
-                            _c("datetime", {
+                            _c('datetime', {
                                 attrs: {
-                                    "format": "dd/MM/yyyy HH:mm",
+                                    "format": 'dd/MM/yyyy HH:mm',
                                     "min-datetime": _vm.startDateMin,
-                                    "title": "Start date",
-                                    "type": "datetime",
-                                    "input-id": "startDate",
+                                    "title": 'Start date',
+                                    "type": 'datetime',
+                                    "input-id": 'startDate',
                                     "input-style": _vm.beginInputStyle,
                                     "use12-hour": false
                                 },
@@ -9577,7 +9577,7 @@ var render = function() {
                                     expression: "event.startDate"
                                 }
                             }, [
-                                _c("label", {
+                                _c('label', {
                                     attrs: {
                                         "slot": "before",
                                         "for": "startDate"
@@ -9589,17 +9589,17 @@ var render = function() {
                             ])
                         ], 1),
                         _vm._v(" "),
-                        _c("div", {
+                        _c('div', {
                             staticClass: "end"
                         }, [
-                            _c("datetime", {
+                            _c('datetime', {
                                 attrs: {
-                                    "format": "dd/MM/yyyy HH:mm",
+                                    "format": 'dd/MM/yyyy HH:mm',
                                     "min-datetime": _vm.endDateMin,
                                     "max-datetime": _vm.endDateMax,
-                                    "title": "End date",
-                                    "type": "datetime",
-                                    "input-id": "endDate",
+                                    "title": 'End date',
+                                    "type": 'datetime',
+                                    "input-id": 'endDate',
                                     "input-style": _vm.beginInputStyle
                                 },
                                 model: {
@@ -9610,7 +9610,7 @@ var render = function() {
                                     expression: "event.endDate"
                                 }
                             }, [
-                                _c("label", {
+                                _c('label', {
                                     attrs: {
                                         "slot": "before",
                                         "for": "endDate"
@@ -9623,13 +9623,13 @@ var render = function() {
                         ], 1)
                     ]),
                     _vm._v(" "),
-                    _c("div", {
+                    _c('div', {
                         staticClass: "md-layout md-gutter periodicity"
                     }, [
-                        _c("div", {
+                        _c('div', {
                             staticClass: "md-layout-item md-size-1000 radios"
                         }, [
-                            _c("md-radio", {
+                            _c('md-radio', {
                                 staticClass: "md-primary",
                                 attrs: {
                                     "value": false
@@ -9645,7 +9645,7 @@ var render = function() {
                                 _vm._v("Repeat Once")
                             ]),
                             _vm._v(" "),
-                            _c("md-radio", {
+                            _c('md-radio', {
                                 staticClass: "md-primary",
                                 attrs: {
                                     "value": true
@@ -9662,11 +9662,11 @@ var render = function() {
                             ])
                         ], 1),
                         _vm._v(" "),
-                        _vm.event.repeat ? _c("div", {
+                        _vm.event.repeat ? _c('div', {
                             staticClass: "md-layout-item md-size-50 number"
                         }, [
-                            _c("md-field", [
-                                _c("md-input", {
+                            _c('md-field', [
+                                _c('md-input', {
                                     attrs: {
                                         "type": "number",
                                         "placeholder": "A nice placeholder"
@@ -9682,11 +9682,11 @@ var render = function() {
                             ], 1)
                         ], 1) : _vm._e(),
                         _vm._v(" "),
-                        _vm.event.repeat ? _c("div", {
+                        _vm.event.repeat ? _c('div', {
                             staticClass: "md-layout-item md-size-50 period"
                         }, [
-                            _c("md-field", [
-                                _c("label", {
+                            _c('md-field', [
+                                _c('label', {
                                     attrs: {
                                         "for": "Period"
                                     }
@@ -9694,7 +9694,7 @@ var render = function() {
                                     _vm._v("Period")
                                 ]),
                                 _vm._v(" "),
-                                _c("md-select", {
+                                _c('md-select', {
                                     attrs: {
                                         "name": "Period",
                                         "id": "Period"
@@ -9707,7 +9707,7 @@ var render = function() {
                                         expression: "event.periodicity.period"
                                     }
                                 }, _vm._l(Object.keys(_vm.PERIODS), function(period, index) {
-                                    return _c("md-option", {
+                                    return _c('md-option', {
                                         key: index,
                                         attrs: {
                                             "value": _vm.PERIODS[period],
@@ -9720,16 +9720,16 @@ var render = function() {
                             ], 1)
                         ], 1) : _vm._e(),
                         _vm._v(" "),
-                        _vm.event.repeat ? _c("div", {
+                        _vm.event.repeat ? _c('div', {
                             staticClass: "repeatEnd md-layout-item md-size-100"
                         }, [
-                            _c("datetime", {
+                            _c('datetime', {
                                 attrs: {
-                                    "format": "dd/MM/yyyy",
+                                    "format": 'dd/MM/yyyy',
                                     "min-datetime": _vm.repeatEndMin,
-                                    "title": "repeat until",
-                                    "type": "date",
-                                    "input-id": "endDate",
+                                    "title": 'repeat until',
+                                    "type": 'date',
+                                    "input-id": 'endDate',
                                     "input-style": _vm.beginInputStyle
                                 },
                                 model: {
@@ -9740,7 +9740,7 @@ var render = function() {
                                     expression: "event.repeatEnd"
                                 }
                             }, [
-                                _c("label", {
+                                _c('label', {
                                     attrs: {
                                         "slot": "before",
                                         "for": "endDate"
@@ -9753,15 +9753,15 @@ var render = function() {
                         ], 1) : _vm._e()
                     ]),
                     _vm._v(" "),
-                    _c("div", {
+                    _c('div', {
                         staticClass: "description"
                     }, [
-                        _c("md-field", [
-                            _c("label", [
+                        _c('md-field', [
+                            _c('label', [
                                 _vm._v("Description")
                             ]),
                             _vm._v(" "),
-                            _c("md-textarea", {
+                            _c('md-textarea', {
                                 model: {
                                     value: _vm.event.description,
                                     callback: function($$v) {
@@ -9776,8 +9776,8 @@ var render = function() {
             ], 1) : _vm._e()
         ], 1),
         _vm._v(" "),
-        _c("md-dialog-actions", [
-            _c("md-button", {
+        _c('md-dialog-actions', [
+            _c('md-button', {
                 staticClass: "md-primary",
                 on: {
                     "click": function($event) {
@@ -9788,7 +9788,7 @@ var render = function() {
                 _vm._v("Cancel")
             ]),
             _vm._v(" "),
-            _vm.pageSelected === _vm.PAGES.selection ? _c("md-button", {
+            _vm.pageSelected === _vm.PAGES.selection ? _c('md-button', {
                 staticClass: "md-primary",
                 attrs: {
                     "disabled": _vm.disableNextBtn()
@@ -9798,7 +9798,7 @@ var render = function() {
                 }
             }, [
                 _vm._v("NEXT")
-            ]) : _vm.pageSelected === _vm.PAGES.creation ? _c("md-button", {
+            ]) : _vm.pageSelected === _vm.PAGES.creation ? _c('md-button', {
                 staticClass: "md-primary",
                 attrs: {
                     "disabled": _vm.disableOkBtn()
@@ -9818,13 +9818,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"1tZBA":[function() {},{}],"8uduj":[function(require,module,exports) {
+},{}],"1tZBA":[function() {},{}],"8uduj":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"irCJb":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"irCJb":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -9833,16 +9833,16 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("514cfec9e1b06c8a").render;
     script.staticRenderFns = require("514cfec9e1b06c8a").staticRenderFns;
-    script._scopeId = "data-v-bb8279";
+    script._scopeId = "data-v-c5ff53";
     script.__cssModules = require("5c00754cbd2fbc0b").default;
     require("7f6c472c046f6889").default(script);
-    script.__scopeId = "data-v-bb8279";
+    script.__scopeId = 'data-v-c5ff53';
     script.__file = "editTask.vue";
 };
 initialize();
 exports.default = script;
 
-},{"f1f4d4f760d90b6b":"fu7jh","514cfec9e1b06c8a":"adsBa","5c00754cbd2fbc0b":"i7YUS","7f6c472c046f6889":"hN7r9","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fu7jh":[function(require,module,exports) {
+},{"f1f4d4f760d90b6b":"fu7jh","514cfec9e1b06c8a":"adsBa","5c00754cbd2fbc0b":"i7YUS","7f6c472c046f6889":"hN7r9","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fu7jh":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerTaskService = require("spinal-env-viewer-task-service");
@@ -9928,15 +9928,15 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"spinal-env-viewer-task-service":"4IrFb","vue-datetime":"1I8ef","../components/selectTaskGroup.vue":"TjfyS","../components/taskForm.vue":"doRPm","moment":"jwcsj","spinal-env-viewer-plugin-forge":"8YZk7","../../js/event":"kMoPM","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"adsBa":[function(require,module,exports) {
+},{"spinal-env-viewer-task-service":"4IrFb","vue-datetime":"1I8ef","../components/selectTaskGroup.vue":"TjfyS","../components/taskForm.vue":"doRPm","moment":"jwcsj","spinal-env-viewer-plugin-forge":"8YZk7","../../js/event":"kMoPM","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"adsBa":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("md-dialog", {
+    return _c('md-dialog', {
         attrs: {
             "md-active": _vm.showDialog
         },
@@ -9952,27 +9952,27 @@ var render = function() {
             }
         }
     }, [
-        _c("md-dialog-title", {
+        _c('md-dialog-title', {
             staticClass: "_dialogTitle"
         }, [
             _vm._v("Edit Event")
         ]),
         _vm._v(" "),
-        _c("md-dialog-content", {
+        _c('md-dialog-content', {
             staticClass: "_dialogContainer"
         }, [
-            _c("div", {
+            _c('div', {
                 staticClass: "taskForm"
             }, [
-                _c("div", {
+                _c('div', {
                     staticClass: "container"
                 }, [
-                    _c("md-field", [
-                        _c("label", [
+                    _c('md-field', [
+                        _c('label', [
                             _vm._v("Name")
                         ]),
                         _vm._v(" "),
-                        _c("md-input", {
+                        _c('md-input', {
                             model: {
                                 value: _vm.event.name,
                                 callback: function($$v) {
@@ -9983,19 +9983,19 @@ var render = function() {
                         })
                     ], 1),
                     _vm._v(" "),
-                    _c("div", {
+                    _c('div', {
                         staticClass: "dates"
                     }, [
-                        _c("div", {
+                        _c('div', {
                             staticClass: "begin"
                         }, [
-                            _c("datetime", {
+                            _c('datetime', {
                                 attrs: {
-                                    "format": "dd/MM/yyyy HH:mm",
+                                    "format": 'dd/MM/yyyy HH:mm',
                                     "min-datetime": _vm.startDateMin,
-                                    "title": "Start date",
-                                    "type": "datetime",
-                                    "input-id": "startDate",
+                                    "title": 'Start date',
+                                    "type": 'datetime',
+                                    "input-id": 'startDate',
                                     "input-style": _vm.beginInputStyle
                                 },
                                 model: {
@@ -10006,7 +10006,7 @@ var render = function() {
                                     expression: "event.startDate"
                                 }
                             }, [
-                                _c("label", {
+                                _c('label', {
                                     attrs: {
                                         "slot": "before",
                                         "for": "startDate"
@@ -10018,17 +10018,17 @@ var render = function() {
                             ])
                         ], 1),
                         _vm._v(" "),
-                        _c("div", {
+                        _c('div', {
                             staticClass: "end"
                         }, [
-                            _c("datetime", {
+                            _c('datetime', {
                                 attrs: {
-                                    "format": "dd/MM/yyyy HH:mm",
+                                    "format": 'dd/MM/yyyy HH:mm',
                                     "min-datetime": _vm.endDateMin,
                                     "max-datetime": _vm.endDateMax,
-                                    "title": "End date",
-                                    "type": "datetime",
-                                    "input-id": "endDate",
+                                    "title": 'End date',
+                                    "type": 'datetime',
+                                    "input-id": 'endDate',
                                     "input-style": _vm.beginInputStyle
                                 },
                                 model: {
@@ -10039,7 +10039,7 @@ var render = function() {
                                     expression: "event.endDate"
                                 }
                             }, [
-                                _c("label", {
+                                _c('label', {
                                     attrs: {
                                         "slot": "before",
                                         "for": "endDate"
@@ -10055,8 +10055,8 @@ var render = function() {
             ])
         ]),
         _vm._v(" "),
-        _c("md-dialog-actions", [
-            _c("md-button", {
+        _c('md-dialog-actions', [
+            _c('md-button', {
                 staticClass: "md-primary",
                 on: {
                     "click": function($event) {
@@ -10067,7 +10067,7 @@ var render = function() {
                 _vm._v("Cancel")
             ]),
             _vm._v(" "),
-            _c("md-button", {
+            _c('md-button', {
                 staticClass: "md-primary",
                 attrs: {
                     "disabled": _vm.disableOkBtn()
@@ -10087,13 +10087,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"i7YUS":[function() {},{}],"hN7r9":[function(require,module,exports) {
+},{}],"i7YUS":[function() {},{}],"hN7r9":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hNLxP":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hNLxP":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -10102,16 +10102,16 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("16801a9635acd63a").render;
     script.staticRenderFns = require("16801a9635acd63a").staticRenderFns;
-    script._scopeId = "data-v-60ed49";
+    script._scopeId = "data-v-3fafcd";
     script.__cssModules = require("c5c5dbd9cc614553").default;
     require("77091d72c75ddf65").default(script);
-    script.__scopeId = "data-v-60ed49";
+    script.__scopeId = 'data-v-3fafcd';
     script.__file = "confirm-dialog.vue";
 };
 initialize();
 exports.default = script;
 
-},{"efa5e879f56961c4":"iwE83","16801a9635acd63a":"10kLU","c5c5dbd9cc614553":"lPFfu","77091d72c75ddf65":"bIFPQ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"iwE83":[function(require,module,exports) {
+},{"efa5e879f56961c4":"iwE83","16801a9635acd63a":"10kLU","c5c5dbd9cc614553":"lPFfu","77091d72c75ddf65":"bIFPQ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"iwE83":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerTaskService = require("spinal-env-viewer-task-service");
@@ -10206,15 +10206,15 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"spinal-env-viewer-task-service":"4IrFb","../../js/event":"kMoPM","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"10kLU":[function(require,module,exports) {
+},{"spinal-env-viewer-task-service":"4IrFb","../../js/event":"kMoPM","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"10kLU":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("md-dialog", {
+    return _c('md-dialog', {
         attrs: {
             "md-active": _vm.showDialog
         },
@@ -10230,18 +10230,18 @@ var render = function() {
             }
         }
     }, [
-        _c("md-dialog-title", {
+        _c('md-dialog-title', {
             staticClass: "_dialogTitle"
         }, [
             _vm._v("Delete event(s)")
         ]),
         _vm._v(" "),
-        _c("md-dialog-content", [
-            _vm.event && _vm.event.reference ? _c("div", _vm._l(_vm.choices, function(choice) {
-                return _c("div", {
+        _c('md-dialog-content', [
+            _vm.event && _vm.event.reference ? _c('div', _vm._l(_vm.choices, function(choice) {
+                return _c('div', {
                     key: choice.value
                 }, [
-                    _c("md-radio", {
+                    _c('md-radio', {
                         staticClass: "md-primary",
                         attrs: {
                             "value": choice.value
@@ -10257,13 +10257,13 @@ var render = function() {
                         _vm._v(_vm._s(choice.message))
                     ])
                 ], 1);
-            }), 0) : _c("div", [
+            }), 0) : _c('div', [
                 _vm._v("\n         Do you want to remove this event ?\n      ")
             ])
         ]),
         _vm._v(" "),
-        _c("md-dialog-actions", [
-            _c("md-button", {
+        _c('md-dialog-actions', [
+            _c('md-button', {
                 staticClass: "md-primary",
                 on: {
                     "click": function($event) {
@@ -10274,7 +10274,7 @@ var render = function() {
                 _vm._v("Cancel")
             ]),
             _vm._v(" "),
-            _c("md-button", {
+            _c('md-button', {
                 staticClass: "md-primary",
                 on: {
                     "click": function($event) {
@@ -10291,13 +10291,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"lPFfu":[function() {},{}],"bIFPQ":[function(require,module,exports) {
+},{}],"lPFfu":[function() {},{}],"bIFPQ":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jVpnz":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jVpnz":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -10306,16 +10306,16 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("e620721d38dc7ea0").render;
     script.staticRenderFns = require("e620721d38dc7ea0").staticRenderFns;
-    script._scopeId = "data-v-75135d";
+    script._scopeId = "data-v-6ce78e";
     script.__cssModules = require("79c263eab6af1ba8").default;
     require("694610824cca8b76").default(script);
-    script.__scopeId = "data-v-75135d";
+    script.__scopeId = 'data-v-6ce78e';
     script.__file = "delete-all.vue";
 };
 initialize();
 exports.default = script;
 
-},{"c3613ebe53242342":"1K8Z2","e620721d38dc7ea0":"hSLOl","79c263eab6af1ba8":"jHJIL","694610824cca8b76":"4htIl","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1K8Z2":[function(require,module,exports) {
+},{"c3613ebe53242342":"1K8Z2","e620721d38dc7ea0":"hSLOl","79c263eab6af1ba8":"jHJIL","694610824cca8b76":"4htIl","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1K8Z2":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerTaskService = require("spinal-env-viewer-task-service");
@@ -10359,15 +10359,15 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"spinal-env-viewer-task-service":"4IrFb","../../js/event":"kMoPM","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hSLOl":[function(require,module,exports) {
+},{"spinal-env-viewer-task-service":"4IrFb","../../js/event":"kMoPM","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hSLOl":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("md-dialog", {
+    return _c('md-dialog', {
         attrs: {
             "md-active": _vm.showDialog
         },
@@ -10383,18 +10383,18 @@ var render = function() {
             }
         }
     }, [
-        _c("md-dialog-title", {
+        _c('md-dialog-title', {
             staticClass: "_dialogTitle"
         }, [
             _vm._v("Delete")
         ]),
         _vm._v(" "),
-        _c("md-dialog-content", [
+        _c('md-dialog-content', [
             _vm._v("\n    Do you want delete all events ?\n  ")
         ]),
         _vm._v(" "),
-        _c("md-dialog-actions", [
-            _c("md-button", {
+        _c('md-dialog-actions', [
+            _c('md-button', {
                 staticClass: "md-primary",
                 on: {
                     "click": function($event) {
@@ -10405,7 +10405,7 @@ var render = function() {
                 _vm._v("Cancel")
             ]),
             _vm._v(" "),
-            _c("md-button", {
+            _c('md-button', {
                 staticClass: "md-accent",
                 on: {
                     "click": function($event) {
@@ -10422,13 +10422,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"jHJIL":[function() {},{}],"4htIl":[function(require,module,exports) {
+},{}],"jHJIL":[function() {},{}],"4htIl":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9BbSS":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9BbSS":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _vue = require("vue");
 var _vueDefault = parcelHelpers.interopDefault(_vue);
@@ -10469,7 +10469,7 @@ for (const element of panels){
     (0, _spinalEnvViewerPanelManagerServiceSpinalforgeextention.SpinalForgeExtention).registerExtention(element.name, panelExtension);
 }
 
-},{"vue":"gt5MM","spinal-env-viewer-panel-manager-service_spinalforgeextention":"1mGHd","./taskPanel.vue":"kxD8T","./seeEventDetail.vue":"3DYxy","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1mGHd":[function(require,module,exports) {
+},{"vue":"gt5MM","spinal-env-viewer-panel-manager-service_spinalforgeextention":"1mGHd","./taskPanel.vue":"kxD8T","./seeEventDetail.vue":"3DYxy","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1mGHd":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -10498,7 +10498,7 @@ module.exports = {
     SpinalForgeExtention
 };
 
-},{"bf7edd8450503e22":"7Uw4d","64bd1569b4ded066":"gsEky"}],"gsEky":[function(require,module,exports) {
+},{"bf7edd8450503e22":"7Uw4d","64bd1569b4ded066":"gsEky"}],"gsEky":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
  * 
@@ -10733,7 +10733,7 @@ function getPanel() {
     };
 };
 
-},{}],"kxD8T":[function(require,module,exports) {
+},{}],"kxD8T":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -10742,16 +10742,16 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("a194596b385a160c").render;
     script.staticRenderFns = require("a194596b385a160c").staticRenderFns;
-    script._scopeId = "data-v-5cbbd9";
+    script._scopeId = "data-v-4434b9";
     script.__cssModules = require("9a02250486fd93ad").default;
     require("a75fa4f2f30d6f54").default(script);
-    script.__scopeId = "data-v-5cbbd9";
+    script.__scopeId = 'data-v-4434b9';
     script.__file = "taskPanel.vue";
 };
 initialize();
 exports.default = script;
 
-},{"2ce2bd86d31a156b":"9nPQ5","a194596b385a160c":"3g7Se","9a02250486fd93ad":"im95M","a75fa4f2f30d6f54":"g4ZZF","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9nPQ5":[function(require,module,exports) {
+},{"2ce2bd86d31a156b":"9nPQ5","a194596b385a160c":"3g7Se","9a02250486fd93ad":"im95M","a75fa4f2f30d6f54":"g4ZZF","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9nPQ5":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerPanelManagerService = require("spinal-env-viewer-panel-manager-service");
@@ -11054,10 +11054,10 @@ var scriptExports = {
         this.styleTag.remove();
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"spinal-env-viewer-panel-manager-service":"7Uw4d","spinal-env-viewer-task-service":"4IrFb","spinal-env-viewer-graph-service":"9n7zp","spinal-env-viewer-plugin-group-manager-service":"tSLpq","../../buttons/standard_buttons/select":"1EoGn","vue-cal":"6ZWlS","moment":"jwcsj","../../js/event":"kMoPM","spinal-env-viewer-plugin-note-standard-buttons-service":"9JoRD","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6ZWlS":[function(require,module,exports) {
+},{"spinal-env-viewer-panel-manager-service":"7Uw4d","spinal-env-viewer-task-service":"4IrFb","spinal-env-viewer-graph-service":"9n7zp","spinal-env-viewer-plugin-group-manager-service":"tSLpq","../../buttons/standard_buttons/select":"1EoGn","vue-cal":"6ZWlS","moment":"jwcsj","../../js/event":"kMoPM","spinal-env-viewer-plugin-note-standard-buttons-service":"9JoRD","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6ZWlS":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "default", ()=>K);
@@ -11432,7 +11432,7 @@ const j = E({
                                             e._v(e._s(i.xsmall))
                                         ]),
                                         i.dayOfMonth ? t("span", [
-                                            e._v("\xa0" + e._s(i.dayOfMonth))
+                                            e._v("\xA0" + e._s(i.dayOfMonth))
                                         ]) : e._e()
                                     ];
                                 }, {
@@ -12515,11 +12515,11 @@ var U = function() {
                         return [
                             e._t("arrow-prev", function() {
                                 return [
-                                    e._v("\xa0"),
+                                    e._v("\xA0"),
                                     t("i", {
                                         staticClass: "angle"
                                     }),
-                                    e._v("\xa0")
+                                    e._v("\xA0")
                                 ];
                             })
                         ];
@@ -12532,11 +12532,11 @@ var U = function() {
                         return [
                             e._t("arrow-next", function() {
                                 return [
-                                    e._v("\xa0"),
+                                    e._v("\xA0"),
                                     t("i", {
                                         staticClass: "angle"
                                     }),
-                                    e._v("\xa0")
+                                    e._v("\xA0")
                                 ];
                             })
                         ];
@@ -12942,12 +12942,12 @@ var U = function() {
                                                                 }, [
                                                                     e._v(e._s(e.utils.date.formatTime(s.start, e.TimeFormat))),
                                                                     s.endTimeMinutes ? t("span", [
-                                                                        e._v("\xa0- " + e._s(e.utils.date.formatTime(s.end, e.TimeFormat, null, !0)))
+                                                                        e._v("\xA0- " + e._s(e.utils.date.formatTime(s.end, e.TimeFormat, null, !0)))
                                                                     ]) : e._e(),
                                                                     s.daysCount > 1 && (s.segments[i.formattedDate] || {}).isFirstDay ? t("small", {
                                                                         staticClass: "days-to-end"
                                                                     }, [
-                                                                        e._v("\xa0+" + e._s(s.daysCount - 1) + e._s((e.texts.day[0] || "").toLowerCase()))
+                                                                        e._v("\xA0+" + e._s(s.daysCount - 1) + e._s((e.texts.day[0] || "").toLowerCase()))
                                                                     ]) : e._e()
                                                                 ]),
                                                                 !s.content || e.isMonthView && s.allDay && e.showAllDayEvents === "short" || e.isShortMonthView ? e._e() : t("div", {
@@ -14345,144 +14345,144 @@ A valid view must be one of: ${$.join(", ")}.`), e = "week"), this.enabledViews.
     }
 }, K = E(X, U, R, !1, null, null, null, null).exports;
 
-},{"vue":"gt5MM","f0fa925e02af64a":"g8JZh","bf8cdfcf886e559c":"9AxSa","a33cff303c8d931a":"jjAoK","55be709f1e1bab2a":"4DrxM","d4454ff899a9f20f":"bE3EH","a786fe15d782842b":"kBDxo","f13243010cba6d9":"8btHg","b1ee7440a9150f76":"lqrqy","4c6bf7e984ebb2c":"aDtcK","6a3b69c669f3a8c5":"jJ3wQ","7f08411c43891e12":"hZt5Y","9010ea87755bfd44":"kAUpm","9eb04d2896fe2c2e":"kCE4Z","ad63c315d8137be6":"6OcEI","edb242a38777152c":"6tZKO","df4aaf80e88b18c0":"5csV3","907e1b6ed7028d7d":"4xJ0e","f9d4189e276d1cee":"i7m9Q","c5555a96bfa6dc88":"f7Lh9","e05b3e5461f759e3":"g308L","c3fc984dc903065b":"aB17z","51222cf030fc22d2":"cChnu","c4f873be1fe6156b":"cPAdW","1d69b805feb6f37d":"4fEwA","e1300d0446362d5a":"f6IZe","7f757e6bfa754288":"b75xV","f3f8b86a613a6b50":"kQGPO","7fc3197901523eae":"dAda2","80e765a84adb4b6f":"j9Etp","471b3ef52b0a2635":"4ZDMU","338cd8afc38eefc4":"2N0uv","b1b9aa9943fa62cf":"gna8J","a4b65c06faa8a745":"BUxqC","80fb8ebee13e32fe":"6MFTd","e7d1cec05379fb9f":"c0hJv","fa892a154f367669":"kszSH","9ff3f4b89912a46a":"g478P","2dd779d9af62e6bc":"hGHfi","d33328fee483a8e5":"a0xFx","9c01d75de1bf848e":"cGQvn","78eff6abf90f484a":"6zYl5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"g8JZh":[function(require,module,exports) {
-module.exports = require("814845e7c93e2b43")(require("f588296c68f6bf77").resolve("6BWFL")).then(()=>module.bundle.root("9cvJa"));
+},{"vue":"gt5MM","f0fa925e02af64a":"7xF8p","bf8cdfcf886e559c":"5v2nP","a33cff303c8d931a":"c5u5U","55be709f1e1bab2a":"1lKf2","d4454ff899a9f20f":"gVCfW","a786fe15d782842b":"7N9e0","f13243010cba6d9":"smwoZ","b1ee7440a9150f76":"jkTxA","4c6bf7e984ebb2c":"21f4G","6a3b69c669f3a8c5":"dkw76","7f08411c43891e12":"lpfvD","9010ea87755bfd44":"5bXK0","9eb04d2896fe2c2e":"gX4wi","ad63c315d8137be6":"kIOTF","edb242a38777152c":"dt6b2","df4aaf80e88b18c0":"ikURP","907e1b6ed7028d7d":"l3x9t","f9d4189e276d1cee":"hyjmr","c5555a96bfa6dc88":"fs5at","e05b3e5461f759e3":"kVpyy","c3fc984dc903065b":"bAfm0","51222cf030fc22d2":"jRAwT","c4f873be1fe6156b":"2MuvG","1d69b805feb6f37d":"9ITKt","e1300d0446362d5a":"7Ai9O","7f757e6bfa754288":"9NwXZ","f3f8b86a613a6b50":"fWxOP","7fc3197901523eae":"4udRm","80e765a84adb4b6f":"bg51z","471b3ef52b0a2635":"gap93","338cd8afc38eefc4":"9ZJOJ","b1b9aa9943fa62cf":"2kgks","a4b65c06faa8a745":"ezczH","80fb8ebee13e32fe":"gcltp","e7d1cec05379fb9f":"lGg4B","fa892a154f367669":"lIAAU","9ff3f4b89912a46a":"412md","2dd779d9af62e6bc":"7XFWO","d33328fee483a8e5":"lRrVz","9c01d75de1bf848e":"80UDS","78eff6abf90f484a":"8j5Sw","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7xF8p":[function(require,module,exports,__globalThis) {
+module.exports = require("e64e2498ad1f9ea9")(require("d87f52a724a03e00").resolve("6BWFL")).then(()=>module.bundle.root('9cvJa'));
 
-},{"814845e7c93e2b43":"61B45","f588296c68f6bf77":"gS3k4"}],"9AxSa":[function(require,module,exports) {
-module.exports = require("6ea7247306c9bfa7")(require("910eb6376c21a3f6").resolve("aRBsc")).then(()=>module.bundle.root("1oFYA"));
+},{"e64e2498ad1f9ea9":"61B45","d87f52a724a03e00":"gS3k4"}],"5v2nP":[function(require,module,exports,__globalThis) {
+module.exports = require("dd293962c1164c3a")(require("2c814850b83b4d").resolve("aRBsc")).then(()=>module.bundle.root('1oFYA'));
 
-},{"6ea7247306c9bfa7":"61B45","910eb6376c21a3f6":"gS3k4"}],"jjAoK":[function(require,module,exports) {
-module.exports = require("65c34b58c11208b5")(require("d503532863258ae0").resolve("4OxpP")).then(()=>module.bundle.root("gTAv8"));
+},{"dd293962c1164c3a":"61B45","2c814850b83b4d":"gS3k4"}],"c5u5U":[function(require,module,exports,__globalThis) {
+module.exports = require("8fd2bcaabd8b253f")(require("bb6871b501a7a879").resolve("4OxpP")).then(()=>module.bundle.root('gTAv8'));
 
-},{"65c34b58c11208b5":"61B45","d503532863258ae0":"gS3k4"}],"4DrxM":[function(require,module,exports) {
-module.exports = require("3f44b6ee486de69d")(require("d1e72732e5bf245a").resolve("04W38")).then(()=>module.bundle.root("kp2Uz"));
+},{"8fd2bcaabd8b253f":"61B45","bb6871b501a7a879":"gS3k4"}],"1lKf2":[function(require,module,exports,__globalThis) {
+module.exports = require("d68183f111dc3a7")(require("58c2585837880003").resolve("04W38")).then(()=>module.bundle.root('kp2Uz'));
 
-},{"3f44b6ee486de69d":"61B45","d1e72732e5bf245a":"gS3k4"}],"bE3EH":[function(require,module,exports) {
-module.exports = require("63a46126bfc316d4")(require("a95afe0f6b38071b").resolve("4lFjx")).then(()=>module.bundle.root("kRXZz"));
+},{"d68183f111dc3a7":"61B45","58c2585837880003":"gS3k4"}],"gVCfW":[function(require,module,exports,__globalThis) {
+module.exports = require("85070e53f7be6beb")(require("8173983e180f3895").resolve("4lFjx")).then(()=>module.bundle.root('kRXZz'));
 
-},{"63a46126bfc316d4":"61B45","a95afe0f6b38071b":"gS3k4"}],"kBDxo":[function(require,module,exports) {
-module.exports = require("3c503a5df9ffe0")(require("de888cac7a605a00").resolve("9ZjgO")).then(()=>module.bundle.root("etoix"));
+},{"85070e53f7be6beb":"61B45","8173983e180f3895":"gS3k4"}],"7N9e0":[function(require,module,exports,__globalThis) {
+module.exports = require("74f643f3c2cbc5cf")(require("d344b105080e6a2a").resolve("9ZjgO")).then(()=>module.bundle.root('etoix'));
 
-},{"3c503a5df9ffe0":"61B45","de888cac7a605a00":"gS3k4"}],"8btHg":[function(require,module,exports) {
-module.exports = require("b1a64d540a94fb17")(require("c9c801ac19bea8da").resolve("aEDym")).then(()=>module.bundle.root("gFlod"));
+},{"74f643f3c2cbc5cf":"61B45","d344b105080e6a2a":"gS3k4"}],"smwoZ":[function(require,module,exports,__globalThis) {
+module.exports = require("d723ffd9453b6676")(require("928ccd2343caaa11").resolve("aEDym")).then(()=>module.bundle.root('gFlod'));
 
-},{"b1a64d540a94fb17":"61B45","c9c801ac19bea8da":"gS3k4"}],"lqrqy":[function(require,module,exports) {
-module.exports = require("c1422c71700649a1")(require("2d87c70b712b0576").resolve("eLpfs")).then(()=>module.bundle.root("e86OD"));
+},{"d723ffd9453b6676":"61B45","928ccd2343caaa11":"gS3k4"}],"jkTxA":[function(require,module,exports,__globalThis) {
+module.exports = require("a35df7580d206df8")(require("d18399af85380e5c").resolve("eLpfs")).then(()=>module.bundle.root('e86OD'));
 
-},{"c1422c71700649a1":"61B45","2d87c70b712b0576":"gS3k4"}],"aDtcK":[function(require,module,exports) {
-module.exports = require("eba18828b94776e0")(require("c672468a0241ea21").resolve("kT0El")).then(()=>module.bundle.root("jfOw4"));
+},{"a35df7580d206df8":"61B45","d18399af85380e5c":"gS3k4"}],"21f4G":[function(require,module,exports,__globalThis) {
+module.exports = require("ee7fa2b4d71851c1")(require("78e735394c3af14b").resolve("kT0El")).then(()=>module.bundle.root('jfOw4'));
 
-},{"eba18828b94776e0":"61B45","c672468a0241ea21":"gS3k4"}],"jJ3wQ":[function(require,module,exports) {
-module.exports = require("1c272618d6d11d00")(require("edcf39ce28edcb").resolve("5BN10")).then(()=>module.bundle.root("dsPir"));
+},{"ee7fa2b4d71851c1":"61B45","78e735394c3af14b":"gS3k4"}],"dkw76":[function(require,module,exports,__globalThis) {
+module.exports = require("1b83e6396c60da21")(require("e419b2fff0642c1d").resolve("5BN10")).then(()=>module.bundle.root('dsPir'));
 
-},{"1c272618d6d11d00":"61B45","edcf39ce28edcb":"gS3k4"}],"hZt5Y":[function(require,module,exports) {
-module.exports = require("aaac10bd92989a16")(require("7502909faef10f5d").resolve("grPG9")).then(()=>module.bundle.root("1FDkN"));
+},{"1b83e6396c60da21":"61B45","e419b2fff0642c1d":"gS3k4"}],"lpfvD":[function(require,module,exports,__globalThis) {
+module.exports = require("1b88035aa505d727")(require("2a9fb868eba0c1e2").resolve("grPG9")).then(()=>module.bundle.root('1FDkN'));
 
-},{"aaac10bd92989a16":"61B45","7502909faef10f5d":"gS3k4"}],"kAUpm":[function(require,module,exports) {
-module.exports = require("d2386d7923677443")(require("a2366ab1a01444a9").resolve("Kk1gA")).then(()=>module.bundle.root("5J4Vj"));
+},{"1b88035aa505d727":"61B45","2a9fb868eba0c1e2":"gS3k4"}],"5bXK0":[function(require,module,exports,__globalThis) {
+module.exports = require("a6a744422aa138cf")(require("39e7d298dbb34ead").resolve("Kk1gA")).then(()=>module.bundle.root('5J4Vj'));
 
-},{"d2386d7923677443":"61B45","a2366ab1a01444a9":"gS3k4"}],"kCE4Z":[function(require,module,exports) {
-module.exports = require("5eb58467368c65a6")(require("c39a83e85e3b2035").resolve("fcNpg")).then(()=>module.bundle.root("2gMt4"));
+},{"a6a744422aa138cf":"61B45","39e7d298dbb34ead":"gS3k4"}],"gX4wi":[function(require,module,exports,__globalThis) {
+module.exports = require("63843ce46ed89ee9")(require("d538052c7ca2fda8").resolve("fcNpg")).then(()=>module.bundle.root('2gMt4'));
 
-},{"5eb58467368c65a6":"61B45","c39a83e85e3b2035":"gS3k4"}],"6OcEI":[function(require,module,exports) {
-module.exports = require("c6843a2d5c0180d8")(require("8f55beffd77f3a56").resolve("hDRR3")).then(()=>module.bundle.root("bkElG"));
+},{"63843ce46ed89ee9":"61B45","d538052c7ca2fda8":"gS3k4"}],"kIOTF":[function(require,module,exports,__globalThis) {
+module.exports = require("12470b96e623c1c5")(require("e7d490e24a3e8ca").resolve("hDRR3")).then(()=>module.bundle.root('bkElG'));
 
-},{"c6843a2d5c0180d8":"61B45","8f55beffd77f3a56":"gS3k4"}],"6tZKO":[function(require,module,exports) {
-module.exports = require("7f2c250a72cecb9c")(require("6fe0d1659be3f62a").resolve("1eD2g")).then(()=>module.bundle.root("Y5QLU"));
+},{"12470b96e623c1c5":"61B45","e7d490e24a3e8ca":"gS3k4"}],"dt6b2":[function(require,module,exports,__globalThis) {
+module.exports = require("fd909863dfa230ff")(require("4284325bf78d994e").resolve("1eD2g")).then(()=>module.bundle.root('Y5QLU'));
 
-},{"7f2c250a72cecb9c":"61B45","6fe0d1659be3f62a":"gS3k4"}],"5csV3":[function(require,module,exports) {
-module.exports = require("e5cf1293baa251a6")(require("89d6b6631ba610ce").resolve("7CAEU")).then(()=>module.bundle.root("ehZFI"));
+},{"fd909863dfa230ff":"61B45","4284325bf78d994e":"gS3k4"}],"ikURP":[function(require,module,exports,__globalThis) {
+module.exports = require("be3b18692a9b2ff8")(require("62542073d25be4f2").resolve("7CAEU")).then(()=>module.bundle.root('ehZFI'));
 
-},{"e5cf1293baa251a6":"61B45","89d6b6631ba610ce":"gS3k4"}],"4xJ0e":[function(require,module,exports) {
-module.exports = require("170e91cbfe68ff4")(require("6263f8fbe1ca39a8").resolve("8aWF0")).then(()=>module.bundle.root("2G15t"));
+},{"be3b18692a9b2ff8":"61B45","62542073d25be4f2":"gS3k4"}],"l3x9t":[function(require,module,exports,__globalThis) {
+module.exports = require("954e510eb61a4cd6")(require("2eb4c0eae1adcbaa").resolve("8aWF0")).then(()=>module.bundle.root('2G15t'));
 
-},{"170e91cbfe68ff4":"61B45","6263f8fbe1ca39a8":"gS3k4"}],"i7m9Q":[function(require,module,exports) {
-module.exports = require("27e65f7058d78add")(require("256172661b6c3f13").resolve("hJdUj")).then(()=>module.bundle.root("9pmVJ"));
+},{"954e510eb61a4cd6":"61B45","2eb4c0eae1adcbaa":"gS3k4"}],"hyjmr":[function(require,module,exports,__globalThis) {
+module.exports = require("7bbed03a416ba30a")(require("8720c669175598d").resolve("hJdUj")).then(()=>module.bundle.root('9pmVJ'));
 
-},{"27e65f7058d78add":"61B45","256172661b6c3f13":"gS3k4"}],"f7Lh9":[function(require,module,exports) {
-module.exports = require("4964d1d3d0af9ec2")(require("a93dddea81448243").resolve("1chdk")).then(()=>module.bundle.root("1O8SZ"));
+},{"7bbed03a416ba30a":"61B45","8720c669175598d":"gS3k4"}],"fs5at":[function(require,module,exports,__globalThis) {
+module.exports = require("108c33c4264a0f93")(require("d71d484b7102fe57").resolve("1chdk")).then(()=>module.bundle.root('1O8SZ'));
 
-},{"4964d1d3d0af9ec2":"61B45","a93dddea81448243":"gS3k4"}],"g308L":[function(require,module,exports) {
-module.exports = require("90e32f3761dbca6d")(require("3fc1b50bbf109bfb").resolve("g1Ncl")).then(()=>module.bundle.root("8arDn"));
+},{"108c33c4264a0f93":"61B45","d71d484b7102fe57":"gS3k4"}],"kVpyy":[function(require,module,exports,__globalThis) {
+module.exports = require("597dffa762797a25")(require("866c85b24f9c8d04").resolve("g1Ncl")).then(()=>module.bundle.root('8arDn'));
 
-},{"90e32f3761dbca6d":"61B45","3fc1b50bbf109bfb":"gS3k4"}],"aB17z":[function(require,module,exports) {
-module.exports = require("9dc8f802d669e8dc")(require("7dc2409a21c0f215").resolve("3RGrr")).then(()=>module.bundle.root("9GTo8"));
+},{"597dffa762797a25":"61B45","866c85b24f9c8d04":"gS3k4"}],"bAfm0":[function(require,module,exports,__globalThis) {
+module.exports = require("1a6045e940c97946")(require("329133aa88ba7478").resolve("3RGrr")).then(()=>module.bundle.root('9GTo8'));
 
-},{"9dc8f802d669e8dc":"61B45","7dc2409a21c0f215":"gS3k4"}],"cChnu":[function(require,module,exports) {
-module.exports = require("8c2c11d954085611")(require("5e2157d72152abb8").resolve("8VUYv")).then(()=>module.bundle.root("e2LgB"));
+},{"1a6045e940c97946":"61B45","329133aa88ba7478":"gS3k4"}],"jRAwT":[function(require,module,exports,__globalThis) {
+module.exports = require("1e76a47bc98bb709")(require("f0d344664bf90701").resolve("8VUYv")).then(()=>module.bundle.root('e2LgB'));
 
-},{"8c2c11d954085611":"61B45","5e2157d72152abb8":"gS3k4"}],"cPAdW":[function(require,module,exports) {
-module.exports = require("a29800596b577168")(require("4ecee6e2bcd7d18e").resolve("52U5g")).then(()=>module.bundle.root("13ZEh"));
+},{"1e76a47bc98bb709":"61B45","f0d344664bf90701":"gS3k4"}],"2MuvG":[function(require,module,exports,__globalThis) {
+module.exports = require("f458010121c43fe5")(require("fc371efbccc10875").resolve("52U5g")).then(()=>module.bundle.root('13ZEh'));
 
-},{"a29800596b577168":"61B45","4ecee6e2bcd7d18e":"gS3k4"}],"4fEwA":[function(require,module,exports) {
-module.exports = require("1131e64570951fd9")(require("21b61a0bf16cba77").resolve("55LUS")).then(()=>module.bundle.root("gHdtU"));
+},{"f458010121c43fe5":"61B45","fc371efbccc10875":"gS3k4"}],"9ITKt":[function(require,module,exports,__globalThis) {
+module.exports = require("2af42b1fc5e7ab94")(require("9d7de7038fb56911").resolve("55LUS")).then(()=>module.bundle.root('gHdtU'));
 
-},{"1131e64570951fd9":"61B45","21b61a0bf16cba77":"gS3k4"}],"f6IZe":[function(require,module,exports) {
-module.exports = require("de8aa140e49b0ce1")(require("c22f1b30c52b91bc").resolve("aqTm9")).then(()=>module.bundle.root("iVXVM"));
+},{"2af42b1fc5e7ab94":"61B45","9d7de7038fb56911":"gS3k4"}],"7Ai9O":[function(require,module,exports,__globalThis) {
+module.exports = require("bb9f0f1ade5f996")(require("45406b0cbb86a952").resolve("aqTm9")).then(()=>module.bundle.root('iVXVM'));
 
-},{"de8aa140e49b0ce1":"61B45","c22f1b30c52b91bc":"gS3k4"}],"b75xV":[function(require,module,exports) {
-module.exports = require("cd78f031ae2b24ff")(require("909d06889def47cb").resolve("aoOeE")).then(()=>module.bundle.root("5lHxx"));
+},{"bb9f0f1ade5f996":"61B45","45406b0cbb86a952":"gS3k4"}],"9NwXZ":[function(require,module,exports,__globalThis) {
+module.exports = require("8f5677a9fc697a33")(require("1ec1d421b55fa496").resolve("aoOeE")).then(()=>module.bundle.root('5lHxx'));
 
-},{"cd78f031ae2b24ff":"61B45","909d06889def47cb":"gS3k4"}],"kQGPO":[function(require,module,exports) {
-module.exports = require("c112561bbeedd16b")(require("a2747a3e2d9f8b08").resolve("6Sflq")).then(()=>module.bundle.root("6ggGr"));
+},{"8f5677a9fc697a33":"61B45","1ec1d421b55fa496":"gS3k4"}],"fWxOP":[function(require,module,exports,__globalThis) {
+module.exports = require("b1ffa26cae481a19")(require("90c7c94a0db3297c").resolve("6Sflq")).then(()=>module.bundle.root('6ggGr'));
 
-},{"c112561bbeedd16b":"61B45","a2747a3e2d9f8b08":"gS3k4"}],"dAda2":[function(require,module,exports) {
-module.exports = require("beac0c482e867cc9")(require("c8c77bce303b179c").resolve("7ggR2")).then(()=>module.bundle.root("8t45J"));
+},{"b1ffa26cae481a19":"61B45","90c7c94a0db3297c":"gS3k4"}],"4udRm":[function(require,module,exports,__globalThis) {
+module.exports = require("e8fdd88b3b2a9f83")(require("ef968b4ed46bc11b").resolve("7ggR2")).then(()=>module.bundle.root('8t45J'));
 
-},{"beac0c482e867cc9":"61B45","c8c77bce303b179c":"gS3k4"}],"j9Etp":[function(require,module,exports) {
-module.exports = require("2be4f2395e56469d")(require("f1773d120fe5c7a").resolve("5O3Zi")).then(()=>module.bundle.root("eS1a6"));
+},{"e8fdd88b3b2a9f83":"61B45","ef968b4ed46bc11b":"gS3k4"}],"bg51z":[function(require,module,exports,__globalThis) {
+module.exports = require("c3a1bc02d6e584d8")(require("272d4674a2942099").resolve("5O3Zi")).then(()=>module.bundle.root('eS1a6'));
 
-},{"2be4f2395e56469d":"61B45","f1773d120fe5c7a":"gS3k4"}],"4ZDMU":[function(require,module,exports) {
-module.exports = require("e5bc4c432e3c8329")(require("a3e868360e375317").resolve("5dyzZ")).then(()=>module.bundle.root("lNELF"));
+},{"c3a1bc02d6e584d8":"61B45","272d4674a2942099":"gS3k4"}],"gap93":[function(require,module,exports,__globalThis) {
+module.exports = require("77a3cf6d9014270d")(require("3fe518654b6d173f").resolve("5dyzZ")).then(()=>module.bundle.root('lNELF'));
 
-},{"e5bc4c432e3c8329":"61B45","a3e868360e375317":"gS3k4"}],"2N0uv":[function(require,module,exports) {
-module.exports = require("ea33f2e08b7d7b52")(require("ab75a2548fc5e7f3").resolve("9W8C8")).then(()=>module.bundle.root("gYjiD"));
+},{"77a3cf6d9014270d":"61B45","3fe518654b6d173f":"gS3k4"}],"9ZJOJ":[function(require,module,exports,__globalThis) {
+module.exports = require("1dde4a6de1ef4d85")(require("8c072ecf8d4e8e49").resolve("9W8C8")).then(()=>module.bundle.root('gYjiD'));
 
-},{"ea33f2e08b7d7b52":"61B45","ab75a2548fc5e7f3":"gS3k4"}],"gna8J":[function(require,module,exports) {
-module.exports = require("72fee48857336d4")(require("c57b6fde8f86eaae").resolve("9T9u0")).then(()=>module.bundle.root("7Ccob"));
+},{"1dde4a6de1ef4d85":"61B45","8c072ecf8d4e8e49":"gS3k4"}],"2kgks":[function(require,module,exports,__globalThis) {
+module.exports = require("b3d6e01037433a4f")(require("7cd26117d58eb1f2").resolve("9T9u0")).then(()=>module.bundle.root('7Ccob'));
 
-},{"72fee48857336d4":"61B45","c57b6fde8f86eaae":"gS3k4"}],"BUxqC":[function(require,module,exports) {
-module.exports = require("633d9d46fc82b1ca")(require("2f1cf9692595be5b").resolve("bzj8N")).then(()=>module.bundle.root("7qHeH"));
+},{"b3d6e01037433a4f":"61B45","7cd26117d58eb1f2":"gS3k4"}],"ezczH":[function(require,module,exports,__globalThis) {
+module.exports = require("61b96916d5406fc9")(require("520dd0a00918eb7b").resolve("bzj8N")).then(()=>module.bundle.root('7qHeH'));
 
-},{"633d9d46fc82b1ca":"61B45","2f1cf9692595be5b":"gS3k4"}],"6MFTd":[function(require,module,exports) {
-module.exports = require("199e9951fada641")(require("c49ce55b6b7ad595").resolve("fqKtT")).then(()=>module.bundle.root("fjGVc"));
+},{"61b96916d5406fc9":"61B45","520dd0a00918eb7b":"gS3k4"}],"gcltp":[function(require,module,exports,__globalThis) {
+module.exports = require("c01b91df1449c416")(require("68db441594eeac48").resolve("fqKtT")).then(()=>module.bundle.root('fjGVc'));
 
-},{"199e9951fada641":"61B45","c49ce55b6b7ad595":"gS3k4"}],"c0hJv":[function(require,module,exports) {
-module.exports = require("ae43091648ed208f")(require("46e43833a7b691f6").resolve("8y07x")).then(()=>module.bundle.root("hx0Bk"));
+},{"c01b91df1449c416":"61B45","68db441594eeac48":"gS3k4"}],"lGg4B":[function(require,module,exports,__globalThis) {
+module.exports = require("a80abdc2dec657e9")(require("5f940baa836aadb").resolve("8y07x")).then(()=>module.bundle.root('hx0Bk'));
 
-},{"ae43091648ed208f":"61B45","46e43833a7b691f6":"gS3k4"}],"kszSH":[function(require,module,exports) {
-module.exports = require("3fcadd482ffb2044")(require("77280820d06087f3").resolve("aVDJh")).then(()=>module.bundle.root("jbTyZ"));
+},{"a80abdc2dec657e9":"61B45","5f940baa836aadb":"gS3k4"}],"lIAAU":[function(require,module,exports,__globalThis) {
+module.exports = require("49e58536bc656ebc")(require("9e6351d2378724c0").resolve("aVDJh")).then(()=>module.bundle.root('jbTyZ'));
 
-},{"3fcadd482ffb2044":"61B45","77280820d06087f3":"gS3k4"}],"g478P":[function(require,module,exports) {
-module.exports = require("34b7e4688372553f")(require("f10926e4d307cdcc").resolve("feeHb")).then(()=>module.bundle.root("5GWm6"));
+},{"49e58536bc656ebc":"61B45","9e6351d2378724c0":"gS3k4"}],"412md":[function(require,module,exports,__globalThis) {
+module.exports = require("8601b2bf89497f68")(require("878d6702e6f655aa").resolve("feeHb")).then(()=>module.bundle.root('5GWm6'));
 
-},{"34b7e4688372553f":"61B45","f10926e4d307cdcc":"gS3k4"}],"hGHfi":[function(require,module,exports) {
-module.exports = require("67e7a462739728cd")(require("8fb172b35b326277").resolve("5kSTG")).then(()=>module.bundle.root("5QGzG"));
+},{"8601b2bf89497f68":"61B45","878d6702e6f655aa":"gS3k4"}],"7XFWO":[function(require,module,exports,__globalThis) {
+module.exports = require("c3a483d6bb54befb")(require("76aa3a481886f93c").resolve("5kSTG")).then(()=>module.bundle.root('5QGzG'));
 
-},{"67e7a462739728cd":"61B45","8fb172b35b326277":"gS3k4"}],"a0xFx":[function(require,module,exports) {
-module.exports = require("112b58e32f930a7")(require("4b68653698d534b9").resolve("fiofN")).then(()=>module.bundle.root("7VJZj"));
+},{"c3a483d6bb54befb":"61B45","76aa3a481886f93c":"gS3k4"}],"lRrVz":[function(require,module,exports,__globalThis) {
+module.exports = require("785edddf783fe669")(require("577f635da78b09cc").resolve("fiofN")).then(()=>module.bundle.root('7VJZj'));
 
-},{"112b58e32f930a7":"61B45","4b68653698d534b9":"gS3k4"}],"cGQvn":[function(require,module,exports) {
-module.exports = require("e1261ab6c5fa3dc7")(require("797ecdf77058de06").resolve("3UlqZ")).then(()=>module.bundle.root("3G7TP"));
+},{"785edddf783fe669":"61B45","577f635da78b09cc":"gS3k4"}],"80UDS":[function(require,module,exports,__globalThis) {
+module.exports = require("adc156d0b8bda6")(require("5e26a87504956c33").resolve("3UlqZ")).then(()=>module.bundle.root('3G7TP'));
 
-},{"e1261ab6c5fa3dc7":"61B45","797ecdf77058de06":"gS3k4"}],"6zYl5":[function(require,module,exports) {
-module.exports = require("4434cacf1dd159")(require("f077a3c263b5a7d5").resolve("hAcVI")).then(()=>module.bundle.root("eusbt"));
+},{"adc156d0b8bda6":"61B45","5e26a87504956c33":"gS3k4"}],"8j5Sw":[function(require,module,exports,__globalThis) {
+module.exports = require("4df88f04fccf1533")(require("5454a64100f2ac0f").resolve("hAcVI")).then(()=>module.bundle.root('eusbt'));
 
-},{"4434cacf1dd159":"61B45","f077a3c263b5a7d5":"gS3k4"}],"3g7Se":[function(require,module,exports) {
+},{"4df88f04fccf1533":"61B45","5454a64100f2ac0f":"gS3k4"}],"3g7Se":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("md-content", {
+    return _c('md-content', {
         staticClass: "event_container"
     }, [
-        _c("div", {
+        _c('div', {
             staticClass: "header"
         }, [
-            _c("div", {
+            _c('div', {
                 staticClass: "display"
             }, [
-                _c("md-checkbox", {
+                _c('md-checkbox', {
                     staticClass: "md-primary",
                     model: {
                         value: _vm.displayEventsShared,
@@ -14493,17 +14493,17 @@ var render = function() {
                     }
                 }),
                 _vm._v(" "),
-                _c("span", {
+                _c('span', {
                     staticClass: "md-list-item-text"
                 }, [
                     _vm._v("Display Events Shared")
                 ])
             ], 1),
             _vm._v(" "),
-            _c("div", {
+            _c('div', {
                 staticClass: "display"
             }, [
-                _c("md-checkbox", {
+                _c('md-checkbox', {
                     staticClass: "md-primary",
                     model: {
                         value: _vm.displayonlyEventsShared,
@@ -14514,7 +14514,7 @@ var render = function() {
                     }
                 }),
                 _vm._v(" "),
-                _c("span", {
+                _c('span', {
                     staticClass: "md-list-item-text"
                 }, [
                     _vm._v("Display only Events Shared")
@@ -14522,7 +14522,7 @@ var render = function() {
             ], 1)
         ]),
         _vm._v(" "),
-        _c("vue-cal", {
+        _c('vue-cal', {
             ref: "vuecal",
             staticClass: "calendar_container vuecal--full-height-delete",
             attrs: {
@@ -14533,7 +14533,7 @@ var render = function() {
                 "default-view": "month",
                 "active-view": "month",
                 "disable-views": [
-                    "years"
+                    'years'
                 ],
                 "events": _vm.events,
                 "on-event-dblclick": _vm.onEventClick,
@@ -14551,30 +14551,30 @@ var render = function() {
             }
         }),
         _vm._v(" "),
-        _c("md-speed-dial", {
+        _c('md-speed-dial', {
             staticClass: "md-bottom-right",
             attrs: {
                 "md-direction": "top"
             }
         }, [
-            _c("md-speed-dial-target", {
+            _c('md-speed-dial-target', {
                 staticClass: "md-primary md-fab md-mini"
             }, [
-                _c("md-icon", {
+                _c('md-icon', {
                     staticClass: "md-morph-initial"
                 }, [
                     _vm._v("menu")
                 ]),
                 _vm._v(" "),
-                _c("md-icon", {
+                _c('md-icon', {
                     staticClass: "md-morph-final"
                 }, [
                     _vm._v("close")
                 ])
             ], 1),
             _vm._v(" "),
-            _c("md-speed-dial-content", [
-                _c("md-button", {
+            _c('md-speed-dial-content', [
+                _c('md-button', {
                     staticClass: "addIconFab md-fab md-mini md-accent",
                     attrs: {
                         "title": "remove all event"
@@ -14583,14 +14583,14 @@ var render = function() {
                         "click": _vm.removeAllEvents
                     }
                 }, [
-                    _c("md-icon", {
+                    _c('md-icon', {
                         staticClass: "md-primary"
                     }, [
                         _vm._v("delete")
                     ])
                 ], 1),
                 _vm._v(" "),
-                _c("md-button", {
+                _c('md-button', {
                     staticClass: "addIconFab md-fab md-mini md-primary",
                     attrs: {
                         "title": "select all event"
@@ -14599,14 +14599,14 @@ var render = function() {
                         "click": _vm.seeEvents
                     }
                 }, [
-                    _c("md-icon", {
+                    _c('md-icon', {
                         staticClass: "md-primary"
                     }, [
                         _vm._v("visibility")
                     ])
                 ], 1),
                 _vm._v(" "),
-                !_vm.isEventContext ? _c("md-button", {
+                !_vm.isEventContext ? _c('md-button', {
                     staticClass: "addIconFab md-fab md-mini md-primary",
                     attrs: {
                         "title": "add event"
@@ -14615,7 +14615,7 @@ var render = function() {
                         "click": _vm.addEvent
                     }
                 }, [
-                    _c("md-icon", {
+                    _c('md-icon', {
                         staticClass: "md-primary"
                     }, [
                         _vm._v("add")
@@ -14629,13 +14629,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"im95M":[function() {},{}],"g4ZZF":[function(require,module,exports) {
+},{}],"im95M":[function() {},{}],"g4ZZF":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3DYxy":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3DYxy":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -14644,16 +14644,16 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("7d5d115ed5c99cc4").render;
     script.staticRenderFns = require("7d5d115ed5c99cc4").staticRenderFns;
-    script._scopeId = "data-v-96476d";
+    script._scopeId = "data-v-a035bb";
     script.__cssModules = require("fb85bef0ae0e808d").default;
     require("531be01f15003f72").default(script);
-    script.__scopeId = "data-v-96476d";
+    script.__scopeId = 'data-v-a035bb';
     script.__file = "seeEventDetail.vue";
 };
 initialize();
 exports.default = script;
 
-},{"96cbc88b5e7d3f44":"hgtNn","7d5d115ed5c99cc4":"5uqAO","fb85bef0ae0e808d":"jEtIw","531be01f15003f72":"2Muii","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hgtNn":[function(require,module,exports) {
+},{"96cbc88b5e7d3f44":"hgtNn","7d5d115ed5c99cc4":"5uqAO","fb85bef0ae0e808d":"jEtIw","531be01f15003f72":"2Muii","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hgtNn":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerPanelManagerService = require("spinal-env-viewer-panel-manager-service");
@@ -14745,10 +14745,10 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"spinal-env-viewer-panel-manager-service":"7Uw4d","spinal-env-viewer-task-service":"4IrFb","spinal-env-viewer-graph-service":"9n7zp","../components/tasksCalendar.vue":"9gvD3","moment":"jwcsj","spinal-env-viewer-plugin-documentation/view/notes/components/messageComponent.vue":"PVL1R","../../buttons/standard_buttons/isolate":"2dscn","../../buttons/standard_buttons/select":"1EoGn","../../buttons/standard_buttons/zoom":"glQK8","../../js/event":"kMoPM","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9gvD3":[function(require,module,exports) {
+},{"spinal-env-viewer-panel-manager-service":"7Uw4d","spinal-env-viewer-task-service":"4IrFb","spinal-env-viewer-graph-service":"9n7zp","../components/tasksCalendar.vue":"9gvD3","moment":"jwcsj","spinal-env-viewer-plugin-documentation/view/notes/components/messageComponent.vue":"PVL1R","../../buttons/standard_buttons/isolate":"2dscn","../../buttons/standard_buttons/select":"1EoGn","../../buttons/standard_buttons/zoom":"glQK8","../../js/event":"kMoPM","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9gvD3":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -14757,16 +14757,16 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("8f19034ced63ec75").render;
     script.staticRenderFns = require("8f19034ced63ec75").staticRenderFns;
-    script._scopeId = "data-v-28fbfd";
+    script._scopeId = "data-v-c77a68";
     script.__cssModules = require("6d93f73c355fb1c8").default;
     require("7d6af082d6d7a8a3").default(script);
-    script.__scopeId = "data-v-28fbfd";
+    script.__scopeId = 'data-v-c77a68';
     script.__file = "tasksCalendar.vue";
 };
 initialize();
 exports.default = script;
 
-},{"c125dff9acebfff7":"eFcf5","8f19034ced63ec75":"3CYKJ","6d93f73c355fb1c8":"7W2iT","7d6af082d6d7a8a3":"dbVRs","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"eFcf5":[function(require,module,exports) {
+},{"c125dff9acebfff7":"eFcf5","8f19034ced63ec75":"3CYKJ","6d93f73c355fb1c8":"7W2iT","7d6af082d6d7a8a3":"dbVRs","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"eFcf5":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _vueCal = require("vue-cal");
@@ -14793,18 +14793,18 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"vue-cal":"6ZWlS","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3CYKJ":[function(require,module,exports) {
+},{"vue-cal":"6ZWlS","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3CYKJ":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("div", {
+    return _c('div', {
         staticClass: "calendar_container"
     }, [
-        _c("vue-cal", _vm._b({
+        _c('vue-cal', _vm._b({
             ref: "calendarVue",
             scopedSlots: _vm._u([
                 {
@@ -14813,18 +14813,18 @@ var render = function() {
                         var event = ref.event;
                         var view = ref.view;
                         return [
-                            _c("v-icon", [
+                            _c('v-icon', [
                                 _vm._v(_vm._s(event.icon))
                             ]),
                             _vm._v(" "),
-                            _c("div", {
+                            _c('div', {
                                 staticClass: "vuecal__event-title",
                                 domProps: {
                                     "innerHTML": _vm._s(event.title)
                                 }
                             }),
                             _vm._v(" "),
-                            _c("div", {
+                            _c('div', {
                                 staticClass: "vuecal__event-title vuecal__event-title--edit",
                                 attrs: {
                                     "contenteditable": ""
@@ -14839,23 +14839,23 @@ var render = function() {
                                 }
                             }),
                             _vm._v(" "),
-                            _c("small", {
+                            _c('small', {
                                 staticClass: "vuecal__event-time"
                             }, [
-                                _c("strong", [
+                                _c('strong', [
                                     _vm._v("Event start:")
                                 ]),
                                 _vm._v(" "),
-                                _c("span", [
+                                _c('span', [
                                     _vm._v(_vm._s(event.start.formatTime("h O'clock")))
                                 ]),
-                                _c("br"),
+                                _c('br'),
                                 _vm._v(" "),
-                                _c("strong", [
+                                _c('strong', [
                                     _vm._v("Event end:")
                                 ]),
                                 _vm._v(" "),
-                                _c("span", [
+                                _c('span', [
                                     _vm._v(_vm._s(event.end.formatTime("h O'clock")))
                                 ])
                             ])
@@ -14863,91 +14863,91 @@ var render = function() {
                     }
                 }
             ])
-        }, "vue-cal", _vm.allProps, false))
+        }, 'vue-cal', _vm.allProps, false))
     ], 1);
 };
 var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"7W2iT":[function() {},{}],"dbVRs":[function(require,module,exports) {
+},{}],"7W2iT":[function() {},{}],"dbVRs":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5uqAO":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5uqAO":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _vm.event ? _c("md-content", {
+    return _vm.event ? _c('md-content', {
         staticClass: "event_container"
     }, [
-        _c("div", {
+        _c('div', {
             staticClass: "details_container"
         }, [
-            _c("md-content", {
+            _c('md-content', {
                 staticClass: "details md-scrollbar"
             }, [
-                _c("div", {
+                _c('div', {
                     staticClass: "detail"
                 }, [
-                    _c("div", {
+                    _c('div', {
                         staticClass: "label"
                     }, [
                         _vm._v("Name")
                     ]),
                     _vm._v(" "),
-                    _c("div", {
+                    _c('div', {
                         staticClass: "value"
                     }, [
                         _vm._v(_vm._s(_vm.event.name))
                     ])
                 ]),
                 _vm._v(" "),
-                _vm.event.user ? _c("div", {
+                _vm.event.user ? _c('div', {
                     staticClass: "detail"
                 }, [
-                    _c("div", {
+                    _c('div', {
                         staticClass: "label"
                     }, [
                         _vm._v("Created By")
                     ]),
                     _vm._v(" "),
-                    _c("div", {
+                    _c('div', {
                         staticClass: "value"
                     }, [
                         _vm._v(_vm._s(_vm.event.user.username))
                     ])
                 ]) : _vm._e(),
                 _vm._v(" "),
-                _c("div", {
+                _c('div', {
                     staticClass: "detail"
                 }, [
-                    _c("div", {
+                    _c('div', {
                         staticClass: "label"
                     }, [
                         _vm._v("Sart Date")
                     ]),
                     _vm._v(" "),
-                    _c("div", {
+                    _c('div', {
                         staticClass: "value"
                     }, [
                         _vm._v(_vm._s(_vm._f("formatDate")(_vm.event.startDate)))
                     ])
                 ]),
                 _vm._v(" "),
-                _c("div", {
+                _c('div', {
                     staticClass: "detail"
                 }, [
-                    _c("div", {
+                    _c('div', {
                         staticClass: "label"
                     }, [
                         _vm._v("End Date")
                     ]),
                     _vm._v(" "),
-                    _c("div", {
+                    _c('div', {
                         staticClass: "value"
                     }, [
                         _vm._v(_vm._s(_vm._f("formatDate")(_vm.event.endDate)))
@@ -14955,13 +14955,13 @@ var render = function() {
                 ])
             ]),
             _vm._v(" "),
-            _c("div", {
+            _c('div', {
                 staticClass: "actions"
             }, [
-                _c("div", {
+                _c('div', {
                     staticClass: "standard_buttons action"
                 }, [
-                    _c("md-button", {
+                    _c('md-button', {
                         staticClass: "md-icon-button md-primary",
                         attrs: {
                             "title": "select on 3D model"
@@ -14970,12 +14970,12 @@ var render = function() {
                             "click": _vm.selectOnMaquette
                         }
                     }, [
-                        _c("md-icon", [
+                        _c('md-icon', [
                             _vm._v("find_in_page")
                         ])
                     ], 1),
                     _vm._v(" "),
-                    _c("md-button", {
+                    _c('md-button', {
                         staticClass: "md-icon-button md-primary",
                         attrs: {
                             "title": "isolate on 3D model"
@@ -14984,12 +14984,12 @@ var render = function() {
                             "click": _vm.isolateOnMaquette
                         }
                     }, [
-                        _c("md-icon", [
+                        _c('md-icon', [
                             _vm._v("settings_overscan")
                         ])
                     ], 1),
                     _vm._v(" "),
-                    _c("md-button", {
+                    _c('md-button', {
                         staticClass: "md-icon-button md-primary",
                         attrs: {
                             "title": "zoom on 3D model"
@@ -14998,31 +14998,31 @@ var render = function() {
                             "click": _vm.zoomOnMaquette
                         }
                     }, [
-                        _c("md-icon", [
+                        _c('md-icon', [
                             _vm._v("zoom_in")
                         ])
                     ], 1)
                 ], 1),
                 _vm._v(" "),
-                _c("md-button", {
+                _c('md-button', {
                     staticClass: "md-dense md-primary action",
                     on: {
                         "click": _vm.editEvent
                     }
                 }, [
-                    _c("md-icon", [
+                    _c('md-icon', [
                         _vm._v("edit")
                     ]),
                     _vm._v("\n            Edit Event\n         ")
                 ], 1),
                 _vm._v(" "),
-                _c("md-button", {
+                _c('md-button', {
                     staticClass: "md-dense md-accent cancel-action",
                     on: {
                         "click": _vm.cancelEvent
                     }
                 }, [
-                    _c("md-icon", [
+                    _c('md-icon', [
                         _vm._v("event_busy")
                     ]),
                     _vm._v("\n            Cancel Event\n         ")
@@ -15030,20 +15030,20 @@ var render = function() {
             ], 1)
         ], 1),
         _vm._v(" "),
-        _c("div", {
+        _c('div', {
             staticClass: "notes_logs"
         }, [
-            _c("md-content", {
+            _c('md-content', {
                 staticClass: "notes md-scrollbar"
             }, [
-                _c("message-component", {
+                _c('message-component', {
                     attrs: {
                         "nodeInfo": _vm.nodeInfo
                     }
                 })
             ], 1)
         ], 1)
-    ]) : _c("md-content", {
+    ]) : _c('md-content', {
         staticClass: "event_container"
     }, [
         _vm._v("\n   Event not found\n")
@@ -15053,12 +15053,12 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"jEtIw":[function() {},{}],"2Muii":[function(require,module,exports) {
+},{}],"jEtIw":[function() {},{}],"2Muii":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},[], null, "parcelRequire02e5")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},[], null, "parcelRequire94c2")
 
 //# sourceMappingURL=spinal-env-viewer-plugin-task.7dc5cf63.js.map

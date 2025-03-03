@@ -73,7 +73,7 @@
         localRequire,
         module,
         module.exports,
-        this
+        globalObject
       );
     }
 
@@ -142,7 +142,7 @@
       this[globalName] = mainExports;
     }
   }
-})({"3i4Q6":[function(require,module,exports) {
+})({"3i4Q6":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2020 SpinalCom - www.spinalcom.com
  *
@@ -167,7 +167,7 @@
  * <http://resources.spinalcom.com/licenses.pdf>.
  */ require("38ae6d512c478ea3");
 
-},{"38ae6d512c478ea3":"fQSCa"}],"fQSCa":[function(require,module,exports) {
+},{"38ae6d512c478ea3":"fQSCa"}],"fQSCa":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2020 SpinalCom - www.spinalcom.com
  *
@@ -197,7 +197,7 @@ const SIDE_BAR_HOOK_NAME = "GraphManagerSideBar";
     7
 ]);
 
-},{"spinal-env-viewer-context-menu-service":"kHlxv","./btn/UpdateBimObjectIdBtn":"7D4mK"}],"7D4mK":[function(require,module,exports) {
+},{"spinal-env-viewer-context-menu-service":"kHlxv","./btn/UpdateBimObjectIdBtn":"7D4mK"}],"7D4mK":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2020 SpinalCom - www.spinalcom.com
  *
@@ -225,8 +225,8 @@ parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "UpdateBimObjectIdBtn", ()=>UpdateBimObjectIdBtn);
 var _spinalEnvViewerContextMenuService = require("spinal-env-viewer-context-menu-service");
 var _spinalEnvViewerGraphService = require("spinal-env-viewer-graph-service");
-const LABEL = "Update BimObject Ids";
-const NODE_TYPE = "BimFile";
+const LABEL = 'Update BimObject Ids';
+const NODE_TYPE = 'BimFile';
 async function updateBimObjectId(bimObjects) {
     const mapModelExternId = new Map();
     const updated = [];
@@ -253,15 +253,15 @@ async function updateBimObjectId(bimObjects) {
         }
     }
     console.log("End");
-    if (updated.length > 0) console.log("UPDATED", updated);
+    if (updated.length > 0) console.log('UPDATED', updated);
 }
 class UpdateBimObjectIdBtn extends (0, _spinalEnvViewerContextMenuService.SpinalContextApp) {
     constructor(){
         super(LABEL, LABEL, {
-            icon: "clear_all",
-            icon_type: "in",
-            backgroundColor: "#000000",
-            fontColor: "#ffffff"
+            icon: 'clear_all',
+            icon_type: 'in',
+            backgroundColor: '#000000',
+            fontColor: '#ffffff'
         });
     }
     isShown(option) {
@@ -282,6 +282,6 @@ class UpdateBimObjectIdBtn extends (0, _spinalEnvViewerContextMenuService.Spinal
     }
 }
 
-},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-graph-service":"9n7zp","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},[], null, "parcelRequire02e5")
+},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-graph-service":"9n7zp","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},[], null, "parcelRequire94c2")
 
 //# sourceMappingURL=spinal-env-viewer-plugin-item_model_selector.5d86f179.js.map

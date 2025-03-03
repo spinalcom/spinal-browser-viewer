@@ -113,7 +113,7 @@ export function loadPlugins() {
     safeImport(import('spinal-env-viewer-context-geographic-service')),
     safeImport(import('spinal-env-viewer-plugin-analysis')),
     safeImport(import('spinal-env-viewer-plugin-offset-calcul')),
-    safeImport(import('spinal-env-viewer-plugin-opcua-manager')),
+    safeImport(import('./plugins/spinal-env-viewer-plugin-opcua-manager')),
     // add plugins ex:
     // safeImport(import('spinal-env-viewer-plugin-attribute-manager')),
     // or

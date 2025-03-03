@@ -73,7 +73,7 @@
         localRequire,
         module,
         module.exports,
-        this
+        globalObject
       );
     }
 
@@ -142,7 +142,7 @@
       this[globalName] = mainExports;
     }
   }
-})({"hx0Bk":[function(require,module,exports) {
+})({"hx0Bk":[function(require,module,exports,__globalThis) {
 /**
   * vue-cal v3.11.0
   * (c) 2022 Antoni Andre <antoniandre.web@gmail.com>
@@ -164,13 +164,13 @@ parcelHelpers.export(exports, "weekDays", ()=>a);
 parcelHelpers.export(exports, "year", ()=>n);
 parcelHelpers.export(exports, "years", ()=>d);
 const a = [
-    "M\xe5ndag",
+    "M\xE5ndag",
     "Tisdag",
     "Onsdag",
     "Torsdag",
     "Fredag",
-    "L\xf6rdag",
-    "S\xf6ndag"
+    "L\xF6rdag",
+    "S\xF6ndag"
 ], e = [
     "Januari",
     "Februari",
@@ -184,22 +184,22 @@ const a = [
     "Oktober",
     "November",
     "December"
-], d = "\xc5r", n = "\xc5r", s = "M\xe5nad", t = "Vecka", r = "Dag", o = "Idag", g = "Ingen h\xe4ndelse", l = "Heldag", M = "Ta bort", y = "Skapa h\xe4ndelse", k = "dddd den D MMMM YYYY", m = {
+], d = "\xC5r", n = "\xC5r", s = "M\xE5nad", t = "Vecka", r = "Dag", o = "Idag", g = "Ingen h\xE4ndelse", l = "Heldag", M = "Ta bort", y = "Skapa h\xE4ndelse", k = "dddd den D MMMM YYYY", m = {
     weekDays: a,
     months: e,
-    years: "\xc5r",
-    year: "\xc5r",
-    month: "M\xe5nad",
+    years: "\xC5r",
+    year: "\xC5r",
+    month: "M\xE5nad",
     week: "Vecka",
     day: "Dag",
     today: "Idag",
-    noEvent: "Ingen h\xe4ndelse",
+    noEvent: "Ingen h\xE4ndelse",
     allDay: "Heldag",
     deleteEvent: "Ta bort",
-    createEvent: "Skapa h\xe4ndelse",
+    createEvent: "Skapa h\xE4ndelse",
     dateFormat: "dddd den D MMMM YYYY"
 };
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},[], null, "parcelRequire02e5")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},[], null, "parcelRequire94c2")
 
 //# sourceMappingURL=sv.es.e6bdae5b.js.map

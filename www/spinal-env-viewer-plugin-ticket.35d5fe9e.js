@@ -73,7 +73,7 @@
         localRequire,
         module,
         module.exports,
-        this
+        globalObject
       );
     }
 
@@ -142,7 +142,7 @@
       this[globalName] = mainExports;
     }
   }
-})({"hgMhh":[function(require,module,exports) {
+})({"hgMhh":[function(require,module,exports,__globalThis) {
 /*!
  * jQuery JavaScript Library v3.7.1
  * https://jquery.com/
@@ -6843,6 +6843,6 @@
     return jQuery;
 });
 
-},{}]},[], null, "parcelRequire02e5")
+},{}]},[], null, "parcelRequire94c2")
 
 //# sourceMappingURL=spinal-env-viewer-plugin-ticket.35d5fe9e.js.map

@@ -11336,7 +11336,7 @@
                             ".order"
                         ].join("")), a.push("t" + f), a.push("r" + f), o.push("t" + f), o.push("r" + f + ".join()"), s.push("array" + f + ".data"), s.push("array" + f + ".stride"), s.push("array" + f + ".offset|0"), u > 0 && (l.push("array" + t1.arrayArgs[0] + ".shape.length===array" + f + ".shape.length+" + (Math.abs(t1.arrayBlockIndices[0]) - Math.abs(t1.arrayBlockIndices[u]))), c.push("array" + t1.arrayArgs[0] + ".shape[shapeIndex+" + Math.max(0, t1.arrayBlockIndices[0]) + "]===array" + f + ".shape[shapeIndex+" + Math.max(0, t1.arrayBlockIndices[u]) + "]"));
                     }
-                    for(t1.arrayArgs.length > 1 && (e1.push("if (!(" + l.join(" && ") + ")) throw new Error('cwise: Arrays do not all have the same dimensionality!')"), e1.push("for(var shapeIndex=array" + t1.arrayArgs[0] + ".shape.length-" + Math.abs(t1.arrayBlockIndices[0]) + "; shapeIndex-->0;) {"), e1.push("if (!(" + c.join(" && ") + ")) throw new Error('cwise: Arrays do not all have the same shape!')"), e1.push("}")), u = 0; u < t1.scalarArgs.length; ++u)s.push("scalar" + t1.scalarArgs[u]);
+                    for(t1.arrayArgs.length > 1 && (e1.push("if (!(" + l.join(" && ") + ")) throw new Error('cwise: Arrays do not all have the same dimensionality!')"), e1.push("for(var shapeIndex=array" + t1.arrayArgs[0] + ".shape.length-" + Math.abs(t1.arrayBlockIndices[0]) + "; shapeIndex--\x3e0;) {"), e1.push("if (!(" + c.join(" && ") + ")) throw new Error('cwise: Arrays do not all have the same shape!')"), e1.push("}")), u = 0; u < t1.scalarArgs.length; ++u)s.push("scalar" + t1.scalarArgs[u]);
                     return r.push([
                         "type=[",
                         o.join(","),
@@ -17140,7 +17140,7 @@
                         }, i.formatRows = function(t1) {
                             return t1.map(s).join("\n");
                         }, i;
-                    }, t1.csv = t1.dsv(",", "text/csv"), t1.tsv = t1.dsv("	", "text/tab-separated-values");
+                    }, t1.csv = t1.dsv(",", "text/csv"), t1.tsv = t1.dsv("\t", "text/tab-separated-values");
                     var ve, ye, xe, be, _e = this[P(this, "requestAnimationFrame")] || function(t1) {
                         setTimeout(t1, 17);
                     };
@@ -31628,7 +31628,7 @@
                     var a;
                     a = Array.isArray(t1) ? e1 < t1.length ? t1[e1] : void 0 : t1, a = u(a);
                     var o = !0;
-                    n(a) && (a = "\u25BC", o = !1);
+                    n(a) && (a = "\u25bc", o = !1);
                     var s = c(a, r, i);
                     return {
                         mesh: s[0],
@@ -34217,8 +34217,8 @@
                         },
                         primitive: "points",
                         viewport: t1.this("viewport"),
-                        vert: "\n			precision highp float;\n			attribute float width, charOffset, char;\n			attribute vec2 position;\n			uniform float fontSize, charStep, em, align, baseline;\n			uniform vec4 viewport;\n			uniform vec4 color;\n			uniform vec2 atlasSize, atlasDim, scale, translate, positionOffset;\n			varying vec2 charCoord, charId;\n			varying float charWidth;\n			varying vec4 fontColor;\n			void main () {\n				" + (T.normalViewport ? "" : "vec2 positionOffset = vec2(positionOffset.x,- positionOffset.y);") + "\n\n				vec2 offset = floor(em * (vec2(align + charOffset, baseline)\n					+ positionOffset))\n					/ (viewport.zw * scale.xy);\n\n				vec2 position = (position + translate) * scale;\n				position += offset * scale;\n\n				" + (T.normalViewport ? "position.y = 1. - position.y;" : "") + "\n\n				charCoord = position * viewport.zw + viewport.xy;\n\n				gl_Position = vec4(position * 2. - 1., 0, 1);\n\n				gl_PointSize = charStep;\n\n				charId.x = mod(char, atlasDim.x);\n				charId.y = floor(char / atlasDim.x);\n\n				charWidth = width * em;\n\n				fontColor = color / 255.;\n			}",
-                        frag: "\n			precision highp float;\n			uniform sampler2D atlas;\n			uniform float fontSize, charStep, opacity;\n			uniform vec2 atlasSize;\n			uniform vec4 viewport;\n			varying vec4 fontColor;\n			varying vec2 charCoord, charId;\n			varying float charWidth;\n\n			float lightness(vec4 color) {\n				return color.r * 0.299 + color.g * 0.587 + color.b * 0.114;\n			}\n\n			void main () {\n				vec2 uv = gl_FragCoord.xy - charCoord + charStep * .5;\n				float halfCharStep = floor(charStep * .5 + .5);\n\n				// invert y and shift by 1px (FF expecially needs that)\n				uv.y = charStep - uv.y;\n\n				// ignore points outside of character bounding box\n				float halfCharWidth = ceil(charWidth * .5);\n				if (floor(uv.x) > halfCharStep + halfCharWidth ||\n					floor(uv.x) < halfCharStep - halfCharWidth) return;\n\n				uv += charId * charStep;\n				uv = uv / atlasSize;\n\n				vec4 color = fontColor;\n				vec4 mask = texture2D(atlas, uv);\n\n				float maskY = lightness(mask);\n				// float colorY = lightness(color);\n				color.a *= maskY;\n				color.a *= opacity;\n\n				// color.a += .1;\n\n				// antialiasing, see yiq color space y-channel formula\n				// color.rgb += (1. - color.rgb) * (1. - mask.rgb);\n\n				gl_FragColor = color;\n			}"
+                        vert: "\n\t\t\tprecision highp float;\n\t\t\tattribute float width, charOffset, char;\n\t\t\tattribute vec2 position;\n\t\t\tuniform float fontSize, charStep, em, align, baseline;\n\t\t\tuniform vec4 viewport;\n\t\t\tuniform vec4 color;\n\t\t\tuniform vec2 atlasSize, atlasDim, scale, translate, positionOffset;\n\t\t\tvarying vec2 charCoord, charId;\n\t\t\tvarying float charWidth;\n\t\t\tvarying vec4 fontColor;\n\t\t\tvoid main () {\n\t\t\t\t" + (T.normalViewport ? "" : "vec2 positionOffset = vec2(positionOffset.x,- positionOffset.y);") + "\n\n\t\t\t\tvec2 offset = floor(em * (vec2(align + charOffset, baseline)\n\t\t\t\t\t+ positionOffset))\n\t\t\t\t\t/ (viewport.zw * scale.xy);\n\n\t\t\t\tvec2 position = (position + translate) * scale;\n\t\t\t\tposition += offset * scale;\n\n\t\t\t\t" + (T.normalViewport ? "position.y = 1. - position.y;" : "") + "\n\n\t\t\t\tcharCoord = position * viewport.zw + viewport.xy;\n\n\t\t\t\tgl_Position = vec4(position * 2. - 1., 0, 1);\n\n\t\t\t\tgl_PointSize = charStep;\n\n\t\t\t\tcharId.x = mod(char, atlasDim.x);\n\t\t\t\tcharId.y = floor(char / atlasDim.x);\n\n\t\t\t\tcharWidth = width * em;\n\n\t\t\t\tfontColor = color / 255.;\n\t\t\t}",
+                        frag: "\n\t\t\tprecision highp float;\n\t\t\tuniform sampler2D atlas;\n\t\t\tuniform float fontSize, charStep, opacity;\n\t\t\tuniform vec2 atlasSize;\n\t\t\tuniform vec4 viewport;\n\t\t\tvarying vec4 fontColor;\n\t\t\tvarying vec2 charCoord, charId;\n\t\t\tvarying float charWidth;\n\n\t\t\tfloat lightness(vec4 color) {\n\t\t\t\treturn color.r * 0.299 + color.g * 0.587 + color.b * 0.114;\n\t\t\t}\n\n\t\t\tvoid main () {\n\t\t\t\tvec2 uv = gl_FragCoord.xy - charCoord + charStep * .5;\n\t\t\t\tfloat halfCharStep = floor(charStep * .5 + .5);\n\n\t\t\t\t// invert y and shift by 1px (FF expecially needs that)\n\t\t\t\tuv.y = charStep - uv.y;\n\n\t\t\t\t// ignore points outside of character bounding box\n\t\t\t\tfloat halfCharWidth = ceil(charWidth * .5);\n\t\t\t\tif (floor(uv.x) > halfCharStep + halfCharWidth ||\n\t\t\t\t\tfloor(uv.x) < halfCharStep - halfCharWidth) return;\n\n\t\t\t\tuv += charId * charStep;\n\t\t\t\tuv = uv / atlasSize;\n\n\t\t\t\tvec4 color = fontColor;\n\t\t\t\tvec4 mask = texture2D(atlas, uv);\n\n\t\t\t\tfloat maskY = lightness(mask);\n\t\t\t\t// float colorY = lightness(color);\n\t\t\t\tcolor.a *= maskY;\n\t\t\t\tcolor.a *= opacity;\n\n\t\t\t\t// color.a += .1;\n\n\t\t\t\t// antialiasing, see yiq color space y-channel formula\n\t\t\t\t// color.rgb += (1. - color.rgb) * (1. - mask.rgb);\n\n\t\t\t\tgl_FragColor = color;\n\t\t\t}"
                     });
                     return {
                         regl: t1,
@@ -49350,89 +49350,89 @@
                             }
                         ]);
                         var Us = {
-                            "!": "\uFE15",
-                            "#": "\uFF03",
-                            $: "\uFF04",
-                            "%": "\uFF05",
-                            "&": "\uFF06",
-                            "(": "\uFE35",
-                            ")": "\uFE36",
-                            "*": "\uFF0A",
-                            "+": "\uFF0B",
-                            ",": "\uFE10",
-                            "-": "\uFE32",
-                            ".": "\u30FB",
-                            "/": "\uFF0F",
-                            ":": "\uFE13",
-                            ";": "\uFE14",
-                            "<": "\uFE3F",
-                            "=": "\uFF1D",
-                            ">": "\uFE40",
-                            "?": "\uFE16",
-                            "@": "\uFF20",
-                            "[": "\uFE47",
-                            "\\": "\uFF3C",
-                            "]": "\uFE48",
-                            "^": "\uFF3E",
-                            _: "\uFE33",
-                            "`": "\uFF40",
-                            "{": "\uFE37",
+                            "!": "\ufe15",
+                            "#": "\uff03",
+                            $: "\uff04",
+                            "%": "\uff05",
+                            "&": "\uff06",
+                            "(": "\ufe35",
+                            ")": "\ufe36",
+                            "*": "\uff0a",
+                            "+": "\uff0b",
+                            ",": "\ufe10",
+                            "-": "\ufe32",
+                            ".": "\u30fb",
+                            "/": "\uff0f",
+                            ":": "\ufe13",
+                            ";": "\ufe14",
+                            "<": "\ufe3f",
+                            "=": "\uff1d",
+                            ">": "\ufe40",
+                            "?": "\ufe16",
+                            "@": "\uff20",
+                            "[": "\ufe47",
+                            "\\": "\uff3c",
+                            "]": "\ufe48",
+                            "^": "\uff3e",
+                            _: "\ufe33",
+                            "`": "\uff40",
+                            "{": "\ufe37",
                             "|": "\u2015",
-                            "}": "\uFE38",
-                            "~": "\uFF5E",
-                            "\xa2": "\uFFE0",
-                            "\xa3": "\uFFE1",
-                            "\xa5": "\uFFE5",
-                            "\xa6": "\uFFE4",
-                            "\xac": "\uFFE2",
-                            "\xaf": "\uFFE3",
-                            "\u2013": "\uFE32",
-                            "\u2014": "\uFE31",
-                            "\u2018": "\uFE43",
-                            "\u2019": "\uFE44",
-                            "\u201C": "\uFE41",
-                            "\u201D": "\uFE42",
-                            "\u2026": "\uFE19",
-                            "\u2027": "\u30FB",
-                            "\u20A9": "\uFFE6",
-                            "\u3001": "\uFE11",
-                            "\u3002": "\uFE12",
-                            "\u3008": "\uFE3F",
-                            "\u3009": "\uFE40",
-                            "\u300A": "\uFE3D",
-                            "\u300B": "\uFE3E",
-                            "\u300C": "\uFE41",
-                            "\u300D": "\uFE42",
-                            "\u300E": "\uFE43",
-                            "\u300F": "\uFE44",
-                            "\u3010": "\uFE3B",
-                            "\u3011": "\uFE3C",
-                            "\u3014": "\uFE39",
-                            "\u3015": "\uFE3A",
-                            "\u3016": "\uFE17",
-                            "\u3017": "\uFE18",
-                            "\uFF01": "\uFE15",
-                            "\uFF08": "\uFE35",
-                            "\uFF09": "\uFE36",
-                            "\uFF0C": "\uFE10",
-                            "\uFF0D": "\uFE32",
-                            "\uFF0E": "\u30FB",
-                            "\uFF1A": "\uFE13",
-                            "\uFF1B": "\uFE14",
-                            "\uFF1C": "\uFE3F",
-                            "\uFF1E": "\uFE40",
-                            "\uFF1F": "\uFE16",
-                            "\uFF3B": "\uFE47",
-                            "\uFF3D": "\uFE48",
-                            "\uFF3F": "\uFE33",
-                            "\uFF5B": "\uFE37",
-                            "\uFF5C": "\u2015",
-                            "\uFF5D": "\uFE38",
-                            "\uFF5F": "\uFE35",
-                            "\uFF60": "\uFE36",
-                            "\uFF61": "\uFE12",
-                            "\uFF62": "\uFE41",
-                            "\uFF63": "\uFE42"
+                            "}": "\ufe38",
+                            "~": "\uff5e",
+                            "\xa2": "\uffe0",
+                            "\xa3": "\uffe1",
+                            "\xa5": "\uffe5",
+                            "\xa6": "\uffe4",
+                            "\xac": "\uffe2",
+                            "\xaf": "\uffe3",
+                            "\u2013": "\ufe32",
+                            "\u2014": "\ufe31",
+                            "\u2018": "\ufe43",
+                            "\u2019": "\ufe44",
+                            "\u201c": "\ufe41",
+                            "\u201d": "\ufe42",
+                            "\u2026": "\ufe19",
+                            "\u2027": "\u30fb",
+                            "\u20a9": "\uffe6",
+                            "\u3001": "\ufe11",
+                            "\u3002": "\ufe12",
+                            "\u3008": "\ufe3f",
+                            "\u3009": "\ufe40",
+                            "\u300a": "\ufe3d",
+                            "\u300b": "\ufe3e",
+                            "\u300c": "\ufe41",
+                            "\u300d": "\ufe42",
+                            "\u300e": "\ufe43",
+                            "\u300f": "\ufe44",
+                            "\u3010": "\ufe3b",
+                            "\u3011": "\ufe3c",
+                            "\u3014": "\ufe39",
+                            "\u3015": "\ufe3a",
+                            "\u3016": "\ufe17",
+                            "\u3017": "\ufe18",
+                            "\uff01": "\ufe15",
+                            "\uff08": "\ufe35",
+                            "\uff09": "\ufe36",
+                            "\uff0c": "\ufe10",
+                            "\uff0d": "\ufe32",
+                            "\uff0e": "\u30fb",
+                            "\uff1a": "\ufe13",
+                            "\uff1b": "\ufe14",
+                            "\uff1c": "\ufe3f",
+                            "\uff1e": "\ufe40",
+                            "\uff1f": "\ufe16",
+                            "\uff3b": "\ufe47",
+                            "\uff3d": "\ufe48",
+                            "\uff3f": "\ufe33",
+                            "\uff5b": "\ufe37",
+                            "\uff5c": "\u2015",
+                            "\uff5d": "\ufe38",
+                            "\uff5f": "\ufe35",
+                            "\uff60": "\ufe36",
+                            "\uff61": "\ufe12",
+                            "\uff62": "\ufe41",
+                            "\uff63": "\ufe42"
                         }, Vs = function(t1, e1, r, n, i) {
                             var a, o, s = 8 * i - n - 1, l = (1 << s) - 1, c = l >> 1, u = -7, f = r ? i - 1 : 0, h = r ? -1 : 1, p = t1[e1 + f];
                             for(f += h, a = p & (1 << -u) - 1, p >>= -u, u += s; u > 0; a = 256 * a + t1[e1 + f], f += h, u -= 8);
@@ -50202,7 +50202,7 @@
                                     o += _l(t1.getCharCode(s), l, n, i, e1, a);
                                 }
                                 return o / Math.max(1, Math.ceil(o / r));
-                            }(t1, e1, r, n, i, o), u = t1.text.indexOf("\u200B") >= 0, f = 0, h = 0; h < t1.length(); h++){
+                            }(t1, e1, r, n, i, o), u = t1.text.indexOf("\u200b") >= 0, f = 0, h = 0; h < t1.length(); h++){
                                 var p = t1.getSection(h), d = t1.getCharCode(h);
                                 if (xl[d] || (f += _l(d, p, n, i, e1, o)), h < t1.length() - 1) {
                                     var g = !((s = d) < 11904 || !(Vn["Bopomofo Extended"](s) || Vn.Bopomofo(s) || Vn["CJK Compatibility Forms"](s) || Vn["CJK Compatibility Ideographs"](s) || Vn["CJK Compatibility"](s) || Vn["CJK Radicals Supplement"](s) || Vn["CJK Strokes"](s) || Vn["CJK Symbols and Punctuation"](s) || Vn["CJK Unified Ideographs Extension A"](s) || Vn["CJK Unified Ideographs"](s) || Vn["Enclosed CJK Letters and Months"](s) || Vn["Halfwidth and Fullwidth Forms"](s) || Vn.Hiragana(s) || Vn["Ideographic Description Characters"](s) || Vn["Kangxi Radicals"](s) || Vn["Katakana Phonetic Extensions"](s) || Vn.Katakana(s) || Vn["Vertical Forms"](s) || Vn["Yi Radicals"](s) || Vn["Yi Syllables"](s)));
@@ -64523,7 +64523,7 @@
                             ].join(""));
                             r.push("scratch[dptr++]=", f("sptr"));
                             for(u = 0; u < t1.length; ++u)0 !== (p = t1[u]) && r.push("sptr+=d" + p, "}");
-                            r.push("__g:while(j-->left){", "dptr=0", "sptr=cptr-s0");
+                            r.push("__g:while(j--\x3eleft){", "dptr=0", "sptr=cptr-s0");
                             for(u = 1; u < t1.length; ++u)1 === u && r.push("__l:"), r.push([
                                 "for(i",
                                 u,
@@ -64577,7 +64577,7 @@
                                 var p;
                                 0 !== (p = t1[u]) && r.push("dptr+=d" + p, "}");
                             }
-                        } else r.push("scratch=" + f("ptr"), "while((j-->left)&&(" + f("cptr-s0") + ">scratch)){", h("cptr", f("cptr-s0")), "cptr-=s0", "}", h("cptr", "scratch"));
+                        } else r.push("scratch=" + f("ptr"), "while((j--\x3eleft)&&(" + f("cptr-s0") + ">scratch)){", h("cptr", f("cptr-s0")), "cptr-=s0", "}", h("cptr", "scratch"));
                         return r.push("}"), t1.length > 1 && s && r.push("free(scratch)"), r.push("} return " + n), s ? new Function("malloc", "free", r.join("\n"))(s[0], s[1]) : new Function(r.join("\n"))();
                     }(t1, e1), y = function(t1, e1, r) {
                         var n = [
@@ -67491,8 +67491,8 @@ object-assign
                         type: "float",
                         data: h
                     }), T(e1), r = t1({
-                        vert: "\n		precision highp float;\n\n		attribute vec2 position, positionFract;\n		attribute vec4 error;\n		attribute vec4 color;\n\n		attribute vec2 direction, lineOffset, capOffset;\n\n		uniform vec4 viewport;\n		uniform float lineWidth, capSize;\n		uniform vec2 scale, scaleFract, translate, translateFract;\n\n		varying vec4 fragColor;\n\n		void main() {\n			fragColor = color / 255.;\n\n			vec2 pixelOffset = lineWidth * lineOffset + (capSize + lineWidth) * capOffset;\n\n			vec2 dxy = -step(.5, direction.xy) * error.xz + step(direction.xy, vec2(-.5)) * error.yw;\n\n			vec2 position = position + dxy;\n\n			vec2 pos = (position + translate) * scale\n				+ (positionFract + translateFract) * scale\n				+ (position + translate) * scaleFract\n				+ (positionFract + translateFract) * scaleFract;\n\n			pos += pixelOffset / viewport.zw;\n\n			gl_Position = vec4(pos * 2. - 1., 0, 1);\n		}\n		",
-                        frag: "\n		precision highp float;\n\n		varying vec4 fragColor;\n\n		uniform float opacity;\n\n		void main() {\n			gl_FragColor = fragColor;\n			gl_FragColor.a *= opacity;\n		}\n		",
+                        vert: "\n\t\tprecision highp float;\n\n\t\tattribute vec2 position, positionFract;\n\t\tattribute vec4 error;\n\t\tattribute vec4 color;\n\n\t\tattribute vec2 direction, lineOffset, capOffset;\n\n\t\tuniform vec4 viewport;\n\t\tuniform float lineWidth, capSize;\n\t\tuniform vec2 scale, scaleFract, translate, translateFract;\n\n\t\tvarying vec4 fragColor;\n\n\t\tvoid main() {\n\t\t\tfragColor = color / 255.;\n\n\t\t\tvec2 pixelOffset = lineWidth * lineOffset + (capSize + lineWidth) * capOffset;\n\n\t\t\tvec2 dxy = -step(.5, direction.xy) * error.xz + step(direction.xy, vec2(-.5)) * error.yw;\n\n\t\t\tvec2 position = position + dxy;\n\n\t\t\tvec2 pos = (position + translate) * scale\n\t\t\t\t+ (positionFract + translateFract) * scale\n\t\t\t\t+ (position + translate) * scaleFract\n\t\t\t\t+ (positionFract + translateFract) * scaleFract;\n\n\t\t\tpos += pixelOffset / viewport.zw;\n\n\t\t\tgl_Position = vec4(pos * 2. - 1., 0, 1);\n\t\t}\n\t\t",
+                        frag: "\n\t\tprecision highp float;\n\n\t\tvarying vec4 fragColor;\n\n\t\tuniform float opacity;\n\n\t\tvoid main() {\n\t\t\tgl_FragColor = fragColor;\n\t\t\tgl_FragColor.a *= opacity;\n\t\t}\n\t\t",
                         uniforms: {
                             range: t1.prop("range"),
                             lineWidth: t1.prop("lineWidth"),
@@ -68110,10 +68110,10 @@ object-assign
                         viewport: t1.prop("viewport")
                     }, i = t1(a({
                         vert: o([
-                            "precision highp float;\n#define GLSLIFY 1\n\nattribute vec2 aCoord, bCoord, aCoordFract, bCoordFract;\nattribute vec4 color;\nattribute float lineEnd, lineTop;\n\nuniform vec2 scale, scaleFract, translate, translateFract;\nuniform float thickness, pixelRatio, id, depth;\nuniform vec4 viewport;\n\nvarying vec4 fragColor;\nvarying vec2 tangent;\n\nvec2 project(vec2 position, vec2 positionFract, vec2 scale, vec2 scaleFract, vec2 translate, vec2 translateFract) {\n	// the order is important\n	return position * scale + translate\n       + positionFract * scale + translateFract\n       + position * scaleFract\n       + positionFract * scaleFract;\n}\n\nvoid main() {\n	float lineStart = 1. - lineEnd;\n	float lineOffset = lineTop * 2. - 1.;\n\n	vec2 diff = (bCoord + bCoordFract - aCoord - aCoordFract);\n	tangent = normalize(diff * scale * viewport.zw);\n	vec2 normal = vec2(-tangent.y, tangent.x);\n\n	vec2 position = project(aCoord, aCoordFract, scale, scaleFract, translate, translateFract) * lineStart\n		+ project(bCoord, bCoordFract, scale, scaleFract, translate, translateFract) * lineEnd\n\n		+ thickness * normal * .5 * lineOffset / viewport.zw;\n\n	gl_Position = vec4(position * 2.0 - 1.0, depth, 1);\n\n	fragColor = color / 255.;\n}\n"
+                            "precision highp float;\n#define GLSLIFY 1\n\nattribute vec2 aCoord, bCoord, aCoordFract, bCoordFract;\nattribute vec4 color;\nattribute float lineEnd, lineTop;\n\nuniform vec2 scale, scaleFract, translate, translateFract;\nuniform float thickness, pixelRatio, id, depth;\nuniform vec4 viewport;\n\nvarying vec4 fragColor;\nvarying vec2 tangent;\n\nvec2 project(vec2 position, vec2 positionFract, vec2 scale, vec2 scaleFract, vec2 translate, vec2 translateFract) {\n\t// the order is important\n\treturn position * scale + translate\n       + positionFract * scale + translateFract\n       + position * scaleFract\n       + positionFract * scaleFract;\n}\n\nvoid main() {\n\tfloat lineStart = 1. - lineEnd;\n\tfloat lineOffset = lineTop * 2. - 1.;\n\n\tvec2 diff = (bCoord + bCoordFract - aCoord - aCoordFract);\n\ttangent = normalize(diff * scale * viewport.zw);\n\tvec2 normal = vec2(-tangent.y, tangent.x);\n\n\tvec2 position = project(aCoord, aCoordFract, scale, scaleFract, translate, translateFract) * lineStart\n\t\t+ project(bCoord, bCoordFract, scale, scaleFract, translate, translateFract) * lineEnd\n\n\t\t+ thickness * normal * .5 * lineOffset / viewport.zw;\n\n\tgl_Position = vec4(position * 2.0 - 1.0, depth, 1);\n\n\tfragColor = color / 255.;\n}\n"
                         ]),
                         frag: o([
-                            "precision highp float;\n#define GLSLIFY 1\n\nuniform sampler2D dashPattern;\n\nuniform float dashSize, pixelRatio, thickness, opacity, id;\n\nvarying vec4 fragColor;\nvarying vec2 tangent;\n\nvoid main() {\n	float alpha = 1.;\n\n	float t = fract(dot(tangent, gl_FragCoord.xy) / dashSize) * .5 + .25;\n	float dash = texture2D(dashPattern, vec2(t, .5)).r;\n\n	gl_FragColor = fragColor;\n	gl_FragColor.a *= alpha * opacity * dash;\n}\n"
+                            "precision highp float;\n#define GLSLIFY 1\n\nuniform sampler2D dashPattern;\n\nuniform float dashSize, pixelRatio, thickness, opacity, id;\n\nvarying vec4 fragColor;\nvarying vec2 tangent;\n\nvoid main() {\n\tfloat alpha = 1.;\n\n\tfloat t = fract(dot(tangent, gl_FragCoord.xy) / dashSize) * .5 + .25;\n\tfloat dash = texture2D(dashPattern, vec2(t, .5)).r;\n\n\tgl_FragColor = fragColor;\n\tgl_FragColor.a *= alpha * opacity * dash;\n}\n"
                         ]),
                         attributes: {
                             lineEnd: {
@@ -68167,10 +68167,10 @@ object-assign
                                 face: "back"
                             },
                             vert: o([
-                                "precision highp float;\n#define GLSLIFY 1\n\nattribute vec2 aCoord, bCoord, nextCoord, prevCoord;\nattribute vec4 aColor, bColor;\nattribute float lineEnd, lineTop;\n\nuniform vec2 scale, translate;\nuniform float thickness, pixelRatio, id, depth;\nuniform vec4 viewport;\nuniform float miterLimit, miterMode;\n\nvarying vec4 fragColor;\nvarying vec4 startCutoff, endCutoff;\nvarying vec2 tangent;\nvarying vec2 startCoord, endCoord;\nvarying float enableStartMiter, enableEndMiter;\n\nconst float REVERSE_THRESHOLD = -.875;\nconst float MIN_DIFF = 1e-6;\n\n// TODO: possible optimizations: avoid overcalculating all for vertices and calc just one instead\n// TODO: precalculate dot products, normalize things beforehead etc.\n// TODO: refactor to rectangular algorithm\n\nfloat distToLine(vec2 p, vec2 a, vec2 b) {\n	vec2 diff = b - a;\n	vec2 perp = normalize(vec2(-diff.y, diff.x));\n	return dot(p - a, perp);\n}\n\nbool isNaN( float val ){\n  return ( val < 0.0 || 0.0 < val || val == 0.0 ) ? false : true;\n}\n\nvoid main() {\n	vec2 aCoord = aCoord, bCoord = bCoord, prevCoord = prevCoord, nextCoord = nextCoord;\n\n  vec2 adjustedScale;\n  adjustedScale.x = (abs(scale.x) < MIN_DIFF) ? MIN_DIFF : scale.x;\n  adjustedScale.y = (abs(scale.y) < MIN_DIFF) ? MIN_DIFF : scale.y;\n\n  vec2 scaleRatio = adjustedScale * viewport.zw;\n	vec2 normalWidth = thickness / scaleRatio;\n\n	float lineStart = 1. - lineEnd;\n	float lineBot = 1. - lineTop;\n\n	fragColor = (lineStart * aColor + lineEnd * bColor) / 255.;\n\n	if (isNaN(aCoord.x) || isNaN(aCoord.y) || isNaN(bCoord.x) || isNaN(bCoord.y)) return;\n\n	if (aCoord == prevCoord) prevCoord = aCoord + normalize(bCoord - aCoord);\n	if (bCoord == nextCoord) nextCoord = bCoord - normalize(bCoord - aCoord);\n\n	vec2 prevDiff = aCoord - prevCoord;\n	vec2 currDiff = bCoord - aCoord;\n	vec2 nextDiff = nextCoord - bCoord;\n\n	vec2 prevTangent = normalize(prevDiff * scaleRatio);\n	vec2 currTangent = normalize(currDiff * scaleRatio);\n	vec2 nextTangent = normalize(nextDiff * scaleRatio);\n\n	vec2 prevNormal = vec2(-prevTangent.y, prevTangent.x);\n	vec2 currNormal = vec2(-currTangent.y, currTangent.x);\n	vec2 nextNormal = vec2(-nextTangent.y, nextTangent.x);\n\n	vec2 startJoinDirection = normalize(prevTangent - currTangent);\n	vec2 endJoinDirection = normalize(currTangent - nextTangent);\n\n	// collapsed/unidirectional segment cases\n	// FIXME: there should be more elegant solution\n	vec2 prevTanDiff = abs(prevTangent - currTangent);\n	vec2 nextTanDiff = abs(nextTangent - currTangent);\n	if (max(prevTanDiff.x, prevTanDiff.y) < MIN_DIFF) {\n		startJoinDirection = currNormal;\n	}\n	if (max(nextTanDiff.x, nextTanDiff.y) < MIN_DIFF) {\n		endJoinDirection = currNormal;\n	}\n	if (aCoord == bCoord) {\n		endJoinDirection = startJoinDirection;\n		currNormal = prevNormal;\n		currTangent = prevTangent;\n	}\n\n	tangent = currTangent;\n\n	//calculate join shifts relative to normals\n	float startJoinShift = dot(currNormal, startJoinDirection);\n	float endJoinShift = dot(currNormal, endJoinDirection);\n\n	float startMiterRatio = abs(1. / startJoinShift);\n	float endMiterRatio = abs(1. / endJoinShift);\n\n	vec2 startJoin = startJoinDirection * startMiterRatio;\n	vec2 endJoin = endJoinDirection * endMiterRatio;\n\n	vec2 startTopJoin, startBotJoin, endTopJoin, endBotJoin;\n	startTopJoin = sign(startJoinShift) * startJoin * .5;\n	startBotJoin = -startTopJoin;\n\n	endTopJoin = sign(endJoinShift) * endJoin * .5;\n	endBotJoin = -endTopJoin;\n\n	vec2 aTopCoord = aCoord + normalWidth * startTopJoin;\n	vec2 bTopCoord = bCoord + normalWidth * endTopJoin;\n	vec2 aBotCoord = aCoord + normalWidth * startBotJoin;\n	vec2 bBotCoord = bCoord + normalWidth * endBotJoin;\n\n	//miter anti-clipping\n	float baClipping = distToLine(bCoord, aCoord, aBotCoord) / dot(normalize(normalWidth * endBotJoin), normalize(normalWidth.yx * vec2(-startBotJoin.y, startBotJoin.x)));\n	float abClipping = distToLine(aCoord, bCoord, bTopCoord) / dot(normalize(normalWidth * startBotJoin), normalize(normalWidth.yx * vec2(-endBotJoin.y, endBotJoin.x)));\n\n	//prevent close to reverse direction switch\n	bool prevReverse = dot(currTangent, prevTangent) <= REVERSE_THRESHOLD && abs(dot(currTangent, prevNormal)) * min(length(prevDiff), length(currDiff)) <  length(normalWidth * currNormal);\n	bool nextReverse = dot(currTangent, nextTangent) <= REVERSE_THRESHOLD && abs(dot(currTangent, nextNormal)) * min(length(nextDiff), length(currDiff)) <  length(normalWidth * currNormal);\n\n	if (prevReverse) {\n		//make join rectangular\n		vec2 miterShift = normalWidth * startJoinDirection * miterLimit * .5;\n		float normalAdjust = 1. - min(miterLimit / startMiterRatio, 1.);\n		aBotCoord = aCoord + miterShift - normalAdjust * normalWidth * currNormal * .5;\n		aTopCoord = aCoord + miterShift + normalAdjust * normalWidth * currNormal * .5;\n	}\n	else if (!nextReverse && baClipping > 0. && baClipping < length(normalWidth * endBotJoin)) {\n		//handle miter clipping\n		bTopCoord -= normalWidth * endTopJoin;\n		bTopCoord += normalize(endTopJoin * normalWidth) * baClipping;\n	}\n\n	if (nextReverse) {\n		//make join rectangular\n		vec2 miterShift = normalWidth * endJoinDirection * miterLimit * .5;\n		float normalAdjust = 1. - min(miterLimit / endMiterRatio, 1.);\n		bBotCoord = bCoord + miterShift - normalAdjust * normalWidth * currNormal * .5;\n		bTopCoord = bCoord + miterShift + normalAdjust * normalWidth * currNormal * .5;\n	}\n	else if (!prevReverse && abClipping > 0. && abClipping < length(normalWidth * startBotJoin)) {\n		//handle miter clipping\n		aBotCoord -= normalWidth * startBotJoin;\n		aBotCoord += normalize(startBotJoin * normalWidth) * abClipping;\n	}\n\n	vec2 aTopPosition = (aTopCoord) * adjustedScale + translate;\n	vec2 aBotPosition = (aBotCoord) * adjustedScale + translate;\n\n	vec2 bTopPosition = (bTopCoord) * adjustedScale + translate;\n	vec2 bBotPosition = (bBotCoord) * adjustedScale + translate;\n\n	//position is normalized 0..1 coord on the screen\n	vec2 position = (aTopPosition * lineTop + aBotPosition * lineBot) * lineStart + (bTopPosition * lineTop + bBotPosition * lineBot) * lineEnd;\n\n	startCoord = aCoord * scaleRatio + translate * viewport.zw + viewport.xy;\n	endCoord = bCoord * scaleRatio + translate * viewport.zw + viewport.xy;\n\n	gl_Position = vec4(position  * 2.0 - 1.0, depth, 1);\n\n	enableStartMiter = step(dot(currTangent, prevTangent), .5);\n	enableEndMiter = step(dot(currTangent, nextTangent), .5);\n\n	//bevel miter cutoffs\n	if (miterMode == 1.) {\n		if (enableStartMiter == 1.) {\n			vec2 startMiterWidth = vec2(startJoinDirection) * thickness * miterLimit * .5;\n			startCutoff = vec4(aCoord, aCoord);\n			startCutoff.zw += vec2(-startJoinDirection.y, startJoinDirection.x) / scaleRatio;\n			startCutoff = startCutoff * scaleRatio.xyxy + translate.xyxy * viewport.zwzw;\n			startCutoff += viewport.xyxy;\n			startCutoff += startMiterWidth.xyxy;\n		}\n\n		if (enableEndMiter == 1.) {\n			vec2 endMiterWidth = vec2(endJoinDirection) * thickness * miterLimit * .5;\n			endCutoff = vec4(bCoord, bCoord);\n			endCutoff.zw += vec2(-endJoinDirection.y, endJoinDirection.x)  / scaleRatio;\n			endCutoff = endCutoff * scaleRatio.xyxy + translate.xyxy * viewport.zwzw;\n			endCutoff += viewport.xyxy;\n			endCutoff += endMiterWidth.xyxy;\n		}\n	}\n\n	//round miter cutoffs\n	else if (miterMode == 2.) {\n		if (enableStartMiter == 1.) {\n			vec2 startMiterWidth = vec2(startJoinDirection) * thickness * abs(dot(startJoinDirection, currNormal)) * .5;\n			startCutoff = vec4(aCoord, aCoord);\n			startCutoff.zw += vec2(-startJoinDirection.y, startJoinDirection.x) / scaleRatio;\n			startCutoff = startCutoff * scaleRatio.xyxy + translate.xyxy * viewport.zwzw;\n			startCutoff += viewport.xyxy;\n			startCutoff += startMiterWidth.xyxy;\n		}\n\n		if (enableEndMiter == 1.) {\n			vec2 endMiterWidth = vec2(endJoinDirection) * thickness * abs(dot(endJoinDirection, currNormal)) * .5;\n			endCutoff = vec4(bCoord, bCoord);\n			endCutoff.zw += vec2(-endJoinDirection.y, endJoinDirection.x)  / scaleRatio;\n			endCutoff = endCutoff * scaleRatio.xyxy + translate.xyxy * viewport.zwzw;\n			endCutoff += viewport.xyxy;\n			endCutoff += endMiterWidth.xyxy;\n		}\n	}\n}\n"
+                                "precision highp float;\n#define GLSLIFY 1\n\nattribute vec2 aCoord, bCoord, nextCoord, prevCoord;\nattribute vec4 aColor, bColor;\nattribute float lineEnd, lineTop;\n\nuniform vec2 scale, translate;\nuniform float thickness, pixelRatio, id, depth;\nuniform vec4 viewport;\nuniform float miterLimit, miterMode;\n\nvarying vec4 fragColor;\nvarying vec4 startCutoff, endCutoff;\nvarying vec2 tangent;\nvarying vec2 startCoord, endCoord;\nvarying float enableStartMiter, enableEndMiter;\n\nconst float REVERSE_THRESHOLD = -.875;\nconst float MIN_DIFF = 1e-6;\n\n// TODO: possible optimizations: avoid overcalculating all for vertices and calc just one instead\n// TODO: precalculate dot products, normalize things beforehead etc.\n// TODO: refactor to rectangular algorithm\n\nfloat distToLine(vec2 p, vec2 a, vec2 b) {\n\tvec2 diff = b - a;\n\tvec2 perp = normalize(vec2(-diff.y, diff.x));\n\treturn dot(p - a, perp);\n}\n\nbool isNaN( float val ){\n  return ( val < 0.0 || 0.0 < val || val == 0.0 ) ? false : true;\n}\n\nvoid main() {\n\tvec2 aCoord = aCoord, bCoord = bCoord, prevCoord = prevCoord, nextCoord = nextCoord;\n\n  vec2 adjustedScale;\n  adjustedScale.x = (abs(scale.x) < MIN_DIFF) ? MIN_DIFF : scale.x;\n  adjustedScale.y = (abs(scale.y) < MIN_DIFF) ? MIN_DIFF : scale.y;\n\n  vec2 scaleRatio = adjustedScale * viewport.zw;\n\tvec2 normalWidth = thickness / scaleRatio;\n\n\tfloat lineStart = 1. - lineEnd;\n\tfloat lineBot = 1. - lineTop;\n\n\tfragColor = (lineStart * aColor + lineEnd * bColor) / 255.;\n\n\tif (isNaN(aCoord.x) || isNaN(aCoord.y) || isNaN(bCoord.x) || isNaN(bCoord.y)) return;\n\n\tif (aCoord == prevCoord) prevCoord = aCoord + normalize(bCoord - aCoord);\n\tif (bCoord == nextCoord) nextCoord = bCoord - normalize(bCoord - aCoord);\n\n\tvec2 prevDiff = aCoord - prevCoord;\n\tvec2 currDiff = bCoord - aCoord;\n\tvec2 nextDiff = nextCoord - bCoord;\n\n\tvec2 prevTangent = normalize(prevDiff * scaleRatio);\n\tvec2 currTangent = normalize(currDiff * scaleRatio);\n\tvec2 nextTangent = normalize(nextDiff * scaleRatio);\n\n\tvec2 prevNormal = vec2(-prevTangent.y, prevTangent.x);\n\tvec2 currNormal = vec2(-currTangent.y, currTangent.x);\n\tvec2 nextNormal = vec2(-nextTangent.y, nextTangent.x);\n\n\tvec2 startJoinDirection = normalize(prevTangent - currTangent);\n\tvec2 endJoinDirection = normalize(currTangent - nextTangent);\n\n\t// collapsed/unidirectional segment cases\n\t// FIXME: there should be more elegant solution\n\tvec2 prevTanDiff = abs(prevTangent - currTangent);\n\tvec2 nextTanDiff = abs(nextTangent - currTangent);\n\tif (max(prevTanDiff.x, prevTanDiff.y) < MIN_DIFF) {\n\t\tstartJoinDirection = currNormal;\n\t}\n\tif (max(nextTanDiff.x, nextTanDiff.y) < MIN_DIFF) {\n\t\tendJoinDirection = currNormal;\n\t}\n\tif (aCoord == bCoord) {\n\t\tendJoinDirection = startJoinDirection;\n\t\tcurrNormal = prevNormal;\n\t\tcurrTangent = prevTangent;\n\t}\n\n\ttangent = currTangent;\n\n\t//calculate join shifts relative to normals\n\tfloat startJoinShift = dot(currNormal, startJoinDirection);\n\tfloat endJoinShift = dot(currNormal, endJoinDirection);\n\n\tfloat startMiterRatio = abs(1. / startJoinShift);\n\tfloat endMiterRatio = abs(1. / endJoinShift);\n\n\tvec2 startJoin = startJoinDirection * startMiterRatio;\n\tvec2 endJoin = endJoinDirection * endMiterRatio;\n\n\tvec2 startTopJoin, startBotJoin, endTopJoin, endBotJoin;\n\tstartTopJoin = sign(startJoinShift) * startJoin * .5;\n\tstartBotJoin = -startTopJoin;\n\n\tendTopJoin = sign(endJoinShift) * endJoin * .5;\n\tendBotJoin = -endTopJoin;\n\n\tvec2 aTopCoord = aCoord + normalWidth * startTopJoin;\n\tvec2 bTopCoord = bCoord + normalWidth * endTopJoin;\n\tvec2 aBotCoord = aCoord + normalWidth * startBotJoin;\n\tvec2 bBotCoord = bCoord + normalWidth * endBotJoin;\n\n\t//miter anti-clipping\n\tfloat baClipping = distToLine(bCoord, aCoord, aBotCoord) / dot(normalize(normalWidth * endBotJoin), normalize(normalWidth.yx * vec2(-startBotJoin.y, startBotJoin.x)));\n\tfloat abClipping = distToLine(aCoord, bCoord, bTopCoord) / dot(normalize(normalWidth * startBotJoin), normalize(normalWidth.yx * vec2(-endBotJoin.y, endBotJoin.x)));\n\n\t//prevent close to reverse direction switch\n\tbool prevReverse = dot(currTangent, prevTangent) <= REVERSE_THRESHOLD && abs(dot(currTangent, prevNormal)) * min(length(prevDiff), length(currDiff)) <  length(normalWidth * currNormal);\n\tbool nextReverse = dot(currTangent, nextTangent) <= REVERSE_THRESHOLD && abs(dot(currTangent, nextNormal)) * min(length(nextDiff), length(currDiff)) <  length(normalWidth * currNormal);\n\n\tif (prevReverse) {\n\t\t//make join rectangular\n\t\tvec2 miterShift = normalWidth * startJoinDirection * miterLimit * .5;\n\t\tfloat normalAdjust = 1. - min(miterLimit / startMiterRatio, 1.);\n\t\taBotCoord = aCoord + miterShift - normalAdjust * normalWidth * currNormal * .5;\n\t\taTopCoord = aCoord + miterShift + normalAdjust * normalWidth * currNormal * .5;\n\t}\n\telse if (!nextReverse && baClipping > 0. && baClipping < length(normalWidth * endBotJoin)) {\n\t\t//handle miter clipping\n\t\tbTopCoord -= normalWidth * endTopJoin;\n\t\tbTopCoord += normalize(endTopJoin * normalWidth) * baClipping;\n\t}\n\n\tif (nextReverse) {\n\t\t//make join rectangular\n\t\tvec2 miterShift = normalWidth * endJoinDirection * miterLimit * .5;\n\t\tfloat normalAdjust = 1. - min(miterLimit / endMiterRatio, 1.);\n\t\tbBotCoord = bCoord + miterShift - normalAdjust * normalWidth * currNormal * .5;\n\t\tbTopCoord = bCoord + miterShift + normalAdjust * normalWidth * currNormal * .5;\n\t}\n\telse if (!prevReverse && abClipping > 0. && abClipping < length(normalWidth * startBotJoin)) {\n\t\t//handle miter clipping\n\t\taBotCoord -= normalWidth * startBotJoin;\n\t\taBotCoord += normalize(startBotJoin * normalWidth) * abClipping;\n\t}\n\n\tvec2 aTopPosition = (aTopCoord) * adjustedScale + translate;\n\tvec2 aBotPosition = (aBotCoord) * adjustedScale + translate;\n\n\tvec2 bTopPosition = (bTopCoord) * adjustedScale + translate;\n\tvec2 bBotPosition = (bBotCoord) * adjustedScale + translate;\n\n\t//position is normalized 0..1 coord on the screen\n\tvec2 position = (aTopPosition * lineTop + aBotPosition * lineBot) * lineStart + (bTopPosition * lineTop + bBotPosition * lineBot) * lineEnd;\n\n\tstartCoord = aCoord * scaleRatio + translate * viewport.zw + viewport.xy;\n\tendCoord = bCoord * scaleRatio + translate * viewport.zw + viewport.xy;\n\n\tgl_Position = vec4(position  * 2.0 - 1.0, depth, 1);\n\n\tenableStartMiter = step(dot(currTangent, prevTangent), .5);\n\tenableEndMiter = step(dot(currTangent, nextTangent), .5);\n\n\t//bevel miter cutoffs\n\tif (miterMode == 1.) {\n\t\tif (enableStartMiter == 1.) {\n\t\t\tvec2 startMiterWidth = vec2(startJoinDirection) * thickness * miterLimit * .5;\n\t\t\tstartCutoff = vec4(aCoord, aCoord);\n\t\t\tstartCutoff.zw += vec2(-startJoinDirection.y, startJoinDirection.x) / scaleRatio;\n\t\t\tstartCutoff = startCutoff * scaleRatio.xyxy + translate.xyxy * viewport.zwzw;\n\t\t\tstartCutoff += viewport.xyxy;\n\t\t\tstartCutoff += startMiterWidth.xyxy;\n\t\t}\n\n\t\tif (enableEndMiter == 1.) {\n\t\t\tvec2 endMiterWidth = vec2(endJoinDirection) * thickness * miterLimit * .5;\n\t\t\tendCutoff = vec4(bCoord, bCoord);\n\t\t\tendCutoff.zw += vec2(-endJoinDirection.y, endJoinDirection.x)  / scaleRatio;\n\t\t\tendCutoff = endCutoff * scaleRatio.xyxy + translate.xyxy * viewport.zwzw;\n\t\t\tendCutoff += viewport.xyxy;\n\t\t\tendCutoff += endMiterWidth.xyxy;\n\t\t}\n\t}\n\n\t//round miter cutoffs\n\telse if (miterMode == 2.) {\n\t\tif (enableStartMiter == 1.) {\n\t\t\tvec2 startMiterWidth = vec2(startJoinDirection) * thickness * abs(dot(startJoinDirection, currNormal)) * .5;\n\t\t\tstartCutoff = vec4(aCoord, aCoord);\n\t\t\tstartCutoff.zw += vec2(-startJoinDirection.y, startJoinDirection.x) / scaleRatio;\n\t\t\tstartCutoff = startCutoff * scaleRatio.xyxy + translate.xyxy * viewport.zwzw;\n\t\t\tstartCutoff += viewport.xyxy;\n\t\t\tstartCutoff += startMiterWidth.xyxy;\n\t\t}\n\n\t\tif (enableEndMiter == 1.) {\n\t\t\tvec2 endMiterWidth = vec2(endJoinDirection) * thickness * abs(dot(endJoinDirection, currNormal)) * .5;\n\t\t\tendCutoff = vec4(bCoord, bCoord);\n\t\t\tendCutoff.zw += vec2(-endJoinDirection.y, endJoinDirection.x)  / scaleRatio;\n\t\t\tendCutoff = endCutoff * scaleRatio.xyxy + translate.xyxy * viewport.zwzw;\n\t\t\tendCutoff += viewport.xyxy;\n\t\t\tendCutoff += endMiterWidth.xyxy;\n\t\t}\n\t}\n}\n"
                             ]),
                             frag: o([
-                                "precision highp float;\n#define GLSLIFY 1\n\nuniform sampler2D dashPattern;\nuniform float dashSize, pixelRatio, thickness, opacity, id, miterMode;\n\nvarying vec4 fragColor;\nvarying vec2 tangent;\nvarying vec4 startCutoff, endCutoff;\nvarying vec2 startCoord, endCoord;\nvarying float enableStartMiter, enableEndMiter;\n\nfloat distToLine(vec2 p, vec2 a, vec2 b) {\n	vec2 diff = b - a;\n	vec2 perp = normalize(vec2(-diff.y, diff.x));\n	return dot(p - a, perp);\n}\n\nvoid main() {\n	float alpha = 1., distToStart, distToEnd;\n	float cutoff = thickness * .5;\n\n	//bevel miter\n	if (miterMode == 1.) {\n		if (enableStartMiter == 1.) {\n			distToStart = distToLine(gl_FragCoord.xy, startCutoff.xy, startCutoff.zw);\n			if (distToStart < -1.) {\n				discard;\n				return;\n			}\n			alpha *= min(max(distToStart + 1., 0.), 1.);\n		}\n\n		if (enableEndMiter == 1.) {\n			distToEnd = distToLine(gl_FragCoord.xy, endCutoff.xy, endCutoff.zw);\n			if (distToEnd < -1.) {\n				discard;\n				return;\n			}\n			alpha *= min(max(distToEnd + 1., 0.), 1.);\n		}\n	}\n\n	// round miter\n	else if (miterMode == 2.) {\n		if (enableStartMiter == 1.) {\n			distToStart = distToLine(gl_FragCoord.xy, startCutoff.xy, startCutoff.zw);\n			if (distToStart < 0.) {\n				float radius = length(gl_FragCoord.xy - startCoord);\n\n				if(radius > cutoff + .5) {\n					discard;\n					return;\n				}\n\n				alpha -= smoothstep(cutoff - .5, cutoff + .5, radius);\n			}\n		}\n\n		if (enableEndMiter == 1.) {\n			distToEnd = distToLine(gl_FragCoord.xy, endCutoff.xy, endCutoff.zw);\n			if (distToEnd < 0.) {\n				float radius = length(gl_FragCoord.xy - endCoord);\n\n				if(radius > cutoff + .5) {\n					discard;\n					return;\n				}\n\n				alpha -= smoothstep(cutoff - .5, cutoff + .5, radius);\n			}\n		}\n	}\n\n	float t = fract(dot(tangent, gl_FragCoord.xy) / dashSize) * .5 + .25;\n	float dash = texture2D(dashPattern, vec2(t, .5)).r;\n\n	gl_FragColor = fragColor;\n	gl_FragColor.a *= alpha * opacity * dash;\n}\n"
+                                "precision highp float;\n#define GLSLIFY 1\n\nuniform sampler2D dashPattern;\nuniform float dashSize, pixelRatio, thickness, opacity, id, miterMode;\n\nvarying vec4 fragColor;\nvarying vec2 tangent;\nvarying vec4 startCutoff, endCutoff;\nvarying vec2 startCoord, endCoord;\nvarying float enableStartMiter, enableEndMiter;\n\nfloat distToLine(vec2 p, vec2 a, vec2 b) {\n\tvec2 diff = b - a;\n\tvec2 perp = normalize(vec2(-diff.y, diff.x));\n\treturn dot(p - a, perp);\n}\n\nvoid main() {\n\tfloat alpha = 1., distToStart, distToEnd;\n\tfloat cutoff = thickness * .5;\n\n\t//bevel miter\n\tif (miterMode == 1.) {\n\t\tif (enableStartMiter == 1.) {\n\t\t\tdistToStart = distToLine(gl_FragCoord.xy, startCutoff.xy, startCutoff.zw);\n\t\t\tif (distToStart < -1.) {\n\t\t\t\tdiscard;\n\t\t\t\treturn;\n\t\t\t}\n\t\t\talpha *= min(max(distToStart + 1., 0.), 1.);\n\t\t}\n\n\t\tif (enableEndMiter == 1.) {\n\t\t\tdistToEnd = distToLine(gl_FragCoord.xy, endCutoff.xy, endCutoff.zw);\n\t\t\tif (distToEnd < -1.) {\n\t\t\t\tdiscard;\n\t\t\t\treturn;\n\t\t\t}\n\t\t\talpha *= min(max(distToEnd + 1., 0.), 1.);\n\t\t}\n\t}\n\n\t// round miter\n\telse if (miterMode == 2.) {\n\t\tif (enableStartMiter == 1.) {\n\t\t\tdistToStart = distToLine(gl_FragCoord.xy, startCutoff.xy, startCutoff.zw);\n\t\t\tif (distToStart < 0.) {\n\t\t\t\tfloat radius = length(gl_FragCoord.xy - startCoord);\n\n\t\t\t\tif(radius > cutoff + .5) {\n\t\t\t\t\tdiscard;\n\t\t\t\t\treturn;\n\t\t\t\t}\n\n\t\t\t\talpha -= smoothstep(cutoff - .5, cutoff + .5, radius);\n\t\t\t}\n\t\t}\n\n\t\tif (enableEndMiter == 1.) {\n\t\t\tdistToEnd = distToLine(gl_FragCoord.xy, endCutoff.xy, endCutoff.zw);\n\t\t\tif (distToEnd < 0.) {\n\t\t\t\tfloat radius = length(gl_FragCoord.xy - endCoord);\n\n\t\t\t\tif(radius > cutoff + .5) {\n\t\t\t\t\tdiscard;\n\t\t\t\t\treturn;\n\t\t\t\t}\n\n\t\t\t\talpha -= smoothstep(cutoff - .5, cutoff + .5, radius);\n\t\t\t}\n\t\t}\n\t}\n\n\tfloat t = fract(dot(tangent, gl_FragCoord.xy) / dashSize) * .5 + .25;\n\tfloat dash = texture2D(dashPattern, vec2(t, .5)).r;\n\n\tgl_FragColor = fragColor;\n\tgl_FragColor.a *= alpha * opacity * dash;\n}\n"
                             ]),
                             attributes: {
                                 lineEnd: {
@@ -68234,10 +68234,10 @@ object-assign
                             },
                             offset: 0,
                             vert: o([
-                                "precision highp float;\n#define GLSLIFY 1\n\nattribute vec2 position, positionFract;\n\nuniform vec4 color;\nuniform vec2 scale, scaleFract, translate, translateFract;\nuniform float pixelRatio, id;\nuniform vec4 viewport;\nuniform float opacity;\n\nvarying vec4 fragColor;\n\nconst float MAX_LINES = 256.;\n\nvoid main() {\n	float depth = (MAX_LINES - 4. - id) / (MAX_LINES);\n\n	vec2 position = position * scale + translate\n       + positionFract * scale + translateFract\n       + position * scaleFract\n       + positionFract * scaleFract;\n\n	gl_Position = vec4(position * 2.0 - 1.0, depth, 1);\n\n	fragColor = color / 255.;\n	fragColor.a *= opacity;\n}\n"
+                                "precision highp float;\n#define GLSLIFY 1\n\nattribute vec2 position, positionFract;\n\nuniform vec4 color;\nuniform vec2 scale, scaleFract, translate, translateFract;\nuniform float pixelRatio, id;\nuniform vec4 viewport;\nuniform float opacity;\n\nvarying vec4 fragColor;\n\nconst float MAX_LINES = 256.;\n\nvoid main() {\n\tfloat depth = (MAX_LINES - 4. - id) / (MAX_LINES);\n\n\tvec2 position = position * scale + translate\n       + positionFract * scale + translateFract\n       + position * scaleFract\n       + positionFract * scaleFract;\n\n\tgl_Position = vec4(position * 2.0 - 1.0, depth, 1);\n\n\tfragColor = color / 255.;\n\tfragColor.a *= opacity;\n}\n"
                             ]),
                             frag: o([
-                                "precision highp float;\n#define GLSLIFY 1\n\nvarying vec4 fragColor;\n\nvoid main() {\n	gl_FragColor = fragColor;\n}\n"
+                                "precision highp float;\n#define GLSLIFY 1\n\nvarying vec4 fragColor;\n\nvoid main() {\n\tgl_FragColor = fragColor;\n}\n"
                             ]),
                             uniforms: {
                                 scale: t1.prop("scale"),
@@ -68720,7 +68720,7 @@ object-assign
                     ]), this.drawMarker = t1(s);
                     var l = f({}, o);
                     l.frag = h([
-                        "precision highp float;\n#define GLSLIFY 1\n\nvarying vec4 fragColor, fragBorderColor;\n\nuniform float opacity;\nvarying float fragBorderRadius, fragWidth;\n\nfloat smoothStep(float edge0, float edge1, float x) {\n	float t;\n	t = clamp((x - edge0) / (edge1 - edge0), 0.0, 1.0);\n	return t * t * (3.0 - 2.0 * t);\n}\n\nvoid main() {\n	float radius, alpha = 1.0, delta = fragWidth;\n\n	radius = length(2.0 * gl_PointCoord.xy - 1.0);\n\n	if (radius > 1.0 + delta) {\n		discard;\n	}\n\n	alpha -= smoothstep(1.0 - delta, 1.0 + delta, radius);\n\n	float borderRadius = fragBorderRadius;\n	float ratio = smoothstep(borderRadius - delta, borderRadius + delta, radius);\n	vec4 color = mix(fragColor, fragBorderColor, ratio);\n	color.a *= alpha * opacity;\n	gl_FragColor = color;\n}\n"
+                        "precision highp float;\n#define GLSLIFY 1\n\nvarying vec4 fragColor, fragBorderColor;\n\nuniform float opacity;\nvarying float fragBorderRadius, fragWidth;\n\nfloat smoothStep(float edge0, float edge1, float x) {\n\tfloat t;\n\tt = clamp((x - edge0) / (edge1 - edge0), 0.0, 1.0);\n\treturn t * t * (3.0 - 2.0 * t);\n}\n\nvoid main() {\n\tfloat radius, alpha = 1.0, delta = fragWidth;\n\n\tradius = length(2.0 * gl_PointCoord.xy - 1.0);\n\n\tif (radius > 1.0 + delta) {\n\t\tdiscard;\n\t}\n\n\talpha -= smoothstep(1.0 - delta, 1.0 + delta, radius);\n\n\tfloat borderRadius = fragBorderRadius;\n\tfloat ratio = smoothstep(borderRadius - delta, borderRadius + delta, radius);\n\tvec4 color = mix(fragColor, fragBorderColor, ratio);\n\tcolor.a *= alpha * opacity;\n\tgl_FragColor = color;\n}\n"
                     ]), l.vert = h([
                         "precision highp float;\n#define GLSLIFY 1\n\nattribute float x, y, xFract, yFract;\nattribute float size, borderSize;\nattribute vec4 colorId, borderColorId;\nattribute float isActive;\n\nuniform vec2 scale, scaleFract, translate, translateFract;\nuniform float pixelRatio;\nuniform bool constPointSize;\nuniform sampler2D palette;\nuniform vec2 paletteSize;\n\nconst float maxSize = 100.;\n\nvarying vec4 fragColor, fragBorderColor;\nvarying float fragBorderRadius, fragWidth;\n\nfloat pointSizeScale = (constPointSize) ? 2. : pixelRatio;\n\nbool isDirect = (paletteSize.x < 1.);\n\nvec4 getColor(vec4 id) {\n  return isDirect ? id / 255. : texture2D(palette,\n    vec2(\n      (id.x + .5) / paletteSize.x,\n      (id.y + .5) / paletteSize.y\n    )\n  );\n}\n\nvoid main() {\n  // ignore inactive points\n  if (isActive == 0.) return;\n\n  vec2 position = vec2(x, y);\n  vec2 positionFract = vec2(xFract, yFract);\n\n  vec4 color = getColor(colorId);\n  vec4 borderColor = getColor(borderColorId);\n\n  float size = size * maxSize / 255.;\n  float borderSize = borderSize * maxSize / 255.;\n\n  gl_PointSize = (size + borderSize) * pointSizeScale;\n\n  vec2 pos = (position + translate) * scale\n      + (positionFract + translateFract) * scale\n      + (position + translate) * scaleFract\n      + (positionFract + translateFract) * scaleFract;\n\n  gl_Position = vec4(pos * 2. - 1., 0., 1.);\n\n  fragBorderRadius = 1. - 2. * borderSize / (size + borderSize);\n  fragColor = color;\n  fragBorderColor = borderColor.a == 0. || borderSize == 0. ? vec4(color.rgb, 0.) : borderColor;\n  fragWidth = 1. / gl_PointSize;\n}\n"
                     ]), m && (l.frag = l.frag.replace("smoothstep", "smoothStep"), s.frag = s.frag.replace("smoothstep", "smoothStep")), this.drawCircle = t1(l);
@@ -73754,7 +73754,7 @@ object-assign
                         '""',
                         "''",
                         "``",
-                        "\u201C\u201D",
+                        "\u201c\u201d",
                         "\xab\xbb"
                     ] : ("string" == typeof r.ignore && (r.ignore = [
                         r.ignore
@@ -76745,20 +76745,20 @@ object-assign
                                     return e1 ? e1[0] : "";
                                 }
                                 var r = this._validateYear(t1), n = t1.month(), i = [
-                                    "\u4E00\u6708",
-                                    "\u4E8C\u6708",
-                                    "\u4E09\u6708",
-                                    "\u56DB\u6708",
-                                    "\u4E94\u6708",
-                                    "\u516D\u6708",
-                                    "\u4E03\u6708",
-                                    "\u516B\u6708",
-                                    "\u4E5D\u6708",
+                                    "\u4e00\u6708",
+                                    "\u4e8c\u6708",
+                                    "\u4e09\u6708",
+                                    "\u56db\u6708",
+                                    "\u4e94\u6708",
+                                    "\u516d\u6708",
+                                    "\u4e03\u6708",
+                                    "\u516b\u6708",
+                                    "\u4e5d\u6708",
                                     "\u5341\u6708",
-                                    "\u5341\u4E00\u6708",
-                                    "\u5341\u4E8C\u6708"
+                                    "\u5341\u4e00\u6708",
+                                    "\u5341\u4e8c\u6708"
                                 ][this.toChineseMonth(r, n) - 1];
-                                return this.isIntercalaryMonth(r, n) && (i = "\u95F0" + i), i;
+                                return this.isIntercalaryMonth(r, n) && (i = "\u95f0" + i), i;
                             },
                             monthNamesShort: function(t1) {
                                 if ("string" == typeof t1) {
@@ -76766,37 +76766,37 @@ object-assign
                                     return e1 ? e1[0] : "";
                                 }
                                 var r = this._validateYear(t1), n = t1.month(), i = [
-                                    "\u4E00",
-                                    "\u4E8C",
-                                    "\u4E09",
-                                    "\u56DB",
-                                    "\u4E94",
-                                    "\u516D",
-                                    "\u4E03",
-                                    "\u516B",
-                                    "\u4E5D",
+                                    "\u4e00",
+                                    "\u4e8c",
+                                    "\u4e09",
+                                    "\u56db",
+                                    "\u4e94",
+                                    "\u516d",
+                                    "\u4e03",
+                                    "\u516b",
+                                    "\u4e5d",
                                     "\u5341",
-                                    "\u5341\u4E00",
-                                    "\u5341\u4E8C"
+                                    "\u5341\u4e00",
+                                    "\u5341\u4e8c"
                                 ][this.toChineseMonth(r, n) - 1];
-                                return this.isIntercalaryMonth(r, n) && (i = "\u95F0" + i), i;
+                                return this.isIntercalaryMonth(r, n) && (i = "\u95f0" + i), i;
                             },
                             parseMonth: function(t1, e1) {
                                 t1 = this._validateYear(t1);
                                 var r, n = parseInt(e1);
-                                if (isNaN(n)) "\u95F0" === e1[0] && (r = !0, e1 = e1.substring(1)), "\u6708" === e1[e1.length - 1] && (e1 = e1.substring(0, e1.length - 1)), n = 1 + [
-                                    "\u4E00",
-                                    "\u4E8C",
-                                    "\u4E09",
-                                    "\u56DB",
-                                    "\u4E94",
-                                    "\u516D",
-                                    "\u4E03",
-                                    "\u516B",
-                                    "\u4E5D",
+                                if (isNaN(n)) "\u95f0" === e1[0] && (r = !0, e1 = e1.substring(1)), "\u6708" === e1[e1.length - 1] && (e1 = e1.substring(0, e1.length - 1)), n = 1 + [
+                                    "\u4e00",
+                                    "\u4e8c",
+                                    "\u4e09",
+                                    "\u56db",
+                                    "\u4e94",
+                                    "\u516d",
+                                    "\u4e03",
+                                    "\u516b",
+                                    "\u4e5d",
                                     "\u5341",
-                                    "\u5341\u4E00",
-                                    "\u5341\u4E8C"
+                                    "\u5341\u4e00",
+                                    "\u5341\u4e8c"
                                 ].indexOf(e1);
                                 else {
                                     var i = e1[e1.length - 1];
@@ -78068,7 +78068,7 @@ object-assign
                                 "Yawm al-ithnayn",
                                 "Yawm ath-thulaathaa'",
                                 "Yawm al-arbi'aa'",
-                                "Yawm al-kham\u012Bs",
+                                "Yawm al-kham\u012bs",
                                 "Yawm al-jum'a",
                                 "Yawm as-sabt"
                             ],
@@ -81216,7 +81216,7 @@ object-assign
                                 "Yawm al-Ithnain",
                                 "Yawm al-Thal\u0101th\u0101\u2019",
                                 "Yawm al-Arba\u2018\u0101\u2019",
-                                "Yawm al-Kham\u012Bs",
+                                "Yawm al-Kham\u012bs",
                                 "Yawm al-Jum\u2018a",
                                 "Yawm al-Sabt"
                             ],
@@ -95697,10 +95697,10 @@ object-assign
                     activeColor: "#F4FAFF",
                     hoverColor: "#F4FAFF",
                     arrowSymbol: {
-                        left: "\u25C4",
-                        right: "\u25BA",
-                        up: "\u25B2",
-                        down: "\u25BC"
+                        left: "\u25c4",
+                        right: "\u25ba",
+                        up: "\u25b2",
+                        down: "\u25bc"
                     }
                 };
             },
@@ -96208,11 +96208,11 @@ object-assign
                 e1.exports = {
                     INCREASING: {
                         COLOR: "#3D9970",
-                        SYMBOL: "\u25B2"
+                        SYMBOL: "\u25b2"
                     },
                     DECREASING: {
                         COLOR: "#FF4136",
-                        SYMBOL: "\u25BC"
+                        SYMBOL: "\u25bc"
                     }
                 };
             },
@@ -96335,14 +96335,14 @@ object-assign
             function(t1, e1, r) {
                 "use strict";
                 e1.exports = {
-                    circle: "\u25CF",
-                    "circle-open": "\u25CB",
-                    square: "\u25A0",
-                    "square-open": "\u25A1",
-                    diamond: "\u25C6",
-                    "diamond-open": "\u25C7",
+                    circle: "\u25cf",
+                    "circle-open": "\u25cb",
+                    square: "\u25a0",
+                    "square-open": "\u25a1",
+                    diamond: "\u25c6",
+                    "diamond-open": "\u25c7",
                     cross: "+",
-                    x: "\u274C"
+                    x: "\u274c"
                 };
             },
             {}
@@ -99267,9 +99267,9 @@ object-assign
                                 t1.style && (a.style = t1.style);
                                 var f = document.createElementNS(o.svg, e1);
                                 if ("sup" === i || "sub" === i) {
-                                    g(r, "\u200B"), r.appendChild(f);
+                                    g(r, "\u200b"), r.appendChild(f);
                                     var h = document.createElementNS(o.svg, "tspan");
-                                    g(h, "\u200B"), n.select(h).attr("dy", d[i]), a.dy = p[i], r.appendChild(f), r.appendChild(h);
+                                    g(h, "\u200b"), n.select(h).attr("dy", d[i]), a.dy = p[i], r.appendChild(f), r.appendChild(h);
                                 } else r.appendChild(f);
                                 n.select(f).attr(a), r = t1.node = f, l.push(t1);
                             }
@@ -99362,7 +99362,7 @@ object-assign
                     return o.join("");
                 };
                 var A = {
-                    mu: "\u03BC",
+                    mu: "\u03bc",
                     amp: "&",
                     lt: "<",
                     gt: ">",
@@ -103811,7 +103811,7 @@ object-assign
                                 if (o[1] >= 100) e1.text = lt(s.deg2rad(e1.x), t1, i, n);
                                 else {
                                     var l = e1.x < 0;
-                                    1 === o[1] ? 1 === o[0] ? e1.text = "\u03C0" : e1.text = o[0] + "\u03C0" : e1.text = [
+                                    1 === o[1] ? 1 === o[0] ? e1.text = "\u03c0" : e1.text = o[0] + "\u03c0" : e1.text = [
                                         "<sup>",
                                         o[0],
                                         "</sup>",
@@ -103819,7 +103819,7 @@ object-assign
                                         "<sub>",
                                         o[1],
                                         "</sub>",
-                                        "\u03C0"
+                                        "\u03c0"
                                     ].join(""), l && (e1.text = I + e1.text);
                                 }
                             }
@@ -103847,7 +103847,7 @@ object-assign
                     "f",
                     "p",
                     "n",
-                    "\u03BC",
+                    "\u03bc",
                     "m",
                     "",
                     "k",
@@ -120807,7 +120807,7 @@ object-assign
                             q1: l(t1, "q1:"),
                             q3: l(t1, "q3:"),
                             max: l(t1, "max:"),
-                            mean: "sd" === e1.boxmean ? l(t1, "mean \xb1 \u03C3:") : l(t1, "mean:"),
+                            mean: "sd" === e1.boxmean ? l(t1, "mean \xb1 \u03c3:") : l(t1, "mean:"),
                             lf: l(t1, "lower fence:"),
                             uf: l(t1, "upper fence:")
                         }
@@ -138978,7 +138978,7 @@ object-assign
                         text: s
                     }, "line" in e1 && (a.lineColor = u(S, 1, I), a.lineWidth = S.width, a.lineDashes = S.dash), "marker" in e1) {
                         var G = f(e1);
-                        a.scatterColor = u(A, 1, I), a.scatterSize = T(A.size, I, _, 20, G), a.scatterMarker = T(A.symbol, I, w, "\u25CF"), a.scatterLineWidth = A.line.width, a.scatterLineColor = u(A.line, 1, I), a.scatterAngle = 0;
+                        a.scatterColor = u(A, 1, I), a.scatterSize = T(A.size, I, _, 20, G), a.scatterMarker = T(A.symbol, I, w, "\u25cf"), a.scatterLineWidth = A.line.width, a.scatterLineColor = u(A.line, 1, I), a.scatterAngle = 0;
                     }
                     "textposition" in e1 && (a.textOffset = function(t1) {
                         var e1 = [
@@ -141620,7 +141620,7 @@ object-assign
                 var n = t1("../scatter/hover");
                 function i(t1, e1, r, n) {
                     var i = r.radialAxis, a = r.angularAxis;
-                    i._hovertitle = "r", a._hovertitle = "\u03B8";
+                    i._hovertitle = "r", a._hovertitle = "\u03b8";
                     var o = {};
                     o[e1.subplot] = {
                         _subplot: r

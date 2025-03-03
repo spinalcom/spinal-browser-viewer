@@ -73,7 +73,7 @@
         localRequire,
         module,
         module.exports,
-        this
+        globalObject
       );
     }
 
@@ -142,13 +142,13 @@
       this[globalName] = mainExports;
     }
   }
-})({"bDQsW":[function(require,module,exports) {
+})({"bDQsW":[function(require,module,exports,__globalThis) {
 var _buttons = require("./src/buttons");
 var _dialogs = require("./src/vue/dialogs");
 var _panels = require("./src/vue/panels");
 var _forgeExtension = require("./src/extensions/forgeExtension");
 
-},{"./src/buttons":"cigmO","./src/vue/dialogs":"ib3fZ","./src/vue/panels":"diNal","./src/extensions/forgeExtension":"3rJUb"}],"cigmO":[function(require,module,exports) {
+},{"./src/buttons":"cigmO","./src/vue/dialogs":"ib3fZ","./src/vue/panels":"diNal","./src/extensions/forgeExtension":"3rJUb"}],"cigmO":[function(require,module,exports,__globalThis) {
 var _createContext = require("./createContext");
 var _createProcess = require("./createProcess");
 var _createStep = require("./createStep");
@@ -209,7 +209,7 @@ const CIRCULAR_MENU_HOOK = "circularMenu";
     3
 ]);
 
-},{"./createContext":"3LVbc","./createProcess":"bceXW","./createStep":"lUZmD","./createTicket":"3gaSb","./manageTicket":"fortR","./createCommonIncident":"jwHKJ","spinal-env-viewer-context-menu-service":"kHlxv","./seeTicketDetail":"gsSRV","./passToNextStep":"iF5mH","./backToPreviousStep":"3LIKg","./standard_buttons/selectElement":"fpE2i","./standard_buttons/isolate":"6nVeM","./standard_buttons/zoom":"eC66R","./colorElement":"7AUVh"}],"3LVbc":[function(require,module,exports) {
+},{"./createContext":"3LVbc","./createProcess":"bceXW","./createStep":"lUZmD","./createTicket":"3gaSb","./manageTicket":"fortR","./createCommonIncident":"jwHKJ","spinal-env-viewer-context-menu-service":"kHlxv","./seeTicketDetail":"gsSRV","./passToNextStep":"iF5mH","./backToPreviousStep":"3LIKg","./standard_buttons/selectElement":"fpE2i","./standard_buttons/isolate":"6nVeM","./standard_buttons/zoom":"eC66R","./colorElement":"7AUVh"}],"3LVbc":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "CreateContextButton", ()=>CreateContextButton);
@@ -217,11 +217,11 @@ var _spinalEnvViewerContextMenuService = require("spinal-env-viewer-context-menu
 var _spinalEnvViewerPanelManagerService = require("spinal-env-viewer-panel-manager-service");
 class CreateContextButton extends (0, _spinalEnvViewerContextMenuService.SpinalContextApp) {
     constructor(){
-        super("Create Ticket context", "This button allows you to create ticket context", {
+        super('Create Ticket context', 'This button allows you to create ticket context', {
             icon: "receipt",
-            icon_type: "in",
+            icon_type: 'in',
             backgroundColor: "#356BAB",
-            fontColor: "#ffffff"
+            fontColor: '#ffffff'
         });
     }
     isShown(option) {
@@ -232,7 +232,7 @@ class CreateContextButton extends (0, _spinalEnvViewerContextMenuService.SpinalC
     }
 }
 
-},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-panel-manager-service":"7Uw4d","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7Uw4d":[function(require,module,exports) {
+},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-panel-manager-service":"7Uw4d","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7Uw4d":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -271,7 +271,7 @@ module.exports = {
     }
 };
 
-},{"8b71a79dcc12420e":"h7sS1","e47c36529e942a76":"cvBJ6","cfd4c6200ba55765":"9SKSV"}],"h7sS1":[function(require,module,exports) {
+},{"8b71a79dcc12420e":"h7sS1","e47c36529e942a76":"cvBJ6","cfd4c6200ba55765":"9SKSV"}],"h7sS1":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -351,7 +351,7 @@ module.exports = {
 }
 module.exports = SpinalPanelManagerService;
 
-},{}],"cvBJ6":[function(require,module,exports) {
+},{}],"cvBJ6":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -386,7 +386,7 @@ module.exports = SpinalPanelManagerService;
 }
 module.exports = SpinalPanelApp;
 
-},{}],"9SKSV":[function(require,module,exports) {
+},{}],"9SKSV":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -485,7 +485,7 @@ function getDialog() {
     };
 };
 
-},{}],"bceXW":[function(require,module,exports) {
+},{}],"bceXW":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "CreateProcess", ()=>CreateProcess);
@@ -494,11 +494,11 @@ var _spinalEnvViewerPanelManagerService = require("spinal-env-viewer-panel-manag
 var _constants = require("spinal-service-ticket/dist/Constants");
 class CreateProcess extends (0, _spinalEnvViewerContextMenuService.SpinalContextApp) {
     constructor(){
-        super("Create ticket Process", "This button allows you to create ticket processes", {
+        super('Create ticket Process', 'This button allows you to create ticket processes', {
             icon: "category",
-            icon_type: "in",
+            icon_type: 'in',
             backgroundColor: "#356BAB",
-            fontColor: "#ffffff"
+            fontColor: '#ffffff'
         });
     }
     isShown(option) {
@@ -513,7 +513,7 @@ class CreateProcess extends (0, _spinalEnvViewerContextMenuService.SpinalContext
     }
 }
 
-},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-panel-manager-service":"7Uw4d","spinal-service-ticket/dist/Constants":"i0rBD","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"i0rBD":[function(require,module,exports) {
+},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-panel-manager-service":"7Uw4d","spinal-service-ticket/dist/Constants":"i0rBD","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"i0rBD":[function(require,module,exports,__globalThis) {
 "use strict";
 var __createBinding = this && this.__createBinding || (Object.create ? function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
@@ -570,16 +570,16 @@ Object.defineProperty(exports, "GEO_TYPES", {
 });
 exports.TICKET_CONTEXT_TYPE = OLD_CONSTANTS.SERVICE_TYPE;
 exports.TICKET_CONTEXT_SUBTYPE_LIST = [
-    "Ticket",
-    "Alarm"
+    'Ticket',
+    'Alarm'
 ];
 /////////////////////////////////////////
 /////////////// TICKET ///////////////////
 exports.TICKET_RELATION_TYPE = OLD_CONSTANTS.SPINAL_TICKET_SERVICE_TICKET_RELATION_TYPE; // STEP_TO_TICKET_RELATION_TYPE
 exports.TICKET_RELATION_NAME = OLD_CONSTANTS.SPINAL_TICKET_SERVICE_TICKET_RELATION_NAME; // STEP_TO_TICKET_RELATION_NAME
 exports.TIKET_TYPE = OLD_CONSTANTS.SPINAL_TICKET_SERVICE_TICKET_TYPE;
-exports.TICKET_ATTRIBUTE_OCCURENCE_NAME = "Occurrence number";
-exports.ALARM_RELATION_NAME = "hasAlarm";
+exports.TICKET_ATTRIBUTE_OCCURENCE_NAME = 'Occurrence number';
+exports.ALARM_RELATION_NAME = 'hasAlarm';
 /////////////////////////////////////////
 /////////////// PROCESS /////////////////
 exports.PROCESS_RELATION_TYPE = OLD_CONSTANTS.SPINAL_TICKET_SERVICE_PROCESS_RELATION_TYPE; // CONTEXT_TO_PROCESS_RELATION_TYPE
@@ -610,22 +610,22 @@ exports.LOGS_EVENTS_STEPS = OLD_CONSTANTS.LOGS_EVENTS;
 exports._TICKET_PRIORITIES = OLD_CONSTANTS.TICKET_PRIORITIES;
 /////////////////////////////////////////
 /////////////// ARCHIVE ////////////////
-exports.PROCESS_ARCHIVE_TICKET_RELATION = "ProcessHasArchiveTicket";
-exports.PROCESS_ARCHIVE_TICKET_TYPE = "ProcessArchiveTicket";
-exports.SPATIAL_ARCHIVE_TICKET_RELATION = "SpatialHasArchiveTicket";
-exports.SPATIAL_ARCHIVE_TICKET_TYPE = "SpatialArchiveTicket";
-exports.ARCHIVE_TICKET_PART_RELATION = "ArchiveTicketHasPart";
-exports.ARCHIVE_TICKET_PART_TYPE = "ArchiveTicketPart";
-exports.ARCHIVE_TICKET_PART_TICKET_RELATION = "ArchiveTicketPartHasTicket";
+exports.PROCESS_ARCHIVE_TICKET_RELATION = 'ProcessHasArchiveTicket';
+exports.PROCESS_ARCHIVE_TICKET_TYPE = 'ProcessArchiveTicket';
+exports.SPATIAL_ARCHIVE_TICKET_RELATION = 'SpatialHasArchiveTicket';
+exports.SPATIAL_ARCHIVE_TICKET_TYPE = 'SpatialArchiveTicket';
+exports.ARCHIVE_TICKET_PART_RELATION = 'ArchiveTicketHasPart';
+exports.ARCHIVE_TICKET_PART_TYPE = 'ArchiveTicketPart';
+exports.ARCHIVE_TICKET_PART_TICKET_RELATION = 'ArchiveTicketPartHasTicket';
 exports.ARCHIVE_TICKET_RELATION_TYPE = spinal_model_graph_1.SPINAL_RELATION_PTR_LST_TYPE;
-exports.ARCHIVE_TICKET_TIMESTAMP_ATTR_PROCESS = "ProcessArchiveTimestamp";
-exports.ARCHIVE_TICKET_TIMESTAMP_ATTR_SPATIAL = "SpatialArchiveTimestamp";
+exports.ARCHIVE_TICKET_TIMESTAMP_ATTR_PROCESS = 'ProcessArchiveTimestamp';
+exports.ARCHIVE_TICKET_TIMESTAMP_ATTR_SPATIAL = 'SpatialArchiveTimestamp';
 exports.ARCHIVE_TICKET_RELATIONS = [
     exports.SPATIAL_ARCHIVE_TICKET_RELATION,
     exports.ARCHIVE_TICKET_PART_RELATION
 ];
 
-},{"5f2287b5524fd3a7":"79Wiu","2f0e2599fe3a3648":"fkEXw","c6294f08f8af564d":"5QjJf"}],"79Wiu":[function(require,module,exports) {
+},{"5f2287b5524fd3a7":"79Wiu","2f0e2599fe3a3648":"fkEXw","c6294f08f8af564d":"5QjJf"}],"79Wiu":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2019 SpinalCom - www.spinalcom.com
@@ -654,14 +654,14 @@ exports.ARCHIVE_TICKET_RELATIONS = [
 });
 exports.TICKET_PRIORITIES = exports.LOGS_EVENTS_STRING = exports.LOGS_EVENTS_STEPS = exports.LOG_TYPE = exports.LOG_RELATION_NAME = exports.LOG_RELATION_TYPE = exports.EVENTS_TO_LOG = exports.LOGS_EVENTS = exports.SERVICE_LOG_TYPE = exports.SPINAL_TICKET_SERVICE_LOG_RELATION_NAME = exports.SPINAL_TICKET_SERVICE_LOG_RELATION_TYPE = exports.DEFAULT_INCIDENTS_NAME = exports.SPINAL_TICKET_SERVICE_INCIDENT_TYPE = exports.SPINAL_TICKET_SERVICE_INCIDENT_SECTION_RELATION_NAME = exports.SPINAL_TICKET_SERVICE_INCIDENT_RELATION_NAME = exports.SPINAL_TICKET_SERVICE_INCIDENT_SECTION_TYPE = exports.SPINAL_TICKET_SERVICE_INCIDENT_RELATION_TYPE = exports.SPINAL_TICKET_SERVICE_INCIDENT_SECTION_RELATION_TYPE = exports.DEFAULT_STEPS = exports.ARCHIVED_STEP = exports.SPINAL_TICKET_SERVICE_STEP_RELATION_NAME = exports.SPINAL_TICKET_SERVICE_STEP_TYPE = exports.SPINAL_TICKET_SERVICE_STEP_RELATION_TYPE = exports.PROCESS_TYPE = exports.SPINAL_TICKET_SERVICE_PROCESS_RELATION_NAME = exports.SPINAL_TICKET_SERVICE_PROCESS_RELATION_TYPE = exports.SPINAL_TICKET_SERVICE_TICKET_TYPE = exports.SPINAL_TICKET_SERVICE_TICKET_RELATION_NAME = exports.SPINAL_TICKET_SERVICE_TICKET_RELATION_TYPE = exports.SERVICE_TYPE = exports.SERVICE_NAME = void 0;
 const spinal_env_viewer_graph_service_1 = require("5f14db0a1cfd319d");
-exports.SERVICE_NAME = "Ticket Service";
-exports.SERVICE_TYPE = "SpinalSystemServiceTicket";
+exports.SERVICE_NAME = 'Ticket Service';
+exports.SERVICE_TYPE = 'SpinalSystemServiceTicket';
 /////////////////////////////////////////
 /////////////// TICKET ///////////////////
 // export const SPINAL_TICKET_SERVICE_TICKET_SECTION_RELATION_TYPE: string = SPINAL_RELATION_PTR_LST_TYPE;
 exports.SPINAL_TICKET_SERVICE_TICKET_RELATION_TYPE = spinal_env_viewer_graph_service_1.SPINAL_RELATION_PTR_LST_TYPE;
-exports.SPINAL_TICKET_SERVICE_TICKET_RELATION_NAME = "SpinalSystemServiceTicketHasTicket";
-exports.SPINAL_TICKET_SERVICE_TICKET_TYPE = "SpinalSystemServiceTicketTypeTicket";
+exports.SPINAL_TICKET_SERVICE_TICKET_RELATION_NAME = 'SpinalSystemServiceTicketHasTicket';
+exports.SPINAL_TICKET_SERVICE_TICKET_TYPE = 'SpinalSystemServiceTicketTypeTicket';
 // export const SPINAL_TICKET_SERVICE_TICKET_ARCHIVE_RELATION_TYPE: string = SPINAL_RELATION_PTR_LST_TYPE;
 // export const SPINAL_TICKET_SERVICE_TICKET_SECTION: string = 'SpinalSystemServiceHasTicket';
 // export const SPINAL_TICKET_SERVICE_TICKET_SECTION_NAME: string = 'Tickets';
@@ -676,8 +676,8 @@ exports.SPINAL_TICKET_SERVICE_TICKET_TYPE = "SpinalSystemServiceTicketTypeTicket
 /////////////////////////////////////////
 /////////////// PROCESS /////////////////
 exports.SPINAL_TICKET_SERVICE_PROCESS_RELATION_TYPE = spinal_env_viewer_graph_service_1.SPINAL_RELATION_PTR_LST_TYPE;
-exports.SPINAL_TICKET_SERVICE_PROCESS_RELATION_NAME = "SpinalSystemServiceTicketHasProcess";
-exports.PROCESS_TYPE = "SpinalServiceTicketProcess";
+exports.SPINAL_TICKET_SERVICE_PROCESS_RELATION_NAME = 'SpinalSystemServiceTicketHasProcess';
+exports.PROCESS_TYPE = 'SpinalServiceTicketProcess';
 // export const SPINAL_TICKET_SERVICE_PROCESS_ARCHIVE_RELATION_TYPE: string = SPINAL_RELATION_PTR_LST_TYPE;
 // export const SPINAL_TICKET_SERVICE_PROCESS_ARCHIVE_NAME: string = 'Spinal_Service_Ticket_Archive_Archive_Process';
 // export const SPINAL_TICKET_SERVICE_PROCESS_ARCHIVE_RELATION_NAME: string = 'SpinalSystemServiceArchiveHasProcess';
@@ -692,8 +692,8 @@ exports.PROCESS_TYPE = "SpinalServiceTicketProcess";
 //////////////////////////////////////
 /////////////// STEP /////////////////
 exports.SPINAL_TICKET_SERVICE_STEP_RELATION_TYPE = spinal_env_viewer_graph_service_1.SPINAL_RELATION_PTR_LST_TYPE;
-exports.SPINAL_TICKET_SERVICE_STEP_TYPE = "SpinalSystemServiceTicketTypeStep";
-exports.SPINAL_TICKET_SERVICE_STEP_RELATION_NAME = "SpinalSystemServiceTicketHasStep";
+exports.SPINAL_TICKET_SERVICE_STEP_TYPE = 'SpinalSystemServiceTicketTypeStep';
+exports.SPINAL_TICKET_SERVICE_STEP_RELATION_NAME = 'SpinalSystemServiceTicketHasStep';
 // export const SPINAL_TICKET_SERVICE_STEP_ARCHIVE_RELATION_TYPE: string = SPINAL_RELATION_PTR_LST_TYPE;
 // export const SPINAL_TICKET_SERVICE_ARCHIVE_RELATION_TYPE: string = SPINAL_RELATION_PTR_LST_TYPE;
 // export const SPINAL_TICKET_SERVICE_STEP_ARCHIVE_RELATION_NAME: string = 'SpinalSystemServiceArchiveHasStep';
@@ -711,17 +711,17 @@ exports.ARCHIVED_STEP = {
 exports.DEFAULT_STEPS = [
     {
         name: "D\xe9clar\xe9",
-        color: "#ff0019",
+        color: '#ff0019',
         order: 0
     },
     {
-        name: "Ouvert",
-        color: "#fff112",
+        name: 'Ouvert',
+        color: '#fff112',
         order: 1
     },
     {
         name: "R\xe9solu",
-        color: "#10ff1d",
+        color: '#10ff1d',
         order: 2
     },
     exports.ARCHIVED_STEP
@@ -730,11 +730,11 @@ exports.DEFAULT_STEPS = [
 /////////////// CATEGORY ////////////////
 exports.SPINAL_TICKET_SERVICE_INCIDENT_SECTION_RELATION_TYPE = spinal_env_viewer_graph_service_1.SPINAL_RELATION_PTR_LST_TYPE;
 exports.SPINAL_TICKET_SERVICE_INCIDENT_RELATION_TYPE = spinal_env_viewer_graph_service_1.SPINAL_RELATION_PTR_LST_TYPE;
-exports.SPINAL_TICKET_SERVICE_INCIDENT_SECTION_TYPE = "DEFAULT_INCIDENT_TYPE";
-exports.SPINAL_TICKET_SERVICE_INCIDENT_RELATION_NAME = "Spinal_Service_Ticket_Process_has_category";
-exports.SPINAL_TICKET_SERVICE_INCIDENT_SECTION_RELATION_NAME = "Spinal_Service_Ticket_Process_has_categories_section";
-exports.SPINAL_TICKET_SERVICE_INCIDENT_TYPE = "INCIDENT_TYPE";
-exports.DEFAULT_INCIDENTS_NAME = "Incidents commun";
+exports.SPINAL_TICKET_SERVICE_INCIDENT_SECTION_TYPE = 'DEFAULT_INCIDENT_TYPE';
+exports.SPINAL_TICKET_SERVICE_INCIDENT_RELATION_NAME = 'Spinal_Service_Ticket_Process_has_category';
+exports.SPINAL_TICKET_SERVICE_INCIDENT_SECTION_RELATION_NAME = 'Spinal_Service_Ticket_Process_has_categories_section';
+exports.SPINAL_TICKET_SERVICE_INCIDENT_TYPE = 'INCIDENT_TYPE';
+exports.DEFAULT_INCIDENTS_NAME = 'Incidents commun';
 // export const SPINAL_TICKET_SERVICE_INCIDENT_SUB_SECTION_RELATION_TYPE: string = SPINAL_RELATION_PTR_LST_TYPE;
 // export const SPINAL_TICKET_SERVICE_INCIDENT_SUB_SECTION_RELATION_NAME: string = 'Spinal_Service_Ticket_Process_has_sub_category';
 // export const DEFAULT_INCIDENT_TYPE: string = SPINAL_TICKET_SERVICE_INCIDENT_SECTION_TYPE;
@@ -749,8 +749,8 @@ exports.DEFAULT_INCIDENTS_NAME = "Incidents commun";
 /////////////////////////////////////////
 /////////////// LOG /////////////////
 exports.SPINAL_TICKET_SERVICE_LOG_RELATION_TYPE = spinal_env_viewer_graph_service_1.SPINAL_RELATION_PTR_LST_TYPE;
-exports.SPINAL_TICKET_SERVICE_LOG_RELATION_NAME = "SpinalSystemServiceTicketHasLog";
-exports.SERVICE_LOG_TYPE = "SpinalSystemServiceTicketLog";
+exports.SPINAL_TICKET_SERVICE_LOG_RELATION_NAME = 'SpinalSystemServiceTicketHasLog';
+exports.SERVICE_LOG_TYPE = 'SpinalSystemServiceTicketLog';
 var LOGS_EVENTS;
 (function(LOGS_EVENTS) {
     LOGS_EVENTS[LOGS_EVENTS["creation"] = 1] = "creation";
@@ -798,7 +798,7 @@ exports.TICKET_PRIORITIES = {
     urgent: 2
 };
 
-},{"5f14db0a1cfd319d":"9n7zp"}],"lUZmD":[function(require,module,exports) {
+},{"5f14db0a1cfd319d":"9n7zp"}],"lUZmD":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "CreateStep", ()=>CreateStep);
@@ -830,7 +830,7 @@ class CreateStep extends (0, _spinalEnvViewerContextMenuService.SpinalContextApp
     }
 }
 
-},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-panel-manager-service":"7Uw4d","spinal-service-ticket/dist/Constants":"i0rBD","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3gaSb":[function(require,module,exports) {
+},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-panel-manager-service":"7Uw4d","spinal-service-ticket/dist/Constants":"i0rBD","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3gaSb":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "CreateTicket", ()=>CreateTicket);
@@ -884,7 +884,7 @@ const createBimObjectNode = (params)=>{
     }
 };
 
-},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-panel-manager-service":"7Uw4d","spinal-service-ticket/dist/Constants":"i0rBD","spinal-env-viewer-graph-service":"9n7zp","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fortR":[function(require,module,exports) {
+},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-panel-manager-service":"7Uw4d","spinal-service-ticket/dist/Constants":"i0rBD","spinal-env-viewer-graph-service":"9n7zp","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fortR":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "ManageTicketButton", ()=>ManageTicketButton);
@@ -893,11 +893,11 @@ var _spinalEnvViewerPanelManagerService = require("spinal-env-viewer-panel-manag
 var _constants = require("spinal-service-ticket/dist/Constants");
 class ManageTicketButton extends (0, _spinalEnvViewerContextMenuService.SpinalContextApp) {
     constructor(){
-        super("Manage Ticket", "Manage ticket", {
+        super('Manage Ticket', 'Manage ticket', {
             icon: "assignment",
-            icon_type: "in",
+            icon_type: 'in',
             backgroundColor: "#356BAB",
-            fontColor: "#ffffff"
+            fontColor: '#ffffff'
         });
     }
     isShown(option) {
@@ -918,7 +918,7 @@ class ManageTicketButton extends (0, _spinalEnvViewerContextMenuService.SpinalCo
     }
 }
 
-},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-panel-manager-service":"7Uw4d","spinal-service-ticket/dist/Constants":"i0rBD","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jwHKJ":[function(require,module,exports) {
+},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-panel-manager-service":"7Uw4d","spinal-service-ticket/dist/Constants":"i0rBD","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jwHKJ":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2019 SpinalCom - www.spinalcom.com
  *
@@ -949,11 +949,11 @@ var _spinalEnvViewerPanelManagerService = require("spinal-env-viewer-panel-manag
 var _constants = require("spinal-service-ticket/dist/Constants");
 class CreateCommonIncident extends (0, _spinalEnvViewerContextMenuService.SpinalContextApp) {
     constructor(){
-        super("Add common incident", "Add common incident", {
-            icon: "font_download",
-            icon_type: "in",
-            backgroundColor: "#000000",
-            fontColor: "#ffffff"
+        super('Add common incident', 'Add common incident', {
+            icon: 'font_download',
+            icon_type: 'in',
+            backgroundColor: '#000000',
+            fontColor: '#ffffff'
         });
     }
     isShown(option) {
@@ -966,7 +966,7 @@ class CreateCommonIncident extends (0, _spinalEnvViewerContextMenuService.Spinal
     }
 }
 
-},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-panel-manager-service":"7Uw4d","spinal-service-ticket/dist/Constants":"i0rBD","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gsSRV":[function(require,module,exports) {
+},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-panel-manager-service":"7Uw4d","spinal-service-ticket/dist/Constants":"i0rBD","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gsSRV":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "SeeTicketDetailButton", ()=>SeeTicketDetailButton);
@@ -975,11 +975,11 @@ var _spinalEnvViewerPanelManagerService = require("spinal-env-viewer-panel-manag
 var _constants = require("spinal-service-ticket/dist/Constants");
 class SeeTicketDetailButton extends (0, _spinalEnvViewerContextMenuService.SpinalContextApp) {
     constructor(){
-        super("See Ticket' detail", "See ticket's detail", {
+        super('See Ticket\' detail', 'See ticket\'s detail', {
             icon: "assignment_late",
-            icon_type: "in",
+            icon_type: 'in',
             backgroundColor: "#356BAB",
-            fontColor: "#ffffff"
+            fontColor: '#ffffff'
         });
     }
     isShown(option) {
@@ -997,7 +997,7 @@ class SeeTicketDetailButton extends (0, _spinalEnvViewerContextMenuService.Spina
     }
 }
 
-},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-panel-manager-service":"7Uw4d","spinal-service-ticket/dist/Constants":"i0rBD","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"iF5mH":[function(require,module,exports) {
+},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-panel-manager-service":"7Uw4d","spinal-service-ticket/dist/Constants":"i0rBD","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"iF5mH":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "PassToNextStepButton", ()=>PassToNextStepButton);
@@ -1053,7 +1053,7 @@ const getProcessId = async (ticketId)=>{
     if (found) return found.processId.get();
 };
 
-},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-panel-manager-service":"7Uw4d","spinal-service-ticket/dist/Constants":"i0rBD","../extensions/spinalIO":"jPxZQ","spinal-env-viewer-graph-service":"9n7zp","spinal-service-ticket":"gi7V0","../extensions/Event":"4ovSF","../extensions/ticketsEvents":"iO9Cs","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jPxZQ":[function(require,module,exports) {
+},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-panel-manager-service":"7Uw4d","spinal-service-ticket/dist/Constants":"i0rBD","../extensions/spinalIO":"jPxZQ","spinal-env-viewer-graph-service":"9n7zp","spinal-service-ticket":"gi7V0","../extensions/Event":"4ovSF","../extensions/ticketsEvents":"iO9Cs","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jPxZQ":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -1085,11 +1085,11 @@ let $ = require("59538974fe512547");
 const SpinalUserManager = window.SpinalUserManager;
 function getParameterByName(name, url) {
     if (!url) url = window.location.href;
-    name = name.replace(/[[\]]/g, "\\$&");
-    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"), results = regex.exec(url);
+    name = name.replace(/[[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'), results = regex.exec(url);
     if (!results) return null;
-    if (!results[2]) return "";
-    return decodeURIComponent(results[2].replace(/\+/g, " "));
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
 class SpinalIO {
     constructor(){
@@ -1125,13 +1125,13 @@ class SpinalIO {
             try {
                 return JSON.parse(str);
             } catch (e) {
-                return "";
+                return '';
             }
         }
     }
     getauth() {
         if (this.user !== null) return this.user;
-        const encryptedHex = window.localStorage.getItem("spinalhome_cfg");
+        const encryptedHex = window.localStorage.getItem('spinalhome_cfg');
         this.user = this.decriJson(encryptedHex);
         return this.user;
     }
@@ -1169,7 +1169,7 @@ class SpinalIO {
         return Promise.resolve(this.conn);
     }
     getModelPath() {
-        const cryptedPath = getParameterByName("path");
+        const cryptedPath = getParameterByName('path');
         if (!cryptedPath) throw new Error('No "path" attribute found in the url');
         const k = [
             10,
@@ -1191,7 +1191,7 @@ class SpinalIO {
         ];
         try {
             const decripted = (0, _crypt.decriAes)(k, cryptedPath);
-            if (decripted[0] !== "/") throw "not a path";
+            if (decripted[0] !== '/') throw "not a path";
             return decripted;
         } catch (e) {
             const decripted = (0, _crypt.decriB64)(cryptedPath);
@@ -1203,11 +1203,11 @@ class SpinalIO {
             const path = this.getModelPath();
             return this.load(path);
         } catch (e) {
-            return this.load("/__users__/public/digital_twin/default");
+            return this.load('/__users__/public/digital_twin/default');
         }
     }
     load(path) {
-        if (typeof this.loadPromise[path] !== "undefined") return this.loadPromise[path];
+        if (typeof this.loadPromise[path] !== 'undefined') return this.loadPromise[path];
         const promisefunc = async (resolve, reject)=>{
             try {
                 await this.connect();
@@ -1226,7 +1226,7 @@ class SpinalIO {
     loadPtr(ptr) {
         if (ptr instanceof (0, _spinalCoreConnectorjsType.File)) return this.loadPtr(ptr._ptr);
         const server_id = ptr.data.value;
-        if (typeof this.loadPtr[server_id] !== "undefined") return this.loadPtr[server_id];
+        if (typeof this.loadPtr[server_id] !== 'undefined') return this.loadPtr[server_id];
         const promFunc = async (resolve, reject)=>{
             try {
                 await this.connect();
@@ -1243,7 +1243,7 @@ class SpinalIO {
         return this.loadPtr[server_id];
     }
     async getUserProfile(user, withAdminCheck = false) {
-        const userDir = await this.load("/etc/UserProfileDir");
+        const userDir = await this.load('/etc/UserProfileDir');
         for(let index = 0; index < userDir.length; index++){
             const userFile = userDir[index];
             if (userFile.name.get() === user) {
@@ -1251,12 +1251,12 @@ class SpinalIO {
                     await this.checkUserAdmin(user, res);
                     return res;
                 }, ()=>{
-                    throw new Error("Undefined User");
+                    throw new Error('Undefined User');
                 });
                 else return this.loadPtr(userFile);
             }
         }
-        throw new Error("Undefined User");
+        throw new Error('Undefined User');
     }
     getAlluser() {
         let path = "/etc/users";
@@ -1272,7 +1272,7 @@ class SpinalIO {
 }
 const spinalIO = new SpinalIO();
 
-},{"spinal-core-connectorjs_type":"fRH70","./crypt":"h6su2","59538974fe512547":"hgMhh","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"h6su2":[function(require,module,exports) {
+},{"spinal-core-connectorjs_type":"fRH70","./crypt":"h6su2","59538974fe512547":"hgMhh","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"h6su2":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "decriAes", ()=>decriAes);
@@ -1288,7 +1288,7 @@ function decriB64(encryptedHex) {
     return atob(encryptedHex);
 }
 
-},{"7371ade664cbc10a":"6m1U5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"4ovSF":[function(require,module,exports) {
+},{"7371ade664cbc10a":"6m1U5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"4ovSF":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _vue = require("vue");
@@ -1296,7 +1296,7 @@ var _vueDefault = parcelHelpers.interopDefault(_vue);
 const EventBus = new (0, _vueDefault.default)();
 exports.default = EventBus;
 
-},{"vue":"gt5MM","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"iO9Cs":[function(require,module,exports) {
+},{"vue":"gt5MM","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"iO9Cs":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "TICKET_EVENTS", ()=>TICKET_EVENTS);
@@ -1305,7 +1305,7 @@ const TICKET_EVENTS = Object.freeze({
     changeStep: "changeStep"
 });
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3LIKg":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3LIKg":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "BackToPreviousStepButton", ()=>BackToPreviousStepButton);
@@ -1320,11 +1320,11 @@ var _eventDefault = parcelHelpers.interopDefault(_event);
 var _ticketsEvents = require("../extensions/ticketsEvents");
 class BackToPreviousStepButton extends (0, _spinalEnvViewerContextMenuService.SpinalContextApp) {
     constructor(){
-        super("Back to previous step", "backward the ticket to previous step", {
+        super('Back to previous step', 'backward the ticket to previous step', {
             icon: "skip_previous",
-            icon_type: "in",
+            icon_type: 'in',
             backgroundColor: "#356BAB",
-            fontColor: "#ffffff"
+            fontColor: '#ffffff'
         });
     }
     isShown(option) {
@@ -1361,7 +1361,7 @@ const getProcessId = async (ticketId)=>{
     if (found) return found.processId.get();
 };
 
-},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-panel-manager-service":"7Uw4d","spinal-service-ticket/dist/Constants":"i0rBD","../extensions/spinalIO":"jPxZQ","spinal-env-viewer-graph-service":"9n7zp","spinal-service-ticket":"gi7V0","../extensions/Event":"4ovSF","../extensions/ticketsEvents":"iO9Cs","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fpE2i":[function(require,module,exports) {
+},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-panel-manager-service":"7Uw4d","spinal-service-ticket/dist/Constants":"i0rBD","../extensions/spinalIO":"jPxZQ","spinal-env-viewer-graph-service":"9n7zp","spinal-service-ticket":"gi7V0","../extensions/Event":"4ovSF","../extensions/ticketsEvents":"iO9Cs","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fpE2i":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2024 SpinalCom - www.spinalcom.com
  * 
@@ -1418,7 +1418,7 @@ class SelectElementOnMaquette extends (0, _spinalEnvViewerContextMenuService.Spi
     }
 }
 
-},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-service-ticket/dist/Constants":"i0rBD","../../extensions/colorElementExtension":"9wZn2","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9wZn2":[function(require,module,exports) {
+},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-service-ticket/dist/Constants":"i0rBD","../../extensions/colorElementExtension":"9wZn2","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9wZn2":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerGraphService = require("spinal-env-viewer-graph-service");
@@ -1631,7 +1631,7 @@ class ColorElementExtension {
 }
 exports.default = new ColorElementExtension();
 
-},{"spinal-env-viewer-graph-service":"9n7zp","spinal-env-viewer-context-geographic-service":"5QjJf","spinal-env-viewer-plugin-group-manager-service":"tSLpq","spinal-env-viewer-plugin-forge/dist/Constants":"f3Ny6","spinal-env-viewer-plugin-standard_button/js/utilities":"ktewa","spinal-service-ticket/dist/Constants":"i0rBD","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ktewa":[function(require,module,exports) {
+},{"spinal-env-viewer-graph-service":"9n7zp","spinal-env-viewer-context-geographic-service":"5QjJf","spinal-env-viewer-plugin-group-manager-service":"tSLpq","spinal-env-viewer-plugin-forge/dist/Constants":"f3Ny6","spinal-env-viewer-plugin-standard_button/js/utilities":"ktewa","spinal-service-ticket/dist/Constants":"i0rBD","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ktewa":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2021 SpinalCom - www.spinalcom.com
  *
@@ -1776,7 +1776,7 @@ module.exports = {
     utilities
 };
 
-},{"spinal-env-viewer-graph-service":"9n7zp","spinal-env-viewer-plugin-group-manager-service":"tSLpq","spinal-env-viewer-context-geographic-service/build/constants":"eV0id","spinal-model-bmsnetwork":"gzkbg","spinal-env-viewer-plugin-network-tree-service":"7oQhf"}],"6nVeM":[function(require,module,exports) {
+},{"spinal-env-viewer-graph-service":"9n7zp","spinal-env-viewer-plugin-group-manager-service":"tSLpq","spinal-env-viewer-context-geographic-service/build/constants":"eV0id","spinal-model-bmsnetwork":"gzkbg","spinal-env-viewer-plugin-network-tree-service":"7oQhf"}],"6nVeM":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2024 SpinalCom - www.spinalcom.com
  * 
@@ -1833,7 +1833,7 @@ class IsolateElementOnMaquette extends (0, _spinalEnvViewerContextMenuService.Sp
     }
 }
 
-},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-service-ticket/dist/Constants":"i0rBD","../../extensions/colorElementExtension":"9wZn2","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"eC66R":[function(require,module,exports) {
+},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-service-ticket/dist/Constants":"i0rBD","../../extensions/colorElementExtension":"9wZn2","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"eC66R":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2024 SpinalCom - www.spinalcom.com
  * 
@@ -1896,7 +1896,7 @@ class ZoomElementOnMaquette extends (0, _spinalEnvViewerContextMenuService.Spina
     }
 }
 
-},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-service-ticket/dist/Constants":"i0rBD","../../extensions/colorElementExtension":"9wZn2","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7AUVh":[function(require,module,exports) {
+},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-service-ticket/dist/Constants":"i0rBD","../../extensions/colorElementExtension":"9wZn2","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7AUVh":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "ColorElementButton", ()=>ColorElementButton);
@@ -1953,7 +1953,7 @@ const getGeographicElement = async (ticketId)=>{
     }).map((el)=>el.info);
 };
 
-},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-panel-manager-service":"7Uw4d","spinal-service-ticket/dist/Constants":"i0rBD","spinal-env-viewer-graph-service":"9n7zp","spinal-env-viewer-plugin-standard_button/js/utilities":"ktewa","../extensions/colorElementExtension":"9wZn2","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ib3fZ":[function(require,module,exports) {
+},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-panel-manager-service":"7Uw4d","spinal-service-ticket/dist/Constants":"i0rBD","spinal-env-viewer-graph-service":"9n7zp","spinal-env-viewer-plugin-standard_button/js/utilities":"ktewa","../extensions/colorElementExtension":"9wZn2","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ib3fZ":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _vue = require("vue");
 var _vueDefault = parcelHelpers.interopDefault(_vue);
@@ -2017,7 +2017,7 @@ const dialogs = [
 ];
 for(let index = 0; index < dialogs.length; index++)SpinalMountExtention.mount(dialogs[index]);
 
-},{"vue":"gt5MM","./createContextDialog.vue":"fes2h","./createProcessDialog.vue":"jdHKc","./createStepDialog.vue":"bHi9a","./createTicket.vue":"asIYg","./selectProcessDialog.vue":"grIhp","./createCommonIncidentDialog.vue":"fDJRq","./confirmDialog.vue":"eokGr","c6957659ef176505":"7Uw4d","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fes2h":[function(require,module,exports) {
+},{"vue":"gt5MM","./createContextDialog.vue":"fes2h","./createProcessDialog.vue":"jdHKc","./createStepDialog.vue":"bHi9a","./createTicket.vue":"asIYg","./selectProcessDialog.vue":"grIhp","./createCommonIncidentDialog.vue":"fDJRq","./confirmDialog.vue":"eokGr","c6957659ef176505":"7Uw4d","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fes2h":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -2026,16 +2026,16 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("d836a3dc34c0d030").render;
     script.staticRenderFns = require("d836a3dc34c0d030").staticRenderFns;
-    script._scopeId = "data-v-0a2567";
+    script._scopeId = "data-v-064a8c";
     script.__cssModules = require("37f8e31a14bafb62").default;
     require("63aa0a5dea5ddb00").default(script);
-    script.__scopeId = "data-v-0a2567";
+    script.__scopeId = 'data-v-064a8c';
     script.__file = "createContextDialog.vue";
 };
 initialize();
 exports.default = script;
 
-},{"83600d3a18abb52":"lEoAS","d836a3dc34c0d030":"58OQ7","37f8e31a14bafb62":"89N5g","63aa0a5dea5ddb00":"1OEb8","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"lEoAS":[function(require,module,exports) {
+},{"83600d3a18abb52":"lEoAS","d836a3dc34c0d030":"58OQ7","37f8e31a14bafb62":"89N5g","63aa0a5dea5ddb00":"1OEb8","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"lEoAS":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalServiceTicket = require("spinal-service-ticket");
@@ -2129,10 +2129,10 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"spinal-service-ticket":"gi7V0","./components/sortable-list.vue":"eDuGq","../../extensions/Event":"4ovSF","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"eDuGq":[function(require,module,exports) {
+},{"spinal-service-ticket":"gi7V0","./components/sortable-list.vue":"eDuGq","../../extensions/Event":"4ovSF","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"eDuGq":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -2141,16 +2141,16 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("fbf48d88ca670da1").render;
     script.staticRenderFns = require("fbf48d88ca670da1").staticRenderFns;
-    script._scopeId = "data-v-ce74c0";
+    script._scopeId = "data-v-8b323a";
     script.__cssModules = require("13fe14883e1fef94").default;
     require("9a7b7b51be1f170f").default(script);
-    script.__scopeId = "data-v-ce74c0";
+    script.__scopeId = 'data-v-8b323a';
     script.__file = "sortable-list.vue";
 };
 initialize();
 exports.default = script;
 
-},{"cc1d8c710202bcc7":"iXdJp","fbf48d88ca670da1":"9br1C","13fe14883e1fef94":"bqYi2","9a7b7b51be1f170f":"f0GKm","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"iXdJp":[function(require,module,exports) {
+},{"cc1d8c710202bcc7":"iXdJp","fbf48d88ca670da1":"9br1C","13fe14883e1fef94":"bqYi2","9a7b7b51be1f170f":"f0GKm","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"iXdJp":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _vuedraggable = require("vuedraggable");
@@ -2191,10 +2191,10 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"vuedraggable":"1J17x","./popover.vue":"h4WgP","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"h4WgP":[function(require,module,exports) {
+},{"vuedraggable":"1J17x","./popover.vue":"h4WgP","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"h4WgP":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -2203,16 +2203,16 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("ee825984db4399a6").render;
     script.staticRenderFns = require("ee825984db4399a6").staticRenderFns;
-    script._scopeId = "data-v-e8de4c";
+    script._scopeId = "data-v-4031aa";
     script.__cssModules = require("760e3e23d88ca595").default;
     require("b97cff2841900a4b").default(script);
-    script.__scopeId = "data-v-e8de4c";
+    script.__scopeId = 'data-v-4031aa';
     script.__file = "popover.vue";
 };
 initialize();
 exports.default = script;
 
-},{"9374535c400a91ac":"4Qccr","ee825984db4399a6":"1RLXv","760e3e23d88ca595":"kgXWN","b97cff2841900a4b":"dgCVv","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"4Qccr":[function(require,module,exports) {
+},{"9374535c400a91ac":"4Qccr","ee825984db4399a6":"1RLXv","760e3e23d88ca595":"kgXWN","b97cff2841900a4b":"dgCVv","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"4Qccr":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _vueColor = require("vue-color");
@@ -2246,44 +2246,44 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"vue-color":"bOuNP","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1RLXv":[function(require,module,exports) {
+},{"vue-color":"bOuNP","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1RLXv":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("v-popover", {
+    return _c('v-popover', {
         attrs: {
             "offset": "16",
             "auto-hide": false,
             "open": _vm.show
         }
     }, [
-        _c("md-button", {
+        _c('md-button', {
             staticClass: "tooltip-target md-fab md-mini md-primary"
         }, [
-            _c("md-icon", [
+            _c('md-icon', [
                 _vm._v("add")
             ])
         ], 1),
         _vm._v(" "),
-        _c("template", {
+        _c('template', {
             slot: "popover"
         }, [
-            _c("div", {
+            _c('div', {
                 staticClass: "popoverContainer"
             }, [
-                _c("div", {
+                _c('div', {
                     staticClass: "_popoverContent"
                 }, [
-                    _c("md-field", [
-                        _c("label", [
+                    _c('md-field', [
+                        _c('label', [
                             _vm._v("Step name")
                         ]),
                         _vm._v(" "),
-                        _c("md-input", {
+                        _c('md-input', {
                             model: {
                                 value: _vm.name,
                                 callback: function($$v) {
@@ -2294,8 +2294,8 @@ var render = function() {
                         })
                     ], 1),
                     _vm._v(" "),
-                    _c("div", [
-                        _c("slider-picker", {
+                    _c('div', [
+                        _c('slider-picker', {
                             staticClass: "colorPicker",
                             model: {
                                 value: _vm.color,
@@ -2308,10 +2308,10 @@ var render = function() {
                     ], 1)
                 ], 1),
                 _vm._v(" "),
-                _c("div", {
+                _c('div', {
                     staticClass: "_popoverBtn"
                 }, [
-                    _c("md-button", {
+                    _c('md-button', {
                         directives: [
                             {
                                 name: "close-popover",
@@ -2323,7 +2323,7 @@ var render = function() {
                         _vm._v("Close")
                     ]),
                     _vm._v(" "),
-                    _c("md-button", {
+                    _c('md-button', {
                         directives: [
                             {
                                 name: "close-popover",
@@ -2349,21 +2349,21 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"kgXWN":[function() {},{}],"dgCVv":[function(require,module,exports) {
+},{}],"kgXWN":[function() {},{}],"dgCVv":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9br1C":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9br1C":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("md-content", {
+    return _c('md-content', {
         staticClass: "myContainer md-scrollbar"
     }, [
-        _vm.itemsSorted.length > 0 ? _c("draggable", {
+        _vm.itemsSorted.length > 0 ? _c('draggable', {
             attrs: {
                 "group": "steps"
             },
@@ -2383,31 +2383,31 @@ var render = function() {
                 expression: "itemsSorted"
             }
         }, _vm._l(_vm.itemsSorted, function(element) {
-            return _c("div", {
+            return _c('div', {
                 key: element.order,
                 staticClass: "listeItemDraggable"
             }, [
-                _c("div", {
+                _c('div', {
                     staticClass: "left"
                 }, [
-                    _c("div", {
+                    _c('div', {
                         staticClass: "color",
                         style: {
-                            "background-color": element.color
+                            'background-color': element.color
                         }
                     }),
                     _vm._v(" "),
-                    _c("div", {
+                    _c('div', {
                         staticClass: "name"
                     }, [
                         _vm._v("\n          " + _vm._s(element.name) + "\n        ")
                     ])
                 ]),
                 _vm._v(" "),
-                _c("div", {
+                _c('div', {
                     staticClass: "right"
                 }, [
-                    _c("md-button", {
+                    _c('md-button', {
                         staticClass: "md-icon-button md-dense md-accent",
                         on: {
                             "click": function($event) {
@@ -2415,22 +2415,22 @@ var render = function() {
                             }
                         }
                     }, [
-                        _c("md-icon", [
+                        _c('md-icon', [
                             _vm._v("delete_forever")
                         ])
                     ], 1)
                 ], 1)
             ]);
-        }), 0) : _c("div", {
+        }), 0) : _c('div', {
             staticClass: "empty"
         }, [
             _vm._v("\n    No step created\n  ")
         ]),
         _vm._v(" "),
-        _c("div", {
+        _c('div', {
             staticClass: "myFabs"
         }, [
-            _c("popover", {
+            _c('popover', {
                 on: {
                     "addStep": _vm.addStep
                 }
@@ -2442,18 +2442,18 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"bqYi2":[function() {},{}],"f0GKm":[function(require,module,exports) {
+},{}],"bqYi2":[function() {},{}],"f0GKm":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"58OQ7":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"58OQ7":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("md-dialog", {
+    return _c('md-dialog', {
         staticClass: "mdDialog",
         attrs: {
             "md-active": _vm.showDialog
@@ -2470,16 +2470,16 @@ var render = function() {
             }
         }
     }, [
-        _c("md-dialog-title", {
+        _c('md-dialog-title', {
             staticClass: "mdDialogTitle"
         }, [
             _vm._v("Create Ticket context\n  ")
         ]),
         _vm._v(" "),
-        _c("md-dialog-content", {
+        _c('md-dialog-content', {
             staticClass: "mdDialogContainer"
         }, [
-            _c("md-steppers", {
+            _c('md-steppers', {
                 staticClass: "mySteppers",
                 attrs: {
                     "md-active-step": _vm.stepper.active,
@@ -2495,7 +2495,7 @@ var render = function() {
                     "md-changed": _vm.changeStep
                 }
             }, [
-                _c("md-step", {
+                _c('md-step', {
                     staticClass: "mdStep",
                     attrs: {
                         "id": _vm.STEPPERS_DATA.context,
@@ -2511,15 +2511,15 @@ var render = function() {
                         }
                     }
                 }, [
-                    _c("md-content", {
+                    _c('md-content', {
                         staticClass: "contents"
                     }, [
-                        _c("md-field", [
-                            _c("label", [
+                        _c('md-field', [
+                            _c('label', [
                                 _vm._v("Context name")
                             ]),
                             _vm._v(" "),
-                            _c("md-input", {
+                            _c('md-input', {
                                 ref: "nameTextField",
                                 model: {
                                     value: _vm.inputValue,
@@ -2533,7 +2533,7 @@ var render = function() {
                     ], 1)
                 ], 1),
                 _vm._v(" "),
-                _c("md-step", {
+                _c('md-step', {
                     staticClass: "mdStep",
                     attrs: {
                         "id": _vm.STEPPERS_DATA.steps,
@@ -2549,7 +2549,7 @@ var render = function() {
                         }
                     }
                 }, [
-                    _c("sortable-list", {
+                    _c('sortable-list', {
                         ref: "draggableComponent",
                         attrs: {
                             "items": _vm.steps
@@ -2563,8 +2563,8 @@ var render = function() {
             ], 1)
         ], 1),
         _vm._v(" "),
-        _c("md-dialog-actions", [
-            _c("md-button", {
+        _c('md-dialog-actions', [
+            _c('md-button', {
                 staticClass: "md-primary",
                 on: {
                     "click": function($event) {
@@ -2575,7 +2575,7 @@ var render = function() {
                 _vm._v("Close")
             ]),
             _vm._v(" "),
-            _vm.stepper.active === this.STEPPERS_DATA.context ? _c("md-button", {
+            _vm.stepper.active === this.STEPPERS_DATA.context ? _c('md-button', {
                 staticClass: "md-primary",
                 attrs: {
                     "disabled": !(_vm.inputValue.trim().length > 0)
@@ -2587,7 +2587,7 @@ var render = function() {
                 _vm._v("Next")
             ]) : _vm._e(),
             _vm._v(" "),
-            _vm.stepper.active === this.STEPPERS_DATA.steps ? _c("md-button", {
+            _vm.stepper.active === this.STEPPERS_DATA.steps ? _c('md-button', {
                 staticClass: "md-primary",
                 attrs: {
                     "disabled": _vm.disabledButton()
@@ -2607,13 +2607,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"89N5g":[function() {},{}],"1OEb8":[function(require,module,exports) {
+},{}],"89N5g":[function() {},{}],"1OEb8":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jdHKc":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jdHKc":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -2622,16 +2622,16 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("7d4b323774cff46e").render;
     script.staticRenderFns = require("7d4b323774cff46e").staticRenderFns;
-    script._scopeId = "data-v-adc56e";
+    script._scopeId = "data-v-5498f7";
     script.__cssModules = require("c687d9d6b7466d02").default;
     require("d0836959917586b9").default(script);
-    script.__scopeId = "data-v-adc56e";
+    script.__scopeId = 'data-v-5498f7';
     script.__file = "createProcessDialog.vue";
 };
 initialize();
 exports.default = script;
 
-},{"f7935aecc7bc156f":"bzwU5","7d4b323774cff46e":"dBEEP","c687d9d6b7466d02":"j0v71","d0836959917586b9":"gxXWk","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"bzwU5":[function(require,module,exports) {
+},{"f7935aecc7bc156f":"bzwU5","7d4b323774cff46e":"dBEEP","c687d9d6b7466d02":"j0v71","d0836959917586b9":"gxXWk","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"bzwU5":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalServiceTicket = require("spinal-service-ticket");
@@ -2676,15 +2676,15 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"spinal-service-ticket":"gi7V0","../../extensions/Event":"4ovSF","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dBEEP":[function(require,module,exports) {
+},{"spinal-service-ticket":"gi7V0","../../extensions/Event":"4ovSF","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dBEEP":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("md-dialog", {
+    return _c('md-dialog', {
         attrs: {
             "md-active": _vm.showDialog
         },
@@ -2700,7 +2700,7 @@ var render = function() {
             }
         }
     }, [
-        _c("form", {
+        _c('form', {
             staticClass: "dialogForm",
             on: {
                 "submit": function($event) {
@@ -2709,17 +2709,17 @@ var render = function() {
                 }
             }
         }, [
-            _c("md-dialog-title", [
+            _c('md-dialog-title', [
                 _vm._v("Create Process Context")
             ]),
             _vm._v(" "),
-            _c("md-dialog-content", [
-                _c("md-field", [
-                    _c("label", [
+            _c('md-dialog-content', [
+                _c('md-field', [
+                    _c('label', [
                         _vm._v("Process name")
                     ]),
                     _vm._v(" "),
-                    _c("md-input", {
+                    _c('md-input', {
                         ref: "nameTextField",
                         model: {
                             value: _vm.process.name,
@@ -2732,8 +2732,8 @@ var render = function() {
                 ], 1)
             ], 1),
             _vm._v(" "),
-            _c("md-dialog-actions", [
-                _c("md-button", {
+            _c('md-dialog-actions', [
+                _c('md-button', {
                     staticClass: "md-primary",
                     on: {
                         "click": function($event) {
@@ -2744,7 +2744,7 @@ var render = function() {
                     _vm._v("Close")
                 ]),
                 _vm._v(" "),
-                _c("md-button", {
+                _c('md-button', {
                     staticClass: "md-primary",
                     attrs: {
                         "type": "submit",
@@ -2761,13 +2761,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"j0v71":[function() {},{}],"gxXWk":[function(require,module,exports) {
+},{}],"j0v71":[function() {},{}],"gxXWk":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"bHi9a":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"bHi9a":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -2776,16 +2776,16 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("90e36e69e10b6f8a").render;
     script.staticRenderFns = require("90e36e69e10b6f8a").staticRenderFns;
-    script._scopeId = "data-v-70743b";
+    script._scopeId = "data-v-7dda72";
     script.__cssModules = require("49708d7946b8d98").default;
     require("c7cd1b6a91790da7").default(script);
-    script.__scopeId = "data-v-70743b";
+    script.__scopeId = 'data-v-7dda72';
     script.__file = "createStepDialog.vue";
 };
 initialize();
 exports.default = script;
 
-},{"f193c236a6327045":"bhPFt","90e36e69e10b6f8a":"6BCSI","49708d7946b8d98":"jvf9L","c7cd1b6a91790da7":"56e7S","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"bhPFt":[function(require,module,exports) {
+},{"f193c236a6327045":"bhPFt","90e36e69e10b6f8a":"6BCSI","49708d7946b8d98":"jvf9L","c7cd1b6a91790da7":"56e7S","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"bhPFt":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalServiceTicket = require("spinal-service-ticket");
@@ -2853,15 +2853,15 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"spinal-service-ticket":"gi7V0","vue-color":"bOuNP","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6BCSI":[function(require,module,exports) {
+},{"spinal-service-ticket":"gi7V0","vue-color":"bOuNP","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6BCSI":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("md-dialog", {
+    return _c('md-dialog', {
         staticClass: "stepDialogContainer",
         attrs: {
             "md-active": _vm.showDialog
@@ -2878,7 +2878,7 @@ var render = function() {
             }
         }
     }, [
-        _c("form", {
+        _c('form', {
             staticClass: "dialogForm",
             on: {
                 "submit": function($event) {
@@ -2887,17 +2887,17 @@ var render = function() {
                 }
             }
         }, [
-            _c("md-dialog-title", [
+            _c('md-dialog-title', [
                 _vm._v("Create Ticket Step")
             ]),
             _vm._v(" "),
-            _c("md-dialog-content", [
-                _c("md-field", [
-                    _c("label", [
+            _c('md-dialog-content', [
+                _c('md-field', [
+                    _c('label', [
                         _vm._v("Step name")
                     ]),
                     _vm._v(" "),
-                    _c("md-input", {
+                    _c('md-input', {
                         ref: "nameTextField",
                         model: {
                             value: _vm.step.name,
@@ -2909,20 +2909,20 @@ var render = function() {
                     })
                 ], 1),
                 _vm._v(" "),
-                _c("div", {
+                _c('div', {
                     staticClass: "order_div md-layout md-gutter"
                 }, [
-                    _c("span", {
+                    _c('span', {
                         staticClass: "md-layout-item md-size-20 md-caption insert_div"
                     }, [
                         _vm._v("Insert\n          it")
                     ]),
                     _vm._v(" "),
-                    _c("div", {
+                    _c('div', {
                         staticClass: "md-layout-item md-size-30"
                     }, [
-                        _c("md-field", [
-                            _c("md-select", {
+                        _c('md-field', [
+                            _c('md-select', {
                                 attrs: {
                                     "name": "Place",
                                     "id": "Place",
@@ -2936,7 +2936,7 @@ var render = function() {
                                     expression: "place"
                                 }
                             }, [
-                                _c("md-option", {
+                                _c('md-option', {
                                     attrs: {
                                         "value": _vm.PLACEMENT.before
                                     }
@@ -2944,7 +2944,7 @@ var render = function() {
                                     _vm._v("Before")
                                 ]),
                                 _vm._v(" "),
-                                _c("md-option", {
+                                _c('md-option', {
                                     attrs: {
                                         "value": _vm.PLACEMENT.after
                                     }
@@ -2955,11 +2955,11 @@ var render = function() {
                         ], 1)
                     ], 1),
                     _vm._v(" "),
-                    _c("div", {
+                    _c('div', {
                         staticClass: "md-layout-item md-size-50"
                     }, [
-                        _c("md-field", [
-                            _c("md-select", {
+                        _c('md-field', [
+                            _c('md-select', {
                                 attrs: {
                                     "name": "step",
                                     "id": "step",
@@ -2973,7 +2973,7 @@ var render = function() {
                                     expression: "orderSelected"
                                 }
                             }, _vm._l(_vm.steps, function(s) {
-                                return _c("md-option", {
+                                return _c('md-option', {
                                     key: s.order,
                                     attrs: {
                                         "value": s.order
@@ -2986,7 +2986,7 @@ var render = function() {
                     ], 1)
                 ]),
                 _vm._v(" "),
-                _c("chrome-picker", {
+                _c('chrome-picker', {
                     staticClass: "stepChromePicker",
                     model: {
                         value: _vm.step.color,
@@ -2998,8 +2998,8 @@ var render = function() {
                 })
             ], 1),
             _vm._v(" "),
-            _c("md-dialog-actions", [
-                _c("md-button", {
+            _c('md-dialog-actions', [
+                _c('md-button', {
                     staticClass: "md-primary",
                     on: {
                         "click": function($event) {
@@ -3010,7 +3010,7 @@ var render = function() {
                     _vm._v("Close")
                 ]),
                 _vm._v(" "),
-                _c("md-button", {
+                _c('md-button', {
                     staticClass: "md-primary",
                     attrs: {
                         "type": "submit",
@@ -3027,13 +3027,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"jvf9L":[function() {},{}],"56e7S":[function(require,module,exports) {
+},{}],"jvf9L":[function() {},{}],"56e7S":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"asIYg":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"asIYg":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -3042,16 +3042,16 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("2a9a142d6cb891fa").render;
     script.staticRenderFns = require("2a9a142d6cb891fa").staticRenderFns;
-    script._scopeId = "data-v-92f705";
+    script._scopeId = "data-v-2c57fe";
     script.__cssModules = require("7be61592bcdfe25d").default;
     require("5d93fc935e3f9787").default(script);
-    script.__scopeId = "data-v-92f705";
+    script.__scopeId = 'data-v-2c57fe';
     script.__file = "createTicket.vue";
 };
 initialize();
 exports.default = script;
 
-},{"c1629f445b900976":"aytqR","2a9a142d6cb891fa":"l0ecQ","7be61592bcdfe25d":"7Rto0","5d93fc935e3f9787":"kShri","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"aytqR":[function(require,module,exports) {
+},{"c1629f445b900976":"aytqR","2a9a142d6cb891fa":"l0ecQ","7be61592bcdfe25d":"7Rto0","5d93fc935e3f9787":"kShri","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"aytqR":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalServiceTicket = require("spinal-service-ticket");
@@ -3181,10 +3181,10 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"spinal-service-ticket":"gi7V0","spinal-service-ticket/dist/Constants":"i0rBD","./components/attachment.vue":"jwvof","spinal-env-viewer-graph-service":"9n7zp","../../extensions/spinalIO":"jPxZQ","../../extensions/ticketsEvents":"iO9Cs","../../extensions/Event":"4ovSF","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jwvof":[function(require,module,exports) {
+},{"spinal-service-ticket":"gi7V0","spinal-service-ticket/dist/Constants":"i0rBD","./components/attachment.vue":"jwvof","spinal-env-viewer-graph-service":"9n7zp","../../extensions/spinalIO":"jPxZQ","../../extensions/ticketsEvents":"iO9Cs","../../extensions/Event":"4ovSF","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jwvof":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -3193,16 +3193,16 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("32af7a28fa65dbc").render;
     script.staticRenderFns = require("32af7a28fa65dbc").staticRenderFns;
-    script._scopeId = "data-v-314e63";
+    script._scopeId = "data-v-4d609e";
     script.__cssModules = require("b804daa960246aa7").default;
     require("c8dd0f5c980dbade").default(script);
-    script.__scopeId = "data-v-314e63";
+    script.__scopeId = 'data-v-4d609e';
     script.__file = "attachment.vue";
 };
 initialize();
 exports.default = script;
 
-},{"c01516fccae31114":"5L9iQ","32af7a28fa65dbc":"20WW3","b804daa960246aa7":"sLI29","c8dd0f5c980dbade":"b856i","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5L9iQ":[function(require,module,exports) {
+},{"c01516fccae31114":"5L9iQ","32af7a28fa65dbc":"20WW3","b804daa960246aa7":"sLI29","c8dd0f5c980dbade":"b856i","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5L9iQ":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var scriptExports = {
@@ -3219,18 +3219,18 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"20WW3":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"20WW3":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("div", {
+    return _c('div', {
         staticClass: "content"
     }, [
-        _c("div", {
+        _c('div', {
             directives: [
                 {
                     name: "tooltip",
@@ -3244,7 +3244,7 @@ var render = function() {
             _vm._v(_vm._s(_vm.file.name))
         ]),
         _vm._v(" "),
-        _c("div", {
+        _c('div', {
             staticClass: "md-caption delete",
             on: {
                 "click": _vm.remove
@@ -3258,18 +3258,18 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"sLI29":[function() {},{}],"b856i":[function(require,module,exports) {
+},{}],"sLI29":[function() {},{}],"b856i":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"l0ecQ":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"l0ecQ":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("md-dialog", {
+    return _c('md-dialog', {
         staticClass: "mdDialogContainer",
         attrs: {
             "md-active": _vm.showDialog
@@ -3286,23 +3286,23 @@ var render = function() {
             }
         }
     }, [
-        _c("md-dialog-title", {
+        _c('md-dialog-title', {
             staticClass: "mdDialogTitle"
         }, [
             _vm._v("Create Ticket\n  ")
         ]),
         _vm._v(" "),
-        _c("md-dialog-content", {
+        _c('md-dialog-content', {
             staticClass: "mdDialogContent"
         }, [
-            _vm.pageSelected === _vm.PAGES.normal ? _c("div", {
+            _vm.pageSelected === _vm.PAGES.normal ? _c('div', {
                 staticClass: "normalContent"
             }, [
-                _c("div", {
+                _c('div', {
                     staticClass: "content details"
                 }, [
-                    _c("div", [
-                        _c("hr", {
+                    _c('div', [
+                        _c('hr', {
                             staticClass: "hr-text",
                             attrs: {
                                 "data-content": "Details"
@@ -3310,19 +3310,19 @@ var render = function() {
                         })
                     ]),
                     _vm._v(" "),
-                    _c("div", {
+                    _c('div', {
                         staticClass: "left"
                     }, [
-                        _vm.commonTicketInfo ? _c("div", {
+                        _vm.commonTicketInfo ? _c('div', {
                             staticClass: "detail"
                         }, [
-                            _c("div", {
+                            _c('div', {
                                 staticClass: "label"
                             }, [
                                 _vm._v("Title")
                             ]),
                             _vm._v(" "),
-                            _c("div", {
+                            _c('div', {
                                 directives: [
                                     {
                                         name: "tooltip",
@@ -3335,15 +3335,15 @@ var render = function() {
                             }, [
                                 _vm._v(_vm._s(_vm.commonTicketInfo.name) + "\n            ")
                             ])
-                        ]) : !_vm.commonTicketInfo ? _c("div", {
+                        ]) : !_vm.commonTicketInfo ? _c('div', {
                             staticClass: "detail"
                         }, [
-                            _c("md-field", [
-                                _c("label", [
+                            _c('md-field', [
+                                _c('label', [
                                     _vm._v("Ticket name")
                                 ]),
                                 _vm._v(" "),
-                                _c("md-input", {
+                                _c('md-input', {
                                     model: {
                                         value: _vm.ticket.name,
                                         callback: function($$v) {
@@ -3355,16 +3355,16 @@ var render = function() {
                             ], 1)
                         ], 1) : _vm._e(),
                         _vm._v(" "),
-                        _vm.nodeInfo ? _c("div", {
+                        _vm.nodeInfo ? _c('div', {
                             staticClass: "detail"
                         }, [
-                            _c("div", {
+                            _c('div', {
                                 staticClass: "label"
                             }, [
                                 _vm._v("Element")
                             ]),
                             _vm._v(" "),
-                            _c("div", {
+                            _c('div', {
                                 directives: [
                                     {
                                         name: "tooltip",
@@ -3381,11 +3381,11 @@ var render = function() {
                     ])
                 ]),
                 _vm._v(" "),
-                _c("div", {
+                _c('div', {
                     staticClass: "content priority"
                 }, [
-                    _c("div", [
-                        _c("hr", {
+                    _c('div', [
+                        _c('hr', {
                             staticClass: "hr-text",
                             attrs: {
                                 "data-content": "Priority"
@@ -3393,10 +3393,10 @@ var render = function() {
                         })
                     ]),
                     _vm._v(" "),
-                    _c("div", {
+                    _c('div', {
                         staticClass: "priorityRadio"
                     }, [
-                        _c("md-radio", {
+                        _c('md-radio', {
                             staticClass: "md-primary",
                             attrs: {
                                 "value": _vm.PRIORITY_DATA.occasionally
@@ -3412,7 +3412,7 @@ var render = function() {
                             _vm._v("Occasionally")
                         ]),
                         _vm._v(" "),
-                        _c("md-radio", {
+                        _c('md-radio', {
                             staticClass: "md-primary",
                             attrs: {
                                 "value": _vm.PRIORITY_DATA.normal
@@ -3428,7 +3428,7 @@ var render = function() {
                             _vm._v("Normal")
                         ]),
                         _vm._v(" "),
-                        _c("md-radio", {
+                        _c('md-radio', {
                             staticClass: "md-primary",
                             attrs: {
                                 "value": _vm.PRIORITY_DATA.urgent
@@ -3446,35 +3446,35 @@ var render = function() {
                     ], 1)
                 ]),
                 _vm._v(" "),
-                _c("div", {
+                _c('div', {
                     staticClass: "content notes"
                 }, [
-                    _c("hr", {
+                    _c('hr', {
                         staticClass: "hr-text",
                         attrs: {
                             "data-content": "Notes"
                         }
                     }),
                     _vm._v(" "),
-                    _c("div", {
+                    _c('div', {
                         staticClass: "pj"
                     }, [
-                        _c("md-button", {
+                        _c('md-button', {
                             staticClass: "md-dense md-primary",
                             on: {
                                 "click": _vm.addPJ
                             }
                         }, [
-                            _c("md-icon", [
+                            _c('md-icon', [
                                 _vm._v("attach_file")
                             ]),
                             _vm._v("\n            ADD\n          ")
                         ], 1),
                         _vm._v(" "),
-                        _vm.ticket.pj.length > 0 ? _c("md-content", {
+                        _vm.ticket.pj.length > 0 ? _c('md-content', {
                             staticClass: "pjDiv md-scrollbar"
                         }, _vm._l(_vm.ticket.pj, function(file, index) {
-                            return _c("attachment-component", {
+                            return _c('attachment-component', {
                                 key: index,
                                 attrs: {
                                     "file": file
@@ -3485,19 +3485,19 @@ var render = function() {
                             }, [
                                 _vm._v(_vm._s(file.name) + "\n            ")
                             ]);
-                        }), 1) : _c("md-content", {
+                        }), 1) : _c('md-content', {
                             staticClass: "pjDiv empty"
                         }, [
                             _vm._v("\n            No Attachment added\n          ")
                         ])
                     ], 1),
                     _vm._v(" "),
-                    _c("md-field", [
-                        _c("label", [
+                    _c('md-field', [
+                        _c('label', [
                             _vm._v("Message")
                         ]),
                         _vm._v(" "),
-                        _c("md-textarea", {
+                        _c('md-textarea', {
                             model: {
                                 value: _vm.ticket.description,
                                 callback: function($$v) {
@@ -3508,14 +3508,14 @@ var render = function() {
                         })
                     ], 1)
                 ], 1)
-            ]) : _c("div", {
+            ]) : _c('div', {
                 staticClass: "responseContent"
             }, [
-                _vm.pageSelected === _vm.PAGES.loading ? _c("md-progress-spinner", {
+                _vm.pageSelected === _vm.PAGES.loading ? _c('md-progress-spinner', {
                     attrs: {
                         "md-mode": "indeterminate"
                     }
-                }) : _c("md-icon", {
+                }) : _c('md-icon', {
                     staticClass: "md-size-5x"
                 }, [
                     _vm._v(_vm._s(_vm.icon))
@@ -3523,8 +3523,8 @@ var render = function() {
             ], 1)
         ]),
         _vm._v(" "),
-        _c("md-dialog-actions", [
-            _c("md-button", {
+        _c('md-dialog-actions', [
+            _c('md-button', {
                 staticClass: "md-primary",
                 on: {
                     "click": function($event) {
@@ -3535,7 +3535,7 @@ var render = function() {
                 _vm._v("Close")
             ]),
             _vm._v(" "),
-            _c("md-button", {
+            _c('md-button', {
                 staticClass: "md-primary",
                 attrs: {
                     "disabled": !(_vm.ticket.name.trim().length > 0)
@@ -3553,13 +3553,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"7Rto0":[function() {},{}],"kShri":[function(require,module,exports) {
+},{}],"7Rto0":[function() {},{}],"kShri":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"grIhp":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"grIhp":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -3568,16 +3568,16 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("fff3494e17408c36").render;
     script.staticRenderFns = require("fff3494e17408c36").staticRenderFns;
-    script._scopeId = "data-v-270f7e";
+    script._scopeId = "data-v-e9f19b";
     script.__cssModules = require("45d66c9f784c0393").default;
     require("58b0fd2d0d08ca1a").default(script);
-    script.__scopeId = "data-v-270f7e";
+    script.__scopeId = 'data-v-e9f19b';
     script.__file = "selectProcessDialog.vue";
 };
 initialize();
 exports.default = script;
 
-},{"311241a781aaecb4":"dBkus","fff3494e17408c36":"6Lk5W","45d66c9f784c0393":"1xPlW","58b0fd2d0d08ca1a":"ddB8D","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dBkus":[function(require,module,exports) {
+},{"311241a781aaecb4":"dBkus","fff3494e17408c36":"6Lk5W","45d66c9f784c0393":"1xPlW","58b0fd2d0d08ca1a":"ddB8D","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dBkus":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalServiceTicket = require("spinal-service-ticket");
@@ -3767,10 +3767,10 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"spinal-service-ticket":"gi7V0","spinal-env-viewer-panel-manager-service":"7Uw4d","spinal-env-viewer-graph-service":"9n7zp","./components/selectProcess.vue":"duyv6","../../extensions/Event":"4ovSF","../panels/components/tickets.vue":"khjBr","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"duyv6":[function(require,module,exports) {
+},{"spinal-service-ticket":"gi7V0","spinal-env-viewer-panel-manager-service":"7Uw4d","spinal-env-viewer-graph-service":"9n7zp","./components/selectProcess.vue":"duyv6","../../extensions/Event":"4ovSF","../panels/components/tickets.vue":"khjBr","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"duyv6":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -3779,16 +3779,16 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("2b08c376d05d1b63").render;
     script.staticRenderFns = require("2b08c376d05d1b63").staticRenderFns;
-    script._scopeId = "data-v-c478b6";
+    script._scopeId = "data-v-d3ae08";
     script.__cssModules = require("6102d4c68b0ec87e").default;
     require("980cbab45a6f82ae").default(script);
-    script.__scopeId = "data-v-c478b6";
+    script.__scopeId = 'data-v-d3ae08';
     script.__file = "selectProcess.vue";
 };
 initialize();
 exports.default = script;
 
-},{"41d4c471bdf1a359":"73lN9","2b08c376d05d1b63":"5z9Dy","6102d4c68b0ec87e":"izQMK","980cbab45a6f82ae":"f94tu","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"73lN9":[function(require,module,exports) {
+},{"41d4c471bdf1a359":"73lN9","2b08c376d05d1b63":"5z9Dy","6102d4c68b0ec87e":"izQMK","980cbab45a6f82ae":"f94tu","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"73lN9":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _linkerTemplateVue = require("./linkerTemplate.vue");
@@ -3830,10 +3830,10 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"./linkerTemplate.vue":"hgKYl","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hgKYl":[function(require,module,exports) {
+},{"./linkerTemplate.vue":"hgKYl","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hgKYl":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -3842,16 +3842,16 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("3f373969f3c4e449").render;
     script.staticRenderFns = require("3f373969f3c4e449").staticRenderFns;
-    script._scopeId = "data-v-a826f5";
+    script._scopeId = "data-v-47d846";
     script.__cssModules = require("269f43c875d733f1").default;
     require("deed5c0e56ce1834").default(script);
-    script.__scopeId = "data-v-a826f5";
+    script.__scopeId = 'data-v-47d846';
     script.__file = "linkerTemplate.vue";
 };
 initialize();
 exports.default = script;
 
-},{"327a8e734e20e2c7":"6MUCC","3f373969f3c4e449":"5VGM4","269f43c875d733f1":"bAZA7","deed5c0e56ce1834":"h9CA6","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6MUCC":[function(require,module,exports) {
+},{"327a8e734e20e2c7":"6MUCC","3f373969f3c4e449":"5VGM4","269f43c875d733f1":"bAZA7","deed5c0e56ce1834":"h9CA6","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6MUCC":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var scriptExports = {
@@ -3872,45 +3872,45 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5VGM4":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5VGM4":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("div", {
+    return _c('div', {
         staticClass: "subContent"
     }, [
-        _c("md-list", {
+        _c('md-list', {
             staticClass: "title"
         }, [
-            _c("md-list-item", [
-                _c("span", {
+            _c('md-list-item', [
+                _c('span', {
                     staticClass: "md-list-item-text"
                 }, [
                     _vm._v(_vm._s(_vm.title))
                 ]),
                 _vm._v(" "),
-                _vm.showBtn ? _c("md-button", {
+                _vm.showBtn ? _c('md-button', {
                     staticClass: "md-icon-button",
                     on: {
                         "click": _vm.createEvent
                     }
                 }, [
-                    _c("md-icon", [
+                    _c('md-icon', [
                         _vm._v("control_point")
                     ])
                 ], 1) : _vm._e()
             ], 1)
         ], 1),
         _vm._v(" "),
-        _c("md-content", {
+        _c('md-content', {
             staticClass: "container md-scrollbar"
         }, [
-            _c("md-list", _vm._l(_vm.data, function(item, index) {
-                return _c("md-list-item", {
+            _c('md-list', _vm._l(_vm.data, function(item, index) {
+                return _c('md-list-item', {
                     directives: [
                         {
                             name: "tooltip",
@@ -3922,7 +3922,7 @@ var render = function() {
                     key: index,
                     staticClass: "list-item",
                     class: {
-                        "selected": item.id === _vm.itemSelected
+                        'selected': item.id === _vm.itemSelected
                     },
                     on: {
                         "click": function($event) {
@@ -3930,7 +3930,7 @@ var render = function() {
                         }
                     }
                 }, [
-                    _c("span", {
+                    _c('span', {
                         staticClass: "md-list-item-text"
                     }, [
                         _vm._v(_vm._s(item.name))
@@ -3944,29 +3944,29 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"bAZA7":[function() {},{}],"h9CA6":[function(require,module,exports) {
+},{}],"bAZA7":[function() {},{}],"h9CA6":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5z9Dy":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5z9Dy":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("div", {
+    return _c('div', {
         staticClass: "select_container"
     }, [
-        _c("div", {
+        _c('div', {
             staticClass: "content"
         }, [
-            _c("div", {
+            _c('div', {
                 staticClass: "section"
             }, [
-                _c("link-template", {
+                _c('link-template', {
                     attrs: {
-                        "title": "Select Context",
+                        "title": 'Select Context',
                         "data": _vm.data,
                         "itemSelected": _vm.contextId,
                         "showBtn": true
@@ -3978,12 +3978,12 @@ var render = function() {
                 })
             ], 1),
             _vm._v(" "),
-            _c("div", {
+            _c('div', {
                 staticClass: "section"
             }, [
-                _c("link-template", {
+                _c('link-template', {
                     attrs: {
-                        "title": "Select Process",
+                        "title": 'Select Process',
                         "data": _vm.processes,
                         "itemSelected": _vm.processId,
                         "showBtn": _vm.contextId && _vm.contextId.length > 0
@@ -3995,13 +3995,13 @@ var render = function() {
                 })
             ], 1),
             _vm._v(" "),
-            _c("div", {
+            _c('div', {
                 staticClass: "section"
             }, [
-                _c("link-template", {
+                _c('link-template', {
                     attrs: {
-                        "title": "Select Common Incident",
-                        "subTitle": "(optional) it will be the ticket name",
+                        "title": 'Select Common Incident',
+                        "subTitle": '(optional) it will be the ticket name',
                         "data": _vm.incidents,
                         "itemSelected": _vm.incidentId,
                         "showBtn": _vm.showCreatBtn()
@@ -4019,13 +4019,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"izQMK":[function() {},{}],"f94tu":[function(require,module,exports) {
+},{}],"izQMK":[function() {},{}],"f94tu":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"khjBr":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"khjBr":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -4034,16 +4034,16 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("f135a6e79fc69328").render;
     script.staticRenderFns = require("f135a6e79fc69328").staticRenderFns;
-    script._scopeId = "data-v-a8c81c";
+    script._scopeId = "data-v-65b47a";
     script.__cssModules = require("7afe6bbff0d12208").default;
     require("723f4a2f178fd8d").default(script);
-    script.__scopeId = "data-v-a8c81c";
+    script.__scopeId = 'data-v-65b47a';
     script.__file = "tickets.vue";
 };
 initialize();
 exports.default = script;
 
-},{"25f7c779c0722591":"38xTT","f135a6e79fc69328":"5VfEL","7afe6bbff0d12208":"6MxjA","723f4a2f178fd8d":"1CDmn","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"38xTT":[function(require,module,exports) {
+},{"25f7c779c0722591":"38xTT","f135a6e79fc69328":"5VfEL","7afe6bbff0d12208":"6MxjA","723f4a2f178fd8d":"1CDmn","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"38xTT":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _constants = require("spinal-service-ticket/dist/Constants");
@@ -4198,18 +4198,18 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"spinal-service-ticket/dist/Constants":"i0rBD","cb5dbdd688eb6f17":"7Uw4d","../../../extensions/spinalIO":"jPxZQ","moment":"jwcsj","spinal-env-viewer-graph-service":"9n7zp","spinal-service-ticket":"gi7V0","../../../extensions/ticketsEvents":"iO9Cs","../../../extensions/Event":"4ovSF","../../../buttons/standard_buttons/selectElement":"fpE2i","../../../buttons/standard_buttons/isolate":"6nVeM","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5VfEL":[function(require,module,exports) {
+},{"spinal-service-ticket/dist/Constants":"i0rBD","cb5dbdd688eb6f17":"7Uw4d","../../../extensions/spinalIO":"jPxZQ","moment":"jwcsj","spinal-env-viewer-graph-service":"9n7zp","spinal-service-ticket":"gi7V0","../../../extensions/ticketsEvents":"iO9Cs","../../../extensions/Event":"4ovSF","../../../buttons/standard_buttons/selectElement":"fpE2i","../../../buttons/standard_buttons/isolate":"6nVeM","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5VfEL":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("md-content", {
+    return _c('md-content', {
         staticClass: "table_container"
     }, [
-        _c("md-table", {
+        _c('md-table', {
             staticClass: "mdTable",
             attrs: {
                 "md-sort": "name"
@@ -4219,7 +4219,7 @@ var render = function() {
                     key: "md-table-row",
                     fn: function(ref) {
                         var item = ref.item;
-                        return _c("md-table-row", {
+                        return _c('md-table-row', {
                             on: {
                                 "dblclick": function($event) {
                                     return _vm.isolateOnMaquette(item);
@@ -4227,7 +4227,7 @@ var render = function() {
                                 "mouseleave": _vm.deselectOnMaquette
                             }
                         }, [
-                            _c("md-table-cell", {
+                            _c('md-table-cell', {
                                 staticClass: "tableName",
                                 attrs: {
                                     "md-label": "Name",
@@ -4237,27 +4237,27 @@ var render = function() {
                                 _vm._v("\n            " + _vm._s(item.name) + "\n\n         ")
                             ]),
                             _vm._v(" "),
-                            _c("md-table-cell", {
+                            _c('md-table-cell', {
                                 staticClass: "ticketName",
                                 attrs: {
                                     "md-label": "State"
                                 }
                             }, [
-                                _c("div", {
+                                _c('div', {
                                     staticClass: "color",
                                     style: {
-                                        "background-color": item.step.color
+                                        'background-color': item.step.color
                                     }
                                 }),
                                 _vm._v(" "),
-                                _c("div", {
+                                _c('div', {
                                     staticClass: "name"
                                 }, [
                                     _vm._v(_vm._s(item.step.name))
                                 ])
                             ]),
                             _vm._v(" "),
-                            _c("md-table-cell", {
+                            _c('md-table-cell', {
                                 attrs: {
                                     "md-label": "Creation Date",
                                     "md-sort-by": "creationDate"
@@ -4266,7 +4266,7 @@ var render = function() {
                                 _vm._v("\n            " + _vm._s(_vm._f("formatCreationDate")(item.creationDate)) + "\n         ")
                             ]),
                             _vm._v(" "),
-                            _c("md-table-cell", {
+                            _c('md-table-cell', {
                                 attrs: {
                                     "md-label": "Priority",
                                     "md-sort-by": "priority"
@@ -4275,7 +4275,7 @@ var render = function() {
                                 _vm._v("\n            " + _vm._s(_vm._f("displayPriority")(item.priority)))
                             ]),
                             _vm._v(" "),
-                            _c("md-table-cell", {
+                            _c('md-table-cell', {
                                 attrs: {
                                     "md-label": "Username"
                                 }
@@ -4283,123 +4283,123 @@ var render = function() {
                                 _vm._v("\n            " + _vm._s(_vm._f("userName")(item.user)) + "\n         ")
                             ]),
                             _vm._v(" "),
-                            _c("md-table-cell", {
+                            _c('md-table-cell', {
                                 attrs: {
                                     "md-label": ""
                                 }
                             }, [
-                                _c("md-menu", {
+                                _c('md-menu', {
                                     staticClass: "ticket_menu",
                                     attrs: {
                                         "md-size": "small"
                                     }
                                 }, [
-                                    _c("md-button", {
+                                    _c('md-button', {
                                         staticClass: "md-icon-button",
                                         attrs: {
                                             "md-menu-trigger": ""
                                         }
                                     }, [
-                                        _c("md-icon", [
+                                        _c('md-icon', [
                                             _vm._v("more_vert")
                                         ])
                                     ], 1),
                                     _vm._v(" "),
-                                    _c("md-menu-content", {
+                                    _c('md-menu-content', {
                                         staticClass: "ticket_menu_content"
                                     }, [
-                                        item.step.order >= 0 ? _c("md-menu-item", {
+                                        item.step.order >= 0 ? _c('md-menu-item', {
                                             on: {
                                                 "click": function($event) {
                                                     return _vm.passToNextStep(item);
                                                 }
                                             }
                                         }, [
-                                            _c("md-icon", [
+                                            _c('md-icon', [
                                                 _vm._v("skip_next")
                                             ]),
                                             _vm._v(" "),
-                                            _c("span", [
+                                            _c('span', [
                                                 _vm._v("Pass to next step")
                                             ])
                                         ], 1) : _vm._e(),
                                         _vm._v(" "),
-                                        item.step.order > 0 ? _c("md-menu-item", {
+                                        item.step.order > 0 ? _c('md-menu-item', {
                                             on: {
                                                 "click": function($event) {
                                                     return _vm.backToPreviousStep(item);
                                                 }
                                             }
                                         }, [
-                                            _c("md-icon", [
+                                            _c('md-icon', [
                                                 _vm._v("skip_previous")
                                             ]),
                                             _vm._v(" "),
-                                            _c("span", [
+                                            _c('span', [
                                                 _vm._v("Back to previous step")
                                             ])
                                         ], 1) : _vm._e(),
                                         _vm._v(" "),
-                                        _c("md-menu-item", {
+                                        _c('md-menu-item', {
                                             on: {
                                                 "click": function($event) {
                                                     return _vm.sendMessage(item);
                                                 }
                                             }
                                         }, [
-                                            _c("md-icon", [
+                                            _c('md-icon', [
                                                 _vm._v("comment")
                                             ]),
                                             _vm._v(" "),
-                                            _c("span", [
+                                            _c('span', [
                                                 _vm._v("Add comment")
                                             ])
                                         ], 1),
                                         _vm._v(" "),
-                                        !_vm.isArchived(item) ? _c("md-menu-item", {
+                                        !_vm.isArchived(item) ? _c('md-menu-item', {
                                             on: {
                                                 "click": function($event) {
                                                     return _vm.archiveTicket(item);
                                                 }
                                             }
                                         }, [
-                                            _c("md-icon", [
+                                            _c('md-icon', [
                                                 _vm._v("archive")
                                             ]),
                                             _vm._v(" "),
-                                            _c("span", [
+                                            _c('span', [
                                                 _vm._v("Archive")
                                             ])
                                         ], 1) : _vm._e(),
                                         _vm._v(" "),
-                                        _vm.isArchived(item) ? _c("md-menu-item", {
+                                        _vm.isArchived(item) ? _c('md-menu-item', {
                                             on: {
                                                 "click": function($event) {
                                                     return _vm.unarchiveTicket(item);
                                                 }
                                             }
                                         }, [
-                                            _c("md-icon", [
+                                            _c('md-icon', [
                                                 _vm._v("unarchive")
                                             ]),
                                             _vm._v(" "),
-                                            _c("span", [
+                                            _c('span', [
                                                 _vm._v("Unarchive")
                                             ])
                                         ], 1) : _vm._e(),
                                         _vm._v(" "),
-                                        _c("md-menu-item", {
+                                        _c('md-menu-item', {
                                             on: {
                                                 "click": function($event) {
                                                     return _vm.seeDetails(item);
                                                 }
                                             }
                                         }, [
-                                            _c("md-icon", [
+                                            _c('md-icon', [
                                                 _vm._v("assignment_late")
                                             ]),
                                             _vm._v(" "),
-                                            _c("span", [
+                                            _c('span', [
                                                 _vm._v("See Details")
                                             ])
                                         ], 1)
@@ -4418,34 +4418,34 @@ var render = function() {
                 expression: "searched"
             }
         }, [
-            _c("md-table-toolbar", {
+            _c('md-table-toolbar', {
                 staticClass: "myToolbar",
                 attrs: {
                     "md-elevation": "0"
                 }
             }, [
-                _c("div", {
+                _c('div', {
                     staticClass: "md-toolbar-section-start"
                 }, [
-                    _c("h1", {
+                    _c('h1', {
                         staticClass: "md-title"
                     }, [
                         _vm._v("Tickets")
                     ])
                 ]),
                 _vm._v(" "),
-                _c("div", {
+                _c('div', {
                     staticClass: "filters md-toolbar-section-end"
                 }, [
-                    _c("div", {
+                    _c('div', {
                         staticClass: "_fields"
                     }, [
-                        _c("md-field", {
+                        _c('md-field', {
                             attrs: {
                                 "md-clearable": ""
                             }
                         }, [
-                            _c("md-input", {
+                            _c('md-input', {
                                 attrs: {
                                     "placeholder": "Search by name..."
                                 },
@@ -4465,7 +4465,7 @@ var render = function() {
                 ])
             ]),
             _vm._v(" "),
-            _c("md-table-empty-state", {
+            _c('md-table-empty-state', {
                 attrs: {
                     "md-label": "No Ticket found",
                     "md-description": "No ticket found for this query."
@@ -4478,18 +4478,18 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"6MxjA":[function() {},{}],"1CDmn":[function(require,module,exports) {
+},{}],"6MxjA":[function() {},{}],"1CDmn":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6Lk5W":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6Lk5W":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("md-dialog", {
+    return _c('md-dialog', {
         staticClass: "ticketMdDialogContainer",
         attrs: {
             "md-active": _vm.showDialog
@@ -4506,19 +4506,19 @@ var render = function() {
             }
         }
     }, [
-        _c("md-dialog-title", {
+        _c('md-dialog-title', {
             staticClass: "dialogTitle"
         }, [
             _vm._v("Select Ticket Process")
         ]),
         _vm._v(" "),
-        _c("md-dialog-content", {
+        _c('md-dialog-content', {
             staticClass: "selectProcessClass"
         }, [
-            _vm.loading === _vm.PAGE_STATES.success ? _c("div", {
+            _vm.loading === _vm.PAGE_STATES.success ? _c('div', {
                 staticClass: "my_content"
             }, [
-                _c("select-process", {
+                _c('select-process', {
                     attrs: {
                         "data": _vm.data,
                         "contextId": _vm.contextId,
@@ -4536,15 +4536,15 @@ var render = function() {
                         "createProcess": _vm.createProcess
                     }
                 })
-            ], 1) : _vm.loading === _vm.PAGE_STATES.loading ? _c("div", {
+            ], 1) : _vm.loading === _vm.PAGE_STATES.loading ? _c('div', {
                 staticClass: "cont loading"
             }, [
                 _vm._v("\n         loading...\n      ")
             ]) : _vm._e()
         ]),
         _vm._v(" "),
-        _c("md-dialog-actions", [
-            _c("md-button", {
+        _c('md-dialog-actions', [
+            _c('md-button', {
                 staticClass: "md-primary",
                 on: {
                     "click": function($event) {
@@ -4555,7 +4555,7 @@ var render = function() {
                 _vm._v("Close")
             ]),
             _vm._v(" "),
-            _c("md-button", {
+            _c('md-button', {
                 staticClass: "md-primary",
                 attrs: {
                     "disabled": !(_vm.contextId && _vm.processId)
@@ -4575,13 +4575,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"1xPlW":[function() {},{}],"ddB8D":[function(require,module,exports) {
+},{}],"1xPlW":[function() {},{}],"ddB8D":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fDJRq":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fDJRq":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -4590,15 +4590,15 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("7c090ac03f1172ab").render;
     script.staticRenderFns = require("7c090ac03f1172ab").staticRenderFns;
-    script._scopeId = "data-v-65e5e0";
+    script._scopeId = "data-v-5534fb";
     require("a04b81f91a386088").default(script);
-    script.__scopeId = "data-v-65e5e0";
+    script.__scopeId = 'data-v-5534fb';
     script.__file = "createCommonIncidentDialog.vue";
 };
 initialize();
 exports.default = script;
 
-},{"f9ab2477d061dbab":"5UW0a","7c090ac03f1172ab":"cEXeK","a04b81f91a386088":"dmhMz","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5UW0a":[function(require,module,exports) {
+},{"f9ab2477d061dbab":"5UW0a","7c090ac03f1172ab":"cEXeK","a04b81f91a386088":"dmhMz","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5UW0a":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalServiceTicket = require("spinal-service-ticket");
@@ -4652,15 +4652,15 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"spinal-service-ticket":"gi7V0","./components/sortable-list.vue":"eDuGq","../../extensions/Event":"4ovSF","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"cEXeK":[function(require,module,exports) {
+},{"spinal-service-ticket":"gi7V0","./components/sortable-list.vue":"eDuGq","../../extensions/Event":"4ovSF","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"cEXeK":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("md-dialog", {
+    return _c('md-dialog', {
         staticClass: "mdDialog",
         attrs: {
             "md-active": _vm.showDialog
@@ -4677,19 +4677,19 @@ var render = function() {
             }
         }
     }, [
-        _c("md-dialog-title", {
+        _c('md-dialog-title', {
             staticClass: "mdDialogTitle"
         }, [
             _vm._v("Create Ticket context\n  ")
         ]),
         _vm._v(" "),
-        _c("md-dialog-content", [
-            _c("md-field", [
-                _c("label", [
+        _c('md-dialog-content', [
+            _c('md-field', [
+                _c('label', [
                     _vm._v("Common incident name")
                 ]),
                 _vm._v(" "),
-                _c("md-input", {
+                _c('md-input', {
                     ref: "nameTextField",
                     model: {
                         value: _vm.inputValue,
@@ -4702,8 +4702,8 @@ var render = function() {
             ], 1)
         ], 1),
         _vm._v(" "),
-        _c("md-dialog-actions", [
-            _c("md-button", {
+        _c('md-dialog-actions', [
+            _c('md-button', {
                 staticClass: "md-primary",
                 on: {
                     "click": function($event) {
@@ -4714,7 +4714,7 @@ var render = function() {
                 _vm._v("Close")
             ]),
             _vm._v(" "),
-            _c("md-button", {
+            _c('md-button', {
                 staticClass: "md-primary",
                 attrs: {
                     "disabled": _vm.inputValue.trim().length === 0
@@ -4734,13 +4734,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"dmhMz":[function(require,module,exports) {
+},{}],"dmhMz":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"eokGr":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"eokGr":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -4749,15 +4749,15 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("4bad814cd7478395").render;
     script.staticRenderFns = require("4bad814cd7478395").staticRenderFns;
-    script._scopeId = "data-v-29fd08";
+    script._scopeId = "data-v-27e231";
     require("2ff6b6e4780659e1").default(script);
-    script.__scopeId = "data-v-29fd08";
+    script.__scopeId = 'data-v-27e231';
     script.__file = "confirmDialog.vue";
 };
 initialize();
 exports.default = script;
 
-},{"a0541e3d7c3a8d6a":"crDoy","4bad814cd7478395":"d8Mi4","2ff6b6e4780659e1":"eQ3ny","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"crDoy":[function(require,module,exports) {
+},{"a0541e3d7c3a8d6a":"crDoy","4bad814cd7478395":"d8Mi4","2ff6b6e4780659e1":"eQ3ny","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"crDoy":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var scriptExports = {
@@ -4788,15 +4788,15 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"d8Mi4":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"d8Mi4":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("md-dialog", {
+    return _c('md-dialog', {
         staticClass: "mdDialog",
         attrs: {
             "md-active": _vm.showDialog
@@ -4813,18 +4813,18 @@ var render = function() {
             }
         }
     }, [
-        _c("md-dialog-title", {
+        _c('md-dialog-title', {
             staticClass: "mdDialogTitle"
         }, [
             _vm._v("Create Ticket context\n  ")
         ]),
         _vm._v(" "),
-        _c("md-dialog-content", [
+        _c('md-dialog-content', [
             _vm._v("\n    " + _vm._s(_vm.message) + "\n  ")
         ]),
         _vm._v(" "),
-        _c("md-dialog-actions", [
-            _c("md-button", {
+        _c('md-dialog-actions', [
+            _c('md-button', {
                 staticClass: "md-accent",
                 on: {
                     "click": function($event) {
@@ -4835,7 +4835,7 @@ var render = function() {
                 _vm._v("NO")
             ]),
             _vm._v(" "),
-            _c("md-button", {
+            _c('md-button', {
                 staticClass: "md-primary",
                 on: {
                     "click": function($event) {
@@ -4852,13 +4852,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"eQ3ny":[function(require,module,exports) {
+},{}],"eQ3ny":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"diNal":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"diNal":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _ticketManagerVue = require("./ticketManager.vue");
 var _ticketManagerVueDefault = parcelHelpers.interopDefault(_ticketManagerVue);
@@ -4914,7 +4914,7 @@ for(let index = 0; index < panels.length; index++){
     SpinalForgeExtention.registerExtention(element.name, panelExtension);
 }
 
-},{"./ticketManager.vue":"2cR3g","./ticketDetailPanel.vue":"34KwO","./manageTicketPanel.vue":"l0QYm","vue":"gt5MM","f2ee768793e8304c":"1mGHd","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2cR3g":[function(require,module,exports) {
+},{"./ticketManager.vue":"2cR3g","./ticketDetailPanel.vue":"34KwO","./manageTicketPanel.vue":"l0QYm","vue":"gt5MM","f2ee768793e8304c":"1mGHd","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2cR3g":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -4923,16 +4923,16 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("33ca3de3f0b78fa6").render;
     script.staticRenderFns = require("33ca3de3f0b78fa6").staticRenderFns;
-    script._scopeId = "data-v-ca358f";
+    script._scopeId = "data-v-7d0f30";
     script.__cssModules = require("164364fc4e972210").default;
     require("8c153075a9921c7b").default(script);
-    script.__scopeId = "data-v-ca358f";
+    script.__scopeId = 'data-v-7d0f30';
     script.__file = "ticketManager.vue";
 };
 initialize();
 exports.default = script;
 
-},{"49ee200b7bacbc95":"8iiNX","33ca3de3f0b78fa6":"hvDYi","164364fc4e972210":"eAKWK","8c153075a9921c7b":"bZTbv","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"8iiNX":[function(require,module,exports) {
+},{"49ee200b7bacbc95":"8iiNX","33ca3de3f0b78fa6":"hvDYi","164364fc4e972210":"eAKWK","8c153075a9921c7b":"bZTbv","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"8iiNX":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _utilities = require("./service/utilities");
@@ -4943,13 +4943,13 @@ var _listItemVueDefault = parcelHelpers.interopDefault(_listItemVue);
 var _ticketsVue = require("./components/tickets.vue");
 var _ticketsVueDefault = parcelHelpers.interopDefault(_ticketsVue);
 var scriptExports = {
-    name: "ticketManagerPanel",
+    name: 'ticketManagerPanel',
     components: {
-        "list-item": (0, _listItemVueDefault.default),
+        'list-item': (0, _listItemVueDefault.default),
         // "contexts-vue": contextsVue,
         // "processes-vue": processesVue,
         // "steps-vue": stepsVue,
-        "tickets-vue": (0, _ticketsVueDefault.default)
+        'tickets-vue': (0, _ticketsVueDefault.default)
     },
     data () {
         this.PAGES = {
@@ -5050,8 +5050,8 @@ var scriptExports = {
         },
         _formatTickets (step) {
             return step.tickets.map((el)=>{
-                el["step"] = step;
-                el["contextId"] = this.contextSelected;
+                el['step'] = step;
+                el['contextId'] = this.contextSelected;
                 return el;
             });
         },
@@ -5063,11 +5063,11 @@ var scriptExports = {
         },
         getProcessId (params) {
             if (params.context.id === params.selectedNode.id) return;
-            let nodeId = typeof params.selectedNode.processId === "undefined" ? params.selectedNode.id : params.selectedNode.processId;
+            let nodeId = typeof params.selectedNode.processId === 'undefined' ? params.selectedNode.id : params.selectedNode.processId;
             this.selectProcess(nodeId);
         },
         getStepId (params) {
-            if (typeof params.selectedNode.processId !== "undefined") this.selectStep(params.selectedNode.id);
+            if (typeof params.selectedNode.processId !== 'undefined') this.selectStep(params.selectedNode.id);
         }
     },
     watch: {
@@ -5087,10 +5087,10 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"./service/utilities":"6GTER","./components/listItem.vue":"iSkm5","./components/tickets.vue":"khjBr","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6GTER":[function(require,module,exports) {
+},{"./service/utilities":"6GTER","./components/listItem.vue":"iSkm5","./components/tickets.vue":"khjBr","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6GTER":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "utilities", ()=>utilities);
@@ -5139,7 +5139,7 @@ class Utilities {
 }
 const utilities = new Utilities();
 
-},{"spinal-service-ticket":"gi7V0","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"iSkm5":[function(require,module,exports) {
+},{"spinal-service-ticket":"gi7V0","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"iSkm5":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -5148,16 +5148,16 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("21fc7ed871838a40").render;
     script.staticRenderFns = require("21fc7ed871838a40").staticRenderFns;
-    script._scopeId = "data-v-45826b";
+    script._scopeId = "data-v-d0d342";
     script.__cssModules = require("6b2391558e1fd5fe").default;
     require("8827f89ab071d040").default(script);
-    script.__scopeId = "data-v-45826b";
+    script.__scopeId = 'data-v-d0d342';
     script.__file = "listItem.vue";
 };
 initialize();
 exports.default = script;
 
-},{"e0979f105eb77d18":"1Z00q","21fc7ed871838a40":"cpEkP","6b2391558e1fd5fe":"ha4eR","8827f89ab071d040":"juj2O","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1Z00q":[function(require,module,exports) {
+},{"e0979f105eb77d18":"1Z00q","21fc7ed871838a40":"cpEkP","6b2391558e1fd5fe":"ha4eR","8827f89ab071d040":"juj2O","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1Z00q":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var scriptExports = {
@@ -5174,24 +5174,24 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"cpEkP":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"cpEkP":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("md-content", {
+    return _c('md-content', {
         staticClass: "t_container md-srollbar"
     }, [
-        _c("md-list", {
+        _c('md-list', {
             staticClass: "myList"
         }, [
             _vm._t("default"),
             _vm._v(" "),
             _vm._l(_vm.data, function(item) {
-                return _c("md-list-item", {
+                return _c('md-list-item', {
                     key: item.id,
                     on: {
                         "click": function($event) {
@@ -5199,20 +5199,20 @@ var render = function() {
                         }
                     }
                 }, [
-                    item.color ? _c("div", {
+                    item.color ? _c('div', {
                         staticClass: "color",
                         style: {
-                            "background-color": item.color
+                            'background-color': item.color
                         }
                     }) : _vm._e(),
                     _vm._v(" "),
-                    _c("span", {
+                    _c('span', {
                         staticClass: "md-list-item-text"
                     }, [
                         _vm._v(_vm._s(item.name))
                     ]),
                     _vm._v(" "),
-                    _c("md-icon", [
+                    _c('md-icon', [
                         _vm._v("keyboard_arrow_right")
                     ])
                 ], 1);
@@ -5224,53 +5224,53 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"ha4eR":[function() {},{}],"juj2O":[function(require,module,exports) {
+},{}],"ha4eR":[function() {},{}],"juj2O":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hvDYi":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hvDYi":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("md-content", {
+    return _c('md-content', {
         staticClass: "ticket_container"
     }, [
-        _vm.contextSelected ? _c("div", {
+        _vm.contextSelected ? _c('div', {
             staticClass: "breadcrumb"
         }, [
-            _c("md-button", {
+            _c('md-button', {
                 on: {
                     "click": _vm.goBack
                 }
             }, [
-                _c("md-icon", [
+                _c('md-icon', [
                     _vm._v("arrow_back")
                 ]),
                 _vm._v("\n      Back\n    ")
             ], 1)
         ], 1) : _vm._e(),
         _vm._v(" "),
-        _c("div", {
+        _c('div', {
             staticClass: "data-content"
         }, [
-            _vm.pageDisplayed === _vm.PAGES.contexts ? _c("list-item", {
+            _vm.pageDisplayed === _vm.PAGES.contexts ? _c('list-item', {
                 attrs: {
                     "data": _vm.data
                 },
                 on: {
                     "select": _vm.selectContext
                 }
-            }) : _vm.pageDisplayed === _vm.PAGES.processes ? _c("list-item", {
+            }) : _vm.pageDisplayed === _vm.PAGES.processes ? _c('list-item', {
                 attrs: {
                     "data": _vm.processes
                 },
                 on: {
                     "select": _vm.selectProcess
                 }
-            }) : _vm.pageDisplayed === _vm.PAGES.steps ? _c("list-item", {
+            }) : _vm.pageDisplayed === _vm.PAGES.steps ? _c('list-item', {
                 attrs: {
                     "data": _vm.steps
                 },
@@ -5278,26 +5278,26 @@ var render = function() {
                     "select": _vm.selectStep
                 }
             }, [
-                _c("md-list-item", {
+                _c('md-list-item', {
                     on: {
                         "click": _vm.selectAllTickets
                     }
                 }, [
-                    _c("div", {
+                    _c('div', {
                         staticClass: "stepsColor"
                     }),
                     _vm._v(" "),
-                    _c("span", {
+                    _c('span', {
                         staticClass: "md-list-item-text"
                     }, [
                         _vm._v("All")
                     ]),
                     _vm._v(" "),
-                    _c("md-icon", [
+                    _c('md-icon', [
                         _vm._v("keyboard_arrow_right")
                     ])
                 ], 1)
-            ], 1) : _vm.pageDisplayed === _vm.PAGES.tickets ? _c("tickets-vue", {
+            ], 1) : _vm.pageDisplayed === _vm.PAGES.tickets ? _c('tickets-vue', {
                 attrs: {
                     "data": _vm.tickets
                 },
@@ -5312,13 +5312,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"eAKWK":[function() {},{}],"bZTbv":[function(require,module,exports) {
+},{}],"eAKWK":[function() {},{}],"bZTbv":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"34KwO":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"34KwO":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -5327,16 +5327,16 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("77f58d716a2be9ff").render;
     script.staticRenderFns = require("77f58d716a2be9ff").staticRenderFns;
-    script._scopeId = "data-v-add9b8";
+    script._scopeId = "data-v-36ef1a";
     script.__cssModules = require("66789ab74fc1e3be").default;
     require("d87bf35bc4a1bc05").default(script);
-    script.__scopeId = "data-v-add9b8";
+    script.__scopeId = 'data-v-36ef1a';
     script.__file = "ticketDetailPanel.vue";
 };
 initialize();
 exports.default = script;
 
-},{"56e2e7499f1a0238":"bR6Er","77f58d716a2be9ff":"4ANwq","66789ab74fc1e3be":"jvRZr","d87bf35bc4a1bc05":"1uotv","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"bR6Er":[function(require,module,exports) {
+},{"56e2e7499f1a0238":"bR6Er","77f58d716a2be9ff":"4ANwq","66789ab74fc1e3be":"jvRZr","d87bf35bc4a1bc05":"1uotv","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"bR6Er":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _constants = require("spinal-service-ticket/dist/Constants");
@@ -5491,10 +5491,10 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"spinal-service-ticket/dist/Constants":"i0rBD","spinal-env-viewer-graph-service":"9n7zp","spinal-service-ticket":"gi7V0","../../extensions/spinalIO":"jPxZQ","spinal-env-viewer-plugin-documentation/view/notes/components/messageComponent.vue":"PVL1R","./components/logsTemplate.vue":"ccVpk","moment":"jwcsj","../../extensions/ticketsEvents":"iO9Cs","../../extensions/Event":"4ovSF","../../buttons/standard_buttons/isolate":"6nVeM","../../buttons/standard_buttons/selectElement":"fpE2i","../../buttons/standard_buttons/zoom":"eC66R","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ccVpk":[function(require,module,exports) {
+},{"spinal-service-ticket/dist/Constants":"i0rBD","spinal-env-viewer-graph-service":"9n7zp","spinal-service-ticket":"gi7V0","../../extensions/spinalIO":"jPxZQ","spinal-env-viewer-plugin-documentation/view/notes/components/messageComponent.vue":"PVL1R","./components/logsTemplate.vue":"ccVpk","moment":"jwcsj","../../extensions/ticketsEvents":"iO9Cs","../../extensions/Event":"4ovSF","../../buttons/standard_buttons/isolate":"6nVeM","../../buttons/standard_buttons/selectElement":"fpE2i","../../buttons/standard_buttons/zoom":"eC66R","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ccVpk":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -5503,16 +5503,16 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("69e34190bc6f882f").render;
     script.staticRenderFns = require("69e34190bc6f882f").staticRenderFns;
-    script._scopeId = "data-v-dad557";
+    script._scopeId = "data-v-0e55e8";
     script.__cssModules = require("a6f3498e43a5c761").default;
     require("2f5f283f7ca69a1c").default(script);
-    script.__scopeId = "data-v-dad557";
+    script.__scopeId = 'data-v-0e55e8';
     script.__file = "logsTemplate.vue";
 };
 initialize();
 exports.default = script;
 
-},{"705cba4a10318e99":"3hO3E","69e34190bc6f882f":"1hMQq","a6f3498e43a5c761":"gsoYB","2f5f283f7ca69a1c":"ayuRq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3hO3E":[function(require,module,exports) {
+},{"705cba4a10318e99":"3hO3E","69e34190bc6f882f":"1hMQq","a6f3498e43a5c761":"gsoYB","2f5f283f7ca69a1c":"ayuRq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3hO3E":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _logVue = require("./log.vue");
@@ -5530,10 +5530,10 @@ var scriptExports = {
     },
     methods: {}
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"./log.vue":"45L32","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"45L32":[function(require,module,exports) {
+},{"./log.vue":"45L32","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"45L32":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -5542,16 +5542,16 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("9e83154f6a351c5e").render;
     script.staticRenderFns = require("9e83154f6a351c5e").staticRenderFns;
-    script._scopeId = "data-v-532470";
+    script._scopeId = "data-v-b5be47";
     script.__cssModules = require("4ee95ee082b4da19").default;
     require("27cf93e5c6f22942").default(script);
-    script.__scopeId = "data-v-532470";
+    script.__scopeId = 'data-v-b5be47';
     script.__file = "log.vue";
 };
 initialize();
 exports.default = script;
 
-},{"4863df0be3dfc958":"f5AhV","9e83154f6a351c5e":"3NW1w","4ee95ee082b4da19":"9wKWQ","27cf93e5c6f22942":"cTV2P","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"f5AhV":[function(require,module,exports) {
+},{"4863df0be3dfc958":"f5AhV","9e83154f6a351c5e":"3NW1w","4ee95ee082b4da19":"9wKWQ","27cf93e5c6f22942":"cTV2P","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"f5AhV":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _constants = require("spinal-service-ticket/dist/Constants");
@@ -5606,24 +5606,24 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"spinal-service-ticket/dist/Constants":"i0rBD","moment":"jwcsj","spinal-env-viewer-graph-service":"9n7zp","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3NW1w":[function(require,module,exports) {
+},{"spinal-service-ticket/dist/Constants":"i0rBD","moment":"jwcsj","spinal-env-viewer-graph-service":"9n7zp","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3NW1w":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("md-table-row", [
-        _c("md-table-cell", [
+    return _c('md-table-row', [
+        _c('md-table-cell', [
             _vm._v(_vm._s(_vm._f("formatDate")(_vm.log.creationDate)))
         ]),
         _vm._v(" "),
-        _c("md-table-cell", [
+        _c('md-table-cell', [
             _vm._v(_vm._s(_vm.username.length > 0 ? _vm.username : "unknown") + "\n    ")
         ]),
         _vm._v(" "),
-        _c("md-table-cell", [
+        _c('md-table-cell', [
             _vm._v(_vm._s(_vm.texte))
         ])
     ], 1);
@@ -5632,39 +5632,39 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"9wKWQ":[function() {},{}],"cTV2P":[function(require,module,exports) {
+},{}],"9wKWQ":[function() {},{}],"cTV2P":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1hMQq":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1hMQq":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("md-content", {
+    return _c('md-content', {
         staticClass: "logs_container md-scrollbar"
     }, [
-        _c("md-table", {
+        _c('md-table', {
             staticClass: "logs_table md-scrollbar"
         }, [
-            _c("md-table-row", [
-                _c("md-table-head", [
+            _c('md-table-row', [
+                _c('md-table-head', [
                     _vm._v("Date")
                 ]),
                 _vm._v(" "),
-                _c("md-table-head", [
+                _c('md-table-head', [
                     _vm._v("User")
                 ]),
                 _vm._v(" "),
-                _c("md-table-head", [
+                _c('md-table-head', [
                     _vm._v("Action")
                 ])
             ], 1),
             _vm._v(" "),
             _vm._l(_vm.logs, function(log, index) {
-                return _c("log-vue", {
+                return _c('log-vue', {
                     key: index,
                     attrs: {
                         "log": log
@@ -5678,103 +5678,103 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"gsoYB":[function() {},{}],"ayuRq":[function(require,module,exports) {
+},{}],"gsoYB":[function() {},{}],"ayuRq":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"4ANwq":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"4ANwq":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("div", {
+    return _c('div', {
         staticClass: "mdDialogContainer"
     }, [
-        _vm.ticket && !_vm.isLoading ? _c("div", {
+        _vm.ticket && !_vm.isLoading ? _c('div', {
             staticClass: "mdDialogContent"
         }, [
-            _c("div", {
+            _c('div', {
                 staticClass: "ticketDetail"
             }, [
-                _c("md-content", {
+                _c('md-content', {
                     staticClass: "details md-scrollbar"
                 }, [
-                    _c("div", {
+                    _c('div', {
                         staticClass: "detail"
                     }, [
-                        _c("div", {
+                        _c('div', {
                             staticClass: "label"
                         }, [
                             _vm._v("Name")
                         ]),
                         _vm._v(" "),
-                        _c("div", {
+                        _c('div', {
                             staticClass: "value"
                         }, [
                             _vm._v(_vm._s(_vm.ticket.name))
                         ])
                     ]),
                     _vm._v(" "),
-                    _c("div", {
+                    _c('div', {
                         staticClass: "detail"
                     }, [
-                        _c("div", {
+                        _c('div', {
                             staticClass: "label"
                         }, [
                             _vm._v("Actual Step")
                         ]),
                         _vm._v(" "),
-                        _c("div", {
+                        _c('div', {
                             staticClass: "value"
                         }, [
                             _vm._v(_vm._s(_vm.formatStepId))
                         ])
                     ]),
                     _vm._v(" "),
-                    _c("div", {
+                    _c('div', {
                         staticClass: "detail"
                     }, [
-                        _c("div", {
+                        _c('div', {
                             staticClass: "label"
                         }, [
                             _vm._v("Priority")
                         ]),
                         _vm._v(" "),
-                        _c("div", {
+                        _c('div', {
                             staticClass: "value"
                         }, [
                             _vm._v(_vm._s(_vm._f("formatPriority")(_vm.ticket.priority)))
                         ])
                     ]),
                     _vm._v(" "),
-                    _vm.ticket.user ? _c("div", {
+                    _vm.ticket.user ? _c('div', {
                         staticClass: "detail"
                     }, [
-                        _c("div", {
+                        _c('div', {
                             staticClass: "label"
                         }, [
                             _vm._v("Created By")
                         ]),
                         _vm._v(" "),
-                        _c("div", {
+                        _c('div', {
                             staticClass: "value"
                         }, [
                             _vm._v(_vm._s(_vm.ticket.user.name))
                         ])
                     ]) : _vm._e(),
                     _vm._v(" "),
-                    _c("div", {
+                    _c('div', {
                         staticClass: "detail"
                     }, [
-                        _c("div", {
+                        _c('div', {
                             staticClass: "label"
                         }, [
                             _vm._v("Date creation")
                         ]),
                         _vm._v(" "),
-                        _c("div", {
+                        _c('div', {
                             staticClass: "value"
                         }, [
                             _vm._v(_vm._s(_vm._f("formatDate")(_vm.ticket.creationDate)))
@@ -5782,19 +5782,19 @@ var render = function() {
                     ])
                 ]),
                 _vm._v(" "),
-                _c("div", {
+                _c('div', {
                     staticClass: "ticketActions"
                 }, [
-                    _c("md-list", {
+                    _c('md-list', {
                         staticClass: "actionList"
                     }, [
-                        _c("md-list-item", {
+                        _c('md-list-item', {
                             staticClass: "actions"
                         }, [
-                            _c("div", {
+                            _c('div', {
                                 staticClass: "maquette_icons"
                             }, [
-                                _c("md-button", {
+                                _c('md-button', {
                                     staticClass: "md-icon-button md-primary",
                                     attrs: {
                                         "title": "Select on 3D Model"
@@ -5803,12 +5803,12 @@ var render = function() {
                                         "click": _vm.selectOnMaquette
                                     }
                                 }, [
-                                    _c("md-icon", [
+                                    _c('md-icon', [
                                         _vm._v("find_in_page")
                                     ])
                                 ], 1),
                                 _vm._v(" "),
-                                _c("md-button", {
+                                _c('md-button', {
                                     staticClass: "md-icon-button md-primary",
                                     attrs: {
                                         "title": "Zoom on 3D Model"
@@ -5817,12 +5817,12 @@ var render = function() {
                                         "click": _vm.zoomOnMaquette
                                     }
                                 }, [
-                                    _c("md-icon", [
+                                    _c('md-icon', [
                                         _vm._v("zoom_in")
                                     ])
                                 ], 1),
                                 _vm._v(" "),
-                                _c("md-button", {
+                                _c('md-button', {
                                     staticClass: "md-icon-button md-primary",
                                     attrs: {
                                         "title": "Isolate on 3D Model"
@@ -5831,41 +5831,41 @@ var render = function() {
                                         "click": _vm.isolateOnMaquette
                                     }
                                 }, [
-                                    _c("md-icon", [
+                                    _c('md-icon', [
                                         _vm._v("settings_overscan")
                                     ])
                                 ], 1)
                             ], 1)
                         ]),
                         _vm._v(" "),
-                        _c("md-list-item", {
+                        _c('md-list-item', {
                             staticClass: "actions",
                             on: {
                                 "click": _vm.passToNext
                             }
                         }, [
-                            _c("md-icon", [
+                            _c('md-icon', [
                                 _vm._v("skip_next")
                             ]),
                             _vm._v(" "),
-                            _c("span", {
+                            _c('span', {
                                 staticClass: "md-list-item-text"
                             }, [
                                 _vm._v("Pass to next step")
                             ])
                         ], 1),
                         _vm._v(" "),
-                        _c("md-list-item", {
+                        _c('md-list-item', {
                             staticClass: "actions",
                             on: {
                                 "click": _vm.backToPrevious
                             }
                         }, [
-                            _c("md-icon", [
+                            _c('md-icon', [
                                 _vm._v("skip_previous")
                             ]),
                             _vm._v(" "),
-                            _c("span", {
+                            _c('span', {
                                 staticClass: "md-list-item-text"
                             }, [
                                 _vm._v("Back to previous step")
@@ -5875,22 +5875,22 @@ var render = function() {
                 ], 1)
             ], 1),
             _vm._v(" "),
-            _c("div", {
+            _c('div', {
                 staticClass: "content"
             }, [
-                _c("div", {
+                _c('div', {
                     staticClass: "ticketsNotes"
                 }, [
-                    _c("div", {
+                    _c('div', {
                         staticClass: "title"
                     }, [
                         _vm._v("Comments")
                     ]),
                     _vm._v(" "),
-                    _c("md-content", {
+                    _c('md-content', {
                         staticClass: "events md-scrollbar"
                     }, [
-                        _c("message-component", {
+                        _c('message-component', {
                             attrs: {
                                 "nodeInfo": _vm.nodeInfo
                             }
@@ -5898,19 +5898,19 @@ var render = function() {
                     ], 1)
                 ], 1),
                 _vm._v(" "),
-                _c("div", {
+                _c('div', {
                     staticClass: "ticketsLogs"
                 }, [
-                    _c("div", {
+                    _c('div', {
                         staticClass: "title"
                     }, [
                         _vm._v("Events")
                     ]),
                     _vm._v(" "),
-                    _c("md-content", {
+                    _c('md-content', {
                         staticClass: "events"
                     }, [
-                        _c("logs-template", {
+                        _c('logs-template', {
                             attrs: {
                                 "logs": _vm.logs
                             }
@@ -5918,10 +5918,10 @@ var render = function() {
                     ], 1)
                 ], 1)
             ])
-        ]) : _vm.isLoading ? _c("div", {
+        ]) : _vm.isLoading ? _c('div', {
             staticClass: "loading"
         }, [
-            _c("md-progress-spinner", {
+            _c('md-progress-spinner', {
                 attrs: {
                     "md-mode": "indeterminate"
                 }
@@ -5933,13 +5933,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"jvRZr":[function() {},{}],"1uotv":[function(require,module,exports) {
+},{}],"jvRZr":[function() {},{}],"1uotv":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"l0QYm":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"l0QYm":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -5948,16 +5948,16 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("7ef26c3c921fa345").render;
     script.staticRenderFns = require("7ef26c3c921fa345").staticRenderFns;
-    script._scopeId = "data-v-34fc86";
+    script._scopeId = "data-v-a4f6b3";
     script.__cssModules = require("ff2e9f09d31e01b1").default;
     require("804fe3fdf9254fc").default(script);
-    script.__scopeId = "data-v-34fc86";
+    script.__scopeId = 'data-v-a4f6b3';
     script.__file = "manageTicketPanel.vue";
 };
 initialize();
 exports.default = script;
 
-},{"313d067a67bd6b8d":"9DFZi","7ef26c3c921fa345":"lF69w","ff2e9f09d31e01b1":"4Ds45","804fe3fdf9254fc":"9Ny6S","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9DFZi":[function(require,module,exports) {
+},{"313d067a67bd6b8d":"9DFZi","7ef26c3c921fa345":"lF69w","ff2e9f09d31e01b1":"4Ds45","804fe3fdf9254fc":"9Ny6S","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9DFZi":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalServiceTicket = require("spinal-service-ticket");
@@ -6025,18 +6025,18 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"spinal-service-ticket":"gi7V0","spinal-env-viewer-panel-manager-service":"7Uw4d","spinal-env-viewer-graph-service":"9n7zp","../../extensions/Event":"4ovSF","./components/tickets.vue":"khjBr","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"lF69w":[function(require,module,exports) {
+},{"spinal-service-ticket":"gi7V0","spinal-env-viewer-panel-manager-service":"7Uw4d","spinal-env-viewer-graph-service":"9n7zp","../../extensions/Event":"4ovSF","./components/tickets.vue":"khjBr","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"lF69w":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return !_vm.isLoading ? _c("div", {
+    return !_vm.isLoading ? _c('div', {
         staticClass: "my_content"
     }, [
-        _c("md-button", {
+        _c('md-button', {
             staticClass: "md-fab md-mini md-primary md-fab-bottom-right",
             attrs: {
                 "title": "create ticket"
@@ -6045,12 +6045,12 @@ var render = function() {
                 "click": _vm.createTicket
             }
         }, [
-            _c("md-icon", [
+            _c('md-icon', [
                 _vm._v("add")
             ])
         ], 1),
         _vm._v(" "),
-        _c("tickets-vue", {
+        _c('tickets-vue', {
             staticClass: "tickets_class",
             attrs: {
                 "data": _vm.tickets
@@ -6059,10 +6059,10 @@ var render = function() {
                 "reload": _vm.reloadData
             }
         })
-    ], 1) : _c("div", {
+    ], 1) : _c('div', {
         staticClass: "loading"
     }, [
-        _c("md-progress-spinner", {
+        _c('md-progress-spinner', {
             attrs: {
                 "md-mode": "indeterminate"
             }
@@ -6073,13 +6073,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"4Ds45":[function() {},{}],"9Ny6S":[function(require,module,exports) {
+},{}],"4Ds45":[function() {},{}],"9Ny6S":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1mGHd":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1mGHd":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -6108,7 +6108,7 @@ module.exports = {
     SpinalForgeExtention
 };
 
-},{"bf7edd8450503e22":"7Uw4d","64bd1569b4ded066":"gsEky"}],"gsEky":[function(require,module,exports) {
+},{"bf7edd8450503e22":"7Uw4d","64bd1569b4ded066":"gsEky"}],"gsEky":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
  * 
@@ -6343,7 +6343,7 @@ function getPanel() {
     };
 };
 
-},{}],"3rJUb":[function(require,module,exports) {
+},{}],"3rJUb":[function(require,module,exports,__globalThis) {
 ///////////////////////////////////////////////////////////////////////////////
 // Autodesk.ADN.Viewing.Extension.Color
 //
@@ -6465,7 +6465,7 @@ Autodesk.ADN.Viewing.Extension.Color.prototype = Object.create(Autodesk.Viewing.
 Autodesk.ADN.Viewing.Extension.Color.prototype.constructor = Autodesk.ADN.Viewing.Extension.Color;
 Autodesk.Viewing.theExtensionManager.registerExtension("Autodesk.ADN.Viewing.Extension.Color", Autodesk.ADN.Viewing.Extension.Color);
 
-},{}],"9Nkbe":[function(require,module,exports) {
+},{}],"9Nkbe":[function(require,module,exports,__globalThis) {
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -6473,7 +6473,7 @@ Object.defineProperty(exports, "__esModule", {
 const bimService_1 = require("edfb101c687f070e");
 exports.bimObjectManagerService = bimService_1.default;
 
-},{"edfb101c687f070e":"cXqcc"}],"cXqcc":[function(require,module,exports) {
+},{"edfb101c687f070e":"cXqcc"}],"cXqcc":[function(require,module,exports,__globalThis) {
 "use strict";
 var __awaiter = this && this.__awaiter || function(thisArg, _arguments, P, generator) {
     return new (P || (P = Promise))(function(resolve, reject) {
@@ -6648,9 +6648,9 @@ class BimObjectManagerService {
 }
 exports.default = new BimObjectManagerService();
 
-},{}],"jhUEF":[function(require,module,exports) {
+},{}],"jhUEF":[function(require,module,exports,__globalThis) {
 "use strict";
 
-},{}]},[], null, "parcelRequire02e5")
+},{}]},[], null, "parcelRequire94c2")
 
 //# sourceMappingURL=spinal-env-viewer-plugin-ticket.3d655dba.js.map

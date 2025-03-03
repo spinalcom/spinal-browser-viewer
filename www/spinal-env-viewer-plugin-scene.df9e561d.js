@@ -73,7 +73,7 @@
         localRequire,
         module,
         module.exports,
-        this
+        globalObject
       );
     }
 
@@ -142,7 +142,7 @@
       this[globalName] = mainExports;
     }
   }
-})({"iQHFW":[function(require,module,exports) {
+})({"iQHFW":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "TOP_BAR_HOOK_NAME", ()=>TOP_BAR_HOOK_NAME);
@@ -164,13 +164,13 @@ var _panelSceneManagerVue = require("./src/vue/PanelSceneManager.vue");
 var _panelSceneManagerVueDefault = parcelHelpers.interopDefault(_panelSceneManagerVue);
 var _spinalEnvViewerGraphService = require("spinal-env-viewer-graph-service");
 var _buttonLoadModel = require("./src/buttons/ButtonLoadModel");
-const TOP_BAR_HOOK_NAME = "GraphManagerTopBar";
+const TOP_BAR_HOOK_NAME = 'GraphManagerTopBar';
 const SIDE_BAR_HOOK_NAME = "GraphManagerSideBar";
 (0, _vueDefault.default).use((0, _vuetifyDefault.default));
 if (!window.spinal.SpinalForgeViewer.isInitialize()) window.spinal.SpinalForgeViewer.initialize(window.spinal.ForgeViewer.viewerManager);
 async function waitForGraph() {
     await (0, _spinalEnvViewerGraphService.SpinalGraphService).waitForInitialization();
-    const context = (0, _spinalEnvViewerGraphService.SpinalGraphService).getContext("Scenes");
+    const context = (0, _spinalEnvViewerGraphService.SpinalGraphService).getContext('Scenes');
     let running = false;
     const interval = setInterval(()=>{
         if (!running && typeof context !== "undefined" && window.spinal.SpinalForgeViewer.isInitialize()) {
@@ -207,7 +207,7 @@ waitForGraph();
     parentContainer: document.body
 });
 const compareVersion = (0, _spinalEnvViewerPanelManagerServiceSpinalforgeextention.SpinalForgeExtention).createExtention({
-    name: "PanelSceneManager",
+    name: 'PanelSceneManager',
     vueMountComponent: (0, _vueDefault.default).extend((0, _panelSceneManagerVueDefault.default)),
     panel: {
         title: "Scene Manager",
@@ -224,7 +224,7 @@ const compareVersion = (0, _spinalEnvViewerPanelManagerServiceSpinalforgeextenti
 });
 (0, _spinalEnvViewerPanelManagerServiceSpinalforgeextention.SpinalForgeExtention).registerExtention("PanelSceneManager", compareVersion);
 
-},{"vue":"gt5MM","vuetify":"WtHLj","./src/vue/DialogCreateScene.vue":"6VoTS","spinal-env-viewer-panel-manager-service_spinalforgeextention":"1mGHd","spinal-env-viewer-plugin-forge":"8YZk7","spinal-env-viewer-panel-manager-service":"7Uw4d","spinal-env-viewer-context-menu-service":"kHlxv","./src/buttons/ButtonCreateScene":"bsWwm","./src/buttons/ButtonOpenSceneManager":"6uXQV","./src/buttons/ButtonLoadScene":"6Nd1J","./src/vue/PanelSceneManager.vue":"7IC8s","spinal-env-viewer-graph-service":"9n7zp","./src/buttons/ButtonLoadModel":"kXTrd","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6VoTS":[function(require,module,exports) {
+},{"vue":"gt5MM","vuetify":"WtHLj","./src/vue/DialogCreateScene.vue":"6VoTS","spinal-env-viewer-panel-manager-service_spinalforgeextention":"1mGHd","spinal-env-viewer-plugin-forge":"8YZk7","spinal-env-viewer-panel-manager-service":"7Uw4d","spinal-env-viewer-context-menu-service":"kHlxv","./src/buttons/ButtonCreateScene":"bsWwm","./src/buttons/ButtonOpenSceneManager":"6uXQV","./src/buttons/ButtonLoadScene":"6Nd1J","./src/vue/PanelSceneManager.vue":"7IC8s","spinal-env-viewer-graph-service":"9n7zp","./src/buttons/ButtonLoadModel":"kXTrd","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6VoTS":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -233,16 +233,16 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("1d791b43dc372be2").render;
     script.staticRenderFns = require("1d791b43dc372be2").staticRenderFns;
-    script._scopeId = "data-v-c9fe0f";
+    script._scopeId = "data-v-719c09";
     script.__cssModules = require("a878668086e63d14").default;
     require("30c85cd96a2d9d00").default(script);
-    script.__scopeId = "data-v-c9fe0f";
+    script.__scopeId = 'data-v-719c09';
     script.__file = "DialogCreateScene.vue";
 };
 initialize();
 exports.default = script;
 
-},{"52ecc0123c7dbf1d":"gC0fU","1d791b43dc372be2":"211Lw","a878668086e63d14":"h422K","30c85cd96a2d9d00":"fkIUM","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gC0fU":[function(require,module,exports) {
+},{"52ecc0123c7dbf1d":"gC0fU","1d791b43dc372be2":"211Lw","a878668086e63d14":"h422K","30c85cd96a2d9d00":"fkIUM","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gC0fU":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _sceneHelper = require("../build/SceneHelper");
@@ -285,10 +285,10 @@ var scriptExports = {
         closeDialog (closeResult) {}
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"../build/SceneHelper":"jyQLf","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jyQLf":[function(require,module,exports) {
+},{"../build/SceneHelper":"jyQLf","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jyQLf":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "SceneHelper", ()=>SceneHelper);
@@ -369,7 +369,7 @@ SceneHelper.initialized = null;
 SceneHelper.contextName = "Scenes";
 SceneHelper.type = "SpinalService";
 
-},{"spinal-env-viewer-graph-service":"9n7zp","../constants":"5vlWV","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5vlWV":[function(require,module,exports) {
+},{"spinal-env-viewer-graph-service":"9n7zp","../constants":"5vlWV","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5vlWV":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "SCENE_RELATION_NAME", ()=>SCENE_RELATION_NAME);
@@ -378,25 +378,25 @@ parcelHelpers.export(exports, "SCENE_TYPE", ()=>SCENE_TYPE);
 parcelHelpers.export(exports, "PART_RELATION_NAME", ()=>PART_RELATION_NAME);
 parcelHelpers.export(exports, "PART_RELATION_TYPE", ()=>PART_RELATION_TYPE);
 var _spinalEnvViewerGraphService = require("spinal-env-viewer-graph-service");
-const SCENE_RELATION_NAME = "hasScene";
+const SCENE_RELATION_NAME = 'hasScene';
 const SCENE_RELATION_TYPE = (0, _spinalEnvViewerGraphService.SPINAL_RELATION_LST_PTR_TYPE);
 const SCENE_TYPE = "scene";
-const PART_RELATION_NAME = "hasParts";
+const PART_RELATION_NAME = 'hasParts';
 const PART_RELATION_TYPE = (0, _spinalEnvViewerGraphService.SPINAL_RELATION_LST_PTR_TYPE);
 
-},{"spinal-env-viewer-graph-service":"9n7zp","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"211Lw":[function(require,module,exports) {
+},{"spinal-env-viewer-graph-service":"9n7zp","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"211Lw":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("v-app", [
-        _c("v-layout", {
+    return _c('v-app', [
+        _c('v-layout', {
             attrs: {
                 "row": "",
                 "justify-center": ""
             }
         }, [
-            _c("v-dialog", {
+            _c('v-dialog', {
                 attrs: {
                     "max-width": "290"
                 },
@@ -408,19 +408,19 @@ var render = function() {
                     expression: "dialog"
                 }
             }, [
-                _c("v-card", {
+                _c('v-card', {
                     attrs: {
                         "dark": true
                     }
                 }, [
-                    _c("v-card-title", {
+                    _c('v-card-title', {
                         staticClass: "headline"
                     }, [
                         _vm._v("Create a new scene\n                ")
                     ]),
                     _vm._v(" "),
-                    _c("v-card-text", [
-                        _c("v-text-field", {
+                    _c('v-card-text', [
+                        _c('v-text-field', {
                             attrs: {
                                 "placeholder": "Name"
                             },
@@ -429,7 +429,7 @@ var render = function() {
                             }
                         }),
                         _vm._v(" "),
-                        _c("v-text-field", {
+                        _c('v-text-field', {
                             attrs: {
                                 "placeholder": "Description"
                             },
@@ -439,10 +439,10 @@ var render = function() {
                         })
                     ], 1),
                     _vm._v(" "),
-                    _c("v-card-actions", [
-                        _c("v-spacer"),
+                    _c('v-card-actions', [
+                        _c('v-spacer'),
                         _vm._v(" "),
-                        _c("v-btn", {
+                        _c('v-btn', {
                             attrs: {
                                 "color": "red darken-1",
                                 "flat": ""
@@ -454,7 +454,7 @@ var render = function() {
                             _vm._v("Annuler\n                    ")
                         ]),
                         _vm._v(" "),
-                        _c("v-btn", {
+                        _c('v-btn', {
                             attrs: {
                                 "color": "green darken-1",
                                 "flat": ""
@@ -475,13 +475,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"h422K":[function() {},{}],"fkIUM":[function(require,module,exports) {
+},{}],"h422K":[function() {},{}],"fkIUM":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1mGHd":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1mGHd":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -510,7 +510,7 @@ module.exports = {
     SpinalForgeExtention
 };
 
-},{"bf7edd8450503e22":"7Uw4d","64bd1569b4ded066":"gsEky"}],"7Uw4d":[function(require,module,exports) {
+},{"bf7edd8450503e22":"7Uw4d","64bd1569b4ded066":"gsEky"}],"7Uw4d":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -549,7 +549,7 @@ module.exports = {
     }
 };
 
-},{"8b71a79dcc12420e":"h7sS1","e47c36529e942a76":"cvBJ6","cfd4c6200ba55765":"9SKSV"}],"h7sS1":[function(require,module,exports) {
+},{"8b71a79dcc12420e":"h7sS1","e47c36529e942a76":"cvBJ6","cfd4c6200ba55765":"9SKSV"}],"h7sS1":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -629,7 +629,7 @@ module.exports = {
 }
 module.exports = SpinalPanelManagerService;
 
-},{}],"cvBJ6":[function(require,module,exports) {
+},{}],"cvBJ6":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -664,7 +664,7 @@ module.exports = SpinalPanelManagerService;
 }
 module.exports = SpinalPanelApp;
 
-},{}],"9SKSV":[function(require,module,exports) {
+},{}],"9SKSV":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -763,7 +763,7 @@ function getDialog() {
     };
 };
 
-},{}],"gsEky":[function(require,module,exports) {
+},{}],"gsEky":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
  * 
@@ -998,7 +998,7 @@ function getPanel() {
     };
 };
 
-},{}],"bsWwm":[function(require,module,exports) {
+},{}],"bsWwm":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2019 SpinalCom - www.spinalcom.com
  *
@@ -1029,11 +1029,11 @@ var _spinalEnvViewerGraphService = require("spinal-env-viewer-graph-service");
 const { spinalPanelManagerService } = require("6ade646c7dffb593");
 class ButtonCreateScene extends (0, _spinalEnvViewerContextMenuService.SpinalContextApp) {
     constructor(){
-        super("Create a new scene", "Create a new scene", {
-            icon: "business",
-            icon_type: "in",
-            backgroundColor: "#000000",
-            fontColor: "#ffffff"
+        super('Create a new scene', 'Create a new scene', {
+            icon: 'business',
+            icon_type: 'in',
+            backgroundColor: '#000000',
+            fontColor: '#ffffff'
         });
         this.action = this.openPanel.bind(this);
     }
@@ -1045,7 +1045,7 @@ class ButtonCreateScene extends (0, _spinalEnvViewerContextMenuService.SpinalCon
     }
 }
 
-},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-graph-service":"9n7zp","6ade646c7dffb593":"7Uw4d","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6uXQV":[function(require,module,exports) {
+},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-graph-service":"9n7zp","6ade646c7dffb593":"7Uw4d","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6uXQV":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2019 SpinalCom - www.spinalcom.com
  *
@@ -1077,11 +1077,11 @@ var _constants = require("../constants");
 const { spinalPanelManagerService } = require("7cc1dd8682fbdd07");
 class ButtonOpenSceneManager extends (0, _spinalEnvViewerContextMenuService.SpinalContextApp) {
     constructor(){
-        super("Open Model Manager", "Open Model Manager", {
-            icon: "web",
-            icon_type: "in",
-            backgroundColor: "#000000",
-            fontColor: "#ffffff"
+        super('Open Model Manager', 'Open Model Manager', {
+            icon: 'web',
+            icon_type: 'in',
+            backgroundColor: '#000000',
+            fontColor: '#ffffff'
         });
         this.action = this.openPanel.bind(this);
     }
@@ -1090,7 +1090,7 @@ class ButtonOpenSceneManager extends (0, _spinalEnvViewerContextMenuService.Spin
         return Promise.resolve(-1);
     }
     openPanel(option) {
-        const context = (0, _spinalEnvViewerGraphService.SpinalGraphService).getContext("BimFileContext");
+        const context = (0, _spinalEnvViewerGraphService.SpinalGraphService).getContext('BimFileContext');
         if (typeof context === "undefined") {
             alert("aucun bimFile dans le Digital tween");
             return;
@@ -1104,7 +1104,7 @@ class ButtonOpenSceneManager extends (0, _spinalEnvViewerContextMenuService.Spin
     }
 }
 
-},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-graph-service":"9n7zp","../constants":"5vlWV","7cc1dd8682fbdd07":"7Uw4d","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6Nd1J":[function(require,module,exports) {
+},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-graph-service":"9n7zp","../constants":"5vlWV","7cc1dd8682fbdd07":"7Uw4d","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6Nd1J":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "ButtonLoadScene", ()=>ButtonLoadScene);
@@ -1113,11 +1113,11 @@ var _constants = require("../constants");
 const { spinalPanelManagerService } = require("80e23c725c27a170");
 class ButtonLoadScene extends (0, _spinalEnvViewerContextMenuService.SpinalContextApp) {
     constructor(){
-        super("Load Scene", "Load all model of the scene", {
-            icon: "get_app",
-            icon_type: "in",
-            backgroundColor: "#000000",
-            fontColor: "#ffffff"
+        super('Load Scene', 'Load all model of the scene', {
+            icon: 'get_app',
+            icon_type: 'in',
+            backgroundColor: '#000000',
+            fontColor: '#ffffff'
         });
         this.action = this.openPanel.bind(this);
     }
@@ -1130,7 +1130,7 @@ class ButtonLoadScene extends (0, _spinalEnvViewerContextMenuService.SpinalConte
     }
 }
 
-},{"spinal-env-viewer-context-menu-service":"kHlxv","../constants":"5vlWV","80e23c725c27a170":"7Uw4d","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7IC8s":[function(require,module,exports) {
+},{"spinal-env-viewer-context-menu-service":"kHlxv","../constants":"5vlWV","80e23c725c27a170":"7Uw4d","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7IC8s":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -1139,16 +1139,16 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("aa7608327bcda7c7").render;
     script.staticRenderFns = require("aa7608327bcda7c7").staticRenderFns;
-    script._scopeId = "data-v-ea31ad";
+    script._scopeId = "data-v-fb56e4";
     script.__cssModules = require("9973f16ae373ae26").default;
     require("6b9ac8b671f3571a").default(script);
-    script.__scopeId = "data-v-ea31ad";
+    script.__scopeId = 'data-v-fb56e4';
     script.__file = "PanelSceneManager.vue";
 };
 initialize();
 exports.default = script;
 
-},{"439f359bdfdddc29":"8xNhw","aa7608327bcda7c7":"hc6eV","9973f16ae373ae26":"j4V9o","6b9ac8b671f3571a":"4qyVc","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"8xNhw":[function(require,module,exports) {
+},{"439f359bdfdddc29":"8xNhw","aa7608327bcda7c7":"hc6eV","9973f16ae373ae26":"j4V9o","6b9ac8b671f3571a":"4qyVc","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"8xNhw":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _sceneHelper = require("../build/SceneHelper");
@@ -1392,10 +1392,10 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"../build/SceneHelper":"jyQLf","spinal-env-viewer-graph-service":"9n7zp","./ForgeWorkerFunctions":"auTD7","./SelectAttribute.vue":"aCeX9","../constants":"5vlWV","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"auTD7":[function(require,module,exports) {
+},{"../build/SceneHelper":"jyQLf","spinal-env-viewer-graph-service":"9n7zp","./ForgeWorkerFunctions":"auTD7","./SelectAttribute.vue":"aCeX9","../constants":"5vlWV","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"auTD7":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "filterDbid", ()=>filterDbid);
@@ -1451,7 +1451,7 @@ function getAttributeName(m) {
     return m.getPropertyDb().executeUserFunction(fun);
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"aCeX9":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"aCeX9":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -1460,16 +1460,16 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("12ba5e32f6abdf62").render;
     script.staticRenderFns = require("12ba5e32f6abdf62").staticRenderFns;
-    script._scopeId = "data-v-8eac61";
+    script._scopeId = "data-v-25e0c1";
     script.__cssModules = require("3298930f8c4b5656").default;
     require("ba6e40f72ed5f5be").default(script);
-    script.__scopeId = "data-v-8eac61";
+    script.__scopeId = 'data-v-25e0c1';
     script.__file = "SelectAttribute.vue";
 };
 initialize();
 exports.default = script;
 
-},{"c0c114626cb409bd":"h9Sx6","12ba5e32f6abdf62":"erbF1","3298930f8c4b5656":"mIKzQ","ba6e40f72ed5f5be":"3Ft43","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"h9Sx6":[function(require,module,exports) {
+},{"c0c114626cb409bd":"h9Sx6","12ba5e32f6abdf62":"erbF1","3298930f8c4b5656":"mIKzQ","ba6e40f72ed5f5be":"3Ft43","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"h9Sx6":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var scriptExports = {
@@ -1492,7 +1492,7 @@ var scriptExports = {
     },
     methods: {
         onValueChange (e) {
-            this.$emit("value-change", {
+            this.$emit('value-change', {
                 value: e,
                 attribute: this.model
             });
@@ -1500,34 +1500,34 @@ var scriptExports = {
     },
     watch: {
         model: function(value) {
-            this.$emit("attribute-selected", value);
+            this.$emit('attribute-selected', value);
             console.log(value);
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"erbF1":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"erbF1":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("v-container", {
+    return _c('v-container', {
         attrs: {
             "grid-list-md": "",
             "text-xs-center": ""
         }
     }, [
-        _c("v-layout", {
+        _c('v-layout', {
             attrs: {
                 "align-center": "",
                 "justify-space-around": "",
                 "row": ""
             }
         }, [
-            _c("v-flex", [
-                _c("v-autocomplete", {
+            _c('v-flex', [
+                _c('v-autocomplete', {
                     attrs: {
                         "reverse": true,
                         "dark": true,
@@ -1548,8 +1548,8 @@ var render = function() {
                 })
             ], 1),
             _vm._v(" "),
-            _c("v-flex", [
-                _c("v-text-field", {
+            _c('v-flex', [
+                _c('v-text-field', {
                     attrs: {
                         "dark": "",
                         "input": "attributeName",
@@ -1567,24 +1567,24 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"mIKzQ":[function() {},{}],"3Ft43":[function(require,module,exports) {
+},{}],"mIKzQ":[function() {},{}],"3Ft43":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hc6eV":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hc6eV":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("v-app", {
+    return _c('v-app', {
         staticClass: "scene-manager",
         attrs: {
             "dark": ""
         }
     }, [
-        _c("v-stepper", {
+        _c('v-stepper', {
             attrs: {
                 "vertical": "",
                 "dark": ""
@@ -1597,7 +1597,7 @@ var render = function() {
                 expression: "step"
             }
         }, [
-            _c("v-stepper-step", {
+            _c('v-stepper-step', {
                 attrs: {
                     "editable": "",
                     "complete": _vm.step > 1,
@@ -1607,13 +1607,13 @@ var render = function() {
                 _vm._v("\n      Select models\n    ")
             ]),
             _vm._v(" "),
-            _c("v-stepper-content", {
+            _c('v-stepper-content', {
                 attrs: {
                     "step": "1",
                     "id": "step1"
                 }
             }, [
-                _c("v-select", {
+                _c('v-select', {
                     attrs: {
                         "items": _vm.bimFilesComputed,
                         "label": "Models",
@@ -1632,7 +1632,7 @@ var render = function() {
                 })
             ], 1),
             _vm._v(" "),
-            _c("v-stepper-step", {
+            _c('v-stepper-step', {
                 attrs: {
                     "editable": "",
                     "complete": _vm.step > 2,
@@ -1642,13 +1642,13 @@ var render = function() {
                 _vm._v("\n      Choose referential\n    ")
             ]),
             _vm._v(" "),
-            _c("v-stepper-content", {
+            _c('v-stepper-content', {
                 attrs: {
                     "step": "2",
                     "id": "step2"
                 }
             }, [
-                _c("v-select", {
+                _c('v-select', {
                     attrs: {
                         "items": _vm.loadOptions,
                         "item-text": "name",
@@ -1667,7 +1667,7 @@ var render = function() {
                     }
                 }),
                 _vm._v(" "),
-                _c("v-checkbox", {
+                _c('v-checkbox', {
                     attrs: {
                         "label": "Use whole digital twin"
                     },
@@ -1680,16 +1680,16 @@ var render = function() {
                     }
                 }),
                 _vm._v(" "),
-                !_vm.useAllModels ? _c("div", [
-                    _c("v-layout", {
+                !_vm.useAllModels ? _c('div', [
+                    _c('v-layout', {
                         attrs: {
                             "align-center": "",
                             "justify-space-around": "",
                             "row": ""
                         }
                     }, [
-                        _c("v-flex", [
-                            _c("v-btn", {
+                        _c('v-flex', [
+                            _c('v-btn', {
                                 attrs: {
                                     "flat": "",
                                     "icon": ""
@@ -1698,14 +1698,14 @@ var render = function() {
                                     "click": _vm.getSelection
                                 }
                             }, [
-                                _c("v-icon", [
+                                _c('v-icon', [
                                     _vm._v("add")
                                 ])
                             ], 1)
                         ], 1),
                         _vm._v(" "),
-                        _c("v-flex", [
-                            _c("v-btn", {
+                        _c('v-flex', [
+                            _c('v-btn', {
                                 attrs: {
                                     "flat": "",
                                     "icon": ""
@@ -1714,14 +1714,14 @@ var render = function() {
                                     "click": _vm.clearSelection
                                 }
                             }, [
-                                _c("v-icon", [
+                                _c('v-icon', [
                                     _vm._v("close")
                                 ])
                             ], 1)
                         ], 1),
                         _vm._v(" "),
-                        _c("v-flex", [
-                            _c("v-btn", {
+                        _c('v-flex', [
+                            _c('v-btn', {
                                 attrs: {
                                     "flat": "",
                                     "icon": ""
@@ -1730,16 +1730,16 @@ var render = function() {
                                     "click": _vm.selectOBJ
                                 }
                             }, [
-                                _c("v-icon", [
+                                _c('v-icon', [
                                     _vm._v("visibility")
                                 ])
                             ], 1)
                         ], 1)
                     ], 1),
                     _vm._v(" "),
-                    _vm.displayNeedToLoadModel ? _c("div", [
+                    _vm.displayNeedToLoadModel ? _c('div', [
                         _vm._v("\n          Models need to be loaded to see the selection\n          "),
-                        _c("v-btn", {
+                        _c('v-btn', {
                             attrs: {
                                 "flat": "",
                                 "icon": ""
@@ -1748,7 +1748,7 @@ var render = function() {
                                 "click": _vm.loadAllModel
                             }
                         }, [
-                            _c("v-icon", [
+                            _c('v-icon', [
                                 _vm._v("get_app")
                             ])
                         ], 1)
@@ -1757,7 +1757,7 @@ var render = function() {
                 ], 1) : _vm._e()
             ], 1),
             _vm._v(" "),
-            _c("v-stepper-step", {
+            _c('v-stepper-step', {
                 attrs: {
                     "editable": "",
                     "complete": _vm.step > 2,
@@ -1767,13 +1767,13 @@ var render = function() {
                 _vm._v("\n      Edit scene\n    ")
             ]),
             _vm._v(" "),
-            _c("v-stepper-content", {
+            _c('v-stepper-content', {
                 attrs: {
                     "step": "3",
                     "id": "step3"
                 }
             }, [
-                _c("v-checkbox", {
+                _c('v-checkbox', {
                     attrs: {
                         "label": "load the scene automatically"
                     },
@@ -1786,7 +1786,7 @@ var render = function() {
                     }
                 }),
                 _vm._v(" "),
-                _c("v-text-field", {
+                _c('v-text-field', {
                     attrs: {
                         "label": "Name",
                         "placeholder": _vm.name
@@ -1800,7 +1800,7 @@ var render = function() {
                     }
                 }),
                 _vm._v(" "),
-                _c("v-text-field", {
+                _c('v-text-field', {
                     attrs: {
                         "label": "Description",
                         "placeholder": _vm.description
@@ -1815,7 +1815,7 @@ var render = function() {
                 })
             ], 1),
             _vm._v(" "),
-            _c("v-stepper-step", {
+            _c('v-stepper-step', {
                 attrs: {
                     "editable": "",
                     "step": "4"
@@ -1824,7 +1824,7 @@ var render = function() {
                 _vm._v(" Summary ")
             ]),
             _vm._v(" "),
-            _c("v-stepper-content", {
+            _c('v-stepper-content', {
                 attrs: {
                     "step": "4",
                     "id": "step4"
@@ -1832,9 +1832,9 @@ var render = function() {
             }, [
                 _vm._v("\n      " + _vm._s(_vm.nbModel) + " model include in this scene\n      "),
                 _vm._l(_vm.selectedModelInfo, function(model) {
-                    return _c("div", [
+                    return _c('div', [
                         _vm._v("\n        " + _vm._s(model.name) + " with " + _vm._s(_vm.getDbIdLength()) + " object selected\n        "),
-                        typeof model.dbIds !== "undefined" && _vm.getDbIdLength() > 0 ? _c("v-btn", {
+                        typeof model.dbIds !== 'undefined' && _vm.getDbIdLength() > 0 ? _c('v-btn', {
                             attrs: {
                                 "flat": "",
                                 "icon": ""
@@ -1843,14 +1843,14 @@ var render = function() {
                                 "click": _vm.selectOBJ
                             }
                         }, [
-                            _c("v-icon", [
+                            _c('v-icon', [
                                 _vm._v("visibility")
                             ])
                         ], 1) : _vm._e()
                     ], 1);
                 }),
                 _vm._v(" "),
-                _c("v-btn", {
+                _c('v-btn', {
                     attrs: {
                         "flat": ""
                     },
@@ -1868,13 +1868,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"j4V9o":[function() {},{}],"4qyVc":[function(require,module,exports) {
+},{}],"j4V9o":[function() {},{}],"4qyVc":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"kXTrd":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"kXTrd":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "ButtonLoadModel", ()=>ButtonLoadModel);
@@ -1883,17 +1883,17 @@ var _constants = require("../constants");
 const { spinalPanelManagerService } = require("5a18e5582328534d");
 class ButtonLoadModel extends (0, _spinalEnvViewerContextMenuService.SpinalContextApp) {
     constructor(){
-        super("Load model", "Load model", {
-            icon: "get_app",
-            icon_type: "in",
-            backgroundColor: "#000000",
-            fontColor: "#ffffff"
+        super('Load model', 'Load model', {
+            icon: 'get_app',
+            icon_type: 'in',
+            backgroundColor: '#000000',
+            fontColor: '#ffffff'
         });
         this.action = this.openPanel.bind(this);
     }
     isShown(option) {
         //Todo create specific service
-        if (option.selectedNode.type.get() === "BimFile") return Promise.resolve(true);
+        if (option.selectedNode.type.get() === 'BimFile') return Promise.resolve(true);
         return Promise.resolve(-1);
     }
     openPanel(option) {
@@ -1901,6 +1901,6 @@ class ButtonLoadModel extends (0, _spinalEnvViewerContextMenuService.SpinalConte
     }
 }
 
-},{"spinal-env-viewer-context-menu-service":"kHlxv","../constants":"5vlWV","5a18e5582328534d":"7Uw4d","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},[], null, "parcelRequire02e5")
+},{"spinal-env-viewer-context-menu-service":"kHlxv","../constants":"5vlWV","5a18e5582328534d":"7Uw4d","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},[], null, "parcelRequire94c2")
 
 //# sourceMappingURL=spinal-env-viewer-plugin-scene.df9e561d.js.map

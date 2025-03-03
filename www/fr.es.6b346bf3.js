@@ -73,7 +73,7 @@
         localRequire,
         module,
         module.exports,
-        this
+        globalObject
       );
     }
 
@@ -142,7 +142,7 @@
       this[globalName] = mainExports;
     }
   }
-})({"2gMt4":[function(require,module,exports) {
+})({"2gMt4":[function(require,module,exports,__globalThis) {
 /**
   * vue-cal v3.11.0
   * (c) 2022 Antoni Andre <antoniandre.web@gmail.com>
@@ -173,33 +173,33 @@ const e = [
     "Dimanche"
 ], a = [
     "Janvier",
-    "F\xe9vrier",
+    "F\xE9vrier",
     "Mars",
     "Avril",
     "Mai",
     "Juin",
     "Juillet",
-    "Ao\xfbt",
+    "Ao\xFBt",
     "Septembre",
     "Octobre",
     "Novembre",
-    "D\xe9cembre"
-], n = "Ann\xe9es", r = "Ann\xe9e", t = "Mois", d = "Semaine", s = "Jour", i = "Aujourd'hui", o = "Aucun \xe9v\xe9nement", u = "Jour entier", m = "Supprimer", v = "Cr\xe9er un \xe9v\xe9nement", M = "dddd D MMMM YYYY", y = {
+    "D\xE9cembre"
+], n = "Ann\xE9es", r = "Ann\xE9e", t = "Mois", d = "Semaine", s = "Jour", i = "Aujourd'hui", o = "Aucun \xE9v\xE9nement", u = "Jour entier", m = "Supprimer", v = "Cr\xE9er un \xE9v\xE9nement", M = "dddd D MMMM YYYY", y = {
     weekDays: e,
     months: a,
-    years: "Ann\xe9es",
-    year: "Ann\xe9e",
+    years: "Ann\xE9es",
+    year: "Ann\xE9e",
     month: "Mois",
     week: "Semaine",
     day: "Jour",
     today: "Aujourd'hui",
-    noEvent: "Aucun \xe9v\xe9nement",
+    noEvent: "Aucun \xE9v\xE9nement",
     allDay: "Jour entier",
     deleteEvent: "Supprimer",
-    createEvent: "Cr\xe9er un \xe9v\xe9nement",
+    createEvent: "Cr\xE9er un \xE9v\xE9nement",
     dateFormat: "dddd D MMMM YYYY"
 };
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},[], null, "parcelRequire02e5")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},[], null, "parcelRequire94c2")
 
 //# sourceMappingURL=fr.es.6b346bf3.js.map

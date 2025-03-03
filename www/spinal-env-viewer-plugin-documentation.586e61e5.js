@@ -73,7 +73,7 @@
         localRequire,
         module,
         module.exports,
-        this
+        globalObject
       );
     }
 
@@ -142,7 +142,7 @@
       this[globalName] = mainExports;
     }
   }
-})({"PVL1R":[function(require,module,exports) {
+})({"PVL1R":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -151,16 +151,16 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("709d18c81ae5c09").render;
     script.staticRenderFns = require("709d18c81ae5c09").staticRenderFns;
-    script._scopeId = "data-v-f2b900";
+    script._scopeId = "data-v-79bc54";
     script.__cssModules = require("3b93af295388c716").default;
     require("e27a588620ffe2fa").default(script);
-    script.__scopeId = "data-v-f2b900";
+    script.__scopeId = 'data-v-79bc54';
     script.__file = "messageComponent.vue";
 };
 initialize();
 exports.default = script;
 
-},{"1078346cceaeb85d":"gUS4e","709d18c81ae5c09":"aWwdg","3b93af295388c716":"4GAZ7","e27a588620ffe2fa":"bQYWw","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gUS4e":[function(require,module,exports) {
+},{"1078346cceaeb85d":"gUS4e","709d18c81ae5c09":"aWwdg","3b93af295388c716":"4GAZ7","e27a588620ffe2fa":"bQYWw","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gUS4e":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalModelsDocumentation = require("spinal-models-documentation");
@@ -383,10 +383,10 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"spinal-models-documentation":"dcbQz","spinal-env-viewer-graph-service":"9n7zp","spinal-env-viewer-plugin-documentation-service":"5rYVR","spinal-env-viewer-plugin-documentation-service/dist/Models/constants":"igGim","moment":"jwcsj","./message.vue":"awVk4","./attachment.vue":"f384g","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"awVk4":[function(require,module,exports) {
+},{"spinal-models-documentation":"dcbQz","spinal-env-viewer-graph-service":"9n7zp","spinal-env-viewer-plugin-documentation-service":"5rYVR","spinal-env-viewer-plugin-documentation-service/dist/Models/constants":"igGim","moment":"jwcsj","./message.vue":"awVk4","./attachment.vue":"f384g","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"awVk4":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -395,16 +395,16 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("a7048fb6564d5f9").render;
     script.staticRenderFns = require("a7048fb6564d5f9").staticRenderFns;
-    script._scopeId = "data-v-3b243c";
+    script._scopeId = "data-v-5ec341";
     script.__cssModules = require("bf676647cdad3961").default;
     require("f01f26763f9d306f").default(script);
-    script.__scopeId = "data-v-3b243c";
+    script.__scopeId = 'data-v-5ec341';
     script.__file = "message.vue";
 };
 initialize();
 exports.default = script;
 
-},{"6d53537062a223c8":"61Tnp","a7048fb6564d5f9":"6HSEB","bf676647cdad3961":"3bHCW","f01f26763f9d306f":"2MYxS","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"61Tnp":[function(require,module,exports) {
+},{"6d53537062a223c8":"61Tnp","a7048fb6564d5f9":"6HSEB","bf676647cdad3961":"3bHCW","f01f26763f9d306f":"2MYxS","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"61Tnp":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalModelsDocumentation = require("spinal-models-documentation");
@@ -481,10 +481,10 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"spinal-models-documentation":"dcbQz","./actionsBtn.vue":"hGjf4","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hGjf4":[function(require,module,exports) {
+},{"spinal-models-documentation":"dcbQz","./actionsBtn.vue":"hGjf4","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hGjf4":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -493,15 +493,15 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("2add6816fc1895e3").render;
     script.staticRenderFns = require("2add6816fc1895e3").staticRenderFns;
-    script._scopeId = "data-v-1e834f";
+    script._scopeId = "data-v-15bd11";
     require("23718911b98380cf").default(script);
-    script.__scopeId = "data-v-1e834f";
+    script.__scopeId = 'data-v-15bd11';
     script.__file = "actionsBtn.vue";
 };
 initialize();
 exports.default = script;
 
-},{"86d6616a85ebdbe":"8FH2F","2add6816fc1895e3":"e0vOO","23718911b98380cf":"8otSW","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"8FH2F":[function(require,module,exports) {
+},{"86d6616a85ebdbe":"8FH2F","2add6816fc1895e3":"e0vOO","23718911b98380cf":"8otSW","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"8FH2F":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var scriptExports = {
@@ -524,22 +524,22 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"e0vOO":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"e0vOO":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _vm.hover ? _c("div", [
-        _c("md-button", {
+    return _vm.hover ? _c('div', [
+        _c('md-button', {
             staticClass: "md-dense md-primary",
             on: {
                 "click": _vm.download
             }
         }, [
-            _c("md-icon", {
+            _c('md-icon', {
                 staticClass: "md-primary"
             }, [
                 _vm._v("get_app")
@@ -547,13 +547,13 @@ var render = function() {
             _vm._v("\n    Download\n  ")
         ], 1),
         _vm._v(" "),
-        _vm.displayBtn() ? _c("md-button", {
+        _vm.displayBtn() ? _c('md-button', {
             staticClass: "md-dense md-primary",
             on: {
                 "click": _vm.restoreState
             }
         }, [
-            _c("md-icon", {
+            _c('md-icon', {
                 staticClass: "md-primary"
             }, [
                 _vm._v("near_me")
@@ -566,37 +566,37 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"8otSW":[function(require,module,exports) {
+},{}],"8otSW":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6HSEB":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6HSEB":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _vm.type === _vm.MESSAGE_TYPES.file ? _c("li", {
+    return _vm.type === _vm.MESSAGE_TYPES.file ? _c('li', {
         staticClass: "clearfix"
     }, [
-        _c("div", {
+        _c('div', {
             staticClass: "message-data align-right"
         }, [
-            _c("span", {
+            _c('span', {
                 staticClass: "message-data-time"
             }, [
                 _vm._v(_vm._s(_vm.date))
             ]),
             _vm._v(" \xa0 \xa0\n    "),
-            _c("span", {
+            _c('span', {
                 staticClass: "message-data-name"
             }, [
                 _vm._v(_vm._s(_vm.username))
             ])
         ]),
         _vm._v(" "),
-        _c("div", {
+        _c('div', {
             staticClass: "message messageIcon other-message float-right",
             on: {
                 "mouseover": function($event) {
@@ -607,10 +607,10 @@ var render = function() {
                 }
             }
         }, [
-            _c("div", {
+            _c('div', {
                 staticClass: "texte"
             }, [
-                _c("md-icon", {
+                _c('md-icon', {
                     staticClass: "description"
                 }, [
                     _vm._v("description")
@@ -618,7 +618,7 @@ var render = function() {
                 _vm._v("\n      " + _vm._s(_vm.message) + "\n    ")
             ], 1),
             _vm._v(" "),
-            _c("actions-btn", {
+            _c('actions-btn', {
                 staticClass: "message_actions",
                 attrs: {
                     "hover": _vm.hover,
@@ -630,7 +630,7 @@ var render = function() {
                 }
             })
         ], 1)
-    ]) : _vm.type === _vm.MESSAGE_TYPES.image ? _c("li", {
+    ]) : _vm.type === _vm.MESSAGE_TYPES.image ? _c('li', {
         staticClass: "clearfix",
         on: {
             "mouseover": function($event) {
@@ -641,23 +641,23 @@ var render = function() {
             }
         }
     }, [
-        _c("div", {
+        _c('div', {
             staticClass: "message-data align-right"
         }, [
-            _c("span", {
+            _c('span', {
                 staticClass: "message-data-time"
             }, [
                 _vm._v(_vm._s(_vm.date))
             ]),
             _vm._v(" \xa0 \xa0\n    "),
-            _c("span", {
+            _c('span', {
                 staticClass: "message-data-name"
             }, [
                 _vm._v(_vm._s(_vm.username))
             ])
         ]),
         _vm._v(" "),
-        _c("div", {
+        _c('div', {
             staticClass: "message other-message float-right",
             on: {
                 "mouseover": function($event) {
@@ -668,19 +668,19 @@ var render = function() {
                 }
             }
         }, [
-            _c("div", {
+            _c('div', {
                 staticClass: "images"
             }, [
-                _c("div", {
+                _c('div', {
                     staticClass: "img_texte"
                 }, [
                     _vm._v(_vm._s(_vm.message))
                 ]),
                 _vm._v(" "),
-                _c("div", {
+                _c('div', {
                     staticClass: "image"
                 }, [
-                    _c("img", {
+                    _c('img', {
                         attrs: {
                             "src": "/sceen/_?u=" + _vm.image,
                             "alt": "image"
@@ -689,7 +689,7 @@ var render = function() {
                 ])
             ]),
             _vm._v(" "),
-            _c("actions-btn", {
+            _c('actions-btn', {
                 staticClass: "message_actions",
                 attrs: {
                     "hover": _vm.hover,
@@ -701,29 +701,29 @@ var render = function() {
                 }
             })
         ], 1)
-    ]) : _c("li", {
+    ]) : _c('li', {
         staticClass: "clearfix"
     }, [
-        _c("div", {
+        _c('div', {
             staticClass: "message-data align-right"
         }, [
-            _c("span", {
+            _c('span', {
                 staticClass: "message-data-time"
             }, [
                 _vm._v(_vm._s(_vm.date))
             ]),
             _vm._v(" \xa0 \xa0\n    "),
-            _c("span", {
+            _c('span', {
                 staticClass: "message-data-name"
             }, [
                 _vm._v(_vm._s(_vm.username))
             ])
         ]),
         _vm._v(" "),
-        _c("div", {
+        _c('div', {
             staticClass: "message other-message float-right"
         }, [
-            _c("div", {
+            _c('div', {
                 staticClass: "texte"
             }, [
                 _vm._v("\n      " + _vm._s(_vm.message) + "\n    ")
@@ -735,13 +735,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"3bHCW":[function() {},{}],"2MYxS":[function(require,module,exports) {
+},{}],"3bHCW":[function() {},{}],"2MYxS":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"f384g":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"f384g":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -750,16 +750,16 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("1ca08a606dac9648").render;
     script.staticRenderFns = require("1ca08a606dac9648").staticRenderFns;
-    script._scopeId = "data-v-fe87d9";
+    script._scopeId = "data-v-ac833f";
     script.__cssModules = require("edcb35da2f607fe5").default;
     require("4945fe868d60afde").default(script);
-    script.__scopeId = "data-v-fe87d9";
+    script.__scopeId = 'data-v-ac833f';
     script.__file = "attachment.vue";
 };
 initialize();
 exports.default = script;
 
-},{"e9c8d1ef848c6810":"cqPeI","1ca08a606dac9648":"ketRA","edcb35da2f607fe5":"bN8CX","4945fe868d60afde":"4iRmA","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"cqPeI":[function(require,module,exports) {
+},{"e9c8d1ef848c6810":"cqPeI","1ca08a606dac9648":"ketRA","edcb35da2f607fe5":"bN8CX","4945fe868d60afde":"4iRmA","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"cqPeI":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var scriptExports = {
@@ -776,18 +776,18 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ketRA":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ketRA":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("div", {
+    return _c('div', {
         staticClass: "content"
     }, [
-        _c("div", {
+        _c('div', {
             directives: [
                 {
                     name: "tooltip",
@@ -801,7 +801,7 @@ var render = function() {
             _vm._v(_vm._s(_vm.file.name))
         ]),
         _vm._v(" "),
-        _c("div", {
+        _c('div', {
             staticClass: "md-caption delete",
             on: {
                 "click": _vm.remove
@@ -815,30 +815,30 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"bN8CX":[function() {},{}],"4iRmA":[function(require,module,exports) {
+},{}],"bN8CX":[function() {},{}],"4iRmA":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"aWwdg":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"aWwdg":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("div", {
+    return _c('div', {
         staticClass: "notesContainer"
     }, [
-        _c("md-content", {
+        _c('md-content', {
             staticClass: "messages md-scrollbar",
             attrs: {
                 "id": "myList"
             }
         }, [
-            _c("ul", {
+            _c('ul', {
                 staticClass: "div_messages"
             }, _vm._l(_vm.notesDisplayList, function(note, index) {
-                return _c("message-component", {
+                return _c('message-component', {
                     key: index,
                     attrs: {
                         "date": note.date,
@@ -852,10 +852,10 @@ var render = function() {
             }), 1)
         ]),
         _vm._v(" "),
-        _c("div", {
+        _c('div', {
             staticClass: "form"
         }, [
-            _c("form", {
+            _c('form', {
                 staticClass: "noteForm",
                 on: {
                     "submit": function($event) {
@@ -864,69 +864,69 @@ var render = function() {
                     }
                 }
             }, [
-                _c("div", {
+                _c('div', {
                     staticClass: "icons"
                 }, [
-                    _c("md-speed-dial", {
+                    _c('md-speed-dial', {
                         attrs: {
                             "md-direction": "top"
                         }
                     }, [
-                        _c("md-speed-dial-target", {
+                        _c('md-speed-dial-target', {
                             staticClass: "md-fab md-mini md-primary"
                         }, [
-                            _c("md-icon", {
+                            _c('md-icon', {
                                 staticClass: "md-morph-initial"
                             }, [
                                 _vm._v("menu")
                             ]),
                             _vm._v(" "),
-                            _c("md-icon", {
+                            _c('md-icon', {
                                 staticClass: "md-morph-final"
                             }, [
                                 _vm._v("close")
                             ])
                         ], 1),
                         _vm._v(" "),
-                        _c("md-speed-dial-content", [
-                            _c("md-button", {
+                        _c('md-speed-dial-content', [
+                            _c('md-button', {
                                 staticClass: "md-icon-button md-raised md-primary md-fab md-mini",
                                 attrs: {
-                                    "title": "save point of view"
+                                    "title": 'save point of view'
                                 },
                                 on: {
                                     "click": _vm.saveViewPoint
                                 }
                             }, [
-                                _c("md-icon", [
+                                _c('md-icon', [
                                     _vm._v("near_me")
                                 ])
                             ], 1),
                             _vm._v(" "),
-                            _c("md-button", {
+                            _c('md-button', {
                                 staticClass: "md-icon-button md-raised md-primary md-fab md-mini",
                                 attrs: {
-                                    "title": "Take a screenshot"
+                                    "title": 'Take a screenshot'
                                 },
                                 on: {
                                     "click": _vm.TakeScreenShot
                                 }
                             }, [
-                                _c("md-icon", [
+                                _c('md-icon', [
                                     _vm._v("add_a_photo")
                                 ])
                             ], 1),
                             _vm._v(" "),
-                            _c("md-button", {
+                            _c('md-button', {
                                 staticClass: "md-icon-button md-raised md-primary md-fab md-mini",
                                 attrs: {
-                                    "title": "Add Attachment"
+                                    "title": 'Add Attachment'
                                 },
                                 on: {
                                     "click": _vm.addPJ
                                 }
                             }, [
-                                _c("md-icon", [
+                                _c('md-icon', [
                                     _vm._v("attach_file")
                                 ])
                             ], 1)
@@ -934,13 +934,13 @@ var render = function() {
                     ], 1)
                 ], 1),
                 _vm._v(" "),
-                _c("div", {
+                _c('div', {
                     staticClass: "messageForm"
                 }, [
-                    _c("md-content", {
+                    _c('md-content', {
                         staticClass: "pjDiv md-scrollbar"
                     }, _vm._l(_vm.messages.pj, function(file, index) {
-                        return _c("attachment-component", {
+                        return _c('attachment-component', {
                             key: index,
                             attrs: {
                                 "file": file
@@ -953,17 +953,17 @@ var render = function() {
                         ]);
                     }), 1),
                     _vm._v(" "),
-                    _c("div", {
+                    _c('div', {
                         staticClass: "messageField"
                     }, [
-                        _c("md-field", {
+                        _c('md-field', {
                             staticClass: "myField md-inline"
                         }, [
-                            _c("label", [
+                            _c('label', [
                                 _vm._v("Message")
                             ]),
                             _vm._v(" "),
-                            _c("md-input", {
+                            _c('md-input', {
                                 model: {
                                     value: _vm.messages.messageUser,
                                     callback: function($$v) {
@@ -976,17 +976,17 @@ var render = function() {
                     ], 1)
                 ], 1),
                 _vm._v(" "),
-                _c("div", {
+                _c('div', {
                     staticClass: "sendBtn"
                 }, [
-                    _c("md-button", {
+                    _c('md-button', {
                         staticClass: "md-icon-button md-raised md-primary",
                         attrs: {
                             "type": "submit",
                             "title": "send"
                         }
                     }, [
-                        _c("md-icon", [
+                        _c('md-icon', [
                             _vm._v("send")
                         ])
                     ], 1)
@@ -999,12 +999,12 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"4GAZ7":[function() {},{}],"bQYWw":[function(require,module,exports) {
+},{}],"4GAZ7":[function() {},{}],"bQYWw":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},[], null, "parcelRequire02e5")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},[], null, "parcelRequire94c2")
 
 //# sourceMappingURL=spinal-env-viewer-plugin-documentation.586e61e5.js.map

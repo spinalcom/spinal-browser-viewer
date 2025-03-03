@@ -73,7 +73,7 @@
         localRequire,
         module,
         module.exports,
-        this
+        globalObject
       );
     }
 
@@ -142,7 +142,7 @@
       this[globalName] = mainExports;
     }
   }
-})({"cGHnR":[function(require,module,exports) {
+})({"cGHnR":[function(require,module,exports,__globalThis) {
 var _spinalEnvViewerGraphService = require("spinal-env-viewer-graph-service");
 const { spinalContextMenuService, SpinalContextApp } = require("5816b8f42c6ac8c6");
 const { spinalPanelManagerService, SpinalMountExtention } = require("24c57dbf41bd7595");
@@ -159,7 +159,7 @@ function middleware(node) {
 }
 function equipmentJsonDetails(node) {
     let obj = {};
-    for(var key in node.info._attribute_names)if (node.info._attribute_names[key] !== "id" && node.info._attribute_names[key] !== "hooks" && node.info._attribute_names[key] !== "name" && node.info._attribute_names[key] !== "color" && node.info._attribute_names[key] !== "type") obj[node.info._attribute_names[key]] = node.info[node.info._attribute_names[key]].get();
+    for(var key in node.info._attribute_names)if (node.info._attribute_names[key] !== 'id' && node.info._attribute_names[key] !== 'hooks' && node.info._attribute_names[key] !== 'name' && node.info._attribute_names[key] !== 'color' && node.info._attribute_names[key] !== 'type') obj[node.info._attribute_names[key]] = node.info[node.info._attribute_names[key]].get();
     obj.relation = Object.keys(node.parents).pop();
     return obj;
 }
@@ -207,7 +207,7 @@ function DoSomething(arr, fileName) {
     data.unshift(`"${regexForFieldsCsv(fields).replace(/,/g, '","')}"`);
     download(`${fileName}.csv`, data);
 }
-const regexForFieldsCsv = (str)=>str.replace(/hasContext/g, "Context").replace(/hasGeographicBuilding/g, "Building").replace(/hasGeographicFloor/g, "Floor").replace(/hasGeographicRoom/g, "Room").replace(/hasGeographicZone/g, "Zone").replace(/hasGeographicEquipment/g, "Equipment");
+const regexForFieldsCsv = (str)=>str.replace(/hasContext/g, 'Context').replace(/hasGeographicBuilding/g, 'Building').replace(/hasGeographicFloor/g, 'Floor').replace(/hasGeographicRoom/g, 'Room').replace(/hasGeographicZone/g, 'Zone').replace(/hasGeographicEquipment/g, 'Equipment');
 function getEquipmentDetails(json) {
     let keys = Object.keys(json);
     let iterator = 0;
@@ -245,12 +245,12 @@ function JsonTransform(json, result, fields, obj) {
     });
 }
 function download(filename, arr) {
-    let element = document.createElement("a");
-    let doc = "";
+    let element = document.createElement('a');
+    let doc = '';
     for(var key in arr)doc += `${arr[key]}\n`;
-    element.setAttribute("href", "data:text/plain;charset=utf-8," + encodeURIComponent(doc));
-    element.setAttribute("download", filename);
-    element.style.display = "none";
+    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(doc));
+    element.setAttribute('download', filename);
+    element.style.display = 'none';
     document.body.appendChild(element);
     element.click();
     document.body.removeChild(element);
@@ -277,7 +277,7 @@ spinalContextMenuService.registerApp("GraphManagerSideBar", new SpinalContextExp
     15
 ]);
 
-},{"5816b8f42c6ac8c6":"kHlxv","spinal-env-viewer-graph-service":"9n7zp","24c57dbf41bd7595":"7Uw4d","62f78056892c1b72":"1mGHd"}],"7Uw4d":[function(require,module,exports) {
+},{"5816b8f42c6ac8c6":"kHlxv","spinal-env-viewer-graph-service":"9n7zp","24c57dbf41bd7595":"7Uw4d","62f78056892c1b72":"1mGHd"}],"7Uw4d":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -316,7 +316,7 @@ module.exports = {
     }
 };
 
-},{"8b71a79dcc12420e":"h7sS1","e47c36529e942a76":"cvBJ6","cfd4c6200ba55765":"9SKSV"}],"h7sS1":[function(require,module,exports) {
+},{"8b71a79dcc12420e":"h7sS1","e47c36529e942a76":"cvBJ6","cfd4c6200ba55765":"9SKSV"}],"h7sS1":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -396,7 +396,7 @@ module.exports = {
 }
 module.exports = SpinalPanelManagerService;
 
-},{}],"cvBJ6":[function(require,module,exports) {
+},{}],"cvBJ6":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -431,7 +431,7 @@ module.exports = SpinalPanelManagerService;
 }
 module.exports = SpinalPanelApp;
 
-},{}],"9SKSV":[function(require,module,exports) {
+},{}],"9SKSV":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -530,7 +530,7 @@ function getDialog() {
     };
 };
 
-},{}],"1mGHd":[function(require,module,exports) {
+},{}],"1mGHd":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -559,7 +559,7 @@ module.exports = {
     SpinalForgeExtention
 };
 
-},{"bf7edd8450503e22":"7Uw4d","64bd1569b4ded066":"gsEky"}],"gsEky":[function(require,module,exports) {
+},{"bf7edd8450503e22":"7Uw4d","64bd1569b4ded066":"gsEky"}],"gsEky":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
  * 
@@ -794,6 +794,6 @@ function getPanel() {
     };
 };
 
-},{}]},[], null, "parcelRequire02e5")
+},{}]},[], null, "parcelRequire94c2")
 
 //# sourceMappingURL=spinal-env-viewer-plugin-graph_export.3ad7ce76.js.map

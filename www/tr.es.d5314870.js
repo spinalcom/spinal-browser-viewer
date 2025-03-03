@@ -73,7 +73,7 @@
         localRequire,
         module,
         module.exports,
-        this
+        globalObject
       );
     }
 
@@ -142,7 +142,7 @@
       this[globalName] = mainExports;
     }
   }
-})({"jbTyZ":[function(require,module,exports) {
+})({"jbTyZ":[function(require,module,exports,__globalThis) {
 /**
   * vue-cal v3.11.0
   * (c) 2022 Antoni Andre <antoniandre.web@gmail.com>
@@ -166,7 +166,7 @@ parcelHelpers.export(exports, "years", ()=>t);
 const a = [
     "Pazartesi",
     "Sal\u0131",
-    "\xc7ar\u015Famba",
+    "\xC7ar\u015Famba",
     "Per\u015Fembe",
     "Cuma",
     "Cumartesi",
@@ -180,26 +180,26 @@ const a = [
     "Haziran",
     "Temmuz",
     "A\u011Fustos",
-    "Eyl\xfcl",
+    "Eyl\xFCl",
     "Ekim",
     "Kas\u0131m",
     "Aral\u0131k"
-], t = "Y\u0131llar", s = "Y\u0131l", l = "Ay", n = "Hafta", k = "G\xfcn", r = "Bug\xfcn", d = "Etkinlik Yok", m = "T\xfcm g\xfcn", y = "Sil", i = "Etkinlik ekle", o = "dddd D MMMM YYYY", Y = {
+], t = "Y\u0131llar", s = "Y\u0131l", l = "Ay", n = "Hafta", k = "G\xFCn", r = "Bug\xFCn", d = "Etkinlik Yok", m = "T\xFCm g\xFCn", y = "Sil", i = "Etkinlik ekle", o = "dddd D MMMM YYYY", Y = {
     weekDays: a,
     months: e,
     years: "Y\u0131llar",
     year: "Y\u0131l",
     month: "Ay",
     week: "Hafta",
-    day: "G\xfcn",
-    today: "Bug\xfcn",
+    day: "G\xFCn",
+    today: "Bug\xFCn",
     noEvent: "Etkinlik Yok",
-    allDay: "T\xfcm g\xfcn",
+    allDay: "T\xFCm g\xFCn",
     deleteEvent: "Sil",
     createEvent: "Etkinlik ekle",
     dateFormat: "dddd D MMMM YYYY"
 };
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},[], null, "parcelRequire02e5")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},[], null, "parcelRequire94c2")
 
 //# sourceMappingURL=tr.es.d5314870.js.map

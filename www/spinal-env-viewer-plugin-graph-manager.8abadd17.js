@@ -73,7 +73,7 @@
         localRequire,
         module,
         module.exports,
-        this
+        globalObject
       );
     }
 
@@ -142,7 +142,7 @@
       this[globalName] = mainExports;
     }
   }
-})({"lNoWE":[function(require,module,exports) {
+})({"lNoWE":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2019 SpinalCom - www.spinalcom.com
  *
@@ -223,7 +223,7 @@ let store = new (0, _vuexDefault.default).Store({
                 if (!state.nodes.hasOwnProperty(contextId)) state.nodes[contextId] = context;
                 if (!state.contextsId.includes(contextId)) {
                     if (window.spinal.SHOW_HIDDEN_NODES === true) state.contextsId.push(contextId);
-                    else if (contextName.startsWith(".") || contextName.startsWith("BIMObjectContext")) continue;
+                    else if (contextName.startsWith('.') || contextName.startsWith('BIMObjectContext')) continue;
                     else state.contextsId.push(contextId);
                 }
             }
@@ -285,7 +285,7 @@ let store = new (0, _vuexDefault.default).Store({
             const buttons = [];
             for(let i = 0; i < bts.length; i++){
                 let button = bts[i];
-                if (button.hasOwnProperty("buttonCfg")) {
+                if (button.hasOwnProperty('buttonCfg')) {
                     let butcfg = button.buttonCfg;
                     butcfg.toolTip = button.label;
                     butcfg.action = button.action;
@@ -298,7 +298,7 @@ let store = new (0, _vuexDefault.default).Store({
             state.topBarButton = buttons;
         },
         SET_CHILDREN: (state, payload)=>{
-            if (payload.hasOwnProperty("parentId") && payload.hasOwnProperty("children")) state.childrenMapping.set(payload.parentId, payload.children);
+            if (payload.hasOwnProperty('parentId') && payload.hasOwnProperty('children')) state.childrenMapping.set(payload.parentId, payload.children);
         },
         SET_GRAPH: (state, graph)=>{
             state.graph = graph;
@@ -314,7 +314,7 @@ let store = new (0, _vuexDefault.default).Store({
             while(state.searchId.length > 0)state.searchId.splice(0);
             for(const key in state.nodes)if (state.nodes.hasOwnProperty(key)) {
                 const node = state.nodes[key];
-                if (node.hasOwnProperty("name") && node.name.get().toLowerCase().includes(text.toLowerCase())) state.searchId.push(key);
+                if (node.hasOwnProperty('name') && node.name.get().toLowerCase().includes(text.toLowerCase())) state.searchId.push(key);
             }
         },
         REMOVE_NODE: (state, id)=>{
@@ -331,7 +331,7 @@ let store = new (0, _vuexDefault.default).Store({
     },
     actions: {
         getNode (context, event) {
-            return (0, _spinalEnvViewerGraphService.SpinalGraphService).findNode(event).then((node)=>context.commit("ADD_NODE", node)).catch((e)=>console.error(e));
+            return (0, _spinalEnvViewerGraphService.SpinalGraphService).findNode(event).then((node)=>context.commit('ADD_NODE', node)).catch((e)=>console.error(e));
         },
         onNodeSelected (context, event) {
             const option = {};
@@ -358,7 +358,7 @@ let store = new (0, _vuexDefault.default).Store({
         },
         pullChildren (context, id) {
             return (0, _spinalEnvViewerGraphService.SpinalGraphService).getChildren(id, []).then((children)=>{
-                context.commit("ADD_NODES", children);
+                context.commit('ADD_NODES', children);
             });
         }
     },
@@ -379,7 +379,7 @@ let store = new (0, _vuexDefault.default).Store({
 });
 exports.default = store;
 
-},{"vue":"gt5MM","vuex":"cMZ5L","spinal-env-viewer-context-menu-service":"kHlxv","./constantes.js":"2ln12","spinal-env-viewer-graph-service":"9n7zp","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"cMZ5L":[function(require,module,exports) {
+},{"vue":"gt5MM","vuex":"cMZ5L","spinal-env-viewer-context-menu-service":"kHlxv","./constantes.js":"2ln12","spinal-env-viewer-graph-service":"9n7zp","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"cMZ5L":[function(require,module,exports,__globalThis) {
 /*!
  * vuex v3.6.2
  * (c) 2021 Evan You
@@ -396,7 +396,7 @@ parcelHelpers.export(exports, "mapMutations", ()=>mapMutations);
 parcelHelpers.export(exports, "mapState", ()=>mapState);
 var global = arguments[3];
 function applyMixin(Vue) {
-    var version = Number(Vue.version.split(".")[0]);
+    var version = Number(Vue.version.split('.')[0]);
     if (version >= 2) Vue.mixin({
         beforeCreate: vuexInit
     });
@@ -417,26 +417,26 @@ function applyMixin(Vue) {
    */ function vuexInit() {
         var options = this.$options;
         // store injection
-        if (options.store) this.$store = typeof options.store === "function" ? options.store() : options.store;
+        if (options.store) this.$store = typeof options.store === 'function' ? options.store() : options.store;
         else if (options.parent && options.parent.$store) this.$store = options.parent.$store;
     }
 }
-var target = typeof window !== "undefined" ? window : typeof global !== "undefined" ? global : {};
+var target = typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : {};
 var devtoolHook = target.__VUE_DEVTOOLS_GLOBAL_HOOK__;
 function devtoolPlugin(store) {
     if (!devtoolHook) return;
     store._devtoolHook = devtoolHook;
-    devtoolHook.emit("vuex:init", store);
-    devtoolHook.on("vuex:travel-to-state", function(targetState) {
+    devtoolHook.emit('vuex:init', store);
+    devtoolHook.on('vuex:travel-to-state', function(targetState) {
         store.replaceState(targetState);
     });
     store.subscribe(function(mutation, state) {
-        devtoolHook.emit("vuex:mutation", mutation, state);
+        devtoolHook.emit('vuex:mutation', mutation, state);
     }, {
         prepend: true
     });
     store.subscribeAction(function(action, state) {
-        devtoolHook.emit("vuex:action", action, state);
+        devtoolHook.emit('vuex:action', action, state);
     }, {
         prepend: true
     });
@@ -462,7 +462,7 @@ function devtoolPlugin(store) {
  */ function deepCopy(obj, cache) {
     if (cache === void 0) cache = [];
     // just return if obj is immutable value
-    if (obj === null || typeof obj !== "object") return obj;
+    if (obj === null || typeof obj !== 'object') return obj;
     // if obj is hit, it is in circular structure
     var hit = find(cache, function(c) {
         return c.original === obj;
@@ -488,10 +488,10 @@ function devtoolPlugin(store) {
     });
 }
 function isObject(obj) {
-    return obj !== null && typeof obj === "object";
+    return obj !== null && typeof obj === 'object';
 }
 function isPromise(val) {
-    return val && typeof val.then === "function";
+    return val && typeof val.then === 'function';
 }
 function assert(condition, msg) {
     if (!condition) throw new Error("[vuex] " + msg);
@@ -510,7 +510,7 @@ var Module = function Module(rawModule, runtime) {
     this._rawModule = rawModule;
     var rawState = rawModule.state;
     // Store the origin module's state
-    this.state = (typeof rawState === "function" ? rawState() : rawState) || {};
+    this.state = (typeof rawState === 'function' ? rawState() : rawState) || {};
 };
 var prototypeAccessors = {
     namespaced: {
@@ -564,8 +564,8 @@ ModuleCollection.prototype.getNamespace = function getNamespace(path) {
     var module = this.root;
     return path.reduce(function(namespace, key) {
         module = module.getChild(key);
-        return namespace + (module.namespaced ? key + "/" : "");
-    }, "");
+        return namespace + (module.namespaced ? key + '/' : '');
+    }, '');
 };
 ModuleCollection.prototype.update = function update$1(rawRootModule) {
     update([], this.root, rawRootModule);
@@ -609,13 +609,13 @@ function update(path, targetModule, newModule) {
 }
 var functionAssert = {
     assert: function(value) {
-        return typeof value === "function";
+        return typeof value === 'function';
     },
-    expected: "function"
+    expected: 'function'
 };
 var objectAssert = {
     assert: function(value) {
-        return typeof value === "function" || typeof value === "object" && typeof value.handler === "function";
+        return typeof value === 'function' || typeof value === 'object' && typeof value.handler === 'function';
     },
     expected: 'function or object with "handler" function'
 };
@@ -634,8 +634,8 @@ function assertRawModule(path, rawModule) {
     });
 }
 function makeAssertionMessage(path, key, type, value, expected) {
-    var buf = key + " should be " + expected + ' but "' + key + "." + type + '"';
-    if (path.length > 0) buf += ' in module "' + path.join(".") + '"';
+    var buf = key + " should be " + expected + " but \"" + key + "." + type + "\"";
+    if (path.length > 0) buf += " in module \"" + path.join('.') + "\"";
     buf += " is " + JSON.stringify(value) + ".";
     return buf;
 }
@@ -646,7 +646,7 @@ var Store = function Store(options) {
     // Auto install if it is not done yet and `window` has `Vue`.
     // To allow users to avoid auto-installation in some cases,
     // this code should be placed here. See #731
-    if (!Vue && typeof window !== "undefined" && window.Vue) install(window.Vue);
+    if (!Vue && typeof window !== 'undefined' && window.Vue) install(window.Vue);
     var plugins = options.plugins;
     if (plugins === void 0) plugins = [];
     var strict = options.strict;
@@ -771,7 +771,7 @@ Store.prototype.subscribe = function subscribe(fn, options) {
     return genericSubscribe(fn, this._subscribers, options);
 };
 Store.prototype.subscribeAction = function subscribeAction(fn, options) {
-    var subs = typeof fn === "function" ? {
+    var subs = typeof fn === 'function' ? {
         before: fn
     } : fn;
     return genericSubscribe(subs, this._actionSubscribers, options);
@@ -790,7 +790,7 @@ Store.prototype.replaceState = function replaceState(state) {
 };
 Store.prototype.registerModule = function registerModule(path, rawModule, options) {
     if (options === void 0) options = {};
-    if (typeof path === "string") path = [
+    if (typeof path === 'string') path = [
         path
     ];
     this._modules.register(path, rawModule);
@@ -800,7 +800,7 @@ Store.prototype.registerModule = function registerModule(path, rawModule, option
 };
 Store.prototype.unregisterModule = function unregisterModule(path) {
     var this$1 = this;
-    if (typeof path === "string") path = [
+    if (typeof path === 'string') path = [
         path
     ];
     this._modules.unregister(path);
@@ -811,7 +811,7 @@ Store.prototype.unregisterModule = function unregisterModule(path) {
     resetStore(this);
 };
 Store.prototype.hasModule = function hasModule(path) {
-    if (typeof path === "string") path = [
+    if (typeof path === 'string') path = [
         path
     ];
     return this._modules.isRegistered(path);
@@ -928,7 +928,7 @@ function installModule(store, rootState, path, module, hot) {
  * make localized dispatch, commit, getters and state
  * if there is no namespace, just use root ones
  */ function makeLocalContext(store, namespace, path) {
-    var noNamespace = namespace === "";
+    var noNamespace = namespace === '';
     var local = {
         dispatch: noNamespace ? store.dispatch : function(_type, _payload, _options) {
             var args = unifyObjectStyle(_type, _payload, _options);
@@ -1007,7 +1007,7 @@ function registerAction(store, type, handler, local) {
         }, payload);
         if (!isPromise(res)) res = Promise.resolve(res);
         if (store._devtoolHook) return res.catch(function(err) {
-            store._devtoolHook.emit("vuex:error", err);
+            store._devtoolHook.emit('vuex:error', err);
             throw err;
         });
         else return res;
@@ -1064,12 +1064,12 @@ function install(_Vue) {
             var state = this.$store.state;
             var getters = this.$store.getters;
             if (namespace) {
-                var module = getModuleByNamespace(this.$store, "mapState", namespace);
+                var module = getModuleByNamespace(this.$store, 'mapState', namespace);
                 if (!module) return;
                 state = module.context.state;
                 getters = module.context.getters;
             }
-            return typeof val === "function" ? val.call(this, state, getters) : state[val];
+            return typeof val === 'function' ? val.call(this, state, getters) : state[val];
         };
         // mark vuex getter for devtools
         res[key].vuex = true;
@@ -1092,11 +1092,11 @@ function install(_Vue) {
             // Get the commit method from store
             var commit = this.$store.commit;
             if (namespace) {
-                var module = getModuleByNamespace(this.$store, "mapMutations", namespace);
+                var module = getModuleByNamespace(this.$store, 'mapMutations', namespace);
                 if (!module) return;
                 commit = module.context.commit;
             }
-            return typeof val === "function" ? val.apply(this, [
+            return typeof val === 'function' ? val.apply(this, [
                 commit
             ].concat(args)) : commit.apply(this.$store, [
                 val
@@ -1118,7 +1118,7 @@ function install(_Vue) {
         // The namespace has been mutated by normalizeNamespace
         val = namespace + val;
         res[key] = function mappedGetter() {
-            if (namespace && !getModuleByNamespace(this.$store, "mapGetters", namespace)) return;
+            if (namespace && !getModuleByNamespace(this.$store, 'mapGetters', namespace)) return;
             return this.$store.getters[val];
         };
         // mark vuex getter for devtools
@@ -1142,11 +1142,11 @@ function install(_Vue) {
             // get dispatch function from store
             var dispatch = this.$store.dispatch;
             if (namespace) {
-                var module = getModuleByNamespace(this.$store, "mapActions", namespace);
+                var module = getModuleByNamespace(this.$store, 'mapActions', namespace);
                 if (!module) return;
                 dispatch = module.context.dispatch;
             }
-            return typeof val === "function" ? val.apply(this, [
+            return typeof val === 'function' ? val.apply(this, [
                 dispatch
             ].concat(args)) : dispatch.apply(this.$store, [
                 val
@@ -1200,10 +1200,10 @@ function install(_Vue) {
  * @return {Function}
  */ function normalizeNamespace(fn) {
     return function(namespace, map) {
-        if (typeof namespace !== "string") {
+        if (typeof namespace !== 'string') {
             map = namespace;
-            namespace = "";
-        } else if (namespace.charAt(namespace.length - 1) !== "/") namespace += "/";
+            namespace = '';
+        } else if (namespace.charAt(namespace.length - 1) !== '/') namespace += '/';
         return fn(namespace, map);
     };
 }
@@ -1250,7 +1250,7 @@ function createLogger(ref) {
     if (logger === void 0) logger = console;
     return function(store) {
         var prevState = deepCopy(store.state);
-        if (typeof logger === "undefined") return;
+        if (typeof logger === 'undefined') return;
         if (logMutations) store.subscribe(function(mutation, state) {
             var nextState = deepCopy(state);
             if (filter(mutation, prevState, nextState)) {
@@ -1258,9 +1258,9 @@ function createLogger(ref) {
                 var formattedMutation = mutationTransformer(mutation);
                 var message = "mutation " + mutation.type + formattedTime;
                 startMessage(logger, message, collapsed);
-                logger.log("%c prev state", "color: #9E9E9E; font-weight: bold", transformer(prevState));
-                logger.log("%c mutation", "color: #03A9F4; font-weight: bold", formattedMutation);
-                logger.log("%c next state", "color: #4CAF50; font-weight: bold", transformer(nextState));
+                logger.log('%c prev state', 'color: #9E9E9E; font-weight: bold', transformer(prevState));
+                logger.log('%c mutation', 'color: #03A9F4; font-weight: bold', formattedMutation);
+                logger.log('%c next state', 'color: #4CAF50; font-weight: bold', transformer(nextState));
                 endMessage(logger);
             }
             prevState = nextState;
@@ -1271,7 +1271,7 @@ function createLogger(ref) {
                 var formattedAction = actionTransformer(action);
                 var message = "action " + action.type + formattedTime;
                 startMessage(logger, message, collapsed);
-                logger.log("%c action", "color: #03A9F4; font-weight: bold", formattedAction);
+                logger.log('%c action', 'color: #03A9F4; font-weight: bold', formattedAction);
                 endMessage(logger);
             }
         });
@@ -1301,12 +1301,12 @@ function repeat(str, times) {
     return new Array(times + 1).join(str);
 }
 function pad(num, maxLength) {
-    return repeat("0", maxLength - num.toString().length) + num;
+    return repeat('0', maxLength - num.toString().length) + num;
 }
 var index = {
     Store: Store,
     install: install,
-    version: "3.6.2",
+    version: '3.6.2',
     mapState: mapState,
     mapMutations: mapMutations,
     mapGetters: mapGetters,
@@ -1316,14 +1316,14 @@ var index = {
 };
 exports.default = index;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2ln12":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2ln12":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "OPTION_SELECTED_NODE_INFO", ()=>OPTION_SELECTED_NODE_INFO);
 parcelHelpers.export(exports, "OPTION_CONTEXT_INFO", ()=>OPTION_CONTEXT_INFO);
-const OPTION_SELECTED_NODE_INFO = "selectedNode";
+const OPTION_SELECTED_NODE_INFO = 'selectedNode';
 const OPTION_CONTEXT_INFO = "context";
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},[], null, "parcelRequire02e5")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},[], null, "parcelRequire94c2")
 
 //# sourceMappingURL=spinal-env-viewer-plugin-graph-manager.8abadd17.js.map

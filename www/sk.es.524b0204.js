@@ -73,7 +73,7 @@
         localRequire,
         module,
         module.exports,
-        this
+        globalObject
       );
     }
 
@@ -142,7 +142,7 @@
       this[globalName] = mainExports;
     }
   }
-})({"gYjiD":[function(require,module,exports) {
+})({"gYjiD":[function(require,module,exports,__globalThis) {
 /**
   * vue-cal v3.11.0
   * (c) 2022 Antoni Andre <antoniandre.web@gmail.com>
@@ -172,34 +172,34 @@ const e = [
     "Sobota",
     "Nede\u013Ea"
 ], a = [
-    "Janu\xe1r",
-    "Febru\xe1r",
+    "Janu\xE1r",
+    "Febru\xE1r",
     "Marec",
-    "Apr\xedl",
-    "M\xe1j",
-    "J\xfan",
-    "J\xfal",
+    "Apr\xEDl",
+    "M\xE1j",
+    "J\xFAn",
+    "J\xFAl",
     "August",
     "September",
-    "Okt\xf3ber",
+    "Okt\xF3ber",
     "November",
     "December"
-], t = "Roky", s = "Rok", o = "Mesiac", d = "T\xfd\u017Ede\u0148", r = "De\u0148", n = "Dnes", l = "Bez udalosti", y = "Cel\xfd de\u0148", k = "Odstr\xe1ni\u0165", M = "Vytvori\u0165 udalos\u0165", D = "dddd D. MMMM YYYY", i = {
+], t = "Roky", s = "Rok", o = "Mesiac", d = "T\xFD\u017Ede\u0148", r = "De\u0148", n = "Dnes", l = "Bez udalosti", y = "Cel\xFD de\u0148", k = "Odstr\xE1ni\u0165", M = "Vytvori\u0165 udalos\u0165", D = "dddd D. MMMM YYYY", i = {
     weekDays: e,
     months: a,
     years: "Roky",
     year: "Rok",
     month: "Mesiac",
-    week: "T\xfd\u017Ede\u0148",
+    week: "T\xFD\u017Ede\u0148",
     day: "De\u0148",
     today: "Dnes",
     noEvent: "Bez udalosti",
-    allDay: "Cel\xfd de\u0148",
-    deleteEvent: "Odstr\xe1ni\u0165",
+    allDay: "Cel\xFD de\u0148",
+    deleteEvent: "Odstr\xE1ni\u0165",
     createEvent: "Vytvori\u0165 udalos\u0165",
     dateFormat: "dddd D. MMMM YYYY"
 };
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},[], null, "parcelRequire02e5")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},[], null, "parcelRequire94c2")
 
 //# sourceMappingURL=sk.es.524b0204.js.map

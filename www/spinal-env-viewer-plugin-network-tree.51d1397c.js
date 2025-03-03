@@ -73,7 +73,7 @@
         localRequire,
         module,
         module.exports,
-        this
+        globalObject
       );
     }
 
@@ -142,7 +142,7 @@
       this[globalName] = mainExports;
     }
   }
-})({"9RF72":[function(require,module,exports) {
+})({"9RF72":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -151,16 +151,16 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("6cf183a77759acb8").render;
     script.staticRenderFns = require("6cf183a77759acb8").staticRenderFns;
-    script._scopeId = "data-v-787510";
+    script._scopeId = "data-v-c64b3f";
     script.__cssModules = require("9fe5f60dbadd6d9f").default;
     require("ba29e279f3f9e303").default(script);
-    script.__scopeId = "data-v-787510";
+    script.__scopeId = 'data-v-c64b3f';
     script.__file = "SpinalCodeMirror.vue";
 };
 initialize();
 exports.default = script;
 
-},{"a01cb652e226c527":"gPLqM","6cf183a77759acb8":"jAov1","9fe5f60dbadd6d9f":"kjpb3","ba29e279f3f9e303":"jWDCp","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gPLqM":[function(require,module,exports) {
+},{"a01cb652e226c527":"gPLqM","6cf183a77759acb8":"jAov1","9fe5f60dbadd6d9f":"kjpb3","ba29e279f3f9e303":"jWDCp","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gPLqM":[function(require,module,exports,__globalThis) {
 // import dedent from "dedent";
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
@@ -247,10 +247,10 @@ var scriptExports = {
     // }, 1800);
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"vue-codemirror":"avd3d","codemirror/mode/javascript/javascript":"6YWC8","codemirror/addon/selection/active-line":"cUu2f","codemirror/addon/selection/mark-selection":"aTwo9","codemirror/addon/search/searchcursor":"5LZeT","codemirror/addon/hint/show-hint":"i59ce","codemirror/addon/hint/javascript-hint":"69sna","codemirror/addon/scroll/annotatescrollbar":"dqF5T","codemirror/addon/search/matchesonscrollbar":"6axA6","codemirror/addon/search/match-highlighter":"ep4wi","codemirror/mode/clike/clike":"2HhSs","codemirror/addon/edit/matchbrackets":"fNcgb","codemirror/addon/comment/comment":"6b2Hy","codemirror/addon/dialog/dialog":"k1Qcs","codemirror/addon/search/search":"a81NO","codemirror/keymap/sublime":"bjKP1","codemirror/addon/fold/brace-fold":"bBZ8N","codemirror/addon/fold/comment-fold":"4TN95","codemirror/addon/fold/foldcode":"X0E3X","codemirror/addon/fold/foldgutter":"2v6kd","codemirror/addon/fold/indent-fold":"cRLCr","codemirror/addon/fold/markdown-fold":"j14BT","codemirror/addon/fold/xml-fold":"gYEyJ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"avd3d":[function(require,module,exports) {
+},{"vue-codemirror":"avd3d","codemirror/mode/javascript/javascript":"6YWC8","codemirror/addon/selection/active-line":"cUu2f","codemirror/addon/selection/mark-selection":"aTwo9","codemirror/addon/search/searchcursor":"5LZeT","codemirror/addon/hint/show-hint":"i59ce","codemirror/addon/hint/javascript-hint":"69sna","codemirror/addon/scroll/annotatescrollbar":"dqF5T","codemirror/addon/search/matchesonscrollbar":"6axA6","codemirror/addon/search/match-highlighter":"ep4wi","codemirror/mode/clike/clike":"2HhSs","codemirror/addon/edit/matchbrackets":"fNcgb","codemirror/addon/comment/comment":"6b2Hy","codemirror/addon/dialog/dialog":"k1Qcs","codemirror/addon/search/search":"a81NO","codemirror/keymap/sublime":"bjKP1","codemirror/addon/fold/brace-fold":"bBZ8N","codemirror/addon/fold/comment-fold":"4TN95","codemirror/addon/fold/foldcode":"X0E3X","codemirror/addon/fold/foldgutter":"2v6kd","codemirror/addon/fold/indent-fold":"cRLCr","codemirror/addon/fold/markdown-fold":"j14BT","codemirror/addon/fold/xml-fold":"gYEyJ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"avd3d":[function(require,module,exports,__globalThis) {
 !function(e, t) {
     module.exports = t(require("83a52d97b7469f9c"));
 }(this, function(e) {
@@ -548,7 +548,7 @@ exports.default = options; // parcel transformer vue2 compiler hack
     ]);
 });
 
-},{"83a52d97b7469f9c":"2Peje"}],"2Peje":[function(require,module,exports) {
+},{"83a52d97b7469f9c":"2Peje"}],"2Peje":[function(require,module,exports,__globalThis) {
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
 // Distributed under an MIT license: https://codemirror.net/5/LICENSE
 // This is CodeMirror (https://codemirror.net/5), a code editor
@@ -559,7 +559,7 @@ exports.default = options; // parcel transformer vue2 compiler hack
 (function(global, factory) {
     module.exports = factory();
 })(this, function() {
-    "use strict";
+    'use strict';
     // Kludges for bugs and behavior differences that can't be feature
     // detected are enabled based on userAgent etc sniffing.
     var userAgent = navigator.userAgent;
@@ -720,7 +720,7 @@ exports.default = options; // parcel transformer vue2 compiler hack
             if (end == -1) end = string.length;
         }
         for(var i = startIndex || 0, n = startValue || 0;;){
-            var nextTab = string.indexOf("	", i);
+            var nextTab = string.indexOf("\t", i);
             if (nextTab < 0 || nextTab >= end) return n + (end - i);
             n += nextTab - i;
             n += tabSize - n % tabSize;
@@ -774,7 +774,7 @@ exports.default = options; // parcel transformer vue2 compiler hack
     // a particular column.
     function findColumn(string, goal, tabSize) {
         for(var pos = 0, col = 0;;){
-            var nextTab = string.indexOf("	", pos);
+            var nextTab = string.indexOf("\t", pos);
             if (nextTab == -1) nextTab = string.length;
             var skipped = nextTab - pos;
             if (nextTab == string.length || col + skipped >= goal) return pos + Math.min(skipped, goal - col);
@@ -1152,20 +1152,20 @@ exports.default = options; // parcel transformer vue2 compiler hack
         // There is *some* kind of drag-and-drop support in IE6-8, but I
         // couldn't get it to work yet.
         if (ie && ie_version < 9) return false;
-        var div = elt("div");
+        var div = elt('div');
         return "draggable" in div || "dragDrop" in div;
     }();
     var zwspSupported;
     function zeroWidthElement(measure) {
         if (zwspSupported == null) {
-            var test = elt("span", "\u200B");
+            var test = elt("span", "\u200b");
             removeChildrenAndAdd(measure, elt("span", [
                 test,
                 document.createTextNode("x")
             ]));
             if (measure.firstChild.offsetHeight != 0) zwspSupported = test.offsetWidth <= 1 && test.offsetHeight > 2 && !(ie && ie_version < 8);
         }
-        var node = zwspSupported ? elt("span", "\u200B") : elt("span", "\xa0", null, "display: inline-block; width: 1px; margin-right: -1px");
+        var node = zwspSupported ? elt("span", "\u200b") : elt("span", "\u00a0", null, "display: inline-block; width: 1px; margin-right: -1px");
         node.setAttribute("cm-text", "");
         return node;
     }
@@ -1173,7 +1173,7 @@ exports.default = options; // parcel transformer vue2 compiler hack
     var badBidiRects;
     function hasBadBidiRects(measure) {
         if (badBidiRects != null) return badBidiRects;
-        var txt = removeChildrenAndAdd(measure, document.createTextNode("A\u062EA"));
+        var txt = removeChildrenAndAdd(measure, document.createTextNode("A\u062eA"));
         var r0 = range(txt, 0, 1).getBoundingClientRect();
         var r1 = range(txt, 1, 2).getBoundingClientRect();
         removeChildren(measure);
@@ -2298,14 +2298,14 @@ exports.default = options; // parcel transformer vue2 compiler hack
                 if (!m) break;
                 pos += skipped + 1;
                 var txt$1 = void 0;
-                if (m[0] == "	") {
+                if (m[0] == "\t") {
                     var tabSize = builder.cm.options.tabSize, tabWidth = tabSize - builder.col % tabSize;
                     txt$1 = content.appendChild(elt("span", spaceStr(tabWidth), "cm-tab"));
                     txt$1.setAttribute("role", "presentation");
-                    txt$1.setAttribute("cm-text", "	");
+                    txt$1.setAttribute("cm-text", "\t");
                     builder.col += tabWidth;
                 } else if (m[0] == "\r" || m[0] == "\n") {
-                    txt$1 = content.appendChild(elt("span", m[0] == "\r" ? "\u240D" : "\u2424", "cm-invalidchar"));
+                    txt$1 = content.appendChild(elt("span", m[0] == "\r" ? "\u240d" : "\u2424", "cm-invalidchar"));
                     txt$1.setAttribute("cm-text", m[0]);
                     builder.col += 1;
                 } else {
@@ -2343,7 +2343,7 @@ exports.default = options; // parcel transformer vue2 compiler hack
         var spaceBefore = trailingBefore, result = "";
         for(var i = 0; i < text.length; i++){
             var ch = text.charAt(i);
-            if (ch == " " && spaceBefore && (i == text.length - 1 || text.charCodeAt(i + 1) == 32)) ch = "\xa0";
+            if (ch == " " && spaceBefore && (i == text.length - 1 || text.charCodeAt(i + 1) == 32)) ch = "\u00a0";
             result += ch;
             spaceBefore = ch == " ";
         }
@@ -3566,7 +3566,7 @@ exports.default = options; // parcel transformer vue2 compiler hack
     // Draws a cursor for the given range
     function drawSelectionCursor(cm, head, output) {
         var pos = cursorCoords(cm, head, "div", null, null, !cm.options.singleCursorHeightPerLine);
-        var cursor = output.appendChild(elt("div", "\xa0", "CodeMirror-cursor"));
+        var cursor = output.appendChild(elt("div", "\u00a0", "CodeMirror-cursor"));
         cursor.style.left = pos.left + "px";
         cursor.style.top = pos.top + "px";
         cursor.style.height = Math.max(0, pos.bottom - pos.top) * cm.options.cursorHeight + "px";
@@ -3577,7 +3577,7 @@ exports.default = options; // parcel transformer vue2 compiler hack
         }
         if (pos.other) {
             // Secondary cursor, shown when on a 'jump' in bi-directional text
-            var otherCursor = output.appendChild(elt("div", "\xa0", "CodeMirror-cursor CodeMirror-secondarycursor"));
+            var otherCursor = output.appendChild(elt("div", "\u00a0", "CodeMirror-cursor CodeMirror-secondarycursor"));
             otherCursor.style.display = "";
             otherCursor.style.left = pos.other.left + "px";
             otherCursor.style.top = pos.other.top + "px";
@@ -3816,7 +3816,7 @@ exports.default = options; // parcel transformer vue2 compiler hack
         if (rect.top + box.top < 0) doScroll = true;
         else if (rect.bottom + box.top > (doc.defaultView.innerHeight || doc.documentElement.clientHeight)) doScroll = false;
         if (doScroll != null && !phantom) {
-            var scrollNode = elt("div", "\u200B", null, "position: absolute;\n                         top: " + (rect.top - display.viewOffset - paddingTop(cm.display)) + "px;\n                         height: " + (rect.bottom - rect.top + scrollGap(cm) + display.barHeight) + "px;\n                         left: " + rect.left + "px; width: " + Math.max(2, rect.right - rect.left) + "px;");
+            var scrollNode = elt("div", "\u200b", null, "position: absolute;\n                         top: " + (rect.top - display.viewOffset - paddingTop(cm.display)) + "px;\n                         height: " + (rect.bottom - rect.top + scrollGap(cm) + display.barHeight) + "px;\n                         left: " + rect.left + "px; width: " + Math.max(2, rect.right - rect.left) + "px;");
             cm.display.lineSpace.appendChild(scrollNode);
             scrollNode.scrollIntoView(doScroll);
             cm.display.lineSpace.removeChild(scrollNode);
@@ -4706,7 +4706,7 @@ exports.default = options; // parcel transformer vue2 compiler hack
         if (chrome && chrome_version >= 105) d.wrapper.style.clipPath = "inset(0px)";
         // This attribute is respected by automatic translation systems such as Google Translate,
         // and may also be respected by tools used by human translators.
-        d.wrapper.setAttribute("translate", "no");
+        d.wrapper.setAttribute('translate', 'no');
         // Work around IE7 z-index bug (not perfect, hence IE7 not really being supported)
         if (ie && ie_version < 8) {
             d.gutters.style.zIndex = -1;
@@ -6341,7 +6341,7 @@ exports.default = options; // parcel transformer vue2 compiler hack
         getRange: function(from, to, lineSep) {
             var lines = getBetween(this, clipPos(this, from), clipPos(this, to));
             if (lineSep === false) return lines;
-            if (lineSep === "") return lines.join("");
+            if (lineSep === '') return lines.join('');
             return lines.join(lineSep || this.lineSeparator());
         },
         getLine: function(line) {
@@ -7473,7 +7473,7 @@ exports.default = options; // parcel transformer vue2 compiler hack
             return cm.indentSelection("subtract");
         },
         insertTab: function(cm) {
-            return cm.replaceSelection("	");
+            return cm.replaceSelection("\t");
         },
         insertSoftTab: function(cm) {
             var spaces = [], ranges = cm.listSelections(), tabSize = cm.options.tabSize;
@@ -7685,7 +7685,7 @@ exports.default = options; // parcel transformer vue2 compiler hack
         if (presto && (!e.which || e.which < 10) && handleKeyBinding(cm, e)) return;
         var ch = String.fromCharCode(charCode == null ? keyCode : charCode);
         // Some browsers fire keypress events for backspace
-        if (ch == "\b") return;
+        if (ch == "\x08") return;
         if (handleCharBinding(cm, e, ch)) return;
         cm.display.input.onKeyPress(e);
     }
@@ -8105,7 +8105,7 @@ exports.default = options; // parcel transformer vue2 compiler hack
             for(var i = newBreaks.length - 1; i >= 0; i--)replaceRange(cm.doc, val, newBreaks[i], Pos(newBreaks[i].line, newBreaks[i].ch + val.length));
         });
         option("specialChars", /[\u0000-\u001f\u007f-\u009f\u00ad\u061c\u200b\u200e\u200f\u2028\u2029\u202d\u202e\u2066\u2067\u2069\ufeff\ufff9-\ufffc]/g, function(cm, val, old) {
-            cm.state.specialChars = new RegExp(val.source + (val.test("	") ? "" : "|	"), "g");
+            cm.state.specialChars = new RegExp(val.source + (val.test("\t") ? "" : "|\t"), "g");
             if (old != Init) cm.refresh();
         });
         option("specialCharPlaceholder", defaultSpecialCharPlaceholder, function(cm) {
@@ -8178,7 +8178,7 @@ exports.default = options; // parcel transformer vue2 compiler hack
             cm.display.input.readOnlyChanged(val);
         });
         option("screenReaderLabel", null, function(cm, val) {
-            val = val === "" ? null : val;
+            val = val === '' ? null : val;
             cm.display.input.screenReaderLabelChanged(val);
         });
         option("disableInput", false, function(cm, val) {
@@ -8479,7 +8479,7 @@ exports.default = options; // parcel transformer vue2 compiler hack
         var indentString = "", pos = 0;
         if (cm.options.indentWithTabs) for(var i = Math.floor(indentation / tabSize); i; --i){
             pos += tabSize;
-            indentString += "	";
+            indentString += "\t";
         }
         if (pos < indentation) indentString += spaceStr(indentation - pos);
         if (indentString != curSpaceString) {
@@ -8822,7 +8822,7 @@ exports.default = options; // parcel transformer vue2 compiler hack
                 else if (vert == "above" || vert == "near") {
                     var vspace = Math.max(display.wrapper.clientHeight, this.doc.height), hspace = Math.max(display.sizer.clientWidth, display.lineSpace.clientWidth);
                     // Default to positioning above (if specified and possible); otherwise default to positioning below
-                    if ((vert == "above" || pos.bottom + node.offsetHeight > vspace) && pos.top > node.offsetHeight) top = pos.top - node.offsetHeight;
+                    if ((vert == 'above' || pos.bottom + node.offsetHeight > vspace) && pos.top > node.offsetHeight) top = pos.top - node.offsetHeight;
                     else if (pos.bottom + node.offsetHeight <= vspace) top = pos.bottom;
                     if (left + node.offsetWidth > hspace) left = hspace - node.offsetWidth;
                 }
@@ -9256,8 +9256,8 @@ exports.default = options; // parcel transformer vue2 compiler hack
     };
     ContentEditableInput.prototype.screenReaderLabelChanged = function(label) {
         // Label for screenreaders, accessibility
-        if (label) this.div.setAttribute("aria-label", label);
-        else this.div.removeAttribute("aria-label");
+        if (label) this.div.setAttribute('aria-label', label);
+        else this.div.removeAttribute('aria-label');
     };
     ContentEditableInput.prototype.prepareSelection = function() {
         var result = prepareSelection(this.cm, false);
@@ -9757,8 +9757,8 @@ exports.default = options; // parcel transformer vue2 compiler hack
     };
     TextareaInput.prototype.screenReaderLabelChanged = function(label) {
         // Label for screenreaders, accessibility
-        if (label) this.textarea.setAttribute("aria-label", label);
-        else this.textarea.removeAttribute("aria-label");
+        if (label) this.textarea.setAttribute('aria-label', label);
+        else this.textarea.removeAttribute('aria-label');
     };
     TextareaInput.prototype.prepareSelection = function() {
         // Redraw the selection and/or cursor
@@ -9874,7 +9874,7 @@ exports.default = options; // parcel transformer vue2 compiler hack
         }
         if (cm.doc.sel == cm.display.selForContextMenu) {
             var first = text.charCodeAt(0);
-            if (first == 0x200b && !prevInput) prevInput = "\u200B";
+            if (first == 0x200b && !prevInput) prevInput = "\u200b";
             if (first == 0x21da) {
                 this.reset();
                 return this.cm.execCommand("undo");
@@ -9935,10 +9935,10 @@ exports.default = options; // parcel transformer vue2 compiler hack
         function prepareSelectAllHack() {
             if (te.selectionStart != null) {
                 var selected = cm.somethingSelected();
-                var extval = "\u200B" + (selected ? te.value : "");
-                te.value = "\u21DA"; // Used to catch context-menu undo
+                var extval = "\u200b" + (selected ? te.value : "");
+                te.value = "\u21da"; // Used to catch context-menu undo
                 te.value = extval;
-                input.prevInput = selected ? "" : "\u200B";
+                input.prevInput = selected ? "" : "\u200b";
                 te.selectionStart = 1;
                 te.selectionEnd = extval.length;
                 // Re-set this, in case some other handler touched the
@@ -9956,7 +9956,7 @@ exports.default = options; // parcel transformer vue2 compiler hack
             if (te.selectionStart != null) {
                 if (!ie || ie && ie_version < 9) prepareSelectAllHack();
                 var i = 0, poll = function() {
-                    if (display.selForContextMenu == cm.doc.sel && te.selectionStart == 0 && te.selectionEnd > 0 && input.prevInput == "\u200B") operation(cm, selectAll)(cm);
+                    if (display.selForContextMenu == cm.doc.sel && te.selectionStart == 0 && te.selectionEnd > 0 && input.prevInput == "\u200b") operation(cm, selectAll)(cm);
                     else if (i++ < 10) display.detectingSelectAll = setTimeout(poll, 500);
                     else {
                         display.selForContextMenu = null;
@@ -10124,7 +10124,7 @@ exports.default = options; // parcel transformer vue2 compiler hack
     return CodeMirror;
 });
 
-},{}],"6YWC8":[function(require,module,exports) {
+},{}],"6YWC8":[function(require,module,exports,__globalThis) {
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
 // Distributed under an MIT license: https://codemirror.net/5/LICENSE
 (function(mod) {
@@ -10853,7 +10853,7 @@ exports.default = options; // parcel transformer vue2 compiler hack
             if (type == "variable") cx.marked = "property";
             if (type == "spread") return cont(pattern);
             if (type == "}") return pass();
-            if (type == "[") return cont(expression, expect("]"), expect(":"), proppattern);
+            if (type == "[") return cont(expression, expect(']'), expect(':'), proppattern);
             return cont(expect(":"), pattern, maybeAssign);
         }
         function eltpattern() {
@@ -11131,7 +11131,7 @@ exports.default = options; // parcel transformer vue2 compiler hack
     });
 });
 
-},{"db7c60b36f9c425d":"2Peje"}],"cUu2f":[function(require,module,exports) {
+},{"db7c60b36f9c425d":"2Peje"}],"cUu2f":[function(require,module,exports,__globalThis) {
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
 // Distributed under an MIT license: https://codemirror.net/5/LICENSE
 (function(mod) {
@@ -11192,7 +11192,7 @@ exports.default = options; // parcel transformer vue2 compiler hack
     }
 });
 
-},{"315534d727a45277":"2Peje"}],"aTwo9":[function(require,module,exports) {
+},{"315534d727a45277":"2Peje"}],"aTwo9":[function(require,module,exports,__globalThis) {
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
 // Distributed under an MIT license: https://codemirror.net/5/LICENSE
 // Because sometimes you need to mark the selected *text*.
@@ -11290,7 +11290,7 @@ exports.default = options; // parcel transformer vue2 compiler hack
     }
 });
 
-},{"13ab6df951405cd0":"2Peje"}],"5LZeT":[function(require,module,exports) {
+},{"13ab6df951405cd0":"2Peje"}],"5LZeT":[function(require,module,exports,__globalThis) {
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
 // Distributed under an MIT license: https://codemirror.net/5/LICENSE
 (function(mod) {
@@ -11589,7 +11589,7 @@ exports.default = options; // parcel transformer vue2 compiler hack
     });
 });
 
-},{"8091639e3772deec":"2Peje"}],"i59ce":[function(require,module,exports) {
+},{"8091639e3772deec":"2Peje"}],"i59ce":[function(require,module,exports,__globalThis) {
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
 // Distributed under an MIT license: https://codemirror.net/5/LICENSE
 // declare global: DOMRect
@@ -11822,9 +11822,9 @@ exports.default = options; // parcel transformer vue2 compiler hack
         if (container !== ownerDocument.body) {
             // We offset the cursor position because left and top are relative to the offsetParent's top left corner.
             var isContainerPositioned = [
-                "absolute",
-                "relative",
-                "fixed"
+                'absolute',
+                'relative',
+                'fixed'
             ].indexOf(parentWindow.getComputedStyle(container).position) !== -1;
             var offsetParent = isContainerPositioned ? container : container.offsetParent;
             var offsetParentPosition = offsetParent.getBoundingClientRect();
@@ -12078,7 +12078,7 @@ exports.default = options; // parcel transformer vue2 compiler hack
     CodeMirror.defineOption("hintOptions", null);
 });
 
-},{"50c5ec1cb6ab049c":"2Peje"}],"69sna":[function(require,module,exports) {
+},{"50c5ec1cb6ab049c":"2Peje"}],"69sna":[function(require,module,exports,__globalThis) {
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
 // Distributed under an MIT license: https://codemirror.net/5/LICENSE
 (function(mod) {
@@ -12143,14 +12143,14 @@ exports.default = options; // parcel transformer vue2 compiler hack
         // getTokenAt method in javascript.js, that is, returning "property"
         // type and treat "." as independent token.
         var token = editor.getTokenAt(cur);
-        if (cur.ch == token.start + 1 && token.string.charAt(0) == ".") {
+        if (cur.ch == token.start + 1 && token.string.charAt(0) == '.') {
             token.end = token.start;
-            token.string = ".";
+            token.string = '.';
             token.type = "property";
         } else if (/^\.[\w$_]*$/.test(token.string)) {
             token.type = "property";
             token.start++;
-            token.string = token.string.replace(/\./, "");
+            token.string = token.string.replace(/\./, '');
         }
         return token;
     }
@@ -12188,8 +12188,8 @@ exports.default = options; // parcel transformer vue2 compiler hack
             } else if (obj.type == "string") base = "";
             else if (obj.type == "atom") base = 1;
             else if (obj.type == "function") {
-                if (global.jQuery != null && (obj.string == "$" || obj.string == "jQuery") && typeof global.jQuery == "function") base = global.jQuery();
-                else if (global._ != null && obj.string == "_" && typeof global._ == "function") base = global._();
+                if (global.jQuery != null && (obj.string == '$' || obj.string == 'jQuery') && typeof global.jQuery == 'function') base = global.jQuery();
+                else if (global._ != null && obj.string == '_' && typeof global._ == 'function') base = global._();
             }
             while(base != null && context.length)base = base[context.pop().string];
             if (base != null) gatherCompletions(base);
@@ -12207,7 +12207,7 @@ exports.default = options; // parcel transformer vue2 compiler hack
     }
 });
 
-},{"eda11271ac799019":"2Peje"}],"dqF5T":[function(require,module,exports) {
+},{"eda11271ac799019":"2Peje"}],"dqF5T":[function(require,module,exports,__globalThis) {
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
 // Distributed under an MIT license: https://codemirror.net/5/LICENSE
 (function(mod) {
@@ -12314,7 +12314,7 @@ exports.default = options; // parcel transformer vue2 compiler hack
     };
 });
 
-},{"994a5dcb7ee713b6":"2Peje"}],"6axA6":[function(require,module,exports) {
+},{"994a5dcb7ee713b6":"2Peje"}],"6axA6":[function(require,module,exports,__globalThis) {
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
 // Distributed under an MIT license: https://codemirror.net/5/LICENSE
 (function(mod) {
@@ -12414,7 +12414,7 @@ exports.default = options; // parcel transformer vue2 compiler hack
     };
 });
 
-},{"bceb284d2d86b414":"2Peje","eb147f6f7c81b05":"5LZeT","cbc290763e348e5e":"dqF5T"}],"ep4wi":[function(require,module,exports) {
+},{"bceb284d2d86b414":"2Peje","eb147f6f7c81b05":"5LZeT","cbc290763e348e5e":"dqF5T"}],"ep4wi":[function(require,module,exports,__globalThis) {
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
 // Distributed under an MIT license: https://codemirror.net/5/LICENSE
 // Highlighting text that matches the selection
@@ -12565,7 +12565,7 @@ exports.default = options; // parcel transformer vue2 compiler hack
     }
 });
 
-},{"73a85e348c45f95e":"2Peje","27da36b020ac34b4":"6axA6"}],"2HhSs":[function(require,module,exports) {
+},{"73a85e348c45f95e":"2Peje","27da36b020ac34b4":"6axA6"}],"2HhSs":[function(require,module,exports,__globalThis) {
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
 // Distributed under an MIT license: https://codemirror.net/5/LICENSE
 (function(mod) {
@@ -12812,8 +12812,8 @@ exports.default = options; // parcel transformer vue2 compiler hack
     // or _ followed by a capital letter are reserved for the compiler.
     function cIsReservedIdentifier(token) {
         if (!token || token.length < 2) return false;
-        if (token[0] != "_") return false;
-        return token[1] == "_" || token[1] !== token[1].toLowerCase();
+        if (token[0] != '_') return false;
+        return token[1] == '_' || token[1] !== token[1].toLowerCase();
     }
     function cpp14Literal(stream) {
         stream.eatWhile(/[\w\.']/);
@@ -12855,7 +12855,7 @@ exports.default = options; // parcel transformer vue2 compiler hack
     // <delim> can be a string up to 16 characters long.
     function tokenRawString(stream, state) {
         // Escape characters that have special regex meanings.
-        var delim = state.cpp11RawStringDelim.replace(/[^\w\s]/g, "\\$&");
+        var delim = state.cpp11RawStringDelim.replace(/[^\w\s]/g, '\\$&');
         var match = stream.match(new RegExp(".*?\\)" + delim + '"'));
         if (match) state.tokenize = null;
         else stream.skipToEnd();
@@ -12960,7 +12960,7 @@ exports.default = options; // parcel transformer vue2 compiler hack
         hooks: {
             "@": function(stream) {
                 // Don't match the @interface keyword.
-                if (stream.match("interface", false)) return false;
+                if (stream.match('interface', false)) return false;
                 stream.eatWhile(/[\w\$_]/);
                 return "meta";
             },
@@ -13086,7 +13086,7 @@ exports.default = options; // parcel transformer vue2 compiler hack
                     break;
                 }
                 next = stream.next();
-                if (!escaped && next == "$" && stream.match("{")) stream.skipTo("}");
+                if (!escaped && next == "$" && stream.match('{')) stream.skipTo("}");
                 escaped = !escaped && next == "\\" && !tripleString;
             }
             if (end || !tripleString) state.tokenize = null;
@@ -13109,8 +13109,8 @@ exports.default = options; // parcel transformer vue2 compiler hack
                 stream.eatWhile(/[\w\$_]/);
                 return "meta";
             },
-            "*": function(_stream, state) {
-                return state.prevToken == "." ? "variable" : "operator";
+            '*': function(_stream, state) {
+                return state.prevToken == '.' ? 'variable' : 'operator';
             },
             '"': function(stream, state) {
                 state.tokenize = tokenKotlinString(stream.match('""'));
@@ -13261,7 +13261,7 @@ exports.default = options; // parcel transformer vue2 compiler hack
                     end = true;
                     break;
                 }
-                if (!escaped && stream.match("``")) {
+                if (!escaped && stream.match('``')) {
                     stringTokenizer = tokenCeylonString(type);
                     end = true;
                     break;
@@ -13302,8 +13302,8 @@ exports.default = options; // parcel transformer vue2 compiler hack
                 state.tokenize = tokenCeylonString(stream.match('""') ? "triple" : "single");
                 return state.tokenize(stream, state);
             },
-            "`": function(stream, state) {
-                if (!stringTokenizer || !stream.match("`")) return false;
+            '`': function(stream, state) {
+                if (!stringTokenizer || !stream.match('`')) return false;
                 state.tokenize = stringTokenizer;
                 stringTokenizer = null;
                 return state.tokenize(stream, state);
@@ -13328,7 +13328,7 @@ exports.default = options; // parcel transformer vue2 compiler hack
     });
 });
 
-},{"47e813c8600f1150":"2Peje"}],"fNcgb":[function(require,module,exports) {
+},{"47e813c8600f1150":"2Peje"}],"fNcgb":[function(require,module,exports,__globalThis) {
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
 // Distributed under an MIT license: https://codemirror.net/5/LICENSE
 (function(mod) {
@@ -13485,7 +13485,7 @@ exports.default = options; // parcel transformer vue2 compiler hack
     });
 });
 
-},{"cb2fbc309c743fa":"2Peje"}],"6b2Hy":[function(require,module,exports) {
+},{"cb2fbc309c743fa":"2Peje"}],"6b2Hy":[function(require,module,exports,__globalThis) {
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
 // Distributed under an MIT license: https://codemirror.net/5/LICENSE
 (function(mod) {
@@ -13662,7 +13662,7 @@ exports.default = options; // parcel transformer vue2 compiler hack
     });
 });
 
-},{"e0848bef657a2381":"2Peje"}],"k1Qcs":[function(require,module,exports) {
+},{"e0848bef657a2381":"2Peje"}],"k1Qcs":[function(require,module,exports,__globalThis) {
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
 // Distributed under an MIT license: https://codemirror.net/5/LICENSE
 // Open simple dialogs on top of an editor. Relies on dialog.css.
@@ -13677,7 +13677,7 @@ exports.default = options; // parcel transformer vue2 compiler hack
         else dialog.className = "CodeMirror-dialog CodeMirror-dialog-top";
         if (typeof template == "string") dialog.innerHTML = template;
         else dialog.appendChild(template);
-        CodeMirror.addClass(wrap, "dialog-opened");
+        CodeMirror.addClass(wrap, 'dialog-opened');
         return dialog;
     }
     function closeNotification(cm, newVal) {
@@ -13690,11 +13690,11 @@ exports.default = options; // parcel transformer vue2 compiler hack
         var dialog = dialogDiv(this, template, options.bottom);
         var closed = false, me = this;
         function close(newVal) {
-            if (typeof newVal == "string") inp.value = newVal;
+            if (typeof newVal == 'string') inp.value = newVal;
             else {
                 if (closed) return;
                 closed = true;
-                CodeMirror.rmClass(dialog.parentNode, "dialog-opened");
+                CodeMirror.rmClass(dialog.parentNode, 'dialog-opened');
                 dialog.parentNode.removeChild(dialog);
                 me.focus();
                 if (options.onClose) options.onClose(dialog);
@@ -13743,7 +13743,7 @@ exports.default = options; // parcel transformer vue2 compiler hack
         function close() {
             if (closed) return;
             closed = true;
-            CodeMirror.rmClass(dialog.parentNode, "dialog-opened");
+            CodeMirror.rmClass(dialog.parentNode, 'dialog-opened');
             dialog.parentNode.removeChild(dialog);
             me.focus();
         }
@@ -13784,10 +13784,10 @@ exports.default = options; // parcel transformer vue2 compiler hack
             if (closed) return;
             closed = true;
             clearTimeout(doneTimer);
-            CodeMirror.rmClass(dialog.parentNode, "dialog-opened");
+            CodeMirror.rmClass(dialog.parentNode, 'dialog-opened');
             dialog.parentNode.removeChild(dialog);
         }
-        CodeMirror.on(dialog, "click", function(e) {
+        CodeMirror.on(dialog, 'click', function(e) {
             CodeMirror.e_preventDefault(e);
             close();
         });
@@ -13796,7 +13796,7 @@ exports.default = options; // parcel transformer vue2 compiler hack
     });
 });
 
-},{"9f48ef899617ed6e":"2Peje"}],"a81NO":[function(require,module,exports) {
+},{"9f48ef899617ed6e":"2Peje"}],"a81NO":[function(require,module,exports,__globalThis) {
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
 // Distributed under an MIT license: https://codemirror.net/5/LICENSE
 // Define search commands. Depends on dialog.js or another
@@ -13873,7 +13873,7 @@ exports.default = options; // parcel transformer vue2 compiler hack
         return string.replace(/\\([nrt\\])/g, function(match, ch) {
             if (ch == "n") return "\n";
             if (ch == "r") return "\r";
-            if (ch == "t") return "	";
+            if (ch == "t") return "\t";
             if (ch == "\\") return "\\";
             return match;
         });
@@ -13923,7 +13923,7 @@ exports.default = options; // parcel transformer vue2 compiler hack
             };
             persistentDialog(cm, getQueryDialog(cm), q, searchNext, function(event, query) {
                 var keyName = CodeMirror.keyName(event);
-                var extra = cm.getOption("extraKeys"), cmd = extra && extra[keyName] || CodeMirror.keyMap[cm.getOption("keyMap")][keyName];
+                var extra = cm.getOption('extraKeys'), cmd = extra && extra[keyName] || CodeMirror.keyMap[cm.getOption("keyMap")][keyName];
                 if (cmd == "findNext" || cmd == "findPrev" || cmd == "findPersistentNext" || cmd == "findPersistentPrev") {
                     CodeMirror.e_stop(event);
                     startSearch(cm, getSearchState(cm), query);
@@ -14107,7 +14107,7 @@ exports.default = options; // parcel transformer vue2 compiler hack
     };
 });
 
-},{"eb5c1e860bbbb070":"2Peje","a77427fe6d604cb6":"5LZeT","ad7973a66f51a80d":"k1Qcs"}],"bjKP1":[function(require,module,exports) {
+},{"eb5c1e860bbbb070":"2Peje","a77427fe6d604cb6":"5LZeT","ad7973a66f51a80d":"k1Qcs"}],"bjKP1":[function(require,module,exports,__globalThis) {
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
 // Distributed under an MIT license: https://codemirror.net/5/LICENSE
 // A rough approximation of Sublime Text's keybindings
@@ -14817,7 +14817,7 @@ exports.default = options; // parcel transformer vue2 compiler hack
     keyMap.sublime = mac ? keyMap.macSublime : keyMap.pcSublime;
 });
 
-},{"bb0547a2789624cc":"2Peje","9c1520ec994abe36":"5LZeT","393b197d660ffdad":"fNcgb"}],"bBZ8N":[function(require,module,exports) {
+},{"bb0547a2789624cc":"2Peje","9c1520ec994abe36":"5LZeT","393b197d660ffdad":"fNcgb"}],"bBZ8N":[function(require,module,exports,__globalThis) {
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
 // Distributed under an MIT license: https://codemirror.net/5/LICENSE
 (function(mod) {
@@ -14961,7 +14961,7 @@ exports.default = options; // parcel transformer vue2 compiler hack
     });
 });
 
-},{"d4ba1aae845c6211":"2Peje"}],"4TN95":[function(require,module,exports) {
+},{"d4ba1aae845c6211":"2Peje"}],"4TN95":[function(require,module,exports,__globalThis) {
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
 // Distributed under an MIT license: https://codemirror.net/5/LICENSE
 (function(mod) {
@@ -15016,7 +15016,7 @@ exports.default = options; // parcel transformer vue2 compiler hack
     });
 });
 
-},{"d2992a3ef63a2f5c":"2Peje"}],"X0E3X":[function(require,module,exports) {
+},{"d2992a3ef63a2f5c":"2Peje"}],"X0E3X":[function(require,module,exports,__globalThis) {
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
 // Distributed under an MIT license: https://codemirror.net/5/LICENSE
 (function(mod) {
@@ -15151,7 +15151,7 @@ exports.default = options; // parcel transformer vue2 compiler hack
     });
 });
 
-},{"88afd97e586cd243":"2Peje"}],"2v6kd":[function(require,module,exports) {
+},{"88afd97e586cd243":"2Peje"}],"2v6kd":[function(require,module,exports,__globalThis) {
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
 // Distributed under an MIT license: https://codemirror.net/5/LICENSE
 (function(mod) {
@@ -15298,7 +15298,7 @@ exports.default = options; // parcel transformer vue2 compiler hack
     }
 });
 
-},{"b5576cb0f364ff11":"2Peje","f7656db25b1274b5":"X0E3X"}],"cRLCr":[function(require,module,exports) {
+},{"b5576cb0f364ff11":"2Peje","f7656db25b1274b5":"X0E3X"}],"cRLCr":[function(require,module,exports,__globalThis) {
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
 // Distributed under an MIT license: https://codemirror.net/5/LICENSE
 (function(mod) {
@@ -15331,7 +15331,7 @@ exports.default = options; // parcel transformer vue2 compiler hack
     });
 });
 
-},{"1ecd33567b649c1":"2Peje"}],"j14BT":[function(require,module,exports) {
+},{"1ecd33567b649c1":"2Peje"}],"j14BT":[function(require,module,exports,__globalThis) {
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
 // Distributed under an MIT license: https://codemirror.net/5/LICENSE
 (function(mod) {
@@ -15369,7 +15369,7 @@ exports.default = options; // parcel transformer vue2 compiler hack
     });
 });
 
-},{"9491bdb990016488":"2Peje"}],"gYEyJ":[function(require,module,exports) {
+},{"9491bdb990016488":"2Peje"}],"gYEyJ":[function(require,module,exports,__globalThis) {
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
 // Distributed under an MIT license: https://codemirror.net/5/LICENSE
 (function(mod) {
@@ -15381,7 +15381,7 @@ exports.default = options; // parcel transformer vue2 compiler hack
         return a.line - b.line || a.ch - b.ch;
     }
     var nameStartChar = "A-Z_a-z\\u00C0-\\u00D6\\u00D8-\\u00F6\\u00F8-\\u02FF\\u0370-\\u037D\\u037F-\\u1FFF\\u200C-\\u200D\\u2070-\\u218F\\u2C00-\\u2FEF\\u3001-\\uD7FF\\uF900-\\uFDCF\\uFDF0-\\uFFFD";
-    var nameChar = nameStartChar + "-:.0-9\\u00B7\\u0300-\\u036F\\u203F-\\u2040";
+    var nameChar = nameStartChar + "\-\:\.0-9\\u00B7\\u0300-\\u036F\\u203F-\\u2040";
     var xmlTagStart = new RegExp("<(/?)([" + nameStartChar + "][" + nameChar + "]*)", "g");
     function Iter(cm, line, ch, range) {
         this.line = line;
@@ -15589,12 +15589,12 @@ exports.default = options; // parcel transformer vue2 compiler hack
     };
 });
 
-},{"d1c956379f910bed":"2Peje"}],"jAov1":[function(require,module,exports) {
+},{"d1c956379f910bed":"2Peje"}],"jAov1":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("codemirror", {
+    return _c('codemirror', {
         attrs: {
             "options": _vm.cmOption
         },
@@ -15611,13 +15611,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"kjpb3":[function() {},{}],"jWDCp":[function(require,module,exports) {
+},{}],"kjpb3":[function() {},{}],"jWDCp":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"aaz23":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"aaz23":[function(require,module,exports,__globalThis) {
 "use strict";
 function dedent(strings) {
     var raw = void 0;
@@ -15656,7 +15656,7 @@ function dedent(strings) {
 }
 module.exports = dedent;
 
-},{}],"hs5g2":[function(require,module,exports) {
+},{}],"hs5g2":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerGraphService = require("spinal-env-viewer-graph-service");
@@ -15710,7 +15710,7 @@ exports.default = {
     }
 };
 
-},{"spinal-env-viewer-graph-service":"9n7zp","spinal-model-bmsnetwork":"gzkbg","spinal-model-bacnet":"fxyeC","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dyEHh":[function(require,module,exports) {
+},{"spinal-env-viewer-graph-service":"9n7zp","spinal-model-bmsnetwork":"gzkbg","spinal-model-bacnet":"fxyeC","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dyEHh":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -15719,16 +15719,16 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("298ed84a989a440a").render;
     script.staticRenderFns = require("298ed84a989a440a").staticRenderFns;
-    script._scopeId = "data-v-079095";
+    script._scopeId = "data-v-fc16e2";
     script.__cssModules = require("4fc3099cf12646ad").default;
     require("e60a990dc63c6143").default(script);
-    script.__scopeId = "data-v-079095";
+    script.__scopeId = 'data-v-fc16e2';
     script.__file = "configuration.vue";
 };
 initialize();
 exports.default = script;
 
-},{"2185b1bd6c17c1ec":"bizYF","298ed84a989a440a":"9ByRa","4fc3099cf12646ad":"iBCxS","e60a990dc63c6143":"jjMoM","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"bizYF":[function(require,module,exports) {
+},{"2185b1bd6c17c1ec":"bizYF","298ed84a989a440a":"9ByRa","4fc3099cf12646ad":"iBCxS","e60a990dc63c6143":"jjMoM","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"bizYF":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalModelBmsnetwork = require("spinal-model-bmsnetwork");
@@ -15780,21 +15780,21 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"spinal-model-bmsnetwork":"gzkbg","../../components/code-mirror/SpinalCodeMirror.vue":"9RF72","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9ByRa":[function(require,module,exports) {
+},{"spinal-model-bmsnetwork":"gzkbg","../../components/code-mirror/SpinalCodeMirror.vue":"9RF72","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9ByRa":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("div", {
+    return _c('div', {
         staticClass: "config_content"
     }, [
-        _c("div", {
+        _c('div', {
             staticClass: "useThese"
         }, [
-            _c("md-checkbox", {
+            _c('md-checkbox', {
                 staticClass: "md-primary",
                 model: {
                     value: _vm.properties.useTheseAttributes,
@@ -15808,30 +15808,30 @@ var render = function() {
             ])
         ], 1),
         _vm._v(" "),
-        _c("div", {
+        _c('div', {
             staticClass: "_container"
         }, [
-            _c("div", {
+            _c('div', {
                 staticClass: "subcontent"
             }, [
-                _c("div", {
+                _c('div', {
                     staticClass: "title"
                 }, [
                     _vm._v("BMS Attribute")
                 ]),
                 _vm._v(" "),
-                _c("div", {
+                _c('div', {
                     staticClass: "content"
                 }, [
-                    _c("div", {
+                    _c('div', {
                         staticClass: "div_select"
                     }, [
-                        _c("md-field", [
-                            _c("label", [
+                        _c('md-field', [
+                            _c('label', [
                                 _vm._v("BMS Property")
                             ]),
                             _vm._v(" "),
-                            _c("md-input", {
+                            _c('md-input', {
                                 model: {
                                     value: _vm.bmsData.property,
                                     callback: function($$v) {
@@ -15843,13 +15843,13 @@ var render = function() {
                         ], 1)
                     ], 1),
                     _vm._v(" "),
-                    _c("div", {
+                    _c('div', {
                         staticClass: "div_code"
                     }, [
-                        _c("div", {
+                        _c('div', {
                             staticClass: "checkbox_div"
                         }, [
-                            _c("md-checkbox", {
+                            _c('md-checkbox', {
                                 staticClass: "md-primary",
                                 model: {
                                     value: _vm.bmsData.useFunction,
@@ -15863,10 +15863,10 @@ var render = function() {
                             ])
                         ], 1),
                         _vm._v(" "),
-                        _vm.bmsData.useFunction ? _c("div", {
+                        _vm.bmsData.useFunction ? _c('div', {
                             staticClass: "text_editor"
                         }, [
-                            _c("spinal-code-mirror", {
+                            _c('spinal-code-mirror', {
                                 staticClass: "editorContainer",
                                 attrs: {
                                     "codeObj": _vm.bmsData.callback
@@ -15877,27 +15877,27 @@ var render = function() {
                 ])
             ]),
             _vm._v(" "),
-            _c("div", {
+            _c('div', {
                 staticClass: "subcontent"
             }, [
-                _c("div", {
+                _c('div', {
                     staticClass: "title"
                 }, [
                     _vm._v("BIM Attribute")
                 ]),
                 _vm._v(" "),
-                _c("div", {
+                _c('div', {
                     staticClass: "content"
                 }, [
-                    _c("div", {
+                    _c('div', {
                         staticClass: "div_select"
                     }, [
-                        _c("md-field", [
-                            _c("label", [
+                        _c('md-field', [
+                            _c('label', [
                                 _vm._v("BIM Property")
                             ]),
                             _vm._v(" "),
-                            _c("md-input", {
+                            _c('md-input', {
                                 model: {
                                     value: _vm.bimData.property,
                                     callback: function($$v) {
@@ -15909,13 +15909,13 @@ var render = function() {
                         ], 1)
                     ], 1),
                     _vm._v(" "),
-                    _c("div", {
+                    _c('div', {
                         staticClass: "div_code"
                     }, [
-                        _c("div", {
+                        _c('div', {
                             staticClass: "checkbox_div"
                         }, [
-                            _c("md-checkbox", {
+                            _c('md-checkbox', {
                                 staticClass: "md-primary",
                                 model: {
                                     value: _vm.bimData.useFunction,
@@ -15929,10 +15929,10 @@ var render = function() {
                             ])
                         ], 1),
                         _vm._v(" "),
-                        _vm.bimData.useFunction ? _c("div", {
+                        _vm.bimData.useFunction ? _c('div', {
                             staticClass: "text_editor"
                         }, [
-                            _c("spinal-code-mirror", {
+                            _c('spinal-code-mirror', {
                                 staticClass: "editorContainer",
                                 attrs: {
                                     "codeObj": _vm.bimData.callback
@@ -15949,13 +15949,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"iBCxS":[function() {},{}],"jjMoM":[function(require,module,exports) {
+},{}],"iBCxS":[function() {},{}],"jjMoM":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dWyo6":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dWyo6":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _dedent = require("dedent");
@@ -15974,7 +15974,7 @@ exports.default = (0, _dedentDefault.default)`
 
 `;
 
-},{"dedent":"aaz23","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"k55R4":[function(require,module,exports) {
+},{"dedent":"aaz23","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"k55R4":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _dedent = require("dedent");
@@ -15993,6 +15993,6 @@ exports.default = (0, _dedentDefault.default)`
 
 `;
 
-},{"dedent":"aaz23","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},[], null, "parcelRequire02e5")
+},{"dedent":"aaz23","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},[], null, "parcelRequire94c2")
 
 //# sourceMappingURL=spinal-env-viewer-plugin-network-tree.51d1397c.js.map

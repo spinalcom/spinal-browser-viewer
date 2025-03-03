@@ -73,7 +73,7 @@
         localRequire,
         module,
         module.exports,
-        this
+        globalObject
       );
     }
 
@@ -142,7 +142,7 @@
       this[globalName] = mainExports;
     }
   }
-})({"bXst4":[function(require,module,exports) {
+})({"bXst4":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -203,7 +203,7 @@ spinalContextMenuService.registerApp("GraphManagerSideBar", new (0, _addColor.Sp
     3
 ]);
 
-},{"./registerDialogs":"f2ibM","bfa064e4a0348f9c":"kHlxv","./js/deleteButton.js":"kXhFR","./js/renameButton.js":"8y7oA","./js/selectBIMObjectButton.js":"byLzT","./js/fitToViewerButton.js":"jAXW3","./js/isolationButton.js":"gKnYn","./js/isolationReferenceButton.js":"aZpX2","./js/addColor":"6Va3a"}],"f2ibM":[function(require,module,exports) {
+},{"./registerDialogs":"f2ibM","bfa064e4a0348f9c":"kHlxv","./js/deleteButton.js":"kXhFR","./js/renameButton.js":"8y7oA","./js/selectBIMObjectButton.js":"byLzT","./js/fitToViewerButton.js":"jAXW3","./js/isolationButton.js":"gKnYn","./js/isolationReferenceButton.js":"aZpX2","./js/addColor":"6Va3a"}],"f2ibM":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _vue = require("vue");
 var _vueDefault = parcelHelpers.interopDefault(_vue);
@@ -240,7 +240,7 @@ const dialogs = [
 ];
 for(let index = 0; index < dialogs.length; index++)SpinalMountExtention.mount(dialogs[index]);
 
-},{"vue":"gt5MM","./vue/deletePanel.vue":"fy7wZ","./vue/renamePanel.vue":"ePSjA","./vue/researchPanel.vue":"jRq5H","./vue/colorDialog.vue":"lFDbv","e96e339488908ad3":"7Uw4d","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fy7wZ":[function(require,module,exports) {
+},{"vue":"gt5MM","./vue/deletePanel.vue":"fy7wZ","./vue/renamePanel.vue":"ePSjA","./vue/researchPanel.vue":"jRq5H","./vue/colorDialog.vue":"lFDbv","e96e339488908ad3":"7Uw4d","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fy7wZ":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -249,54 +249,54 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("334e410359e39538").render;
     script.staticRenderFns = require("334e410359e39538").staticRenderFns;
-    script._scopeId = "data-v-7f8522";
+    script._scopeId = "data-v-ca6b80";
     script.__cssModules = require("fe6cdee010c4175d").default;
     require("5fc14a2872370e0c").default(script);
-    script.__scopeId = "data-v-7f8522";
+    script.__scopeId = 'data-v-ca6b80';
     script.__file = "deletePanel.vue";
 };
 initialize();
 exports.default = script;
 
-},{"5413a7c90f89e930":"4S1jS","334e410359e39538":"2rauy","fe6cdee010c4175d":"cKwpY","5fc14a2872370e0c":"1YHzI","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"4S1jS":[function(require,module,exports) {
+},{"5413a7c90f89e930":"4S1jS","334e410359e39538":"2rauy","fe6cdee010c4175d":"cKwpY","5fc14a2872370e0c":"1YHzI","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"4S1jS":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerGraphService = require("spinal-env-viewer-graph-service");
 var scriptExports = {
-    name: "dialogComponent",
+    name: 'dialogComponent',
     props: [
-        "onFinised"
+        'onFinised'
     ],
     data () {
         return {
             showDialog: true,
             selectedNode: null,
             selectedContext: null,
-            selectedMode: "Delete nodes",
-            selectedOption: "1",
+            selectedMode: 'Delete nodes',
+            selectedOption: '1',
             excludeOption: null,
             relationNames: null,
             modeOptions: [
-                "Delete nodes",
-                "Delete relations"
+                'Delete nodes',
+                'Delete relations'
             ],
             searchedRelations: [],
             selectedRelations: [],
             strictFilter: false,
-            strFilter: "",
-            name: ""
+            strFilter: '',
+            name: ''
         };
     },
     methods: {
         opened (option) {
-            console.log("opened : ", option);
+            console.log('opened : ', option);
             this.name = option.selectedNode.name.get();
             this.selectedNode = option.selectedNode;
             this.selectedContext = option.context;
         },
         removed (option) {
             if (option.closeResult === true) {
-                console.log("closed : ", option);
+                console.log('closed : ', option);
                 this.routage();
                 this.showDialog = false;
             }
@@ -329,41 +329,41 @@ var scriptExports = {
             let node = (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(this.selectedNode.id.get());
             (0, _spinalEnvViewerGraphService.SpinalGraphService).findInContextByType(this.selectedContext.id.get(), this.selectedContext.id.get(), node.getType().get()).then((models)=>{
                 const nodes = models.map((m)=>(0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(m.id.get()));
-                console.log("nodes :", nodes);
+                console.log('nodes :', nodes);
                 const strFilteredNodes = this.applyStrFilter(nodes);
                 for (const filteredNode of strFilteredNodes)//let realNode = SpinalGraphService.getRealNode(node.id.get());
                 filteredNode.removeFromGraph();
             });
         },
         deleteRelationWithParentInContext () {
-            console.log("deleteRelationWithParentInContext");
+            console.log('deleteRelationWithParentInContext');
             let node = (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(this.selectedNode.id.get());
             // look for parents
             node.getParents().then((parents)=>{
-                console.log("parents : ", parents);
+                console.log('parents : ', parents);
                 for (const p of parents)// if parent is in the same context
                 if (p.getContextIds().includes(this.selectedContext.id.get())) {
-                    console.log("Parent of same context found : ", p.info.name.get());
+                    console.log('Parent of same context found : ', p.info.name.get());
                     // look for relations
                     for (const r of p.getRelationNames())// Verify if the node is a child of the parent
                     (0, _spinalEnvViewerGraphService.SpinalGraphService).isChild(p.info.id.get(), this.selectedNode.id.get(), r).then((res)=>{
                         if (res) {
-                            console.log("Attempting to remove");
+                            console.log('Attempting to remove');
                             this.removeChild(p, node, r);
-                        } else console.log("Child not found");
+                        } else console.log('Child not found');
                     });
                 }
             });
         },
         async deleteChildrenRelations () {
             //here we should call removeChild , then if no childs are left we should remove the relation
-            console.log("deleteChildrenRelations");
+            console.log('deleteChildrenRelations');
             let node = (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(this.selectedNode.id.get());
             for (const r of this.selectedRelations){
                 const children = await node.getChildren(r);
                 for (const child of children)this.removeChild(node, child, r);
                 try {
-                    console.log("Trying to remove relation : ", r);
+                    console.log('Trying to remove relation : ', r);
                     node.removeRelation(r, (0, _spinalEnvViewerGraphService.SPINAL_RELATION_PTR_LST_TYPE));
                 } catch (e) {
                     try {
@@ -384,7 +384,7 @@ var scriptExports = {
         async applyFilter (nodes) {
             const res = [];
             switch(this.excludeOption){
-                case "1":
+                case '1':
                     for (const node of nodes){
                         const parents = await node.getParents();
                         let filteredOut = false;
@@ -395,7 +395,7 @@ var scriptExports = {
                         if (!filteredOut) res.push(node);
                     }
                     return res;
-                case "2":
+                case '2':
                     for (const node of nodes){
                         const parents = await node.getParents();
                         let filteredOut = false;
@@ -409,7 +409,7 @@ var scriptExports = {
                         if (!filteredOut) res.push(node);
                     }
                     return res;
-                case "3":
+                case '3':
                     for (const node of nodes){
                         const parents = await node.getParents();
                         let filteredOut = false;
@@ -428,22 +428,22 @@ var scriptExports = {
             }
         },
         applyStrFilter (nodes) {
-            if (this.strFilter == "") return nodes;
+            if (this.strFilter == '') return nodes;
             return nodes.filter((node)=>{
                 if (this.strictFilter) return node.info.name.get() == this.strFilter;
                 else return node.info.name.get().includes(this.strFilter);
             });
         },
         routage () {
-            if (this.selectedMode === "Delete nodes") {
-                if (this.selectedOption === "1") this.deleteNode();
-                else if (this.selectedOption === "2") this.deleteChildren();
-                else if (this.selectedOption === "3") this.deleteNodeAndChildren();
-                else if (this.selectedOption === "4") this.deleteAllNodesOfSameTypeInSameContext();
-            } else if (this.selectedMode === "Delete relations") {
-                if (this.selectedOption === "1") this.deleteRelationWithParentInContext();
-                else if (this.selectedOption === "2") this.deleteChildrenRelations();
-                else if (this.selectedOption === "3") this.deleteParentRelations();
+            if (this.selectedMode === 'Delete nodes') {
+                if (this.selectedOption === '1') this.deleteNode();
+                else if (this.selectedOption === '2') this.deleteChildren();
+                else if (this.selectedOption === '3') this.deleteNodeAndChildren();
+                else if (this.selectedOption === '4') this.deleteAllNodesOfSameTypeInSameContext();
+            } else if (this.selectedMode === 'Delete relations') {
+                if (this.selectedOption === '1') this.deleteRelationWithParentInContext();
+                else if (this.selectedOption === '2') this.deleteChildrenRelations();
+                else if (this.selectedOption === '3') this.deleteParentRelations();
             }
         },
         removeChild (p, node, r) {
@@ -458,23 +458,23 @@ var scriptExports = {
             }
         },
         closeDialog (closeResult) {
-            if (typeof this.onFinised === "function") this.onFinised({
+            if (typeof this.onFinised === 'function') this.onFinised({
                 closeResult,
                 inputValue: this.inputValue
             });
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"spinal-env-viewer-graph-service":"9n7zp","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2rauy":[function(require,module,exports) {
+},{"spinal-env-viewer-graph-service":"9n7zp","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2rauy":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("div", [
-        _c("md-dialog", {
+    return _c('div', [
+        _c('md-dialog', {
             attrs: {
                 "md-active": _vm.showDialog
             },
@@ -490,15 +490,15 @@ var render = function() {
                 }
             }
         }, [
-            _c("md-dialog-title", [
+            _c('md-dialog-title', [
                 _vm._v("Delete action on node selected : " + _vm._s(_vm.name))
             ]),
             _vm._v(" "),
-            _c("div", {
+            _c('div', {
                 staticClass: "DeleteMainBody"
             }, [
-                _c("md-field", [
-                    _c("label", {
+                _c('md-field', [
+                    _c('label', {
                         attrs: {
                             "for": "Select how you want the delete to operate"
                         }
@@ -506,7 +506,7 @@ var render = function() {
                         _vm._v("\n          Select how you want the delete to operate\n        ")
                     ]),
                     _vm._v(" "),
-                    _c("md-select", {
+                    _c('md-select', {
                         attrs: {
                             "id": "modeSelect",
                             "name": "modeSelect"
@@ -519,7 +519,7 @@ var render = function() {
                             expression: "selectedMode"
                         }
                     }, _vm._l(_vm.modeOptions, function(option) {
-                        return _c("md-option", {
+                        return _c('md-option', {
                             key: option,
                             attrs: {
                                 "value": option
@@ -530,8 +530,8 @@ var render = function() {
                     }), 1)
                 ], 1),
                 _vm._v(" "),
-                _vm.selectedMode === "Delete nodes" ? _c("div", [
-                    _c("md-radio", {
+                _vm.selectedMode === 'Delete nodes' ? _c('div', [
+                    _c('md-radio', {
                         staticClass: "md-primary",
                         attrs: {
                             "value": "1"
@@ -547,7 +547,7 @@ var render = function() {
                         _vm._v("\n          This node only\n        ")
                     ]),
                     _vm._v(" "),
-                    _c("md-radio", {
+                    _c('md-radio', {
                         staticClass: "md-primary",
                         attrs: {
                             "value": "2"
@@ -563,7 +563,7 @@ var render = function() {
                         _vm._v("\n          This node's children nodes\n        ")
                     ]),
                     _vm._v(" "),
-                    _c("md-radio", {
+                    _c('md-radio', {
                         staticClass: "md-primary",
                         attrs: {
                             "value": "3"
@@ -577,13 +577,13 @@ var render = function() {
                         }
                     }, [
                         _vm._v("\n          This node "),
-                        _c("strong", [
+                        _c('strong', [
                             _vm._v(" and ")
                         ]),
                         _vm._v(" children nodes\n        ")
                     ]),
                     _vm._v(" "),
-                    _c("md-radio", {
+                    _c('md-radio', {
                         staticClass: "md-primary",
                         attrs: {
                             "value": "4"
@@ -599,13 +599,13 @@ var render = function() {
                         _vm._v("\n          All nodes of similar type in the same context")
                     ]),
                     _vm._v(" "),
-                    _vm.selectedOption === "4" || _vm.selectedOption === "2" ? _c("div", [
-                        _c("md-field", [
-                            _c("label", [
+                    _vm.selectedOption === '4' || _vm.selectedOption === '2' ? _c('div', [
+                        _c('md-field', [
+                            _c('label', [
                                 _vm._v("Filter value : ")
                             ]),
                             _vm._v(" "),
-                            _c("md-input", {
+                            _c('md-input', {
                                 model: {
                                     value: _vm.strFilter,
                                     callback: function($$v) {
@@ -616,10 +616,10 @@ var render = function() {
                             })
                         ], 1),
                         _vm._v(" "),
-                        _vm.strFilter == "" ? _c("b", [
+                        _vm.strFilter == '' ? _c('b', [
                             _vm._v(" !! If the filter is empty, all nodes will be captured !! ")
-                        ]) : _c("div", [
-                            _c("md-radio", {
+                        ]) : _c('div', [
+                            _c('md-radio', {
                                 attrs: {
                                     "value": true
                                 },
@@ -634,7 +634,7 @@ var render = function() {
                                 _vm._v("\n              Strict filter (node name has to match exactly the filter value)\n            ")
                             ]),
                             _vm._v(" "),
-                            _c("md-radio", {
+                            _c('md-radio', {
                                 attrs: {
                                     "value": false
                                 },
@@ -651,18 +651,18 @@ var render = function() {
                         ], 1)
                     ], 1) : _vm._e(),
                     _vm._v(" "),
-                    _c("div", [
-                        _c("p", [
+                    _c('div', [
+                        _c('p', [
                             _vm._v("--------------------")
                         ]),
                         _vm._v(" "),
-                        _c("strong", [
+                        _c('strong', [
                             _vm._v(" Exclude if : ")
                         ]),
                         _vm._v(" "),
-                        _c("md-radio", {
+                        _c('md-radio', {
                             attrs: {
-                                "disabled": _vm.selectedOption == "1" || _vm.selectedOption == "4",
+                                "disabled": _vm.selectedOption == '1' || _vm.selectedOption == '4',
                                 "value": "1"
                             },
                             model: {
@@ -676,9 +676,9 @@ var render = function() {
                             _vm._v("\n            Node has another parent\n          ")
                         ]),
                         _vm._v(" "),
-                        _c("md-radio", {
+                        _c('md-radio', {
                             attrs: {
-                                "disabled": _vm.selectedOption == "1" || _vm.selectedOption == "4",
+                                "disabled": _vm.selectedOption == '1' || _vm.selectedOption == '4',
                                 "value": "2"
                             },
                             model: {
@@ -692,9 +692,9 @@ var render = function() {
                             _vm._v("\n            Node has another parent in the same context\n          ")
                         ]),
                         _vm._v(" "),
-                        _c("md-radio", {
+                        _c('md-radio', {
                             attrs: {
-                                "disabled": _vm.selectedOption == "1" || _vm.selectedOption == "4",
+                                "disabled": _vm.selectedOption == '1' || _vm.selectedOption == '4',
                                 "value": "3"
                             },
                             model: {
@@ -710,8 +710,8 @@ var render = function() {
                     ], 1)
                 ], 1) : _vm._e(),
                 _vm._v(" "),
-                _vm.selectedMode === "Delete relations" ? _c("div", [
-                    _c("md-radio", {
+                _vm.selectedMode === 'Delete relations' ? _c('div', [
+                    _c('md-radio', {
                         staticClass: "md-primary",
                         attrs: {
                             "value": "1"
@@ -727,7 +727,7 @@ var render = function() {
                         _vm._v("\n          Relation with parent in this context\n        ")
                     ]),
                     _vm._v(" "),
-                    _c("md-radio", {
+                    _c('md-radio', {
                         staticClass: "md-primary",
                         attrs: {
                             "value": "2"
@@ -743,7 +743,7 @@ var render = function() {
                         _vm._v("\n          Children relations\n        ")
                     ]),
                     _vm._v(" "),
-                    _vm.selectedOption == "2" ? _c("md-button", {
+                    _vm.selectedOption == '2' ? _c('md-button', {
                         on: {
                             "click": function($event) {
                                 return _vm.searchRelations();
@@ -753,8 +753,8 @@ var render = function() {
                         _vm._v("\n          Search relations\n        ")
                     ]) : _vm._e(),
                     _vm._v(" "),
-                    _vm.searchedRelations.length > 0 ? _c("div", _vm._l(_vm.searchedRelations, function(item) {
-                        return _c("md-checkbox", {
+                    _vm.searchedRelations.length > 0 ? _c('div', _vm._l(_vm.searchedRelations, function(item) {
+                        return _c('md-checkbox', {
                             key: item,
                             attrs: {
                                 "value": item
@@ -773,8 +773,8 @@ var render = function() {
                 ], 1) : _vm._e()
             ], 1),
             _vm._v(" "),
-            _c("md-dialog-actions", [
-                _c("md-button", {
+            _c('md-dialog-actions', [
+                _c('md-button', {
                     staticClass: "md-primary",
                     on: {
                         "click": function($event) {
@@ -785,7 +785,7 @@ var render = function() {
                     _vm._v("Cancel")
                 ]),
                 _vm._v(" "),
-                _c("md-button", {
+                _c('md-button', {
                     staticClass: "md-primary",
                     on: {
                         "click": function($event) {
@@ -803,13 +803,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"cKwpY":[function() {},{}],"1YHzI":[function(require,module,exports) {
+},{}],"cKwpY":[function() {},{}],"1YHzI":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ePSjA":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ePSjA":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -818,15 +818,15 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("f3110c23e293571").render;
     script.staticRenderFns = require("f3110c23e293571").staticRenderFns;
-    script._scopeId = "data-v-781f82";
+    script._scopeId = "data-v-6c2a6b";
     require("34246a61773a2dd").default(script);
-    script.__scopeId = "data-v-781f82";
+    script.__scopeId = 'data-v-6c2a6b';
     script.__file = "renamePanel.vue";
 };
 initialize();
 exports.default = script;
 
-},{"12cd4fc82bd61733":"ji0yy","f3110c23e293571":"iXfdS","34246a61773a2dd":"jCEcY","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ji0yy":[function(require,module,exports) {
+},{"12cd4fc82bd61733":"ji0yy","f3110c23e293571":"iXfdS","34246a61773a2dd":"jCEcY","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ji0yy":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerGraphService = require("spinal-env-viewer-graph-service");
@@ -866,16 +866,16 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"spinal-env-viewer-graph-service":"9n7zp","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"iXfdS":[function(require,module,exports) {
+},{"spinal-env-viewer-graph-service":"9n7zp","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"iXfdS":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("div", [
-        _c("md-dialog", {
+    return _c('div', [
+        _c('md-dialog', {
             attrs: {
                 "md-active": _vm.showDialog
             },
@@ -891,13 +891,13 @@ var render = function() {
                 }
             }
         }, [
-            _c("md-dialog-title", [
+            _c('md-dialog-title', [
                 _vm._v("Rename " + _vm._s(_vm.name))
             ]),
             _vm._v(" "),
-            _c("md-dialog-content", [
-                _c("md-field", [
-                    _c("md-input", {
+            _c('md-dialog-content', [
+                _c('md-field', [
+                    _c('md-input', {
                         model: {
                             value: _vm.inputValue,
                             callback: function($$v) {
@@ -909,8 +909,8 @@ var render = function() {
                 ], 1)
             ], 1),
             _vm._v(" "),
-            _c("md-dialog-actions", [
-                _c("md-button", {
+            _c('md-dialog-actions', [
+                _c('md-button', {
                     staticClass: "md-primary",
                     on: {
                         "click": function($event) {
@@ -921,7 +921,7 @@ var render = function() {
                     _vm._v("Cancel")
                 ]),
                 _vm._v(" "),
-                _c("md-button", {
+                _c('md-button', {
                     staticClass: "md-primary",
                     on: {
                         "click": function($event) {
@@ -939,13 +939,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"jCEcY":[function(require,module,exports) {
+},{}],"jCEcY":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jRq5H":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jRq5H":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -954,15 +954,15 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("c2e0446d1649305f").render;
     script.staticRenderFns = require("c2e0446d1649305f").staticRenderFns;
-    script._scopeId = "data-v-f56ac5";
+    script._scopeId = "data-v-8be7e3";
     require("430b9d4c9288cc6f").default(script);
-    script.__scopeId = "data-v-f56ac5";
+    script.__scopeId = 'data-v-8be7e3';
     script.__file = "researchPanel.vue";
 };
 initialize();
 exports.default = script;
 
-},{"b4f3057114d07fdb":"3fvis","c2e0446d1649305f":"ihDZj","430b9d4c9288cc6f":"l7Bmb","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3fvis":[function(require,module,exports) {
+},{"b4f3057114d07fdb":"3fvis","c2e0446d1649305f":"ihDZj","430b9d4c9288cc6f":"l7Bmb","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3fvis":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerGraphService = require("spinal-env-viewer-graph-service");
@@ -1014,16 +1014,16 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"spinal-env-viewer-graph-service":"9n7zp","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ihDZj":[function(require,module,exports) {
+},{"spinal-env-viewer-graph-service":"9n7zp","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ihDZj":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("div", [
-        _c("md-dialog", {
+    return _c('div', [
+        _c('md-dialog', {
             attrs: {
                 "md-active": _vm.showDialog
             },
@@ -1039,13 +1039,13 @@ var render = function() {
                 }
             }
         }, [
-            _c("md-dialog-title", [
+            _c('md-dialog-title', [
                 _vm._v("Research element")
             ]),
             _vm._v(" "),
-            _c("md-dialog-content", [
-                _c("md-field", [
-                    _c("md-input", {
+            _c('md-dialog-content', [
+                _c('md-field', [
+                    _c('md-input', {
                         model: {
                             value: _vm.inputValue,
                             callback: function($$v) {
@@ -1057,8 +1057,8 @@ var render = function() {
                 ], 1)
             ], 1),
             _vm._v(" "),
-            _c("md-dialog-actions", [
-                _c("md-button", {
+            _c('md-dialog-actions', [
+                _c('md-button', {
                     staticClass: "md-primary",
                     on: {
                         "click": function($event) {
@@ -1069,7 +1069,7 @@ var render = function() {
                     _vm._v("Cancel")
                 ]),
                 _vm._v(" "),
-                _c("md-button", {
+                _c('md-button', {
                     staticClass: "md-primary",
                     on: {
                         "click": function($event) {
@@ -1087,13 +1087,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"l7Bmb":[function(require,module,exports) {
+},{}],"l7Bmb":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"lFDbv":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"lFDbv":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -1102,16 +1102,16 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("842bb3afc6cfcb4e").render;
     script.staticRenderFns = require("842bb3afc6cfcb4e").staticRenderFns;
-    script._scopeId = "data-v-bf2d9a";
+    script._scopeId = "data-v-c5af3b";
     script.__cssModules = require("b5e6ccc8de18c740").default;
     require("8313894fa4a0eef6").default(script);
-    script.__scopeId = "data-v-bf2d9a";
+    script.__scopeId = 'data-v-c5af3b';
     script.__file = "colorDialog.vue";
 };
 initialize();
 exports.default = script;
 
-},{"3d4067551747264b":"dIf9g","842bb3afc6cfcb4e":"aYjVU","b5e6ccc8de18c740":"bcQfB","8313894fa4a0eef6":"jPqs5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dIf9g":[function(require,module,exports) {
+},{"3d4067551747264b":"dIf9g","842bb3afc6cfcb4e":"aYjVU","b5e6ccc8de18c740":"bcQfB","8313894fa4a0eef6":"jPqs5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dIf9g":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerGraphService = require("spinal-env-viewer-graph-service");
@@ -1154,15 +1154,15 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"spinal-env-viewer-graph-service":"9n7zp","vue-color":"bOuNP","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"aYjVU":[function(require,module,exports) {
+},{"spinal-env-viewer-graph-service":"9n7zp","vue-color":"bOuNP","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"aYjVU":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("md-dialog", {
+    return _c('md-dialog', {
         attrs: {
             "md-active": _vm.showDialog
         },
@@ -1178,14 +1178,14 @@ var render = function() {
             }
         }
     }, [
-        _c("md-dialog-title", [
+        _c('md-dialog-title', [
             _vm._v("Edit Color")
         ]),
         _vm._v(" "),
-        _c("md-dialog-content", {
+        _c('md-dialog-content', {
             staticClass: "colorDialogContainer"
         }, [
-            _c("chrome-picker", {
+            _c('chrome-picker', {
                 model: {
                     value: _vm.color,
                     callback: function($$v) {
@@ -1196,8 +1196,8 @@ var render = function() {
             })
         ], 1),
         _vm._v(" "),
-        _c("md-dialog-actions", [
-            _c("md-button", {
+        _c('md-dialog-actions', [
+            _c('md-button', {
                 staticClass: "md-primary",
                 on: {
                     "click": function($event) {
@@ -1208,7 +1208,7 @@ var render = function() {
                 _vm._v("Cancel")
             ]),
             _vm._v(" "),
-            _c("md-button", {
+            _c('md-button', {
                 staticClass: "md-primary",
                 on: {
                     "click": function($event) {
@@ -1225,13 +1225,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"bcQfB":[function() {},{}],"jPqs5":[function(require,module,exports) {
+},{}],"bcQfB":[function() {},{}],"jPqs5":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7Uw4d":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7Uw4d":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -1270,7 +1270,7 @@ module.exports = {
     }
 };
 
-},{"8b71a79dcc12420e":"h7sS1","e47c36529e942a76":"cvBJ6","cfd4c6200ba55765":"9SKSV"}],"h7sS1":[function(require,module,exports) {
+},{"8b71a79dcc12420e":"h7sS1","e47c36529e942a76":"cvBJ6","cfd4c6200ba55765":"9SKSV"}],"h7sS1":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -1350,7 +1350,7 @@ module.exports = {
 }
 module.exports = SpinalPanelManagerService;
 
-},{}],"cvBJ6":[function(require,module,exports) {
+},{}],"cvBJ6":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -1385,7 +1385,7 @@ module.exports = SpinalPanelManagerService;
 }
 module.exports = SpinalPanelApp;
 
-},{}],"9SKSV":[function(require,module,exports) {
+},{}],"9SKSV":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -1484,7 +1484,7 @@ function getDialog() {
     };
 };
 
-},{}],"kXhFR":[function(require,module,exports) {
+},{}],"kXhFR":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -1529,7 +1529,7 @@ class SpinalContextDelete extends SpinalContextApp {
     }
 }
 
-},{"bc1d447e26165486":"kHlxv","8a068357221a405f":"7Uw4d","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"8y7oA":[function(require,module,exports) {
+},{"bc1d447e26165486":"kHlxv","8a068357221a405f":"7Uw4d","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"8y7oA":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -1578,7 +1578,7 @@ class SpinalContextRename extends SpinalContextApp {
     }
 }
 
-},{"42a2449e24f0b255":"kHlxv","b312551e41c0b48d":"7Uw4d","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"byLzT":[function(require,module,exports) {
+},{"42a2449e24f0b255":"kHlxv","b312551e41c0b48d":"7Uw4d","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"byLzT":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -1624,13 +1624,13 @@ class SpinalContextSelectBIMObject extends SpinalContextApp {
         let realNode = (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(option.selectedNode.id.get());
         const nodes = await realNode.find((0, _utilities.SELECTrelationList), (node)=>node.info.type.get() === "BIMObject");
         const lstByModel = await (0, _utilities.utilities).sortBIMObjectByModel(nodes);
-        const arrayToFit = (0, _utilities.utilities).organizeBimObjectForAggregateViewer(lstByModel, "ids");
+        const arrayToFit = (0, _utilities.utilities).organizeBimObjectForAggregateViewer(lstByModel, 'ids');
         this.viewer.clearSelection();
         this.viewer.setAggregateSelection(arrayToFit);
     }
 }
 
-},{"spinal-env-viewer-graph-service":"9n7zp","6a1561c7c4b8903b":"kHlxv","./utilities":"ktewa","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ktewa":[function(require,module,exports) {
+},{"spinal-env-viewer-graph-service":"9n7zp","6a1561c7c4b8903b":"kHlxv","./utilities":"ktewa","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ktewa":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2021 SpinalCom - www.spinalcom.com
  *
@@ -1775,7 +1775,7 @@ module.exports = {
     utilities
 };
 
-},{"spinal-env-viewer-graph-service":"9n7zp","spinal-env-viewer-plugin-group-manager-service":"tSLpq","spinal-env-viewer-context-geographic-service/build/constants":"eV0id","spinal-model-bmsnetwork":"gzkbg","spinal-env-viewer-plugin-network-tree-service":"7oQhf"}],"jAXW3":[function(require,module,exports) {
+},{"spinal-env-viewer-graph-service":"9n7zp","spinal-env-viewer-plugin-group-manager-service":"tSLpq","spinal-env-viewer-context-geographic-service/build/constants":"eV0id","spinal-model-bmsnetwork":"gzkbg","spinal-env-viewer-plugin-network-tree-service":"7oQhf"}],"jAXW3":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -1821,12 +1821,12 @@ class SpinalContextFitToViewer extends SpinalContextApp {
         let realNode = (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(option.selectedNode.id.get());
         const nodes = await realNode.find((0, _utilities.SELECTrelationList), (node)=>node.info.type.get() === "BIMObject");
         const lstByModel = await (0, _utilities.utilities).sortBIMObjectByModel(nodes);
-        const arrayToFit = (0, _utilities.utilities).organizeBimObjectForAggregateViewer(lstByModel, "selection");
+        const arrayToFit = (0, _utilities.utilities).organizeBimObjectForAggregateViewer(lstByModel, 'selection');
         this.viewer.fitToView(arrayToFit);
     }
 }
 
-},{"spinal-env-viewer-graph-service":"9n7zp","5b562009692cf730":"kHlxv","./utilities":"ktewa","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gKnYn":[function(require,module,exports) {
+},{"spinal-env-viewer-graph-service":"9n7zp","5b562009692cf730":"kHlxv","./utilities":"ktewa","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gKnYn":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -1880,13 +1880,13 @@ class SpinalContextIsolation extends SpinalContextApp {
         else {
             const nodes = await realNode.find((0, _utilities.SELECTrelationList), (node)=>node.info.type.get() === "BIMObject");
             const lstByModel = await (0, _utilities.utilities).sortBIMObjectByModel(nodes);
-            const arrRes = (0, _utilities.utilities).organizeBimObjectForAggregateViewer(lstByModel, "ids");
+            const arrRes = (0, _utilities.utilities).organizeBimObjectForAggregateViewer(lstByModel, 'ids');
             this.viewer.impl.visibilityManager.aggregateIsolate(arrRes);
         }
     }
 }
 
-},{"spinal-env-viewer-graph-service":"9n7zp","f5e403b3d9806567":"kHlxv","./utilities":"ktewa","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"aZpX2":[function(require,module,exports) {
+},{"spinal-env-viewer-graph-service":"9n7zp","f5e403b3d9806567":"kHlxv","./utilities":"ktewa","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"aZpX2":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -1941,13 +1941,13 @@ class SpinalContextIsolationReference extends SpinalContextApp {
         else {
             const nodes = await realNode.find((0, _constants.REFERENCE_RELATION), (node)=>node.info.type.get() === "BIMObject");
             const lstByModel = await (0, _utilities.utilities).sortBIMObjectByModel(nodes);
-            const arrRes = (0, _utilities.utilities).organizeBimObjectForAggregateViewer(lstByModel, "ids");
+            const arrRes = (0, _utilities.utilities).organizeBimObjectForAggregateViewer(lstByModel, 'ids');
             this.viewer.impl.visibilityManager.aggregateIsolate(arrRes);
         }
     }
 }
 
-},{"spinal-env-viewer-graph-service":"9n7zp","be39058f9adef1c3":"kHlxv","spinal-env-viewer-plugin-standard_button/js/utilities":"ktewa","spinal-env-viewer-context-geographic-service/build/constants":"eV0id","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6Va3a":[function(require,module,exports) {
+},{"spinal-env-viewer-graph-service":"9n7zp","be39058f9adef1c3":"kHlxv","spinal-env-viewer-plugin-standard_button/js/utilities":"ktewa","spinal-env-viewer-context-geographic-service/build/constants":"eV0id","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6Va3a":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -1992,7 +1992,7 @@ class SpinalEditColor extends SpinalContextApp {
     }
 }
 
-},{"b075eb68c59c1ec6":"kHlxv","84a8f90413a64639":"7Uw4d","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9Nkbe":[function(require,module,exports) {
+},{"b075eb68c59c1ec6":"kHlxv","84a8f90413a64639":"7Uw4d","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9Nkbe":[function(require,module,exports,__globalThis) {
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -2000,7 +2000,7 @@ Object.defineProperty(exports, "__esModule", {
 const bimService_1 = require("edfb101c687f070e");
 exports.bimObjectManagerService = bimService_1.default;
 
-},{"edfb101c687f070e":"cXqcc"}],"cXqcc":[function(require,module,exports) {
+},{"edfb101c687f070e":"cXqcc"}],"cXqcc":[function(require,module,exports,__globalThis) {
 "use strict";
 var __awaiter = this && this.__awaiter || function(thisArg, _arguments, P, generator) {
     return new (P || (P = Promise))(function(resolve, reject) {
@@ -2175,9 +2175,9 @@ class BimObjectManagerService {
 }
 exports.default = new BimObjectManagerService();
 
-},{}],"jhUEF":[function(require,module,exports) {
+},{}],"jhUEF":[function(require,module,exports,__globalThis) {
 "use strict";
 
-},{}]},[], null, "parcelRequire02e5")
+},{}]},[], null, "parcelRequire94c2")
 
 //# sourceMappingURL=spinal-env-viewer-plugin-standard_button.79d2a047.js.map

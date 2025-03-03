@@ -73,7 +73,7 @@
         localRequire,
         module,
         module.exports,
-        this
+        globalObject
       );
     }
 
@@ -142,7 +142,7 @@
       this[globalName] = mainExports;
     }
   }
-})({"a0azn":[function(require,module,exports) {
+})({"a0azn":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2021 SpinalCom - www.spinalcom.com
  *
@@ -173,7 +173,7 @@ spinalContextMenuService.registerApp(HeaderBarName, new StandardAttribute(), [
     3
 ]);
 
-},{"614b496e560633e2":"kHlxv","b2a710aad139f6d4":"jtGMQ"}],"jtGMQ":[function(require,module,exports) {
+},{"614b496e560633e2":"kHlxv","b2a710aad139f6d4":"jtGMQ"}],"jtGMQ":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2021 SpinalCom - www.spinalcom.com
  * 
@@ -312,7 +312,7 @@ class StandardAttribute extends SpinalContextApp {
 }
 module.exports = StandardAttribute;
 
-},{"27ed2829d7d09c74":"9n7zp","4465b7f1bc080d1c":"igGim","bfb7995bdd890029":"5rYVR","2876db7244088750":"kHlxv","1d2173b1eac5b27b":"7Uw4d"}],"7Uw4d":[function(require,module,exports) {
+},{"27ed2829d7d09c74":"9n7zp","4465b7f1bc080d1c":"igGim","bfb7995bdd890029":"5rYVR","2876db7244088750":"kHlxv","1d2173b1eac5b27b":"7Uw4d"}],"7Uw4d":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -351,7 +351,7 @@ module.exports = {
     }
 };
 
-},{"8b71a79dcc12420e":"h7sS1","e47c36529e942a76":"cvBJ6","cfd4c6200ba55765":"9SKSV"}],"h7sS1":[function(require,module,exports) {
+},{"8b71a79dcc12420e":"h7sS1","e47c36529e942a76":"cvBJ6","cfd4c6200ba55765":"9SKSV"}],"h7sS1":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -431,7 +431,7 @@ module.exports = {
 }
 module.exports = SpinalPanelManagerService;
 
-},{}],"cvBJ6":[function(require,module,exports) {
+},{}],"cvBJ6":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -466,7 +466,7 @@ module.exports = SpinalPanelManagerService;
 }
 module.exports = SpinalPanelApp;
 
-},{}],"9SKSV":[function(require,module,exports) {
+},{}],"9SKSV":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -565,6 +565,6 @@ function getDialog() {
     };
 };
 
-},{}]},[], null, "parcelRequire02e5")
+},{}]},[], null, "parcelRequire94c2")
 
 //# sourceMappingURL=spinal-env-viewer-standard-attributs.4dfa48da.js.map

@@ -73,7 +73,7 @@
         localRequire,
         module,
         module.exports,
-        this
+        globalObject
       );
     }
 
@@ -142,7 +142,7 @@
       this[globalName] = mainExports;
     }
   }
-})({"i5yd2":[function(require,module,exports) {
+})({"i5yd2":[function(require,module,exports,__globalThis) {
 "use strict";
 var __createBinding = this && this.__createBinding || (Object.create ? function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
@@ -168,7 +168,7 @@ __exportStar(require("6b0ddbfb5043d49e"), exports);
 __exportStar(require("798e03baefaecc65"), exports);
 __exportStar(require("71c9a67d99ad2384"), exports);
 
-},{"6b0ddbfb5043d49e":"55XNp","798e03baefaecc65":"2OSPe","71c9a67d99ad2384":"jWxed"}],"55XNp":[function(require,module,exports) {
+},{"6b0ddbfb5043d49e":"55XNp","798e03baefaecc65":"2OSPe","71c9a67d99ad2384":"jWxed"}],"55XNp":[function(require,module,exports,__globalThis) {
 "use strict";
 var __createBinding = this && this.__createBinding || (Object.create ? function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
@@ -196,7 +196,7 @@ __exportStar(require("b8ca582373d1e088"), exports);
 __exportStar(require("781a346d907c01eb"), exports);
 __exportStar(require("2176d97912366e4f"), exports);
 
-},{"a948589d4afc760":"iVnSZ","3cc05db58cf62ebf":"f5xfb","b8ca582373d1e088":"5Nd2s","781a346d907c01eb":"b76VQ","2176d97912366e4f":"iHmbz"}],"iVnSZ":[function(require,module,exports) {
+},{"a948589d4afc760":"iVnSZ","3cc05db58cf62ebf":"f5xfb","b8ca582373d1e088":"5Nd2s","781a346d907c01eb":"b76VQ","2176d97912366e4f":"iHmbz"}],"iVnSZ":[function(require,module,exports,__globalThis) {
 var Buffer = require("c151265764528e65").Buffer;
 "use strict";
 var __awaiter = this && this.__awaiter || function(thisArg, _arguments, P, generator) {
@@ -235,10 +235,10 @@ const uuid_1 = require("f85166a450c341bf");
 const constants_1 = require("5bcfcdc43c86ceef");
 const utils_1 = require("f6450173ab3dadac");
 class SpinalOPCUADiscoverModel extends spinal_core_connectorjs_type_1.Model {
-    // constructor(graph: SpinalGraph<any>, context: SpinalContext<any>, organ: SpinalOrganOPCUA, network: INetwork, servers: IServer[]) {
     constructor(graph, context, organ, network){
         super();
         const choicesSet = new Set(Object.keys(constants_1.OPCUA_ORGAN_STATES));
+        const askChoicesSet = new Set(Object.keys(constants_1.OPCUA_ORGAN_USER_CHOICE));
         this.add_attr({
             id: (0, uuid_1.v4)(),
             state: new spinal_core_connectorjs_type_1.Choice(0, Array.from(choicesSet)),
@@ -246,10 +246,12 @@ class SpinalOPCUADiscoverModel extends spinal_core_connectorjs_type_1.Model {
             organ: new spinal_core_connectorjs_type_1.Pbr(organ),
             context: new spinal_core_connectorjs_type_1.Pbr(context),
             graph: new spinal_core_connectorjs_type_1.Pbr(graph),
-            treeDiscovered: "",
-            treeToCreate: "",
+            treeDiscovered: new spinal_core_connectorjs_type_1.Ptr(),
+            treeToCreate: new spinal_core_connectorjs_type_1.Ptr(),
             // servers: new Lst(servers),
-            creation: Date.now()
+            creation: Date.now(),
+            ask: false,
+            askResponse: new spinal_core_connectorjs_type_1.Choice(0, Array.from(askChoicesSet))
         });
     }
     getGraph() {
@@ -279,17 +281,77 @@ class SpinalOPCUADiscoverModel extends spinal_core_connectorjs_type_1.Model {
             }
         });
     }
-    setTreeDiscovered(json) {
-        const base64 = (0, utils_1.convertToBase64)(json);
-        this.treeDiscovered.set(base64);
+    /*
+        ///////////////////////////////////////////////////
+        //             use base64
+        ///////////////////////////////////////////////////
+        public setTreeDiscovered(json: any) {
+            const base64 = convertToBase64(json);
+            this.treeDiscovered.set(base64);
+        }
+
+        public setTreeToCreate(json: any) {
+            const base64 = convertToBase64(json);
+            this.treeToCreate.set(base64);
+        }
+        
+        public async getTreeDiscovered(): Promise<{ [key: string]: any }> {
+            await waitModelReady(this.treeDiscovered);
+
+            const base64 = this.treeDiscovered.get();
+            const tree = Buffer.from(base64, "base64").toString("utf-8");
+
+            if (tree.length === 0) return {};
+
+            return JSON.parse(tree);
+        }
+
+        public async getTreeToCreate(): Promise<{ [key: string]: any }> {
+            await waitModelReady(this.treeToCreate);
+
+            const base64 = this.treeToCreate.get();
+            const tree = Buffer.from(base64, "base64").toString("utf-8");
+
+            if (tree.length === 0) return {};
+
+            return JSON.parse(tree);
+        }
+    */ setTreeDiscovered(json) {
+        return __awaiter(this, void 0, void 0, function*() {
+            // const compressed = await gzip(JSON.stringify(json));
+            const compressed = Buffer.from(JSON.stringify(json));
+            const path = new spinal_core_connectorjs_type_1.Path(compressed);
+            // this.treeDiscovered.set(path); // le .set ne fonctionnait pas sur le browser
+            this.mod_attr("treeDiscovered", new spinal_core_connectorjs_type_1.Ptr(path));
+        });
     }
     setTreeToCreate(json) {
-        const base64 = (0, utils_1.convertToBase64)(json);
-        this.treeToCreate.set(base64);
+        return __awaiter(this, void 0, void 0, function*() {
+            // const compressed = await gzip(JSON.stringify(json));
+            const compressed = Buffer.from(JSON.stringify(json));
+            const path = new spinal_core_connectorjs_type_1.Path(compressed);
+            // this.treeToCreate.set(path); // le .set ne fonctionnait pas sur le browser
+            this.mod_attr("treeToCreate", new spinal_core_connectorjs_type_1.Ptr(path));
+        });
     }
-    // public getServers(): spinal.Lst {
-    // 	return this.servers;
-    // }
+    getTreeDiscovered(hubUrl) {
+        return __awaiter(this, void 0, void 0, function*() {
+            yield (0, utils_1.waitModelReady)(this.treeDiscovered);
+            const pathData = yield (0, utils_1.getPathData)(this.treeDiscovered.data.value, hubUrl);
+            return pathData;
+        // const tree = await ungzip(pathData);
+        // return JSON.parse(tree.toString());
+        });
+    }
+    getTreeToCreate(hubUrl) {
+        return __awaiter(this, void 0, void 0, function*() {
+            yield (0, utils_1.waitModelReady)(this.treeToCreate);
+            const pathData = yield (0, utils_1.getPathData)(this.treeToCreate.data.value, hubUrl);
+            return pathData;
+        // const tree = await ungzip(pathData);
+        // return JSON.parse(tree.toString());
+        });
+    }
     addToGraph() {
         return new Promise((resolve, reject)=>{
             this.getOrgan().then((organ)=>{
@@ -333,23 +395,9 @@ class SpinalOPCUADiscoverModel extends spinal_core_connectorjs_type_1.Model {
         const choicesSet = new Set(Object.keys(constants_1.OPCUA_ORGAN_STATES));
         this.state.set(Array.from(choicesSet).indexOf(state));
     }
-    getTreeDiscovered() {
-        return __awaiter(this, void 0, void 0, function*() {
-            yield (0, utils_1.waitModelReady)(this.treeDiscovered);
-            const base64 = this.treeDiscovered.get();
-            const tree = Buffer.from(base64, "base64").toString("utf-8");
-            if (tree.length === 0) return {};
-            return JSON.parse(tree);
-        });
-    }
-    getTreeToCreate() {
-        return __awaiter(this, void 0, void 0, function*() {
-            yield (0, utils_1.waitModelReady)(this.treeToCreate);
-            const base64 = this.treeToCreate.get();
-            const tree = Buffer.from(base64, "base64").toString("utf-8");
-            if (tree.length === 0) return {};
-            return JSON.parse(tree);
-        });
+    changeChoice(choice) {
+        const choicesSet = new Set(Object.keys(constants_1.OPCUA_ORGAN_USER_CHOICE));
+        this.askResponse.set(Array.from(choicesSet).indexOf(choice));
     }
 }
 exports.SpinalOPCUADiscoverModel = SpinalOPCUADiscoverModel;
@@ -359,7 +407,7 @@ spinal_core_connectorjs_type_1.spinalCore.register_models([
 ]);
 exports.default = SpinalOPCUADiscoverModel;
 
-},{"c151265764528e65":"fCgem","b7cc143681c5f486":"fRH70","f85166a450c341bf":"4E8dk","5bcfcdc43c86ceef":"jWxed","f6450173ab3dadac":"5LxAF"}],"4E8dk":[function(require,module,exports) {
+},{"c151265764528e65":"fCgem","b7cc143681c5f486":"fRH70","f85166a450c341bf":"4E8dk","5bcfcdc43c86ceef":"jWxed","f6450173ab3dadac":"5LxAF"}],"4E8dk":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "v1", ()=>(0, _v1JsDefault.default));
@@ -390,7 +438,7 @@ var _stringifyJsDefault = parcelHelpers.interopDefault(_stringifyJs);
 var _parseJs = require("./parse.js");
 var _parseJsDefault = parcelHelpers.interopDefault(_parseJs);
 
-},{"./v1.js":"1XP2w","./v3.js":"4FHIv","./v4.js":"e2Ddc","./v5.js":"82ies","./nil.js":"5i2ap","./version.js":"atNHi","./validate.js":"dD96N","./stringify.js":"7EsZR","./parse.js":"5Huud","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1XP2w":[function(require,module,exports) {
+},{"./v1.js":"1XP2w","./v3.js":"4FHIv","./v4.js":"e2Ddc","./v5.js":"82ies","./nil.js":"5i2ap","./version.js":"atNHi","./validate.js":"dD96N","./stringify.js":"7EsZR","./parse.js":"5Huud","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1XP2w":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _rngJs = require("./rng.js");
@@ -459,7 +507,7 @@ function v1(options, buf, offset) {
 }
 exports.default = v1;
 
-},{"./rng.js":"ZzE7i","./stringify.js":"7EsZR","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ZzE7i":[function(require,module,exports) {
+},{"./rng.js":"ZzE7i","./stringify.js":"7EsZR","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ZzE7i":[function(require,module,exports,__globalThis) {
 // Unique ID creation requires a high quality random # generator. In the browser we therefore
 // require the crypto API and do not support built-in fallback to lower quality random number
 // generators (like Math.random()).
@@ -472,13 +520,13 @@ function rng() {
     // lazy load so that environments that need to polyfill have a chance to do so
     if (!getRandomValues) {
         // getRandomValues needs to be invoked in a context where "this" is a Crypto implementation.
-        getRandomValues = typeof crypto !== "undefined" && crypto.getRandomValues && crypto.getRandomValues.bind(crypto);
-        if (!getRandomValues) throw new Error("crypto.getRandomValues() not supported. See https://github.com/uuidjs/uuid#getrandomvalues-not-supported");
+        getRandomValues = typeof crypto !== 'undefined' && crypto.getRandomValues && crypto.getRandomValues.bind(crypto);
+        if (!getRandomValues) throw new Error('crypto.getRandomValues() not supported. See https://github.com/uuidjs/uuid#getrandomvalues-not-supported');
     }
     return getRandomValues(rnds8);
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7EsZR":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7EsZR":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "unsafeStringify", ()=>unsafeStringify);
@@ -492,7 +540,7 @@ for(let i = 0; i < 256; ++i)byteToHex.push((i + 0x100).toString(16).slice(1));
 function unsafeStringify(arr, offset = 0) {
     // Note: Be careful editing this code!  It's been tuned for performance
     // and works in ways you may not expect. See https://github.com/uuidjs/uuid/pull/434
-    return byteToHex[arr[offset + 0]] + byteToHex[arr[offset + 1]] + byteToHex[arr[offset + 2]] + byteToHex[arr[offset + 3]] + "-" + byteToHex[arr[offset + 4]] + byteToHex[arr[offset + 5]] + "-" + byteToHex[arr[offset + 6]] + byteToHex[arr[offset + 7]] + "-" + byteToHex[arr[offset + 8]] + byteToHex[arr[offset + 9]] + "-" + byteToHex[arr[offset + 10]] + byteToHex[arr[offset + 11]] + byteToHex[arr[offset + 12]] + byteToHex[arr[offset + 13]] + byteToHex[arr[offset + 14]] + byteToHex[arr[offset + 15]];
+    return byteToHex[arr[offset + 0]] + byteToHex[arr[offset + 1]] + byteToHex[arr[offset + 2]] + byteToHex[arr[offset + 3]] + '-' + byteToHex[arr[offset + 4]] + byteToHex[arr[offset + 5]] + '-' + byteToHex[arr[offset + 6]] + byteToHex[arr[offset + 7]] + '-' + byteToHex[arr[offset + 8]] + byteToHex[arr[offset + 9]] + '-' + byteToHex[arr[offset + 10]] + byteToHex[arr[offset + 11]] + byteToHex[arr[offset + 12]] + byteToHex[arr[offset + 13]] + byteToHex[arr[offset + 14]] + byteToHex[arr[offset + 15]];
 }
 function stringify(arr, offset = 0) {
     const uuid = unsafeStringify(arr, offset); // Consistency check for valid UUID.  If this throws, it's likely due to one
@@ -500,37 +548,37 @@ function stringify(arr, offset = 0) {
     // - One or more input array values don't map to a hex octet (leading to
     // "undefined" in the uuid)
     // - Invalid input values for the RFC `version` or `variant` fields
-    if (!(0, _validateJsDefault.default)(uuid)) throw TypeError("Stringified UUID is invalid");
+    if (!(0, _validateJsDefault.default)(uuid)) throw TypeError('Stringified UUID is invalid');
     return uuid;
 }
 exports.default = stringify;
 
-},{"./validate.js":"dD96N","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dD96N":[function(require,module,exports) {
+},{"./validate.js":"dD96N","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dD96N":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _regexJs = require("./regex.js");
 var _regexJsDefault = parcelHelpers.interopDefault(_regexJs);
 function validate(uuid) {
-    return typeof uuid === "string" && (0, _regexJsDefault.default).test(uuid);
+    return typeof uuid === 'string' && (0, _regexJsDefault.default).test(uuid);
 }
 exports.default = validate;
 
-},{"./regex.js":"1z15p","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1z15p":[function(require,module,exports) {
+},{"./regex.js":"1z15p","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1z15p":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 exports.default = /^(?:[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}|00000000-0000-0000-0000-000000000000)$/i;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"4FHIv":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"4FHIv":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _v35Js = require("./v35.js");
 var _v35JsDefault = parcelHelpers.interopDefault(_v35Js);
 var _md5Js = require("./md5.js");
 var _md5JsDefault = parcelHelpers.interopDefault(_md5Js);
-const v3 = (0, _v35JsDefault.default)("v3", 0x30, (0, _md5JsDefault.default));
+const v3 = (0, _v35JsDefault.default)('v3', 0x30, (0, _md5JsDefault.default));
 exports.default = v3;
 
-},{"./v35.js":"kwbUE","./md5.js":"aQWKm","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"kwbUE":[function(require,module,exports) {
+},{"./v35.js":"kwbUE","./md5.js":"aQWKm","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"kwbUE":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "DNS", ()=>DNS);
@@ -545,14 +593,14 @@ function stringToBytes(str) {
     for(let i = 0; i < str.length; ++i)bytes.push(str.charCodeAt(i));
     return bytes;
 }
-const DNS = "6ba7b810-9dad-11d1-80b4-00c04fd430c8";
-const URL = "6ba7b811-9dad-11d1-80b4-00c04fd430c8";
+const DNS = '6ba7b810-9dad-11d1-80b4-00c04fd430c8';
+const URL = '6ba7b811-9dad-11d1-80b4-00c04fd430c8';
 function v35(name, version, hashfunc) {
     function generateUUID(value, namespace, buf, offset) {
         var _namespace;
-        if (typeof value === "string") value = stringToBytes(value);
-        if (typeof namespace === "string") namespace = (0, _parseJsDefault.default)(namespace);
-        if (((_namespace = namespace) === null || _namespace === void 0 ? void 0 : _namespace.length) !== 16) throw TypeError("Namespace must be array-like (16 iterable integer values, 0-255)");
+        if (typeof value === 'string') value = stringToBytes(value);
+        if (typeof namespace === 'string') namespace = (0, _parseJsDefault.default)(namespace);
+        if (((_namespace = namespace) === null || _namespace === void 0 ? void 0 : _namespace.length) !== 16) throw TypeError('Namespace must be array-like (16 iterable integer values, 0-255)');
          // Compute hash of namespace and value, Per 4.3
         // Future: Use spread syntax when supported on all platforms, e.g. `bytes =
         // hashfunc([...namespace, ... value])`
@@ -577,13 +625,13 @@ function v35(name, version, hashfunc) {
     return generateUUID;
 }
 
-},{"./stringify.js":"7EsZR","./parse.js":"5Huud","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5Huud":[function(require,module,exports) {
+},{"./stringify.js":"7EsZR","./parse.js":"5Huud","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5Huud":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _validateJs = require("./validate.js");
 var _validateJsDefault = parcelHelpers.interopDefault(_validateJs);
 function parse(uuid) {
-    if (!(0, _validateJsDefault.default)(uuid)) throw TypeError("Invalid UUID");
+    if (!(0, _validateJsDefault.default)(uuid)) throw TypeError('Invalid UUID');
     let v;
     const arr = new Uint8Array(16); // Parse ########-....-....-....-............
     arr[0] = (v = parseInt(uuid.slice(0, 8), 16)) >>> 24;
@@ -607,7 +655,7 @@ function parse(uuid) {
 }
 exports.default = parse;
 
-},{"./validate.js":"dD96N","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"aQWKm":[function(require,module,exports) {
+},{"./validate.js":"dD96N","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"aQWKm":[function(require,module,exports,__globalThis) {
 /*
  * Browser-compatible JavaScript MD5
  *
@@ -630,7 +678,7 @@ exports.default = parse;
  */ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 function md5(bytes) {
-    if (typeof bytes === "string") {
+    if (typeof bytes === 'string') {
         const msg = unescape(encodeURIComponent(bytes)); // UTF8 escape
         bytes = new Uint8Array(msg.length);
         for(let i = 0; i < msg.length; ++i)bytes[i] = msg.charCodeAt(i);
@@ -642,7 +690,7 @@ function md5(bytes) {
  */ function md5ToHexEncodedArray(input) {
     const output = [];
     const length32 = input.length * 32;
-    const hexTab = "0123456789abcdef";
+    const hexTab = '0123456789abcdef';
     for(let i = 0; i < length32; i += 8){
         const x = input[i >> 5] >>> i % 32 & 0xff;
         const hex = parseInt(hexTab.charAt(x >>> 4 & 0x0f) + hexTab.charAt(x & 0x0f), 16);
@@ -787,7 +835,7 @@ function md5ii(a, b, c, d, x, s, t) {
 }
 exports.default = md5;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"e2Ddc":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"e2Ddc":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _nativeJs = require("./native.js");
@@ -810,25 +858,25 @@ function v4(options, buf, offset) {
 }
 exports.default = v4;
 
-},{"./native.js":"gvRFv","./rng.js":"ZzE7i","./stringify.js":"7EsZR","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gvRFv":[function(require,module,exports) {
+},{"./native.js":"gvRFv","./rng.js":"ZzE7i","./stringify.js":"7EsZR","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gvRFv":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-const randomUUID = typeof crypto !== "undefined" && crypto.randomUUID && crypto.randomUUID.bind(crypto);
+const randomUUID = typeof crypto !== 'undefined' && crypto.randomUUID && crypto.randomUUID.bind(crypto);
 exports.default = {
     randomUUID
 };
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"82ies":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"82ies":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _v35Js = require("./v35.js");
 var _v35JsDefault = parcelHelpers.interopDefault(_v35Js);
 var _sha1Js = require("./sha1.js");
 var _sha1JsDefault = parcelHelpers.interopDefault(_sha1Js);
-const v5 = (0, _v35JsDefault.default)("v5", 0x50, (0, _sha1JsDefault.default));
+const v5 = (0, _v35JsDefault.default)('v5', 0x50, (0, _sha1JsDefault.default));
 exports.default = v5;
 
-},{"./v35.js":"kwbUE","./sha1.js":"Sb1z3","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"Sb1z3":[function(require,module,exports) {
+},{"./v35.js":"kwbUE","./sha1.js":"Sb1z3","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"Sb1z3":[function(require,module,exports,__globalThis) {
 // Adapted from Chris Veness' SHA1 code at
 // http://www.movable-type.co.uk/scripts/sha1.html
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -862,7 +910,7 @@ function sha1(bytes) {
         0x10325476,
         0xc3d2e1f0
     ];
-    if (typeof bytes === "string") {
+    if (typeof bytes === 'string') {
         const msg = unescape(encodeURIComponent(bytes)); // UTF8 escape
         bytes = [];
         for(let i = 0; i < msg.length; ++i)bytes.push(msg.charCodeAt(i));
@@ -929,28 +977,28 @@ function sha1(bytes) {
 }
 exports.default = sha1;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5i2ap":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5i2ap":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-exports.default = "00000000-0000-0000-0000-000000000000";
+exports.default = '00000000-0000-0000-0000-000000000000';
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"atNHi":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"atNHi":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _validateJs = require("./validate.js");
 var _validateJsDefault = parcelHelpers.interopDefault(_validateJs);
 function version(uuid) {
-    if (!(0, _validateJsDefault.default)(uuid)) throw TypeError("Invalid UUID");
+    if (!(0, _validateJsDefault.default)(uuid)) throw TypeError('Invalid UUID');
     return parseInt(uuid.slice(14, 15), 16);
 }
 exports.default = version;
 
-},{"./validate.js":"dD96N","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jWxed":[function(require,module,exports) {
+},{"./validate.js":"dD96N","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jWxed":[function(require,module,exports,__globalThis) {
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.OPCUA_ORGAN_STATES = exports.OPCUA_ORGAN_TYPE = void 0;
+exports.OPCUA_ORGAN_USER_CHOICE = exports.OPCUA_ORGAN_STATES = exports.OPCUA_ORGAN_TYPE = void 0;
 exports.OPCUA_ORGAN_TYPE = "OPCUA_ORGAN_TYPE";
 var OPCUA_ORGAN_STATES;
 (function(OPCUA_ORGAN_STATES) {
@@ -964,50 +1012,93 @@ var OPCUA_ORGAN_STATES;
     OPCUA_ORGAN_STATES["error"] = "error";
     OPCUA_ORGAN_STATES["timeout"] = "timeout";
     OPCUA_ORGAN_STATES["cancelled"] = "cancelled";
+    OPCUA_ORGAN_STATES["pending"] = "pending";
 })(OPCUA_ORGAN_STATES || (exports.OPCUA_ORGAN_STATES = OPCUA_ORGAN_STATES = {}));
+var OPCUA_ORGAN_USER_CHOICE;
+(function(OPCUA_ORGAN_USER_CHOICE) {
+    OPCUA_ORGAN_USER_CHOICE["noChoice"] = "noChoice";
+    OPCUA_ORGAN_USER_CHOICE["yes"] = "yes";
+    OPCUA_ORGAN_USER_CHOICE["no"] = "no";
+})(OPCUA_ORGAN_USER_CHOICE || (exports.OPCUA_ORGAN_USER_CHOICE = OPCUA_ORGAN_USER_CHOICE = {}));
 
-},{}],"5LxAF":[function(require,module,exports) {
+},{}],"5LxAF":[function(require,module,exports,__globalThis) {
 var Buffer = require("338af565280646bb").Buffer;
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.waitModelReady = exports.convertToBase64 = exports._formatNetwork = void 0;
+exports._formatNetwork = _formatNetwork;
+exports._formatServer = _formatServer;
+exports.convertToBase64 = convertToBase64;
+exports.getPathData = getPathData;
+exports.waitModelReady = waitModelReady;
+const axios_1 = require("ef7f1688595470a5");
 function _formatNetwork(network) {
-    let endpoint = (network === null || network === void 0 ? void 0 : network.endpoint) || "";
-    if (endpoint.substring(0, 1) !== "/") endpoint = `/${endpoint}`;
-    if (endpoint.substring(endpoint.length - 1) === "/") endpoint = endpoint.substring(0, endpoint.length - 1);
-    if (!network) network = {
-        endpoint: ""
-    };
-    network.endpoint = endpoint;
+    network.gateways = network.gateways.map((el)=>_formatServer(el));
     return network;
 }
-exports._formatNetwork = _formatNetwork;
+function _formatServer(server) {
+    let endpoint = (server === null || server === void 0 ? void 0 : server.endpoint) || "";
+    if (endpoint.substring(0, 1) !== "/") endpoint = `/${endpoint}`;
+    if (endpoint.substring(endpoint.length - 1) === "/") endpoint = endpoint.substring(0, endpoint.length - 1);
+    if (!server) server = {
+        endpoint: ""
+    };
+    server.endpoint = endpoint;
+    return server;
+}
 function convertToBase64(tree) {
     return Buffer.from(JSON.stringify(tree)).toString("base64");
 }
-exports.convertToBase64 = convertToBase64;
-function waitModelReady(model) {
-    return new Promise((resolve)=>{
-        let time = 0;
-        const wait = ()=>{
-            setTimeout(()=>{
-                const text = model.get();
-                //@ts-ignore
-                if (text && text.length > 0 || time >= 2000) resolve(true);
-                else {
-                    time += 300;
-                    wait();
-                }
-            }, 300);
-        };
-        wait();
+function getPathData(dynamicId, hubUrl) {
+    const path = hubUrl ? `${hubUrl}/sceen/_?u=${dynamicId}` : `/sceen/_?u=${dynamicId}`;
+    return axios_1.default.get(path).then((response)=>{
+        // return Buffer.from(response.data);
+        return response.data;
     });
 }
-exports.waitModelReady = waitModelReady;
+function waitModelReady(model) {
+    return new Promise((resolve, reject)=>{
+        model.load((path)=>{
+            if (!path) return resolve(true);
+            const delay = 3000;
+            const intervalTime = 300;
+            let time = 0;
+            const wait = ()=>{
+                setTimeout(()=>{
+                    const remaining = path.remaining.get();
+                    if (remaining == 0 || time >= delay) resolve(true);
+                    else {
+                        time += intervalTime;
+                        wait();
+                    }
+                }, intervalTime);
+            };
+            wait();
+        });
+    });
+} // export function waitModelReady(model: Str) {
+ // 	const delay = 3000;
+ // 	const intervalTime = 300;
+ // 	return new Promise((resolve) => {
+ // 		let time = 0;
+ // 		const wait = () => {
+ // 			setTimeout(() => {
+ // 				const text = model.get();
+ // 				//@ts-ignore
+ // 				if ((text && text.length > 0) || time >= delay) {
+ // 					resolve(true);
+ // 				} else {
+ // 					time += intervalTime;
+ // 					wait();
+ // 				}
+ // 			}, intervalTime);
+ // 		};
+ // 		wait();
+ // 	});
+ // }
 
-},{"338af565280646bb":"fCgem"}],"f5xfb":[function(require,module,exports) {
+},{"338af565280646bb":"fCgem","ef7f1688595470a5":"jo6P5"}],"f5xfb":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2021 SpinalCom - www.spinalcom.com
@@ -1088,7 +1179,7 @@ spinal_core_connectorjs_type_1.spinalCore.register_models([
 ]);
 exports.default = SpinalOrganOPCUA;
 
-},{"97c9692978ec98c4":"fRH70","3a5a6903f452322c":"4E8dk","2bc69bf18ece218f":"jWxed"}],"5Nd2s":[function(require,module,exports) {
+},{"97c9692978ec98c4":"fRH70","3a5a6903f452322c":"4E8dk","2bc69bf18ece218f":"jWxed"}],"5Nd2s":[function(require,module,exports,__globalThis) {
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -1132,26 +1223,26 @@ class SpinalOPCUAListener extends spinal_core_connectorjs_type_1.Model {
         });
     }
     getGraph() {
-        return this._loadData("graph");
+        return this._loadData('graph');
     }
     getOrgan() {
-        return this._loadData("organ");
+        return this._loadData('organ');
     }
     getContext() {
-        return this._loadData("context");
+        return this._loadData('context');
     }
     getBmsDevice() {
-        return this._loadData("bmsDevice");
+        return this._loadData('bmsDevice');
     }
     getNetwork() {
-        return this._loadData("network");
+        return this._loadData('network');
     }
     getProfile() {
-        return this._loadData("profile");
+        return this._loadData('profile');
     }
     addToDevice() {
         return this.getBmsDevice().then((device)=>{
-            if (device.info.listeners) device.info.rem_attr("listener");
+            if (device.info.listeners) device.info.rem_attr('listener');
             device.info.add_attr({
                 listener: new spinal_core_connectorjs_type_1.Pbr(this)
             });
@@ -1175,7 +1266,7 @@ spinal_core_connectorjs_type_1.spinalCore.register_models([
 ]);
 exports.default = SpinalOPCUAListener;
 
-},{"44579eeb830c6c6c":"fRH70","6a8801cd627a322f":"4E8dk"}],"b76VQ":[function(require,module,exports) {
+},{"44579eeb830c6c6c":"fRH70","6a8801cd627a322f":"4E8dk"}],"b76VQ":[function(require,module,exports,__globalThis) {
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -1260,7 +1351,7 @@ spinal_core_connectorjs_type_1.spinalCore.register_models([
 ]);
 exports.default = SpinalOPCUAPilot;
 
-},{"94923c6685a8444f":"fRH70","cc647900dbab1226":"4E8dk"}],"iHmbz":[function(require,module,exports) {
+},{"94923c6685a8444f":"fRH70","cc647900dbab1226":"4E8dk"}],"iHmbz":[function(require,module,exports,__globalThis) {
 var Buffer = require("a950840c78fba3b").Buffer;
 "use strict";
 var __awaiter = this && this.__awaiter || function(thisArg, _arguments, P, generator) {
@@ -1396,7 +1487,7 @@ spinal_core_connectorjs_type_1.spinalCore.register_models([
 ]);
 exports.default = SpinalOPCUAEntryPoint;
 
-},{"a950840c78fba3b":"fCgem","caf21c12ca0b8a1d":"fRH70","c9cc38e527f0b6aa":"4E8dk","51f587a62a7eaba2":"5LxAF"}],"2OSPe":[function(require,module,exports) {
+},{"a950840c78fba3b":"fCgem","caf21c12ca0b8a1d":"fRH70","c9cc38e527f0b6aa":"4E8dk","51f587a62a7eaba2":"5LxAF"}],"2OSPe":[function(require,module,exports,__globalThis) {
 "use strict";
 var __createBinding = this && this.__createBinding || (Object.create ? function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
@@ -1423,30 +1514,30 @@ __exportStar(require("d09f2841310333ed"), exports);
 __exportStar(require("aadc3f5744f092fe"), exports);
 __exportStar(require("e0e91fee7733e1a3"), exports);
 
-},{"602df7eaa4d272fa":"1Swaq","d09f2841310333ed":"ke4mL","aadc3f5744f092fe":"ewbmd","e0e91fee7733e1a3":"bxiSf"}],"1Swaq":[function(require,module,exports) {
+},{"602df7eaa4d272fa":"1Swaq","d09f2841310333ed":"ke4mL","aadc3f5744f092fe":"ewbmd","e0e91fee7733e1a3":"bxiSf"}],"1Swaq":[function(require,module,exports,__globalThis) {
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-},{}],"ke4mL":[function(require,module,exports) {
+},{}],"ke4mL":[function(require,module,exports,__globalThis) {
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-},{}],"ewbmd":[function(require,module,exports) {
+},{}],"ewbmd":[function(require,module,exports,__globalThis) {
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-},{}],"bxiSf":[function(require,module,exports) {
+},{}],"bxiSf":[function(require,module,exports,__globalThis) {
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-},{}]},[], null, "parcelRequire02e5")
+},{}]},[], null, "parcelRequire94c2")
 
 //# sourceMappingURL=spinal-env-viewer-plugin-bacnet-manager.f469cfcb.js.map

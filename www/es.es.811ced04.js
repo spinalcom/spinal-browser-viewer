@@ -73,7 +73,7 @@
         localRequire,
         module,
         module.exports,
-        this
+        globalObject
       );
     }
 
@@ -142,7 +142,7 @@
       this[globalName] = mainExports;
     }
   }
-})({"1FDkN":[function(require,module,exports) {
+})({"1FDkN":[function(require,module,exports,__globalThis) {
 /**
   * vue-cal v3.11.0
   * (c) 2022 Antoni Andre <antoniandre.web@gmail.com>
@@ -166,10 +166,10 @@ parcelHelpers.export(exports, "years", ()=>o);
 const e = [
     "Lunes",
     "Martes",
-    "Mi\xe9rcoles",
+    "Mi\xE9rcoles",
     "Jueves",
     "Viernes",
-    "S\xe1bado",
+    "S\xE1bado",
     "Domingo"
 ], a = [
     "Enero",
@@ -184,22 +184,22 @@ const e = [
     "Octubre",
     "Noviembre",
     "Diciembre"
-], o = "A\xf1os", r = "A\xf1o", s = "Mes", t = "Semana", n = "D\xeda", d = "Hoy", y = "No hay evento", M = "Todo el d\xeda", l = "Borrar", m = "Crear un evento", v = "dddd D MMMM YYYY", i = {
+], o = "A\xF1os", r = "A\xF1o", s = "Mes", t = "Semana", n = "D\xEDa", d = "Hoy", y = "No hay evento", M = "Todo el d\xEDa", l = "Borrar", m = "Crear un evento", v = "dddd D MMMM YYYY", i = {
     weekDays: e,
     months: a,
-    years: "A\xf1os",
-    year: "A\xf1o",
+    years: "A\xF1os",
+    year: "A\xF1o",
     month: "Mes",
     week: "Semana",
-    day: "D\xeda",
+    day: "D\xEDa",
     today: "Hoy",
     noEvent: "No hay evento",
-    allDay: "Todo el d\xeda",
+    allDay: "Todo el d\xEDa",
     deleteEvent: "Borrar",
     createEvent: "Crear un evento",
     dateFormat: "dddd D MMMM YYYY"
 };
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},[], null, "parcelRequire02e5")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},[], null, "parcelRequire94c2")
 
 //# sourceMappingURL=es.es.811ced04.js.map

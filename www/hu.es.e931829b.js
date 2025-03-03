@@ -73,7 +73,7 @@
         localRequire,
         module,
         module.exports,
-        this
+        globalObject
       );
     }
 
@@ -142,7 +142,7 @@
       this[globalName] = mainExports;
     }
   }
-})({"ehZFI":[function(require,module,exports) {
+})({"ehZFI":[function(require,module,exports,__globalThis) {
 /**
   * vue-cal v3.11.0
   * (c) 2022 Antoni Andre <antoniandre.web@gmail.com>
@@ -164,42 +164,42 @@ parcelHelpers.export(exports, "weekDays", ()=>e);
 parcelHelpers.export(exports, "year", ()=>t);
 parcelHelpers.export(exports, "years", ()=>s);
 const e = [
-    "H\xe9tfo",
+    "H\xE9tfo",
     "Kedd",
     "Szerda",
-    "Cs\xfct\xf6rt\xf6k",
-    "P\xe9ntek",
+    "Cs\xFCt\xF6rt\xF6k",
+    "P\xE9ntek",
     "Szombat",
-    "Vas\xe1rnap"
+    "Vas\xE1rnap"
 ], a = [
-    "Janu\xe1r",
-    "Febru\xe1r",
-    "M\xe1rcius",
-    "\xc1prilis",
-    "M\xe1jus",
-    "J\xfanius",
-    "J\xfalius",
+    "Janu\xE1r",
+    "Febru\xE1r",
+    "M\xE1rcius",
+    "\xC1prilis",
+    "M\xE1jus",
+    "J\xFAnius",
+    "J\xFAlius",
     "Augusztus",
     "Szeptember",
-    "Okt\xf3ber",
+    "Okt\xF3ber",
     "November",
     "December"
-], s = "\xc9vek", t = "\xc9v", n = "H\xf3nap", r = "H\xe9t", d = "Nap", y = "Mai nap", o = "Nincs esem\xe9ny", m = "Eg\xe9sz nap", l = "Esem\xe9ny t\xf6rlese", p = "Esem\xe9ny l\xe9trehoz\xe1sa", M = "dddd D MMMM YYYY", E = {
+], s = "\xC9vek", t = "\xC9v", n = "H\xF3nap", r = "H\xE9t", d = "Nap", y = "Mai nap", o = "Nincs esem\xE9ny", m = "Eg\xE9sz nap", l = "Esem\xE9ny t\xF6rlese", p = "Esem\xE9ny l\xE9trehoz\xE1sa", M = "dddd D MMMM YYYY", E = {
     weekDays: e,
     months: a,
-    years: "\xc9vek",
-    year: "\xc9v",
-    month: "H\xf3nap",
-    week: "H\xe9t",
+    years: "\xC9vek",
+    year: "\xC9v",
+    month: "H\xF3nap",
+    week: "H\xE9t",
     day: "Nap",
     today: "Mai nap",
-    noEvent: "Nincs esem\xe9ny",
-    allDay: "Eg\xe9sz nap",
-    deleteEvent: "Esem\xe9ny t\xf6rlese",
-    createEvent: "Esem\xe9ny l\xe9trehoz\xe1sa",
+    noEvent: "Nincs esem\xE9ny",
+    allDay: "Eg\xE9sz nap",
+    deleteEvent: "Esem\xE9ny t\xF6rlese",
+    createEvent: "Esem\xE9ny l\xE9trehoz\xE1sa",
     dateFormat: "dddd D MMMM YYYY"
 };
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},[], null, "parcelRequire02e5")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},[], null, "parcelRequire94c2")
 
 //# sourceMappingURL=hu.es.e931829b.js.map

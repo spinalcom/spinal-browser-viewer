@@ -32,26 +32,26 @@
   left: 0;
 }
 
-.chart-data-endpoint-graph-container[data-v-b3c772] {
+.chart-data-endpoint-graph-container[data-v-1e768c] {
   width: 100%;
   height: 100%;
 }
 
-.chart-data-endpoint-graph-container-empty[data-v-b3c772] {
-  max-width: unset;
+.chart-data-endpoint-graph-container-empty[data-v-1e768c] {
   width: 100%;
   height: 100%;
+  max-width: unset;
   position: absolute;
   top: 0;
 }
 
-.chart-data-endpoint-graph-container-option-button[data-v-b3c772] {
+.chart-data-endpoint-graph-container-option-button[data-v-1e768c] {
   position: absolute;
   bottom: 5px;
   left: 0;
 }
 
-.chart-data-endpoint-graph-container-option-button.autodeskv6[data-v-b3c772] {
+.chart-data-endpoint-graph-container-option-button.autodeskv6[data-v-1e768c] {
   bottom: 24px;
 }
 

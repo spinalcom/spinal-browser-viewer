@@ -1,23 +1,23 @@
-.DeleteMainBody[data-v-7f8522]::-webkit-scrollbar {
+.DeleteMainBody[data-v-ca6b80]::-webkit-scrollbar {
   width: 8px;
 }
 
-.DeleteMainBody[data-v-7f8522]::-webkit-scrollbar-track {
+.DeleteMainBody[data-v-ca6b80]::-webkit-scrollbar-track {
   background: #f1f1f1;
 }
 
-.DeleteMainBody[data-v-7f8522]::-webkit-scrollbar-thumb {
+.DeleteMainBody[data-v-ca6b80]::-webkit-scrollbar-thumb {
   background-color: #a9a9a9;
   border: 2px solid #fff;
   border-radius: 10px;
 }
 
-.DeleteMainBody[data-v-7f8522] {
+.DeleteMainBody[data-v-ca6b80] {
   margin: 20px;
   overflow-y: auto;
 }
 
-.md-radio[data-v-7f8522] {
+.md-radio[data-v-ca6b80] {
   display: flex;
 }
 /*# sourceMappingURL=spinal-env-viewer-plugin-standard_button.f29941fe.css.map */

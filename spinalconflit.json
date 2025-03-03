@@ -1,0 +1,16 @@
+{
+  "spinal-model-opcua": {
+    "forceCommit": "dev",
+    "found": {
+      "dev": [
+        "spinal-browser-viewer",
+         "spinal-env-viewer-plugin-dashboard-panel",
+        "spinal-env-viewer-plugin-bacnet-manager",
+        "spinal-env-viewer-plugin-opcua-manager"
+      ],
+      "": [
+       
+      ]
+    }
+  }
+}

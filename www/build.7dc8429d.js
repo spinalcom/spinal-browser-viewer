@@ -73,7 +73,7 @@
         localRequire,
         module,
         module.exports,
-        this
+        globalObject
       );
     }
 
@@ -142,7 +142,7 @@
       this[globalName] = mainExports;
     }
   }
-})({"5QjJf":[function(require,module,exports) {
+})({"5QjJf":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2020 SpinalCom - www.spinalcom.com
@@ -347,7 +347,7 @@ const GeographicContext = {
 };
 exports.default = GeographicContext;
 
-},{"a1f17de72e94b695":"eV0id","a384287e2edce126":"7z5SR","93b74599771f473a":"g4Phe"}],"eV0id":[function(require,module,exports) {
+},{"a1f17de72e94b695":"eV0id","a384287e2edce126":"7z5SR","93b74599771f473a":"g4Phe"}],"eV0id":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -375,47 +375,47 @@ exports.default = GeographicContext;
     value: true
 });
 exports.REFERENCE_ROOM_RELATION = exports.ROOM_REFERENCE_CONTEXT = exports.ZONE_REFERENCE_CONTEXT = exports.FLOOR_REFERENCE_CONTEXT = exports.BUILDING_REFERENCE_CONTEXT = exports.SITE_REFERENCE_CONTEXT = exports.REFERENCE_RELATION = exports.REFERENCE_TYPE = exports.MAP_RELATION_TYPE = exports.MAP_TYPE_RELATION = exports.GEOGRAPHIC_RELATIONS_ORDER = exports.EQUIPMENT_RELATION = exports.GEOGRAPHIC_RELATIONS = exports.ROOM_RELATION = exports.ZONE_RELATION = exports.FLOOR_RELATION = exports.BUILDING_RELATION = exports.SITE_RELATION = exports.GEOGRAPHIC_TYPES_ORDER = exports.EQUIPMENT_TYPE = exports.GEOGRAPHIC_TYPES = exports.ROOM_TYPE = exports.ZONE_TYPE = exports.FLOOR_TYPE = exports.BUILDING_TYPE = exports.SITE_TYPE = exports.CONTEXT_TYPE = void 0;
-const CONTEXT_TYPE = "geographicContext";
+const CONTEXT_TYPE = 'geographicContext';
 exports.CONTEXT_TYPE = CONTEXT_TYPE;
-const SITE_TYPE = "geographicSite";
+const SITE_TYPE = 'geographicSite';
 exports.SITE_TYPE = SITE_TYPE;
-const BUILDING_TYPE = "geographicBuilding";
+const BUILDING_TYPE = 'geographicBuilding';
 exports.BUILDING_TYPE = BUILDING_TYPE;
-const FLOOR_TYPE = "geographicFloor";
+const FLOOR_TYPE = 'geographicFloor';
 exports.FLOOR_TYPE = FLOOR_TYPE;
-const ZONE_TYPE = "geographicZone";
+const ZONE_TYPE = 'geographicZone';
 exports.ZONE_TYPE = ZONE_TYPE;
-const ROOM_TYPE = "geographicRoom";
+const ROOM_TYPE = 'geographicRoom';
 exports.ROOM_TYPE = ROOM_TYPE;
-const EQUIPMENT_TYPE = "BIMObject";
+const EQUIPMENT_TYPE = 'BIMObject';
 exports.EQUIPMENT_TYPE = EQUIPMENT_TYPE;
-const REFERENCE_TYPE = "geographicReference";
+const REFERENCE_TYPE = 'geographicReference';
 exports.REFERENCE_TYPE = REFERENCE_TYPE;
-const SITE_RELATION = "hasGeographicSite";
+const SITE_RELATION = 'hasGeographicSite';
 exports.SITE_RELATION = SITE_RELATION;
-const BUILDING_RELATION = "hasGeographicBuilding";
+const BUILDING_RELATION = 'hasGeographicBuilding';
 exports.BUILDING_RELATION = BUILDING_RELATION;
-const FLOOR_RELATION = "hasGeographicFloor";
+const FLOOR_RELATION = 'hasGeographicFloor';
 exports.FLOOR_RELATION = FLOOR_RELATION;
-const ZONE_RELATION = "hasGeographicZone";
+const ZONE_RELATION = 'hasGeographicZone';
 exports.ZONE_RELATION = ZONE_RELATION;
-const ROOM_RELATION = "hasGeographicRoom";
+const ROOM_RELATION = 'hasGeographicRoom';
 exports.ROOM_RELATION = ROOM_RELATION;
-const EQUIPMENT_RELATION = "hasBimObject";
+const EQUIPMENT_RELATION = 'hasBimObject';
 exports.EQUIPMENT_RELATION = EQUIPMENT_RELATION;
-const REFERENCE_RELATION = "hasReferenceObject";
+const REFERENCE_RELATION = 'hasReferenceObject';
 exports.REFERENCE_RELATION = REFERENCE_RELATION;
-const REFERENCE_ROOM_RELATION = "hasReferenceObject.ROOM";
+const REFERENCE_ROOM_RELATION = 'hasReferenceObject.ROOM';
 exports.REFERENCE_ROOM_RELATION = REFERENCE_ROOM_RELATION;
-const SITE_REFERENCE_CONTEXT = ".SiteContext";
+const SITE_REFERENCE_CONTEXT = '.SiteContext';
 exports.SITE_REFERENCE_CONTEXT = SITE_REFERENCE_CONTEXT;
-const BUILDING_REFERENCE_CONTEXT = ".BuildingContext";
+const BUILDING_REFERENCE_CONTEXT = '.BuildingContext';
 exports.BUILDING_REFERENCE_CONTEXT = BUILDING_REFERENCE_CONTEXT;
-const FLOOR_REFERENCE_CONTEXT = ".FloorContext";
+const FLOOR_REFERENCE_CONTEXT = '.FloorContext';
 exports.FLOOR_REFERENCE_CONTEXT = FLOOR_REFERENCE_CONTEXT;
-const ZONE_REFERENCE_CONTEXT = ".ZoneContext";
+const ZONE_REFERENCE_CONTEXT = '.ZoneContext';
 exports.ZONE_REFERENCE_CONTEXT = ZONE_REFERENCE_CONTEXT;
-const ROOM_REFERENCE_CONTEXT = ".RoomContext";
+const ROOM_REFERENCE_CONTEXT = '.RoomContext';
 exports.ROOM_REFERENCE_CONTEXT = ROOM_REFERENCE_CONTEXT;
 const GEOGRAPHIC_TYPES = Object.freeze([
     SITE_TYPE,
@@ -508,7 +508,7 @@ const MAP_RELATION_TYPE = Object.freeze(new Map([
 ]));
 exports.MAP_RELATION_TYPE = MAP_RELATION_TYPE;
 
-},{}],"7z5SR":[function(require,module,exports) {
+},{}],"7z5SR":[function(require,module,exports,__globalThis) {
 "use strict";
 var __awaiter = this && this.__awaiter || function(thisArg, _arguments, P, generator) {
     function adopt(value) {
@@ -614,16 +614,16 @@ const dicoContextRef = new Map();
  * @return {string} Child type
  */ function getChildType(parentType) {
     let parentTypeIndex = constants_1.GEOGRAPHIC_TYPES_ORDER.indexOf(parentType);
-    if (parentTypeIndex === -1) return "";
+    if (parentTypeIndex === -1) return '';
     return constants_1.GEOGRAPHIC_TYPES_ORDER[parentTypeIndex + 1];
 }
 exports.getChildType = getChildType;
 function createContext(contextName) {
     return __awaiter(this, void 0, void 0, function*() {
-        if (typeof contextName !== "string") throw Error("contextName must be a string");
+        if (typeof contextName !== 'string') throw Error('contextName must be a string');
         const graph = (0, graphservice_1.getGraph)();
         const context = yield graph.getContext(contextName);
-        if (typeof context !== "undefined") return Promise.resolve(context);
+        if (typeof context !== 'undefined') return Promise.resolve(context);
         const contextRes = new spinal_model_graph_1.SpinalContext(contextName, constants_1.CONTEXT_TYPE);
         yield graph.addContext(contextRes);
         (0, graphservice_1.addNodeGraphService)(contextRes);
@@ -708,7 +708,7 @@ exports._getReferenceContextName = _getReferenceContextName;
 function addToReferenceContext(node) {
     return __awaiter(this, void 0, void 0, function*() {
         const obj = _getReferenceContextName(node.info.type.get());
-        if (typeof obj !== "undefined") {
+        if (typeof obj !== 'undefined') {
             let context = yield getOrCreateRefContext(obj.name);
             yield context.addChild(node, obj.relation, spinal_model_graph_1.SPINAL_RELATION_PTR_LST_TYPE);
         }
@@ -718,16 +718,16 @@ exports.addToReferenceContext = addToReferenceContext;
 function getOrCreateElemFromReferenceContext(nodeType, context, parent, elementName, id) {
     return __awaiter(this, void 0, void 0, function*() {
         const obj = _getReferenceContextName(nodeType);
-        if (typeof obj === "undefined") throw new Error(`error unknonw node type : ${nodeType}`);
+        if (typeof obj === 'undefined') throw new Error(`error unknonw node type : ${nodeType}`);
         const refContext = yield getOrCreateRefContext(obj.name);
         let node;
-        if (typeof id !== "undefined") {
+        if (typeof id !== 'undefined') {
             const refNodes = yield refContext.getChildren(obj.relation);
             node = refNodes.find((itm)=>itm.info.id.get() === id);
         }
         if (!node) {
             node = new spinal_model_graph_1.SpinalNode(elementName, nodeType);
-            if (typeof id !== "undefined") node.info.id.set(id);
+            if (typeof id !== 'undefined') node.info.id.set(id);
             yield refContext.addChild(node, obj.relation, spinal_model_graph_1.SPINAL_RELATION_PTR_LST_TYPE);
         }
         yield parent.addChildInContext(node, obj.relation, spinal_model_graph_1.SPINAL_RELATION_PTR_LST_TYPE, context);
@@ -740,7 +740,7 @@ function _getOrCreateRefContext(contextName) {
         const graph = (0, graphservice_1.getGraph)();
         let context = yield __await(graph.getContext(contextName));
         if (!context) {
-            context = new spinal_model_graph_1.SpinalContext(contextName, contextName.replace(".", ""));
+            context = new spinal_model_graph_1.SpinalContext(contextName, contextName.replace('.', ''));
             yield __await(graph.addContext(context));
         }
         (0, graphservice_1.addNodeGraphService)(context);
@@ -759,7 +759,7 @@ function getOrCreateRefContext(contextName) {
 exports.getOrCreateRefContext = getOrCreateRefContext;
 function addContextToReference(context) {
     return __awaiter(this, void 0, void 0, function*() {
-        if (typeof context !== "undefined") yield context.map(constants_1.GEOGRAPHIC_RELATIONS, (node)=>{
+        if (typeof context !== 'undefined') yield context.map(constants_1.GEOGRAPHIC_RELATIONS, (node)=>{
             (0, graphservice_1.addNodeGraphService)(node);
             return addToReferenceContext(node);
         });
@@ -767,7 +767,7 @@ function addContextToReference(context) {
 }
 exports.addContextToReference = addContextToReference;
 
-},{"95f1af46fccaf2da":"fkEXw","a7271251a1238e59":"eV0id","bde5ac4a2f021751":"g4Phe"}],"g4Phe":[function(require,module,exports) {
+},{"95f1af46fccaf2da":"fkEXw","a7271251a1238e59":"eV0id","bde5ac4a2f021751":"g4Phe"}],"g4Phe":[function(require,module,exports,__globalThis) {
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -814,6 +814,6 @@ function getInfoGraphService(nodeId) {
 }
 exports.getInfoGraphService = getInfoGraphService;
 
-},{"499f9e2dcf27ea4a":"9n7zp"}]},[], null, "parcelRequire02e5")
+},{"499f9e2dcf27ea4a":"9n7zp"}]},[], null, "parcelRequire94c2")
 
 //# sourceMappingURL=build.7dc8429d.js.map

@@ -73,7 +73,7 @@
         localRequire,
         module,
         module.exports,
-        this
+        globalObject
       );
     }
 
@@ -142,7 +142,7 @@
       this[globalName] = mainExports;
     }
   }
-})({"gFlod":[function(require,module,exports) {
+})({"gFlod":[function(require,module,exports,__globalThis) {
 /**
   * vue-cal v3.11.0
   * (c) 2022 Antoni Andre <antoniandre.web@gmail.com>
@@ -164,42 +164,42 @@ parcelHelpers.export(exports, "weekDays", ()=>e);
 parcelHelpers.export(exports, "year", ()=>n);
 parcelHelpers.export(exports, "years", ()=>a);
 const e = [
-    "Pond\u011Bl\xed",
-    "\xdater\xfd",
+    "Pond\u011Bl\xED",
+    "\xDAter\xFD",
     "St\u0159eda",
     "\u010Ctvrtek",
-    "P\xe1tek",
+    "P\xE1tek",
     "Sobota",
     "Ned\u011Ble"
 ], t = [
     "Leden",
-    "\xdanor",
+    "\xDAnor",
     "B\u0159ezen",
     "Duben",
     "Kv\u011Bten",
     "\u010Cerven",
     "\u010Cervenec",
     "Srpen",
-    "Z\xe1\u0159\xed",
-    "\u0158\xedjen",
+    "Z\xE1\u0159\xED",
+    "\u0158\xEDjen",
     "Listopad",
     "Prosinec"
-], a = "Roky", n = "Rok", s = "M\u011Bs\xedc", d = "T\xfdden", o = "Den", r = "Dnes", y = "Bez ud\xe1lost\xed", l = "Cel\xfd den", v = "Odstranit", D = "Vytvo\u0159it ud\xe1lost", k = "dddd D. MMMM YYYY", M = {
+], a = "Roky", n = "Rok", s = "M\u011Bs\xEDc", d = "T\xFDden", o = "Den", r = "Dnes", y = "Bez ud\xE1lost\xED", l = "Cel\xFD den", v = "Odstranit", D = "Vytvo\u0159it ud\xE1lost", k = "dddd D. MMMM YYYY", M = {
     weekDays: e,
     months: t,
     years: "Roky",
     year: "Rok",
-    month: "M\u011Bs\xedc",
-    week: "T\xfdden",
+    month: "M\u011Bs\xEDc",
+    week: "T\xFDden",
     day: "Den",
     today: "Dnes",
-    noEvent: "Bez ud\xe1lost\xed",
-    allDay: "Cel\xfd den",
+    noEvent: "Bez ud\xE1lost\xED",
+    allDay: "Cel\xFD den",
     deleteEvent: "Odstranit",
-    createEvent: "Vytvo\u0159it ud\xe1lost",
+    createEvent: "Vytvo\u0159it ud\xE1lost",
     dateFormat: "dddd D. MMMM YYYY"
 };
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},[], null, "parcelRequire02e5")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},[], null, "parcelRequire94c2")
 
 //# sourceMappingURL=cs.es.a3508a9c.js.map

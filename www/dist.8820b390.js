@@ -73,7 +73,7 @@
         localRequire,
         module,
         module.exports,
-        this
+        globalObject
       );
     }
 
@@ -142,7 +142,7 @@
       this[globalName] = mainExports;
     }
   }
-})({"tSLpq":[function(require,module,exports) {
+})({"tSLpq":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2020 SpinalCom - www.spinalcom.com
@@ -189,7 +189,7 @@ let groupManagerService = new GroupManagerService_1.default();
 exports.groupManagerService = groupManagerService;
 exports.default = groupManagerService;
 
-},{"16556214ace97b5b":"hLapl","6e56c019ae4d70d5":"8gHJB"}],"hLapl":[function(require,module,exports) {
+},{"16556214ace97b5b":"hLapl","6e56c019ae4d70d5":"8gHJB"}],"hLapl":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2020 SpinalCom - www.spinalcom.com
@@ -264,7 +264,7 @@ exports.default = {
     GROUP_RELATION_BEGIN: exports.GROUP_RELATION_BEGIN
 };
 
-},{}],"8gHJB":[function(require,module,exports) {
+},{}],"8gHJB":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2020 SpinalCom - www.spinalcom.com
@@ -478,7 +478,7 @@ class GroupManagerService {
 }
 exports.default = GroupManagerService;
 
-},{"b17cb7872bd5e0c":"9n7zp","9a6ece260d51e8e4":"fRH70","aff293429a47104c":"5QjJf","b8fdc1ae437096d5":"gzkbg","541ee682f52ea932":"kTdIT","ad8031d3728fec56":"dNavB","6920fe1bbe539047":"hLapl","92af075dfb378ee1":"8hvTd"}],"gzkbg":[function(require,module,exports) {
+},{"b17cb7872bd5e0c":"9n7zp","9a6ece260d51e8e4":"fRH70","aff293429a47104c":"5QjJf","b8fdc1ae437096d5":"gzkbg","541ee682f52ea932":"kTdIT","ad8031d3728fec56":"dNavB","6920fe1bbe539047":"hLapl","92af075dfb378ee1":"8hvTd"}],"gzkbg":[function(require,module,exports,__globalThis) {
 "use strict";
 var __awaiter = this && this.__awaiter || function(thisArg, _arguments, P, generator) {
     function adopt(value) {
@@ -631,12 +631,12 @@ const throttle = require("506b7960f033396");
             }
             this.contextId = this.context.getId().get();
             const childrenContext = yield spinal_env_viewer_graph_service_1.SpinalGraphService.getChildrenInContext(this.contextId, this.contextId);
-            let childFoundId = "";
-            for (const childContext of childrenContext)if (typeof childContext.networkName !== "undefined" && childContext.networkName.get() === configService.networkName) {
+            let childFoundId = '';
+            for (const childContext of childrenContext)if (typeof childContext.networkName !== 'undefined' && childContext.networkName.get() === configService.networkName) {
                 childFoundId = childContext.id.get();
                 break;
             }
-            if (childFoundId === "") childFoundId = yield this.createNewBmsNetwork(this.contextId, configService.networkType, configService.networkName).then((res)=>res.id.get());
+            if (childFoundId === '') childFoundId = yield this.createNewBmsNetwork(this.contextId, configService.networkType, configService.networkName).then((res)=>res.id.get());
             this.networkId = childFoundId;
             return {
                 contextId: this.contextId,
@@ -745,7 +745,7 @@ const throttle = require("506b7960f033396");
         return __awaiter(this, void 0, void 0, function*() {
             const contextChildren = yield spinal_env_viewer_graph_service_1.SpinalGraphService.getChildrenInContext(this.networkId, this.contextId);
             for (const child of contextChildren){
-                if (typeof child.idNetwork !== "undefined" && child.idNetwork.get() === obj.id) return this.updateModel(child, obj, date);
+                if (typeof child.idNetwork !== 'undefined' && child.idNetwork.get() === obj.id) return this.updateModel(child, obj, date);
             }
             return this.createNewBmsDevice(this.networkId, obj).then((child)=>{
                 return this.updateModel(child, obj, date);
@@ -821,7 +821,7 @@ const throttle = require("506b7960f033396");
             const element = yield node.element.load();
             // await this._createAttributes(node.id.get(), element);
             element.currentValue.set(reference.currentValue);
-            if (typeof reference.currentValue === "number" || typeof reference.currentValue === "boolean") yield this.setEndpointValue(node.id.get(), reference.currentValue, date);
+            if (typeof reference.currentValue === 'number' || typeof reference.currentValue === 'boolean') yield this.setEndpointValue(node.id.get(), reference.currentValue, date);
         });
     }
     /**
@@ -914,7 +914,7 @@ const throttle = require("506b7960f033396");
             const node = spinal_env_viewer_graph_service_1.SpinalGraphService.getInfo(idEndpoint);
             const element = yield node.element.load();
             element.currentValue.set(value);
-            if (this.useTimeseries === true && (typeof value === "number" || typeof value === "boolean")) {
+            if (this.useTimeseries === true && (typeof value === 'number' || typeof value === 'boolean')) {
                 if (this.useDelay === 0) return pushData(this.spinalServiceTimeseries, idEndpoint, element.currentValue, date);
                 if (dicEnd.has(idEndpoint)) {
                     const fct = dicEnd.get(idEndpoint);
@@ -944,7 +944,7 @@ const throttle = require("506b7960f033396");
                 endPoint.element.load(),
                 this.getTimeseriesProm(controlEndPoint).catch(()=>undefined),
                 controlEndPoint.element.load(),
-                spinal_env_viewer_plugin_documentation_service_1.serviceDocumentation.getCategoryByName(controlEndPoint, "default")
+                spinal_env_viewer_plugin_documentation_service_1.serviceDocumentation.getCategoryByName(controlEndPoint, 'default')
             ]);
             if (controlEndPointTimeseries) yield controlEndPoint.removeChild(controlEndPointTimeseries, spinal_model_timeseries_1.SpinalTimeSeries.relationName, spinal_env_viewer_graph_service_1.SPINAL_RELATION_PTR_LST_TYPE);
             const endPointDataModel = endPointElement.currentValue;
@@ -977,7 +977,7 @@ function pushData(spinalServiceTimeseries, idEndpoint, value, date) {
 }
 exports.default = NetworkService;
 
-},{"7845027fdfdd9319":"fRH70","9222b9beb8ba70d7":"9n7zp","b98f112a2d770081":"hIcty","c453a070b1e95124":"axWFA","83ad18923945f353":"auUMP","f8258a9a593b7f95":"5rYVR","506b7960f033396":"bGJVT"}],"hIcty":[function(require,module,exports) {
+},{"7845027fdfdd9319":"fRH70","9222b9beb8ba70d7":"9n7zp","b98f112a2d770081":"hIcty","c453a070b1e95124":"axWFA","83ad18923945f353":"auUMP","f8258a9a593b7f95":"5rYVR","506b7960f033396":"bGJVT"}],"hIcty":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -1034,7 +1034,7 @@ __exportStar(require("64e6e3260a6998ef"), exports);
 __exportStar(require("52cd7e9db88348a5"), exports);
 __exportStar(require("4cff2b6dda2efed9"), exports);
 
-},{"5c56b993bdcda2f":"fOMqN","a919d2c2e49c76df":"4G99s","a2e0d7aeb007b5a5":"bdAx9","9674c6d1dab452a2":"g4XiH","cb68165c308302e5":"7XQE3","4f1769df52aef351":"1AJXV","b84174630d16cff5":"9jtWX","64e6e3260a6998ef":"6IJ8H","52cd7e9db88348a5":"ejMvW","4cff2b6dda2efed9":"8FqTr"}],"fOMqN":[function(require,module,exports) {
+},{"5c56b993bdcda2f":"fOMqN","a919d2c2e49c76df":"4G99s","a2e0d7aeb007b5a5":"bdAx9","9674c6d1dab452a2":"g4XiH","cb68165c308302e5":"7XQE3","4f1769df52aef351":"1AJXV","b84174630d16cff5":"9jtWX","64e6e3260a6998ef":"6IJ8H","52cd7e9db88348a5":"ejMvW","4cff2b6dda2efed9":"8FqTr"}],"fOMqN":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -1113,7 +1113,7 @@ const asyncGenToArray_1 = require("c8f7ec2ed7f42bc5");
             try {
                 const timeseries = yield this.getOrCreateTimeSeries(endpointNodeId);
                 let valueToPush = value;
-                if (typeof value === "boolean") valueToPush = value ? 1 : 0;
+                if (typeof value === 'boolean') valueToPush = value ? 1 : 0;
                 yield timeseries.push(valueToPush);
             } catch (error) {
                 return false;
@@ -1132,7 +1132,7 @@ const asyncGenToArray_1 = require("c8f7ec2ed7f42bc5");
             try {
                 const timeseries = yield this.getOrCreateTimeSeries(endpointNodeId);
                 let valueToPush = value;
-                if (typeof value === "boolean") valueToPush = value ? 1 : 0;
+                if (typeof value === 'boolean') valueToPush = value ? 1 : 0;
                 yield timeseries.insert(valueToPush, date);
             } catch (error) {
                 return false;
@@ -1171,15 +1171,15 @@ const asyncGenToArray_1 = require("c8f7ec2ed7f42bc5");
         return __awaiter(this, void 0, void 0, function*() {
             try {
                 const node = spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(endpointNodeId);
-                const cat = yield spinal_env_viewer_plugin_documentation_service_1.attributeService.getCategoryByName(node, "default");
+                const cat = yield spinal_env_viewer_plugin_documentation_service_1.attributeService.getCategoryByName(node, 'default');
                 const attrs = yield spinal_env_viewer_plugin_documentation_service_1.attributeService.getAttributesByCategory(node, cat);
                 let maxDay = null;
                 let initialBlockSize = null;
                 for (const attr of attrs)switch(attr.label.get()){
-                    case "timeSeries maxDay":
+                    case 'timeSeries maxDay':
                         maxDay = parseInt(attr.value.get().toString());
                         break;
-                    case "timeSeries initialBlockSize":
+                    case 'timeSeries initialBlockSize':
                         initialBlockSize = parseInt(attr.value.get().toString());
                         break;
                     default:
@@ -1188,8 +1188,8 @@ const asyncGenToArray_1 = require("c8f7ec2ed7f42bc5");
                 maxDay = maxDay === null ? SpinalTimeSeriesConfig_1.SpinalTimeSeriesConfig.MAX_DAY : maxDay;
                 initialBlockSize = initialBlockSize === null ? SpinalTimeSeriesConfig_1.SpinalTimeSeriesConfig.INIT_BLOCK_SIZE : initialBlockSize;
                 //
-                yield spinal_env_viewer_plugin_documentation_service_1.attributeService.addAttributeByCategoryName(node, "default", "timeSeries maxDay", maxDay.toString());
-                yield spinal_env_viewer_plugin_documentation_service_1.attributeService.addAttributeByCategoryName(node, "default", "timeSeries initialBlockSize", initialBlockSize.toString());
+                yield spinal_env_viewer_plugin_documentation_service_1.attributeService.addAttributeByCategoryName(node, 'default', 'timeSeries maxDay', maxDay.toString());
+                yield spinal_env_viewer_plugin_documentation_service_1.attributeService.addAttributeByCategoryName(node, 'default', 'timeSeries initialBlockSize', initialBlockSize.toString());
                 return {
                     maxDay: maxDay,
                     initialBlockSize: initialBlockSize
@@ -1327,7 +1327,7 @@ const asyncGenToArray_1 = require("c8f7ec2ed7f42bc5");
      */ getData(endpointNodeId, timeSeriesIntervalDate, includeLastBeforeStart = false) {
         return __awaiter(this, void 0, void 0, function*() {
             const timeSeries = yield this.getTimeSeries(endpointNodeId);
-            if (!timeSeries) throw new Error("endpoint have no timeseries");
+            if (!timeSeries) throw new Error('endpoint have no timeseries');
             return (0, asyncGenToArray_1.asyncGenToArray)((yield this.getFromIntervalTimeGen(timeSeries, timeSeriesIntervalDate.start, timeSeriesIntervalDate.end, includeLastBeforeStart)));
         });
     }
@@ -1424,7 +1424,7 @@ const asyncGenToArray_1 = require("c8f7ec2ed7f42bc5");
 }
 exports.SpinalServiceTimeseries = SpinalServiceTimeseries;
 
-},{"20eabff492de6b9e":"9n7zp","61e48e365e9dd2df":"5rYVR","2fc76330df808c25":"6IJ8H","c14b2d98ec2b3cc4":"ejMvW","c8f7ec2ed7f42bc5":"8FqTr"}],"5rYVR":[function(require,module,exports) {
+},{"20eabff492de6b9e":"9n7zp","61e48e365e9dd2df":"5rYVR","2fc76330df808c25":"6IJ8H","c14b2d98ec2b3cc4":"ejMvW","c8f7ec2ed7f42bc5":"8FqTr"}],"5rYVR":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2020 SpinalCom - www.spinalcom.com
@@ -1478,7 +1478,7 @@ __exportStar(require("4137d17e2135b361"), exports);
 __exportStar(require("b9d1d26877867be2"), exports);
 exports.default = ServiceDocumentation_1.serviceDocumentation;
 
-},{"b9d1d26877867be2":"acYP9","89dbadba61f9c804":"igGim","64d5afa42c39d21f":"aLHGL","1d87f1f73d504a0":"j401W","37ff0902396a35fe":"38glt","eca7d675133130d9":"f52Mg","4137d17e2135b361":"3mvBM"}],"acYP9":[function(require,module,exports) {
+},{"b9d1d26877867be2":"acYP9","89dbadba61f9c804":"igGim","64d5afa42c39d21f":"aLHGL","1d87f1f73d504a0":"j401W","37ff0902396a35fe":"38glt","eca7d675133130d9":"f52Mg","4137d17e2135b361":"3mvBM"}],"acYP9":[function(require,module,exports,__globalThis) {
 var global = arguments[3];
 "use strict";
 /*
@@ -1511,7 +1511,7 @@ const AttributeService_1 = require("8e207847953a6ae5");
 const NoteService_1 = require("8115195e9a1b475b");
 const UrlService_1 = require("f2d1f9b5c8ae350");
 // @ts-ignore
-const globalType = typeof window === "undefined" ? global : window;
+const globalType = typeof window === 'undefined' ? global : window;
 function applyMixins(derivedConstructor, baseConstructors) {
     baseConstructors.forEach((baseConstructor)=>{
         Object.getOwnPropertyNames(baseConstructor.prototype).forEach((name)=>{
@@ -1529,7 +1529,7 @@ applyMixins(ServiceDocumentation, [
 ]);
 const serviceDocumentation = new ServiceDocumentation();
 exports.serviceDocumentation = serviceDocumentation;
-globalType.spinal["serviceDocumentation"] = serviceDocumentation; /*
+globalType.spinal['serviceDocumentation'] = serviceDocumentation; /*
 
 class ServiceDocumentation implements AttributeService, NoteService, UrlService {
 
@@ -1576,7 +1576,7 @@ class ServiceDocumentation implements AttributeService, NoteService, UrlService 
 
 */ 
 
-},{"8e207847953a6ae5":"j401W","8115195e9a1b475b":"f52Mg","f2d1f9b5c8ae350":"3mvBM"}],"j401W":[function(require,module,exports) {
+},{"8e207847953a6ae5":"j401W","8115195e9a1b475b":"f52Mg","f2d1f9b5c8ae350":"3mvBM"}],"j401W":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2020 SpinalCom - www.spinalcom.com
@@ -1621,8 +1621,8 @@ const constants_1 = require("440ab2cd4e10922a");
      * @memberof AttributeService
      */ async addCategoryAttribute(node, categoryName) {
         categoryName = categoryName.toString().trim();
-        if (!(node instanceof spinal_env_viewer_graph_service_1.SpinalNode)) throw new Error("Node must be a SpinalNode.");
-        if (categoryName.toString().trim().length === 0) throw new Error("Category name must be a string and have at leat one character.");
+        if (!(node instanceof spinal_env_viewer_graph_service_1.SpinalNode)) throw new Error('Node must be a SpinalNode.');
+        if (categoryName.toString().trim().length === 0) throw new Error('Category name must be a string and have at leat one character.');
         const categoryExist = await this.getCategoryByName(node, categoryName);
         if (categoryExist) return categoryExist;
         const categoryModel = new spinal_env_viewer_graph_service_1.SpinalNode(categoryName, constants_1.CATEGORY_TYPE, new spinal_core_connectorjs_type_1.Lst());
@@ -1636,8 +1636,8 @@ const constants_1 = require("440ab2cd4e10922a");
      * @return {*}  {Promise<void>}
      * @memberof AttributeService
      */ async delCategoryAttribute(node, serverId) {
-        if (!(node instanceof spinal_env_viewer_graph_service_1.SpinalNode)) throw new Error("Node must be a SpinalNode.");
-        if (serverId === 0) throw new Error("Invalid server ID.");
+        if (!(node instanceof spinal_env_viewer_graph_service_1.SpinalNode)) throw new Error('Node must be a SpinalNode.');
+        if (serverId === 0) throw new Error('Invalid server ID.');
         const child = spinal_core_connectorjs_type_1.FileSystem._objects[serverId];
         if (child instanceof spinal_env_viewer_graph_service_1.SpinalNode) await node.removeChild(child, constants_1.NODE_TO_CATEGORY_RELATION, spinal_env_viewer_graph_service_1.SPINAL_RELATION_PTR_LST_TYPE);
     }
@@ -1649,12 +1649,12 @@ const constants_1 = require("440ab2cd4e10922a");
      */ async deleteAttributeCategory(node, category) {
         let _category;
         if (category instanceof spinal_env_viewer_graph_service_1.SpinalNode) _category = category;
-        else if (typeof category === "string") {
+        else if (typeof category === 'string') {
             let temp = await this.getCategoryByName(node, category);
             _category = temp.node;
         } else if (category.node instanceof spinal_env_viewer_graph_service_1.SpinalNode) _category = category.node;
         if (_category instanceof spinal_env_viewer_graph_service_1.SpinalNode) return node.removeChild(_category, constants_1.NODE_TO_CATEGORY_RELATION, spinal_env_viewer_graph_service_1.SPINAL_RELATION_PTR_LST_TYPE);
-        throw new Error("category not found");
+        throw new Error('category not found');
     }
     /**
      * This method changes the name of a category from the given node.
@@ -1665,9 +1665,9 @@ const constants_1 = require("440ab2cd4e10922a");
      * @memberof AttributeService
      */ async editCategoryAttribute(node, serverId, categoryName) {
         categoryName = categoryName.toString().trim();
-        if (!(node instanceof spinal_env_viewer_graph_service_1.SpinalNode)) throw new Error("Node must be a SpinalNode.");
-        if (serverId === 0) throw new Error("Invalid server ID.");
-        if (categoryName.length === 0) throw new Error("Category name must be a string and have at leat one character.");
+        if (!(node instanceof spinal_env_viewer_graph_service_1.SpinalNode)) throw new Error('Node must be a SpinalNode.');
+        if (serverId === 0) throw new Error('Invalid server ID.');
+        if (categoryName.length === 0) throw new Error('Category name must be a string and have at leat one character.');
         const child = spinal_core_connectorjs_type_1.FileSystem._objects[serverId];
         if (child instanceof spinal_env_viewer_graph_service_1.SpinalNode) child.info.name.set(categoryName);
     }
@@ -1677,7 +1677,7 @@ const constants_1 = require("440ab2cd4e10922a");
      * @return {*}  {Promise<ICategory[]>}
      * @memberof AttributeService
      */ async getCategory(node) {
-        if (!(node instanceof spinal_env_viewer_graph_service_1.SpinalNode)) throw new Error("node must be a SpinalNode instance");
+        if (!(node instanceof spinal_env_viewer_graph_service_1.SpinalNode)) throw new Error('node must be a SpinalNode instance');
         const categories = await node.getChildren(constants_1.NODE_TO_CATEGORY_RELATION);
         const promises = categories.map((el)=>this._getCategoryElement(el));
         return Promise.all(promises);
@@ -1690,8 +1690,8 @@ const constants_1 = require("440ab2cd4e10922a");
      * @memberof AttributeService
      */ async getCategoryByName(node, categoryName) {
         categoryName = categoryName.toString().trim();
-        if (!(node instanceof spinal_env_viewer_graph_service_1.SpinalNode)) throw new Error("node must be a spinalNode instance");
-        if (!categoryName || categoryName.length === 0) throw new Error("category name must be a string and have at leat one character");
+        if (!(node instanceof spinal_env_viewer_graph_service_1.SpinalNode)) throw new Error('node must be a spinalNode instance');
+        if (!categoryName || categoryName.length === 0) throw new Error('category name must be a string and have at leat one character');
         const categories = await this.getCategory(node);
         return categories.find((el)=>{
             return el.nameCat.toString().trim() === categoryName;
@@ -1706,11 +1706,11 @@ const constants_1 = require("440ab2cd4e10922a");
      * @memberof AttributeService
      */ async updateCategoryName(node, category, newName) {
         newName = newName.toString().trim();
-        if (!newName || newName.length === 0) throw new Error("category name must be a string and have at leat one character");
+        if (!newName || newName.length === 0) throw new Error('category name must be a string and have at leat one character');
         if (category instanceof spinal_env_viewer_graph_service_1.SpinalNode) {
             category.info.name.set(newName);
             return this._getCategoryElement(category);
-        } else if (typeof category === "string") {
+        } else if (typeof category === 'string') {
             let _category = await this.getCategoryByName(node, category);
             _category.node.info.name.set(newName);
             return _category;
@@ -1718,7 +1718,7 @@ const constants_1 = require("440ab2cd4e10922a");
             category.node.info.name.set(newName);
             return category;
         }
-        throw new Error("category not found");
+        throw new Error('category not found');
     }
     /**
      * This method adds(if not exists) an attribute in a category (creates the category if not exist)
@@ -1730,16 +1730,16 @@ const constants_1 = require("440ab2cd4e10922a");
      * @param {string} [unit='']
      * @return {*}  {Promise<SpinalAttribute>}
      * @memberof AttributeService
-     */ async addAttributeByCategoryName(node, categoryName = "", label = "", value = "", type = "", unit = "") {
+     */ async addAttributeByCategoryName(node, categoryName = '', label = '', value = '', type = '', unit = '') {
         categoryName = categoryName.toString().trim();
         label = label.toString().trim();
-        value = typeof value === "string" ? value.toString().trim() : value;
+        value = typeof value === 'string' ? value.toString().trim() : value;
         type = type.toString().trim();
         unit = unit.toString().trim();
-        if (!(node instanceof spinal_env_viewer_graph_service_1.SpinalNode)) throw new Error("node must be a spinalNode instance");
-        if (!label || label.toString().trim().length === 0) throw new Error("attribute label must be a string and have at leat one character");
-        if (!categoryName || categoryName.toString().trim().length === 0) throw new Error("category name must be a string and have at leat one character");
-        if (typeof value === "undefined") throw new Error("The attribute value is required");
+        if (!(node instanceof spinal_env_viewer_graph_service_1.SpinalNode)) throw new Error('node must be a spinalNode instance');
+        if (!label || label.toString().trim().length === 0) throw new Error('attribute label must be a string and have at leat one character');
+        if (!categoryName || categoryName.toString().trim().length === 0) throw new Error('category name must be a string and have at leat one character');
+        if (typeof value === 'undefined') throw new Error('The attribute value is required');
         let category = await this.getCategoryByName(node, categoryName);
         if (!category) category = await this.addCategoryAttribute(node, categoryName);
         return this.addAttributeByCategory(node, category, label, value, type, unit);
@@ -1754,14 +1754,14 @@ const constants_1 = require("440ab2cd4e10922a");
      * @param {string} [unit='']
      * @return {*}  {SpinalAttribute}
      * @memberof AttributeService
-     */ addAttributeByCategory(node, category, label = "", value = "", type = "", unit = "") {
+     */ addAttributeByCategory(node, category, label = '', value = '', type = '', unit = '') {
         label = label.toString().trim();
-        value = typeof value === "string" ? value.toString().trim() : value;
+        value = typeof value === 'string' ? value.toString().trim() : value;
         type = type.toString().trim();
         unit = unit.toString().trim();
-        if (!(node instanceof spinal_env_viewer_graph_service_1.SpinalNode)) throw new Error("node must be a spinalNode instance");
-        if (!label || label.toString().trim().length === 0) throw new Error("attribute label must be a string and have at leat one character");
-        if (typeof value === "undefined") throw new Error("The attribute value is required");
+        if (!(node instanceof spinal_env_viewer_graph_service_1.SpinalNode)) throw new Error('node must be a spinalNode instance');
+        if (!label || label.toString().trim().length === 0) throw new Error('attribute label must be a string and have at leat one character');
+        if (typeof value === 'undefined') throw new Error('The attribute value is required');
         const found = this._labelExistInCategory(category, label);
         if (!found) {
             const attributeModel = new spinal_models_documentation_1.SpinalAttribute(label, value, type, unit);
@@ -1801,10 +1801,10 @@ const constants_1 = require("440ab2cd4e10922a");
      * @param {string} [label='']
      * @return {*}  {(Promise<SpinalAttribute | -1>)} : -1 when not found
      * @memberof AttributeService
-     */ async findOneAttributeInCategory(node, category, label = "") {
+     */ async findOneAttributeInCategory(node, category, label = '') {
         label = label.toString().trim();
-        if (!(node instanceof spinal_env_viewer_graph_service_1.SpinalNode)) throw new Error("node must be a spinalNode instance");
-        const _category = typeof category === "string" ? await this.getCategoryByName(node, category) : category;
+        if (!(node instanceof spinal_env_viewer_graph_service_1.SpinalNode)) throw new Error('node must be a spinalNode instance');
+        const _category = typeof category === 'string' ? await this.getCategoryByName(node, category) : category;
         if (_category && _category.element) for(let index = 0; index < _category.element.length; index++){
             const element = _category.element[index];
             if (!!label && element.label.get().toString().trim() === label) return element;
@@ -1819,8 +1819,8 @@ const constants_1 = require("440ab2cd4e10922a");
      * @return {*}  {Promise<SpinalAttribute[]>}
      * @memberof AttributeService
      */ async getAttributesByCategory(node, category, label) {
-        if (!(node instanceof spinal_env_viewer_graph_service_1.SpinalNode)) throw new Error("node must be a spinalNode instance");
-        const _category = typeof category === "string" ? await this.getCategoryByName(node, category) : category;
+        if (!(node instanceof spinal_env_viewer_graph_service_1.SpinalNode)) throw new Error('node must be a spinalNode instance');
+        const _category = typeof category === 'string' ? await this.getCategoryByName(node, category) : category;
         if (!_category || !_category.element || _category.element.length === 0) return [];
         if (label) {
             const labelFound = this._findInLst(_category.element, label);
@@ -1845,9 +1845,9 @@ const constants_1 = require("440ab2cd4e10922a");
      * @memberof AttributeService
      */ async updateAttribute(node, category, label, newValues, createIt = false) {
         const [attribute] = await this.getAttributesByCategory(node, category, label);
-        if (!attribute && !createIt) throw new Error("no attribute found");
+        if (!attribute && !createIt) throw new Error('no attribute found');
         else if (!attribute && createIt && newValues.value) {
-            const _category = typeof category === "string" ? await this.getCategoryByName(node, category) : category;
+            const _category = typeof category === 'string' ? await this.getCategoryByName(node, category) : category;
             const lab = newValues.label || label;
             return this.addAttributeByCategory(node, _category, label, newValues.value);
         }
@@ -1868,19 +1868,19 @@ const constants_1 = require("440ab2cd4e10922a");
      * @memberof AttributeService
      */ async setAttribute(node, old_label, old_value, new_label, new_value) {
         old_label = old_label.toString().trim();
-        old_value = typeof old_value === "string" ? old_value.toString().trim() : old_value;
+        old_value = typeof old_value === 'string' ? old_value.toString().trim() : old_value;
         new_label = new_label.toString().trim();
-        new_value = typeof new_value === "string" ? new_value.toString().trim() : new_value;
-        if (!old_label || old_label.length === 0) throw new Error("old_label must be a string and have at leat one character");
-        if (!new_label || new_label.length === 0) throw new Error("new_label must be a string and have at leat one character");
-        if (typeof old_value === "undefined") throw new Error("old_value is required");
-        if (typeof new_value === "undefined") throw new Error("new_value is required");
+        new_value = typeof new_value === 'string' ? new_value.toString().trim() : new_value;
+        if (!old_label || old_label.length === 0) throw new Error('old_label must be a string and have at leat one character');
+        if (!new_label || new_label.length === 0) throw new Error('new_label must be a string and have at leat one character');
+        if (typeof old_value === 'undefined') throw new Error('old_value is required');
+        if (typeof new_value === 'undefined') throw new Error('new_value is required');
         let allAttributes = await this.getAllAttributes(node);
         for(let i = 0; i < allAttributes.length; i++){
             const element = allAttributes[i];
             if (element.label.get() == old_label) {
-                if (new_label != "") element.label.set(new_label);
-                if (new_value != "") element.value.set(new_value);
+                if (new_label != '') element.label.set(new_label);
+                if (new_value != '') element.value.set(new_value);
             }
         }
     }
@@ -1896,11 +1896,11 @@ const constants_1 = require("440ab2cd4e10922a");
      * @memberof AttributeService
      */ async setAttributeById(node, serverId, new_label, new_value, new_type, new_unit) {
         new_label = new_label.toString().trim();
-        new_value = typeof new_value === "string" ? new_value.toString().trim() : new_value;
+        new_value = typeof new_value === 'string' ? new_value.toString().trim() : new_value;
         new_type = new_type.toString().trim();
         new_unit = new_unit.toString().trim();
         const labelIsValid = new_label && new_label.toString().trim().length > 0;
-        const valueIsValid = typeof new_value !== "undefined";
+        const valueIsValid = typeof new_value !== 'undefined';
         if (!(labelIsValid && valueIsValid)) return;
         let allAttributes = await this.getAllAttributes(node);
         for(let i = 0; i < allAttributes.length; i++){
@@ -1979,7 +1979,7 @@ const constants_1 = require("440ab2cd4e10922a");
             lst = constants_1.BUILDINGINFORMATION.map((el)=>{
                 return this.findAttributesByLabel(node, el);
             });
-            return Promise.all(lst).then((element)=>element.filter((el)=>typeof el !== "undefined"));
+            return Promise.all(lst).then((element)=>element.filter((el)=>typeof el !== 'undefined'));
         }
         return [];
     }
@@ -1993,7 +1993,7 @@ const constants_1 = require("440ab2cd4e10922a");
         if (node && node.getType().get() === spinal_env_viewer_context_geographic_service_1.default.constants.BUILDING_TYPE) {
             const category = await this.addCategoryAttribute(node, constants_1.BUILDINGINFORMATIONCATNAME);
             const promises = constants_1.BUILDINGINFORMATION.map((el)=>{
-                return this.addAttributeByCategory(node, category, el, "To configure");
+                return this.addAttributeByCategory(node, category, el, 'To configure');
             });
             await Promise.all(promises);
             return this.getBuildingInformationAttributes(node);
@@ -2008,7 +2008,7 @@ const constants_1 = require("440ab2cd4e10922a");
      * @memberof AttributeService
      */ async findAttributesByLabel(node, label, category) {
         let data = [];
-        if (typeof category !== "undefined") // const categoryName = this._getCategoryName(category);
+        if (typeof category !== 'undefined') // const categoryName = this._getCategoryName(category);
         data = await this.getAttributesByCategory(node, category.nameCat);
         else data = await this.getAllAttributes(node);
         return data.find((el)=>el.label.get() === label);
@@ -2088,17 +2088,17 @@ const constants_1 = require("440ab2cd4e10922a");
      * @param {string} [unit='']
      * @return {*}  {Promise<SpinalNode<any>>}
      * @memberof AttributeService
-     */ async addAttribute(node, label, value, type = "", unit = "") {
+     */ async addAttribute(node, label, value, type = '', unit = '') {
         // const labelIsValid = label && label.toString().trim().length > 0;
         // const valueIsValid = typeof value !== "undefined";
         // if (!(labelIsValid && valueIsValid)) return;
         label = label.toString().trim();
-        value = typeof value === "string" ? value.toString().trim() : value;
+        value = typeof value === 'string' ? value.toString().trim() : value;
         type = type.toString().trim();
         unit = unit.toString().trim();
-        if (!(node instanceof spinal_env_viewer_graph_service_1.SpinalNode)) throw new Error("node must be a spinalNode instance");
-        if (!label || label.length === 0) throw new Error("attribute label must be a string and have at leat one character");
-        if (typeof value === "undefined") throw new Error("The attribute value is required");
+        if (!(node instanceof spinal_env_viewer_graph_service_1.SpinalNode)) throw new Error('node must be a spinalNode instance');
+        if (!label || label.length === 0) throw new Error('attribute label must be a string and have at leat one character');
+        if (typeof value === 'undefined') throw new Error('The attribute value is required');
         const attributeExist = await this._attributeExist(node, label);
         if (attributeExist) return attributeExist;
         const attributeModel = new spinal_models_documentation_1.SpinalAttribute(label, value, type, unit);
@@ -2207,7 +2207,7 @@ const attributeService = new AttributeService();
 exports.attributeService = attributeService;
 exports.default = AttributeService;
 
-},{"e6daa58395988a2a":"fRH70","d7f8938e0a172d8e":"5QjJf","5cd25cc0bf84ff50":"9n7zp","3896d5730797fb91":"dcbQz","440ab2cd4e10922a":"igGim"}],"dcbQz":[function(require,module,exports) {
+},{"e6daa58395988a2a":"fRH70","d7f8938e0a172d8e":"5QjJf","5cd25cc0bf84ff50":"9n7zp","3896d5730797fb91":"dcbQz","440ab2cd4e10922a":"igGim"}],"dcbQz":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2020 SpinalCom - www.spinalcom.com
@@ -2255,7 +2255,7 @@ __exportStar(require("38c2f3b6e1db5154"), exports);
 __exportStar(require("6450a140c310c116"), exports);
 __exportStar(require("316a0c069637571"), exports);
 
-},{"6d3a13ea0b187870":"7TMja","5d977a979076e91e":"tWGjg","38c2f3b6e1db5154":"5n8mf","6450a140c310c116":"eQfQF","316a0c069637571":"3ZlsM"}],"7TMja":[function(require,module,exports) {
+},{"6d3a13ea0b187870":"7TMja","5d977a979076e91e":"tWGjg","38c2f3b6e1db5154":"5n8mf","6450a140c310c116":"eQfQF","316a0c069637571":"3ZlsM"}],"7TMja":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2020 SpinalCom - www.spinalcom.com
@@ -2285,7 +2285,7 @@ __exportStar(require("316a0c069637571"), exports);
 exports.SpinalAttribute = void 0;
 const spinal_core_connectorjs_type_1 = require("407afb3b1e606f7f");
 class SpinalAttribute extends spinal_core_connectorjs_type_1.Model {
-    constructor(label, value, type = "", unit = ""){
+    constructor(label, value, type = '', unit = ''){
         super();
         this.add_attr({
             label: label,
@@ -2299,7 +2299,7 @@ class SpinalAttribute extends spinal_core_connectorjs_type_1.Model {
 exports.SpinalAttribute = SpinalAttribute;
 spinal_core_connectorjs_type_1.spinalCore.register_models(SpinalAttribute);
 
-},{"407afb3b1e606f7f":"fRH70"}],"tWGjg":[function(require,module,exports) {
+},{"407afb3b1e606f7f":"fRH70"}],"tWGjg":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2020 SpinalCom - www.spinalcom.com
@@ -2340,7 +2340,7 @@ class SpinalFile extends spinal_core_connectorjs_type_1.Model {
 exports.SpinalFile = SpinalFile;
 spinal_core_connectorjs_type_1.spinalCore.register_models(SpinalFile);
 
-},{"9eeee87ffd077e84":"fRH70"}],"5n8mf":[function(require,module,exports) {
+},{"9eeee87ffd077e84":"fRH70"}],"5n8mf":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2020 SpinalCom - www.spinalcom.com
@@ -2387,7 +2387,7 @@ class SpinalNote extends spinal_core_connectorjs_type_1.Model {
 exports.SpinalNote = SpinalNote;
 spinal_core_connectorjs_type_1.spinalCore.register_models(SpinalNote);
 
-},{"fad10baeac627250":"fRH70","cf5a7c609d78893":"3ZlsM"}],"3ZlsM":[function(require,module,exports) {
+},{"fad10baeac627250":"fRH70","cf5a7c609d78893":"3ZlsM"}],"3ZlsM":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2020 SpinalCom - www.spinalcom.com
@@ -2416,12 +2416,12 @@ spinal_core_connectorjs_type_1.spinalCore.register_models(SpinalNote);
 });
 exports.MESSAGE_TYPES = void 0;
 exports.MESSAGE_TYPES = {
-    text: "text",
-    image: "img",
-    file: "file"
+    text: 'text',
+    image: 'img',
+    file: 'file'
 };
 
-},{}],"eQfQF":[function(require,module,exports) {
+},{}],"eQfQF":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2020 SpinalCom - www.spinalcom.com
@@ -2463,7 +2463,7 @@ class SpinalURL extends spinal_core_connectorjs_type_1.Model {
 exports.SpinalURL = SpinalURL;
 spinal_core_connectorjs_type_1.spinalCore.register_models(SpinalURL);
 
-},{"d761e146b96fd9fd":"fRH70"}],"igGim":[function(require,module,exports) {
+},{"d761e146b96fd9fd":"fRH70"}],"igGim":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2020 SpinalCom - www.spinalcom.com
@@ -2491,40 +2491,40 @@ spinal_core_connectorjs_type_1.spinalCore.register_models(SpinalURL);
     value: true
 });
 exports.BUILDINGINFORMATIONCATNAME = exports.BUILDINGINFORMATION = exports.ATTRIBUTE_TYPE = exports.CATEGORY_TYPE = exports.NODE_TO_ATTRIBUTE = exports.NODE_TO_CATEGORY_RELATION = exports.NOTE_GROUP_NAME = exports.NOTE_CATEGORY_NAME = exports.NOTE_CONTEXT_NAME = exports.NOTE_TYPE = exports.NOTE_RELATION = exports.URL_TYPE = exports.URL_RELATION = void 0;
-const URL_RELATION = "hasURL";
+const URL_RELATION = 'hasURL';
 exports.URL_RELATION = URL_RELATION;
-const URL_TYPE = "SpinalURL";
+const URL_TYPE = 'SpinalURL';
 exports.URL_TYPE = URL_TYPE;
-const NOTE_RELATION = "hasNotes";
+const NOTE_RELATION = 'hasNotes';
 exports.NOTE_RELATION = NOTE_RELATION;
-const NOTE_TYPE = "SpinalNote";
+const NOTE_TYPE = 'SpinalNote';
 exports.NOTE_TYPE = NOTE_TYPE;
-const NOTE_CONTEXT_NAME = "Default Note Context";
+const NOTE_CONTEXT_NAME = 'Default Note Context';
 exports.NOTE_CONTEXT_NAME = NOTE_CONTEXT_NAME;
-const NOTE_CATEGORY_NAME = "Default Note Category";
+const NOTE_CATEGORY_NAME = 'Default Note Category';
 exports.NOTE_CATEGORY_NAME = NOTE_CATEGORY_NAME;
-const NOTE_GROUP_NAME = "Default Note Group";
+const NOTE_GROUP_NAME = 'Default Note Group';
 exports.NOTE_GROUP_NAME = NOTE_GROUP_NAME;
-const NODE_TO_CATEGORY_RELATION = "hasCategoryAttributes";
+const NODE_TO_CATEGORY_RELATION = 'hasCategoryAttributes';
 exports.NODE_TO_CATEGORY_RELATION = NODE_TO_CATEGORY_RELATION;
-const NODE_TO_ATTRIBUTE = "hasAttributes";
+const NODE_TO_ATTRIBUTE = 'hasAttributes';
 exports.NODE_TO_ATTRIBUTE = NODE_TO_ATTRIBUTE;
-const CATEGORY_TYPE = "categoryAttributes";
+const CATEGORY_TYPE = 'categoryAttributes';
 exports.CATEGORY_TYPE = CATEGORY_TYPE;
-const ATTRIBUTE_TYPE = "SpinalAttributes";
+const ATTRIBUTE_TYPE = 'SpinalAttributes';
 exports.ATTRIBUTE_TYPE = ATTRIBUTE_TYPE;
 const BUILDINGINFORMATION = [
-    "Titre",
+    'Titre',
     "B\xe2timent",
-    "Surface",
-    "Adresse",
-    "Ville"
+    'Surface',
+    'Adresse',
+    'Ville'
 ];
 exports.BUILDINGINFORMATION = BUILDINGINFORMATION;
-const BUILDINGINFORMATIONCATNAME = "Spinal Building Information";
+const BUILDINGINFORMATIONCATNAME = 'Spinal Building Information';
 exports.BUILDINGINFORMATIONCATNAME = BUILDINGINFORMATIONCATNAME;
 
-},{}],"f52Mg":[function(require,module,exports) {
+},{}],"f52Mg":[function(require,module,exports,__globalThis) {
 var global = arguments[3];
 "use strict";
 /*
@@ -2558,7 +2558,7 @@ const spinal_env_viewer_plugin_group_manager_service_1 = require("e16d889b221de3
 const spinal_models_documentation_1 = require("c7409fc25f796578");
 const constants_1 = require("f92efb945cfdbbca");
 const FileExplorer_1 = require("3a29d01347dbc056");
-const globalType = typeof window === "undefined" ? global : window;
+const globalType = typeof window === 'undefined' ? global : window;
 class NoteService {
     constructor(){}
     /**
@@ -2573,8 +2573,8 @@ class NoteService {
      * @return {*}  {Promise<SpinalNode<any>>}
      * @memberof NoteService
      */ async addNote(node, userInfo, note, type, file, noteContextId, noteGroupId, viewPoint) {
-        if (!(node instanceof spinal_env_viewer_graph_service_1.SpinalNode)) throw "node must be a SpinalNode";
-        if (file && !(file instanceof spinal.File)) throw "File must be a SpinalFile";
+        if (!(node instanceof spinal_env_viewer_graph_service_1.SpinalNode)) throw 'node must be a SpinalNode';
+        if (file && !(file instanceof spinal.File)) throw 'File must be a SpinalFile';
         const spinalNote = new spinal_models_documentation_1.SpinalNote(userInfo.username, note, userInfo.userId?.toString(), type, file, viewPoint);
         const noteNode = new spinal_env_viewer_graph_service_1.SpinalNode(`message-${Date.now()}`, constants_1.NOTE_TYPE, spinalNote);
         await node.addChild(noteNode, constants_1.NOTE_RELATION, spinal_env_viewer_graph_service_1.SPINAL_RELATION_PTR_LST_TYPE);
@@ -2595,7 +2595,7 @@ class NoteService {
      * @return {*}  {Promise<SpinalNode<any>[]>}
      * @memberof NoteService
      */ async addFileAsNote(node, files, userInfo, noteContextId, noteGroupId) {
-        if (typeof FileList !== "undefined" && files instanceof FileList) files = Array.from(files);
+        if (typeof FileList !== 'undefined' && files instanceof FileList) files = Array.from(files);
         const res = await this.addFilesInDirectory(node, files);
         const promises = res.map((data)=>{
             const type = FileExplorer_1.FileExplorer._getFileType(data.file);
@@ -2624,11 +2624,11 @@ class NoteService {
      */ async twinAddNote(node, userInfo, note, type, file, viewPoint, noteContextId, noteGroupId) {
         if (!(node instanceof spinal_env_viewer_graph_service_1.SpinalNode)) return;
         let uploaded = undefined;
-        if (typeof file !== "undefined") uploaded = FileExplorer_1.FileExplorer.addFileUpload(await FileExplorer_1.FileExplorer._getOrCreateFileDirectory(node), [
+        if (typeof file !== 'undefined') uploaded = FileExplorer_1.FileExplorer.addFileUpload(await FileExplorer_1.FileExplorer._getOrCreateFileDirectory(node), [
             file
         ]);
         let view = undefined;
-        if (typeof viewPoint !== "undefined") view = Object.keys(viewPoint).length > 0 ? viewPoint : undefined;
+        if (typeof viewPoint !== 'undefined') view = Object.keys(viewPoint).length > 0 ? viewPoint : undefined;
         const spinalNote = new spinal_models_documentation_1.SpinalNote(userInfo.username, note, userInfo.userId?.toString(), type, uploaded[0], view);
         const spinalNode = await node.addChild(spinalNote, constants_1.NOTE_RELATION, spinal_env_viewer_graph_service_1.SPINAL_RELATION_PTR_LST_TYPE);
         if (spinalNode && spinalNode.info) {
@@ -2639,11 +2639,11 @@ class NoteService {
         spinal_env_viewer_graph_service_1.SpinalGraphService._addNode(spinalNode);
         let contextId = noteContextId;
         let groupId = noteGroupId;
-        if (typeof contextId === "undefined") {
+        if (typeof contextId === 'undefined') {
             const noteContext = await this.createDefaultContext();
             contextId = noteContext.getId().get();
         }
-        if (typeof groupId === "undefined") {
+        if (typeof groupId === 'undefined') {
             const groupNode = await this.createDefaultGroup();
             groupId = groupNode.getId().get();
         }
@@ -2686,11 +2686,11 @@ class NoteService {
      */ async addNoteToContext(noteNode, contextId, groupId) {
         //@ts-ignore
         spinal_env_viewer_graph_service_1.SpinalGraphService._addNode(noteNode);
-        if (typeof contextId === "undefined") {
+        if (typeof contextId === 'undefined') {
             const noteContext = await this.createDefaultContext();
             contextId = noteContext.getId().get();
         }
-        if (typeof groupId === "undefined") {
+        if (typeof groupId === 'undefined') {
             const groupNode = await this.createDefaultGroup();
             groupId = groupNode.getId().get();
         }
@@ -2733,8 +2733,8 @@ class NoteService {
      * @param {SpinalNode<any>} note note to delete
      * @memberof NoteService
      */ async delNote(node, note) {
-        if (!(node instanceof spinal_env_viewer_graph_service_1.SpinalNode)) throw new Error("Node must be a SpinalNode.");
-        if (!(note instanceof spinal_env_viewer_graph_service_1.SpinalNode)) throw new Error("Note must be a SpinalNode.");
+        if (!(node instanceof spinal_env_viewer_graph_service_1.SpinalNode)) throw new Error('Node must be a SpinalNode.');
+        if (!(note instanceof spinal_env_viewer_graph_service_1.SpinalNode)) throw new Error('Note must be a SpinalNode.');
         await node.removeChild(note, constants_1.NOTE_RELATION, spinal_env_viewer_graph_service_1.SPINAL_RELATION_PTR_LST_TYPE);
     }
     /**
@@ -2757,7 +2757,7 @@ class NoteService {
      * @memberof NoteService
      */ async createDefaultCategory() {
         const context = await this.createDefaultContext();
-        return spinal_env_viewer_plugin_group_manager_service_1.groupManagerService.addCategory(context.getId().get(), constants_1.NOTE_CATEGORY_NAME, "add");
+        return spinal_env_viewer_plugin_group_manager_service_1.groupManagerService.addCategory(context.getId().get(), constants_1.NOTE_CATEGORY_NAME, 'add');
     }
     /**
      * @return {*}  {Promise<SpinalNodeRef>}
@@ -2765,7 +2765,7 @@ class NoteService {
      */ async createDefaultGroup() {
         const context = await this.createDefaultContext();
         const category = await this.createDefaultCategory();
-        return spinal_env_viewer_plugin_group_manager_service_1.groupManagerService.addGroup(context.getId().get(), category.getId().get(), constants_1.NOTE_GROUP_NAME, "#FFF000");
+        return spinal_env_viewer_plugin_group_manager_service_1.groupManagerService.addGroup(context.getId().get(), category.getId().get(), constants_1.NOTE_GROUP_NAME, '#FFF000');
     }
     /**
      * @param {SpinalNode<any>} spinalNode
@@ -2773,7 +2773,7 @@ class NoteService {
      * @return {*}  {Promise<SpinalAttribute[]>}
      * @memberof NoteService
      */ async createAttribute(spinalNode, spinalNote) {
-        const categoryName = "default";
+        const categoryName = 'default';
         const service = globalType.spinal.serviceDocumentation;
         if (service) {
             const category = await service.addCategoryAttribute(spinalNode, categoryName);
@@ -2811,7 +2811,7 @@ const noteService = new NoteService();
 exports.noteService = noteService;
 exports.default = NoteService;
 
-},{"fff7fae19fb9d69d":"9n7zp","e16d889b221de367":"tSLpq","c7409fc25f796578":"dcbQz","f92efb945cfdbbca":"igGim","3a29d01347dbc056":"38glt"}],"38glt":[function(require,module,exports) {
+},{"fff7fae19fb9d69d":"9n7zp","e16d889b221de367":"tSLpq","c7409fc25f796578":"dcbQz","f92efb945cfdbbca":"igGim","3a29d01347dbc056":"38glt"}],"38glt":[function(require,module,exports,__globalThis) {
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -2850,7 +2850,7 @@ class FileExplorer {
      * @memberof FileExplorer
      */ static async getDirectory(selectedNode) {
         if (selectedNode != undefined) {
-            const fileNode = await selectedNode.getChildren("hasFiles");
+            const fileNode = await selectedNode.getChildren('hasFiles');
             if (fileNode.length == 0) return undefined;
             else {
                 let directory = await fileNode[0].getElement();
@@ -2864,16 +2864,16 @@ class FileExplorer {
      * @return {*}  {Promise<number>}
      * @memberof FileExplorer
      */ static async getNbChildren(selectedNode) {
-        const fileNode = await selectedNode.getChildren("hasFiles");
+        const fileNode = await selectedNode.getChildren('hasFiles');
         return fileNode.length;
     }
     static async createDirectory(selectedNode) {
         let nbNode = await this.getNbChildren(selectedNode);
         if (nbNode == 0) {
             let myDirectory = new spinal_core_connectorjs_type_1.Directory();
-            let node = await selectedNode.addChild(myDirectory, "hasFiles", spinal_env_viewer_graph_service_1.SPINAL_RELATION_PTR_LST_TYPE);
-            node.info.name.set("[Files]");
-            node.info.type.set("SpinalFiles");
+            let node = await selectedNode.addChild(myDirectory, 'hasFiles', spinal_env_viewer_graph_service_1.SPINAL_RELATION_PTR_LST_TYPE);
+            node.info.name.set('[Files]');
+            node.info.type.set('SpinalFiles');
             return myDirectory;
         } else return this.getDirectory(selectedNode);
     }
@@ -2884,18 +2884,18 @@ class FileExplorer {
      * @memberof FileExplorer
      */ static _getFileType(file) {
         const imagesExtension = [
-            "JPG",
-            "PNG",
-            "GIF",
-            "WEBP",
-            "TIFF",
-            "PSD",
-            "RAW",
-            "BMP",
-            "HEIF",
-            "INDD",
-            "JPEG 2000",
-            "SVG"
+            'JPG',
+            'PNG',
+            'GIF',
+            'WEBP',
+            'TIFF',
+            'PSD',
+            'RAW',
+            'BMP',
+            'HEIF',
+            'INDD',
+            'JPEG 2000',
+            'SVG'
         ];
         const extension = /[^.]+$/.exec(file.name)[0];
         return imagesExtension.indexOf(extension.toUpperCase()) !== -1 ? spinal_models_documentation_1.MESSAGE_TYPES.image : spinal_models_documentation_1.MESSAGE_TYPES.file;
@@ -2907,7 +2907,7 @@ class FileExplorer {
      * @return {*}  {spinal.File<any>[]}
      * @memberof FileExplorer
      */ static addFileUpload(directory, files) {
-        const isFileList = typeof FileList !== "undefined" && files instanceof FileList;
+        const isFileList = typeof FileList !== 'undefined' && files instanceof FileList;
         if (!isFileList && !Array.isArray(files)) files = [
             files
         ];
@@ -2929,7 +2929,7 @@ class FileExplorer {
      * @return {*}  {Promise<spinal.File<any>[]>}
      * @memberof FileExplorer
      */ static async uploadFiles(node, files) {
-        const isFileList = typeof FileList !== "undefined" && files instanceof FileList;
+        const isFileList = typeof FileList !== 'undefined' && files instanceof FileList;
         if (!isFileList && !Array.isArray(files)) files = [
             files
         ];
@@ -2944,7 +2944,7 @@ class FileExplorer {
 }
 exports.FileExplorer = FileExplorer;
 
-},{"33ae30e8ee00c6d3":"fRH70","e132712ee6e81279":"9n7zp","44cd102b7e54d370":"dcbQz"}],"3mvBM":[function(require,module,exports) {
+},{"33ae30e8ee00c6d3":"fRH70","e132712ee6e81279":"9n7zp","44cd102b7e54d370":"dcbQz"}],"3mvBM":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2020 SpinalCom - www.spinalcom.com
@@ -2988,7 +2988,7 @@ class UrlService {
         urlLink = urlLink && urlLink.toString().trim();
         const urlNameIsValid = urlName && urlName.length > 0;
         const urlLinkIsValid = urlLink && urlLink.length > 0;
-        if (!(urlNameIsValid && urlLinkIsValid)) throw new Error("name or link is invalid");
+        if (!(urlNameIsValid && urlLinkIsValid)) throw new Error('name or link is invalid');
         const urlExist = await this.getURL(node, urlName);
         if (urlExist) throw new Error(`${urlName} already exist in ${node.getName().get()}`);
         const urlModel = new spinal_models_documentation_1.SpinalURL(urlName, urlLink);
@@ -3098,7 +3098,7 @@ const urlService = new UrlService();
 exports.urlService = urlService;
 exports.default = UrlService;
 
-},{"ec0392ee6e73c504":"fkEXw","82ea3c8c94cfd15e":"dcbQz","930202a4b36db25e":"igGim"}],"aLHGL":[function(require,module,exports) {
+},{"ec0392ee6e73c504":"fkEXw","82ea3c8c94cfd15e":"dcbQz","930202a4b36db25e":"igGim"}],"aLHGL":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2021 SpinalCom - www.spinalcom.com
@@ -3146,7 +3146,7 @@ __exportStar(require("c3ddd82121d61a7c"), exports);
 __exportStar(require("c30e707585054e57"), exports);
 __exportStar(require("4c2c96539d1e98ae"), exports);
 
-},{"c3ddd82121d61a7c":"1ei0E","c30e707585054e57":"6R4jz","4c2c96539d1e98ae":"gVsAp"}],"1ei0E":[function(require,module,exports) {
+},{"c3ddd82121d61a7c":"1ei0E","c30e707585054e57":"6R4jz","4c2c96539d1e98ae":"gVsAp"}],"1ei0E":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2022 SpinalCom - www.spinalcom.com
@@ -3174,13 +3174,13 @@ __exportStar(require("4c2c96539d1e98ae"), exports);
     value: true
 });
 
-},{}],"6R4jz":[function(require,module,exports) {
+},{}],"6R4jz":[function(require,module,exports,__globalThis) {
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-},{}],"gVsAp":[function(require,module,exports) {
+},{}],"gVsAp":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2021 SpinalCom - www.spinalcom.com
@@ -3208,7 +3208,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-},{}],"6IJ8H":[function(require,module,exports) {
+},{}],"6IJ8H":[function(require,module,exports,__globalThis) {
 "use strict";
 var __awaiter = this && this.__awaiter || function(thisArg, _arguments, P, generator) {
     function adopt(value) {
@@ -3349,7 +3349,7 @@ const SpinalTimeSeriesConfig_1 = require("13fa6818530c41eb");
         return __awaiter(this, void 0, void 0, function*() {
             const archive = yield this.getArchive();
             archive.initialBlockSize.set(initialBlockSize);
-            if (typeof this.maxDay === "undefined") this.add_attr("maxDay", maxDay);
+            if (typeof this.maxDay === 'undefined') this.add_attr('maxDay', maxDay);
             else this.maxDay.set(maxDay);
         });
     }
@@ -3472,15 +3472,15 @@ exports.SpinalTimeSeries = SpinalTimeSeries;
  * @static
  * @type {string}
  * @memberof SpinalTimeSeries
- */ SpinalTimeSeries.relationName = "hasTimeSeries";
+ */ SpinalTimeSeries.relationName = 'hasTimeSeries';
 /**
  * @static
  * @type {string}
  * @memberof SpinalTimeSeries
- */ SpinalTimeSeries.nodeTypeName = "TimeSeries";
+ */ SpinalTimeSeries.nodeTypeName = 'TimeSeries';
 spinal_core_connectorjs_1.spinalCore.register_models(SpinalTimeSeries);
 
-},{"243f77618448a4b1":"2uyD7","a83e1f4399b9d47e":"3SzvR","27d7ae6bfd6cffd5":"lKzee","23f4c68c927e5956":"9jtWX","13fa6818530c41eb":"ejMvW"}],"3SzvR":[function(require,module,exports) {
+},{"243f77618448a4b1":"2uyD7","a83e1f4399b9d47e":"3SzvR","27d7ae6bfd6cffd5":"lKzee","23f4c68c927e5956":"9jtWX","13fa6818530c41eb":"ejMvW"}],"3SzvR":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
@@ -3519,7 +3519,7 @@ function s4() {
 }
 exports.genUID = genUID;
 
-},{}],"lKzee":[function(require,module,exports) {
+},{}],"lKzee":[function(require,module,exports,__globalThis) {
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -3549,14 +3549,14 @@ exports.loadPtr = void 0;
  * <http://resources.spinalcom.com/licenses.pdf>.
  */ const spinal_core_connectorjs_1 = require("8c898adac316214a");
 function loadPtr(loadPtrDictionary, ptr) {
-    if (typeof ptr.data.value !== "undefined" && loadPtrDictionary.has(ptr.data.value)) return loadPtrDictionary.get(ptr.data.value);
-    if (typeof ptr.data.model !== "undefined") {
+    if (typeof ptr.data.value !== 'undefined' && loadPtrDictionary.has(ptr.data.value)) return loadPtrDictionary.get(ptr.data.value);
+    if (typeof ptr.data.model !== 'undefined') {
         const res = Promise.resolve(ptr.data.model);
         if (ptr.data.value) loadPtrDictionary.set(ptr.data.value, res);
         return res;
     }
-    if (typeof ptr.data.value !== "undefined" && ptr.data.value === 0) return Promise.reject("Load Ptr to 0");
-    if (typeof spinal_core_connectorjs_1.FileSystem._objects[ptr.data.value] !== "undefined") {
+    if (typeof ptr.data.value !== 'undefined' && ptr.data.value === 0) return Promise.reject('Load Ptr to 0');
+    if (typeof spinal_core_connectorjs_1.FileSystem._objects[ptr.data.value] !== 'undefined') {
         const res = Promise.resolve(spinal_core_connectorjs_1.FileSystem._objects[ptr.data.value]);
         loadPtrDictionary.set(ptr.data.value, res);
         return Promise.resolve(res);
@@ -3567,7 +3567,7 @@ function loadPtr(loadPtrDictionary, ptr) {
 }
 exports.loadPtr = loadPtr;
 
-},{"8c898adac316214a":"2uyD7"}],"9jtWX":[function(require,module,exports) {
+},{"8c898adac316214a":"2uyD7"}],"9jtWX":[function(require,module,exports,__globalThis) {
 "use strict";
 var __awaiter = this && this.__awaiter || function(thisArg, _arguments, P, generator) {
     function adopt(value) {
@@ -3790,8 +3790,8 @@ const SpinalTimeSeriesConfig_1 = require("1d2e5ea7cf84a8b8");
         return __asyncGenerator(this, arguments, function* getFromIntervalTimeGen_1() {
             this.cleanUpNaNDates();
             const normalizedStart = SpinalTimeSeriesArchive.normalizeDate(start); // Get the date at start of the day
-            const normalizedEnd = typeof end === "number" || typeof end === "string" ? new Date(end).getTime() : end.getTime();
-            const startEpoch = typeof start === "number" || typeof start === "string" ? new Date(start).getTime() : start.getTime();
+            const normalizedEnd = typeof end === 'number' || typeof end === 'string' ? new Date(end).getTime() : end.getTime();
+            const startEpoch = typeof start === 'number' || typeof start === 'string' ? new Date(start).getTime() : start.getTime();
             if (isNaN(normalizedStart)) throw `the value 'start' [${start}] is not a valid date`;
             if (isNaN(normalizedEnd)) throw `the value 'end' [${end}] is not a valid date`;
             for(let idx = 0; idx < this.lstDate.length; idx += 1){
@@ -3884,7 +3884,7 @@ const SpinalTimeSeriesConfig_1 = require("1d2e5ea7cf84a8b8");
         function getArchive() {
             return new Promise((resolve)=>{
                 const ptr = this.lstItem[idx];
-                if (typeof ptr.data.model !== "undefined") resolve(ptr.data.model);
+                if (typeof ptr.data.model !== 'undefined') resolve(ptr.data.model);
                 else ptr.load((element)=>{
                     resolve(element);
                 });
@@ -3928,7 +3928,7 @@ const SpinalTimeSeriesConfig_1 = require("1d2e5ea7cf84a8b8");
 exports.SpinalTimeSeriesArchive = SpinalTimeSeriesArchive;
 spinal_core_connectorjs_1.spinalCore.register_models(SpinalTimeSeriesArchive);
 
-},{"f215f9e701e790ed":"2uyD7","1ea1269ce3de9c93":"lKzee","e65cd4aed08f905e":"1AJXV","1d2e5ea7cf84a8b8":"ejMvW"}],"1AJXV":[function(require,module,exports) {
+},{"f215f9e701e790ed":"2uyD7","1ea1269ce3de9c93":"lKzee","e65cd4aed08f905e":"1AJXV","1d2e5ea7cf84a8b8":"ejMvW"}],"1AJXV":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
@@ -4024,7 +4024,7 @@ const spinal_core_connectorjs_1 = require("ce4fcb549d946cf6");
      * @returns {(SpinalDateValue | SpinalDateValueArray)}
      * @memberof SpinalTimeSeriesArchiveDay
      */ get(index) {
-        if (typeof index === "number") return this.at(index);
+        if (typeof index === 'number') return this.at(index);
         if (this.lstDate instanceof spinal_core_connectorjs_1.TypedArray) return {
             dateDay: this.dateDay.get(),
             // @ts-ignore
@@ -4080,15 +4080,15 @@ const spinal_core_connectorjs_1 = require("ce4fcb549d946cf6");
         if (this.lstDate instanceof spinal_core_connectorjs_1.TypedArray) {
             const tmpDate = this.lstDate;
             const tmpValue = this.lstValue;
-            this.mod_attr("lstDate", tmpDate.get());
-            this.mod_attr("lstValue", tmpValue.get());
+            this.mod_attr('lstDate', tmpDate.get());
+            this.mod_attr('lstValue', tmpValue.get());
         }
     }
 }
 exports.SpinalTimeSeriesArchiveDay = SpinalTimeSeriesArchiveDay;
 spinal_core_connectorjs_1.spinalCore.register_models(SpinalTimeSeriesArchiveDay);
 
-},{"ce4fcb549d946cf6":"2uyD7"}],"ejMvW":[function(require,module,exports) {
+},{"ce4fcb549d946cf6":"2uyD7"}],"ejMvW":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -4121,7 +4121,7 @@ exports.SpinalTimeSeriesConfig = {
     INIT_BLOCK_SIZE: 50
 };
 
-},{}],"8FqTr":[function(require,module,exports) {
+},{}],"8FqTr":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -4234,7 +4234,7 @@ exports.asyncGenToArray = void 0;
 }
 exports.asyncGenToArray = asyncGenToArray;
 
-},{}],"4G99s":[function(require,module,exports) {
+},{}],"4G99s":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2021 SpinalCom - www.spinalcom.com
@@ -4262,7 +4262,7 @@ exports.asyncGenToArray = asyncGenToArray;
     value: true
 });
 
-},{}],"bdAx9":[function(require,module,exports) {
+},{}],"bdAx9":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2021 SpinalCom - www.spinalcom.com
@@ -4290,7 +4290,7 @@ exports.asyncGenToArray = asyncGenToArray;
     value: true
 });
 
-},{}],"g4XiH":[function(require,module,exports) {
+},{}],"g4XiH":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2021 SpinalCom - www.spinalcom.com
@@ -4318,7 +4318,7 @@ exports.asyncGenToArray = asyncGenToArray;
     value: true
 });
 
-},{}],"7XQE3":[function(require,module,exports) {
+},{}],"7XQE3":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2021 SpinalCom - www.spinalcom.com
@@ -4346,7 +4346,7 @@ exports.asyncGenToArray = asyncGenToArray;
     value: true
 });
 
-},{}],"axWFA":[function(require,module,exports) {
+},{}],"axWFA":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
@@ -4389,7 +4389,7 @@ Object.defineProperty(exports, "InputDataEndpointType", {
     }
 });
 
-},{"845832e7236af323":"8XtM0","cc566962486d92e8":"8EeeB"}],"8XtM0":[function(require,module,exports) {
+},{"845832e7236af323":"8XtM0","cc566962486d92e8":"8EeeB"}],"8XtM0":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
@@ -4444,7 +4444,7 @@ exports.InputDataEndpointDataType = void 0;
     InputDataEndpointDataType[InputDataEndpointDataType["Duration"] = 20] = "Duration";
 })(InputDataEndpointDataType || (exports.InputDataEndpointDataType = InputDataEndpointDataType = {}));
 
-},{}],"8EeeB":[function(require,module,exports) {
+},{}],"8EeeB":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
@@ -4487,7 +4487,7 @@ exports.InputDataEndpointType = void 0;
     InputDataEndpointType[InputDataEndpointType["co2"] = 8] = "co2";
 })(InputDataEndpointType || (exports.InputDataEndpointType = InputDataEndpointType = {}));
 
-},{}],"auUMP":[function(require,module,exports) {
+},{}],"auUMP":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
@@ -4551,7 +4551,7 @@ const obj = {
 };
 exports.default = obj;
 
-},{"d76db348996a7f18":"6CT6k","9c5fc4e108dc7df3":"jmIjC","d465715120b7ba47":"gBjwy","b55bcafdd9c4e5d9":"cjjAM"}],"6CT6k":[function(require,module,exports) {
+},{"d76db348996a7f18":"6CT6k","9c5fc4e108dc7df3":"jmIjC","d465715120b7ba47":"gBjwy","b55bcafdd9c4e5d9":"cjjAM"}],"6CT6k":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
@@ -4597,7 +4597,7 @@ const genUID_1 = require("1f87ccb31a1f3637");
      * @param {string} [path='']
      * @param {string} [id=genUID('SpinalBmsDevice')]
      * @memberof SpinalBmsDevice
-     */ constructor(name = "", type = "", path = "", id = (0, genUID_1.genUID)("SpinalBmsDevice")){
+     */ constructor(name = '', type = '', path = '', id = (0, genUID_1.genUID)('SpinalBmsDevice')){
         super();
         this.add_attr({
             id,
@@ -4612,16 +4612,16 @@ exports.SpinalBmsDevice = SpinalBmsDevice;
  * @static
  * @type {string}
  * @memberof SpinalBmsDevice
- */ SpinalBmsDevice.relationName = "hasBmsDevice";
+ */ SpinalBmsDevice.relationName = 'hasBmsDevice';
 /**
  * @static
  * @type {string}
  * @memberof SpinalBmsDevice
- */ SpinalBmsDevice.nodeTypeName = "BmsDevice";
+ */ SpinalBmsDevice.nodeTypeName = 'BmsDevice';
 spinal_core_connectorjs_type_1.spinalCore.register_models(SpinalBmsDevice);
 exports.default = SpinalBmsDevice;
 
-},{"e04a213210fabc52":"fRH70","1f87ccb31a1f3637":"eoGt4"}],"eoGt4":[function(require,module,exports) {
+},{"e04a213210fabc52":"fRH70","1f87ccb31a1f3637":"eoGt4"}],"eoGt4":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
@@ -4661,7 +4661,7 @@ function s4() {
 }
 exports.genUID = genUID;
 
-},{}],"jmIjC":[function(require,module,exports) {
+},{}],"jmIjC":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
@@ -4706,7 +4706,7 @@ const genUID_1 = require("5c6d9e36c9a50e79");
      * @param {string} [type='']
      * @param {string} [id=genUID('SpinalBmsNetwork')]
      * @memberof SpinalBmsNetwork
-     */ constructor(name = "", type = "", id = (0, genUID_1.genUID)("SpinalBmsNetwork")){
+     */ constructor(name = '', type = '', id = (0, genUID_1.genUID)('SpinalBmsNetwork')){
         super();
         this.add_attr({
             id,
@@ -4720,16 +4720,16 @@ exports.SpinalBmsNetwork = SpinalBmsNetwork;
  * @static
  * @type {string}
  * @memberof SpinalBmsNetwork
- */ SpinalBmsNetwork.relationName = "hasBmsNetwork";
+ */ SpinalBmsNetwork.relationName = 'hasBmsNetwork';
 /**
  * @static
  * @type {string}
  * @memberof SpinalBmsNetwork
- */ SpinalBmsNetwork.nodeTypeName = "BmsNetwork";
+ */ SpinalBmsNetwork.nodeTypeName = 'BmsNetwork';
 spinal_core_connectorjs_type_1.spinalCore.register_models(SpinalBmsNetwork);
 exports.default = SpinalBmsNetwork;
 
-},{"d3f42c5b6e9452f5":"fRH70","5c6d9e36c9a50e79":"eoGt4"}],"gBjwy":[function(require,module,exports) {
+},{"d3f42c5b6e9452f5":"fRH70","5c6d9e36c9a50e79":"eoGt4"}],"gBjwy":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
@@ -4807,7 +4807,7 @@ exports.SpinalBmsEndpoint = SpinalBmsEndpoint;
 spinal_core_connectorjs_type_1.spinalCore.register_models(SpinalBmsEndpoint);
 exports.default = SpinalBmsEndpoint;
 
-},{"48b0356037b9be11":"fRH70","76f3c16954ec909e":"eoGt4"}],"cjjAM":[function(require,module,exports) {
+},{"48b0356037b9be11":"fRH70","76f3c16954ec909e":"eoGt4"}],"cjjAM":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
@@ -4853,7 +4853,7 @@ const genUID_1 = require("69e945aa974e3b18");
      * @param {string} [path='']
      * @param {string} [id=genUID('SpinalBmsNetwork')]
      * @memberof SpinalBmsEndpointGroup
-     */ constructor(name = "", type = "", path = "", id = (0, genUID_1.genUID)("SpinalBmsNetwork")){
+     */ constructor(name = '', type = '', path = '', id = (0, genUID_1.genUID)('SpinalBmsNetwork')){
         super();
         this.add_attr({
             id,
@@ -4868,16 +4868,16 @@ exports.SpinalBmsEndpointGroup = SpinalBmsEndpointGroup;
  * @static
  * @type {string}
  * @memberof SpinalBmsEndpointGroup
- */ SpinalBmsEndpointGroup.relationName = "hasBmsEndpointGroup";
+ */ SpinalBmsEndpointGroup.relationName = 'hasBmsEndpointGroup';
 /**
  * @static
  * @type {string}
  * @memberof SpinalBmsEndpointGroup
- */ SpinalBmsEndpointGroup.nodeTypeName = "BmsEndpointGroup";
+ */ SpinalBmsEndpointGroup.nodeTypeName = 'BmsEndpointGroup';
 spinal_core_connectorjs_type_1.spinalCore.register_models(SpinalBmsEndpointGroup);
 exports.default = SpinalBmsEndpointGroup;
 
-},{"5662b3bd1086849c":"fRH70","69e945aa974e3b18":"eoGt4"}],"bGJVT":[function(require,module,exports) {
+},{"5662b3bd1086849c":"fRH70","69e945aa974e3b18":"eoGt4"}],"bGJVT":[function(require,module,exports,__globalThis) {
 /**
  * lodash (Custom Build) <https://lodash.com/>
  * Build: `lodash modularize exports="npm" -o ./`
@@ -4886,17 +4886,17 @@ exports.default = SpinalBmsEndpointGroup;
  * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
  * Copyright Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
  */ /** Used as the `TypeError` message for "Functions" methods. */ var global = arguments[3];
-var FUNC_ERROR_TEXT = "Expected a function";
+var FUNC_ERROR_TEXT = 'Expected a function';
 /** Used as references for various `Number` constants. */ var NAN = 0 / 0;
-/** `Object#toString` result references. */ var symbolTag = "[object Symbol]";
+/** `Object#toString` result references. */ var symbolTag = '[object Symbol]';
 /** Used to match leading and trailing whitespace. */ var reTrim = /^\s+|\s+$/g;
 /** Used to detect bad signed hexadecimal string values. */ var reIsBadHex = /^[-+]0x[0-9a-f]+$/i;
 /** Used to detect binary string values. */ var reIsBinary = /^0b[01]+$/i;
 /** Used to detect octal string values. */ var reIsOctal = /^0o[0-7]+$/i;
 /** Built-in method references without a dependency on `root`. */ var freeParseInt = parseInt;
-/** Detect free variable `global` from Node.js. */ var freeGlobal = typeof global == "object" && global && global.Object === Object && global;
-/** Detect free variable `self`. */ var freeSelf = typeof self == "object" && self && self.Object === Object && self;
-/** Used as a reference to the global object. */ var root = freeGlobal || freeSelf || Function("return this")();
+/** Detect free variable `global` from Node.js. */ var freeGlobal = typeof global == 'object' && global && global.Object === Object && global;
+/** Detect free variable `self`. */ var freeSelf = typeof self == 'object' && self && self.Object === Object && self;
+/** Used as a reference to the global object. */ var root = freeGlobal || freeSelf || Function('return this')();
 /** Used for built-in method references. */ var objectProto = Object.prototype;
 /**
  * Used to resolve the
@@ -4977,13 +4977,13 @@ var FUNC_ERROR_TEXT = "Expected a function";
  * jQuery(window).on('popstate', debounced.cancel);
  */ function debounce(func, wait, options) {
     var lastArgs, lastThis, maxWait, result, timerId, lastCallTime, lastInvokeTime = 0, leading = false, maxing = false, trailing = true;
-    if (typeof func != "function") throw new TypeError(FUNC_ERROR_TEXT);
+    if (typeof func != 'function') throw new TypeError(FUNC_ERROR_TEXT);
     wait = toNumber(wait) || 0;
     if (isObject(options)) {
         leading = !!options.leading;
-        maxing = "maxWait" in options;
+        maxing = 'maxWait' in options;
         maxWait = maxing ? nativeMax(toNumber(options.maxWait) || 0, wait) : maxWait;
-        trailing = "trailing" in options ? !!options.trailing : trailing;
+        trailing = 'trailing' in options ? !!options.trailing : trailing;
     }
     function invokeFunc(time) {
         var args = lastArgs, thisArg = lastThis;
@@ -5098,15 +5098,15 @@ var FUNC_ERROR_TEXT = "Expected a function";
  * jQuery(window).on('popstate', throttled.cancel);
  */ function throttle(func, wait, options) {
     var leading = true, trailing = true;
-    if (typeof func != "function") throw new TypeError(FUNC_ERROR_TEXT);
+    if (typeof func != 'function') throw new TypeError(FUNC_ERROR_TEXT);
     if (isObject(options)) {
-        leading = "leading" in options ? !!options.leading : leading;
-        trailing = "trailing" in options ? !!options.trailing : trailing;
+        leading = 'leading' in options ? !!options.leading : leading;
+        trailing = 'trailing' in options ? !!options.trailing : trailing;
     }
     return debounce(func, wait, {
-        "leading": leading,
-        "maxWait": wait,
-        "trailing": trailing
+        'leading': leading,
+        'maxWait': wait,
+        'trailing': trailing
     });
 }
 /**
@@ -5135,7 +5135,7 @@ var FUNC_ERROR_TEXT = "Expected a function";
  * // => false
  */ function isObject(value) {
     var type = typeof value;
-    return !!value && (type == "object" || type == "function");
+    return !!value && (type == 'object' || type == 'function');
 }
 /**
  * Checks if `value` is object-like. A value is object-like if it's not `null`
@@ -5161,7 +5161,7 @@ var FUNC_ERROR_TEXT = "Expected a function";
  * _.isObjectLike(null);
  * // => false
  */ function isObjectLike(value) {
-    return !!value && typeof value == "object";
+    return !!value && typeof value == 'object';
 }
 /**
  * Checks if `value` is classified as a `Symbol` primitive or object.
@@ -5180,7 +5180,7 @@ var FUNC_ERROR_TEXT = "Expected a function";
  * _.isSymbol('abc');
  * // => false
  */ function isSymbol(value) {
-    return typeof value == "symbol" || isObjectLike(value) && objectToString.call(value) == symbolTag;
+    return typeof value == 'symbol' || isObjectLike(value) && objectToString.call(value) == symbolTag;
 }
 /**
  * Converts `value` to a number.
@@ -5205,20 +5205,20 @@ var FUNC_ERROR_TEXT = "Expected a function";
  * _.toNumber('3.2');
  * // => 3.2
  */ function toNumber(value) {
-    if (typeof value == "number") return value;
+    if (typeof value == 'number') return value;
     if (isSymbol(value)) return NAN;
     if (isObject(value)) {
-        var other = typeof value.valueOf == "function" ? value.valueOf() : value;
-        value = isObject(other) ? other + "" : other;
+        var other = typeof value.valueOf == 'function' ? value.valueOf() : value;
+        value = isObject(other) ? other + '' : other;
     }
-    if (typeof value != "string") return value === 0 ? value : +value;
-    value = value.replace(reTrim, "");
+    if (typeof value != 'string') return value === 0 ? value : +value;
+    value = value.replace(reTrim, '');
     var isBinary = reIsBinary.test(value);
     return isBinary || reIsOctal.test(value) ? freeParseInt(value.slice(2), isBinary ? 2 : 8) : reIsBadHex.test(value) ? NAN : +value;
 }
 module.exports = throttle;
 
-},{}],"kTdIT":[function(require,module,exports) {
+},{}],"kTdIT":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2020 SpinalCom - www.spinalcom.com
@@ -5437,7 +5437,7 @@ class SpinalGroup {
 }
 exports.default = SpinalGroup;
 
-},{"10ec99eccc0a3280":"9n7zp","55b44eb929733959":"hLapl","e44d98c7edfbb3de":"fRH70","34918e995975e323":"5QjJf","f959c9d05d6b89b5":"gzkbg"}],"dNavB":[function(require,module,exports) {
+},{"10ec99eccc0a3280":"9n7zp","55b44eb929733959":"hLapl","e44d98c7edfbb3de":"fRH70","34918e995975e323":"5QjJf","f959c9d05d6b89b5":"gzkbg"}],"dNavB":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2020 SpinalCom - www.spinalcom.com
@@ -5597,6 +5597,6 @@ class SpinalCategory {
 }
 exports.default = SpinalCategory;
 
-},{"728f361d21717d79":"9n7zp","ac85879d948ad172":"hLapl","10d079b885e41d6c":"fRH70"}]},[], null, "parcelRequire02e5")
+},{"728f361d21717d79":"9n7zp","ac85879d948ad172":"hLapl","10d079b885e41d6c":"fRH70"}]},[], null, "parcelRequire94c2")
 
 //# sourceMappingURL=dist.8820b390.js.map
