@@ -1,9 +1,7 @@
 #app .md-list-expand > .md-list .md-list-item-content {
   padding-left: 38px !important;
 }
-.adsk-viewing-viewer .adsk-toolbar {
-  left: 50%;
-}
+
 .tooltip {
   display: block !important;
   z-index: 10000;

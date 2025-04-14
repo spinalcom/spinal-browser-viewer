@@ -18,3 +18,10 @@ yarn-error.log
 launch.config.js
 nerve-center/
 src/test.js
+.parcel-cache
+.cache
+old
+nm
+src/plugins/*
+*old
+viewer.zip

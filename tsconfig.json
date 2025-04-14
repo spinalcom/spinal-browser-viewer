@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "module": "CommonJS",
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "noImplicitReturns": true,
+    "sourceMap": true,
+    "downlevelIteration": true,
+    "baseUrl": "src",
+    "target": "es6",
+    "experimentalDecorators": true,
+    "skipLibCheck": true,
+    "moduleResolution": "node",
+    "strict": false,
+  },
+  "files": [
+    "src/shims-vue.d.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ],
+  "inclure": [
+    "src/**/*",
+    "src/**/*.vue",
+    "**/*.d.ts"
+  ]
+}

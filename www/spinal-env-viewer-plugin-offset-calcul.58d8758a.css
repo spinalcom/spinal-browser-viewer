@@ -1,0 +1,11 @@
+.config_container[data-v-facaf5] {
+  width: 100%;
+  height: calc(100% - 15px);
+  overflow: auto;
+}
+
+.config_container * {
+  box-sizing: border-box;
+  background: none !important;
+}
+/*# sourceMappingURL=spinal-env-viewer-plugin-offset-calcul.58d8758a.css.map */
