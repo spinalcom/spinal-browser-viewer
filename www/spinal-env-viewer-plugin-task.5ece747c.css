@@ -742,12 +742,12 @@
 
 .vuecal__view-btn {
   cursor: pointer;
+  height: 2.2em;
   color: inherit;
   box-sizing: border-box;
   background: none;
   border: none;
   border-bottom: 0 solid;
-  height: 2.2em;
   padding: .3em 1em;
   font-size: 1.3em;
   transition: all .2s;
@@ -903,7 +903,7 @@
   z-index: 1;
   background-color: #f8f8f8cc;
   font-weight: bold;
-  transition: box-shadow .3s, left .3s, width .3s, -webkit-box-shadow .3s;
+  transition: box-shadow .3s, left .3s, width .3s;
   position: relative;
   left: 0;
   overflow: hidden;
@@ -918,7 +918,6 @@
 }
 
 .vuecal__cell .vuecal__event * {
-  -webkit-user-select: text;
   user-select: text;
 }
 
@@ -1008,7 +1007,6 @@
 }
 
 .vuecal__event .vuecal__event-delete {
-  -webkit-user-select: none;
   user-select: none;
 }
 
@@ -1242,7 +1240,6 @@
 }
 
 .vuecal *, .vuecal--has-touch :not(.vuecal__event-title--edit) {
-  -webkit-user-select: none;
   user-select: none;
 }
 

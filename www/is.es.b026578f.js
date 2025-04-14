@@ -73,7 +73,7 @@
         localRequire,
         module,
         module.exports,
-        this
+        globalObject
       );
     }
 
@@ -142,7 +142,7 @@
       this[globalName] = mainExports;
     }
   }
-})({"9pmVJ":[function(require,module,exports) {
+})({"9pmVJ":[function(require,module,exports,__globalThis) {
 /**
   * vue-cal v3.11.0
   * (c) 2022 Antoni Andre <antoniandre.web@gmail.com>
@@ -164,42 +164,42 @@ parcelHelpers.export(exports, "weekDays", ()=>a);
 parcelHelpers.export(exports, "year", ()=>n);
 parcelHelpers.export(exports, "years", ()=>r);
 const a = [
-    "M\xe1nudagur",
-    "\xderi\xf0judagur",
-    "Mi\xf0vikudagur",
+    "M\xE1nudagur",
+    "\xDEri\xF0judagur",
+    "Mi\xF0vikudagur",
     "Fimmtudagur",
-    "F\xf6studagur",
+    "F\xF6studagur",
     "Laugardagur",
     "Sunnudagur"
 ], e = [
-    "Jan\xfaar",
-    "Febr\xfaar",
+    "Jan\xFAar",
+    "Febr\xFAar",
     "Mars",
-    "Apr\xedl",
-    "Ma\xed",
-    "J\xfan\xed",
-    "J\xfal\xed",
-    "\xc1g\xfast",
+    "Apr\xEDl",
+    "Ma\xED",
+    "J\xFAn\xED",
+    "J\xFAl\xED",
+    "\xC1g\xFAst",
     "September",
-    "Okt\xf3ber",
-    "N\xf3vember",
+    "Okt\xF3ber",
+    "N\xF3vember",
     "Desember"
-], r = "\xc1r", n = "\xc1r", t = "M\xe1nu\xf0ur", u = "Vika", d = "Dagur", s = "\xcd dag", g = "Enginn atbur\xf0ur", l = "Allan daginn", i = "Ey\xf0a", M = "B\xfa\xf0u til vi\xf0bur\xf0", y = "dddd D MMMM YYYY", m = {
+], r = "\xC1r", n = "\xC1r", t = "M\xE1nu\xF0ur", u = "Vika", d = "Dagur", s = "\xCD dag", g = "Enginn atbur\xF0ur", l = "Allan daginn", i = "Ey\xF0a", M = "B\xFA\xF0u til vi\xF0bur\xF0", y = "dddd D MMMM YYYY", m = {
     weekDays: a,
     months: e,
-    years: "\xc1r",
-    year: "\xc1r",
-    month: "M\xe1nu\xf0ur",
+    years: "\xC1r",
+    year: "\xC1r",
+    month: "M\xE1nu\xF0ur",
     week: "Vika",
     day: "Dagur",
-    today: "\xcd dag",
-    noEvent: "Enginn atbur\xf0ur",
+    today: "\xCD dag",
+    noEvent: "Enginn atbur\xF0ur",
     allDay: "Allan daginn",
-    deleteEvent: "Ey\xf0a",
-    createEvent: "B\xfa\xf0u til vi\xf0bur\xf0",
+    deleteEvent: "Ey\xF0a",
+    createEvent: "B\xFA\xF0u til vi\xF0bur\xF0",
     dateFormat: "dddd D MMMM YYYY"
 };
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},[], null, "parcelRequire02e5")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},[], null, "parcelRequire94c2")
 
 //# sourceMappingURL=is.es.b026578f.js.map

@@ -73,7 +73,7 @@
         localRequire,
         module,
         module.exports,
-        this
+        globalObject
       );
     }
 
@@ -142,7 +142,7 @@
       this[globalName] = mainExports;
     }
   }
-})({"Y9jK3":[function(require,module,exports) {
+})({"Y9jK3":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _findMessageParentJs = require("./buttonClass/standard_buttons/findMessageParent.js");
 var _findMessageParentJsDefault = parcelHelpers.interopDefault(_findMessageParentJs);
@@ -164,11 +164,11 @@ var _documentationPanelJs = require("./buttonClass/documentationPanel.js");
 var _attributesRightClickVue = require("./view/rightClick/attributesRightClick.vue");
 var _attributesRightClickVueDefault = parcelHelpers.interopDefault(_attributesRightClickVue);
 var _spinalEnvViewerPanelManagerService = require("spinal-env-viewer-panel-manager-service");
-const circularMenuHookName = "circularMenu";
-const SideBarHookName = "GraphManagerSideBar";
-const namePanel = "panel-documentation";
-const documentationGroupPanel = "panel-documentationgroup";
-const nameAttributesRightClickPanel = "attributes-right-click";
+const circularMenuHookName = 'circularMenu';
+const SideBarHookName = 'GraphManagerSideBar';
+const namePanel = 'panel-documentation';
+const documentationGroupPanel = 'panel-documentationgroup';
+const nameAttributesRightClickPanel = 'attributes-right-click';
 const { spinalContextMenuService } = require("a77090b7237ca305");
 const { SpinalForgeExtention } = require("d994e4c01dc61fdd");
 // deleteAutoUrlRightClick
@@ -231,7 +231,7 @@ SpinalForgeExtention.registerExtention("url-right-click", (0, _documentationPane
 SpinalForgeExtention.registerExtention("delete-right-click", (0, _documentationPanelJs.deleteAutoUrlRightClick));
 (0, _documentationPanelJs.registerRightClickButton)();
 
-},{"a77090b7237ca305":"kHlxv","d994e4c01dc61fdd":"1mGHd","./buttonClass/standard_buttons/findMessageParent.js":"duwj3","./buttonClass/standard_buttons/isolateMessageParent.js":"hvUe8","./buttonClass/standard_buttons/zoomMessageParent.js":"leCTz","./buttonClass/messageDetail.js":"d566z","./buttonClass/seeMessage.js":"39MDB","./buttonClass/notesPanel.js":"1ZH5z","./view/notes/dialogs/registerDialogs.js":"iJGDm","./buttonClass/documentationPanel.js":"4J7A8","./view/rightClick/attributesRightClick.vue":"5TsHZ","spinal-env-viewer-panel-manager-service":"7Uw4d","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1mGHd":[function(require,module,exports) {
+},{"a77090b7237ca305":"kHlxv","d994e4c01dc61fdd":"1mGHd","./buttonClass/standard_buttons/findMessageParent.js":"duwj3","./buttonClass/standard_buttons/isolateMessageParent.js":"hvUe8","./buttonClass/standard_buttons/zoomMessageParent.js":"leCTz","./buttonClass/messageDetail.js":"d566z","./buttonClass/seeMessage.js":"39MDB","./buttonClass/notesPanel.js":"1ZH5z","./view/notes/dialogs/registerDialogs.js":"iJGDm","./buttonClass/documentationPanel.js":"4J7A8","./view/rightClick/attributesRightClick.vue":"5TsHZ","spinal-env-viewer-panel-manager-service":"7Uw4d","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1mGHd":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -260,7 +260,7 @@ module.exports = {
     SpinalForgeExtention
 };
 
-},{"bf7edd8450503e22":"7Uw4d","64bd1569b4ded066":"gsEky"}],"7Uw4d":[function(require,module,exports) {
+},{"bf7edd8450503e22":"7Uw4d","64bd1569b4ded066":"gsEky"}],"7Uw4d":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -299,7 +299,7 @@ module.exports = {
     }
 };
 
-},{"8b71a79dcc12420e":"h7sS1","e47c36529e942a76":"cvBJ6","cfd4c6200ba55765":"9SKSV"}],"h7sS1":[function(require,module,exports) {
+},{"8b71a79dcc12420e":"h7sS1","e47c36529e942a76":"cvBJ6","cfd4c6200ba55765":"9SKSV"}],"h7sS1":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -379,7 +379,7 @@ module.exports = {
 }
 module.exports = SpinalPanelManagerService;
 
-},{}],"cvBJ6":[function(require,module,exports) {
+},{}],"cvBJ6":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -414,7 +414,7 @@ module.exports = SpinalPanelManagerService;
 }
 module.exports = SpinalPanelApp;
 
-},{}],"9SKSV":[function(require,module,exports) {
+},{}],"9SKSV":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -513,7 +513,7 @@ function getDialog() {
     };
 };
 
-},{}],"gsEky":[function(require,module,exports) {
+},{}],"gsEky":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
  * 
@@ -748,7 +748,7 @@ function getPanel() {
     };
 };
 
-},{}],"duwj3":[function(require,module,exports) {
+},{}],"duwj3":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _constants = require("spinal-env-viewer-plugin-documentation-service/dist/Models/constants");
@@ -788,7 +788,7 @@ class FindMessageParent extends SpinalContextApp {
 }
 exports.default = FindMessageParent;
 
-},{"5e810d5049662e69":"kHlxv","spinal-env-viewer-plugin-documentation-service/dist/Models/constants":"igGim","spinal-env-viewer-context-geographic-service/build/constants":"eV0id","spinal-env-viewer-plugin-standard_button/js/selectBIMObjectButton":"byLzT","spinal-env-viewer-plugin-standard_button/js/fitToViewerButton":"jAXW3","spinal-env-viewer-plugin-standard_button/js/utilities":"ktewa","spinal-env-viewer-graph-service":"9n7zp","../../service/utilities":"5Qpl3","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"byLzT":[function(require,module,exports) {
+},{"5e810d5049662e69":"kHlxv","spinal-env-viewer-plugin-documentation-service/dist/Models/constants":"igGim","spinal-env-viewer-context-geographic-service/build/constants":"eV0id","spinal-env-viewer-plugin-standard_button/js/selectBIMObjectButton":"byLzT","spinal-env-viewer-plugin-standard_button/js/fitToViewerButton":"jAXW3","spinal-env-viewer-plugin-standard_button/js/utilities":"ktewa","spinal-env-viewer-graph-service":"9n7zp","../../service/utilities":"5Qpl3","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"byLzT":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -834,13 +834,13 @@ class SpinalContextSelectBIMObject extends SpinalContextApp {
         let realNode = (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(option.selectedNode.id.get());
         const nodes = await realNode.find((0, _utilities.SELECTrelationList), (node)=>node.info.type.get() === "BIMObject");
         const lstByModel = await (0, _utilities.utilities).sortBIMObjectByModel(nodes);
-        const arrayToFit = (0, _utilities.utilities).organizeBimObjectForAggregateViewer(lstByModel, "ids");
+        const arrayToFit = (0, _utilities.utilities).organizeBimObjectForAggregateViewer(lstByModel, 'ids');
         this.viewer.clearSelection();
         this.viewer.setAggregateSelection(arrayToFit);
     }
 }
 
-},{"spinal-env-viewer-graph-service":"9n7zp","6a1561c7c4b8903b":"kHlxv","./utilities":"ktewa","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ktewa":[function(require,module,exports) {
+},{"spinal-env-viewer-graph-service":"9n7zp","6a1561c7c4b8903b":"kHlxv","./utilities":"ktewa","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ktewa":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2021 SpinalCom - www.spinalcom.com
  *
@@ -985,7 +985,7 @@ module.exports = {
     utilities
 };
 
-},{"spinal-env-viewer-graph-service":"9n7zp","spinal-env-viewer-plugin-group-manager-service":"tSLpq","spinal-env-viewer-context-geographic-service/build/constants":"eV0id","spinal-model-bmsnetwork":"gzkbg","spinal-env-viewer-plugin-network-tree-service":"7oQhf"}],"jAXW3":[function(require,module,exports) {
+},{"spinal-env-viewer-graph-service":"9n7zp","spinal-env-viewer-plugin-group-manager-service":"tSLpq","spinal-env-viewer-context-geographic-service/build/constants":"eV0id","spinal-model-bmsnetwork":"gzkbg","spinal-env-viewer-plugin-network-tree-service":"7oQhf"}],"jAXW3":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -1031,12 +1031,12 @@ class SpinalContextFitToViewer extends SpinalContextApp {
         let realNode = (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(option.selectedNode.id.get());
         const nodes = await realNode.find((0, _utilities.SELECTrelationList), (node)=>node.info.type.get() === "BIMObject");
         const lstByModel = await (0, _utilities.utilities).sortBIMObjectByModel(nodes);
-        const arrayToFit = (0, _utilities.utilities).organizeBimObjectForAggregateViewer(lstByModel, "selection");
+        const arrayToFit = (0, _utilities.utilities).organizeBimObjectForAggregateViewer(lstByModel, 'selection');
         this.viewer.fitToView(arrayToFit);
     }
 }
 
-},{"spinal-env-viewer-graph-service":"9n7zp","5b562009692cf730":"kHlxv","./utilities":"ktewa","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5Qpl3":[function(require,module,exports) {
+},{"spinal-env-viewer-graph-service":"9n7zp","5b562009692cf730":"kHlxv","./utilities":"ktewa","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5Qpl3":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "utilities", ()=>utilities);
@@ -1282,7 +1282,7 @@ class DocumentationUtilities {
 }
 const utilities = new DocumentationUtilities();
 
-},{"spinal-env-viewer-plugin-documentation-service":"5rYVR","spinal-env-viewer-graph-service":"9n7zp","spinal-env-viewer-context-geographic-service":"5QjJf","spinal-env-viewer-plugin-group-manager-service":"tSLpq","spinal-env-viewer-plugin-forge/dist/Constants":"f3Ny6","spinal-env-viewer-plugin-standard_button/js/utilities":"ktewa","spinal-env-viewer-plugin-documentation-service/dist/Models/constants":"igGim","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hvUe8":[function(require,module,exports) {
+},{"spinal-env-viewer-plugin-documentation-service":"5rYVR","spinal-env-viewer-graph-service":"9n7zp","spinal-env-viewer-context-geographic-service":"5QjJf","spinal-env-viewer-plugin-group-manager-service":"tSLpq","spinal-env-viewer-plugin-forge/dist/Constants":"f3Ny6","spinal-env-viewer-plugin-standard_button/js/utilities":"ktewa","spinal-env-viewer-plugin-documentation-service/dist/Models/constants":"igGim","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hvUe8":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _constants = require("spinal-env-viewer-plugin-documentation-service/dist/Models/constants");
@@ -1317,7 +1317,7 @@ class FindMessageParent extends SpinalContextApp {
 }
 exports.default = FindMessageParent;
 
-},{"1cd542c76efd12ce":"kHlxv","spinal-env-viewer-plugin-documentation-service/dist/Models/constants":"igGim","../../service/utilities":"5Qpl3","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"leCTz":[function(require,module,exports) {
+},{"1cd542c76efd12ce":"kHlxv","spinal-env-viewer-plugin-documentation-service/dist/Models/constants":"igGim","../../service/utilities":"5Qpl3","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"leCTz":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _constants = require("spinal-env-viewer-plugin-documentation-service/dist/Models/constants");
@@ -1352,7 +1352,7 @@ class FindMessageParent extends SpinalContextApp {
 }
 exports.default = FindMessageParent;
 
-},{"b21404b2866488d7":"kHlxv","spinal-env-viewer-plugin-documentation-service/dist/Models/constants":"igGim","../../service/utilities":"5Qpl3","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"d566z":[function(require,module,exports) {
+},{"b21404b2866488d7":"kHlxv","spinal-env-viewer-plugin-documentation-service/dist/Models/constants":"igGim","../../service/utilities":"5Qpl3","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"d566z":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _constants = require("spinal-env-viewer-plugin-documentation-service/dist/Models/constants");
@@ -1362,9 +1362,9 @@ class MessageDetail extends SpinalContextApp {
     constructor(){
         super("See message detail", "see Message date", {
             icon: "announcement",
-            icon_type: "in",
-            backgroundColor: "#356BAB",
-            fontColor: "#FFFFFF"
+            icon_type: 'in',
+            backgroundColor: '#356BAB',
+            fontColor: '#FFFFFF'
         });
     }
     isShown(option) {
@@ -1377,7 +1377,7 @@ class MessageDetail extends SpinalContextApp {
     async action(option) {
         const nodeId = option.selectedNode.id.get();
         const contextId = option.context.id.get();
-        (0, _spinalEnvViewerPanelManagerService.spinalPanelManagerService).openPanel("messageDetailDialog", {
+        (0, _spinalEnvViewerPanelManagerService.spinalPanelManagerService).openPanel('messageDetailDialog', {
             nodeId: nodeId,
             contextId: contextId
         });
@@ -1385,7 +1385,7 @@ class MessageDetail extends SpinalContextApp {
 }
 exports.default = MessageDetail;
 
-},{"4e55680af22ef812":"kHlxv","spinal-env-viewer-plugin-documentation-service/dist/Models/constants":"igGim","spinal-env-viewer-panel-manager-service":"7Uw4d","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"39MDB":[function(require,module,exports) {
+},{"4e55680af22ef812":"kHlxv","spinal-env-viewer-plugin-documentation-service/dist/Models/constants":"igGim","spinal-env-viewer-panel-manager-service":"7Uw4d","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"39MDB":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _constants = require("spinal-env-viewer-plugin-documentation-service/dist/Models/constants");
@@ -1429,7 +1429,7 @@ class ColorMessageParent extends SpinalContextApp {
 }
 exports.default = ColorMessageParent;
 
-},{"d8518363c79ae351":"kHlxv","spinal-env-viewer-plugin-documentation-service/dist/Models/constants":"igGim","../service/utilities":"5Qpl3","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1ZH5z":[function(require,module,exports) {
+},{"d8518363c79ae351":"kHlxv","spinal-env-viewer-plugin-documentation-service/dist/Models/constants":"igGim","../service/utilities":"5Qpl3","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1ZH5z":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "NotesButton", ()=>NotesButton);
@@ -1442,19 +1442,19 @@ const { SpinalContextApp } = require("9d0f0a6420acade2");
 const { spinalPanelManagerService } = require("a997c98668f3d421");
 const { SpinalForgeExtention } = require("4839fc6c73a1c287");
 const noteExtension = SpinalForgeExtention.createExtention({
-    name: "panel-notes",
+    name: 'panel-notes',
     vueMountComponent: (0, _vueDefault.default).extend((0, _notesComponentVueDefault.default)),
     // toolbar is optional
     panel: {
-        title: "Notes",
-        classname: "spinal-pannel",
-        closeBehaviour: "remove"
+        title: 'Notes',
+        classname: 'spinal-pannel',
+        closeBehaviour: 'remove'
     },
     style: {
-        left: "405px",
-        width: "400px",
+        left: '405px',
+        width: '400px',
         height: "475px",
-        minWidth: "510px"
+        minWidth: '510px'
     },
     onload: ()=>{},
     onUnLoad: ()=>{}
@@ -1462,11 +1462,11 @@ const noteExtension = SpinalForgeExtention.createExtention({
 SpinalForgeExtention.registerExtention(name, noteExtension);
 class NotesButton extends SpinalContextApp {
     constructor(){
-        super("Spinal Notes", "Spinal CDE description", {
-            icon: "insert_comment",
-            icon_type: "in",
-            backgroundColor: "#356BAB",
-            fontColor: "#FFFFFF"
+        super('Spinal Notes', 'Spinal CDE description', {
+            icon: 'insert_comment',
+            icon_type: 'in',
+            backgroundColor: '#356BAB',
+            fontColor: '#FFFFFF'
         });
     }
     isShown(option) {
@@ -1486,7 +1486,7 @@ class NotesButton extends SpinalContextApp {
             exist: option.exist,
             model: option.model3d
         };
-        spinalPanelManagerService.openPanel("panel-notes", obj);
+        spinalPanelManagerService.openPanel('panel-notes', obj);
     }
 }
 const getSelectedNode = (selectedNode)=>{
@@ -1514,7 +1514,7 @@ const createBimObjectNode = ()=>{
     }
 };
 
-},{"9d0f0a6420acade2":"kHlxv","spinal-env-viewer-graph-service":"9n7zp","a997c98668f3d421":"7Uw4d","4839fc6c73a1c287":"1mGHd","../view/notes/components/notesComponent.vue":"6PtUQ","vue":"gt5MM","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6PtUQ":[function(require,module,exports) {
+},{"9d0f0a6420acade2":"kHlxv","spinal-env-viewer-graph-service":"9n7zp","a997c98668f3d421":"7Uw4d","4839fc6c73a1c287":"1mGHd","../view/notes/components/notesComponent.vue":"6PtUQ","vue":"gt5MM","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6PtUQ":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -1526,13 +1526,13 @@ let initialize = ()=>{
     script._scopeId = "data-v-48bef6";
     script.__cssModules = require("92af2a3272474041").default;
     require("bd573c5b91ef6548").default(script);
-    script.__scopeId = "data-v-48bef6";
+    script.__scopeId = 'data-v-48bef6';
     script.__file = "notesComponent.vue";
 };
 initialize();
 exports.default = script;
 
-},{"3072cdcac49f327c":"47jUJ","7d22db4c4fcb5ffd":"bYcfV","92af2a3272474041":"d1Okf","bd573c5b91ef6548":"7xvn5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"47jUJ":[function(require,module,exports) {
+},{"3072cdcac49f327c":"47jUJ","7d22db4c4fcb5ffd":"bYcfV","92af2a3272474041":"d1Okf","bd573c5b91ef6548":"7xvn5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"47jUJ":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerPluginDocumentationService = require("spinal-env-viewer-plugin-documentation-service");
@@ -1605,53 +1605,53 @@ var scriptExports = {
         this.noteGroupSelected = group.info.get();
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"spinal-env-viewer-plugin-documentation-service":"5rYVR","spinal-env-viewer-plugin-documentation-service/dist/Models/constants":"igGim","d639ea77ae50a1be":"7Uw4d","./messageComponent.vue":"PVL1R","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"bYcfV":[function(require,module,exports) {
+},{"spinal-env-viewer-plugin-documentation-service":"5rYVR","spinal-env-viewer-plugin-documentation-service/dist/Models/constants":"igGim","d639ea77ae50a1be":"7Uw4d","./messageComponent.vue":"PVL1R","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"bYcfV":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("div", {
+    return _c('div', {
         staticClass: "notesBox"
     }, [
-        _c("md-toolbar", {
+        _c('md-toolbar', {
             staticClass: "mdToolbar md-dense",
             attrs: {
                 "md-elevation": "0"
             }
         }, [
-            _c("div", {
+            _c('div', {
                 staticClass: "md-toolbar-section-start breadCrumb"
             }, [
-                _vm.noteContextSelected && _vm.noteCategorySelected && _vm.noteGroupSelected ? _c("div", [
-                    _c("div", [
-                        _c("span", {
+                _vm.noteContextSelected && _vm.noteCategorySelected && _vm.noteGroupSelected ? _c('div', [
+                    _c('div', [
+                        _c('span', {
                             staticClass: "md-primary md-caption"
                         }, [
                             _vm._v(_vm._s(_vm.noteContextSelected.name))
                         ]),
                         _vm._v(" "),
-                        _c("span", {
+                        _c('span', {
                             staticClass: "md-primary md-caption"
                         }, [
                             _vm._v("/")
                         ]),
                         _vm._v(" "),
-                        _c("span", {
+                        _c('span', {
                             staticClass: "md-primary md-caption"
                         }, [
                             _vm._v(_vm._s(_vm.noteCategorySelected.name))
                         ]),
                         _vm._v(" "),
-                        _c("span", {
+                        _c('span', {
                             staticClass: "md-primary md-caption"
                         }, [
                             _vm._v("/")
                         ]),
                         _vm._v(" "),
-                        _c("span", {
+                        _c('span', {
                             staticClass: "md-primary md-caption"
                         }, [
                             _vm._v(_vm._s(_vm.noteGroupSelected.name))
@@ -1660,26 +1660,26 @@ var render = function() {
                 ]) : _vm._e()
             ]),
             _vm._v(" "),
-            _c("div", {
+            _c('div', {
                 staticClass: "md-toolbar-section-end"
             }, [
-                _c("md-button", {
+                _c('md-button', {
                     staticClass: "md-icon-button md-primary",
                     on: {
                         "click": _vm.OpenLinkDialog
                     }
                 }, [
-                    _c("md-icon", [
+                    _c('md-icon', [
                         _vm._v("settings_applications")
                     ])
                 ], 1)
             ], 1)
         ]),
         _vm._v(" "),
-        _c("div", {
+        _c('div', {
             staticClass: "notes_div"
         }, [
-            _c("message-component", {
+            _c('message-component', {
                 attrs: {
                     "nodeInfo": _vm.nodeInfo,
                     "noteContextSelected": _vm.noteContextSelected,
@@ -1694,13 +1694,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"d1Okf":[function() {},{}],"7xvn5":[function(require,module,exports) {
+},{}],"d1Okf":[function() {},{}],"7xvn5":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"iJGDm":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"iJGDm":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _vue = require("vue");
@@ -1713,7 +1713,7 @@ exports.default = {
     parentContainer: document.body
 };
 
-},{"vue":"gt5MM","./messageDetailDialog.vue":"dxtTd","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dxtTd":[function(require,module,exports) {
+},{"vue":"gt5MM","./messageDetailDialog.vue":"dxtTd","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dxtTd":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -1724,13 +1724,13 @@ let initialize = ()=>{
     script.staticRenderFns = require("eff8d8f7d42daf8c").staticRenderFns;
     script._scopeId = "data-v-ef1ae3";
     require("8f140d579b6a263c").default(script);
-    script.__scopeId = "data-v-ef1ae3";
+    script.__scopeId = 'data-v-ef1ae3';
     script.__file = "messageDetailDialog.vue";
 };
 initialize();
 exports.default = script;
 
-},{"96eb55116e0ce9b":"llvLx","eff8d8f7d42daf8c":"lReMX","8f140d579b6a263c":"4ZS2r","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"llvLx":[function(require,module,exports) {
+},{"96eb55116e0ce9b":"llvLx","eff8d8f7d42daf8c":"lReMX","8f140d579b6a263c":"4ZS2r","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"llvLx":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _constants = require("spinal-env-viewer-plugin-documentation-service/dist/Models/constants");
@@ -1779,15 +1779,15 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"spinal-env-viewer-plugin-documentation-service/dist/Models/constants":"igGim","spinal-env-viewer-graph-service":"9n7zp","../components/message.vue":"awVk4","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"lReMX":[function(require,module,exports) {
+},{"spinal-env-viewer-plugin-documentation-service/dist/Models/constants":"igGim","spinal-env-viewer-graph-service":"9n7zp","../components/message.vue":"awVk4","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"lReMX":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("md-dialog", {
+    return _c('md-dialog', {
         staticClass: "mdDialogContainer paramsDialogContainer",
         attrs: {
             "md-active": _vm.showDialog
@@ -1804,17 +1804,17 @@ var render = function() {
             }
         }
     }, [
-        _c("md-dialog-title", {
+        _c('md-dialog-title', {
             staticStyle: {
                 "text-align": "center"
             }
         }),
         _vm._v(" "),
-        _c("md-dialog-content", {
+        _c('md-dialog-content', {
             staticClass: "md-scrollbar"
         }, [
-            _c("ul", _vm._l(_vm.messages, function(note, index) {
-                return _c("message-component", {
+            _c('ul', _vm._l(_vm.messages, function(note, index) {
+                return _c('message-component', {
                     key: index,
                     attrs: {
                         "date": note.date.get(),
@@ -1827,8 +1827,8 @@ var render = function() {
             }), 1)
         ]),
         _vm._v(" "),
-        _c("md-dialog-actions", [
-            _c("md-button", {
+        _c('md-dialog-actions', [
+            _c('md-button', {
                 staticClass: "md-primary",
                 on: {
                     "click": function($event) {
@@ -1845,13 +1845,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"4ZS2r":[function(require,module,exports) {
+},{}],"4ZS2r":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"4J7A8":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"4J7A8":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "DocumentationExtension", ()=>DocumentationExtension);
@@ -1887,29 +1887,29 @@ const { SpinalContextApp } = require("584f667426db6e6d");
 const { spinalPanelManagerService } = require("d29fc61ab794ee19");
 const { SpinalForgeExtention } = require("c2cd75b768d1f5e5");
 const DocumentationExtension = SpinalForgeExtention.createExtention({
-    name: "panel-documentation",
+    name: 'panel-documentation',
     vueMountComponent: (0, _vueDefault.default).extend((0, _documentationComponentVueDefault.default)),
     // toolbar is optional
     panel: {
-        title: "Documentation",
-        classname: "spinal-pannel",
-        closeBehaviour: "remove"
+        title: 'Documentation',
+        classname: 'spinal-pannel',
+        closeBehaviour: 'remove'
     },
     style: {
-        left: "405px",
-        width: "30vh",
-        height: "40vh"
+        left: '405px',
+        width: '30vh',
+        height: '40vh'
     },
     onload: ()=>{},
     onUnLoad: ()=>{}
 });
 class DocumentationButton extends SpinalContextApp {
     constructor(){
-        super("Documentation", "Spinal Documentation description", {
-            icon: "folder",
-            icon_type: "in",
-            backgroundColor: "#356BAB",
-            fontColor: "#FFFFFF"
+        super('Documentation', 'Spinal Documentation description', {
+            icon: 'folder',
+            icon_type: 'in',
+            backgroundColor: '#356BAB',
+            fontColor: '#FFFFFF'
         });
     }
     isShown(option) {
@@ -1922,16 +1922,16 @@ class DocumentationButton extends SpinalContextApp {
     }
     action(option) {
         // option.paramSent = "hello from DocumentationCircularMenuButton";
-        spinalPanelManagerService.openPanel("panel-documentation", option);
+        spinalPanelManagerService.openPanel('panel-documentation', option);
     }
 }
 class ExportToDriveButton extends SpinalContextApp {
     constructor(){
-        super("Export File To Drive", "Spinal Documentation description", {
-            icon: "folder",
-            icon_type: "in",
-            backgroundColor: "#356BAB",
-            fontColor: "#FFFFFF"
+        super('Export File To Drive', 'Spinal Documentation description', {
+            icon: 'folder',
+            icon_type: 'in',
+            backgroundColor: '#356BAB',
+            fontColor: '#FFFFFF'
         });
     }
     isShown(option) {
@@ -1967,49 +1967,49 @@ class ExportToDriveButton extends SpinalContextApp {
     }
 }
 const addAutoUrlRightClick = SpinalForgeExtention.createExtention({
-    name: "url-right-click",
+    name: 'url-right-click',
     vueMountComponent: (0, _vueDefault.default).extend((0, _urlRightClickVueDefault.default)),
     // toolbar is optional
     panel: {
-        title: "url-right-click",
-        classname: "spinal-pannel",
-        closeBehaviour: "remove"
+        title: 'url-right-click',
+        classname: 'spinal-pannel',
+        closeBehaviour: 'remove'
     },
     style: {
-        left: "405px",
-        height: "50vh"
+        left: '405px',
+        height: '50vh'
     },
     onload: ()=>{},
     onUnLoad: ()=>{}
 });
 const addAutoAttributesRightClick = SpinalForgeExtention.createExtention({
-    name: "attributes-right-click",
+    name: 'attributes-right-click',
     vueMountComponent: (0, _vueDefault.default).extend((0, _attributesRightClickVueDefault.default)),
     // toolbar is optional
     panel: {
-        title: "attributes-right-click",
-        classname: "spinal-pannel",
-        closeBehaviour: "remove"
+        title: 'attributes-right-click',
+        classname: 'spinal-pannel',
+        closeBehaviour: 'remove'
     },
     style: {
-        left: "405px",
-        height: "50vh"
+        left: '405px',
+        height: '50vh'
     },
     onload: ()=>{},
     onUnLoad: ()=>{}
 });
 const deleteAutoUrlRightClick = SpinalForgeExtention.createExtention({
-    name: "delete-right-click",
+    name: 'delete-right-click',
     vueMountComponent: (0, _vueDefault.default).extend((0, _deleteUrlRightClickVueDefault.default)),
     // toolbar is optional
     panel: {
-        title: "delete attributes",
-        classname: "spinal-pannel",
-        closeBehaviour: "remove"
+        title: 'delete attributes',
+        classname: 'spinal-pannel',
+        closeBehaviour: 'remove'
     },
     style: {
-        left: "405px",
-        height: "50vh"
+        left: '405px',
+        height: '50vh'
     },
     onload: ()=>{},
     onUnLoad: ()=>{}
@@ -2018,10 +2018,10 @@ function registerRightClickButton() {
     var checkExist = setInterval(function() {
         const viewer = window.spinal.ForgeViewer.viewer;
         if (viewer !== undefined) {
-            viewer.registerContextMenuCallback("MyChangingColorMenuItems", (menu, status)=>{
+            viewer.registerContextMenuCallback('MyChangingColorMenuItems', (menu, status)=>{
                 if (status.hasSelected) {
                     menu.push({
-                        title: "Add Spinal Attributes",
+                        title: 'Add Spinal Attributes',
                         target: ()=>{
                             const selSet = viewer.getSelection();
                             let allChildDbid = (0, _forgeTreeJsDefault.default).getAllLeafDbIds(selSet);
@@ -2030,30 +2030,30 @@ function registerRightClickButton() {
                                     dbid: allChildDbid,
                                     category: mycat
                                 };
-                                spinalPanelManagerService.openPanel("attributes-right-click", propsData);
+                                spinalPanelManagerService.openPanel('attributes-right-click', propsData);
                             });
                         }
                     });
                     menu.push({
-                        title: "Add Spinal url",
+                        title: 'Add Spinal url',
                         target: ()=>{
                             const selSet = viewer.getSelection();
                             let allChildDbid = (0, _forgeTreeJsDefault.default).getAllLeafDbIds(selSet);
                             const propsData = {
                                 dbid: allChildDbid
                             };
-                            spinalPanelManagerService.openPanel("url-right-click", propsData);
+                            spinalPanelManagerService.openPanel('url-right-click', propsData);
                         }
                     });
                     menu.push({
-                        title: "Delete Spinal url",
+                        title: 'Delete Spinal url',
                         target: ()=>{
                             const selSet = viewer.getSelection();
                             let allChildDbid = (0, _forgeTreeJsDefault.default).getAllLeafDbIds(selSet);
                             const propsData = {
                                 dbid: allChildDbid
                             };
-                            spinalPanelManagerService.openPanel("delete-right-click", propsData);
+                            spinalPanelManagerService.openPanel('delete-right-click', propsData);
                         }
                     });
                 }
@@ -2066,16 +2066,16 @@ function registerRightClickurl() {
     var checkExist = setInterval(function() {
         const viewer = window.spinal.ForgeViewer.viewer;
         if (viewer !== undefined) {
-            viewer.registerContextMenuCallback("MyChangingColorMenuItems", (menu, status)=>{
+            viewer.registerContextMenuCallback('MyChangingColorMenuItems', (menu, status)=>{
                 if (status.hasSelected) menu.push({
-                    title: "Add Spinal url",
+                    title: 'Add Spinal url',
                     target: ()=>{
                         const selSet = viewer.getSelection();
                         let allChildDbid = (0, _forgeTreeJsDefault.default).getAllLeafDbIds(selSet);
                         const propsData = {
                             dbid: allChildDbid
                         };
-                        spinalPanelManagerService.openPanel("url-right-click", propsData);
+                        spinalPanelManagerService.openPanel('url-right-click', propsData);
                     }
                 });
             });
@@ -2084,7 +2084,7 @@ function registerRightClickurl() {
     }, 100);
 }
 
-},{"vue":"gt5MM","584f667426db6e6d":"kHlxv","spinal-env-viewer-graph-service":"9n7zp","spinal-env-viewer-plugin-documentation-service":"5rYVR","d29fc61ab794ee19":"7Uw4d","c2cd75b768d1f5e5":"1mGHd","../documentationComponent.vue":"a5h7e","../view/rightClick/attributesRightClick.vue":"5TsHZ","../view/rightClick/deleteUrlRightClick.vue":"apfso","../view/rightClick/urlRightClick.vue":"9Q5qT","spinal-model-graph":"fkEXw","../service/forgeTree.js":"cTlUn","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"a5h7e":[function(require,module,exports) {
+},{"vue":"gt5MM","584f667426db6e6d":"kHlxv","spinal-env-viewer-graph-service":"9n7zp","spinal-env-viewer-plugin-documentation-service":"5rYVR","d29fc61ab794ee19":"7Uw4d","c2cd75b768d1f5e5":"1mGHd","../documentationComponent.vue":"a5h7e","../view/rightClick/attributesRightClick.vue":"5TsHZ","../view/rightClick/deleteUrlRightClick.vue":"apfso","../view/rightClick/urlRightClick.vue":"9Q5qT","spinal-model-graph":"fkEXw","../service/forgeTree.js":"cTlUn","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"a5h7e":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -2096,13 +2096,13 @@ let initialize = ()=>{
     script._scopeId = "data-v-e55b75";
     script.__cssModules = require("7ce88174b5134f7").default;
     require("51cf3e4d8fe9bf4d").default(script);
-    script.__scopeId = "data-v-e55b75";
+    script.__scopeId = 'data-v-e55b75';
     script.__file = "documentationComponent.vue";
 };
 initialize();
 exports.default = script;
 
-},{"31a4e0185ab8c405":"iVMrL","a2e91578ac897b37":"7OxcQ","7ce88174b5134f7":"3nWSi","51cf3e4d8fe9bf4d":"dkQPZ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"iVMrL":[function(require,module,exports) {
+},{"31a4e0185ab8c405":"iVMrL","a2e91578ac897b37":"7OxcQ","7ce88174b5134f7":"3nWSi","51cf3e4d8fe9bf4d":"dkQPZ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"iVMrL":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _urlpanelVue = require("./view/documentation/URLPanel.vue");
@@ -2173,10 +2173,10 @@ var scriptExports = {
         closed (option, viewer) {}
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"./view/documentation/URLPanel.vue":"1y1zL","./view/documentation/FilePanel.vue":"hbbvb","./view/documentation/AttributesPanel.vue":"lpVJx","spinal-env-viewer-graph-service":"9n7zp","spinal-env-viewer-plugin-documentation-service":"5rYVR","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1y1zL":[function(require,module,exports) {
+},{"./view/documentation/URLPanel.vue":"1y1zL","./view/documentation/FilePanel.vue":"hbbvb","./view/documentation/AttributesPanel.vue":"lpVJx","spinal-env-viewer-graph-service":"9n7zp","spinal-env-viewer-plugin-documentation-service":"5rYVR","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1y1zL":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -2188,13 +2188,13 @@ let initialize = ()=>{
     script._scopeId = "data-v-1d7a8b";
     script.__cssModules = require("b85aaa988e0b9e56").default;
     require("469f96b46380ad7b").default(script);
-    script.__scopeId = "data-v-1d7a8b";
+    script.__scopeId = 'data-v-1d7a8b';
     script.__file = "URLPanel.vue";
 };
 initialize();
 exports.default = script;
 
-},{"ecd114f9d39da0bd":"NbKpe","423b46146b18e6d3":"8hivH","b85aaa988e0b9e56":"dBqAN","469f96b46380ad7b":"8q0xr","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"NbKpe":[function(require,module,exports) {
+},{"ecd114f9d39da0bd":"NbKpe","423b46146b18e6d3":"8hivH","b85aaa988e0b9e56":"dBqAN","469f96b46380ad7b":"8q0xr","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"NbKpe":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _vue = require("vue");
@@ -2310,10 +2310,10 @@ var scriptExports = {
         if (this.option.info != undefined && this.myBind != undefined) this.option.info.unbind(this.myBind);
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"vue":"gt5MM","spinal-env-viewer-plugin-documentation-service":"5rYVR","../../service/utilities.js":"5Qpl3","./component/menuURL.vue":"j2O90","path":"loE3o","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"j2O90":[function(require,module,exports) {
+},{"vue":"gt5MM","spinal-env-viewer-plugin-documentation-service":"5rYVR","../../service/utilities.js":"5Qpl3","./component/menuURL.vue":"j2O90","path":"loE3o","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"j2O90":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -2325,13 +2325,13 @@ let initialize = ()=>{
     script._scopeId = "data-v-8c11c4";
     script.__cssModules = require("6a9df5f988a34a62").default;
     require("fe224bfcc971bdf0").default(script);
-    script.__scopeId = "data-v-8c11c4";
+    script.__scopeId = 'data-v-8c11c4';
     script.__file = "menuURL.vue";
 };
 initialize();
 exports.default = script;
 
-},{"7a0ea19c1edb5bda":"hLvZ2","2aa69f678934ec1f":"cDGRk","6a9df5f988a34a62":"iC6vN","fe224bfcc971bdf0":"5DGJO","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hLvZ2":[function(require,module,exports) {
+},{"7a0ea19c1edb5bda":"hLvZ2","2aa69f678934ec1f":"cDGRk","6a9df5f988a34a62":"iC6vN","fe224bfcc971bdf0":"5DGJO","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hLvZ2":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var scriptExports = {
@@ -2370,34 +2370,34 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"cDGRk":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"cDGRk":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("div", [
-        _c("md-menu", {
+    return _c('div', [
+        _c('md-menu', {
             attrs: {
                 "md-direction": "top-end",
                 "md-align-trigger": ""
             }
         }, [
-            _c("md-button", {
+            _c('md-button', {
                 staticClass: "md-icon-button",
                 attrs: {
                     "md-menu-trigger": ""
                 }
             }, [
-                _c("md-icon", [
+                _c('md-icon', [
                     _vm._v("more_vert")
                 ])
             ], 1),
             _vm._v(" "),
-            _c("md-menu-content", [
-                _c("md-menu-item", {
+            _c('md-menu-content', [
+                _c('md-menu-item', {
                     on: {
                         "click": function($event) {
                             _vm.activeEditURLNode = true;
@@ -2407,7 +2407,7 @@ var render = function() {
                     _vm._v("Edit")
                 ]),
                 _vm._v(" "),
-                _c("md-menu-item", {
+                _c('md-menu-item', {
                     on: {
                         "click": function($event) {
                             return _vm.remove();
@@ -2419,7 +2419,7 @@ var render = function() {
             ], 1)
         ], 1),
         _vm._v(" "),
-        _c("md-dialog", {
+        _c('md-dialog', {
             attrs: {
                 "md-active": _vm.activeEditURLNode
             },
@@ -2432,11 +2432,11 @@ var render = function() {
                 }
             }
         }, [
-            _c("md-dialog-title", [
+            _c('md-dialog-title', [
                 _vm._v("Edit Link")
             ]),
             _vm._v(" "),
-            _c("md-field", {
+            _c('md-field', {
                 staticStyle: {
                     "width": "80%",
                     "margin-left": "auto",
@@ -2446,11 +2446,11 @@ var render = function() {
                     "md-inline": ""
                 }
             }, [
-                _c("label", [
+                _c('label', [
                     _vm._v("Label")
                 ]),
                 _vm._v(" "),
-                _c("md-input", {
+                _c('md-input', {
                     model: {
                         value: _vm.urlChange.label,
                         callback: function($$v) {
@@ -2461,7 +2461,7 @@ var render = function() {
                 })
             ], 1),
             _vm._v(" "),
-            _c("md-field", {
+            _c('md-field', {
                 staticStyle: {
                     "width": "80%",
                     "margin-left": "auto",
@@ -2471,11 +2471,11 @@ var render = function() {
                     "md-inline": ""
                 }
             }, [
-                _c("label", [
+                _c('label', [
                     _vm._v("Link")
                 ]),
                 _vm._v(" "),
-                _c("md-input", {
+                _c('md-input', {
                     model: {
                         value: _vm.urlChange.URL,
                         callback: function($$v) {
@@ -2486,8 +2486,8 @@ var render = function() {
                 })
             ], 1),
             _vm._v(" "),
-            _c("md-dialog-actions", [
-                _c("md-button", {
+            _c('md-dialog-actions', [
+                _c('md-button', {
                     staticClass: "md-primary",
                     on: {
                         "click": function($event) {
@@ -2498,7 +2498,7 @@ var render = function() {
                     _vm._v("Close")
                 ]),
                 _vm._v(" "),
-                _c("md-button", {
+                _c('md-button', {
                     staticClass: "md-primary",
                     on: {
                         "click": _vm.edit
@@ -2514,13 +2514,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"iC6vN":[function() {},{}],"5DGJO":[function(require,module,exports) {
+},{}],"iC6vN":[function() {},{}],"5DGJO":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"loE3o":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"loE3o":[function(require,module,exports,__globalThis) {
 // 'path' module extracted from Node.js v8.11.1 (only the posix part)
 // transplited with Babel
 // Copyright Joyent, Inc. and other Node contributors.
@@ -2544,13 +2544,13 @@ exports.default = (script)=>{};
 // OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
 // USE OR OTHER DEALINGS IN THE SOFTWARE.
 var process = require("c0743715070b1b8a");
-"use strict";
+'use strict';
 function assertPath(path) {
-    if (typeof path !== "string") throw new TypeError("Path must be a string. Received " + JSON.stringify(path));
+    if (typeof path !== 'string') throw new TypeError('Path must be a string. Received ' + JSON.stringify(path));
 }
 // Resolves . and .. elements in a path with directory names
 function normalizeStringPosix(path, allowAboveRoot) {
-    var res = "";
+    var res = '';
     var lastSegmentLength = 0;
     var lastSlash = -1;
     var dots = 0;
@@ -2564,21 +2564,21 @@ function normalizeStringPosix(path, allowAboveRoot) {
             else if (lastSlash !== i - 1 && dots === 2) {
                 if (res.length < 2 || lastSegmentLength !== 2 || res.charCodeAt(res.length - 1) !== 46 /*.*/  || res.charCodeAt(res.length - 2) !== 46 /*.*/ ) {
                     if (res.length > 2) {
-                        var lastSlashIndex = res.lastIndexOf("/");
+                        var lastSlashIndex = res.lastIndexOf('/');
                         if (lastSlashIndex !== res.length - 1) {
                             if (lastSlashIndex === -1) {
-                                res = "";
+                                res = '';
                                 lastSegmentLength = 0;
                             } else {
                                 res = res.slice(0, lastSlashIndex);
-                                lastSegmentLength = res.length - 1 - res.lastIndexOf("/");
+                                lastSegmentLength = res.length - 1 - res.lastIndexOf('/');
                             }
                             lastSlash = i;
                             dots = 0;
                             continue;
                         }
                     } else if (res.length === 2 || res.length === 1) {
-                        res = "";
+                        res = '';
                         lastSegmentLength = 0;
                         lastSlash = i;
                         dots = 0;
@@ -2586,12 +2586,12 @@ function normalizeStringPosix(path, allowAboveRoot) {
                     }
                 }
                 if (allowAboveRoot) {
-                    if (res.length > 0) res += "/..";
-                    else res = "..";
+                    if (res.length > 0) res += '/..';
+                    else res = '..';
                     lastSegmentLength = 2;
                 }
             } else {
-                if (res.length > 0) res += "/" + path.slice(lastSlash + 1, i);
+                if (res.length > 0) res += '/' + path.slice(lastSlash + 1, i);
                 else res = path.slice(lastSlash + 1, i);
                 lastSegmentLength = i - lastSlash - 1;
             }
@@ -2604,7 +2604,7 @@ function normalizeStringPosix(path, allowAboveRoot) {
 }
 function _format(sep, pathObject) {
     var dir = pathObject.dir || pathObject.root;
-    var base = pathObject.base || (pathObject.name || "") + (pathObject.ext || "");
+    var base = pathObject.base || (pathObject.name || '') + (pathObject.ext || '');
     if (!dir) return base;
     if (dir === pathObject.root) return dir + base;
     return dir + sep + base;
@@ -2612,7 +2612,7 @@ function _format(sep, pathObject) {
 var posix = {
     // path.resolve([from ...], to)
     resolve: function resolve() {
-        var resolvedPath = "";
+        var resolvedPath = '';
         var resolvedAbsolute = false;
         var cwd;
         for(var i = arguments.length - 1; i >= -1 && !resolvedAbsolute; i--){
@@ -2625,7 +2625,7 @@ var posix = {
             assertPath(path);
             // Skip empty entries
             if (path.length === 0) continue;
-            resolvedPath = path + "/" + resolvedPath;
+            resolvedPath = path + '/' + resolvedPath;
             resolvedAbsolute = path.charCodeAt(0) === 47 /*/*/ ;
         }
         // At this point the path should be resolved to a full absolute path, but
@@ -2633,21 +2633,21 @@ var posix = {
         // Normalize the path
         resolvedPath = normalizeStringPosix(resolvedPath, !resolvedAbsolute);
         if (resolvedAbsolute) {
-            if (resolvedPath.length > 0) return "/" + resolvedPath;
-            else return "/";
+            if (resolvedPath.length > 0) return '/' + resolvedPath;
+            else return '/';
         } else if (resolvedPath.length > 0) return resolvedPath;
-        else return ".";
+        else return '.';
     },
     normalize: function normalize(path) {
         assertPath(path);
-        if (path.length === 0) return ".";
+        if (path.length === 0) return '.';
         var isAbsolute = path.charCodeAt(0) === 47 /*/*/ ;
         var trailingSeparator = path.charCodeAt(path.length - 1) === 47 /*/*/ ;
         // Normalize the path
         path = normalizeStringPosix(path, !isAbsolute);
-        if (path.length === 0 && !isAbsolute) path = ".";
-        if (path.length > 0 && trailingSeparator) path += "/";
-        if (isAbsolute) return "/" + path;
+        if (path.length === 0 && !isAbsolute) path = '.';
+        if (path.length > 0 && trailingSeparator) path += '/';
+        if (isAbsolute) return '/' + path;
         return path;
     },
     isAbsolute: function isAbsolute(path) {
@@ -2655,26 +2655,26 @@ var posix = {
         return path.length > 0 && path.charCodeAt(0) === 47 /*/*/ ;
     },
     join: function join() {
-        if (arguments.length === 0) return ".";
+        if (arguments.length === 0) return '.';
         var joined;
         for(var i = 0; i < arguments.length; ++i){
             var arg = arguments[i];
             assertPath(arg);
             if (arg.length > 0) {
                 if (joined === undefined) joined = arg;
-                else joined += "/" + arg;
+                else joined += '/' + arg;
             }
         }
-        if (joined === undefined) return ".";
+        if (joined === undefined) return '.';
         return posix.normalize(joined);
     },
     relative: function relative(from, to) {
         assertPath(from);
         assertPath(to);
-        if (from === to) return "";
+        if (from === to) return '';
         from = posix.resolve(from);
         to = posix.resolve(to);
-        if (from === to) return "";
+        if (from === to) return '';
         // Trim any leading backslashes
         var fromStart = 1;
         for(; fromStart < from.length; ++fromStart){
@@ -2717,12 +2717,12 @@ var posix = {
             if (fromCode !== toCode) break;
             else if (fromCode === 47 /*/*/ ) lastCommonSep = i;
         }
-        var out = "";
+        var out = '';
         // Generate the relative path based on the path difference between `to`
         // and `from`
         for(i = fromStart + lastCommonSep + 1; i <= fromEnd; ++i)if (i === fromEnd || from.charCodeAt(i) === 47 /*/*/ ) {
-            if (out.length === 0) out += "..";
-            else out += "/..";
+            if (out.length === 0) out += '..';
+            else out += '/..';
         }
         // Lastly, append the rest of the destination (`to`) path that comes after
         // the common path parts
@@ -2738,7 +2738,7 @@ var posix = {
     },
     dirname: function dirname(path) {
         assertPath(path);
-        if (path.length === 0) return ".";
+        if (path.length === 0) return '.';
         var code = path.charCodeAt(0);
         var hasRoot = code === 47 /*/*/ ;
         var end = -1;
@@ -2753,19 +2753,19 @@ var posix = {
             } else // We saw the first non-path separator
             matchedSlash = false;
         }
-        if (end === -1) return hasRoot ? "/" : ".";
-        if (hasRoot && end === 1) return "//";
+        if (end === -1) return hasRoot ? '/' : '.';
+        if (hasRoot && end === 1) return '//';
         return path.slice(0, end);
     },
     basename: function basename(path, ext) {
-        if (ext !== undefined && typeof ext !== "string") throw new TypeError('"ext" argument must be a string');
+        if (ext !== undefined && typeof ext !== 'string') throw new TypeError('"ext" argument must be a string');
         assertPath(path);
         var start = 0;
         var end = -1;
         var matchedSlash = true;
         var i;
         if (ext !== undefined && ext.length > 0 && ext.length <= path.length) {
-            if (ext.length === path.length && ext === path) return "";
+            if (ext.length === path.length && ext === path) return '';
             var extIdx = ext.length - 1;
             var firstNonSlashEnd = -1;
             for(i = path.length - 1; i >= 0; --i){
@@ -2818,7 +2818,7 @@ var posix = {
                     end = i + 1;
                 }
             }
-            if (end === -1) return "";
+            if (end === -1) return '';
             return path.slice(start, end);
         }
     },
@@ -2858,28 +2858,28 @@ var posix = {
         }
         if (startDot === -1 || end === -1 || // We saw a non-dot character immediately before the dot
         preDotState === 0 || // The (right-most) trimmed path component is exactly '..'
-        preDotState === 1 && startDot === end - 1 && startDot === startPart + 1) return "";
+        preDotState === 1 && startDot === end - 1 && startDot === startPart + 1) return '';
         return path.slice(startDot, end);
     },
     format: function format(pathObject) {
-        if (pathObject === null || typeof pathObject !== "object") throw new TypeError('The "pathObject" argument must be of type Object. Received type ' + typeof pathObject);
-        return _format("/", pathObject);
+        if (pathObject === null || typeof pathObject !== 'object') throw new TypeError('The "pathObject" argument must be of type Object. Received type ' + typeof pathObject);
+        return _format('/', pathObject);
     },
     parse: function parse(path) {
         assertPath(path);
         var ret = {
-            root: "",
-            dir: "",
-            base: "",
-            ext: "",
-            name: ""
+            root: '',
+            dir: '',
+            base: '',
+            ext: '',
+            name: ''
         };
         if (path.length === 0) return ret;
         var code = path.charCodeAt(0);
         var isAbsolute = code === 47 /*/*/ ;
         var start;
         if (isAbsolute) {
-            ret.root = "/";
+            ret.root = '/';
             start = 1;
         } else start = 0;
         var startDot = -1;
@@ -2934,34 +2934,34 @@ var posix = {
             ret.ext = path.slice(startDot, end);
         }
         if (startPart > 0) ret.dir = path.slice(0, startPart - 1);
-        else if (isAbsolute) ret.dir = "/";
+        else if (isAbsolute) ret.dir = '/';
         return ret;
     },
-    sep: "/",
-    delimiter: ":",
+    sep: '/',
+    delimiter: ':',
     win32: null,
     posix: null
 };
 posix.posix = posix;
 module.exports = posix;
 
-},{"c0743715070b1b8a":"d5jf4"}],"8hivH":[function(require,module,exports) {
+},{"c0743715070b1b8a":"d5jf4"}],"8hivH":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("md-content", {
+    return _c('md-content', {
         staticClass: "container-link urlBox"
     }, [
-        _c("div", [
-            _c("div", {
+        _c('div', [
+            _c('div', {
                 staticClass: "filesPaddingPath"
             }, [
-                _c("div", {
+                _c('div', {
                     staticClass: "sizeOfPathTab"
                 }),
                 _vm._v(" "),
-                _c("md-button", {
+                _c('md-button', {
                     staticClass: "md-icon-button addURLButtonPanel",
                     on: {
                         "click": function($event) {
@@ -2969,7 +2969,7 @@ var render = function() {
                         }
                     }
                 }, [
-                    _c("i", {
+                    _c('i', {
                         staticClass: "material-icons iconPlusDocumentation"
                     }, [
                         _vm._v("add_circle_outline")
@@ -2977,26 +2977,26 @@ var render = function() {
                 ])
             ], 1),
             _vm._v(" "),
-            _c("md-content", [
-                _c("md-list", [
-                    _c("md-subheader", {
+            _c('md-content', [
+                _c('md-list', [
+                    _c('md-subheader', {
                         staticClass: "hr-sect"
                     }, [
                         _vm._v("Local URL")
                     ]),
                     _vm._v(" "),
                     _vm._l(_vm.URLDisplayList, function(url, index) {
-                        return _c("md-list-item", {
+                        return _c('md-list-item', {
                             key: index,
                             staticClass: "myRowStyle colorForCategory"
                         }, [
-                            _c("span", {
+                            _c('span', {
                                 staticClass: "span-opacity"
                             }, [
                                 _vm._v(_vm._s(url.element.name.get()))
                             ]),
                             _vm._v(" "),
-                            _c("a", {
+                            _c('a', {
                                 directives: [
                                     {
                                         name: "tooltip",
@@ -3014,7 +3014,7 @@ var render = function() {
                                 _vm._v("\n                  " + _vm._s(url.element.URL.get()))
                             ]),
                             _vm._v(" "),
-                            _c("menuURL", {
+                            _c('menuURL', {
                                 attrs: {
                                     "url": url
                                 },
@@ -3027,38 +3027,38 @@ var render = function() {
                     })
                 ], 2),
                 _vm._v(" "),
-                _vm.groupURLDisplayList.length > 0 ? _c("div", [
-                    _c("md-subheader", {
+                _vm.groupURLDisplayList.length > 0 ? _c('div', [
+                    _c('md-subheader', {
                         staticClass: "hr-sect"
                     }, [
                         _vm._v("Shared URL")
                     ]),
                     _vm._v(" "),
                     _vm._l(_vm.groupURLDisplayList, function(cat) {
-                        return _c("div", {
+                        return _c('div', {
                             key: cat.groupName,
                             staticClass: "colorForCategory myRowStyle"
                         }, [
-                            _c("md-subheader", {
+                            _c('md-subheader', {
                                 staticClass: "sharedCategoryCss"
                             }, [
                                 _vm._v(_vm._s(cat.groupName) + "\n               ")
                             ]),
                             _vm._v(" "),
-                            _c("md-list", {
+                            _c('md-list', {
                                 staticClass: "unsetPadding"
                             }, _vm._l(cat.url, function(url, index) {
-                                return _c("md-list-item", {
+                                return _c('md-list-item', {
                                     key: index,
                                     staticClass: "colorForCategory"
                                 }, [
-                                    _c("span", {
+                                    _c('span', {
                                         staticClass: "span-opacity"
                                     }, [
                                         _vm._v(_vm._s(url.element.name.get()))
                                     ]),
                                     _vm._v(" "),
-                                    _c("a", {
+                                    _c('a', {
                                         directives: [
                                             {
                                                 name: "tooltip",
@@ -3083,7 +3083,7 @@ var render = function() {
             ], 1)
         ], 1),
         _vm._v(" "),
-        _c("md-dialog", {
+        _c('md-dialog', {
             attrs: {
                 "md-active": _vm.addURLDialogueStatus
             },
@@ -3096,23 +3096,23 @@ var render = function() {
                 }
             }
         }, [
-            _c("md-dialog-title", [
+            _c('md-dialog-title', [
                 _vm._v("Add Link")
             ]),
             _vm._v(" "),
-            _c("md-dialog-content", {
+            _c('md-dialog-content', {
                 staticClass: "urlDialogContainer"
             }, [
-                _c("md-field", {
+                _c('md-field', {
                     attrs: {
                         "md-inline": ""
                     }
                 }, [
-                    _c("label", [
+                    _c('label', [
                         _vm._v("Label")
                     ]),
                     _vm._v(" "),
-                    _c("md-input", {
+                    _c('md-input', {
                         model: {
                             value: _vm.label,
                             callback: function($$v) {
@@ -3123,16 +3123,16 @@ var render = function() {
                     })
                 ], 1),
                 _vm._v(" "),
-                _c("md-field", {
+                _c('md-field', {
                     attrs: {
                         "md-inline": ""
                     }
                 }, [
-                    _c("label", [
+                    _c('label', [
                         _vm._v("Link")
                     ]),
                     _vm._v(" "),
-                    _c("md-input", {
+                    _c('md-input', {
                         model: {
                             value: _vm.URL,
                             callback: function($$v) {
@@ -3144,8 +3144,8 @@ var render = function() {
                 ], 1)
             ], 1),
             _vm._v(" "),
-            _c("md-dialog-actions", [
-                _c("md-button", {
+            _c('md-dialog-actions', [
+                _c('md-button', {
                     staticClass: "md-primary",
                     on: {
                         "click": function($event) {
@@ -3156,7 +3156,7 @@ var render = function() {
                     _vm._v("Close")
                 ]),
                 _vm._v(" "),
-                _c("md-button", {
+                _c('md-button', {
                     staticClass: "md-primary",
                     on: {
                         "click": _vm.addLink
@@ -3172,13 +3172,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"dBqAN":[function() {},{}],"8q0xr":[function(require,module,exports) {
+},{}],"dBqAN":[function() {},{}],"8q0xr":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hbbvb":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hbbvb":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -3190,13 +3190,13 @@ let initialize = ()=>{
     script._scopeId = "data-v-e43dd7";
     script.__cssModules = require("24ebbdf875886b7b").default;
     require("c6ac8098ef839022").default(script);
-    script.__scopeId = "data-v-e43dd7";
+    script.__scopeId = 'data-v-e43dd7';
     script.__file = "FilePanel.vue";
 };
 initialize();
 exports.default = script;
 
-},{"8c48d89c9490a7b4":"e6XE7","1809fc8e6f44fe2a":"kp5Sm","24ebbdf875886b7b":"5PIaX","c6ac8098ef839022":"29GfD","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"e6XE7":[function(require,module,exports) {
+},{"8c48d89c9490a7b4":"e6XE7","1809fc8e6f44fe2a":"kp5Sm","24ebbdf875886b7b":"5PIaX","c6ac8098ef839022":"29GfD","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"e6XE7":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _fileSystemExplorerJs = require("../../service/fileSystemExplorer.js");
@@ -3448,10 +3448,10 @@ var scriptExports = {
         if (this.option.info != undefined && this.myBind != undefined) this.option.info.unbind(this.myBind);
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"../../service/fileSystemExplorer.js":"jNZiM","./component/drive.vue":"cB23Q","./component/menuFile.vue":"ab5EF","spinal-env-viewer-graph-service":"9n7zp","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jNZiM":[function(require,module,exports) {
+},{"../../service/fileSystemExplorer.js":"jNZiM","./component/drive.vue":"cB23Q","./component/menuFile.vue":"ab5EF","spinal-env-viewer-graph-service":"9n7zp","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jNZiM":[function(require,module,exports,__globalThis) {
 // import ServiceCDE from "spinal-env-viewer-plugin-documentation-service";
 // import bimObjectService from 'spinal-env-viewer-plugin-bimobjectservice';
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -3514,7 +3514,7 @@ class FileSystemExplorer {
         let nbNode = await this.getNbChildren(selectedNode);
         if (nbNode == 0) {
             let myDirectory = new Directory();
-            let node = await selectedNode.addChild(myDirectory, "hasFiles", (0, _spinalEnvViewerGraphService.SPINAL_RELATION_PTR_LST_TYPE));
+            let node = await selectedNode.addChild(myDirectory, 'hasFiles', (0, _spinalEnvViewerGraphService.SPINAL_RELATION_PTR_LST_TYPE));
             node.info.name.set("[Files]");
             node.info.type.set("SpinalFiles");
             return myDirectory;
@@ -3594,7 +3594,7 @@ class FileSystemExplorer {
 }
 const FileExplorer = new FileSystemExplorer();
 
-},{"spinal-env-viewer-graph-service":"9n7zp","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"cB23Q":[function(require,module,exports) {
+},{"spinal-env-viewer-graph-service":"9n7zp","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"cB23Q":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -3606,13 +3606,13 @@ let initialize = ()=>{
     script._scopeId = "data-v-09f387";
     script.__cssModules = require("852f2be99d1b5bdf").default;
     require("438ef9817b5d7e02").default(script);
-    script.__scopeId = "data-v-09f387";
+    script.__scopeId = 'data-v-09f387';
     script.__file = "drive.vue";
 };
 initialize();
 exports.default = script;
 
-},{"1b45cf5cc1abab8e":"5dBNx","99ddf3075a91abde":"d9KAp","852f2be99d1b5bdf":"cEPRp","438ef9817b5d7e02":"6fCsd","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5dBNx":[function(require,module,exports) {
+},{"1b45cf5cc1abab8e":"5dBNx","99ddf3075a91abde":"d9KAp","852f2be99d1b5bdf":"cEPRp","438ef9817b5d7e02":"6fCsd","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5dBNx":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _fileSystemExplorerJs = require("../../../service/fileSystemExplorer.js");
@@ -3667,21 +3667,21 @@ var scriptExports = {
         this.$emit("resetImportedFiles");
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"../../../service/fileSystemExplorer.js":"jNZiM","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"d9KAp":[function(require,module,exports) {
+},{"../../../service/fileSystemExplorer.js":"jNZiM","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"d9KAp":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("div", {
+    return _c('div', {
         staticClass: "tableDiv"
     }, [
-        _c("div", {
+        _c('div', {
             staticClass: "path"
         }, _vm._l(_vm.pathTab, function(path, index) {
-            return _c("span", {
+            return _c('span', {
                 key: index,
                 on: {
                     "click": function($event) {
@@ -3693,10 +3693,10 @@ var render = function() {
             ]);
         }), 0),
         _vm._v(" "),
-        _c("div", {
+        _c('div', {
             staticClass: "table"
         }, [
-            _c("md-table", {
+            _c('md-table', {
                 attrs: {
                     "md-fixed-header": ""
                 },
@@ -3708,7 +3708,7 @@ var render = function() {
                         key: "md-table-row",
                         fn: function(ref) {
                             var driveFiles = ref.item;
-                            return _c("md-table-row", {
+                            return _c('md-table-row', {
                                 attrs: {
                                     "md-auto-select": "",
                                     "md-selectable": "multiple"
@@ -3719,18 +3719,18 @@ var render = function() {
                                     }
                                 }
                             }, [
-                                _c("md-table-cell", {
+                                _c('md-table-cell', {
                                     attrs: {
                                         "md-label": "Name"
                                     }
                                 }, [
-                                    _c("md-icon", [
+                                    _c('md-icon', [
                                         _vm._v(_vm._s(_vm.getIconFile(driveFiles)))
                                     ]),
                                     _vm._v("\n               \u205F\n               " + _vm._s(driveFiles.name) + "\n            ")
                                 ], 1),
                                 _vm._v(" "),
-                                _c("md-table-cell", {
+                                _c('md-table-cell', {
                                     attrs: {
                                         "md-label": "Type"
                                     }
@@ -3756,13 +3756,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"cEPRp":[function() {},{}],"6fCsd":[function(require,module,exports) {
+},{}],"cEPRp":[function() {},{}],"6fCsd":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ab5EF":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ab5EF":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -3774,13 +3774,13 @@ let initialize = ()=>{
     script._scopeId = "data-v-e6db37";
     script.__cssModules = require("1df0eb6b1e888354").default;
     require("24c4e604f25fd292").default(script);
-    script.__scopeId = "data-v-e6db37";
+    script.__scopeId = 'data-v-e6db37';
     script.__file = "menuFile.vue";
 };
 initialize();
 exports.default = script;
 
-},{"25cbf89c8b221a8b":"dIikB","31bb3753619f6af5":"3BHat","1df0eb6b1e888354":"8K259","24c4e604f25fd292":"fGeAW","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dIikB":[function(require,module,exports) {
+},{"25cbf89c8b221a8b":"dIikB","31bb3753619f6af5":"3BHat","1df0eb6b1e888354":"8K259","24c4e604f25fd292":"fGeAW","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dIikB":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var scriptExports = {
@@ -3802,33 +3802,33 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3BHat":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3BHat":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("md-menu", {
+    return _c('md-menu', {
         attrs: {
             "md-direction": "top-end",
             "md-align-trigger": ""
         }
     }, [
-        _c("md-button", {
+        _c('md-button', {
             staticClass: "md-icon-button",
             attrs: {
                 "md-menu-trigger": ""
             }
         }, [
-            _c("md-icon", [
+            _c('md-icon', [
                 _vm._v("more_vert")
             ])
         ], 1),
         _vm._v(" "),
-        _c("md-menu-content", [
-            _vm.file._info.model_type.get() != "Directory" ? _c("md-menu-item", {
+        _c('md-menu-content', [
+            _vm.file._info.model_type.get() != 'Directory' ? _c('md-menu-item', {
                 on: {
                     "click": _vm.download
                 }
@@ -3836,7 +3836,7 @@ var render = function() {
                 _vm._v("Download")
             ]) : _vm._e(),
             _vm._v(" "),
-            _vm.boolInShared == true ? _c("md-menu-item", {
+            _vm.boolInShared == true ? _c('md-menu-item', {
                 on: {
                     "click": _vm.remove
                 }
@@ -3850,27 +3850,27 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"8K259":[function() {},{}],"fGeAW":[function(require,module,exports) {
+},{}],"8K259":[function() {},{}],"fGeAW":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"kp5Sm":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"kp5Sm":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("md-content", {
+    return _c('md-content', {
         staticClass: "md-scrollbar urlBox"
     }, [
-        _c("div", {
+        _c('div', {
             staticClass: "filesPaddingPath"
         }, [
-            _c("div", {
+            _c('div', {
                 staticClass: "sizeOfPathTab"
             }, _vm._l(_vm.pathTab, function(path, index) {
-                return _c("span", {
+                return _c('span', {
                     key: index,
                     on: {
                         "click": function($event) {
@@ -3882,7 +3882,7 @@ var render = function() {
                 ]);
             }), 0),
             _vm._v(" "),
-            _c("md-button", {
+            _c('md-button', {
                 staticClass: "md-icon-button addURLButtonPanel",
                 attrs: {
                     "disabled": !_vm.boolInShared
@@ -3893,7 +3893,7 @@ var render = function() {
                     }
                 }
             }, [
-                _c("i", {
+                _c('i', {
                     staticClass: "material-icons iconPlusDocumentation"
                 }, [
                     _vm._v("add_circle_outline")
@@ -3901,18 +3901,18 @@ var render = function() {
             ])
         ], 1),
         _vm._v(" "),
-        _vm.boolInShared == true ? _c("md-subheader", {
+        _vm.boolInShared == true ? _c('md-subheader', {
             staticClass: "hr-sect"
         }, [
             _vm._v("Local Files")
-        ]) : _c("md-subheader", {
+        ]) : _c('md-subheader', {
             staticClass: "hr-sect"
         }, [
             _vm._v("Shared Files")
         ]),
         _vm._v(" "),
-        _vm.displayList.length != 0 ? _c("md-table", _vm._l(_vm.displayList, function(files, index) {
-            return _c("md-table-row", {
+        _vm.displayList.length != 0 ? _c('md-table', _vm._l(_vm.displayList, function(files, index) {
+            return _c('md-table-row', {
                 key: index,
                 nativeOn: {
                     "dblclick": function($event) {
@@ -3920,15 +3920,15 @@ var render = function() {
                     }
                 }
             }, [
-                _c("md-table-cell", [
-                    _c("div", {
+                _c('md-table-cell', [
+                    _c('div', {
                         staticClass: "filesPaddingIcon"
                     }, [
-                        _c("md-icon", [
+                        _c('md-icon', [
                             _vm._v(_vm._s(_vm.getIconFile(files)))
                         ]),
                         _vm._v(" "),
-                        _c("div", {
+                        _c('div', {
                             staticClass: "sizeOfPathTab"
                         }, [
                             _vm._v(_vm._s(files.name.get()))
@@ -3936,8 +3936,8 @@ var render = function() {
                     ], 1)
                 ]),
                 _vm._v(" "),
-                _c("md-table-cell", [
-                    _c("menuFile", {
+                _c('md-table-cell', [
+                    _c('menuFile', {
                         attrs: {
                             "file": files,
                             "boolInShared": _vm.boolInShared,
@@ -3952,15 +3952,15 @@ var render = function() {
             ], 1);
         }), 1) : _vm._e(),
         _vm._v(" "),
-        _vm.boolInShared == true && !_vm.boolInDirectory && _vm.groupAttrDisplayList.length > 0 ? _c("div", [
-            _c("md-subheader", {
+        _vm.boolInShared == true && !_vm.boolInDirectory && _vm.groupAttrDisplayList.length > 0 ? _c('div', [
+            _c('md-subheader', {
                 staticClass: "hr-sect"
             }, [
                 _vm._v("Shared Files")
             ]),
             _vm._v(" "),
-            _c("md-table", _vm._l(_vm.groupAttrDisplayList, function(group, index) {
-                return _c("md-table-row", {
+            _c('md-table', _vm._l(_vm.groupAttrDisplayList, function(group, index) {
+                return _c('md-table-row', {
                     key: index,
                     nativeOn: {
                         "dblclick": function($event) {
@@ -3968,15 +3968,15 @@ var render = function() {
                         }
                     }
                 }, [
-                    _c("md-table-cell", [
-                        _c("div", {
+                    _c('md-table-cell', [
+                        _c('div', {
                             staticClass: "filesPaddingIcon"
                         }, [
-                            _c("md-icon", [
+                            _c('md-icon', [
                                 _vm._v("folder")
                             ]),
                             _vm._v(" "),
-                            _c("div", {
+                            _c('div', {
                                 staticClass: "sizeOfPathTab"
                             }, [
                                 _vm._v(_vm._s(group.groupName))
@@ -3984,12 +3984,12 @@ var render = function() {
                         ], 1)
                     ]),
                     _vm._v(" "),
-                    _c("md-table-cell")
+                    _c('md-table-cell')
                 ], 1);
             }), 1)
         ], 1) : _vm._e(),
         _vm._v(" "),
-        _c("md-dialog", {
+        _c('md-dialog', {
             staticClass: "fileUploadDialog",
             attrs: {
                 "md-active": _vm.activeAddDirectory
@@ -4003,10 +4003,10 @@ var render = function() {
                 }
             }
         }, [
-            _c("md-dialog-content", {
+            _c('md-dialog-content', {
                 staticClass: "dialogContent"
             }, [
-                _c("md-tabs", {
+                _c('md-tabs', {
                     staticClass: "dialogTabs",
                     attrs: {
                         "md-alignment": "fixed"
@@ -4015,13 +4015,13 @@ var render = function() {
                         "md-changed": _vm.resetImportedFiles
                     }
                 }, [
-                    _c("md-tab", {
+                    _c('md-tab', {
                         attrs: {
                             "md-label": "Upload"
                         }
                     }, [
-                        _c("md-field", [
-                            _c("md-file", {
+                        _c('md-field', [
+                            _c('md-file', {
                                 attrs: {
                                     "multiple": ""
                                 },
@@ -4039,12 +4039,12 @@ var render = function() {
                         ], 1)
                     ], 1),
                     _vm._v(" "),
-                    _c("md-tab", {
+                    _c('md-tab', {
                         attrs: {
                             "md-label": "Drive"
                         }
                     }, [
-                        _c("drive", {
+                        _c('drive', {
                             on: {
                                 "getFileImportedFromDrive": _vm.getFileImportedFromDrive
                             }
@@ -4053,8 +4053,8 @@ var render = function() {
                 ], 1)
             ], 1),
             _vm._v(" "),
-            _c("md-dialog-actions", [
-                _c("md-button", {
+            _c('md-dialog-actions', [
+                _c('md-button', {
                     staticClass: "md-primary",
                     on: {
                         "click": function($event) {
@@ -4065,7 +4065,7 @@ var render = function() {
                     _vm._v("Close")
                 ]),
                 _vm._v(" "),
-                _c("md-button", {
+                _c('md-button', {
                     staticClass: "md-primary",
                     on: {
                         "click": _vm.saveFile
@@ -4081,13 +4081,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"5PIaX":[function() {},{}],"29GfD":[function(require,module,exports) {
+},{}],"5PIaX":[function() {},{}],"29GfD":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"lpVJx":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"lpVJx":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -4099,13 +4099,13 @@ let initialize = ()=>{
     script._scopeId = "data-v-68ff72";
     script.__cssModules = require("9e76ff70e04276d").default;
     require("588edb7b2e629556").default(script);
-    script.__scopeId = "data-v-68ff72";
+    script.__scopeId = 'data-v-68ff72';
     script.__file = "AttributesPanel.vue";
 };
 initialize();
 exports.default = script;
 
-},{"1999f1751102871f":"4ldND","c44633fbc28487d0":"iGzgQ","9e76ff70e04276d":"7DQpi","588edb7b2e629556":"9kUu8","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"4ldND":[function(require,module,exports) {
+},{"1999f1751102871f":"4ldND","c44633fbc28487d0":"iGzgQ","9e76ff70e04276d":"7DQpi","588edb7b2e629556":"9kUu8","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"4ldND":[function(require,module,exports,__globalThis) {
 //import Toasted from "vue-toasted";
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
@@ -4336,10 +4336,10 @@ var scriptExports = {
         if (this.option.info != undefined && this.myBind != undefined) this.option.info.unbind(this.myBind);
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"vue":"gt5MM","spinal-env-viewer-plugin-documentation-service":"5rYVR","./component/menuAttributes.vue":"lS9le","./component/menuCategoryAttributes.vue":"kTkE2","./component/attributesImport.vue":"b7uCc","../../service/utilities.js":"5Qpl3","spinal-env-viewer-graph-service":"9n7zp","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"lS9le":[function(require,module,exports) {
+},{"vue":"gt5MM","spinal-env-viewer-plugin-documentation-service":"5rYVR","./component/menuAttributes.vue":"lS9le","./component/menuCategoryAttributes.vue":"kTkE2","./component/attributesImport.vue":"b7uCc","../../service/utilities.js":"5Qpl3","spinal-env-viewer-graph-service":"9n7zp","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"lS9le":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -4351,13 +4351,13 @@ let initialize = ()=>{
     script._scopeId = "data-v-2b2120";
     script.__cssModules = require("e18dfeb72c197351").default;
     require("3f69a66644ba376f").default(script);
-    script.__scopeId = "data-v-2b2120";
+    script.__scopeId = 'data-v-2b2120';
     script.__file = "menuAttributes.vue";
 };
 initialize();
 exports.default = script;
 
-},{"46af9df0cea8e59c":"9sYjA","2d056e37131aa9b0":"9hEpV","e18dfeb72c197351":"1QvwG","3f69a66644ba376f":"7c2xO","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9sYjA":[function(require,module,exports) {
+},{"46af9df0cea8e59c":"9sYjA","2d056e37131aa9b0":"9hEpV","e18dfeb72c197351":"1QvwG","3f69a66644ba376f":"7c2xO","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9sYjA":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var scriptExports = {
@@ -4401,34 +4401,34 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9hEpV":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9hEpV":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("div", [
-        _c("md-menu", {
+    return _c('div', [
+        _c('md-menu', {
             attrs: {
                 "md-direction": "top-end",
                 "md-align-trigger": ""
             }
         }, [
-            _c("md-button", {
+            _c('md-button', {
                 staticClass: "md-icon-button",
                 attrs: {
                     "md-menu-trigger": ""
                 }
             }, [
-                _c("md-icon", [
+                _c('md-icon', [
                     _vm._v("more_vert")
                 ])
             ], 1),
             _vm._v(" "),
-            _c("md-menu-content", [
-                _c("md-menu-item", {
+            _c('md-menu-content', [
+                _c('md-menu-item', {
                     on: {
                         "click": function($event) {
                             _vm.activeEditAttributesNode = true;
@@ -4438,7 +4438,7 @@ var render = function() {
                     _vm._v("Edit\n      ")
                 ]),
                 _vm._v(" "),
-                _c("md-menu-item", {
+                _c('md-menu-item', {
                     on: {
                         "click": function($event) {
                             return _vm.remove();
@@ -4450,7 +4450,7 @@ var render = function() {
             ], 1)
         ], 1),
         _vm._v(" "),
-        _c("md-dialog", {
+        _c('md-dialog', {
             attrs: {
                 "md-active": _vm.activeEditAttributesNode
             },
@@ -4463,11 +4463,11 @@ var render = function() {
                 }
             }
         }, [
-            _c("md-dialog-title", [
+            _c('md-dialog-title', [
                 _vm._v("Edit Attribute")
             ]),
             _vm._v(" "),
-            _c("md-field", {
+            _c('md-field', {
                 staticStyle: {
                     "width": "80%",
                     "margin-left": "auto",
@@ -4477,11 +4477,11 @@ var render = function() {
                     "md-inline": ""
                 }
             }, [
-                _c("label", [
+                _c('label', [
                     _vm._v("Label")
                 ]),
                 _vm._v(" "),
-                _c("md-input", {
+                _c('md-input', {
                     model: {
                         value: _vm.urlChange.label,
                         callback: function($$v) {
@@ -4492,7 +4492,7 @@ var render = function() {
                 })
             ], 1),
             _vm._v(" "),
-            _c("md-field", {
+            _c('md-field', {
                 staticStyle: {
                     "width": "80%",
                     "margin-left": "auto",
@@ -4502,11 +4502,11 @@ var render = function() {
                     "md-inline": ""
                 }
             }, [
-                _c("label", [
+                _c('label', [
                     _vm._v("Link")
                 ]),
                 _vm._v(" "),
-                _c("md-input", {
+                _c('md-input', {
                     model: {
                         value: _vm.urlChange.value,
                         callback: function($$v) {
@@ -4517,8 +4517,8 @@ var render = function() {
                 })
             ], 1),
             _vm._v(" "),
-            _c("md-dialog-actions", [
-                _c("md-button", {
+            _c('md-dialog-actions', [
+                _c('md-button', {
                     staticClass: "md-primary",
                     on: {
                         "click": function($event) {
@@ -4529,7 +4529,7 @@ var render = function() {
                     _vm._v("Close")
                 ]),
                 _vm._v(" "),
-                _c("md-button", {
+                _c('md-button', {
                     staticClass: "md-primary",
                     on: {
                         "click": _vm.edit
@@ -4545,13 +4545,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"1QvwG":[function() {},{}],"7c2xO":[function(require,module,exports) {
+},{}],"1QvwG":[function() {},{}],"7c2xO":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"kTkE2":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"kTkE2":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -4563,13 +4563,13 @@ let initialize = ()=>{
     script._scopeId = "data-v-a367d9";
     script.__cssModules = require("f79be5066499e615").default;
     require("66da6889ba18ce42").default(script);
-    script.__scopeId = "data-v-a367d9";
+    script.__scopeId = 'data-v-a367d9';
     script.__file = "menuCategoryAttributes.vue";
 };
 initialize();
 exports.default = script;
 
-},{"cac4cc166fc37998":"aJmAZ","d5dd34f5d136e608":"26kqw","f79be5066499e615":"hueKG","66da6889ba18ce42":"hOoVP","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"aJmAZ":[function(require,module,exports) {
+},{"cac4cc166fc37998":"aJmAZ","d5dd34f5d136e608":"26kqw","f79be5066499e615":"hueKG","66da6889ba18ce42":"hOoVP","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"aJmAZ":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var scriptExports = {
@@ -4598,34 +4598,34 @@ var scriptExports = {
         if (this.category !== undefined) this.urlChange.name = this.category.node.info.name.get();
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"26kqw":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"26kqw":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("div", [
-        _c("md-menu", {
+    return _c('div', [
+        _c('md-menu', {
             attrs: {
                 "md-direction": "top-end",
                 "md-align-trigger": ""
             }
         }, [
-            _c("md-button", {
+            _c('md-button', {
                 staticClass: "md-icon-button",
                 attrs: {
                     "md-menu-trigger": ""
                 }
             }, [
-                _c("md-icon", [
+                _c('md-icon', [
                     _vm._v("more_vert")
                 ])
             ], 1),
             _vm._v(" "),
-            _c("md-menu-content", [
-                _c("md-menu-item", {
+            _c('md-menu-content', [
+                _c('md-menu-item', {
                     on: {
                         "click": function($event) {
                             _vm.activeEditAttributesNode = true;
@@ -4635,7 +4635,7 @@ var render = function() {
                     _vm._v("Edit")
                 ]),
                 _vm._v(" "),
-                _c("md-menu-item", {
+                _c('md-menu-item', {
                     on: {
                         "click": function($event) {
                             return _vm.remove();
@@ -4647,7 +4647,7 @@ var render = function() {
             ], 1)
         ], 1),
         _vm._v(" "),
-        _c("md-dialog", {
+        _c('md-dialog', {
             attrs: {
                 "md-active": _vm.activeEditAttributesNode
             },
@@ -4660,11 +4660,11 @@ var render = function() {
                 }
             }
         }, [
-            _c("md-dialog-title", [
+            _c('md-dialog-title', [
                 _vm._v("Edit Category")
             ]),
             _vm._v(" "),
-            _c("md-field", {
+            _c('md-field', {
                 staticStyle: {
                     "width": "80%",
                     "margin-left": "auto",
@@ -4674,11 +4674,11 @@ var render = function() {
                     "md-inline": ""
                 }
             }, [
-                _c("label", [
+                _c('label', [
                     _vm._v("Label")
                 ]),
                 _vm._v(" "),
-                _c("md-input", {
+                _c('md-input', {
                     model: {
                         value: _vm.urlChange.name,
                         callback: function($$v) {
@@ -4689,8 +4689,8 @@ var render = function() {
                 })
             ], 1),
             _vm._v(" "),
-            _c("md-dialog-actions", [
-                _c("md-button", {
+            _c('md-dialog-actions', [
+                _c('md-button', {
                     staticClass: "md-primary",
                     on: {
                         "click": function($event) {
@@ -4701,7 +4701,7 @@ var render = function() {
                     _vm._v("Close")
                 ]),
                 _vm._v(" "),
-                _c("md-button", {
+                _c('md-button', {
                     staticClass: "md-primary",
                     on: {
                         "click": _vm.edit
@@ -4717,13 +4717,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"hueKG":[function() {},{}],"hOoVP":[function(require,module,exports) {
+},{}],"hueKG":[function() {},{}],"hOoVP":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"b7uCc":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"b7uCc":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -4734,13 +4734,13 @@ let initialize = ()=>{
     script.staticRenderFns = require("3ee21312686b29dd").staticRenderFns;
     script._scopeId = "data-v-6b17a3";
     require("33e377b78afec183").default(script);
-    script.__scopeId = "data-v-6b17a3";
+    script.__scopeId = 'data-v-6b17a3';
     script.__file = "attributesImport.vue";
 };
 initialize();
 exports.default = script;
 
-},{"af9148c8766b9d92":"c0lsP","3ee21312686b29dd":"eq6cD","33e377b78afec183":"1E0l2","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"c0lsP":[function(require,module,exports) {
+},{"af9148c8766b9d92":"c0lsP","3ee21312686b29dd":"eq6cD","33e377b78afec183":"1E0l2","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"c0lsP":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var scriptExports = {
@@ -4798,15 +4798,15 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"eq6cD":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"eq6cD":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("md-content", {
+    return _c('md-content', {
         staticClass: "md-scrollbar",
         staticStyle: {
             "box-sizing": "border-box",
@@ -4814,17 +4814,17 @@ var render = function() {
             "height": "40vh"
         }
     }, [
-        _c("div", {
+        _c('div', {
             staticClass: "md-layout-item"
         }, [
-            _c("md-field", {
+            _c('md-field', {
                 staticStyle: {
                     "width": "80%",
                     "margin-left": "auto",
                     "margin-right": "auto"
                 }
             }, [
-                _c("md-select", {
+                _c('md-select', {
                     attrs: {
                         "md-selected": _vm.updatecategorySelected,
                         "name": "category",
@@ -4839,7 +4839,7 @@ var render = function() {
                         expression: "categorySelected"
                     }
                 }, _vm._l(_vm.categoryDisplayList, function(category, index) {
-                    return _c("md-option", {
+                    return _c('md-option', {
                         key: index,
                         attrs: {
                             "value": category.node.info.name.get()
@@ -4851,8 +4851,8 @@ var render = function() {
             ], 1)
         ], 1),
         _vm._v(" "),
-        _c("div", [
-            _c("md-table", {
+        _c('div', [
+            _c('md-table', {
                 attrs: {
                     "md-card": ""
                 },
@@ -4864,23 +4864,23 @@ var render = function() {
                         key: "md-table-row",
                         fn: function(ref) {
                             var forgeAttributes = ref.item;
-                            return _c("md-table-row", {
+                            return _c('md-table-row', {
                                 staticClass: "myRowStyle",
                                 attrs: {
                                     "md-auto-select": "",
                                     "md-selectable": "multiple"
                                 }
                             }, [
-                                _c("md-table-cell", [
-                                    _c("span", {
+                                _c('md-table-cell', [
+                                    _c('span', {
                                         staticClass: "md-list-item-text"
                                     }, [
                                         _vm._v(_vm._s(forgeAttributes.attributeName))
                                     ])
                                 ]),
                                 _vm._v(" "),
-                                _c("md-table-cell", [
-                                    _c("span", {
+                                _c('md-table-cell', [
+                                    _c('span', {
                                         staticClass: "md-list-item-text"
                                     }, [
                                         _vm._v(_vm._s(forgeAttributes.displayValue))
@@ -4905,22 +4905,22 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"1E0l2":[function(require,module,exports) {
+},{}],"1E0l2":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"iGzgQ":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"iGzgQ":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("md-content", {
+    return _c('md-content', {
         staticClass: "container-link urlBox"
     }, [
-        _c("div", [
-            _c("md-button", {
+        _c('div', [
+            _c('md-button', {
                 staticClass: "attributesButtonPanel",
                 on: {
                     "click": function($event) {
@@ -4931,7 +4931,7 @@ var render = function() {
                 _vm._v("\n         ADD CATEGORY\n      ")
             ]),
             _vm._v(" "),
-            _c("md-button", {
+            _c('md-button', {
                 staticClass: "attributesButtonPanel",
                 on: {
                     "click": function($event) {
@@ -4942,29 +4942,29 @@ var render = function() {
                 _vm._v("\n         ADD ATTRIBUTES\n      ")
             ]),
             _vm._v(" "),
-            _c("md-subheader", {
+            _c('md-subheader', {
                 staticClass: "hr-sect"
             }, [
                 _vm._v("Local Attributes")
             ]),
             _vm._v(" "),
-            _c("md-list", {
+            _c('md-list', {
                 staticClass: "widthOfList"
             }, _vm._l(_vm.categoryDisplayList, function(cat) {
-                return _c("md-list-item", {
+                return _c('md-list-item', {
                     key: cat.nameCat,
                     staticClass: "colorForCategory",
                     attrs: {
                         "md-expand": ""
                     }
                 }, [
-                    _c("span", {
+                    _c('span', {
                         staticClass: "nameOfCategory md-list-item-text"
                     }, [
                         _vm._v(_vm._s(cat.nameCat))
                     ]),
                     _vm._v(" "),
-                    _c("menuCategoryAttributes", {
+                    _c('menuCategoryAttributes', {
                         staticClass: "buttonRight",
                         attrs: {
                             "category": cat
@@ -4975,18 +4975,18 @@ var render = function() {
                         }
                     }),
                     _vm._v(" "),
-                    _c("md-list", {
+                    _c('md-list', {
                         staticClass: "unsetPadding",
                         attrs: {
                             "slot": "md-expand"
                         },
                         slot: "md-expand"
                     }, _vm._l(_vm.getLstOfAttributes(cat), function(attributess, index) {
-                        return _c("md-list-item", {
+                        return _c('md-list-item', {
                             key: index,
                             staticClass: "md-inset"
                         }, [
-                            _c("span", {
+                            _c('span', {
                                 staticStyle: {
                                     "width": "40%"
                                 }
@@ -4994,7 +4994,7 @@ var render = function() {
                                 _vm._v(_vm._s(attributess.label.get()))
                             ]),
                             _vm._v(" "),
-                            _c("span", {
+                            _c('span', {
                                 staticStyle: {
                                     "width": "40%"
                                 }
@@ -5002,7 +5002,7 @@ var render = function() {
                                 _vm._v(_vm._s(attributess.value.get()))
                             ]),
                             _vm._v(" "),
-                            _c("menu-attributes", {
+                            _c('menu-attributes', {
                                 attrs: {
                                     "url": attributess,
                                     "category": cat
@@ -5017,50 +5017,50 @@ var render = function() {
                 ], 1);
             }), 1),
             _vm._v(" "),
-            _vm.groupAttrDisplayList.length > 0 ? _c("div", [
-                _c("md-subheader", {
+            _vm.groupAttrDisplayList.length > 0 ? _c('div', [
+                _c('md-subheader', {
                     staticClass: "hr-sect"
                 }, [
                     _vm._v("Shared Attributes")
                 ]),
                 _vm._v(" "),
                 _vm._l(_vm.groupAttrDisplayList, function(group) {
-                    return _c("md-list", {
+                    return _c('md-list', {
                         key: group.groupName,
                         staticClass: "widthOfList"
                     }, [
-                        _c("md-subheader", {
+                        _c('md-subheader', {
                             staticClass: "sharedCategoryCss"
                         }, [
                             _vm._v(_vm._s(group.groupName) + "\n            ")
                         ]),
                         _vm._v(" "),
                         _vm._l(group.groupAttr, function(cat) {
-                            return _c("md-list-item", {
+                            return _c('md-list-item', {
                                 key: cat.nameCat,
                                 staticClass: "colorForCategory",
                                 attrs: {
                                     "md-expand": ""
                                 }
                             }, [
-                                _c("span", {
+                                _c('span', {
                                     staticClass: "nameOfCategory md-list-item-text"
                                 }, [
                                     _vm._v(_vm._s(cat.nameCat))
                                 ]),
                                 _vm._v(" "),
-                                _c("md-list", {
+                                _c('md-list', {
                                     staticClass: "unsetPadding",
                                     attrs: {
                                         "slot": "md-expand"
                                     },
                                     slot: "md-expand"
                                 }, _vm._l(_vm.getLstOfAttributes(cat), function(attributess, index) {
-                                    return _c("md-list-item", {
+                                    return _c('md-list-item', {
                                         key: index,
                                         staticClass: "md-inset"
                                     }, [
-                                        _c("span", {
+                                        _c('span', {
                                             staticStyle: {
                                                 "width": "40%"
                                             }
@@ -5068,7 +5068,7 @@ var render = function() {
                                             _vm._v(_vm._s(attributess.label.get()))
                                         ]),
                                         _vm._v(" "),
-                                        _c("span", {
+                                        _c('span', {
                                             staticStyle: {
                                                 "width": "40%"
                                             }
@@ -5084,7 +5084,7 @@ var render = function() {
             ], 2) : _vm._e()
         ], 1),
         _vm._v(" "),
-        _c("md-dialog", {
+        _c('md-dialog', {
             staticClass: "spinal-dialog-add-attr",
             attrs: {
                 "md-active": _vm.activeDialogStatus
@@ -5098,14 +5098,14 @@ var render = function() {
                 }
             }
         }, [
-            _c("md-dialog-title", [
+            _c('md-dialog-title', [
                 _vm._v("Add Attributes")
             ]),
             _vm._v(" "),
-            _c("md-dialog-content", {
+            _c('md-dialog-content', {
                 staticClass: "attributeDialogContent"
             }, [
-                _c("md-tabs", {
+                _c('md-tabs', {
                     staticClass: "dialogTabs",
                     attrs: {
                         "md-alignment": "fixed"
@@ -5114,13 +5114,13 @@ var render = function() {
                         "md-changed": _vm.resetAttributes
                     }
                 }, [
-                    _c("md-tab", {
+                    _c('md-tab', {
                         attrs: {
                             "md-label": "Create"
                         }
                     }, [
-                        _c("md-field", [
-                            _c("md-select", {
+                        _c('md-field', [
+                            _c('md-select', {
                                 attrs: {
                                     "name": "category",
                                     "id": "category",
@@ -5134,7 +5134,7 @@ var render = function() {
                                     expression: "categorySelected"
                                 }
                             }, _vm._l(_vm.categoryDisplayList, function(category, index) {
-                                return _c("md-option", {
+                                return _c('md-option', {
                                     key: index,
                                     attrs: {
                                         "value": category.node.info.name.get()
@@ -5145,16 +5145,16 @@ var render = function() {
                             }), 1)
                         ], 1),
                         _vm._v(" "),
-                        _c("md-field", {
+                        _c('md-field', {
                             attrs: {
                                 "md-inline": ""
                             }
                         }, [
-                            _c("label", [
+                            _c('label', [
                                 _vm._v("Label")
                             ]),
                             _vm._v(" "),
-                            _c("md-input", {
+                            _c('md-input', {
                                 model: {
                                     value: _vm.label,
                                     callback: function($$v) {
@@ -5165,16 +5165,16 @@ var render = function() {
                             })
                         ], 1),
                         _vm._v(" "),
-                        _c("md-field", {
+                        _c('md-field', {
                             attrs: {
                                 "md-inline": ""
                             }
                         }, [
-                            _c("label", [
+                            _c('label', [
                                 _vm._v("Value")
                             ]),
                             _vm._v(" "),
-                            _c("md-input", {
+                            _c('md-input', {
                                 model: {
                                     value: _vm.value,
                                     callback: function($$v) {
@@ -5186,12 +5186,12 @@ var render = function() {
                         ], 1)
                     ], 1),
                     _vm._v(" "),
-                    _c("md-tab", {
+                    _c('md-tab', {
                         attrs: {
                             "md-label": "Import"
                         }
                     }, [
-                        _c("attributesImport", {
+                        _c('attributesImport', {
                             attrs: {
                                 "option": _vm.option,
                                 "categoryDisplayList": _vm.categoryDisplayList
@@ -5205,8 +5205,8 @@ var render = function() {
                 ], 1)
             ], 1),
             _vm._v(" "),
-            _c("md-dialog-actions", [
-                _c("md-button", {
+            _c('md-dialog-actions', [
+                _c('md-button', {
                     staticClass: "md-primary",
                     on: {
                         "click": function($event) {
@@ -5217,7 +5217,7 @@ var render = function() {
                     _vm._v("Close")
                 ]),
                 _vm._v(" "),
-                _c("md-button", {
+                _c('md-button', {
                     staticClass: "md-primary",
                     on: {
                         "click": _vm.addAttributes
@@ -5228,7 +5228,7 @@ var render = function() {
             ], 1)
         ], 1),
         _vm._v(" "),
-        _c("md-dialog", {
+        _c('md-dialog', {
             attrs: {
                 "md-active": _vm.activeDialogCategory
             },
@@ -5241,11 +5241,11 @@ var render = function() {
                 }
             }
         }, [
-            _c("md-dialog-title", [
+            _c('md-dialog-title', [
                 _vm._v("Add Category")
             ]),
             _vm._v(" "),
-            _c("md-field", {
+            _c('md-field', {
                 staticStyle: {
                     "width": "80%",
                     "margin-left": "auto",
@@ -5255,11 +5255,11 @@ var render = function() {
                     "md-inline": ""
                 }
             }, [
-                _c("label", [
+                _c('label', [
                     _vm._v("category")
                 ]),
                 _vm._v(" "),
-                _c("md-input", {
+                _c('md-input', {
                     model: {
                         value: _vm.category,
                         callback: function($$v) {
@@ -5270,8 +5270,8 @@ var render = function() {
                 })
             ], 1),
             _vm._v(" "),
-            _c("md-dialog-actions", [
-                _c("md-button", {
+            _c('md-dialog-actions', [
+                _c('md-button', {
                     staticClass: "md-primary",
                     on: {
                         "click": function($event) {
@@ -5282,7 +5282,7 @@ var render = function() {
                     _vm._v("Close")
                 ]),
                 _vm._v(" "),
-                _c("md-button", {
+                _c('md-button', {
                     staticClass: "md-primary",
                     on: {
                         "click": _vm.addCategory
@@ -5298,45 +5298,45 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"7DQpi":[function() {},{}],"9kUu8":[function(require,module,exports) {
+},{}],"7DQpi":[function() {},{}],"9kUu8":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7OxcQ":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7OxcQ":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("div", {
+    return _c('div', {
         staticClass: "containerCDE"
     }, [
-        _c("md-toolbar", {
+        _c('md-toolbar', {
             staticClass: "md-layout md-gutter headerCDE",
             attrs: {
                 "layout-align": "center center"
             }
         }, [
-            _vm.selectedNode !== undefined ? _c("div", {
+            _vm.selectedNode !== undefined ? _c('div', {
                 staticClass: "centerSelectedNodeName"
             }, [
                 _vm._v(_vm._s(_vm.selectedNode.info.name.get()))
-            ]) : _c("div", {
+            ]) : _c('div', {
                 staticClass: "centerSelectedNodeName"
             }, [
                 _vm._v("BIM Object not created")
             ])
         ]),
         _vm._v(" "),
-        _c("md-toolbar", {
+        _c('md-toolbar', {
             staticClass: "md-layout md-gutter headerCDE",
             attrs: {
                 "layout": "row",
                 "layout-align": "center center"
             }
         }, [
-            _c("md-button", {
+            _c('md-button', {
                 staticClass: "md-layout-item toolbarButton",
                 style: _vm.activeTabColor(0),
                 on: {
@@ -5348,7 +5348,7 @@ var render = function() {
                 _vm._v("Files")
             ]),
             _vm._v(" "),
-            _c("md-button", {
+            _c('md-button', {
                 staticClass: "md-layout-item toolbarButton",
                 style: _vm.activeTabColor(1),
                 on: {
@@ -5360,7 +5360,7 @@ var render = function() {
                 _vm._v("URL")
             ]),
             _vm._v(" "),
-            _c("md-button", {
+            _c('md-button', {
                 staticClass: "md-layout-item toolbarButton",
                 style: _vm.activeTabColor(2),
                 on: {
@@ -5373,12 +5373,12 @@ var render = function() {
             ])
         ], 1),
         _vm._v(" "),
-        _c("transition", {
+        _c('transition', {
             attrs: {
                 "name": "changeTabDocumentation"
             }
         }, [
-            _vm.activeTab == 0 ? _c("filepanel", {
+            _vm.activeTab == 0 ? _c('filepanel', {
                 attrs: {
                     "option": _vm.option,
                     "parentGroup": _vm.parentGroup,
@@ -5388,7 +5388,7 @@ var render = function() {
                 on: {
                     "updateMyBIMObject": _vm.updateSelectedBIMObject
                 }
-            }) : _vm.activeTab == 1 ? _c("urlpanel", {
+            }) : _vm.activeTab == 1 ? _c('urlpanel', {
                 attrs: {
                     "option": _vm.option,
                     "parentGroup": _vm.parentGroup,
@@ -5398,7 +5398,7 @@ var render = function() {
                 on: {
                     "updateMyBIMObject": _vm.updateSelectedBIMObject
                 }
-            }) : _c("attributespanel", {
+            }) : _c('attributespanel', {
                 attrs: {
                     "selectedNode": _vm.selectedNode,
                     "option": _vm.option,
@@ -5416,13 +5416,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"3nWSi":[function() {},{}],"dkQPZ":[function(require,module,exports) {
+},{}],"3nWSi":[function() {},{}],"dkQPZ":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5TsHZ":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5TsHZ":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -5434,13 +5434,13 @@ let initialize = ()=>{
     script._scopeId = "data-v-49f689";
     script.__cssModules = require("5bdc32c9703fb274").default;
     require("4d12c400f372a566").default(script);
-    script.__scopeId = "data-v-49f689";
+    script.__scopeId = 'data-v-49f689';
     script.__file = "attributesRightClick.vue";
 };
 initialize();
 exports.default = script;
 
-},{"b610eca7904d4b64":"gXmab","f4bea1f5ab292e0d":"hKCHb","5bdc32c9703fb274":"dMSzs","4d12c400f372a566":"laMge","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gXmab":[function(require,module,exports) {
+},{"b610eca7904d4b64":"gXmab","f4bea1f5ab292e0d":"hKCHb","5bdc32c9703fb274":"dMSzs","4d12c400f372a566":"laMge","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gXmab":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerPluginBimobjectservice = require("spinal-env-viewer-plugin-bimobjectservice");
@@ -5490,10 +5490,10 @@ var scriptExports = {
         closed (option, viewer) {}
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"spinal-env-viewer-plugin-bimobjectservice":"ji3fq","spinal-env-viewer-plugin-documentation-service":"5rYVR","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ji3fq":[function(require,module,exports) {
+},{"spinal-env-viewer-plugin-bimobjectservice":"ji3fq","spinal-env-viewer-plugin-documentation-service":"5rYVR","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ji3fq":[function(require,module,exports,__globalThis) {
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -5653,7 +5653,7 @@ bimObjectService.constants = {
 };
 exports.default = bimObjectService;
 
-},{"8f95959f039a5af0":"fkEXw","bef1fdfaa932d2b5":"3Ibtq"}],"3Ibtq":[function(require,module,exports) {
+},{"8f95959f039a5af0":"fkEXw","bef1fdfaa932d2b5":"3Ibtq"}],"3Ibtq":[function(require,module,exports,__globalThis) {
 var global = arguments[3];
 "use strict";
 Object.defineProperty(exports, "__esModule", {
@@ -5675,15 +5675,15 @@ spinalCore.register_models([
     SpinalBIMObject
 ]);
 
-},{"e30868c801f59ada":"2uyD7"}],"hKCHb":[function(require,module,exports) {
+},{"e30868c801f59ada":"2uyD7"}],"hKCHb":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("md-content", {
+    return _c('md-content', {
         staticClass: "unsetBackgroundContent"
     }, [
-        _c("md-button", {
+        _c('md-button', {
             on: {
                 "click": _vm.forgeSelection
             }
@@ -5691,17 +5691,17 @@ var render = function() {
             _vm._v("\n    " + _vm._s(_vm.selectedDbidArray.length) + " Selected Object\n  ")
         ]),
         _vm._v(" "),
-        _c("div", {
+        _c('div', {
             staticClass: "md-layout-item"
         }, [
-            _c("md-field", {
+            _c('md-field', {
                 staticStyle: {
                     "width": "80%",
                     "margin-left": "auto",
                     "margin-right": "auto"
                 }
             }, [
-                _c("md-select", {
+                _c('md-select', {
                     attrs: {
                         "name": "category",
                         "id": "category",
@@ -5715,7 +5715,7 @@ var render = function() {
                         expression: "categorySelected"
                     }
                 }, [
-                    _c("md-option", {
+                    _c('md-option', {
                         attrs: {
                             "value": "none"
                         }
@@ -5724,7 +5724,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _vm._l(_vm.allCategory, function(category, index) {
-                        return _c("md-option", {
+                        return _c('md-option', {
                             key: index,
                             attrs: {
                                 "value": category.node.info.name.get()
@@ -5736,7 +5736,7 @@ var render = function() {
                 ], 2)
             ], 1),
             _vm._v(" "),
-            _vm.categorySelected === "none" ? _c("md-field", {
+            _vm.categorySelected === 'none' ? _c('md-field', {
                 staticStyle: {
                     "width": "80%",
                     "margin-left": "auto",
@@ -5746,11 +5746,11 @@ var render = function() {
                     "md-inline": ""
                 }
             }, [
-                _c("label", [
+                _c('label', [
                     _vm._v("category")
                 ]),
                 _vm._v(" "),
-                _c("md-input", {
+                _c('md-input', {
                     model: {
                         value: _vm.categoryCreate,
                         callback: function($$v) {
@@ -5762,7 +5762,7 @@ var render = function() {
             ], 1) : _vm._e()
         ], 1),
         _vm._v(" "),
-        _c("md-field", {
+        _c('md-field', {
             staticStyle: {
                 "width": "80%",
                 "margin-left": "auto",
@@ -5772,11 +5772,11 @@ var render = function() {
                 "md-inline": ""
             }
         }, [
-            _c("label", [
+            _c('label', [
                 _vm._v("Label")
             ]),
             _vm._v(" "),
-            _c("md-input", {
+            _c('md-input', {
                 model: {
                     value: _vm.label,
                     callback: function($$v) {
@@ -5787,7 +5787,7 @@ var render = function() {
             })
         ], 1),
         _vm._v(" "),
-        _c("md-field", {
+        _c('md-field', {
             staticStyle: {
                 "width": "80%",
                 "margin-left": "auto",
@@ -5797,11 +5797,11 @@ var render = function() {
                 "md-inline": ""
             }
         }, [
-            _c("label", [
+            _c('label', [
                 _vm._v("Value")
             ]),
             _vm._v(" "),
-            _c("md-input", {
+            _c('md-input', {
                 model: {
                     value: _vm.value,
                     callback: function($$v) {
@@ -5812,7 +5812,7 @@ var render = function() {
             })
         ], 1),
         _vm._v(" "),
-        _c("md-button", {
+        _c('md-button', {
             staticClass: "md-primary",
             on: {
                 "click": _vm.addAttributes
@@ -5826,13 +5826,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"dMSzs":[function() {},{}],"laMge":[function(require,module,exports) {
+},{}],"dMSzs":[function() {},{}],"laMge":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"apfso":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"apfso":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -5844,13 +5844,13 @@ let initialize = ()=>{
     script._scopeId = "data-v-728be4";
     script.__cssModules = require("8c96895a826e33cd").default;
     require("2ab6c443c5f18049").default(script);
-    script.__scopeId = "data-v-728be4";
+    script.__scopeId = 'data-v-728be4';
     script.__file = "deleteUrlRightClick.vue";
 };
 initialize();
 exports.default = script;
 
-},{"5704270707721d4d":"65VrK","1045a97a6aaa5ec2":"17oIv","8c96895a826e33cd":"hWGfp","2ab6c443c5f18049":"eXGaX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"65VrK":[function(require,module,exports) {
+},{"5704270707721d4d":"65VrK","1045a97a6aaa5ec2":"17oIv","8c96895a826e33cd":"hWGfp","2ab6c443c5f18049":"eXGaX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"65VrK":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerPluginBimobjectservice = require("spinal-env-viewer-plugin-bimobjectservice");
@@ -5903,18 +5903,18 @@ var scriptExports = {
         closed (option, viewer) {}
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"spinal-env-viewer-plugin-bimobjectservice":"ji3fq","spinal-env-viewer-plugin-documentation-service":"5rYVR","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"17oIv":[function(require,module,exports) {
+},{"spinal-env-viewer-plugin-bimobjectservice":"ji3fq","spinal-env-viewer-plugin-documentation-service":"5rYVR","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"17oIv":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("md-content", {
+    return _c('md-content', {
         staticClass: "unsetBackgroundContent"
     }, [
-        _c("md-button", {
+        _c('md-button', {
             on: {
                 "click": _vm.forgeSelection
             }
@@ -5922,7 +5922,7 @@ var render = function() {
             _vm._v("\n    " + _vm._s(_vm.selectedDbidArray.length) + " Selected Object\n  ")
         ]),
         _vm._v(" "),
-        _c("md-field", {
+        _c('md-field', {
             staticStyle: {
                 "width": "80%",
                 "margin-left": "auto",
@@ -5932,11 +5932,11 @@ var render = function() {
                 "md-inline": ""
             }
         }, [
-            _c("label", [
+            _c('label', [
                 _vm._v("Label")
             ]),
             _vm._v(" "),
-            _c("md-input", {
+            _c('md-input', {
                 model: {
                     value: _vm.label,
                     callback: function($$v) {
@@ -5947,7 +5947,7 @@ var render = function() {
             })
         ], 1),
         _vm._v(" "),
-        _c("md-field", {
+        _c('md-field', {
             staticStyle: {
                 "width": "80%",
                 "margin-left": "auto",
@@ -5957,11 +5957,11 @@ var render = function() {
                 "md-inline": ""
             }
         }, [
-            _c("label", [
+            _c('label', [
                 _vm._v("URL")
             ]),
             _vm._v(" "),
-            _c("md-input", {
+            _c('md-input', {
                 model: {
                     value: _vm.value,
                     callback: function($$v) {
@@ -5972,7 +5972,7 @@ var render = function() {
             })
         ], 1),
         _vm._v(" "),
-        _c("md-button", {
+        _c('md-button', {
             staticClass: "md-primary",
             on: {
                 "click": _vm.editURL
@@ -5981,7 +5981,7 @@ var render = function() {
             _vm._v("Edit")
         ]),
         _vm._v(" "),
-        _c("md-button", {
+        _c('md-button', {
             staticClass: "md-primary",
             on: {
                 "click": _vm.deleteURL
@@ -5995,13 +5995,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"hWGfp":[function() {},{}],"eXGaX":[function(require,module,exports) {
+},{}],"hWGfp":[function() {},{}],"eXGaX":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9Q5qT":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9Q5qT":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -6013,13 +6013,13 @@ let initialize = ()=>{
     script._scopeId = "data-v-a73044";
     script.__cssModules = require("544ed10279a9db05").default;
     require("443bb050b55fd38f").default(script);
-    script.__scopeId = "data-v-a73044";
+    script.__scopeId = 'data-v-a73044';
     script.__file = "urlRightClick.vue";
 };
 initialize();
 exports.default = script;
 
-},{"d8d3207de02eb5a0":"8yoFz","728767cea8b96fd8":"cV79Z","544ed10279a9db05":"biaZV","443bb050b55fd38f":"dcl2R","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"8yoFz":[function(require,module,exports) {
+},{"d8d3207de02eb5a0":"8yoFz","728767cea8b96fd8":"cV79Z","544ed10279a9db05":"biaZV","443bb050b55fd38f":"dcl2R","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"8yoFz":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerPluginBimobjectservice = require("spinal-env-viewer-plugin-bimobjectservice");
@@ -6064,18 +6064,18 @@ var scriptExports = {
         closed (option, viewer) {}
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"spinal-env-viewer-plugin-bimobjectservice":"ji3fq","spinal-env-viewer-plugin-documentation-service":"5rYVR","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"cV79Z":[function(require,module,exports) {
+},{"spinal-env-viewer-plugin-bimobjectservice":"ji3fq","spinal-env-viewer-plugin-documentation-service":"5rYVR","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"cV79Z":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("md-content", {
+    return _c('md-content', {
         staticClass: "unsetBackgroundContent"
     }, [
-        _c("md-button", {
+        _c('md-button', {
             on: {
                 "click": _vm.forgeSelection
             }
@@ -6083,7 +6083,7 @@ var render = function() {
             _vm._v("\n    " + _vm._s(_vm.selectedDbidArray.length) + " Selected Object\n  ")
         ]),
         _vm._v(" "),
-        _c("md-field", {
+        _c('md-field', {
             staticStyle: {
                 "width": "80%",
                 "margin-left": "auto",
@@ -6093,11 +6093,11 @@ var render = function() {
                 "md-inline": ""
             }
         }, [
-            _c("label", [
+            _c('label', [
                 _vm._v("Label")
             ]),
             _vm._v(" "),
-            _c("md-input", {
+            _c('md-input', {
                 model: {
                     value: _vm.label,
                     callback: function($$v) {
@@ -6108,7 +6108,7 @@ var render = function() {
             })
         ], 1),
         _vm._v(" "),
-        _c("md-field", {
+        _c('md-field', {
             staticStyle: {
                 "width": "80%",
                 "margin-left": "auto",
@@ -6118,11 +6118,11 @@ var render = function() {
                 "md-inline": ""
             }
         }, [
-            _c("label", [
+            _c('label', [
                 _vm._v("URL")
             ]),
             _vm._v(" "),
-            _c("md-input", {
+            _c('md-input', {
                 model: {
                     value: _vm.value,
                     callback: function($$v) {
@@ -6133,7 +6133,7 @@ var render = function() {
             })
         ], 1),
         _vm._v(" "),
-        _c("md-button", {
+        _c('md-button', {
             staticClass: "md-primary",
             on: {
                 "click": _vm.addURL
@@ -6147,13 +6147,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"biaZV":[function() {},{}],"dcl2R":[function(require,module,exports) {
+},{}],"biaZV":[function() {},{}],"dcl2R":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"cTlUn":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"cTlUn":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerPluginBimobjectservice = require("spinal-env-viewer-plugin-bimobjectservice");
@@ -6226,7 +6226,7 @@ exports.default = {
     }
 };
 
-},{"spinal-env-viewer-plugin-bimobjectservice":"ji3fq","spinal-env-viewer-graph-service":"9n7zp","spinal-env-viewer-plugin-documentation-service":"5rYVR","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9Nkbe":[function(require,module,exports) {
+},{"spinal-env-viewer-plugin-bimobjectservice":"ji3fq","spinal-env-viewer-graph-service":"9n7zp","spinal-env-viewer-plugin-documentation-service":"5rYVR","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9Nkbe":[function(require,module,exports,__globalThis) {
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -6234,7 +6234,7 @@ Object.defineProperty(exports, "__esModule", {
 const bimService_1 = require("edfb101c687f070e");
 exports.bimObjectManagerService = bimService_1.default;
 
-},{"edfb101c687f070e":"cXqcc"}],"cXqcc":[function(require,module,exports) {
+},{"edfb101c687f070e":"cXqcc"}],"cXqcc":[function(require,module,exports,__globalThis) {
 "use strict";
 var __awaiter = this && this.__awaiter || function(thisArg, _arguments, P, generator) {
     return new (P || (P = Promise))(function(resolve, reject) {
@@ -6409,9 +6409,332 @@ class BimObjectManagerService {
 }
 exports.default = new BimObjectManagerService();
 
-},{}],"jhUEF":[function(require,module,exports) {
+},{}],"jhUEF":[function(require,module,exports,__globalThis) {
 "use strict";
 
-},{}]},[], null, "parcelRequire02e5")
+},{}],"3vmkr":[function(require,module,exports,__globalThis) {
+// Copyright Joyent, Inc. and other Node contributors.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a
+// copy of this software and associated documentation files (the
+// "Software"), to deal in the Software without restriction, including
+// without limitation the rights to use, copy, modify, merge, publish,
+// distribute, sublicense, and/or sell copies of the Software, and to permit
+// persons to whom the Software is furnished to do so, subject to the
+// following conditions:
+//
+// The above copyright notice and this permission notice shall be included
+// in all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+// USE OR OTHER DEALINGS IN THE SOFTWARE.
+'use strict';
+/*<replacement>*/ var Buffer = require("2a29807c689a070a").Buffer;
+/*</replacement>*/ var isEncoding = Buffer.isEncoding || function(encoding) {
+    encoding = '' + encoding;
+    switch(encoding && encoding.toLowerCase()){
+        case 'hex':
+        case 'utf8':
+        case 'utf-8':
+        case 'ascii':
+        case 'binary':
+        case 'base64':
+        case 'ucs2':
+        case 'ucs-2':
+        case 'utf16le':
+        case 'utf-16le':
+        case 'raw':
+            return true;
+        default:
+            return false;
+    }
+};
+function _normalizeEncoding(enc) {
+    if (!enc) return 'utf8';
+    var retried;
+    while(true)switch(enc){
+        case 'utf8':
+        case 'utf-8':
+            return 'utf8';
+        case 'ucs2':
+        case 'ucs-2':
+        case 'utf16le':
+        case 'utf-16le':
+            return 'utf16le';
+        case 'latin1':
+        case 'binary':
+            return 'latin1';
+        case 'base64':
+        case 'ascii':
+        case 'hex':
+            return enc;
+        default:
+            if (retried) return; // undefined
+            enc = ('' + enc).toLowerCase();
+            retried = true;
+    }
+}
+// Do not cache `Buffer.isEncoding` when checking encoding names as some
+// modules monkey-patch it to support additional encodings
+function normalizeEncoding(enc) {
+    var nenc = _normalizeEncoding(enc);
+    if (typeof nenc !== 'string' && (Buffer.isEncoding === isEncoding || !isEncoding(enc))) throw new Error('Unknown encoding: ' + enc);
+    return nenc || enc;
+}
+// StringDecoder provides an interface for efficiently splitting a series of
+// buffers into a series of JS strings without breaking apart multi-byte
+// characters.
+exports.StringDecoder = StringDecoder;
+function StringDecoder(encoding) {
+    this.encoding = normalizeEncoding(encoding);
+    var nb;
+    switch(this.encoding){
+        case 'utf16le':
+            this.text = utf16Text;
+            this.end = utf16End;
+            nb = 4;
+            break;
+        case 'utf8':
+            this.fillLast = utf8FillLast;
+            nb = 4;
+            break;
+        case 'base64':
+            this.text = base64Text;
+            this.end = base64End;
+            nb = 3;
+            break;
+        default:
+            this.write = simpleWrite;
+            this.end = simpleEnd;
+            return;
+    }
+    this.lastNeed = 0;
+    this.lastTotal = 0;
+    this.lastChar = Buffer.allocUnsafe(nb);
+}
+StringDecoder.prototype.write = function(buf) {
+    if (buf.length === 0) return '';
+    var r;
+    var i;
+    if (this.lastNeed) {
+        r = this.fillLast(buf);
+        if (r === undefined) return '';
+        i = this.lastNeed;
+        this.lastNeed = 0;
+    } else i = 0;
+    if (i < buf.length) return r ? r + this.text(buf, i) : this.text(buf, i);
+    return r || '';
+};
+StringDecoder.prototype.end = utf8End;
+// Returns only complete characters in a Buffer
+StringDecoder.prototype.text = utf8Text;
+// Attempts to complete a partial non-UTF-8 character using bytes from a Buffer
+StringDecoder.prototype.fillLast = function(buf) {
+    if (this.lastNeed <= buf.length) {
+        buf.copy(this.lastChar, this.lastTotal - this.lastNeed, 0, this.lastNeed);
+        return this.lastChar.toString(this.encoding, 0, this.lastTotal);
+    }
+    buf.copy(this.lastChar, this.lastTotal - this.lastNeed, 0, buf.length);
+    this.lastNeed -= buf.length;
+};
+// Checks the type of a UTF-8 byte, whether it's ASCII, a leading byte, or a
+// continuation byte. If an invalid byte is detected, -2 is returned.
+function utf8CheckByte(byte) {
+    if (byte <= 0x7F) return 0;
+    else if (byte >> 5 === 0x06) return 2;
+    else if (byte >> 4 === 0x0E) return 3;
+    else if (byte >> 3 === 0x1E) return 4;
+    return byte >> 6 === 0x02 ? -1 : -2;
+}
+// Checks at most 3 bytes at the end of a Buffer in order to detect an
+// incomplete multi-byte UTF-8 character. The total number of bytes (2, 3, or 4)
+// needed to complete the UTF-8 character (if applicable) are returned.
+function utf8CheckIncomplete(self, buf, i) {
+    var j = buf.length - 1;
+    if (j < i) return 0;
+    var nb = utf8CheckByte(buf[j]);
+    if (nb >= 0) {
+        if (nb > 0) self.lastNeed = nb - 1;
+        return nb;
+    }
+    if (--j < i || nb === -2) return 0;
+    nb = utf8CheckByte(buf[j]);
+    if (nb >= 0) {
+        if (nb > 0) self.lastNeed = nb - 2;
+        return nb;
+    }
+    if (--j < i || nb === -2) return 0;
+    nb = utf8CheckByte(buf[j]);
+    if (nb >= 0) {
+        if (nb > 0) {
+            if (nb === 2) nb = 0;
+            else self.lastNeed = nb - 3;
+        }
+        return nb;
+    }
+    return 0;
+}
+// Validates as many continuation bytes for a multi-byte UTF-8 character as
+// needed or are available. If we see a non-continuation byte where we expect
+// one, we "replace" the validated continuation bytes we've seen so far with
+// a single UTF-8 replacement character ('\ufffd'), to match v8's UTF-8 decoding
+// behavior. The continuation byte check is included three times in the case
+// where all of the continuation bytes for a character exist in the same buffer.
+// It is also done this way as a slight performance increase instead of using a
+// loop.
+function utf8CheckExtraBytes(self, buf, p) {
+    if ((buf[0] & 0xC0) !== 0x80) {
+        self.lastNeed = 0;
+        return '\ufffd';
+    }
+    if (self.lastNeed > 1 && buf.length > 1) {
+        if ((buf[1] & 0xC0) !== 0x80) {
+            self.lastNeed = 1;
+            return '\ufffd';
+        }
+        if (self.lastNeed > 2 && buf.length > 2) {
+            if ((buf[2] & 0xC0) !== 0x80) {
+                self.lastNeed = 2;
+                return '\ufffd';
+            }
+        }
+    }
+}
+// Attempts to complete a multi-byte UTF-8 character using bytes from a Buffer.
+function utf8FillLast(buf) {
+    var p = this.lastTotal - this.lastNeed;
+    var r = utf8CheckExtraBytes(this, buf, p);
+    if (r !== undefined) return r;
+    if (this.lastNeed <= buf.length) {
+        buf.copy(this.lastChar, p, 0, this.lastNeed);
+        return this.lastChar.toString(this.encoding, 0, this.lastTotal);
+    }
+    buf.copy(this.lastChar, p, 0, buf.length);
+    this.lastNeed -= buf.length;
+}
+// Returns all complete UTF-8 characters in a Buffer. If the Buffer ended on a
+// partial character, the character's bytes are buffered until the required
+// number of bytes are available.
+function utf8Text(buf, i) {
+    var total = utf8CheckIncomplete(this, buf, i);
+    if (!this.lastNeed) return buf.toString('utf8', i);
+    this.lastTotal = total;
+    var end = buf.length - (total - this.lastNeed);
+    buf.copy(this.lastChar, 0, end);
+    return buf.toString('utf8', i, end);
+}
+// For UTF-8, a replacement character is added when ending on a partial
+// character.
+function utf8End(buf) {
+    var r = buf && buf.length ? this.write(buf) : '';
+    if (this.lastNeed) return r + '\ufffd';
+    return r;
+}
+// UTF-16LE typically needs two bytes per character, but even if we have an even
+// number of bytes available, we need to check if we end on a leading/high
+// surrogate. In that case, we need to wait for the next two bytes in order to
+// decode the last character properly.
+function utf16Text(buf, i) {
+    if ((buf.length - i) % 2 === 0) {
+        var r = buf.toString('utf16le', i);
+        if (r) {
+            var c = r.charCodeAt(r.length - 1);
+            if (c >= 0xD800 && c <= 0xDBFF) {
+                this.lastNeed = 2;
+                this.lastTotal = 4;
+                this.lastChar[0] = buf[buf.length - 2];
+                this.lastChar[1] = buf[buf.length - 1];
+                return r.slice(0, -1);
+            }
+        }
+        return r;
+    }
+    this.lastNeed = 1;
+    this.lastTotal = 2;
+    this.lastChar[0] = buf[buf.length - 1];
+    return buf.toString('utf16le', i, buf.length - 1);
+}
+// For UTF-16LE we do not explicitly append special replacement characters if we
+// end on a partial character, we simply let v8 handle that.
+function utf16End(buf) {
+    var r = buf && buf.length ? this.write(buf) : '';
+    if (this.lastNeed) {
+        var end = this.lastTotal - this.lastNeed;
+        return r + this.lastChar.toString('utf16le', 0, end);
+    }
+    return r;
+}
+function base64Text(buf, i) {
+    var n = (buf.length - i) % 3;
+    if (n === 0) return buf.toString('base64', i);
+    this.lastNeed = 3 - n;
+    this.lastTotal = 3;
+    if (n === 1) this.lastChar[0] = buf[buf.length - 1];
+    else {
+        this.lastChar[0] = buf[buf.length - 2];
+        this.lastChar[1] = buf[buf.length - 1];
+    }
+    return buf.toString('base64', i, buf.length - n);
+}
+function base64End(buf) {
+    var r = buf && buf.length ? this.write(buf) : '';
+    if (this.lastNeed) return r + this.lastChar.toString('base64', 0, 3 - this.lastNeed);
+    return r;
+}
+// Pass bytes on through for single-byte encodings (e.g. ascii, latin1, hex)
+function simpleWrite(buf) {
+    return buf.toString(this.encoding);
+}
+function simpleEnd(buf) {
+    return buf && buf.length ? this.write(buf) : '';
+}
+
+},{"2a29807c689a070a":"eW7r9"}],"eW7r9":[function(require,module,exports,__globalThis) {
+/*! safe-buffer. MIT License. Feross Aboukhadijeh <https://feross.org/opensource> */ /* eslint-disable node/no-deprecated-api */ var buffer = require("7e0d6ecd698c3ca6");
+var Buffer = buffer.Buffer;
+// alternative to using Object.keys for old browsers
+function copyProps(src, dst) {
+    for(var key in src)dst[key] = src[key];
+}
+if (Buffer.from && Buffer.alloc && Buffer.allocUnsafe && Buffer.allocUnsafeSlow) module.exports = buffer;
+else {
+    // Copy properties from require('buffer')
+    copyProps(buffer, exports);
+    exports.Buffer = SafeBuffer;
+}
+function SafeBuffer(arg, encodingOrOffset, length) {
+    return Buffer(arg, encodingOrOffset, length);
+}
+SafeBuffer.prototype = Object.create(Buffer.prototype);
+// Copy static methods from Buffer
+copyProps(Buffer, SafeBuffer);
+SafeBuffer.from = function(arg, encodingOrOffset, length) {
+    if (typeof arg === 'number') throw new TypeError('Argument must not be a number');
+    return Buffer(arg, encodingOrOffset, length);
+};
+SafeBuffer.alloc = function(size, fill, encoding) {
+    if (typeof size !== 'number') throw new TypeError('Argument must be a number');
+    var buf = Buffer(size);
+    if (fill !== undefined) {
+        if (typeof encoding === 'string') buf.fill(fill, encoding);
+        else buf.fill(fill);
+    } else buf.fill(0);
+    return buf;
+};
+SafeBuffer.allocUnsafe = function(size) {
+    if (typeof size !== 'number') throw new TypeError('Argument must be a number');
+    return Buffer(size);
+};
+SafeBuffer.allocUnsafeSlow = function(size) {
+    if (typeof size !== 'number') throw new TypeError('Argument must be a number');
+    return buffer.SlowBuffer(size);
+};
+
+},{"7e0d6ecd698c3ca6":"fCgem"}]},[], null, "parcelRequire94c2")
 
 //# sourceMappingURL=spinal-env-viewer-plugin-documentation.b77f57cc.js.map

@@ -73,7 +73,7 @@
         localRequire,
         module,
         module.exports,
-        this
+        globalObject
       );
     }
 
@@ -142,7 +142,7 @@
       this[globalName] = mainExports;
     }
   }
-})({"d1IEa":[function(require,module,exports) {
+})({"d1IEa":[function(require,module,exports,__globalThis) {
 var global = arguments[3];
 "use strict";
 /*
@@ -244,7 +244,7 @@ class SpinalExcelManager {
         return new Promise((resolve, reject)=>{
             fileReader.onload = (_file)=>__awaiter(this, void 0, void 0, function*() {
                     const data = _file.target.result;
-                    const json = yield convertExcel.configurationToJson(data, headerRow);
+                    const json = yield convertExcel.configurationToJson(data);
                     return resolve(json);
                 });
             ///////////////////////////////////////////////
@@ -278,13 +278,13 @@ class SpinalExcelManager {
 exports.default = SpinalExcelManager;
 exports.SpinalExcelManager = SpinalExcelManager;
 const globalRoot = typeof window === "undefined" ? global : window;
-if (typeof globalRoot.spinal === "undefined") globalRoot.spinal = {};
-if (typeof globalRoot.spinal.excelManager === "undefined") globalRoot.spinal.excelManager = SpinalExcelManager;
+if (typeof globalRoot.spinal === 'undefined') globalRoot.spinal = {};
+if (typeof globalRoot.spinal.excelManager === 'undefined') globalRoot.spinal.excelManager = SpinalExcelManager;
 globalRoot.excelManager = SpinalExcelManager;
 const excelManager = SpinalExcelManager;
 exports.excelManager = excelManager;
 
-},{"4bd001d14fd67905":"b5JFe","4542916d38ddbb01":"kq5LI","dc33d0ff486b02b":"jhUEF"}],"b5JFe":[function(require,module,exports) {
+},{"4bd001d14fd67905":"b5JFe","4542916d38ddbb01":"kq5LI","dc33d0ff486b02b":"jhUEF"}],"b5JFe":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2020 SpinalCom - www.spinalcom.com
@@ -340,51 +340,52 @@ Object.defineProperty(exports, "__esModule", {
 });
 const Excel = require("1ba194b983bc407b");
 class CreateExcel {
-    constructor(sheets, author){
+    constructor(sheets, author = "spinalcom developer"){
+        this.sheets = sheets;
         this.workbook = new Excel.Workbook();
         this.workbook.created = new Date(Date.now());
-        this.sheets = sheets;
+    }
+    getWorkbook() {
+        return this.workbook.xlsx.writeBuffer();
+    }
+    getWorkbookInstance() {
+        return this.workbook;
     }
     createSheet() {
-        this.sheets.forEach((argSheet)=>__awaiter(this, void 0, void 0, function*() {
-                let sheet = this.workbook.addWorksheet(argSheet.name, {
-                    properties: {
-                        tabColor: {
-                            argb: "FFC0000"
+        return __awaiter(this, void 0, void 0, function*() {
+            const promises = this.sheets.map((argSheet)=>__awaiter(this, void 0, void 0, function*() {
+                    let sheet = this.workbook.addWorksheet(argSheet.name, {
+                        properties: {
+                            tabColor: {
+                                argb: 'FFC0000'
+                            }
                         }
-                    }
-                });
-                sheet.state = "visible";
-                yield this.addHeader(sheet, argSheet.header);
-                this.addRows(sheet, argSheet.rows);
-            }));
+                    });
+                    sheet.state = 'visible';
+                    yield this._addHeader(sheet, argSheet.header);
+                    this._addRows(sheet, argSheet.rows);
+                    return sheet;
+                }));
+            return Promise.all(promises);
+        });
     }
-    addHeader(sheet, headers) {
+    _addHeader(sheet, headers) {
         if (sheet.columns && sheet.columns.length > 0) sheet.columns = [
             ...sheet.columns,
             ...headers
         ];
         else sheet.columns = headers;
     }
-    addRows(sheet, argRows) {
+    _addRows(sheet, argRows) {
         let rows = Array.isArray(argRows) ? argRows : [
             argRows
         ];
-        rows.forEach((row)=>{
-            const r = sheet.addRow(row);
-        });
-    }
-    getWorkbook() {
-        // console.log(this.workbook);
-        return this.workbook.xlsx.writeBuffer();
-    }
-    getWorkbookInstance() {
-        return this.workbook;
+        for (const row of rows)sheet.addRow(row);
     }
 }
 exports.default = CreateExcel;
 
-},{"1ba194b983bc407b":"fvpWi"}],"fvpWi":[function(require,module,exports) {
+},{"1ba194b983bc407b":"fvpWi"}],"fvpWi":[function(require,module,exports,__globalThis) {
 /*! ExcelJS 19-10-2023 */ var global = arguments[3];
 !function(e) {
     module.exports = e();
@@ -4253,20 +4254,20 @@ exports.default = CreateExcel;
                     },
                     27: {
                         "zh-tw": "[$-404]e/m/d",
-                        "zh-cn": 'yyyy"\u5E74"m"\u6708"',
+                        "zh-cn": 'yyyy"\u5e74"m"\u6708"',
                         "ja-jp": "[$-411]ge.m.d",
-                        "ko-kr": 'yyyy"\u5E74" mm"\u6708" dd"\u65E5"'
+                        "ko-kr": 'yyyy"\u5e74" mm"\u6708" dd"\u65e5"'
                     },
                     28: {
-                        "zh-tw": '[$-404]e"\u5E74"m"\u6708"d"\u65E5"',
-                        "zh-cn": 'm"\u6708"d"\u65E5"',
-                        "ja-jp": '[$-411]ggge"\u5E74"m"\u6708"d"\u65E5"',
+                        "zh-tw": '[$-404]e"\u5e74"m"\u6708"d"\u65e5"',
+                        "zh-cn": 'm"\u6708"d"\u65e5"',
+                        "ja-jp": '[$-411]ggge"\u5e74"m"\u6708"d"\u65e5"',
                         "ko-kr": "mm-dd"
                     },
                     29: {
-                        "zh-tw": '[$-404]e"\u5E74"m"\u6708"d"\u65E5"',
-                        "zh-cn": 'm"\u6708"d"\u65E5"',
-                        "ja-jp": '[$-411]ggge"\u5E74"m"\u6708"d"\u65E5"',
+                        "zh-tw": '[$-404]e"\u5e74"m"\u6708"d"\u65e5"',
+                        "zh-cn": 'm"\u6708"d"\u65e5"',
+                        "ja-jp": '[$-411]ggge"\u5e74"m"\u6708"d"\u65e5"',
                         "ko-kr": "mm-dd"
                     },
                     30: {
@@ -4276,40 +4277,40 @@ exports.default = CreateExcel;
                         "ko-kr": "mm-dd-yy"
                     },
                     31: {
-                        "zh-tw": 'yyyy"\u5E74"m"\u6708"d"\u65E5"',
-                        "zh-cn": 'yyyy"\u5E74"m"\u6708"d"\u65E5"',
-                        "ja-jp": 'yyyy"\u5E74"m"\u6708"d"\u65E5"',
-                        "ko-kr": 'yyyy"\uB144" mm"\uC6D4" dd"\uC77C"'
+                        "zh-tw": 'yyyy"\u5e74"m"\u6708"d"\u65e5"',
+                        "zh-cn": 'yyyy"\u5e74"m"\u6708"d"\u65e5"',
+                        "ja-jp": 'yyyy"\u5e74"m"\u6708"d"\u65e5"',
+                        "ko-kr": 'yyyy"\ub144" mm"\uc6d4" dd"\uc77c"'
                     },
                     32: {
                         "zh-tw": 'hh"\u6642"mm"\u5206"',
-                        "zh-cn": 'h"\u65F6"mm"\u5206"',
+                        "zh-cn": 'h"\u65f6"mm"\u5206"',
                         "ja-jp": 'h"\u6642"mm"\u5206"',
-                        "ko-kr": 'h"\uC2DC" mm"\uBD84"'
+                        "ko-kr": 'h"\uc2dc" mm"\ubd84"'
                     },
                     33: {
-                        "zh-tw": 'hh"\u6642"mm"\u5206"ss"\u79D2"',
-                        "zh-cn": 'h"\u65F6"mm"\u5206"ss"\u79D2"',
-                        "ja-jp": 'h"\u6642"mm"\u5206"ss"\u79D2"',
-                        "ko-kr": 'h"\uC2DC" mm"\uBD84" ss"\uCD08"'
+                        "zh-tw": 'hh"\u6642"mm"\u5206"ss"\u79d2"',
+                        "zh-cn": 'h"\u65f6"mm"\u5206"ss"\u79d2"',
+                        "ja-jp": 'h"\u6642"mm"\u5206"ss"\u79d2"',
+                        "ko-kr": 'h"\uc2dc" mm"\ubd84" ss"\ucd08"'
                     },
                     34: {
-                        "zh-tw": '\u4E0A\u5348/\u4E0B\u5348 hh"\u6642"mm"\u5206"',
-                        "zh-cn": '\u4E0A\u5348/\u4E0B\u5348 h"\u65F6"mm"\u5206"',
-                        "ja-jp": 'yyyy"\u5E74"m"\u6708"',
+                        "zh-tw": '\u4e0a\u5348/\u4e0b\u5348 hh"\u6642"mm"\u5206"',
+                        "zh-cn": '\u4e0a\u5348/\u4e0b\u5348 h"\u65f6"mm"\u5206"',
+                        "ja-jp": 'yyyy"\u5e74"m"\u6708"',
                         "ko-kr": "yyyy-mm-dd"
                     },
                     35: {
-                        "zh-tw": '\u4E0A\u5348/\u4E0B\u5348 hh"\u6642"mm"\u5206"ss"\u79D2"',
-                        "zh-cn": '\u4E0A\u5348/\u4E0B\u5348 h"\u65F6"mm"\u5206"ss"\u79D2"',
-                        "ja-jp": 'm"\u6708"d"\u65E5"',
+                        "zh-tw": '\u4e0a\u5348/\u4e0b\u5348 hh"\u6642"mm"\u5206"ss"\u79d2"',
+                        "zh-cn": '\u4e0a\u5348/\u4e0b\u5348 h"\u65f6"mm"\u5206"ss"\u79d2"',
+                        "ja-jp": 'm"\u6708"d"\u65e5"',
                         "ko-kr": "yyyy-mm-dd"
                     },
                     36: {
                         "zh-tw": "[$-404]e/m/d",
-                        "zh-cn": 'yyyy"\u5E74"m"\u6708"',
+                        "zh-cn": 'yyyy"\u5e74"m"\u6708"',
                         "ja-jp": "[$-411]ge.m.d",
-                        "ko-kr": 'yyyy"\u5E74" mm"\u6708" dd"\u65E5"'
+                        "ko-kr": 'yyyy"\u5e74" mm"\u6708" dd"\u65e5"'
                     },
                     37: {
                         f: "#,##0 ;(#,##0)"
@@ -4340,56 +4341,56 @@ exports.default = CreateExcel;
                     },
                     50: {
                         "zh-tw": "[$-404]e/m/d",
-                        "zh-cn": 'yyyy"\u5E74"m"\u6708"',
+                        "zh-cn": 'yyyy"\u5e74"m"\u6708"',
                         "ja-jp": "[$-411]ge.m.d",
-                        "ko-kr": 'yyyy"\u5E74" mm"\u6708" dd"\u65E5"'
+                        "ko-kr": 'yyyy"\u5e74" mm"\u6708" dd"\u65e5"'
                     },
                     51: {
-                        "zh-tw": '[$-404]e"\u5E74"m"\u6708"d"\u65E5"',
-                        "zh-cn": 'm"\u6708"d"\u65E5"',
-                        "ja-jp": '[$-411]ggge"\u5E74"m"\u6708"d"\u65E5"',
+                        "zh-tw": '[$-404]e"\u5e74"m"\u6708"d"\u65e5"',
+                        "zh-cn": 'm"\u6708"d"\u65e5"',
+                        "ja-jp": '[$-411]ggge"\u5e74"m"\u6708"d"\u65e5"',
                         "ko-kr": "mm-dd"
                     },
                     52: {
-                        "zh-tw": '\u4E0A\u5348/\u4E0B\u5348 hh"\u6642"mm"\u5206"',
-                        "zh-cn": 'yyyy"\u5E74"m"\u6708"',
-                        "ja-jp": 'yyyy"\u5E74"m"\u6708"',
+                        "zh-tw": '\u4e0a\u5348/\u4e0b\u5348 hh"\u6642"mm"\u5206"',
+                        "zh-cn": 'yyyy"\u5e74"m"\u6708"',
+                        "ja-jp": 'yyyy"\u5e74"m"\u6708"',
                         "ko-kr": "yyyy-mm-dd"
                     },
                     53: {
-                        "zh-tw": '\u4E0A\u5348/\u4E0B\u5348 hh"\u6642"mm"\u5206"ss"\u79D2"',
-                        "zh-cn": 'm"\u6708"d"\u65E5"',
-                        "ja-jp": 'm"\u6708"d"\u65E5"',
+                        "zh-tw": '\u4e0a\u5348/\u4e0b\u5348 hh"\u6642"mm"\u5206"ss"\u79d2"',
+                        "zh-cn": 'm"\u6708"d"\u65e5"',
+                        "ja-jp": 'm"\u6708"d"\u65e5"',
                         "ko-kr": "yyyy-mm-dd"
                     },
                     54: {
-                        "zh-tw": '[$-404]e"\u5E74"m"\u6708"d"\u65E5"',
-                        "zh-cn": 'm"\u6708"d"\u65E5"',
-                        "ja-jp": '[$-411]ggge"\u5E74"m"\u6708"d"\u65E5"',
+                        "zh-tw": '[$-404]e"\u5e74"m"\u6708"d"\u65e5"',
+                        "zh-cn": 'm"\u6708"d"\u65e5"',
+                        "ja-jp": '[$-411]ggge"\u5e74"m"\u6708"d"\u65e5"',
                         "ko-kr": "mm-dd"
                     },
                     55: {
-                        "zh-tw": '\u4E0A\u5348/\u4E0B\u5348 hh"\u6642"mm"\u5206"',
-                        "zh-cn": '\u4E0A\u5348/\u4E0B\u5348 h"\u65F6"mm"\u5206"',
-                        "ja-jp": 'yyyy"\u5E74"m"\u6708"',
+                        "zh-tw": '\u4e0a\u5348/\u4e0b\u5348 hh"\u6642"mm"\u5206"',
+                        "zh-cn": '\u4e0a\u5348/\u4e0b\u5348 h"\u65f6"mm"\u5206"',
+                        "ja-jp": 'yyyy"\u5e74"m"\u6708"',
                         "ko-kr": "yyyy-mm-dd"
                     },
                     56: {
-                        "zh-tw": '\u4E0A\u5348/\u4E0B\u5348 hh"\u6642"mm"\u5206"ss"\u79D2"',
-                        "zh-cn": '\u4E0A\u5348/\u4E0B\u5348 h"\u65F6"mm"\u5206"ss"\u79D2"',
-                        "ja-jp": 'm"\u6708"d"\u65E5"',
+                        "zh-tw": '\u4e0a\u5348/\u4e0b\u5348 hh"\u6642"mm"\u5206"ss"\u79d2"',
+                        "zh-cn": '\u4e0a\u5348/\u4e0b\u5348 h"\u65f6"mm"\u5206"ss"\u79d2"',
+                        "ja-jp": 'm"\u6708"d"\u65e5"',
                         "ko-kr": "yyyy-mm-dd"
                     },
                     57: {
                         "zh-tw": "[$-404]e/m/d",
-                        "zh-cn": 'yyyy"\u5E74"m"\u6708"',
+                        "zh-cn": 'yyyy"\u5e74"m"\u6708"',
                         "ja-jp": "[$-411]ge.m.d",
-                        "ko-kr": 'yyyy"\u5E74" mm"\u6708" dd"\u65E5"'
+                        "ko-kr": 'yyyy"\u5e74" mm"\u6708" dd"\u65e5"'
                     },
                     58: {
-                        "zh-tw": '[$-404]e"\u5E74"m"\u6708"d"\u65E5"',
-                        "zh-cn": 'm"\u6708"d"\u65E5"',
-                        "ja-jp": '[$-411]ggge"\u5E74"m"\u6708"d"\u65E5"',
+                        "zh-tw": '[$-404]e"\u5e74"m"\u6708"d"\u65e5"',
+                        "zh-cn": 'm"\u6708"d"\u65e5"',
+                        "ja-jp": '[$-411]ggge"\u5e74"m"\u6708"d"\u65e5"',
                         "ko-kr": "mm-dd"
                     },
                     59: {
@@ -5924,8 +5925,11 @@ exports.default = CreateExcel;
                         }), e.closeNode();
                     }
                     parseOpen(e) {
-                        e.name, this.tag;
-                        return !0;
+                        switch(e.name){
+                            case this.tag:
+                            default:
+                                return !0;
+                        }
                     }
                     parseText() {}
                     parseClose(e) {
@@ -6144,8 +6148,11 @@ exports.default = CreateExcel;
                         }), e.closeNode(), e.closeNode();
                     }
                     parseOpen(e) {
-                        e.name, this.tag;
-                        return !0;
+                        switch(e.name){
+                            case this.tag:
+                            default:
+                                return !0;
+                        }
                     }
                     parseText() {}
                     parseClose(e) {
@@ -11842,7 +11849,7 @@ exports.default = CreateExcel;
         145: [
             function(e, t, r) {
                 "use strict";
-                t.exports = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n<a:theme xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" name="Office Theme"> <a:themeElements> <a:clrScheme name="Office"> <a:dk1> <a:sysClr val="windowText" lastClr="000000"/> </a:dk1> <a:lt1> <a:sysClr val="window" lastClr="FFFFFF"/> </a:lt1> <a:dk2> <a:srgbClr val="1F497D"/> </a:dk2> <a:lt2> <a:srgbClr val="EEECE1"/> </a:lt2> <a:accent1> <a:srgbClr val="4F81BD"/> </a:accent1> <a:accent2> <a:srgbClr val="C0504D"/> </a:accent2> <a:accent3> <a:srgbClr val="9BBB59"/> </a:accent3> <a:accent4> <a:srgbClr val="8064A2"/> </a:accent4> <a:accent5> <a:srgbClr val="4BACC6"/> </a:accent5> <a:accent6> <a:srgbClr val="F79646"/> </a:accent6> <a:hlink> <a:srgbClr val="0000FF"/> </a:hlink> <a:folHlink> <a:srgbClr val="800080"/> </a:folHlink> </a:clrScheme> <a:fontScheme name="Office"> <a:majorFont> <a:latin typeface="Cambria"/> <a:ea typeface=""/> <a:cs typeface=""/> <a:font script="Jpan" typeface="\uFF2D\uFF33 \uFF30\u30B4\u30B7\u30C3\u30AF"/> <a:font script="Hang" typeface="\uB9D1\uC740 \uACE0\uB515"/> <a:font script="Hans" typeface="\u5B8B\u4F53"/> <a:font script="Hant" typeface="\u65B0\u7D30\u660E\u9AD4"/> <a:font script="Arab" typeface="Times New Roman"/> <a:font script="Hebr" typeface="Times New Roman"/> <a:font script="Thai" typeface="Tahoma"/> <a:font script="Ethi" typeface="Nyala"/> <a:font script="Beng" typeface="Vrinda"/> <a:font script="Gujr" typeface="Shruti"/> <a:font script="Khmr" typeface="MoolBoran"/> <a:font script="Knda" typeface="Tunga"/> <a:font script="Guru" typeface="Raavi"/> <a:font script="Cans" typeface="Euphemia"/> <a:font script="Cher" typeface="Plantagenet Cherokee"/> <a:font script="Yiii" typeface="Microsoft Yi Baiti"/> <a:font script="Tibt" typeface="Microsoft Himalaya"/> <a:font script="Thaa" typeface="MV Boli"/> <a:font script="Deva" typeface="Mangal"/> <a:font script="Telu" typeface="Gautami"/> <a:font script="Taml" typeface="Latha"/> <a:font script="Syrc" typeface="Estrangelo Edessa"/> <a:font script="Orya" typeface="Kalinga"/> <a:font script="Mlym" typeface="Kartika"/> <a:font script="Laoo" typeface="DokChampa"/> <a:font script="Sinh" typeface="Iskoola Pota"/> <a:font script="Mong" typeface="Mongolian Baiti"/> <a:font script="Viet" typeface="Times New Roman"/> <a:font script="Uigh" typeface="Microsoft Uighur"/> <a:font script="Geor" typeface="Sylfaen"/> </a:majorFont> <a:minorFont> <a:latin typeface="Calibri"/> <a:ea typeface=""/> <a:cs typeface=""/> <a:font script="Jpan" typeface="\uFF2D\uFF33 \uFF30\u30B4\u30B7\u30C3\u30AF"/> <a:font script="Hang" typeface="\uB9D1\uC740 \uACE0\uB515"/> <a:font script="Hans" typeface="\u5B8B\u4F53"/> <a:font script="Hant" typeface="\u65B0\u7D30\u660E\u9AD4"/> <a:font script="Arab" typeface="Arial"/> <a:font script="Hebr" typeface="Arial"/> <a:font script="Thai" typeface="Tahoma"/> <a:font script="Ethi" typeface="Nyala"/> <a:font script="Beng" typeface="Vrinda"/> <a:font script="Gujr" typeface="Shruti"/> <a:font script="Khmr" typeface="DaunPenh"/> <a:font script="Knda" typeface="Tunga"/> <a:font script="Guru" typeface="Raavi"/> <a:font script="Cans" typeface="Euphemia"/> <a:font script="Cher" typeface="Plantagenet Cherokee"/> <a:font script="Yiii" typeface="Microsoft Yi Baiti"/> <a:font script="Tibt" typeface="Microsoft Himalaya"/> <a:font script="Thaa" typeface="MV Boli"/> <a:font script="Deva" typeface="Mangal"/> <a:font script="Telu" typeface="Gautami"/> <a:font script="Taml" typeface="Latha"/> <a:font script="Syrc" typeface="Estrangelo Edessa"/> <a:font script="Orya" typeface="Kalinga"/> <a:font script="Mlym" typeface="Kartika"/> <a:font script="Laoo" typeface="DokChampa"/> <a:font script="Sinh" typeface="Iskoola Pota"/> <a:font script="Mong" typeface="Mongolian Baiti"/> <a:font script="Viet" typeface="Arial"/> <a:font script="Uigh" typeface="Microsoft Uighur"/> <a:font script="Geor" typeface="Sylfaen"/> </a:minorFont> </a:fontScheme> <a:fmtScheme name="Office"> <a:fillStyleLst> <a:solidFill> <a:schemeClr val="phClr"/> </a:solidFill> <a:gradFill rotWithShape="1"> <a:gsLst> <a:gs pos="0"> <a:schemeClr val="phClr"> <a:tint val="50000"/> <a:satMod val="300000"/> </a:schemeClr> </a:gs> <a:gs pos="35000"> <a:schemeClr val="phClr"> <a:tint val="37000"/> <a:satMod val="300000"/> </a:schemeClr> </a:gs> <a:gs pos="100000"> <a:schemeClr val="phClr"> <a:tint val="15000"/> <a:satMod val="350000"/> </a:schemeClr> </a:gs> </a:gsLst> <a:lin ang="16200000" scaled="1"/> </a:gradFill> <a:gradFill rotWithShape="1"> <a:gsLst> <a:gs pos="0"> <a:schemeClr val="phClr"> <a:tint val="100000"/> <a:shade val="100000"/> <a:satMod val="130000"/> </a:schemeClr> </a:gs> <a:gs pos="100000"> <a:schemeClr val="phClr"> <a:tint val="50000"/> <a:shade val="100000"/> <a:satMod val="350000"/> </a:schemeClr> </a:gs> </a:gsLst> <a:lin ang="16200000" scaled="0"/> </a:gradFill> </a:fillStyleLst> <a:lnStyleLst> <a:ln w="9525" cap="flat" cmpd="sng" algn="ctr"> <a:solidFill> <a:schemeClr val="phClr"> <a:shade val="95000"/> <a:satMod val="105000"/> </a:schemeClr> </a:solidFill> <a:prstDash val="solid"/> </a:ln> <a:ln w="25400" cap="flat" cmpd="sng" algn="ctr"> <a:solidFill> <a:schemeClr val="phClr"/> </a:solidFill> <a:prstDash val="solid"/> </a:ln> <a:ln w="38100" cap="flat" cmpd="sng" algn="ctr"> <a:solidFill> <a:schemeClr val="phClr"/> </a:solidFill> <a:prstDash val="solid"/> </a:ln> </a:lnStyleLst> <a:effectStyleLst> <a:effectStyle> <a:effectLst> <a:outerShdw blurRad="40000" dist="20000" dir="5400000" rotWithShape="0"> <a:srgbClr val="000000"> <a:alpha val="38000"/> </a:srgbClr> </a:outerShdw> </a:effectLst> </a:effectStyle> <a:effectStyle> <a:effectLst> <a:outerShdw blurRad="40000" dist="23000" dir="5400000" rotWithShape="0"> <a:srgbClr val="000000"> <a:alpha val="35000"/> </a:srgbClr> </a:outerShdw> </a:effectLst> </a:effectStyle> <a:effectStyle> <a:effectLst> <a:outerShdw blurRad="40000" dist="23000" dir="5400000" rotWithShape="0"> <a:srgbClr val="000000"> <a:alpha val="35000"/> </a:srgbClr> </a:outerShdw> </a:effectLst> <a:scene3d> <a:camera prst="orthographicFront"> <a:rot lat="0" lon="0" rev="0"/> </a:camera> <a:lightRig rig="threePt" dir="t"> <a:rot lat="0" lon="0" rev="1200000"/> </a:lightRig> </a:scene3d> <a:sp3d> <a:bevelT w="63500" h="25400"/> </a:sp3d> </a:effectStyle> </a:effectStyleLst> <a:bgFillStyleLst> <a:solidFill> <a:schemeClr val="phClr"/> </a:solidFill> <a:gradFill rotWithShape="1"> <a:gsLst> <a:gs pos="0"> <a:schemeClr val="phClr"> <a:tint val="40000"/> <a:satMod val="350000"/> </a:schemeClr> </a:gs> <a:gs pos="40000"> <a:schemeClr val="phClr"> <a:tint val="45000"/> <a:shade val="99000"/> <a:satMod val="350000"/> </a:schemeClr> </a:gs> <a:gs pos="100000"> <a:schemeClr val="phClr"> <a:shade val="20000"/> <a:satMod val="255000"/> </a:schemeClr> </a:gs> </a:gsLst> <a:path path="circle"> <a:fillToRect l="50000" t="-80000" r="50000" b="180000"/> </a:path> </a:gradFill> <a:gradFill rotWithShape="1"> <a:gsLst> <a:gs pos="0"> <a:schemeClr val="phClr"> <a:tint val="80000"/> <a:satMod val="300000"/> </a:schemeClr> </a:gs> <a:gs pos="100000"> <a:schemeClr val="phClr"> <a:shade val="30000"/> <a:satMod val="200000"/> </a:schemeClr> </a:gs> </a:gsLst> <a:path path="circle"> <a:fillToRect l="50000" t="50000" r="50000" b="50000"/> </a:path> </a:gradFill> </a:bgFillStyleLst> </a:fmtScheme> </a:themeElements> <a:objectDefaults> <a:spDef> <a:spPr/> <a:bodyPr/> <a:lstStyle/> <a:style> <a:lnRef idx="1"> <a:schemeClr val="accent1"/> </a:lnRef> <a:fillRef idx="3"> <a:schemeClr val="accent1"/> </a:fillRef> <a:effectRef idx="2"> <a:schemeClr val="accent1"/> </a:effectRef> <a:fontRef idx="minor"> <a:schemeClr val="lt1"/> </a:fontRef> </a:style> </a:spDef> <a:lnDef> <a:spPr/> <a:bodyPr/> <a:lstStyle/> <a:style> <a:lnRef idx="2"> <a:schemeClr val="accent1"/> </a:lnRef> <a:fillRef idx="0"> <a:schemeClr val="accent1"/> </a:fillRef> <a:effectRef idx="1"> <a:schemeClr val="accent1"/> </a:effectRef> <a:fontRef idx="minor"> <a:schemeClr val="tx1"/> </a:fontRef> </a:style> </a:lnDef> </a:objectDefaults> <a:extraClrSchemeLst/> </a:theme>';
+                t.exports = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n<a:theme xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" name="Office Theme"> <a:themeElements> <a:clrScheme name="Office"> <a:dk1> <a:sysClr val="windowText" lastClr="000000"/> </a:dk1> <a:lt1> <a:sysClr val="window" lastClr="FFFFFF"/> </a:lt1> <a:dk2> <a:srgbClr val="1F497D"/> </a:dk2> <a:lt2> <a:srgbClr val="EEECE1"/> </a:lt2> <a:accent1> <a:srgbClr val="4F81BD"/> </a:accent1> <a:accent2> <a:srgbClr val="C0504D"/> </a:accent2> <a:accent3> <a:srgbClr val="9BBB59"/> </a:accent3> <a:accent4> <a:srgbClr val="8064A2"/> </a:accent4> <a:accent5> <a:srgbClr val="4BACC6"/> </a:accent5> <a:accent6> <a:srgbClr val="F79646"/> </a:accent6> <a:hlink> <a:srgbClr val="0000FF"/> </a:hlink> <a:folHlink> <a:srgbClr val="800080"/> </a:folHlink> </a:clrScheme> <a:fontScheme name="Office"> <a:majorFont> <a:latin typeface="Cambria"/> <a:ea typeface=""/> <a:cs typeface=""/> <a:font script="Jpan" typeface="\uff2d\uff33 \uff30\u30b4\u30b7\u30c3\u30af"/> <a:font script="Hang" typeface="\ub9d1\uc740 \uace0\ub515"/> <a:font script="Hans" typeface="\u5b8b\u4f53"/> <a:font script="Hant" typeface="\u65b0\u7d30\u660e\u9ad4"/> <a:font script="Arab" typeface="Times New Roman"/> <a:font script="Hebr" typeface="Times New Roman"/> <a:font script="Thai" typeface="Tahoma"/> <a:font script="Ethi" typeface="Nyala"/> <a:font script="Beng" typeface="Vrinda"/> <a:font script="Gujr" typeface="Shruti"/> <a:font script="Khmr" typeface="MoolBoran"/> <a:font script="Knda" typeface="Tunga"/> <a:font script="Guru" typeface="Raavi"/> <a:font script="Cans" typeface="Euphemia"/> <a:font script="Cher" typeface="Plantagenet Cherokee"/> <a:font script="Yiii" typeface="Microsoft Yi Baiti"/> <a:font script="Tibt" typeface="Microsoft Himalaya"/> <a:font script="Thaa" typeface="MV Boli"/> <a:font script="Deva" typeface="Mangal"/> <a:font script="Telu" typeface="Gautami"/> <a:font script="Taml" typeface="Latha"/> <a:font script="Syrc" typeface="Estrangelo Edessa"/> <a:font script="Orya" typeface="Kalinga"/> <a:font script="Mlym" typeface="Kartika"/> <a:font script="Laoo" typeface="DokChampa"/> <a:font script="Sinh" typeface="Iskoola Pota"/> <a:font script="Mong" typeface="Mongolian Baiti"/> <a:font script="Viet" typeface="Times New Roman"/> <a:font script="Uigh" typeface="Microsoft Uighur"/> <a:font script="Geor" typeface="Sylfaen"/> </a:majorFont> <a:minorFont> <a:latin typeface="Calibri"/> <a:ea typeface=""/> <a:cs typeface=""/> <a:font script="Jpan" typeface="\uff2d\uff33 \uff30\u30b4\u30b7\u30c3\u30af"/> <a:font script="Hang" typeface="\ub9d1\uc740 \uace0\ub515"/> <a:font script="Hans" typeface="\u5b8b\u4f53"/> <a:font script="Hant" typeface="\u65b0\u7d30\u660e\u9ad4"/> <a:font script="Arab" typeface="Arial"/> <a:font script="Hebr" typeface="Arial"/> <a:font script="Thai" typeface="Tahoma"/> <a:font script="Ethi" typeface="Nyala"/> <a:font script="Beng" typeface="Vrinda"/> <a:font script="Gujr" typeface="Shruti"/> <a:font script="Khmr" typeface="DaunPenh"/> <a:font script="Knda" typeface="Tunga"/> <a:font script="Guru" typeface="Raavi"/> <a:font script="Cans" typeface="Euphemia"/> <a:font script="Cher" typeface="Plantagenet Cherokee"/> <a:font script="Yiii" typeface="Microsoft Yi Baiti"/> <a:font script="Tibt" typeface="Microsoft Himalaya"/> <a:font script="Thaa" typeface="MV Boli"/> <a:font script="Deva" typeface="Mangal"/> <a:font script="Telu" typeface="Gautami"/> <a:font script="Taml" typeface="Latha"/> <a:font script="Syrc" typeface="Estrangelo Edessa"/> <a:font script="Orya" typeface="Kalinga"/> <a:font script="Mlym" typeface="Kartika"/> <a:font script="Laoo" typeface="DokChampa"/> <a:font script="Sinh" typeface="Iskoola Pota"/> <a:font script="Mong" typeface="Mongolian Baiti"/> <a:font script="Viet" typeface="Arial"/> <a:font script="Uigh" typeface="Microsoft Uighur"/> <a:font script="Geor" typeface="Sylfaen"/> </a:minorFont> </a:fontScheme> <a:fmtScheme name="Office"> <a:fillStyleLst> <a:solidFill> <a:schemeClr val="phClr"/> </a:solidFill> <a:gradFill rotWithShape="1"> <a:gsLst> <a:gs pos="0"> <a:schemeClr val="phClr"> <a:tint val="50000"/> <a:satMod val="300000"/> </a:schemeClr> </a:gs> <a:gs pos="35000"> <a:schemeClr val="phClr"> <a:tint val="37000"/> <a:satMod val="300000"/> </a:schemeClr> </a:gs> <a:gs pos="100000"> <a:schemeClr val="phClr"> <a:tint val="15000"/> <a:satMod val="350000"/> </a:schemeClr> </a:gs> </a:gsLst> <a:lin ang="16200000" scaled="1"/> </a:gradFill> <a:gradFill rotWithShape="1"> <a:gsLst> <a:gs pos="0"> <a:schemeClr val="phClr"> <a:tint val="100000"/> <a:shade val="100000"/> <a:satMod val="130000"/> </a:schemeClr> </a:gs> <a:gs pos="100000"> <a:schemeClr val="phClr"> <a:tint val="50000"/> <a:shade val="100000"/> <a:satMod val="350000"/> </a:schemeClr> </a:gs> </a:gsLst> <a:lin ang="16200000" scaled="0"/> </a:gradFill> </a:fillStyleLst> <a:lnStyleLst> <a:ln w="9525" cap="flat" cmpd="sng" algn="ctr"> <a:solidFill> <a:schemeClr val="phClr"> <a:shade val="95000"/> <a:satMod val="105000"/> </a:schemeClr> </a:solidFill> <a:prstDash val="solid"/> </a:ln> <a:ln w="25400" cap="flat" cmpd="sng" algn="ctr"> <a:solidFill> <a:schemeClr val="phClr"/> </a:solidFill> <a:prstDash val="solid"/> </a:ln> <a:ln w="38100" cap="flat" cmpd="sng" algn="ctr"> <a:solidFill> <a:schemeClr val="phClr"/> </a:solidFill> <a:prstDash val="solid"/> </a:ln> </a:lnStyleLst> <a:effectStyleLst> <a:effectStyle> <a:effectLst> <a:outerShdw blurRad="40000" dist="20000" dir="5400000" rotWithShape="0"> <a:srgbClr val="000000"> <a:alpha val="38000"/> </a:srgbClr> </a:outerShdw> </a:effectLst> </a:effectStyle> <a:effectStyle> <a:effectLst> <a:outerShdw blurRad="40000" dist="23000" dir="5400000" rotWithShape="0"> <a:srgbClr val="000000"> <a:alpha val="35000"/> </a:srgbClr> </a:outerShdw> </a:effectLst> </a:effectStyle> <a:effectStyle> <a:effectLst> <a:outerShdw blurRad="40000" dist="23000" dir="5400000" rotWithShape="0"> <a:srgbClr val="000000"> <a:alpha val="35000"/> </a:srgbClr> </a:outerShdw> </a:effectLst> <a:scene3d> <a:camera prst="orthographicFront"> <a:rot lat="0" lon="0" rev="0"/> </a:camera> <a:lightRig rig="threePt" dir="t"> <a:rot lat="0" lon="0" rev="1200000"/> </a:lightRig> </a:scene3d> <a:sp3d> <a:bevelT w="63500" h="25400"/> </a:sp3d> </a:effectStyle> </a:effectStyleLst> <a:bgFillStyleLst> <a:solidFill> <a:schemeClr val="phClr"/> </a:solidFill> <a:gradFill rotWithShape="1"> <a:gsLst> <a:gs pos="0"> <a:schemeClr val="phClr"> <a:tint val="40000"/> <a:satMod val="350000"/> </a:schemeClr> </a:gs> <a:gs pos="40000"> <a:schemeClr val="phClr"> <a:tint val="45000"/> <a:shade val="99000"/> <a:satMod val="350000"/> </a:schemeClr> </a:gs> <a:gs pos="100000"> <a:schemeClr val="phClr"> <a:shade val="20000"/> <a:satMod val="255000"/> </a:schemeClr> </a:gs> </a:gsLst> <a:path path="circle"> <a:fillToRect l="50000" t="-80000" r="50000" b="180000"/> </a:path> </a:gradFill> <a:gradFill rotWithShape="1"> <a:gsLst> <a:gs pos="0"> <a:schemeClr val="phClr"> <a:tint val="80000"/> <a:satMod val="300000"/> </a:schemeClr> </a:gs> <a:gs pos="100000"> <a:schemeClr val="phClr"> <a:shade val="30000"/> <a:satMod val="200000"/> </a:schemeClr> </a:gs> </a:gsLst> <a:path path="circle"> <a:fillToRect l="50000" t="50000" r="50000" b="50000"/> </a:path> </a:gradFill> </a:bgFillStyleLst> </a:fmtScheme> </a:themeElements> <a:objectDefaults> <a:spDef> <a:spPr/> <a:bodyPr/> <a:lstStyle/> <a:style> <a:lnRef idx="1"> <a:schemeClr val="accent1"/> </a:lnRef> <a:fillRef idx="3"> <a:schemeClr val="accent1"/> </a:fillRef> <a:effectRef idx="2"> <a:schemeClr val="accent1"/> </a:effectRef> <a:fontRef idx="minor"> <a:schemeClr val="lt1"/> </a:fontRef> </a:style> </a:spDef> <a:lnDef> <a:spPr/> <a:bodyPr/> <a:lstStyle/> <a:style> <a:lnRef idx="2"> <a:schemeClr val="accent1"/> </a:lnRef> <a:fillRef idx="0"> <a:schemeClr val="accent1"/> </a:fillRef> <a:effectRef idx="1"> <a:schemeClr val="accent1"/> </a:effectRef> <a:fontRef idx="minor"> <a:schemeClr val="tx1"/> </a:fontRef> </a:style> </a:lnDef> </a:objectDefaults> <a:extraClrSchemeLst/> </a:theme>';
             },
             {}
         ],
@@ -11901,7 +11908,7 @@ exports.default = CreateExcel;
                     constructor(){
                         let e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};
                         var t;
-                        this.objectMode = !0, this.delimiter = ",", this.rowDelimiter = "\n", this.quote = '"', this.escape = this.quote, this.quoteColumns = !1, this.quoteHeaders = this.quoteColumns, this.headers = null, this.includeEndRowDelimiter = !1, this.writeBOM = !1, this.BOM = "\uFEFF", this.alwaysWriteHeaders = !1, Object.assign(this, e || {}), void 0 === (null == e ? void 0 : e.quoteHeaders) && (this.quoteHeaders = this.quoteColumns), !0 === (null == e ? void 0 : e.quote) ? this.quote = '"' : !1 === (null == e ? void 0 : e.quote) && (this.quote = ""), "string" != typeof (null == e ? void 0 : e.escape) && (this.escape = this.quote), this.shouldWriteHeaders = !!this.headers && (null === (t = e.writeHeaders) || void 0 === t || t), this.headers = Array.isArray(this.headers) ? this.headers : null, this.escapedQuote = `${this.escape}${this.quote}`;
+                        this.objectMode = !0, this.delimiter = ",", this.rowDelimiter = "\n", this.quote = '"', this.escape = this.quote, this.quoteColumns = !1, this.quoteHeaders = this.quoteColumns, this.headers = null, this.includeEndRowDelimiter = !1, this.writeBOM = !1, this.BOM = "\ufeff", this.alwaysWriteHeaders = !1, Object.assign(this, e || {}), void 0 === (null == e ? void 0 : e.quoteHeaders) && (this.quoteHeaders = this.quoteColumns), !0 === (null == e ? void 0 : e.quote) ? this.quote = '"' : !1 === (null == e ? void 0 : e.quote) && (this.quote = ""), "string" != typeof (null == e ? void 0 : e.escape) && (this.escape = this.quote), this.shouldWriteHeaders = !!this.headers && (null === (t = e.writeHeaders) || void 0 === t || t), this.headers = Array.isArray(this.headers) ? this.headers : null, this.escapedQuote = `${this.escape}${this.quote}`;
                     }
                 };
             },
@@ -17508,10 +17515,10 @@ exports.default = CreateExcel;
                 }
                 function a(e) {
                     var t = this.lastTotal - this.lastNeed, r = function(e, t, r) {
-                        if (128 != (192 & t[0])) return e.lastNeed = 0, "\uFFFD";
+                        if (128 != (192 & t[0])) return e.lastNeed = 0, "\ufffd";
                         if (e.lastNeed > 1 && t.length > 1) {
-                            if (128 != (192 & t[1])) return e.lastNeed = 1, "\uFFFD";
-                            if (e.lastNeed > 2 && t.length > 2 && 128 != (192 & t[2])) return e.lastNeed = 2, "\uFFFD";
+                            if (128 != (192 & t[1])) return e.lastNeed = 1, "\ufffd";
+                            if (e.lastNeed > 2 && t.length > 2 && 128 != (192 & t[2])) return e.lastNeed = 2, "\ufffd";
                         }
                     }(this, e);
                     return void 0 !== r ? r : this.lastNeed <= e.length ? (e.copy(this.lastChar, t, 0, this.lastNeed), this.lastChar.toString(this.encoding, 0, this.lastTotal)) : (e.copy(this.lastChar, t, 0, e.length), void (this.lastNeed -= e.length));
@@ -17559,7 +17566,7 @@ exports.default = CreateExcel;
                     return r < e.length ? t ? t + this.text(e, r) : this.text(e, r) : t || "";
                 }, s.prototype.end = function(e) {
                     var t = e && e.length ? this.write(e) : "";
-                    return this.lastNeed ? t + "\uFFFD" : t;
+                    return this.lastNeed ? t + "\ufffd" : t;
                 }, s.prototype.text = function(e, t) {
                     var r = function(e, t, r) {
                         var n = t.length - 1;
@@ -19807,7 +19814,7 @@ exports.default = CreateExcel;
             function(e, t, r) {
                 "use strict";
                 var n, i = e("../internals/an-object"), s = e("../internals/object-define-properties"), o = e("../internals/enum-bug-keys"), a = e("../internals/hidden-keys"), l = e("../internals/html"), c = e("../internals/document-create-element"), u = e("../internals/shared-key"), h = u("IE_PROTO"), f = function() {}, d = function(e) {
-                    return "<script>" + e + "</script>";
+                    return "<script>" + e + "<\/script>";
                 }, p = function(e) {
                     e.write(d("")), e.close();
                     var t = e.parentWindow.Object;
@@ -20812,7 +20819,7 @@ exports.default = CreateExcel;
                         a: e
                     }) || "{}" !== m(Object(e));
                 }), M = l(function() {
-                    return '"\udf06\ud834"' !== m("\udf06\ud834") || '"\udead"' !== m("\udead");
+                    return '"\\udf06\\ud834"' !== m("\udf06\ud834") || '"\\udead"' !== m("\udead");
                 }), C = function(e, t) {
                     var r = h(arguments), n = f(t);
                     if (c(n) || void 0 !== e && !u(e)) return r[1] = function(e, t) {
@@ -37764,7 +37771,7 @@ https://github.com/nodeca/pako/blob/main/LICENSE
  * @copyright Louis-Dominique Dubeau
  */ Object.defineProperty(r, "__esModule", {
                     value: !0
-                }), r.CHAR = "	\n\r -\uD7FF\uE000-\uFFFD\ud800\udc00-\udbff\udfff", r.S = " 	\r\n", r.NAME_START_CHAR = ":A-Z_a-z\xc0-\xd6\xd8-\xf6\xf8-\u02FF\u0370-\u037D\u037F-\u1FFF\u200C\u200D\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD\ud800\udc00-\udb7f\udfff", r.NAME_CHAR = "-" + r.NAME_START_CHAR + ".0-9\xb7\u0300-\u036F\u203F-\u2040", r.CHAR_RE = new RegExp("^[" + r.CHAR + "]$", "u"), r.S_RE = new RegExp("^[" + r.S + "]+$", "u"), r.NAME_START_CHAR_RE = new RegExp("^[" + r.NAME_START_CHAR + "]$", "u"), r.NAME_CHAR_RE = new RegExp("^[" + r.NAME_CHAR + "]$", "u"), r.NAME_RE = new RegExp("^[" + r.NAME_START_CHAR + "][" + r.NAME_CHAR + "]*$", "u"), r.NMTOKEN_RE = new RegExp("^[" + r.NAME_CHAR + "]+$", "u");
+                }), r.CHAR = "\t\n\r -\ud7ff\ue000-\ufffd\ud800\udc00-\udbff\udfff", r.S = " \t\r\n", r.NAME_START_CHAR = ":A-Z_a-z\xc0-\xd6\xd8-\xf6\xf8-\u02ff\u0370-\u037d\u037f-\u1fff\u200c\u200d\u2070-\u218f\u2c00-\u2fef\u3001-\ud7ff\uf900-\ufdcf\ufdf0-\ufffd\ud800\udc00-\udb7f\udfff", r.NAME_CHAR = "-" + r.NAME_START_CHAR + ".0-9\xb7\u0300-\u036f\u203f-\u2040", r.CHAR_RE = new RegExp("^[" + r.CHAR + "]$", "u"), r.S_RE = new RegExp("^[" + r.S + "]+$", "u"), r.NAME_START_CHAR_RE = new RegExp("^[" + r.NAME_START_CHAR + "]$", "u"), r.NAME_CHAR_RE = new RegExp("^[" + r.NAME_CHAR + "]$", "u"), r.NAME_RE = new RegExp("^[" + r.NAME_START_CHAR + "][" + r.NAME_CHAR + "]*$", "u"), r.NMTOKEN_RE = new RegExp("^[" + r.NAME_CHAR + "]+$", "u");
                 function n(e) {
                     return e >= 65 && e <= 90 || e >= 97 && e <= 122 || 58 === e || 95 === e || 8204 === e || 8205 === e || e >= 192 && e <= 214 || e >= 216 && e <= 246 || e >= 248 && e <= 767 || e >= 880 && e <= 893 || e >= 895 && e <= 8191 || e >= 8304 && e <= 8591 || e >= 11264 && e <= 12271 || e >= 12289 && e <= 55295 || e >= 63744 && e <= 64975 || e >= 65008 && e <= 65533 || e >= 65536 && e <= 983039;
                 }
@@ -37794,7 +37801,7 @@ https://github.com/nodeca/pako/blob/main/LICENSE
  * @copyright Louis-Dominique Dubeau
  */ Object.defineProperty(r, "__esModule", {
                     value: !0
-                }), r.CHAR = "\x01-\uD7FF\uE000-\uFFFD\ud800\udc00-\udbff\udfff", r.RESTRICTED_CHAR = "\x01-\b\v\f\x0e-\x1f\x7f-\x84\x86-\x9f", r.S = " 	\r\n", r.NAME_START_CHAR = ":A-Z_a-z\xc0-\xd6\xd8-\xf6\xf8-\u02FF\u0370-\u037D\u037F-\u1FFF\u200C\u200D\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD\ud800\udc00-\udb7f\udfff", r.NAME_CHAR = "-" + r.NAME_START_CHAR + ".0-9\xb7\u0300-\u036F\u203F-\u2040", r.CHAR_RE = new RegExp("^[" + r.CHAR + "]$", "u"), r.RESTRICTED_CHAR_RE = new RegExp("^[" + r.RESTRICTED_CHAR + "]$", "u"), r.S_RE = new RegExp("^[" + r.S + "]+$", "u"), r.NAME_START_CHAR_RE = new RegExp("^[" + r.NAME_START_CHAR + "]$", "u"), r.NAME_CHAR_RE = new RegExp("^[" + r.NAME_CHAR + "]$", "u"), r.NAME_RE = new RegExp("^[" + r.NAME_START_CHAR + "][" + r.NAME_CHAR + "]*$", "u"), r.NMTOKEN_RE = new RegExp("^[" + r.NAME_CHAR + "]+$", "u");
+                }), r.CHAR = "\x01-\ud7ff\ue000-\ufffd\ud800\udc00-\udbff\udfff", r.RESTRICTED_CHAR = "\x01-\b\v\f\x0e-\x1f\x7f-\x84\x86-\x9f", r.S = " \t\r\n", r.NAME_START_CHAR = ":A-Z_a-z\xc0-\xd6\xd8-\xf6\xf8-\u02ff\u0370-\u037d\u037f-\u1fff\u200c\u200d\u2070-\u218f\u2c00-\u2fef\u3001-\ud7ff\uf900-\ufdcf\ufdf0-\ufffd\ud800\udc00-\udb7f\udfff", r.NAME_CHAR = "-" + r.NAME_START_CHAR + ".0-9\xb7\u0300-\u036f\u203f-\u2040", r.CHAR_RE = new RegExp("^[" + r.CHAR + "]$", "u"), r.RESTRICTED_CHAR_RE = new RegExp("^[" + r.RESTRICTED_CHAR + "]$", "u"), r.S_RE = new RegExp("^[" + r.S + "]+$", "u"), r.NAME_START_CHAR_RE = new RegExp("^[" + r.NAME_START_CHAR + "]$", "u"), r.NAME_CHAR_RE = new RegExp("^[" + r.NAME_CHAR + "]$", "u"), r.NAME_RE = new RegExp("^[" + r.NAME_START_CHAR + "][" + r.NAME_CHAR + "]*$", "u"), r.NMTOKEN_RE = new RegExp("^[" + r.NAME_CHAR + "]+$", "u");
                 function n(e) {
                     return e >= 65 && e <= 90 || e >= 97 && e <= 122 || 58 === e || 95 === e || 8204 === e || 8205 === e || e >= 192 && e <= 214 || e >= 216 && e <= 246 || e >= 248 && e <= 767 || e >= 880 && e <= 893 || e >= 895 && e <= 8191 || e >= 8304 && e <= 8591 || e >= 11264 && e <= 12271 || e >= 12289 && e <= 55295 || e >= 63744 && e <= 64975 || e >= 65008 && e <= 65533 || e >= 65536 && e <= 983039;
                 }
@@ -37831,7 +37838,7 @@ https://github.com/nodeca/pako/blob/main/LICENSE
                 }
                 Object.defineProperty(r, "__esModule", {
                     value: !0
-                }), r.NC_NAME_START_CHAR = "A-Z_a-z\xc0-\xd6\xd8-\xf6\xf8-\u02FF\u0370-\u037D\u037F-\u1FFF\u200C-\u200D\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD\ud800\udc00-\udb7f\udfff", r.NC_NAME_CHAR = "-" + r.NC_NAME_START_CHAR + ".0-9\xb7\u0300-\u036F\u203F-\u2040", r.NC_NAME_START_CHAR_RE = new RegExp("^[" + r.NC_NAME_START_CHAR + "]$", "u"), r.NC_NAME_CHAR_RE = new RegExp("^[" + r.NC_NAME_CHAR + "]$", "u"), r.NC_NAME_RE = new RegExp("^[" + r.NC_NAME_START_CHAR + "][" + r.NC_NAME_CHAR + "]*$", "u"), r.isNCNameStartChar = n, r.isNCNameChar = function(e) {
+                }), r.NC_NAME_START_CHAR = "A-Z_a-z\xc0-\xd6\xd8-\xf6\xf8-\u02ff\u0370-\u037d\u037f-\u1fff\u200c-\u200d\u2070-\u218f\u2c00-\u2fef\u3001-\ud7ff\uf900-\ufdcf\ufdf0-\ufffd\ud800\udc00-\udb7f\udfff", r.NC_NAME_CHAR = "-" + r.NC_NAME_START_CHAR + ".0-9\xb7\u0300-\u036f\u203f-\u2040", r.NC_NAME_START_CHAR_RE = new RegExp("^[" + r.NC_NAME_START_CHAR + "]$", "u"), r.NC_NAME_CHAR_RE = new RegExp("^[" + r.NC_NAME_CHAR + "]$", "u"), r.NC_NAME_RE = new RegExp("^[" + r.NC_NAME_START_CHAR + "][" + r.NC_NAME_CHAR + "]*$", "u"), r.isNCNameStartChar = n, r.isNCNameChar = function(e) {
                     return n(e) || 45 === e || 46 === e || e >= 48 && e <= 57 || 183 === e || e >= 768 && e <= 879 || e >= 8255 && e <= 8256;
                 };
             },
@@ -37842,7 +37849,7 @@ https://github.com/nodeca/pako/blob/main/LICENSE
     ])(15);
 });
 
-},{}],"kq5LI":[function(require,module,exports) {
+},{}],"kq5LI":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2020 SpinalCom - www.spinalcom.com
@@ -37898,88 +37905,111 @@ Object.defineProperty(exports, "__esModule", {
 });
 const Excel = require("eefcb4386db2199b");
 class ConvertExcel {
-    constructor(headerRow = 1){
+    constructor(){
         this.workbook = new Excel.Workbook();
     }
-    toJson(data_1) {
-        return __awaiter(this, arguments, void 0, function*(data, headerRow = 1) {
-            yield this.workbook.xlsx.load(data);
-            let result = {};
-            this.workbook.eachSheet((sheet)=>{
-                let begin = headerRow + 1;
-                const end = sheet.rowCount;
-                result[sheet.name] = [];
-                let headers = this._getHeaders(sheet, headerRow);
-                for(; begin <= end; begin++){
-                    let res = {};
-                    headers.forEach((header)=>{
-                        res[header] = this._getValueByColumnHeader(sheet, begin, headers, header);
-                    });
-                    result[sheet.name].push(res);
-                }
-            });
-            return result;
-        });
-    }
-    _getHeaders(sheet, headerRow = 1) {
-        let result = [];
-        // let index = 1;
-        let row = sheet.getRow(headerRow);
-        if (row === null || !row.values || !row.values.length) return [];
-        for(let i = 1; i < row.values.length; i++){
-            let cell = row.getCell(i);
-            result.push(cell.text);
-        }
-        return result;
-    }
-    _getValueByColumnHeader(sheet, rowNumber, headers, header) {
-        var _a;
-        let row = sheet.getRow(rowNumber);
-        let result;
-        row.eachCell(function(cell, colNumber) {
-            let fetchedHeader = headers[colNumber - 1];
-            if (fetchedHeader && header && fetchedHeader.toLowerCase().trim() === header.toLowerCase().trim()) result = cell;
-        });
-        if ((_a = result === null || result === void 0 ? void 0 : result.value) === null || _a === void 0 ? void 0 : _a.result) return result.value.result;
-        return result ? result.value : "";
-    }
-    configurationToJson(data, headerRow) {
+    toJson(data, headerRow = 1) {
         return __awaiter(this, void 0, void 0, function*() {
             yield this.workbook.xlsx.load(data);
             let result = {};
             this.workbook.eachSheet((sheet)=>{
-                let begin = headerRow + 1;
-                const end = sheet.rowCount;
-                result[sheet.name] = [];
-                let headers = this._getHeaders(sheet, headerRow);
-                for(; begin <= end; begin++){
-                    let res = {};
-                    headers.forEach((header)=>{
-                        res[header] = this._getValueByColumnHeader(sheet, begin, headers, header);
-                    });
-                    // const firstConfHeader = this._getHeaders(sheet, 1);
-                    // firstConfHeader.forEach(el => {
-                    //     res[el] = this._getValueByColumnHeader(sheet, 2, firstConfHeader, el);
-                    // })
-                    for(let index = 1; index <= 3; index++){
-                        const header = this._getHeaders(sheet, index);
-                        console.log("header", header);
-                        const key = header[0].replace(":", "").trim();
-                        const value = header[1];
-                        res[key] = value;
-                    }
-                    result[sheet.name].push(res);
-                }
+                result[sheet.name] = this._convertSheetToJson(sheet);
+            // let begin = headerRow + 1;
+            // const end = sheet.rowCount;
+            // result[sheet.name] = [];
+            // for (; begin <= end; begin++) {
+            //     let res = {};
+            //     let headers = this._getHeaders(sheet); // get headers
+            //     headers.forEach(header => {
+            //         res[header] = this._getValueByColumnHeader(sheet, begin, headers, header);
+            //     })
+            //     result[sheet.name].push(res);
+            // }
             });
             return result;
         });
     }
+    configurationToJson(data) {
+        return __awaiter(this, void 0, void 0, function*() {
+            yield this.workbook.xlsx.load(data);
+        // let result = {}
+        // this.workbook.eachSheet((sheet) => {
+        //     let begin = headerRow + 1;
+        //     const end = sheet.rowCount;
+        //     result[sheet.name] = [];
+        //     let headers = this._getHeaders(sheet);
+        //     for (; begin <= end; begin++) {
+        //         let res = {};
+        //         headers.forEach(header => {
+        //             const row = sheet.getRow(begin);
+        //             res[header] = this._getValueByColumnHeader(sheet, header);
+        //         })
+        //         for (let index = 1; index <= 3; index++) {
+        //             const header = this._getHeaders(sheet);
+        //             const key = header[0].replace(":", "").trim();
+        //             const value = header[1];
+        //             res[key] = value;
+        //         }
+        //         result[sheet.name].push(res);
+        //     }
+        // })
+        // return result;
+        });
+    }
+    _convertSheetToJson(sheet) {
+        const headers = this._getHeaders(sheet);
+        const rows = sheet.getRows(2, sheet.rowCount);
+        const result = [];
+        for(let i = 0; i < rows.length; i++){
+            let res = {};
+            for(let col in headers){
+                const header = headers[col];
+                res[header] = this._getValueByColumnHeader(rows[i], col);
+            }
+            result.push(res);
+        }
+        return result;
+    }
+    _getHeaders(sheet) {
+        let result = {};
+        let row = sheet.getRow(1);
+        if (row === null || !row.values || !row.values.length) return {};
+        for(let i = 1; i <= row.cellCount; i++){
+            let cell = row.getCell(i);
+            result[i] = cell.text;
+        }
+        return result;
+    }
+    _getValueByColumnHeader(row, col) {
+        let cell = this._foundCellByHeaderName(row, col);
+        if (!cell) return "";
+        return this._getCellValue(cell);
+    }
+    _foundCellByHeaderName(row, headerCol) {
+        for(let i = 1; i <= row.cellCount; i++){
+            let cell = row.getCell(i);
+            if (cell.col == headerCol) return cell;
+        }
+    }
+    _getCellValue(cell) {
+        const type = cell.type;
+        switch(type){
+            case Excel.ValueType.Date:
+                return cell.value.toLocaleDateString();
+            case Excel.ValueType.Formula:
+                return cell.value.result;
+            case Excel.ValueType.Hyperlink:
+                return cell.value.text;
+            default:
+                return cell.value;
+        }
+    }
 }
 exports.default = ConvertExcel;
 
-},{"eefcb4386db2199b":"fvpWi"}],"jhUEF":[function(require,module,exports) {
+},{"eefcb4386db2199b":"fvpWi"}],"jhUEF":[function(require,module,exports,__globalThis) {
 "use strict";
 
-},{}]},[], null, "parcelRequire02e5")
+},{}]},[], null, "parcelRequire94c2")
 
 //# sourceMappingURL=dist.088dc50a.js.map

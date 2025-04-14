@@ -73,7 +73,7 @@
         localRequire,
         module,
         module.exports,
-        this
+        globalObject
       );
     }
 
@@ -142,7 +142,7 @@
       this[globalName] = mainExports;
     }
   }
-})({"5lHxx":[function(require,module,exports) {
+})({"5lHxx":[function(require,module,exports,__globalThis) {
 /**
   * vue-cal v3.11.0
   * (c) 2022 Antoni Andre <antoniandre.web@gmail.com>
@@ -169,8 +169,8 @@ const e = [
     "Onsdag",
     "Torsdag",
     "Fredag",
-    "L\xf8rdag",
-    "S\xf8ndag"
+    "L\xF8rdag",
+    "S\xF8ndag"
 ], a = [
     "Januar",
     "Februar",
@@ -184,12 +184,12 @@ const e = [
     "Oktober",
     "November",
     "Desember"
-], d = "Velg \xe5r", s = "\xc5r", n = "M\xe5ned", r = "Uke", t = "Dag", g = "Idag", l = "Ingen hendelse", o = "Hele dagen", y = "Ta bort", M = "Ny hendelse", m = "dddd, D. MMMM YYYY", D = {
+], d = "Velg \xE5r", s = "\xC5r", n = "M\xE5ned", r = "Uke", t = "Dag", g = "Idag", l = "Ingen hendelse", o = "Hele dagen", y = "Ta bort", M = "Ny hendelse", m = "dddd, D. MMMM YYYY", D = {
     weekDays: e,
     months: a,
-    years: "Velg \xe5r",
-    year: "\xc5r",
-    month: "M\xe5ned",
+    years: "Velg \xE5r",
+    year: "\xC5r",
+    month: "M\xE5ned",
     week: "Uke",
     day: "Dag",
     today: "Idag",
@@ -200,6 +200,6 @@ const e = [
     dateFormat: "dddd, D. MMMM YYYY"
 };
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},[], null, "parcelRequire02e5")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},[], null, "parcelRequire94c2")
 
 //# sourceMappingURL=no.es.c3078b24.js.map

@@ -73,7 +73,7 @@
         localRequire,
         module,
         module.exports,
-        this
+        globalObject
       );
     }
 
@@ -142,7 +142,7 @@
       this[globalName] = mainExports;
     }
   }
-})({"h4cRj":[function(require,module,exports) {
+})({"h4cRj":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -177,7 +177,7 @@ var _appDefault = parcelHelpers.interopDefault(_app);
     3
 ]);
 
-},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-panel-manager-service_spinalforgeextention":"1mGHd","./src/extention":"5BLEl","./src/app":"frO7t","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1mGHd":[function(require,module,exports) {
+},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-panel-manager-service_spinalforgeextention":"1mGHd","./src/extention":"5BLEl","./src/app":"frO7t","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1mGHd":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -206,7 +206,7 @@ module.exports = {
     SpinalForgeExtention
 };
 
-},{"bf7edd8450503e22":"7Uw4d","64bd1569b4ded066":"gsEky"}],"7Uw4d":[function(require,module,exports) {
+},{"bf7edd8450503e22":"7Uw4d","64bd1569b4ded066":"gsEky"}],"7Uw4d":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -245,7 +245,7 @@ module.exports = {
     }
 };
 
-},{"8b71a79dcc12420e":"h7sS1","e47c36529e942a76":"cvBJ6","cfd4c6200ba55765":"9SKSV"}],"h7sS1":[function(require,module,exports) {
+},{"8b71a79dcc12420e":"h7sS1","e47c36529e942a76":"cvBJ6","cfd4c6200ba55765":"9SKSV"}],"h7sS1":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -325,7 +325,7 @@ module.exports = {
 }
 module.exports = SpinalPanelManagerService;
 
-},{}],"cvBJ6":[function(require,module,exports) {
+},{}],"cvBJ6":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -360,7 +360,7 @@ module.exports = SpinalPanelManagerService;
 }
 module.exports = SpinalPanelApp;
 
-},{}],"9SKSV":[function(require,module,exports) {
+},{}],"9SKSV":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -459,7 +459,7 @@ function getDialog() {
     };
 };
 
-},{}],"gsEky":[function(require,module,exports) {
+},{}],"gsEky":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
  * 
@@ -694,7 +694,7 @@ function getPanel() {
     };
 };
 
-},{}],"5BLEl":[function(require,module,exports) {
+},{}],"5BLEl":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _vue = require("vue");
@@ -720,7 +720,7 @@ const extention = (0, _spinalEnvViewerPanelManagerServiceSpinalforgeextention.Sp
 });
 exports.default = extention;
 
-},{"vue":"gt5MM","spinal-env-viewer-panel-manager-service_spinalforgeextention":"1mGHd","./vue/panel.vue":"acaMu","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"acaMu":[function(require,module,exports) {
+},{"vue":"gt5MM","spinal-env-viewer-panel-manager-service_spinalforgeextention":"1mGHd","./vue/panel.vue":"acaMu","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"acaMu":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -732,13 +732,13 @@ let initialize = ()=>{
     script._scopeId = "data-v-aac40e";
     script.__cssModules = require("c89dfaf8e0564bb8").default;
     require("c819136a1450028b").default(script);
-    script.__scopeId = "data-v-aac40e";
+    script.__scopeId = 'data-v-aac40e';
     script.__file = "panel.vue";
 };
 initialize();
 exports.default = script;
 
-},{"448e01fde3c14867":"9vIym","23d54add7a542056":"iwbeQ","c89dfaf8e0564bb8":"iJBzl","c819136a1450028b":"eQWFV","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9vIym":[function(require,module,exports) {
+},{"448e01fde3c14867":"9vIym","23d54add7a542056":"iwbeQ","c89dfaf8e0564bb8":"iJBzl","c819136a1450028b":"eQWFV","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9vIym":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _referentialSelectionVue = require("./referentialSelection.vue");
@@ -792,10 +792,10 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"./referentialSelection.vue":"gQB0Y","./layout.vue":"2ESSR","./launch.vue":"6LNQU","../js/panelConfig":"1T4Nk","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gQB0Y":[function(require,module,exports) {
+},{"./referentialSelection.vue":"gQB0Y","./layout.vue":"2ESSR","./launch.vue":"6LNQU","../js/panelConfig":"1T4Nk","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gQB0Y":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -806,13 +806,13 @@ let initialize = ()=>{
     script.staticRenderFns = require("671fbcba646625ef").staticRenderFns;
     script._scopeId = "data-v-f3763c";
     require("bf85ac4255ea9999").default(script);
-    script.__scopeId = "data-v-f3763c";
+    script.__scopeId = 'data-v-f3763c';
     script.__file = "referentialSelection.vue";
 };
 initialize();
 exports.default = script;
 
-},{"f76f73f2e04020a9":"7Clg8","671fbcba646625ef":"79WYL","bf85ac4255ea9999":"9zxYP","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7Clg8":[function(require,module,exports) {
+},{"f76f73f2e04020a9":"7Clg8","671fbcba646625ef":"79WYL","bf85ac4255ea9999":"9zxYP","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7Clg8":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _utilitiesDbIds = require("../js/utilitiesDbIds");
@@ -879,10 +879,10 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"../js/utilitiesDbIds":"bLcyz","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"bLcyz":[function(require,module,exports) {
+},{"../js/utilitiesDbIds":"bLcyz","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"bLcyz":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -991,13 +991,13 @@ function getInstanceTree() {
     return getLeafDbIds(rootId);
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"79WYL":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"79WYL":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("div", [
-        _c("md-checkbox", {
+    return _c('div', [
+        _c('md-checkbox', {
             staticClass: "md-primary",
             on: {
                 "change": _vm.changeMode
@@ -1013,7 +1013,7 @@ var render = function() {
             _vm._v("\n    Use whole digital twin\n  ")
         ]),
         _vm._v(" "),
-        _c("div", {
+        _c('div', {
             directives: [
                 {
                     name: "show",
@@ -1023,16 +1023,16 @@ var render = function() {
                 }
             ]
         }, [
-            _c("md-button", {
+            _c('md-button', {
                 on: {
                     "click": _vm.addSelection
                 }
             }, [
-                _c("md-icon", [
+                _c('md-icon', [
                     _vm._v("add")
                 ]),
                 _vm._v(" "),
-                _c("md-tooltip", {
+                _c('md-tooltip', {
                     attrs: {
                         "md-delay": "300"
                     }
@@ -1041,16 +1041,16 @@ var render = function() {
                 ])
             ], 1),
             _vm._v(" "),
-            _c("md-button", {
+            _c('md-button', {
                 on: {
                     "click": _vm.clearReferential
                 }
             }, [
-                _c("md-icon", [
+                _c('md-icon', [
                     _vm._v("clear")
                 ]),
                 _vm._v(" "),
-                _c("md-tooltip", {
+                _c('md-tooltip', {
                     attrs: {
                         "md-delay": "300"
                     }
@@ -1059,16 +1059,16 @@ var render = function() {
                 ])
             ], 1),
             _vm._v(" "),
-            _c("md-button", {
+            _c('md-button', {
                 on: {
                     "click": _vm.showReferential
                 }
             }, [
-                _c("md-icon", [
+                _c('md-icon', [
                     _vm._v("visibility")
                 ]),
                 _vm._v(" "),
-                _c("md-tooltip", {
+                _c('md-tooltip', {
                     attrs: {
                         "md-delay": "300"
                     }
@@ -1077,7 +1077,7 @@ var render = function() {
                 ])
             ], 1),
             _vm._v(" "),
-            _c("p", [
+            _c('p', [
                 _vm._v(_vm._s(_vm.config.referential.length) + " objects selected")
             ])
         ], 1)
@@ -1087,13 +1087,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"9zxYP":[function(require,module,exports) {
+},{}],"9zxYP":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2ESSR":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2ESSR":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -1105,13 +1105,13 @@ let initialize = ()=>{
     script._scopeId = "data-v-84c7af";
     script.__cssModules = require("e38185b750b86dae").default;
     require("74a9f3b19f28dede").default(script);
-    script.__scopeId = "data-v-84c7af";
+    script.__scopeId = 'data-v-84c7af';
     script.__file = "layout.vue";
 };
 initialize();
 exports.default = script;
 
-},{"5e4fe64e31d45308":"g2KV5","5ae6ca64eaa8aa4f":"1AVBG","e38185b750b86dae":"8DXRW","74a9f3b19f28dede":"51l6R","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"g2KV5":[function(require,module,exports) {
+},{"5e4fe64e31d45308":"g2KV5","5ae6ca64eaa8aa4f":"1AVBG","e38185b750b86dae":"8DXRW","74a9f3b19f28dede":"51l6R","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"g2KV5":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _constants = require("../js/constants");
@@ -1198,10 +1198,10 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"../js/constants":"86OGX","./level.vue":"4UG61","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"86OGX":[function(require,module,exports) {
+},{"../js/constants":"86OGX","./level.vue":"4UG61","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"86OGX":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -1300,7 +1300,7 @@ const MAP_RELATIONS = Object.freeze(new Map([
 const LEVEL_OPTION_BY_KEY = "none";
 const LEVEL_OPTION_FIXED = "fixed";
 
-},{"spinal-env-viewer-context-geographic-service":"5QjJf","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"4UG61":[function(require,module,exports) {
+},{"spinal-env-viewer-context-geographic-service":"5QjJf","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"4UG61":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -1312,13 +1312,13 @@ let initialize = ()=>{
     script._scopeId = "data-v-5ee8db";
     script.__cssModules = require("56c1ada914ef9341").default;
     require("5a7026ae83038e0").default(script);
-    script.__scopeId = "data-v-5ee8db";
+    script.__scopeId = 'data-v-5ee8db';
     script.__file = "level.vue";
 };
 initialize();
 exports.default = script;
 
-},{"478eac5179c15e43":"6G4Tu","ad5b477c7ae206da":"iTgHt","56c1ada914ef9341":"eQIeG","5a7026ae83038e0":"hGz3O","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6G4Tu":[function(require,module,exports) {
+},{"478eac5179c15e43":"6G4Tu","ad5b477c7ae206da":"iTgHt","56c1ada914ef9341":"eQIeG","5a7026ae83038e0":"hGz3O","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6G4Tu":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _constants = require("../js/constants");
@@ -1351,25 +1351,25 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"../js/constants":"86OGX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"iTgHt":[function(require,module,exports) {
+},{"../js/constants":"86OGX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"iTgHt":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("div", {
+    return _c('div', {
         attrs: {
             "id": "div-level"
         }
     }, [
-        _c("md-icon", {
+        _c('md-icon', {
             directives: [
                 {
                     name: "show",
                     rawName: "v-show",
-                    value: _vm.showWarning && _vm.level.type === "",
+                    value: _vm.showWarning && _vm.level.type === '',
                     expression: "showWarning && level.type === ''"
                 }
             ],
@@ -1378,16 +1378,16 @@ var render = function() {
             _vm._v("warning")
         ]),
         _vm._v(" "),
-        _c("md-field", {
+        _c('md-field', {
             attrs: {
                 "id": "level-field"
             }
         }, [
-            _c("label", [
+            _c('label', [
                 _vm._v("Level")
             ]),
             _vm._v(" "),
-            _c("md-select", {
+            _c('md-select', {
                 model: {
                     value: _vm.level.type,
                     callback: function($$v) {
@@ -1396,7 +1396,7 @@ var render = function() {
                     expression: "level.type"
                 }
             }, _vm._l(_vm.availableTypes, function(type, indexType) {
-                return _c("md-option", {
+                return _c('md-option', {
                     key: indexType,
                     attrs: {
                         "value": type
@@ -1407,12 +1407,12 @@ var render = function() {
             }), 1)
         ], 1),
         _vm._v(" "),
-        _c("md-icon", {
+        _c('md-icon', {
             directives: [
                 {
                     name: "show",
                     rawName: "v-show",
-                    value: _vm.showWarning && _vm.level.param === "",
+                    value: _vm.showWarning && _vm.level.param === '',
                     expression: "showWarning && level.param === ''"
                 }
             ],
@@ -1421,18 +1421,18 @@ var render = function() {
             _vm._v("warning")
         ]),
         _vm._v(" "),
-        _c("md-field", {
+        _c('md-field', {
             attrs: {
                 "id": "param-field"
             }
         }, [
-            _vm.level.option === _vm.constants.LEVEL_OPTION_BY_KEY ? _c("label", [
+            _vm.level.option === _vm.constants.LEVEL_OPTION_BY_KEY ? _c('label', [
                 _vm._v("Key")
-            ]) : _vm.level.option === _vm.constants.LEVEL_OPTION_FIXED ? _c("label", [
+            ]) : _vm.level.option === _vm.constants.LEVEL_OPTION_FIXED ? _c('label', [
                 _vm._v("Fixed Value")
             ]) : _vm._e(),
             _vm._v(" "),
-            _c("md-input", {
+            _c('md-input', {
                 model: {
                     value: _vm.level.param,
                     callback: function($$v) {
@@ -1443,15 +1443,15 @@ var render = function() {
             })
         ], 1),
         _vm._v(" "),
-        _c("md-button", {
+        _c('md-button', {
             staticClass: "md-icon-button",
             on: {
                 "click": function($event) {
-                    return _vm.$emit("removeLevel");
+                    return _vm.$emit('removeLevel');
                 }
             }
         }, [
-            _c("md-icon", [
+            _c('md-icon', [
                 _vm._v("remove")
             ])
         ], 1)
@@ -1461,20 +1461,20 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"eQIeG":[function() {},{}],"hGz3O":[function(require,module,exports) {
+},{}],"eQIeG":[function() {},{}],"hGz3O":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1AVBG":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1AVBG":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("div", [
+    return _c('div', [
         _vm._l(_vm.levels, function(level, index) {
-            return _c("level", {
+            return _c('level', {
                 key: index,
                 attrs: {
                     "level": level,
@@ -1483,7 +1483,7 @@ var render = function() {
                 },
                 on: {
                     "levelChanged": function() {
-                        return _vm.$emit("levelChanged");
+                        return _vm.$emit('levelChanged');
                     },
                     "removeLevel": function($event) {
                         return _vm.removeLevel(index);
@@ -1492,7 +1492,7 @@ var render = function() {
             });
         }),
         _vm._v(" "),
-        _c("md-button", {
+        _c('md-button', {
             staticClass: "md-raised button-add-level",
             on: {
                 "click": function($event) {
@@ -1503,7 +1503,7 @@ var render = function() {
             _vm._v("\n    NORMAL\n  ")
         ]),
         _vm._v(" "),
-        _c("md-button", {
+        _c('md-button', {
             staticClass: "md-raised button-add-level",
             on: {
                 "click": function($event) {
@@ -1519,13 +1519,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"8DXRW":[function() {},{}],"51l6R":[function(require,module,exports) {
+},{}],"8DXRW":[function() {},{}],"51l6R":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6LNQU":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6LNQU":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -1537,13 +1537,13 @@ let initialize = ()=>{
     script._scopeId = "data-v-1ccbe0";
     script.__cssModules = require("68271fd8de32be67").default;
     require("63ad1dcfd585400e").default(script);
-    script.__scopeId = "data-v-1ccbe0";
+    script.__scopeId = 'data-v-1ccbe0';
     script.__file = "launch.vue";
 };
 initialize();
 exports.default = script;
 
-},{"a6078e28acc7b85f":"keaxv","78253e774b72afcf":"4Sam0","68271fd8de32be67":"ieZIT","63ad1dcfd585400e":"7FEWt","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"keaxv":[function(require,module,exports) {
+},{"a6078e28acc7b85f":"keaxv","78253e774b72afcf":"4Sam0","68271fd8de32be67":"ieZIT","63ad1dcfd585400e":"7FEWt","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"keaxv":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _constants = require("../js/constants");
@@ -1672,10 +1672,10 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"../js/constants":"86OGX","../js/hasProperties":"jBUzB","../js_build/generateGeographicContext":"eGL1S","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jBUzB":[function(require,module,exports) {
+},{"../js/constants":"86OGX","../js/hasProperties":"jBUzB","../js_build/generateGeographicContext":"eGL1S","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jBUzB":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -1800,7 +1800,7 @@ var _spinalEnvViewerPluginDocumentationService = require("spinal-env-viewer-plug
 }
 exports.default = hasProperties;
 
-},{"spinal-env-viewer-plugin-documentation-service":"5rYVR","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"eGL1S":[function(require,module,exports) {
+},{"spinal-env-viewer-plugin-documentation-service":"5rYVR","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"eGL1S":[function(require,module,exports,__globalThis) {
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -2195,7 +2195,7 @@ function _generateGeoContext() {
 var _default = generateGeoContext;
 exports.default = _default;
 
-},{"a5a5cff8c93bca5b":"9n7zp","d06b3bfee00be4ef":"5HFWW"}],"5HFWW":[function(require,module,exports) {
+},{"a5a5cff8c93bca5b":"9n7zp","d06b3bfee00be4ef":"5HFWW"}],"5HFWW":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -2266,18 +2266,18 @@ function getCoordinates(prop) {
 }
 exports.default = createTmpTree;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"4Sam0":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"4Sam0":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("div", {
+    return _c('div', {
         attrs: {
             "id": "launch-step"
         }
     }, [
-        !_vm.showLoad ? _c("div", [
-            _c("md-button", {
+        !_vm.showLoad ? _c('div', [
+            _c('md-button', {
                 staticClass: "md-raised md-primary",
                 on: {
                     "click": _vm.loadProps
@@ -2286,26 +2286,26 @@ var render = function() {
                 _vm._v("\n      VERIFY OBJECTS\n    ")
             ]),
             _vm._v(" "),
-            _vm.propsLoaded ? _c("div", [
-                _c("md-button", {
+            _vm.propsLoaded ? _c('div', [
+                _c('md-button', {
                     on: {
                         "click": _vm.selectValid
                     }
                 }, [
                     _vm._v("\n        " + _vm._s(_vm.valid.length) + " VALID OBJECTS\n      ")
                 ]),
-                _c("br"),
+                _c('br'),
                 _vm._v(" "),
-                _c("md-button", {
+                _c('md-button', {
                     on: {
                         "click": _vm.selectInvalid
                     }
                 }, [
                     _vm._v("\n        " + _vm._s(_vm.invalid.length) + " INVALID OBJECTS\n      ")
                 ]),
-                _c("br"),
+                _c('br'),
                 _vm._v(" "),
-                _c("md-checkbox", {
+                _c('md-checkbox', {
                     model: {
                         value: _vm.defineRef,
                         callback: function($$v) {
@@ -2317,7 +2317,7 @@ var render = function() {
                     _vm._v("\n        Define reference objects\n      ")
                 ]),
                 _vm._v(" "),
-                _vm.valid.length !== 0 ? _c("md-button", {
+                _vm.valid.length !== 0 ? _c('md-button', {
                     staticClass: "md-raised md-primary",
                     on: {
                         "click": _vm.generateContext
@@ -2326,7 +2326,7 @@ var render = function() {
                     _vm._v("\n        LAUNCH CONTEXT GENERATION\n      ")
                 ]) : _vm._e()
             ], 1) : _vm._e()
-        ], 1) : _c("md-progress-bar", {
+        ], 1) : _c('md-progress-bar', {
             attrs: {
                 "id": "progress-bar",
                 "md-value": _vm.progression.value
@@ -2338,13 +2338,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"ieZIT":[function() {},{}],"7FEWt":[function(require,module,exports) {
+},{}],"ieZIT":[function() {},{}],"7FEWt":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1T4Nk":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1T4Nk":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  * 
@@ -2429,13 +2429,13 @@ const DEFAULT_CONFIG = Object.freeze({
     contextElem.mod_attr("config", config);
 }
 
-},{"spinal-env-viewer-graph-service":"9n7zp","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"iwbeQ":[function(require,module,exports) {
+},{"spinal-env-viewer-graph-service":"9n7zp","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"iwbeQ":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _vm.context !== null && _vm.config !== null ? _c("div", [
-        _c("h3", {
+    return _vm.context !== null && _vm.config !== null ? _c('div', [
+        _c('h3', {
             attrs: {
                 "id": "context-name"
             }
@@ -2443,7 +2443,7 @@ var render = function() {
             _vm._v("\n    " + _vm._s(this.context.name.get()) + "\n  ")
         ]),
         _vm._v(" "),
-        _c("md-steppers", {
+        _c('md-steppers', {
             attrs: {
                 "id": "steppers",
                 "md-vertical": "",
@@ -2458,13 +2458,13 @@ var render = function() {
                 }
             }
         }, [
-            _c("md-step", {
+            _c('md-step', {
                 attrs: {
                     "id": "ref",
                     "md-label": "Choose referential"
                 }
             }, [
-                _c("referential-selection", {
+                _c('referential-selection', {
                     attrs: {
                         "update": _vm.update,
                         "config": _vm.config
@@ -2475,14 +2475,14 @@ var render = function() {
                 })
             ], 1),
             _vm._v(" "),
-            _c("md-step", {
+            _c('md-step', {
                 attrs: {
                     "id": "layout",
                     "md-label": "Create layout",
                     "md-error": _vm.layoutError
                 }
             }, [
-                _c("layout", {
+                _c('layout', {
                     attrs: {
                         "levels": _vm.config.levels,
                         "show-warnings": _vm.layoutError !== null
@@ -2493,13 +2493,13 @@ var render = function() {
                 })
             ], 1),
             _vm._v(" "),
-            _c("md-step", {
+            _c('md-step', {
                 attrs: {
                     "id": "launch",
                     "md-label": "Launch the generation"
                 }
             }, [
-                _c("launch", {
+                _c('launch', {
                     attrs: {
                         "update": _vm.update,
                         "context": _vm.context,
@@ -2519,13 +2519,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"iJBzl":[function() {},{}],"eQWFV":[function(require,module,exports) {
+},{}],"iJBzl":[function() {},{}],"eQWFV":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"frO7t":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"frO7t":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerContextMenuService = require("spinal-env-viewer-context-menu-service");
@@ -2552,6 +2552,6 @@ class GenerateGeoContextApp extends (0, _spinalEnvViewerContextMenuService.Spina
 }
 exports.default = GenerateGeoContextApp;
 
-},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-panel-manager-service":"7Uw4d","spinal-env-viewer-context-geographic-service":"5QjJf","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},[], null, "parcelRequire02e5")
+},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-panel-manager-service":"7Uw4d","spinal-env-viewer-context-geographic-service":"5QjJf","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},[], null, "parcelRequire94c2")
 
 //# sourceMappingURL=spinal-env-viewer-plugin-generate_geographic_context.094e65fb.js.map

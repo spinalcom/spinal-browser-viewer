@@ -73,7 +73,7 @@
         localRequire,
         module,
         module.exports,
-        this
+        globalObject
       );
     }
 
@@ -142,7 +142,7 @@
       this[globalName] = mainExports;
     }
   }
-})({"7icys":[function(require,module,exports) {
+})({"7icys":[function(require,module,exports,__globalThis) {
 var global = arguments[3];
 "use strict";
 /*
@@ -196,7 +196,7 @@ exports.spinalNomenclatureService = spinalNomenclatureService;
 globalType.spinalNomenclatureService = spinalNomenclatureService;
 exports.default = spinalNomenclatureService;
 
-},{"90edd541d3995c5c":"3o2FL","9b9fab6090a2f439":"9HUjV"}],"3o2FL":[function(require,module,exports) {
+},{"90edd541d3995c5c":"3o2FL","9b9fab6090a2f439":"9HUjV"}],"3o2FL":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2022 SpinalCom - www.spinalcom.com
@@ -432,7 +432,7 @@ class NomenclatureTree {
 }
 exports.NomenclatureTree = NomenclatureTree;
 
-},{"b2088c0f5cab7aec":"tSLpq","7fa0f3da02dcd4a1":"9n7zp"}],"9HUjV":[function(require,module,exports) {
+},{"b2088c0f5cab7aec":"tSLpq","7fa0f3da02dcd4a1":"9n7zp"}],"9HUjV":[function(require,module,exports,__globalThis) {
 "use strict";
 var __awaiter = this && this.__awaiter || function(thisArg, _arguments, P, generator) {
     function adopt(value) {
@@ -588,6 +588,6 @@ class NomenclatureProfil {
 }
 exports.NomenclatureProfil = NomenclatureProfil;
 
-},{"a617e0b010555cc0":"fRH70","455e1d0ed2ad31bf":"9n7zp","a853a403a0c6672":"tSLpq"}]},[], null, "parcelRequire02e5")
+},{"a617e0b010555cc0":"fRH70","455e1d0ed2ad31bf":"9n7zp","a853a403a0c6672":"tSLpq"}]},[], null, "parcelRequire94c2")
 
 //# sourceMappingURL=dist.f505aa71.js.map

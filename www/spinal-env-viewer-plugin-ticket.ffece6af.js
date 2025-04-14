@@ -73,7 +73,7 @@
         localRequire,
         module,
         module.exports,
-        this
+        globalObject
       );
     }
 
@@ -142,7 +142,7 @@
       this[globalName] = mainExports;
     }
   }
-})({"gi7V0":[function(require,module,exports) {
+})({"gi7V0":[function(require,module,exports,__globalThis) {
 var global = arguments[3];
 "use strict";
 /*
@@ -192,9 +192,9 @@ exports.spinalServiceTicket = exports.serviceTicketPersonalized = void 0;
 const ServiceTicket_1 = require("e88dd105af6ef26d");
 const serviceTicketPersonalized = new ServiceTicket_1.ServiceTicket();
 exports.serviceTicketPersonalized = serviceTicketPersonalized;
-const gRoot = typeof window === "undefined" ? global : window;
-if (typeof gRoot.spinal === "undefined") gRoot.spinal = {};
-if (typeof gRoot.spinal.SpinalServiceTicket === "undefined") {
+const gRoot = typeof window === 'undefined' ? global : window;
+if (typeof gRoot.spinal === 'undefined') gRoot.spinal = {};
+if (typeof gRoot.spinal.SpinalServiceTicket === 'undefined') {
     gRoot.spinal.spinalServiceTicket = serviceTicketPersonalized;
     gRoot.spinal.serviceTicketPersonalized = serviceTicketPersonalized;
 }
@@ -203,7 +203,7 @@ const spinalServiceTicket = serviceTicketPersonalized;
 exports.spinalServiceTicket = spinalServiceTicket;
 __exportStar(require("d2cb0826984d670"), exports);
 
-},{"e88dd105af6ef26d":"6XZ7C","d2cb0826984d670":"i0rBD"}],"6XZ7C":[function(require,module,exports) {
+},{"e88dd105af6ef26d":"6XZ7C","d2cb0826984d670":"i0rBD"}],"6XZ7C":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2020 SpinalCom - www.spinalcom.com
@@ -334,11 +334,11 @@ class ServiceTicket {
     //////////////////////////////////////////////////////////
     //                      CONTEXTS                        //
     //////////////////////////////////////////////////////////
-    createContext(contextName, steps = new Array(), contextSubType = "Ticket") {
+    createContext(contextName, steps = new Array(), contextSubType = 'Ticket') {
         return spinal_env_viewer_graph_service_1.SpinalGraphService.addContext(contextName, Constants_1.SERVICE_TYPE, undefined).then((context)=>{
             const stepsModel = new spinal_core_connectorjs_type_1.Lst(steps);
-            context.info.add_attr("steps", new spinal_core_connectorjs_type_1.Ptr(stepsModel));
-            if (Constants_1.TICKET_CONTEXT_SUBTYPE_LIST.includes(contextSubType)) context.info.add_attr("subType", contextSubType);
+            context.info.add_attr('steps', new spinal_core_connectorjs_type_1.Ptr(stepsModel));
+            if (Constants_1.TICKET_CONTEXT_SUBTYPE_LIST.includes(contextSubType)) context.info.add_attr('subType', contextSubType);
             return context;
         }).catch((e)=>{
             return Promise.reject(Error(Errors_1.CANNOT_CREATE_CONTEXT_INTERNAL_ERROR));
@@ -354,7 +354,7 @@ class ServiceTicket {
     }
     updateContexts(contextId, newInfo) {
         return __awaiter(this, void 0, void 0, function*() {
-            if (newInfo.name && newInfo.name.trim().length === 0) throw new Error("Context name must have at less 1 character");
+            if (newInfo.name && newInfo.name.trim().length === 0) throw new Error('Context name must have at less 1 character');
             const contextNode = spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(contextId);
             if (contextNode) {
                 if (newInfo.name && newInfo.name.trim().length > 0) contextNode.info.name.set(newInfo.name);
@@ -368,7 +368,7 @@ class ServiceTicket {
     //                      PROCESS                         //
     //////////////////////////////////////////////////////////
     createProcess(process, contextId) {
-        if (typeof process === "string") process = {
+        if (typeof process === 'string') process = {
             name: process
         };
         process.type = Constants_1.PROCESS_TYPE;
@@ -410,7 +410,9 @@ class ServiceTicket {
     }
     removeStep(processId, contextId, stepId) {
         return __awaiter(this, void 0, void 0, function*() {
-            const stepInfo = spinal_env_viewer_graph_service_1.SpinalGraphService.getInfo(stepId).get();
+            // const stepInfo = SpinalGraphService.getInfo(stepId).get();
+            const step = spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(stepId);
+            const stepInfo = step.info;
             return this.getSuperiorsSteps(contextId, processId, stepInfo.order, true).then((steps)=>__awaiter(this, void 0, void 0, function*() {
                     spinal_env_viewer_graph_service_1.SpinalGraphService.removeFromGraph(stepId);
                     for (const step of steps){
@@ -443,7 +445,7 @@ class ServiceTicket {
             const steps = yield this.getStepsFromProcess(processId, contextId);
             let first = steps.find((el)=>el.order.get() == 0);
             if (first) return first.id.get();
-            let stepId = yield this.createStep("declared", "#ff0000", 0);
+            let stepId = yield this.createStep('declared', '#ff0000', 0);
             yield this.addStepById(stepId, processId, contextId);
             return stepId;
         });
@@ -509,14 +511,14 @@ class ServiceTicket {
     //////////////////////////////////////////////////////////
     //                      TICKETS                         //
     //////////////////////////////////////////////////////////
-    addTicket(ticketInfo, processId, contextId, nodeId, ticketType = "Ticket") {
+    addTicket(ticketInfo, processId, contextId, nodeId, ticketType = 'Ticket') {
         return __awaiter(this, void 0, void 0, function*() {
             const stepId = yield this.getFirstStep(processId, contextId);
             ticketInfo.processId = processId;
             ticketInfo.stepId = stepId;
             ticketInfo.contextId = contextId;
             const ticketId = yield this.createTicket(ticketInfo);
-            if (ticketType == "Alarm") {
+            if (ticketType == 'Alarm') {
                 yield spinal_env_viewer_graph_service_1.SpinalGraphService.addChildInContext(stepId, ticketId, contextId, Constants_1.SPINAL_TICKET_SERVICE_TICKET_RELATION_NAME, Constants_1.SPINAL_TICKET_SERVICE_TICKET_RELATION_TYPE);
                 yield spinal_env_viewer_graph_service_1.SpinalGraphService.addChild(nodeId, ticketId, Constants_1.ALARM_RELATION_NAME, Constants_1.SPINAL_TICKET_SERVICE_TICKET_RELATION_TYPE);
                 yield this.modifyTicketStepId(ticketId, stepId);
@@ -552,7 +554,7 @@ class ServiceTicket {
     }
     moveTicket(ticketId, stepFromId, stepToId, contextId) {
         return __awaiter(this, void 0, void 0, function*() {
-            if (typeof ticketId === "undefined" || typeof stepFromId === "undefined" || typeof stepToId === "undefined") return;
+            if (typeof ticketId === 'undefined' || typeof stepFromId === 'undefined' || typeof stepToId === 'undefined') return;
             const step = yield spinal_env_viewer_graph_service_1.SpinalGraphService.getNodeAsync(stepToId);
             yield spinal_env_viewer_graph_service_1.SpinalGraphService.modifyNode(ticketId, {
                 stepId: stepToId
@@ -562,7 +564,9 @@ class ServiceTicket {
     }
     moveTicketToNextStep(contextId, processId, ticketId, userInfo = {}) {
         return __awaiter(this, void 0, void 0, function*() {
-            const ticketInfo = spinal_env_viewer_graph_service_1.SpinalGraphService.getInfo(ticketId);
+            // const ticketInfo = SpinalGraphService.getInfo(ticketId);
+            const ticket = spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(ticketId);
+            const ticketInfo = ticket.info;
             if (ticketInfo) {
                 const stepId = ticketInfo.stepId.get();
                 const nextStep = yield this.getNextStep(processId, stepId, contextId);
@@ -575,7 +579,9 @@ class ServiceTicket {
     }
     moveTicketToPreviousStep(contextId, processId, ticketId, userInfo = {}) {
         return __awaiter(this, void 0, void 0, function*() {
-            const ticketInfo = spinal_env_viewer_graph_service_1.SpinalGraphService.getInfo(ticketId);
+            // const ticketInfo = SpinalGraphService.getInfo(ticketId);
+            const ticket = spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(ticketId);
+            const ticketInfo = ticket.info;
             if (ticketInfo) {
                 const stepId = ticketInfo.stepId.get();
                 const previousStep = yield this.getPreviousStep(processId, stepId, contextId);
@@ -589,7 +595,9 @@ class ServiceTicket {
     ArchiveTickets(contextId, processId, ticketId, userInfo = {}) {
         return __awaiter(this, void 0, void 0, function*() {
             const archiveId = yield this.createArchivedStep(processId, contextId);
-            const ticketInfo = spinal_env_viewer_graph_service_1.SpinalGraphService.getInfo(ticketId);
+            // const ticketInfo = SpinalGraphService.getInfo(ticketId);
+            const ticket = spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(ticketId);
+            const ticketInfo = ticket.info;
             if (ticketInfo && archiveId) {
                 const fromId = ticketInfo.stepId.get();
                 yield this.moveTicket(ticketId, fromId, archiveId, contextId);
@@ -600,7 +608,9 @@ class ServiceTicket {
     }
     unarchiveTicket(contextId, processId, ticketId, userInfo = {}) {
         return __awaiter(this, void 0, void 0, function*() {
-            const ticketInfo = spinal_env_viewer_graph_service_1.SpinalGraphService.getInfo(ticketId);
+            // const ticketInfo = SpinalGraphService.getInfo(ticketId);
+            const ticket = spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(ticketId);
+            const ticketInfo = ticket.info;
             const firstStep = yield this.getFirstStep(processId, contextId);
             if (ticketInfo && firstStep) {
                 const fromId = ticketInfo.stepId.get();
@@ -621,7 +631,9 @@ class ServiceTicket {
     }
     changeTicketProcess(ticketId, newProcessId, newContextId) {
         return __awaiter(this, void 0, void 0, function*() {
-            let ticketInfo = spinal_env_viewer_graph_service_1.SpinalGraphService.getInfo(ticketId);
+            // let ticketInfo = SpinalGraphService.getInfo(ticketId);
+            const ticket = spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(ticketId);
+            const ticketInfo = ticket.info;
             let oldContextId = this.getTicketContextId(ticketId);
             const contextId = newContextId || oldContextId;
             const stepId = yield this.getFirstStep(newProcessId, contextId);
@@ -669,7 +681,7 @@ class ServiceTicket {
     }
     createLog(info) {
         const logId = spinal_env_viewer_graph_service_1.SpinalGraphService.createNode({
-            name: "log",
+            name: 'log',
             type: Constants_1.SERVICE_LOG_TYPE
         }, new SpinalLogTicket_1.SpinalLogTicket(info));
         return logId;
@@ -682,7 +694,7 @@ class ServiceTicket {
             return Promise.all(promises).then((elements)=>{
                 return elements.map((el)=>{
                     const res = el.get();
-                    if (typeof res.action == "undefined") res.action = Constants_1.EVENTS_TO_LOG[res.event];
+                    if (typeof res.action == 'undefined') res.action = Constants_1.EVENTS_TO_LOG[res.event];
                     return res;
                 });
             });
@@ -745,7 +757,7 @@ class ServiceTicket {
         let infoNodeRef = infoNode;
         if (!infoNodeRef) infoNodeRef = elementInfo;
         infoNodeRef.type = Constants_1.SPINAL_TICKET_SERVICE_TICKET_TYPE;
-        if (!infoNodeRef.declarer_id) infoNodeRef.declarer_id = "unknow";
+        if (!infoNodeRef.declarer_id) infoNodeRef.declarer_id = 'unknow';
         const ticket = new SpinalTicket_1.SpinalTicket(elementInfo);
         const ticketId = spinal_env_viewer_graph_service_1.SpinalGraphService.createNode(infoNodeRef, ticket);
         // this.tickets.add(ticketId);
@@ -753,13 +765,13 @@ class ServiceTicket {
     }
     createAttribute(ticketId, elementInfo) {
         const node = spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(ticketId);
-        const categoryName = "default";
+        const categoryName = 'default';
         return spinal_env_viewer_plugin_documentation_service_1.serviceDocumentation.addCategoryAttribute(node, categoryName).then((attributeCategory)=>{
             const promises = [];
             if (node) {
                 const attributes = Object.keys(elementInfo);
                 for (const element of attributes)promises.push(spinal_env_viewer_plugin_documentation_service_1.serviceDocumentation.addAttributeByCategory(node, attributeCategory, element, this.getObjData(element, node.info[element])));
-                promises.push(spinal_env_viewer_plugin_documentation_service_1.serviceDocumentation.addAttributeByCategory(node, attributeCategory, Constants_1.TICKET_ATTRIBUTE_OCCURENCE_NAME, "0", "number"));
+                promises.push(spinal_env_viewer_plugin_documentation_service_1.serviceDocumentation.addAttributeByCategory(node, attributeCategory, Constants_1.TICKET_ATTRIBUTE_OCCURENCE_NAME, '0', 'number'));
                 return Promise.all(promises);
             }
         });
@@ -804,17 +816,17 @@ class ServiceTicket {
     }
     getObjData(key, valueModel) {
         switch(key){
-            case "name":
+            case 'name':
                 return valueModel;
-            case "priority":
+            case 'priority':
                 const found = Object.keys(Constants_1.TICKET_PRIORITIES).find((el)=>Constants_1.TICKET_PRIORITIES[el] == valueModel.get());
-                return found ? found : "-";
-            case "user":
-                return valueModel && valueModel.name ? valueModel.name.get() : valueModel.username ? valueModel.username.get() : "unknown";
-            case "creationDate":
-                return moment(valueModel.get()).format("MMMM Do YYYY, h:mm:ss a");
+                return found ? found : '-';
+            case 'user':
+                return valueModel && valueModel.name ? valueModel.name.get() : valueModel.username ? valueModel.username.get() : 'unknown';
+            case 'creationDate':
+                return moment(valueModel.get()).format('MMMM Do YYYY, h:mm:ss a');
             default:
-                return valueModel ? valueModel.get() : "";
+                return valueModel ? valueModel.get() : '';
         }
     }
     createArchivedStep(processId, contextId) {
@@ -858,7 +870,9 @@ class ServiceTicket {
     getOldStepId(ticketInfo, contextId) {
         return __awaiter(this, void 0, void 0, function*() {
             const stepId = ticketInfo.stepId;
-            if (spinal_env_viewer_graph_service_1.SpinalGraphService.getInfo(stepId)) return stepId;
+            const step = spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(stepId);
+            const stepInfo = step.info;
+            if (stepInfo) return stepId;
             let id2;
             yield spinal_env_viewer_graph_service_1.SpinalGraphService.findInContext(contextId, contextId, (node)=>{
                 if (node.getId().get() === stepId) {
@@ -903,7 +917,7 @@ class ServiceTicket {
     getTicketsFromArchiveGen(processOrSpatialNode, begin, end) {
         var _a, _b;
         return __asyncGenerator(this, arguments, function* getTicketsFromArchiveGen_1() {
-            processOrSpatialNode = typeof processOrSpatialNode === "string" ? spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(processOrSpatialNode) : processOrSpatialNode;
+            processOrSpatialNode = typeof processOrSpatialNode === 'string' ? spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(processOrSpatialNode) : processOrSpatialNode;
             const tsBegin = moment(begin).valueOf();
             const tsEnd = moment(end).valueOf();
             const isProcess = processOrSpatialNode.info.type.get() === Constants_1.PROCESS_TYPE;
@@ -921,7 +935,7 @@ class ServiceTicket {
     }
     deleteTicketFromArchive(processOrSpatialNode, begin, end) {
         return __awaiter(this, void 0, void 0, function*() {
-            processOrSpatialNode = typeof processOrSpatialNode === "string" ? spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(processOrSpatialNode) : processOrSpatialNode;
+            processOrSpatialNode = typeof processOrSpatialNode === 'string' ? spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(processOrSpatialNode) : processOrSpatialNode;
             if (!processOrSpatialNode) throw new Error("deleteTicketFromArchive process or spatial node ID given don't exist in graph service.");
             const isProcess = processOrSpatialNode.info.type.get() === Constants_1.PROCESS_TYPE;
             const timeStampAttr = isProcess ? Constants_1.ARCHIVE_TICKET_TIMESTAMP_ATTR_PROCESS : Constants_1.ARCHIVE_TICKET_TIMESTAMP_ATTR_SPATIAL;
@@ -972,8 +986,8 @@ class ServiceTicket {
         var _a, _b;
         return __awaiter(this, void 0, void 0, function*() {
             // make sure we work with spianlNode
-            ticketNode = typeof ticketNode === "string" ? spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(ticketNode) : ticketNode;
-            processOrSpatialNode = typeof processOrSpatialNode === "string" ? spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(processOrSpatialNode) : processOrSpatialNode;
+            ticketNode = typeof ticketNode === 'string' ? spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(ticketNode) : ticketNode;
+            processOrSpatialNode = typeof processOrSpatialNode === 'string' ? spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(processOrSpatialNode) : processOrSpatialNode;
             if (!processOrSpatialNode) throw new Error("archiveTicket process or spatial node ID given don't exist in graph service.");
             // getOrCreateArchive
             const archiveTicketNode = yield this.getOrCreateArchive(processOrSpatialNode, archiveRelationName, archiveNodeType);
@@ -1051,7 +1065,7 @@ class ServiceTicket {
 }
 exports.ServiceTicket = ServiceTicket;
 
-},{"eada8b92ac65cdb":"i0rBD","92a36f049738893d":"2TWu9","a7a446fc22c950a1":"9n7zp","6db78b4b5f498d1":"6zdQ1","b3e576311065f5e9":"bBjK0","d9c46edbdd9f4307":"fRH70","391da2fc601416ca":"5rYVR","db108f09e02cf75d":"jwcsj"}],"2TWu9":[function(require,module,exports) {
+},{"eada8b92ac65cdb":"i0rBD","92a36f049738893d":"2TWu9","a7a446fc22c950a1":"9n7zp","6db78b4b5f498d1":"6zdQ1","b3e576311065f5e9":"bBjK0","d9c46edbdd9f4307":"fRH70","391da2fc601416ca":"5rYVR","db108f09e02cf75d":"jwcsj"}],"2TWu9":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2019 SpinalCom - www.spinalcom.com
@@ -1079,19 +1093,19 @@ exports.ServiceTicket = ServiceTicket;
     value: true
 });
 exports.STEP_ORDER_NOT_VALID = exports.TICKET_SECTION_ALREADY_EXIST = exports.DEFAULT_SENTENCE_SECTION_ALREADY_EXIST = exports.TICKET_ID_DOES_NOT_EXIST = exports.STEP_ID_DOES_NOT_EXIST = exports.PROCESS_ID_DOES_NOT_EXIST = exports.CANNOT_ADD_STEP_TO_PROCESS = exports.CANNOT_CREATE_CONTEXT_INTERNAL_ERROR = exports.CANNOT_CREATE_PROCESS_INTERNAL_ERROR = exports.PROCESS_NAME_ALREADY_USED = void 0;
-const ERROR_PREFIX = "Spinal Service Ticket Error: ";
-exports.PROCESS_NAME_ALREADY_USED = ERROR_PREFIX + "Process name already used";
-exports.CANNOT_CREATE_PROCESS_INTERNAL_ERROR = ERROR_PREFIX + "Internal error: cannot create process";
-exports.CANNOT_CREATE_CONTEXT_INTERNAL_ERROR = ERROR_PREFIX + "Internal error: cannot create context";
-exports.CANNOT_ADD_STEP_TO_PROCESS = ERROR_PREFIX + "Internal error: cannot create context";
+const ERROR_PREFIX = 'Spinal Service Ticket Error: ';
+exports.PROCESS_NAME_ALREADY_USED = ERROR_PREFIX + 'Process name already used';
+exports.CANNOT_CREATE_PROCESS_INTERNAL_ERROR = ERROR_PREFIX + 'Internal error: cannot create process';
+exports.CANNOT_CREATE_CONTEXT_INTERNAL_ERROR = ERROR_PREFIX + 'Internal error: cannot create context';
+exports.CANNOT_ADD_STEP_TO_PROCESS = ERROR_PREFIX + 'Internal error: cannot create context';
 exports.PROCESS_ID_DOES_NOT_EXIST = ERROR_PREFIX + "Process id doesn't exist";
 exports.STEP_ID_DOES_NOT_EXIST = ERROR_PREFIX + "Step id doesn't exist";
 exports.TICKET_ID_DOES_NOT_EXIST = ERROR_PREFIX + "Ticket id doesn't exist";
-exports.DEFAULT_SENTENCE_SECTION_ALREADY_EXIST = ERROR_PREFIX + "Default sentence section already exits";
-exports.TICKET_SECTION_ALREADY_EXIST = ERROR_PREFIX + "Ticket" + " already exits";
-exports.STEP_ORDER_NOT_VALID = ERROR_PREFIX + " step order not valid";
+exports.DEFAULT_SENTENCE_SECTION_ALREADY_EXIST = ERROR_PREFIX + 'Default sentence section already exits';
+exports.TICKET_SECTION_ALREADY_EXIST = ERROR_PREFIX + 'Ticket' + ' already exits';
+exports.STEP_ORDER_NOT_VALID = ERROR_PREFIX + ' step order not valid';
 
-},{}],"6zdQ1":[function(require,module,exports) {
+},{}],"6zdQ1":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2019 SpinalCom - www.spinalcom.com
@@ -1124,7 +1138,7 @@ class SpinalLogTicket extends spinal_core_connectorjs_type_1.Model {
     constructor(log){
         super();
         if (!!log) {
-            log["creationDate"] = Date.now();
+            log['creationDate'] = Date.now();
             this.add_attr(log);
         }
     }
@@ -1132,7 +1146,7 @@ class SpinalLogTicket extends spinal_core_connectorjs_type_1.Model {
 exports.SpinalLogTicket = SpinalLogTicket;
 spinalCore.register_models(SpinalLogTicket);
 
-},{"46bd56849e66f76c":"fRH70","ab4acafee3a1701":"2uyD7"}],"bBjK0":[function(require,module,exports) {
+},{"46bd56849e66f76c":"fRH70","ab4acafee3a1701":"2uyD7"}],"bBjK0":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2019 SpinalCom - www.spinalcom.com
@@ -1165,7 +1179,7 @@ class SpinalTicket extends spinal_core_connectorjs_type_1.Model {
     constructor(ticket){
         super();
         if (!!ticket) {
-            ticket["creationDate"] = Date.now();
+            ticket['creationDate'] = Date.now();
             this.add_attr(ticket);
         }
     }
@@ -1173,10 +1187,10 @@ class SpinalTicket extends spinal_core_connectorjs_type_1.Model {
 exports.SpinalTicket = SpinalTicket;
 spinalCore.register_models(SpinalTicket);
 
-},{"b1c28214dcb89796":"fRH70","a7e731aef75ec11a":"2uyD7"}],"1J17x":[function(require,module,exports) {
+},{"b1c28214dcb89796":"fRH70","a7e731aef75ec11a":"2uyD7"}],"1J17x":[function(require,module,exports,__globalThis) {
 (function webpackUniversalModuleDefinition(root, factory) {
     module.exports = factory(require("f2b29fe3c2c19cbd"));
-})(typeof self !== "undefined" ? self : this, function(__WEBPACK_EXTERNAL_MODULE_a352__) {
+})(typeof self !== 'undefined' ? self : this, function(__WEBPACK_EXTERNAL_MODULE_a352__) {
     return /******/ function(modules) {
         /******/ // The module cache
         /******/ var installedModules = {};
@@ -1210,10 +1224,10 @@ spinalCore.register_models(SpinalTicket);
         /******/ };
         /******/ /******/ // define __esModule on exports
         /******/ __webpack_require__.r = function(exports) {
-            /******/ if (typeof Symbol !== "undefined" && Symbol.toStringTag) /******/ Object.defineProperty(exports, Symbol.toStringTag, {
-                value: "Module"
+            /******/ if (typeof Symbol !== 'undefined' && Symbol.toStringTag) /******/ Object.defineProperty(exports, Symbol.toStringTag, {
+                value: 'Module'
             });
-            /******/ Object.defineProperty(exports, "__esModule", {
+            /******/ Object.defineProperty(exports, '__esModule', {
                 value: true
             });
         /******/ };
@@ -1225,14 +1239,14 @@ spinalCore.register_models(SpinalTicket);
         /******/ __webpack_require__.t = function(value, mode) {
             /******/ if (mode & 1) value = __webpack_require__(value);
             /******/ if (mode & 8) return value;
-            /******/ if (mode & 4 && typeof value === "object" && value && value.__esModule) return value;
+            /******/ if (mode & 4 && typeof value === 'object' && value && value.__esModule) return value;
             /******/ var ns = Object.create(null);
             /******/ __webpack_require__.r(ns);
-            /******/ Object.defineProperty(ns, "default", {
+            /******/ Object.defineProperty(ns, 'default', {
                 enumerable: true,
                 value: value
             });
-            /******/ if (mode & 2 && typeof value != "string") for(var key in value)__webpack_require__.d(ns, key, (function(key) {
+            /******/ if (mode & 2 && typeof value != 'string') for(var key in value)__webpack_require__.d(ns, key, (function(key) {
                 return value[key];
             }).bind(null, key));
             /******/ return ns;
@@ -1240,11 +1254,11 @@ spinalCore.register_models(SpinalTicket);
         /******/ /******/ // getDefaultExport function for compatibility with non-harmony modules
         /******/ __webpack_require__.n = function(module1) {
             /******/ var getter = module1 && module1.__esModule ? /******/ function getDefault() {
-                return module1["default"];
+                return module1['default'];
             } : /******/ function getModuleExports() {
                 return module1;
             };
-            /******/ __webpack_require__.d(getter, "a", getter);
+            /******/ __webpack_require__.d(getter, 'a', getter);
             /******/ return getter;
         /******/ };
         /******/ /******/ // Object.prototype.hasOwnProperty.call
@@ -1266,11 +1280,11 @@ spinalCore.register_models(SpinalTicket);
             var $iterCreate = __webpack_require__("41a0");
             var setToStringTag = __webpack_require__("7f20");
             var getPrototypeOf = __webpack_require__("38fd");
-            var ITERATOR = __webpack_require__("2b4c")("iterator");
-            var BUGGY = !([].keys && "next" in [].keys()); // Safari has buggy iterators w/o `next`
-            var FF_ITERATOR = "@@iterator";
-            var KEYS = "keys";
-            var VALUES = "values";
+            var ITERATOR = __webpack_require__("2b4c")('iterator');
+            var BUGGY = !([].keys && 'next' in [].keys()); // Safari has buggy iterators w/o `next`
+            var FF_ITERATOR = '@@iterator';
+            var KEYS = 'keys';
+            var VALUES = 'values';
             var returnThis = function() {
                 return this;
             };
@@ -1292,14 +1306,14 @@ spinalCore.register_models(SpinalTicket);
                         return new Constructor(this, kind);
                     };
                 };
-                var TAG = NAME + " Iterator";
+                var TAG = NAME + ' Iterator';
                 var DEF_VALUES = DEFAULT == VALUES;
                 var VALUES_BUG = false;
                 var proto = Base.prototype;
                 var $native = proto[ITERATOR] || proto[FF_ITERATOR] || DEFAULT && proto[DEFAULT];
                 var $default = $native || getMethod(DEFAULT);
-                var $entries = DEFAULT ? !DEF_VALUES ? $default : getMethod("entries") : undefined;
-                var $anyNative = NAME == "Array" ? proto.entries || $native : $native;
+                var $entries = DEFAULT ? !DEF_VALUES ? $default : getMethod('entries') : undefined;
+                var $anyNative = NAME == 'Array' ? proto.entries || $native : $native;
                 var methods, key, IteratorPrototype;
                 // Fix native
                 if ($anyNative) {
@@ -1308,7 +1322,7 @@ spinalCore.register_models(SpinalTicket);
                         // Set @@toStringTag to native iterators
                         setToStringTag(IteratorPrototype, TAG, true);
                         // fix for some old engines
-                        if (!LIBRARY && typeof IteratorPrototype[ITERATOR] != "function") hide(IteratorPrototype, ITERATOR, returnThis);
+                        if (!LIBRARY && typeof IteratorPrototype[ITERATOR] != 'function') hide(IteratorPrototype, ITERATOR, returnThis);
                     }
                 }
                 // fix Array#{values, @@iterator}.name in V8 / FF
@@ -1347,7 +1361,7 @@ spinalCore.register_models(SpinalTicket);
                     var i = toInteger(pos);
                     var l = s.length;
                     var a, b;
-                    if (i < 0 || i >= l) return TO_STRING ? "" : undefined;
+                    if (i < 0 || i >= l) return TO_STRING ? '' : undefined;
                     a = s.charCodeAt(i);
                     return a < 0xd800 || a > 0xdbff || i + 1 === l || (b = s.charCodeAt(i + 1)) < 0xdc00 || b > 0xdfff ? TO_STRING ? s.charAt(i) : a : TO_STRING ? s.slice(i, i + 2) : (a - 0xd800 << 10) + (b - 0xdc00) + 0x10000;
                 };
@@ -1368,12 +1382,12 @@ spinalCore.register_models(SpinalTicket);
             var anObject = __webpack_require__("cb7c");
             module1.exports = function() {
                 var that = anObject(this);
-                var result = "";
-                if (that.global) result += "g";
-                if (that.ignoreCase) result += "i";
-                if (that.multiline) result += "m";
-                if (that.unicode) result += "u";
-                if (that.sticky) result += "y";
+                var result = '';
+                if (that.global) result += 'g';
+                if (that.ignoreCase) result += 'i';
+                if (that.multiline) result += 'm';
+                if (that.unicode) result += 'u';
+                if (that.sticky) result += 'y';
                 return result;
             };
         /***/ },
@@ -1408,7 +1422,7 @@ spinalCore.register_models(SpinalTicket);
             var defined = __webpack_require__("be13");
             var wks = __webpack_require__("2b4c");
             var regexpExec = __webpack_require__("520a");
-            var SPECIES = wks("species");
+            var SPECIES = wks('species');
             var REPLACE_SUPPORTS_NAMED_GROUPS = !fails(function() {
                 // #replace needs built-in support for named groups.
                 // #match works fine because it just return the exec results, even if it has
@@ -1417,11 +1431,11 @@ spinalCore.register_models(SpinalTicket);
                 re.exec = function() {
                     var result = [];
                     result.groups = {
-                        a: "7"
+                        a: '7'
                     };
                     return result;
                 };
-                return "".replace(re, "$<a>") !== "7";
+                return ''.replace(re, '$<a>') !== '7';
             });
             var SPLIT_WORKS_WITH_OVERWRITTEN_EXEC = function() {
                 // Chrome 51 has a buggy "split" implementation when RegExp#exec !== nativeExec
@@ -1430,8 +1444,8 @@ spinalCore.register_models(SpinalTicket);
                 re.exec = function() {
                     return originalExec.apply(this, arguments);
                 };
-                var result = "ab".split(re);
-                return result.length === 2 && result[0] === "a" && result[1] === "b";
+                var result = 'ab'.split(re);
+                return result.length === 2 && result[0] === 'a' && result[1] === 'b';
             }();
             module1.exports = function(KEY, length, exec) {
                 var SYMBOL = wks(KEY);
@@ -1441,7 +1455,7 @@ spinalCore.register_models(SpinalTicket);
                     O[SYMBOL] = function() {
                         return 7;
                     };
-                    return ""[KEY](O) != 7;
+                    return ''[KEY](O) != 7;
                 });
                 var DELEGATES_TO_EXEC = DELEGATES_TO_SYMBOL ? !fails(function() {
                     // Symbol-named RegExp methods call .exec
@@ -1451,7 +1465,7 @@ spinalCore.register_models(SpinalTicket);
                         execCalled = true;
                         return null;
                     };
-                    if (KEY === "split") {
+                    if (KEY === 'split') {
                         // RegExp[@@split] doesn't call the regex's exec method, but first creates
                         // a new one. We need to return the patched regex when creating the new one.
                         re.constructor = {};
@@ -1459,12 +1473,12 @@ spinalCore.register_models(SpinalTicket);
                             return re;
                         };
                     }
-                    re[SYMBOL]("");
+                    re[SYMBOL]('');
                     return !execCalled;
                 }) : undefined;
-                if (!DELEGATES_TO_SYMBOL || !DELEGATES_TO_EXEC || KEY === "replace" && !REPLACE_SUPPORTS_NAMED_GROUPS || KEY === "split" && !SPLIT_WORKS_WITH_OVERWRITTEN_EXEC) {
+                if (!DELEGATES_TO_SYMBOL || !DELEGATES_TO_EXEC || KEY === 'replace' && !REPLACE_SUPPORTS_NAMED_GROUPS || KEY === 'split' && !SPLIT_WORKS_WITH_OVERWRITTEN_EXEC) {
                     var nativeRegExpMethod = /./[SYMBOL];
-                    var fns = exec(defined, SYMBOL, ""[KEY], function maybeCallNative(nativeMethod, regexp, str, arg2, forceStringMethod) {
+                    var fns = exec(defined, SYMBOL, ''[KEY], function maybeCallNative(nativeMethod, regexp, str, arg2, forceStringMethod) {
                         if (regexp.exec === regexpExec) {
                             if (DELEGATES_TO_SYMBOL && !forceStringMethod) // The native String method already delegates to @@method (this
                             // polyfilled function), leasing to infinite recursion.
@@ -1505,11 +1519,11 @@ spinalCore.register_models(SpinalTicket);
         /***/ "23c6": /***/ function(module1, exports, __webpack_require__) {
             // getting tag from 19.1.3.6 Object.prototype.toString()
             var cof = __webpack_require__("2d95");
-            var TAG = __webpack_require__("2b4c")("toStringTag");
+            var TAG = __webpack_require__("2b4c")('toStringTag');
             // ES3 wrong here
             var ARG = cof(function() {
                 return arguments;
-            }()) == "Arguments";
+            }()) == 'Arguments';
             // fallback for IE11 Script Access Denied error
             var tryGet = function(it, key) {
                 try {
@@ -1518,7 +1532,7 @@ spinalCore.register_models(SpinalTicket);
             };
             module1.exports = function(it) {
                 var O, T, B;
-                return it === undefined ? "Undefined" : it === null ? "Null" : typeof (T = tryGet(O = Object(it), TAG)) == "string" ? T : ARG ? cof(O) : (B = cof(O)) == "Object" && typeof O.callee == "function" ? "Arguments" : B;
+                return it === undefined ? 'Undefined' : it === null ? 'Null' : typeof (T = tryGet(O = Object(it), TAG)) == 'string' ? T : ARG ? cof(O) : (B = cof(O)) == 'Object' && typeof O.callee == 'function' ? 'Arguments' : B;
             };
         /***/ },
         /***/ "2621": /***/ function(module1, exports) {
@@ -1528,18 +1542,18 @@ spinalCore.register_models(SpinalTicket);
             var global = __webpack_require__("7726");
             var hide = __webpack_require__("32e9");
             var has = __webpack_require__("69a8");
-            var SRC = __webpack_require__("ca5a")("src");
+            var SRC = __webpack_require__("ca5a")('src');
             var $toString = __webpack_require__("fa5b");
-            var TO_STRING = "toString";
-            var TPL = ("" + $toString).split(TO_STRING);
+            var TO_STRING = 'toString';
+            var TPL = ('' + $toString).split(TO_STRING);
             __webpack_require__("8378").inspectSource = function(it) {
                 return $toString.call(it);
             };
             (module1.exports = function(O, key, val, safe) {
-                var isFunction = typeof val == "function";
-                if (isFunction) has(val, "name") || hide(val, "name", key);
+                var isFunction = typeof val == 'function';
+                if (isFunction) has(val, 'name') || hide(val, 'name', key);
                 if (O[key] === val) return;
-                if (isFunction) has(val, SRC) || hide(val, SRC, O[key] ? "" + O[key] : TPL.join(String(key)));
+                if (isFunction) has(val, SRC) || hide(val, SRC, O[key] ? '' + O[key] : TPL.join(String(key)));
                 if (O === global) O[key] = val;
                 else if (!safe) {
                     delete O[key];
@@ -1548,7 +1562,7 @@ spinalCore.register_models(SpinalTicket);
                 else hide(O, key, val);
             // add fake Function#toString for correct work wrapped methods / constructors with methods like LoDash isNative
             })(Function.prototype, TO_STRING, function toString() {
-                return typeof this == "function" && this[SRC] || $toString.call(this);
+                return typeof this == 'function' && this[SRC] || $toString.call(this);
             });
         /***/ },
         /***/ "2aeb": /***/ function(module1, exports, __webpack_require__) {
@@ -1556,25 +1570,25 @@ spinalCore.register_models(SpinalTicket);
             var anObject = __webpack_require__("cb7c");
             var dPs = __webpack_require__("1495");
             var enumBugKeys = __webpack_require__("e11e");
-            var IE_PROTO = __webpack_require__("613b")("IE_PROTO");
+            var IE_PROTO = __webpack_require__("613b")('IE_PROTO');
             var Empty = function() {};
-            var PROTOTYPE = "prototype";
+            var PROTOTYPE = 'prototype';
             // Create object with fake `null` prototype: use iframe Object with cleared prototype
             var createDict = function() {
                 // Thrash, waste and sodomy: IE GC bug
-                var iframe = __webpack_require__("230e")("iframe");
+                var iframe = __webpack_require__("230e")('iframe');
                 var i = enumBugKeys.length;
-                var lt = "<";
-                var gt = ">";
+                var lt = '<';
+                var gt = '>';
                 var iframeDocument;
-                iframe.style.display = "none";
+                iframe.style.display = 'none';
                 __webpack_require__("fab2").appendChild(iframe);
-                iframe.src = "javascript:"; // eslint-disable-line no-script-url
+                iframe.src = 'javascript:'; // eslint-disable-line no-script-url
                 // createDict = iframe.contentWindow.Object;
                 // html.removeChild(iframe);
                 iframeDocument = iframe.contentWindow.document;
                 iframeDocument.open();
-                iframeDocument.write(lt + "script" + gt + "document.F=Object" + lt + "/script" + gt);
+                iframeDocument.write(lt + 'script' + gt + 'document.F=Object' + lt + '/script' + gt);
                 iframeDocument.close();
                 createDict = iframeDocument.F;
                 while(i--)delete createDict[PROTOTYPE][enumBugKeys[i]];
@@ -1593,12 +1607,12 @@ spinalCore.register_models(SpinalTicket);
             };
         /***/ },
         /***/ "2b4c": /***/ function(module1, exports, __webpack_require__) {
-            var store = __webpack_require__("5537")("wks");
+            var store = __webpack_require__("5537")('wks');
             var uid = __webpack_require__("ca5a");
             var Symbol1 = __webpack_require__("7726").Symbol;
-            var USE_SYMBOL = typeof Symbol1 == "function";
+            var USE_SYMBOL = typeof Symbol1 == 'function';
             var $exports = module1.exports = function(name) {
-                return store[name] || (store[name] = USE_SYMBOL && Symbol1[name] || (USE_SYMBOL ? Symbol1 : uid)("Symbol." + name));
+                return store[name] || (store[name] = USE_SYMBOL && Symbol1[name] || (USE_SYMBOL ? Symbol1 : uid)('Symbol.' + name));
             };
             $exports.store = store;
         /***/ },
@@ -1616,8 +1630,8 @@ spinalCore.register_models(SpinalTicket);
             // 21.1.3.7 String.prototype.includes(searchString, position = 0)
             var $export = __webpack_require__("5ca1");
             var context = __webpack_require__("d2c8");
-            var INCLUDES = "includes";
-            $export($export.P + $export.F * __webpack_require__("5147")(INCLUDES), "String", {
+            var INCLUDES = 'includes';
+            $export($export.P + $export.F * __webpack_require__("5147")(INCLUDES), 'String', {
                 includes: function includes(searchString /* , position = 0 */ ) {
                     return !!~context(this, searchString, INCLUDES).indexOf(searchString, arguments.length > 1 ? arguments[1] : undefined);
                 }
@@ -1637,12 +1651,12 @@ spinalCore.register_models(SpinalTicket);
             // 19.1.2.9 / 15.2.3.2 Object.getPrototypeOf(O)
             var has = __webpack_require__("69a8");
             var toObject = __webpack_require__("4bf8");
-            var IE_PROTO = __webpack_require__("613b")("IE_PROTO");
+            var IE_PROTO = __webpack_require__("613b")('IE_PROTO');
             var ObjectProto = Object.prototype;
             module1.exports = Object.getPrototypeOf || function(O) {
                 O = toObject(O);
                 if (has(O, IE_PROTO)) return O[IE_PROTO];
-                if (typeof O.constructor == "function" && O instanceof O.constructor) return O.constructor.prototype;
+                if (typeof O.constructor == 'function' && O instanceof O.constructor) return O.constructor.prototype;
                 return O instanceof Object ? ObjectProto : null;
             };
         /***/ },
@@ -1653,21 +1667,21 @@ spinalCore.register_models(SpinalTicket);
             var setToStringTag = __webpack_require__("7f20");
             var IteratorPrototype = {};
             // 25.1.2.1.1 %IteratorPrototype%[@@iterator]()
-            __webpack_require__("32e9")(IteratorPrototype, __webpack_require__("2b4c")("iterator"), function() {
+            __webpack_require__("32e9")(IteratorPrototype, __webpack_require__("2b4c")('iterator'), function() {
                 return this;
             });
             module1.exports = function(Constructor, NAME, next) {
                 Constructor.prototype = create(IteratorPrototype, {
                     next: descriptor(1, next)
                 });
-                setToStringTag(Constructor, NAME + " Iterator");
+                setToStringTag(Constructor, NAME + ' Iterator');
             };
         /***/ },
         /***/ "456d": /***/ function(module1, exports, __webpack_require__) {
             // 19.1.2.14 Object.keys(O)
             var toObject = __webpack_require__("4bf8");
             var $keys = __webpack_require__("0d58");
-            __webpack_require__("5eda")("keys", function() {
+            __webpack_require__("5eda")('keys', function() {
                 return function keys(it) {
                     return $keys(toObject(it));
                 };
@@ -1699,15 +1713,15 @@ spinalCore.register_models(SpinalTicket);
             };
         /***/ },
         /***/ "5147": /***/ function(module1, exports, __webpack_require__) {
-            var MATCH = __webpack_require__("2b4c")("match");
+            var MATCH = __webpack_require__("2b4c")('match');
             module1.exports = function(KEY) {
                 var re = /./;
                 try {
-                    "/./"[KEY](re);
+                    '/./'[KEY](re);
                 } catch (e) {
                     try {
                         re[MATCH] = false;
-                        return !"/./"[KEY](re);
+                        return !'/./'[KEY](re);
                     } catch (f) {}
                 }
                 return true;
@@ -1722,20 +1736,20 @@ spinalCore.register_models(SpinalTicket);
             // which loads this file before patching the method.
             var nativeReplace = String.prototype.replace;
             var patchedExec = nativeExec;
-            var LAST_INDEX = "lastIndex";
+            var LAST_INDEX = 'lastIndex';
             var UPDATES_LAST_INDEX_WRONG = function() {
                 var re1 = /a/, re2 = /b*/g;
-                nativeExec.call(re1, "a");
-                nativeExec.call(re2, "a");
+                nativeExec.call(re1, 'a');
+                nativeExec.call(re2, 'a');
                 return re1[LAST_INDEX] !== 0 || re2[LAST_INDEX] !== 0;
             }();
             // nonparticipating capturing group, copied from es5-shim's String#split patch.
-            var NPCG_INCLUDED = /()??/.exec("")[1] !== undefined;
+            var NPCG_INCLUDED = /()??/.exec('')[1] !== undefined;
             var PATCH = UPDATES_LAST_INDEX_WRONG || NPCG_INCLUDED;
             if (PATCH) patchedExec = function exec(str) {
                 var re = this;
                 var lastIndex, reCopy, match, i;
-                if (NPCG_INCLUDED) reCopy = new RegExp("^" + re.source + "$(?!\\s)", regexpFlags.call(re));
+                if (NPCG_INCLUDED) reCopy = new RegExp('^' + re.source + '$(?!\\s)', regexpFlags.call(re));
                 if (UPDATES_LAST_INDEX_WRONG) lastIndex = re[LAST_INDEX];
                 match = nativeExec.call(re, str);
                 if (UPDATES_LAST_INDEX_WRONG && match) re[LAST_INDEX] = re.global ? match.index + match[0].length : lastIndex;
@@ -1755,13 +1769,13 @@ spinalCore.register_models(SpinalTicket);
         /***/ "5537": /***/ function(module1, exports, __webpack_require__) {
             var core = __webpack_require__("8378");
             var global = __webpack_require__("7726");
-            var SHARED = "__core-js_shared__";
+            var SHARED = '__core-js_shared__';
             var store = global[SHARED] || (global[SHARED] = {});
             (module1.exports = function(key, value) {
                 return store[key] || (store[key] = value !== undefined ? value : {});
-            })("versions", []).push({
+            })('versions', []).push({
                 version: core.version,
-                mode: __webpack_require__("2d00") ? "pure" : "global",
+                mode: __webpack_require__("2d00") ? 'pure' : 'global',
                 copyright: "\xa9 2019 Denis Pushkarev (zloirock.ru)"
             });
         /***/ },
@@ -1771,7 +1785,7 @@ spinalCore.register_models(SpinalTicket);
             var hide = __webpack_require__("32e9");
             var redefine = __webpack_require__("2aba");
             var ctx = __webpack_require__("9b43");
-            var PROTOTYPE = "prototype";
+            var PROTOTYPE = 'prototype';
             var $export = function(type, name, source) {
                 var IS_FORCED = type & $export.F;
                 var IS_GLOBAL = type & $export.G;
@@ -1789,7 +1803,7 @@ spinalCore.register_models(SpinalTicket);
                     // export native or passed
                     out = (own ? target : source)[key];
                     // bind timers to global for call from export context
-                    exp = IS_BIND && own ? ctx(out, global) : IS_PROTO && typeof out == "function" ? ctx(Function.call, out) : out;
+                    exp = IS_BIND && own ? ctx(out, global) : IS_PROTO && typeof out == 'function' ? ctx(Function.call, out) : out;
                     // extend global
                     if (target) redefine(target, key, out, type & $export.U);
                     // export
@@ -1820,7 +1834,7 @@ spinalCore.register_models(SpinalTicket);
                 exp[KEY] = exec(fn);
                 $export($export.S + $export.F * fails(function() {
                     fn(1);
-                }), "Object", exp);
+                }), 'Object', exp);
             };
         /***/ },
         /***/ "5f1b": /***/ function(module1, exports, __webpack_require__) {
@@ -1831,17 +1845,17 @@ spinalCore.register_models(SpinalTicket);
             // https://tc39.github.io/ecma262/#sec-regexpexec
             module1.exports = function(R, S) {
                 var exec = R.exec;
-                if (typeof exec === "function") {
+                if (typeof exec === 'function') {
                     var result = exec.call(R, S);
-                    if (typeof result !== "object") throw new TypeError("RegExp exec method returned something other than an Object or null");
+                    if (typeof result !== 'object') throw new TypeError('RegExp exec method returned something other than an Object or null');
                     return result;
                 }
-                if (classof(R) !== "RegExp") throw new TypeError("RegExp#exec called on incompatible receiver");
+                if (classof(R) !== 'RegExp') throw new TypeError('RegExp#exec called on incompatible receiver');
                 return builtinExec.call(R, S);
             };
         /***/ },
         /***/ "613b": /***/ function(module1, exports, __webpack_require__) {
-            var shared = __webpack_require__("5537")("keys");
+            var shared = __webpack_require__("5537")('keys');
             var uid = __webpack_require__("ca5a");
             module1.exports = function(key) {
                 return shared[key] || (shared[key] = uid(key));
@@ -1851,8 +1865,8 @@ spinalCore.register_models(SpinalTicket);
             // fallback for non-array-like ES3 and non-enumerable old V8 strings
             var cof = __webpack_require__("2d95");
             // eslint-disable-next-line no-prototype-builtins
-            module1.exports = Object("z").propertyIsEnumerable(0) ? Object : function(it) {
-                return cof(it) == "String" ? it.split("") : Object(it);
+            module1.exports = Object('z').propertyIsEnumerable(0) ? Object : function(it) {
+                return cof(it) == 'String' ? it.split('') : Object(it);
             };
         /***/ },
         /***/ "6762": /***/ function(module1, exports, __webpack_require__) {
@@ -1860,12 +1874,12 @@ spinalCore.register_models(SpinalTicket);
             // https://github.com/tc39/Array.prototype.includes
             var $export = __webpack_require__("5ca1");
             var $includes = __webpack_require__("c366")(true);
-            $export($export.P, "Array", {
+            $export($export.P, 'Array', {
                 includes: function includes(el /* , fromIndex = 0 */ ) {
                     return $includes(this, el, arguments.length > 1 ? arguments[1] : undefined);
                 }
             });
-            __webpack_require__("9c6c")("includes");
+            __webpack_require__("9c6c")('includes');
         /***/ },
         /***/ "6821": /***/ function(module1, exports, __webpack_require__) {
             // to indexed object, toObject with fallback for non-array-like ES3 strings
@@ -1889,9 +1903,9 @@ spinalCore.register_models(SpinalTicket);
             module1.exports = function(it, S) {
                 if (!isObject(it)) return it;
                 var fn, val;
-                if (S && typeof (fn = it.toString) == "function" && !isObject(val = fn.call(it))) return val;
-                if (typeof (fn = it.valueOf) == "function" && !isObject(val = fn.call(it))) return val;
-                if (!S && typeof (fn = it.toString) == "function" && !isObject(val = fn.call(it))) return val;
+                if (S && typeof (fn = it.toString) == 'function' && !isObject(val = fn.call(it))) return val;
+                if (typeof (fn = it.valueOf) == 'function' && !isObject(val = fn.call(it))) return val;
+                if (!S && typeof (fn = it.toString) == 'function' && !isObject(val = fn.call(it))) return val;
                 throw TypeError("Can't convert object to primitive value");
             };
         /***/ },
@@ -1910,12 +1924,12 @@ spinalCore.register_models(SpinalTicket);
                 var B = {};
                 // eslint-disable-next-line no-undef
                 var S = Symbol();
-                var K = "abcdefghijklmnopqrst";
+                var K = 'abcdefghijklmnopqrst';
                 A[S] = 7;
-                K.split("").forEach(function(k) {
+                K.split('').forEach(function(k) {
                     B[k] = k;
                 });
-                return $assign({}, A)[S] != 7 || Object.keys($assign({}, B)).join("") != K;
+                return $assign({}, A)[S] != 7 || Object.keys($assign({}, B)).join('') != K;
             }) ? function assign(target, source) {
                 var T = toObject(target);
                 var aLen = arguments.length;
@@ -1935,8 +1949,8 @@ spinalCore.register_models(SpinalTicket);
         /***/ },
         /***/ "7726": /***/ function(module1, exports) {
             // https://github.com/zloirock/core-js/issues/86#issuecomment-115759028
-            var global = module1.exports = typeof window != "undefined" && window.Math == Math ? window : typeof self != "undefined" && self.Math == Math ? self : Function("return this")();
-            if (typeof __g == "number") __g = global; // eslint-disable-line no-undef
+            var global = module1.exports = typeof window != 'undefined' && window.Math == Math ? window : typeof self != 'undefined' && self.Math == Math ? self : Function('return this')();
+            if (typeof __g == 'number') __g = global; // eslint-disable-line no-undef
         /***/ },
         /***/ "77f1": /***/ function(module1, exports, __webpack_require__) {
             var toInteger = __webpack_require__("4588");
@@ -1959,7 +1973,7 @@ spinalCore.register_models(SpinalTicket);
         /***/ "7f20": /***/ function(module1, exports, __webpack_require__) {
             var def = __webpack_require__("86cc").f;
             var has = __webpack_require__("69a8");
-            var TAG = __webpack_require__("2b4c")("toStringTag");
+            var TAG = __webpack_require__("2b4c")('toStringTag');
             module1.exports = function(it, tag, stat) {
                 if (it && !has(it = stat ? it : it.prototype, TAG)) def(it, TAG, {
                     configurable: true,
@@ -1969,9 +1983,9 @@ spinalCore.register_models(SpinalTicket);
         /***/ },
         /***/ "8378": /***/ function(module1, exports) {
             var core = module1.exports = {
-                version: "2.6.5"
+                version: '2.6.5'
             };
-            if (typeof __e == "number") __e = core; // eslint-disable-line no-undef
+            if (typeof __e == 'number') __e = core; // eslint-disable-line no-undef
         /***/ },
         /***/ "84f2": /***/ function(module1, exports) {
             module1.exports = {};
@@ -1988,8 +2002,8 @@ spinalCore.register_models(SpinalTicket);
                 if (IE8_DOM_DEFINE) try {
                     return dP(O, P, Attributes);
                 } catch (e) {}
-                if ("get" in Attributes || "set" in Attributes) throw TypeError("Accessors not supported!");
-                if ("value" in Attributes) O[P] = Attributes.value;
+                if ('get' in Attributes || 'set' in Attributes) throw TypeError('Accessors not supported!');
+                if ('value' in Attributes) O[P] = Attributes.value;
                 return O;
             };
         /***/ },
@@ -2020,7 +2034,7 @@ spinalCore.register_models(SpinalTicket);
         /***/ },
         /***/ "9c6c": /***/ function(module1, exports, __webpack_require__) {
             // 22.1.3.31 Array.prototype[@@unscopables]
-            var UNSCOPABLES = __webpack_require__("2b4c")("unscopables");
+            var UNSCOPABLES = __webpack_require__("2b4c")('unscopables');
             var ArrayProto = Array.prototype;
             if (ArrayProto[UNSCOPABLES] == undefined) __webpack_require__("32e9")(ArrayProto, UNSCOPABLES, {});
             module1.exports = function(key) {
@@ -2038,7 +2052,7 @@ spinalCore.register_models(SpinalTicket);
         /***/ "9e1e": /***/ function(module1, exports, __webpack_require__) {
             // Thank's IE8 for his funny defineProperty
             module1.exports = !__webpack_require__("79e5")(function() {
-                return Object.defineProperty({}, "a", {
+                return Object.defineProperty({}, 'a', {
                     get: function() {
                         return 7;
                     }
@@ -2065,7 +2079,7 @@ spinalCore.register_models(SpinalTicket);
                 return it === undefined ? it : String(it);
             };
             // @@replace logic
-            __webpack_require__("214f")("replace", 2, function(defined, REPLACE, $replace, maybeCallNative) {
+            __webpack_require__("214f")('replace', 2, function(defined, REPLACE, $replace, maybeCallNative) {
                 return [
                     // `String.prototype.replace` method
                     // https://tc39.github.io/ecma262/#sec-string.prototype.replace
@@ -2081,7 +2095,7 @@ spinalCore.register_models(SpinalTicket);
                         if (res.done) return res.value;
                         var rx = anObject(regexp);
                         var S = String(this);
-                        var functionalReplace = typeof replaceValue === "function";
+                        var functionalReplace = typeof replaceValue === 'function';
                         if (!functionalReplace) replaceValue = String(replaceValue);
                         var global = rx.global;
                         if (global) {
@@ -2095,9 +2109,9 @@ spinalCore.register_models(SpinalTicket);
                             results.push(result);
                             if (!global) break;
                             var matchStr = String(result[0]);
-                            if (matchStr === "") rx.lastIndex = advanceStringIndex(S, toLength(rx.lastIndex), fullUnicode);
+                            if (matchStr === '') rx.lastIndex = advanceStringIndex(S, toLength(rx.lastIndex), fullUnicode);
                         }
-                        var accumulatedResult = "";
+                        var accumulatedResult = '';
                         var nextSourcePosition = 0;
                         for(var i = 0; i < results.length; i++){
                             result = results[i];
@@ -2138,15 +2152,15 @@ spinalCore.register_models(SpinalTicket);
                     return $replace.call(replacement, symbols, function(match, ch) {
                         var capture;
                         switch(ch.charAt(0)){
-                            case "$":
-                                return "$";
-                            case "&":
+                            case '$':
+                                return '$';
+                            case '&':
                                 return matched;
-                            case "`":
+                            case '`':
                                 return str.slice(0, position);
                             case "'":
                                 return str.slice(tailPos);
-                            case "<":
+                            case '<':
                                 capture = namedCaptures[ch.slice(1, -1)];
                                 break;
                             default:
@@ -2160,7 +2174,7 @@ spinalCore.register_models(SpinalTicket);
                                 }
                                 capture = captures[n - 1];
                         }
-                        return capture === undefined ? "" : capture;
+                        return capture === undefined ? '' : capture;
                     });
                 }
             });
@@ -2169,10 +2183,10 @@ spinalCore.register_models(SpinalTicket);
             // 7.2.8 IsRegExp(argument)
             var isObject = __webpack_require__("d3f4");
             var cof = __webpack_require__("2d95");
-            var MATCH = __webpack_require__("2b4c")("match");
+            var MATCH = __webpack_require__("2b4c")('match');
             module1.exports = function(it) {
                 var isRegExp;
-                return isObject(it) && ((isRegExp = it[MATCH]) !== undefined ? !!isRegExp : cof(it) == "RegExp");
+                return isObject(it) && ((isRegExp = it[MATCH]) !== undefined ? !!isRegExp : cof(it) == 'RegExp');
             };
         /***/ },
         /***/ "ac6a": /***/ function(module1, exports, __webpack_require__) {
@@ -2183,8 +2197,8 @@ spinalCore.register_models(SpinalTicket);
             var hide = __webpack_require__("32e9");
             var Iterators = __webpack_require__("84f2");
             var wks = __webpack_require__("2b4c");
-            var ITERATOR = wks("iterator");
-            var TO_STRING_TAG = wks("toStringTag");
+            var ITERATOR = wks('iterator');
+            var TO_STRING_TAG = wks('toStringTag');
             var ArrayValues = Iterators.Array;
             var DOMIterables = {
                 CSSRuleList: true,
@@ -2239,7 +2253,7 @@ spinalCore.register_models(SpinalTicket);
             "use strict";
             var regexpExec = __webpack_require__("520a");
             __webpack_require__("5ca1")({
-                target: "RegExp",
+                target: 'RegExp',
                 proto: true,
                 forced: regexpExec !== /./.exec
             }, {
@@ -2326,7 +2340,7 @@ spinalCore.register_models(SpinalTicket);
         /***/ },
         /***/ "c69a": /***/ function(module1, exports, __webpack_require__) {
             module1.exports = !__webpack_require__("9e1e") && !__webpack_require__("79e5")(function() {
-                return Object.defineProperty(__webpack_require__("230e")("div"), "a", {
+                return Object.defineProperty(__webpack_require__("230e")('div'), 'a', {
                     get: function() {
                         return 7;
                     }
@@ -2355,7 +2369,7 @@ spinalCore.register_models(SpinalTicket);
             var id = 0;
             var px = Math.random();
             module1.exports = function(key) {
-                return "Symbol(".concat(key === undefined ? "" : key, ")_", (++id + px).toString(36));
+                return 'Symbol('.concat(key === undefined ? '' : key, ')_', (++id + px).toString(36));
             };
         /***/ },
         /***/ "cadf": /***/ function(module1, exports, __webpack_require__) {
@@ -2368,7 +2382,7 @@ spinalCore.register_models(SpinalTicket);
             // 22.1.3.13 Array.prototype.keys()
             // 22.1.3.29 Array.prototype.values()
             // 22.1.3.30 Array.prototype[@@iterator]()
-            module1.exports = __webpack_require__("01f9")(Array, "Array", function(iterated, kind) {
+            module1.exports = __webpack_require__("01f9")(Array, 'Array', function(iterated, kind) {
                 this._t = toIObject(iterated); // target
                 this._i = 0; // next index
                 this._k = kind; // kind
@@ -2381,23 +2395,23 @@ spinalCore.register_models(SpinalTicket);
                     this._t = undefined;
                     return step(1);
                 }
-                if (kind == "keys") return step(0, index);
-                if (kind == "values") return step(0, O[index]);
+                if (kind == 'keys') return step(0, index);
+                if (kind == 'values') return step(0, O[index]);
                 return step(0, [
                     index,
                     O[index]
                 ]);
-            }, "values");
+            }, 'values');
             // argumentsList[@@iterator] is %ArrayProto_values% (9.4.4.6, 9.4.4.7)
             Iterators.Arguments = Iterators.Array;
-            addToUnscopables("keys");
-            addToUnscopables("values");
-            addToUnscopables("entries");
+            addToUnscopables('keys');
+            addToUnscopables('values');
+            addToUnscopables('entries');
         /***/ },
         /***/ "cb7c": /***/ function(module1, exports, __webpack_require__) {
             var isObject = __webpack_require__("d3f4");
             module1.exports = function(it) {
-                if (!isObject(it)) throw TypeError(it + " is not an object!");
+                if (!isObject(it)) throw TypeError(it + ' is not an object!');
                 return it;
             };
         /***/ },
@@ -2405,7 +2419,7 @@ spinalCore.register_models(SpinalTicket);
             var has = __webpack_require__("69a8");
             var toIObject = __webpack_require__("6821");
             var arrayIndexOf = __webpack_require__("c366")(false);
-            var IE_PROTO = __webpack_require__("613b")("IE_PROTO");
+            var IE_PROTO = __webpack_require__("613b")('IE_PROTO');
             module1.exports = function(object, names) {
                 var O = toIObject(object);
                 var i = 0;
@@ -2422,13 +2436,13 @@ spinalCore.register_models(SpinalTicket);
             var isRegExp = __webpack_require__("aae3");
             var defined = __webpack_require__("be13");
             module1.exports = function(that, searchString, NAME) {
-                if (isRegExp(searchString)) throw TypeError("String#" + NAME + " doesn't accept regex!");
+                if (isRegExp(searchString)) throw TypeError('String#' + NAME + " doesn't accept regex!");
                 return String(defined(that));
             };
         /***/ },
         /***/ "d3f4": /***/ function(module1, exports) {
             module1.exports = function(it) {
-                return typeof it === "object" ? it !== null : typeof it === "function";
+                return typeof it === 'object' ? it !== null : typeof it === 'function';
             };
         /***/ },
         /***/ "d53b": /***/ function(module1, exports) {
@@ -2441,13 +2455,13 @@ spinalCore.register_models(SpinalTicket);
         /***/ },
         /***/ "d8e8": /***/ function(module1, exports) {
             module1.exports = function(it) {
-                if (typeof it != "function") throw TypeError(it + " is not a function!");
+                if (typeof it != 'function') throw TypeError(it + ' is not a function!');
                 return it;
             };
         /***/ },
         /***/ "e11e": /***/ function(module1, exports) {
             // IE 8- don't enum bug keys
-            module1.exports = "constructor,hasOwnProperty,isPrototypeOf,propertyIsEnumerable,toLocaleString,toString,valueOf".split(",");
+            module1.exports = 'constructor,hasOwnProperty,isPrototypeOf,propertyIsEnumerable,toLocaleString,toString,valueOf'.split(',');
         /***/ },
         /***/ "f559": /***/ function(module1, exports, __webpack_require__) {
             "use strict";
@@ -2455,9 +2469,9 @@ spinalCore.register_models(SpinalTicket);
             var $export = __webpack_require__("5ca1");
             var toLength = __webpack_require__("9def");
             var context = __webpack_require__("d2c8");
-            var STARTS_WITH = "startsWith";
-            var $startsWith = ""[STARTS_WITH];
-            $export($export.P + $export.F * __webpack_require__("5147")(STARTS_WITH), "String", {
+            var STARTS_WITH = 'startsWith';
+            var $startsWith = ''[STARTS_WITH];
+            $export($export.P + $export.F * __webpack_require__("5147")(STARTS_WITH), 'String', {
                 startsWith: function startsWith(searchString /* , position = 0 */ ) {
                     var that = context(this, searchString, STARTS_WITH);
                     var index = toLength(Math.min(arguments.length > 1 ? arguments[1] : undefined, that.length));
@@ -2470,7 +2484,7 @@ spinalCore.register_models(SpinalTicket);
             // document.currentScript polyfill by Adam Miller
             // MIT license
             (function(document1) {
-                var currentScript = "currentScript", scripts = document1.getElementsByTagName("script"); // Live NodeList collection
+                var currentScript = "currentScript", scripts = document1.getElementsByTagName('script'); // Live NodeList collection
                 // If browser needs currentScript polyfill, add get currentScript() to the document object
                 if (!(currentScript in document1)) Object.defineProperty(document1, currentScript, {
                     get: function() {
@@ -2498,12 +2512,12 @@ spinalCore.register_models(SpinalTicket);
         /***/ "f751": /***/ function(module1, exports, __webpack_require__) {
             // 19.1.3.1 Object.assign(target, source)
             var $export = __webpack_require__("5ca1");
-            $export($export.S + $export.F, "Object", {
+            $export($export.S + $export.F, 'Object', {
                 assign: __webpack_require__("7333")
             });
         /***/ },
         /***/ "fa5b": /***/ function(module1, exports, __webpack_require__) {
-            module1.exports = __webpack_require__("5537")("native-function-to-string", Function.toString);
+            module1.exports = __webpack_require__("5537")('native-function-to-string', Function.toString);
         /***/ },
         /***/ "fab2": /***/ function(module1, exports, __webpack_require__) {
             var document1 = __webpack_require__("7726").document;
@@ -2515,7 +2529,7 @@ spinalCore.register_models(SpinalTicket);
             __webpack_require__.r(__webpack_exports__);
             // CONCATENATED MODULE: ./node_modules/@vue/cli-service/lib/commands/build/setPublicPath.js
             // This file is imported into lib/wc client bundles.
-            if (typeof window !== "undefined") {
+            if (typeof window !== 'undefined') {
                 __webpack_require__("f6fd");
                 var setPublicPath_i;
                 if ((setPublicPath_i = window.document.currentScript) && (setPublicPath_i = setPublicPath_i.src.match(/(.+\/)[^/]+\.js(\?.*)?$/))) __webpack_require__.p = setPublicPath_i[1] // eslint-disable-line
@@ -3035,7 +3049,7 @@ spinalCore.register_models(SpinalTicket);
     })["default"];
 });
 
-},{"f2b29fe3c2c19cbd":"4mik1"}],"4mik1":[function(require,module,exports) {
+},{"f2b29fe3c2c19cbd":"4mik1"}],"4mik1":[function(require,module,exports,__globalThis) {
 /**!
  * Sortable 1.10.2
  * @author	RubaXa   <trash@rubaxa.org>
@@ -3079,7 +3093,7 @@ function _objectSpread(target) {
     for(var i = 1; i < arguments.length; i++){
         var source = arguments[i] != null ? arguments[i] : {};
         var ownKeys = Object.keys(source);
-        if (typeof Object.getOwnPropertySymbols === "function") ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function(sym) {
+        if (typeof Object.getOwnPropertySymbols === 'function') ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function(sym) {
             return Object.getOwnPropertyDescriptor(source, sym).enumerable;
         }));
         ownKeys.forEach(function(key) {
@@ -3132,7 +3146,7 @@ function _nonIterableSpread() {
 }
 var version = "1.10.2";
 function userAgent(pattern) {
-    if (typeof window !== "undefined" && window.navigator) return !!/*@__PURE__*/ navigator.userAgent.match(pattern);
+    if (typeof window !== 'undefined' && window.navigator) return !!/*@__PURE__*/ navigator.userAgent.match(pattern);
 }
 var IE11OrLess = userAgent(/(?:Trident.*rv[ :]?11\.|msie|iemobile|Windows Phone)/i);
 var Edge = userAgent(/Edge/i);
@@ -3152,7 +3166,7 @@ function off(el, event, fn) {
 }
 function matches(/**HTMLElement*/ el, /**String*/ selector) {
     if (!selector) return;
-    selector[0] === ">" && (selector = selector.substring(1));
+    selector[0] === '>' && (selector = selector.substring(1));
     if (el) try {
         if (el.matches) return el.matches(selector);
         else if (el.msMatchesSelector) return el.msMatchesSelector(selector);
@@ -3169,7 +3183,7 @@ function closest(/**HTMLElement*/ el, /**String*/ selector, /**HTMLElement*/ ctx
     if (el) {
         ctx = ctx || document;
         do {
-            if (selector != null && (selector[0] === ">" ? el.parentNode === ctx && matches(el, selector) : matches(el, selector)) || includeCTX && el === ctx) return el;
+            if (selector != null && (selector[0] === '>' ? el.parentNode === ctx && matches(el, selector) : matches(el, selector)) || includeCTX && el === ctx) return el;
             if (el === ctx) break;
         /* jshint boss:true */ }while (el = getParentOrHost(el));
     }
@@ -3178,10 +3192,10 @@ function closest(/**HTMLElement*/ el, /**String*/ selector, /**HTMLElement*/ ctx
 var R_SPACE = /\s+/g;
 function toggleClass(el, name, state) {
     if (el && name) {
-        if (el.classList) el.classList[state ? "add" : "remove"](name);
+        if (el.classList) el.classList[state ? 'add' : 'remove'](name);
         else {
-            var className = (" " + el.className + " ").replace(R_SPACE, " ").replace(" " + name + " ", " ");
-            el.className = (className + (state ? " " + name : "")).replace(R_SPACE, " ");
+            var className = (' ' + el.className + ' ').replace(R_SPACE, ' ').replace(' ' + name + ' ', ' ');
+            el.className = (className + (state ? ' ' + name : '')).replace(R_SPACE, ' ');
         }
     }
 }
@@ -3189,21 +3203,21 @@ function css(el, prop, val) {
     var style = el && el.style;
     if (style) {
         if (val === void 0) {
-            if (document.defaultView && document.defaultView.getComputedStyle) val = document.defaultView.getComputedStyle(el, "");
+            if (document.defaultView && document.defaultView.getComputedStyle) val = document.defaultView.getComputedStyle(el, '');
             else if (el.currentStyle) val = el.currentStyle;
             return prop === void 0 ? val : val[prop];
         } else {
-            if (!(prop in style) && prop.indexOf("webkit") === -1) prop = "-webkit-" + prop;
-            style[prop] = val + (typeof val === "string" ? "" : "px");
+            if (!(prop in style) && prop.indexOf('webkit') === -1) prop = '-webkit-' + prop;
+            style[prop] = val + (typeof val === 'string' ? '' : 'px');
         }
     }
 }
 function matrix(el, selfOnly) {
-    var appliedTransforms = "";
-    if (typeof el === "string") appliedTransforms = el;
+    var appliedTransforms = '';
+    if (typeof el === 'string') appliedTransforms = el;
     else do {
-        var transform = css(el, "transform");
-        if (transform && transform !== "none") appliedTransforms = transform + " " + appliedTransforms;
+        var transform = css(el, 'transform');
+        if (transform && transform !== 'none') appliedTransforms = transform + ' ' + appliedTransforms;
     /* jshint boss:true */ }while (!selfOnly && (el = el.parentNode));
     var matrixFn = window.DOMMatrix || window.WebKitCSSMatrix || window.CSSMatrix || window.MSCSSMatrix;
     /*jshint -W056 */ return matrixFn && new matrixFn(appliedTransforms);
@@ -3253,10 +3267,10 @@ function getWindowScrollingElement() {
         container = container || el.parentNode; // solves #1123 (see: https://stackoverflow.com/a/37953806/6088312)
         // Not needed on <= IE11
         if (!IE11OrLess) {
-            do if (container && container.getBoundingClientRect && (css(container, "transform") !== "none" || relativeToNonStaticParent && css(container, "position") !== "static")) {
+            do if (container && container.getBoundingClientRect && (css(container, 'transform') !== 'none' || relativeToNonStaticParent && css(container, 'position') !== 'static')) {
                 var containerRect = container.getBoundingClientRect(); // Set relative to edges of padding box of container
-                top -= containerRect.top + parseInt(css(container, "border-top-width"));
-                left -= containerRect.left + parseInt(css(container, "border-left-width"));
+                top -= containerRect.top + parseInt(css(container, 'border-top-width'));
+                left -= containerRect.left + parseInt(css(container, 'border-left-width'));
                 bottom = top + elRect.height;
                 right = left + elRect.width;
                 break;
@@ -3295,7 +3309,7 @@ function getWindowScrollingElement() {
     var parent = getParentAutoScrollElement(el, true), elSideVal = getRect(el)[elSide];
     /* jshint boss:true */ while(parent){
         var parentSideVal = getRect(parent)[parentSide], visible = void 0;
-        if (parentSide === "top" || parentSide === "left") visible = elSideVal >= parentSideVal;
+        if (parentSide === 'top' || parentSide === 'left') visible = elSideVal >= parentSideVal;
         else visible = elSideVal <= parentSideVal;
         if (!visible) return parent;
         if (parent === getWindowScrollingElement()) break;
@@ -3313,7 +3327,7 @@ function getWindowScrollingElement() {
  */ function getChild(el, childNum, options) {
     var currentChild = 0, i = 0, children = el.children;
     while(i < children.length){
-        if (children[i].style.display !== "none" && children[i] !== Sortable.ghost && children[i] !== Sortable.dragged && closest(children[i], options.draggable, el, false)) {
+        if (children[i].style.display !== 'none' && children[i] !== Sortable.ghost && children[i] !== Sortable.dragged && closest(children[i], options.draggable, el, false)) {
             if (currentChild === childNum) return children[i];
             currentChild++;
         }
@@ -3328,7 +3342,7 @@ function getWindowScrollingElement() {
  * @return {HTMLElement}          The last child, ignoring ghostEl
  */ function lastChild(el, selector) {
     var last = el.lastElementChild;
-    while(last && (last === Sortable.ghost || css(last, "display") === "none" || selector && !matches(last, selector)))last = last.previousElementSibling;
+    while(last && (last === Sortable.ghost || css(last, 'display') === 'none' || selector && !matches(last, selector)))last = last.previousElementSibling;
     return last || null;
 }
 /**
@@ -3340,7 +3354,7 @@ function getWindowScrollingElement() {
  */ function index(el, selector) {
     var index = 0;
     if (!el || !el.parentNode) return -1;
-    /* jshint boss:true */ while(el = el.previousElementSibling)if (el.nodeName.toUpperCase() !== "TEMPLATE" && el !== Sortable.clone && (!selector || matches(el, selector))) index++;
+    /* jshint boss:true */ while(el = el.previousElementSibling)if (el.nodeName.toUpperCase() !== 'TEMPLATE' && el !== Sortable.clone && (!selector || matches(el, selector))) index++;
     return index;
 }
 /**
@@ -3382,7 +3396,7 @@ function getParentAutoScrollElement(el, includeSelf) {
     do // we don't need to get elem css if it isn't even overflowing in the first place (performance)
     if (elem.clientWidth < elem.scrollWidth || elem.clientHeight < elem.scrollHeight) {
         var elemCSS = css(elem);
-        if (elem.clientWidth < elem.scrollWidth && (elemCSS.overflowX == "auto" || elemCSS.overflowX == "scroll") || elem.clientHeight < elem.scrollHeight && (elemCSS.overflowY == "auto" || elemCSS.overflowY == "scroll")) {
+        if (elem.clientWidth < elem.scrollWidth && (elemCSS.overflowX == 'auto' || elemCSS.overflowX == 'scroll') || elem.clientHeight < elem.scrollHeight && (elemCSS.overflowY == 'auto' || elemCSS.overflowY == 'scroll')) {
             if (!elem.getBoundingClientRect || elem === document.body) return getWindowScrollingElement();
             if (gotSelf || includeSelf) return elem;
             gotSelf = true;
@@ -3429,20 +3443,20 @@ function clone(el) {
     else return el.cloneNode(true);
 }
 function setRect(el, rect) {
-    css(el, "position", "absolute");
-    css(el, "top", rect.top);
-    css(el, "left", rect.left);
-    css(el, "width", rect.width);
-    css(el, "height", rect.height);
+    css(el, 'position', 'absolute');
+    css(el, 'top', rect.top);
+    css(el, 'left', rect.left);
+    css(el, 'width', rect.width);
+    css(el, 'height', rect.height);
 }
 function unsetRect(el) {
-    css(el, "position", "");
-    css(el, "top", "");
-    css(el, "left", "");
-    css(el, "width", "");
-    css(el, "height", "");
+    css(el, 'position', '');
+    css(el, 'top', '');
+    css(el, 'left', '');
+    css(el, 'width', '');
+    css(el, 'height', '');
 }
-var expando = "Sortable" + new Date().getTime();
+var expando = 'Sortable' + new Date().getTime();
 function AnimationStateManager() {
     var animationStates = [], animationCallbackId;
     return {
@@ -3451,7 +3465,7 @@ function AnimationStateManager() {
             if (!this.options.animation) return;
             var children = [].slice.call(this.el.children);
             children.forEach(function(child) {
-                if (css(child, "display") === "none" || child === Sortable.ghost) return;
+                if (css(child, 'display') === 'none' || child === Sortable.ghost) return;
                 animationStates.push({
                     target: child,
                     rect: getRect(child)
@@ -3479,7 +3493,7 @@ function AnimationStateManager() {
             var _this = this;
             if (!this.options.animation) {
                 clearTimeout(animationCallbackId);
-                if (typeof callback === "function") callback();
+                if (typeof callback === 'function') callback();
                 return;
             }
             var animating = false, animationTime = 0;
@@ -3519,27 +3533,27 @@ function AnimationStateManager() {
             });
             clearTimeout(animationCallbackId);
             if (!animating) {
-                if (typeof callback === "function") callback();
+                if (typeof callback === 'function') callback();
             } else animationCallbackId = setTimeout(function() {
-                if (typeof callback === "function") callback();
+                if (typeof callback === 'function') callback();
             }, animationTime);
             animationStates = [];
         },
         animate: function animate(target, currentRect, toRect, duration) {
             if (duration) {
-                css(target, "transition", "");
-                css(target, "transform", "");
+                css(target, 'transition', '');
+                css(target, 'transform', '');
                 var elMatrix = matrix(this.el), scaleX = elMatrix && elMatrix.a, scaleY = elMatrix && elMatrix.d, translateX = (currentRect.left - toRect.left) / (scaleX || 1), translateY = (currentRect.top - toRect.top) / (scaleY || 1);
                 target.animatingX = !!translateX;
                 target.animatingY = !!translateY;
-                css(target, "transform", "translate3d(" + translateX + "px," + translateY + "px,0)");
+                css(target, 'transform', 'translate3d(' + translateX + 'px,' + translateY + 'px,0)');
                 repaint(target); // repaint
-                css(target, "transition", "transform " + duration + "ms" + (this.options.easing ? " " + this.options.easing : ""));
-                css(target, "transform", "translate3d(0,0,0)");
-                typeof target.animated === "number" && clearTimeout(target.animated);
+                css(target, 'transition', 'transform ' + duration + 'ms' + (this.options.easing ? ' ' + this.options.easing : ''));
+                css(target, 'transform', 'translate3d(0,0,0)');
+                typeof target.animated === 'number' && clearTimeout(target.animated);
                 target.animated = setTimeout(function() {
-                    css(target, "transition", "");
-                    css(target, "transform", "");
+                    css(target, 'transition', '');
+                    css(target, 'transform', '');
                     target.animated = false;
                     target.animatingX = false;
                     target.animatingY = false;
@@ -3570,7 +3584,7 @@ var PluginManager = {
         evt.cancel = function() {
             _this.eventCanceled = true;
         };
-        var eventNameGlobal = eventName + "Global";
+        var eventNameGlobal = eventName + 'Global';
         plugins.forEach(function(plugin) {
             if (!sortable[plugin.pluginName]) return; // Fire global events if it exists in this sortable
             if (sortable[plugin.pluginName][eventNameGlobal]) sortable[plugin.pluginName][eventNameGlobal](_objectSpread({
@@ -3596,13 +3610,13 @@ var PluginManager = {
         for(var option in sortable.options){
             if (!sortable.options.hasOwnProperty(option)) continue;
             var modified = this.modifyOption(sortable, option, sortable.options[option]);
-            if (typeof modified !== "undefined") sortable.options[option] = modified;
+            if (typeof modified !== 'undefined') sortable.options[option] = modified;
         }
     },
     getEventProperties: function getEventProperties(name, sortable) {
         var eventProperties = {};
         plugins.forEach(function(plugin) {
-            if (typeof plugin.eventProperties !== "function") return;
+            if (typeof plugin.eventProperties !== 'function') return;
             _extends(eventProperties, plugin.eventProperties.call(sortable[plugin.pluginName], name));
         });
         return eventProperties;
@@ -3612,7 +3626,7 @@ var PluginManager = {
         plugins.forEach(function(plugin) {
             // Plugin must exist on the Sortable
             if (!sortable[plugin.pluginName]) return; // If static option listener exists for this option, call in the context of the Sortable's instance of this plugin
-            if (plugin.optionListeners && typeof plugin.optionListeners[name] === "function") modifiedValue = plugin.optionListeners[name].call(sortable[plugin.pluginName], value);
+            if (plugin.optionListeners && typeof plugin.optionListeners[name] === 'function') modifiedValue = plugin.optionListeners[name].call(sortable[plugin.pluginName], value);
         });
         return modifiedValue;
     }
@@ -3621,13 +3635,13 @@ function dispatchEvent(_ref) {
     var sortable = _ref.sortable, rootEl = _ref.rootEl, name = _ref.name, targetEl = _ref.targetEl, cloneEl = _ref.cloneEl, toEl = _ref.toEl, fromEl = _ref.fromEl, oldIndex = _ref.oldIndex, newIndex = _ref.newIndex, oldDraggableIndex = _ref.oldDraggableIndex, newDraggableIndex = _ref.newDraggableIndex, originalEvent = _ref.originalEvent, putSortable = _ref.putSortable, extraEventProperties = _ref.extraEventProperties;
     sortable = sortable || rootEl && rootEl[expando];
     if (!sortable) return;
-    var evt, options = sortable.options, onName = "on" + name.charAt(0).toUpperCase() + name.substr(1); // Support for new CustomEvent feature
+    var evt, options = sortable.options, onName = 'on' + name.charAt(0).toUpperCase() + name.substr(1); // Support for new CustomEvent feature
     if (window.CustomEvent && !IE11OrLess && !Edge) evt = new CustomEvent(name, {
         bubbles: true,
         cancelable: true
     });
     else {
-        evt = document.createEvent("Event");
+        evt = document.createEvent('Event');
         evt.initEvent(name, true, true);
     }
     evt.to = toEl || rootEl;
@@ -3698,22 +3712,22 @@ function _dispatchEvent(info) {
 var dragEl, parentEl, ghostEl, rootEl, nextEl, lastDownEl, cloneEl, cloneHidden, oldIndex, newIndex, oldDraggableIndex, newDraggableIndex, activeGroup, putSortable, awaitingDragStarted = false, ignoreNextClick = false, sortables = [], tapEvt, touchEvt, lastDx, lastDy, tapDistanceLeft, tapDistanceTop, moved, lastTarget, lastDirection, pastFirstInvertThresh = false, isCircumstantialInvert = false, targetMoveDistance, // For positioning ghost absolutely
 ghostRelativeParent, ghostRelativeParentInitialScroll = [], // (left, top)
 _silent = false, savedInputChecked = [];
-/** @const */ var documentExists = typeof document !== "undefined", PositionGhostAbsolutely = IOS, CSSFloatProperty = Edge || IE11OrLess ? "cssFloat" : "float", // This will not pass for IE9, because IE9 DnD only works on anchors
-supportDraggable = documentExists && !ChromeForAndroid && !IOS && "draggable" in document.createElement("div"), supportCssPointerEvents = function() {
+/** @const */ var documentExists = typeof document !== 'undefined', PositionGhostAbsolutely = IOS, CSSFloatProperty = Edge || IE11OrLess ? 'cssFloat' : 'float', // This will not pass for IE9, because IE9 DnD only works on anchors
+supportDraggable = documentExists && !ChromeForAndroid && !IOS && 'draggable' in document.createElement('div'), supportCssPointerEvents = function() {
     if (!documentExists) return; // false when <= IE11
     if (IE11OrLess) return false;
-    var el = document.createElement("x");
-    el.style.cssText = "pointer-events:auto";
-    return el.style.pointerEvents === "auto";
+    var el = document.createElement('x');
+    el.style.cssText = 'pointer-events:auto';
+    return el.style.pointerEvents === 'auto';
 }(), _detectDirection = function _detectDirection(el, options) {
     var elCSS = css(el), elWidth = parseInt(elCSS.width) - parseInt(elCSS.paddingLeft) - parseInt(elCSS.paddingRight) - parseInt(elCSS.borderLeftWidth) - parseInt(elCSS.borderRightWidth), child1 = getChild(el, 0, options), child2 = getChild(el, 1, options), firstChildCSS = child1 && css(child1), secondChildCSS = child2 && css(child2), firstChildWidth = firstChildCSS && parseInt(firstChildCSS.marginLeft) + parseInt(firstChildCSS.marginRight) + getRect(child1).width, secondChildWidth = secondChildCSS && parseInt(secondChildCSS.marginLeft) + parseInt(secondChildCSS.marginRight) + getRect(child2).width;
-    if (elCSS.display === "flex") return elCSS.flexDirection === "column" || elCSS.flexDirection === "column-reverse" ? "vertical" : "horizontal";
-    if (elCSS.display === "grid") return elCSS.gridTemplateColumns.split(" ").length <= 1 ? "vertical" : "horizontal";
-    if (child1 && firstChildCSS["float"] && firstChildCSS["float"] !== "none") {
-        var touchingSideChild2 = firstChildCSS["float"] === "left" ? "left" : "right";
-        return child2 && (secondChildCSS.clear === "both" || secondChildCSS.clear === touchingSideChild2) ? "vertical" : "horizontal";
+    if (elCSS.display === 'flex') return elCSS.flexDirection === 'column' || elCSS.flexDirection === 'column-reverse' ? 'vertical' : 'horizontal';
+    if (elCSS.display === 'grid') return elCSS.gridTemplateColumns.split(' ').length <= 1 ? 'vertical' : 'horizontal';
+    if (child1 && firstChildCSS["float"] && firstChildCSS["float"] !== 'none') {
+        var touchingSideChild2 = firstChildCSS["float"] === 'left' ? 'left' : 'right';
+        return child2 && (secondChildCSS.clear === 'both' || secondChildCSS.clear === touchingSideChild2) ? 'vertical' : 'horizontal';
     }
-    return child1 && (firstChildCSS.display === "block" || firstChildCSS.display === "flex" || firstChildCSS.display === "table" || firstChildCSS.display === "grid" || firstChildWidth >= elWidth && elCSS[CSSFloatProperty] === "none" || child2 && elCSS[CSSFloatProperty] === "none" && firstChildWidth + secondChildWidth > elWidth) ? "vertical" : "horizontal";
+    return child1 && (firstChildCSS.display === 'block' || firstChildCSS.display === 'flex' || firstChildCSS.display === 'table' || firstChildCSS.display === 'grid' || firstChildWidth >= elWidth && elCSS[CSSFloatProperty] === 'none' || child2 && elCSS[CSSFloatProperty] === 'none' && firstChildWidth + secondChildWidth > elWidth) ? 'vertical' : 'horizontal';
 }, _dragElInRowColumn = function _dragElInRowColumn(dragRect, targetRect, vertical) {
     var dragElS1Opp = vertical ? dragRect.left : dragRect.top, dragElS2Opp = vertical ? dragRect.right : dragRect.bottom, dragElOppLength = vertical ? dragRect.width : dragRect.height, targetS1Opp = vertical ? targetRect.left : targetRect.top, targetS2Opp = vertical ? targetRect.right : targetRect.bottom, targetOppLength = vertical ? targetRect.width : targetRect.height;
     return dragElS1Opp === targetS1Opp || dragElS2Opp === targetS2Opp || dragElS1Opp + dragElOppLength / 2 === targetS1Opp + targetOppLength / 2;
@@ -3738,17 +3752,17 @@ supportDraggable = documentExists && !ChromeForAndroid && !IOS && "draggable" in
             // Default pull and put value if same group
             return true;
             else if (value == null || value === false) return false;
-            else if (pull && value === "clone") return value;
-            else if (typeof value === "function") return toFn(value(to, from, dragEl, evt), pull)(to, from, dragEl, evt);
+            else if (pull && value === 'clone') return value;
+            else if (typeof value === 'function') return toFn(value(to, from, dragEl, evt), pull)(to, from, dragEl, evt);
             else {
                 var otherGroup = (pull ? to : from).options.group.name;
-                return value === true || typeof value === "string" && value === otherGroup || value.join && value.indexOf(otherGroup) > -1;
+                return value === true || typeof value === 'string' && value === otherGroup || value.join && value.indexOf(otherGroup) > -1;
             }
         };
     }
     var group = {};
     var originalGroup = options.group;
-    if (!originalGroup || _typeof(originalGroup) != "object") originalGroup = {
+    if (!originalGroup || _typeof(originalGroup) != 'object') originalGroup = {
         name: originalGroup
     };
     group.name = originalGroup.name;
@@ -3757,11 +3771,11 @@ supportDraggable = documentExists && !ChromeForAndroid && !IOS && "draggable" in
     group.revertClone = originalGroup.revertClone;
     options.group = group;
 }, _hideGhostForTarget = function _hideGhostForTarget() {
-    if (!supportCssPointerEvents && ghostEl) css(ghostEl, "display", "none");
+    if (!supportCssPointerEvents && ghostEl) css(ghostEl, 'display', 'none');
 }, _unhideGhostForTarget = function _unhideGhostForTarget() {
-    if (!supportCssPointerEvents && ghostEl) css(ghostEl, "display", "");
+    if (!supportCssPointerEvents && ghostEl) css(ghostEl, 'display', '');
 }; // #1184 fix - Prevent click event on fallback if dragged but item not changed position
-if (documentExists) document.addEventListener("click", function(evt) {
+if (documentExists) document.addEventListener('click', function(evt) {
     if (ignoreNextClick) {
         evt.preventDefault();
         evt.stopPropagation && evt.stopPropagation();
@@ -3803,7 +3817,7 @@ var _checkOutsideTargetEl = function _checkOutsideTargetEl(evt) {
         disabled: false,
         store: null,
         handle: null,
-        draggable: /^[uo]l$/i.test(el.nodeName) ? ">li" : ">*",
+        draggable: /^[uo]l$/i.test(el.nodeName) ? '>li' : '>*',
         swapThreshold: 1,
         // percentage; 0 <= x <= 1
         invertSwap: false,
@@ -3814,51 +3828,51 @@ var _checkOutsideTargetEl = function _checkOutsideTargetEl(evt) {
         direction: function direction() {
             return _detectDirection(el, this.options);
         },
-        ghostClass: "sortable-ghost",
-        chosenClass: "sortable-chosen",
-        dragClass: "sortable-drag",
-        ignore: "a, img",
+        ghostClass: 'sortable-ghost',
+        chosenClass: 'sortable-chosen',
+        dragClass: 'sortable-drag',
+        ignore: 'a, img',
         filter: null,
         preventOnFilter: true,
         animation: 0,
         easing: null,
         setData: function setData(dataTransfer, dragEl) {
-            dataTransfer.setData("Text", dragEl.textContent);
+            dataTransfer.setData('Text', dragEl.textContent);
         },
         dropBubble: false,
         dragoverBubble: false,
-        dataIdAttr: "data-id",
+        dataIdAttr: 'data-id',
         delay: 0,
         delayOnTouchOnly: false,
         touchStartThreshold: (Number.parseInt ? Number : window).parseInt(window.devicePixelRatio, 10) || 1,
         forceFallback: false,
-        fallbackClass: "sortable-fallback",
+        fallbackClass: 'sortable-fallback',
         fallbackOnBody: false,
         fallbackTolerance: 0,
         fallbackOffset: {
             x: 0,
             y: 0
         },
-        supportPointer: Sortable.supportPointer !== false && "PointerEvent" in window,
+        supportPointer: Sortable.supportPointer !== false && 'PointerEvent' in window,
         emptyInsertThreshold: 5
     };
     PluginManager.initializePlugins(this, el, defaults); // Set default options
     for(var name in defaults)!(name in options) && (options[name] = defaults[name]);
     _prepareGroup(options); // Bind all private methods
-    for(var fn in this)if (fn.charAt(0) === "_" && typeof this[fn] === "function") this[fn] = this[fn].bind(this);
+    for(var fn in this)if (fn.charAt(0) === '_' && typeof this[fn] === 'function') this[fn] = this[fn].bind(this);
      // Setup drag mode
     this.nativeDraggable = options.forceFallback ? false : supportDraggable;
     if (this.nativeDraggable) // Touch start threshold cannot be greater than the native dragstart threshold
     this.options.touchStartThreshold = 1;
      // Bind events
-    if (options.supportPointer) on(el, "pointerdown", this._onTapStart);
+    if (options.supportPointer) on(el, 'pointerdown', this._onTapStart);
     else {
-        on(el, "mousedown", this._onTapStart);
-        on(el, "touchstart", this._onTapStart);
+        on(el, 'mousedown', this._onTapStart);
+        on(el, 'touchstart', this._onTapStart);
     }
     if (this.nativeDraggable) {
-        on(el, "dragover", this);
-        on(el, "dragenter", this);
+        on(el, 'dragover', this);
+        on(el, 'dragenter', this);
     }
     sortables.push(this.el); // Restore sorting
     options.store && options.store.get && this.sort(options.store.get(this) || []); // Add animation state manager
@@ -3870,11 +3884,11 @@ Sortable.prototype = /** @lends Sortable.prototype */ {
         if (!this.el.contains(target) && target !== this.el) lastTarget = null;
     },
     _getDirection: function _getDirection(evt, target) {
-        return typeof this.options.direction === "function" ? this.options.direction.call(this, evt, target, dragEl) : this.options.direction;
+        return typeof this.options.direction === 'function' ? this.options.direction.call(this, evt, target, dragEl) : this.options.direction;
     },
     _onTapStart: function _onTapStart(/** Event|TouchEvent */ evt) {
         if (!evt.cancelable) return;
-        var _this = this, el = this.el, options = this.options, preventOnFilter = options.preventOnFilter, type = evt.type, touch = evt.touches && evt.touches[0] || evt.pointerType && evt.pointerType === "touch" && evt, target = (touch || evt).target, originalTarget = evt.target.shadowRoot && (evt.path && evt.path[0] || evt.composedPath && evt.composedPath()[0]) || target, filter = options.filter;
+        var _this = this, el = this.el, options = this.options, preventOnFilter = options.preventOnFilter, type = evt.type, touch = evt.touches && evt.touches[0] || evt.pointerType && evt.pointerType === 'touch' && evt, target = (touch || evt).target, originalTarget = evt.target.shadowRoot && (evt.path && evt.path[0] || evt.composedPath && evt.composedPath()[0]) || target, filter = options.filter;
         _saveInputCheckedState(el); // Don't trigger start event when an element is been dragged, otherwise the evt.oldindex always wrong when set option.group.
         if (dragEl) return;
         if (/mousedown|pointerdown/.test(type) && evt.button !== 0 || options.disabled) return; // only left button and enabled
@@ -3887,35 +3901,35 @@ Sortable.prototype = /** @lends Sortable.prototype */ {
          // Get the index of the dragged element within its parent
         oldIndex = index(target);
         oldDraggableIndex = index(target, options.draggable); // Check filter
-        if (typeof filter === "function") {
+        if (typeof filter === 'function') {
             if (filter.call(this, evt, target, this)) {
                 _dispatchEvent({
                     sortable: _this,
                     rootEl: originalTarget,
-                    name: "filter",
+                    name: 'filter',
                     targetEl: target,
                     toEl: el,
                     fromEl: el
                 });
-                pluginEvent("filter", _this, {
+                pluginEvent('filter', _this, {
                     evt: evt
                 });
                 preventOnFilter && evt.cancelable && evt.preventDefault();
                 return; // cancel dnd
             }
         } else if (filter) {
-            filter = filter.split(",").some(function(criteria) {
+            filter = filter.split(',').some(function(criteria) {
                 criteria = closest(originalTarget, criteria.trim(), el, false);
                 if (criteria) {
                     _dispatchEvent({
                         sortable: _this,
                         rootEl: criteria,
-                        name: "filter",
+                        name: 'filter',
                         targetEl: target,
                         fromEl: el,
                         toEl: el
                     });
-                    pluginEvent("filter", _this, {
+                    pluginEvent('filter', _this, {
                         evt: evt
                     });
                     return true;
@@ -3950,9 +3964,9 @@ Sortable.prototype = /** @lends Sortable.prototype */ {
             tapDistanceTop = tapEvt.clientY - dragRect.top;
             this._lastX = (touch || evt).clientX;
             this._lastY = (touch || evt).clientY;
-            dragEl.style["will-change"] = "all";
+            dragEl.style['will-change'] = 'all';
             dragStartFn = function dragStartFn() {
-                pluginEvent("delayEnded", _this, {
+                pluginEvent('delayEnded', _this, {
                     evt: evt
                 });
                 if (Sortable.eventCanceled) {
@@ -3966,25 +3980,25 @@ Sortable.prototype = /** @lends Sortable.prototype */ {
                 _this._triggerDragStart(evt, touch); // Drag start event
                 _dispatchEvent({
                     sortable: _this,
-                    name: "choose",
+                    name: 'choose',
                     originalEvent: evt
                 }); // Chosen item
                 toggleClass(dragEl, options.chosenClass, true);
             }; // Disable "draggable"
-            options.ignore.split(",").forEach(function(criteria) {
+            options.ignore.split(',').forEach(function(criteria) {
                 find(dragEl, criteria.trim(), _disableDraggable);
             });
-            on(ownerDocument, "dragover", nearestEmptyInsertDetectEvent);
-            on(ownerDocument, "mousemove", nearestEmptyInsertDetectEvent);
-            on(ownerDocument, "touchmove", nearestEmptyInsertDetectEvent);
-            on(ownerDocument, "mouseup", _this._onDrop);
-            on(ownerDocument, "touchend", _this._onDrop);
-            on(ownerDocument, "touchcancel", _this._onDrop); // Make dragEl draggable (must be before delay for FireFox)
+            on(ownerDocument, 'dragover', nearestEmptyInsertDetectEvent);
+            on(ownerDocument, 'mousemove', nearestEmptyInsertDetectEvent);
+            on(ownerDocument, 'touchmove', nearestEmptyInsertDetectEvent);
+            on(ownerDocument, 'mouseup', _this._onDrop);
+            on(ownerDocument, 'touchend', _this._onDrop);
+            on(ownerDocument, 'touchcancel', _this._onDrop); // Make dragEl draggable (must be before delay for FireFox)
             if (FireFox && this.nativeDraggable) {
                 this.options.touchStartThreshold = 4;
                 dragEl.draggable = true;
             }
-            pluginEvent("delayStart", this, {
+            pluginEvent('delayStart', this, {
                 evt: evt
             }); // Delay is impossible for native DnD in Edge or IE
             if (options.delay && (!options.delayOnTouchOnly || touch) && (!this.nativeDraggable || !(Edge || IE11OrLess))) {
@@ -3994,12 +4008,12 @@ Sortable.prototype = /** @lends Sortable.prototype */ {
                 } // If the user moves the pointer or let go the click or touch
                 // before the delay has been reached:
                 // disable the delayed drag
-                on(ownerDocument, "mouseup", _this._disableDelayedDrag);
-                on(ownerDocument, "touchend", _this._disableDelayedDrag);
-                on(ownerDocument, "touchcancel", _this._disableDelayedDrag);
-                on(ownerDocument, "mousemove", _this._delayedDragTouchMoveHandler);
-                on(ownerDocument, "touchmove", _this._delayedDragTouchMoveHandler);
-                options.supportPointer && on(ownerDocument, "pointermove", _this._delayedDragTouchMoveHandler);
+                on(ownerDocument, 'mouseup', _this._disableDelayedDrag);
+                on(ownerDocument, 'touchend', _this._disableDelayedDrag);
+                on(ownerDocument, 'touchcancel', _this._disableDelayedDrag);
+                on(ownerDocument, 'mousemove', _this._delayedDragTouchMoveHandler);
+                on(ownerDocument, 'touchmove', _this._delayedDragTouchMoveHandler);
+                options.supportPointer && on(ownerDocument, 'pointermove', _this._delayedDragTouchMoveHandler);
                 _this._dragStartTimer = setTimeout(dragStartFn, options.delay);
             } else dragStartFn();
         }
@@ -4015,22 +4029,22 @@ Sortable.prototype = /** @lends Sortable.prototype */ {
     },
     _disableDelayedDragEvents: function _disableDelayedDragEvents() {
         var ownerDocument = this.el.ownerDocument;
-        off(ownerDocument, "mouseup", this._disableDelayedDrag);
-        off(ownerDocument, "touchend", this._disableDelayedDrag);
-        off(ownerDocument, "touchcancel", this._disableDelayedDrag);
-        off(ownerDocument, "mousemove", this._delayedDragTouchMoveHandler);
-        off(ownerDocument, "touchmove", this._delayedDragTouchMoveHandler);
-        off(ownerDocument, "pointermove", this._delayedDragTouchMoveHandler);
+        off(ownerDocument, 'mouseup', this._disableDelayedDrag);
+        off(ownerDocument, 'touchend', this._disableDelayedDrag);
+        off(ownerDocument, 'touchcancel', this._disableDelayedDrag);
+        off(ownerDocument, 'mousemove', this._delayedDragTouchMoveHandler);
+        off(ownerDocument, 'touchmove', this._delayedDragTouchMoveHandler);
+        off(ownerDocument, 'pointermove', this._delayedDragTouchMoveHandler);
     },
     _triggerDragStart: function _triggerDragStart(/** Event */ evt, /** Touch */ touch) {
-        touch = touch || evt.pointerType == "touch" && evt;
+        touch = touch || evt.pointerType == 'touch' && evt;
         if (!this.nativeDraggable || touch) {
-            if (this.options.supportPointer) on(document, "pointermove", this._onTouchMove);
-            else if (touch) on(document, "touchmove", this._onTouchMove);
-            else on(document, "mousemove", this._onTouchMove);
+            if (this.options.supportPointer) on(document, 'pointermove', this._onTouchMove);
+            else if (touch) on(document, 'touchmove', this._onTouchMove);
+            else on(document, 'mousemove', this._onTouchMove);
         } else {
-            on(dragEl, "dragend", this);
-            on(rootEl, "dragstart", this._onDragStart);
+            on(dragEl, 'dragend', this);
+            on(rootEl, 'dragstart', this._onDragStart);
         }
         try {
             if (document.selection) // Timeout neccessary for IE9
@@ -4043,10 +4057,10 @@ Sortable.prototype = /** @lends Sortable.prototype */ {
     _dragStarted: function _dragStarted(fallback, evt) {
         awaitingDragStarted = false;
         if (rootEl && dragEl) {
-            pluginEvent("dragStarted", this, {
+            pluginEvent('dragStarted', this, {
                 evt: evt
             });
-            if (this.nativeDraggable) on(document, "dragover", _checkOutsideTargetEl);
+            if (this.nativeDraggable) on(document, 'dragover', _checkOutsideTargetEl);
             var options = this.options; // Apply effect
             !fallback && toggleClass(dragEl, options.dragClass, false);
             toggleClass(dragEl, options.ghostClass, true);
@@ -4054,7 +4068,7 @@ Sortable.prototype = /** @lends Sortable.prototype */ {
             fallback && this._appendGhost(); // Drag start event
             _dispatchEvent({
                 sortable: this,
-                name: "start",
+                name: 'start',
                 originalEvent: evt
             });
         } else this._nulling();
@@ -4108,10 +4122,10 @@ Sortable.prototype = /** @lends Sortable.prototype */ {
                     f: dy
                 };
                 var cssMatrix = "matrix(".concat(ghostMatrix.a, ",").concat(ghostMatrix.b, ",").concat(ghostMatrix.c, ",").concat(ghostMatrix.d, ",").concat(ghostMatrix.e, ",").concat(ghostMatrix.f, ")");
-                css(ghostEl, "webkitTransform", cssMatrix);
-                css(ghostEl, "mozTransform", cssMatrix);
-                css(ghostEl, "msTransform", cssMatrix);
-                css(ghostEl, "transform", cssMatrix);
+                css(ghostEl, 'webkitTransform', cssMatrix);
+                css(ghostEl, 'mozTransform', cssMatrix);
+                css(ghostEl, 'msTransform', cssMatrix);
+                css(ghostEl, 'transform', cssMatrix);
                 lastDx = dx;
                 lastDy = dy;
                 touchEvt = touch;
@@ -4127,7 +4141,7 @@ Sortable.prototype = /** @lends Sortable.prototype */ {
             if (PositionGhostAbsolutely) {
                 // Get relatively positioned parent
                 ghostRelativeParent = container;
-                while(css(ghostRelativeParent, "position") === "static" && css(ghostRelativeParent, "transform") === "none" && ghostRelativeParent !== document)ghostRelativeParent = ghostRelativeParent.parentNode;
+                while(css(ghostRelativeParent, 'position') === 'static' && css(ghostRelativeParent, 'transform') === 'none' && ghostRelativeParent !== document)ghostRelativeParent = ghostRelativeParent.parentNode;
                 if (ghostRelativeParent !== document.body && ghostRelativeParent !== document.documentElement) {
                     if (ghostRelativeParent === document) ghostRelativeParent = getWindowScrollingElement();
                     rect.top += ghostRelativeParent.scrollTop;
@@ -4139,51 +4153,51 @@ Sortable.prototype = /** @lends Sortable.prototype */ {
             toggleClass(ghostEl, options.ghostClass, false);
             toggleClass(ghostEl, options.fallbackClass, true);
             toggleClass(ghostEl, options.dragClass, true);
-            css(ghostEl, "transition", "");
-            css(ghostEl, "transform", "");
-            css(ghostEl, "box-sizing", "border-box");
-            css(ghostEl, "margin", 0);
-            css(ghostEl, "top", rect.top);
-            css(ghostEl, "left", rect.left);
-            css(ghostEl, "width", rect.width);
-            css(ghostEl, "height", rect.height);
-            css(ghostEl, "opacity", "0.8");
-            css(ghostEl, "position", PositionGhostAbsolutely ? "absolute" : "fixed");
-            css(ghostEl, "zIndex", "100000");
-            css(ghostEl, "pointerEvents", "none");
+            css(ghostEl, 'transition', '');
+            css(ghostEl, 'transform', '');
+            css(ghostEl, 'box-sizing', 'border-box');
+            css(ghostEl, 'margin', 0);
+            css(ghostEl, 'top', rect.top);
+            css(ghostEl, 'left', rect.left);
+            css(ghostEl, 'width', rect.width);
+            css(ghostEl, 'height', rect.height);
+            css(ghostEl, 'opacity', '0.8');
+            css(ghostEl, 'position', PositionGhostAbsolutely ? 'absolute' : 'fixed');
+            css(ghostEl, 'zIndex', '100000');
+            css(ghostEl, 'pointerEvents', 'none');
             Sortable.ghost = ghostEl;
             container.appendChild(ghostEl); // Set transform-origin
-            css(ghostEl, "transform-origin", tapDistanceLeft / parseInt(ghostEl.style.width) * 100 + "% " + tapDistanceTop / parseInt(ghostEl.style.height) * 100 + "%");
+            css(ghostEl, 'transform-origin', tapDistanceLeft / parseInt(ghostEl.style.width) * 100 + '% ' + tapDistanceTop / parseInt(ghostEl.style.height) * 100 + '%');
         }
     },
     _onDragStart: function _onDragStart(/**Event*/ evt, /**boolean*/ fallback) {
         var _this = this;
         var dataTransfer = evt.dataTransfer;
         var options = _this.options;
-        pluginEvent("dragStart", this, {
+        pluginEvent('dragStart', this, {
             evt: evt
         });
         if (Sortable.eventCanceled) {
             this._onDrop();
             return;
         }
-        pluginEvent("setupClone", this);
+        pluginEvent('setupClone', this);
         if (!Sortable.eventCanceled) {
             cloneEl = clone(dragEl);
             cloneEl.draggable = false;
-            cloneEl.style["will-change"] = "";
+            cloneEl.style['will-change'] = '';
             this._hideClone();
             toggleClass(cloneEl, this.options.chosenClass, false);
             Sortable.clone = cloneEl;
         } // #1143: IFrame support workaround
         _this.cloneId = _nextTick(function() {
-            pluginEvent("clone", _this);
+            pluginEvent('clone', _this);
             if (Sortable.eventCanceled) return;
             if (!_this.options.removeCloneOnHide) rootEl.insertBefore(cloneEl, dragEl);
             _this._hideClone();
             _dispatchEvent({
                 sortable: _this,
-                name: "clone"
+                name: 'clone'
             });
         });
         !fallback && toggleClass(dragEl, options.dragClass, true); // Set proper drop events
@@ -4192,21 +4206,21 @@ Sortable.prototype = /** @lends Sortable.prototype */ {
             _this._loopId = setInterval(_this._emulateDragOver, 50);
         } else {
             // Undo what was set in _prepareDragStart before drag started
-            off(document, "mouseup", _this._onDrop);
-            off(document, "touchend", _this._onDrop);
-            off(document, "touchcancel", _this._onDrop);
+            off(document, 'mouseup', _this._onDrop);
+            off(document, 'touchend', _this._onDrop);
+            off(document, 'touchcancel', _this._onDrop);
             if (dataTransfer) {
-                dataTransfer.effectAllowed = "move";
+                dataTransfer.effectAllowed = 'move';
                 options.setData && options.setData.call(_this, dataTransfer, dragEl);
             }
-            on(document, "drop", _this); // #1276 fix:
-            css(dragEl, "transform", "translateZ(0)");
+            on(document, 'drop', _this); // #1276 fix:
+            css(dragEl, 'transform', 'translateZ(0)');
         }
         awaitingDragStarted = true;
         _this._dragStartId = _nextTick(_this._dragStarted.bind(_this, fallback, evt));
-        on(document, "selectstart", _this);
+        on(document, 'selectstart', _this);
         moved = true;
-        if (Safari) css(document.body, "user-select", "none");
+        if (Safari) css(document.body, 'user-select', 'none');
     },
     // Returns true - if no further action is needed (either inserted or another condition)
     _onDragOver: function _onDragOver(/**Event*/ evt) {
@@ -4216,7 +4230,7 @@ Sortable.prototype = /** @lends Sortable.prototype */ {
             pluginEvent(name, _this, _objectSpread({
                 evt: evt,
                 isOwner: isOwner,
-                axis: vertical ? "vertical" : "horizontal",
+                axis: vertical ? 'vertical' : 'horizontal',
                 revert: revert,
                 dragRect: dragRect,
                 targetRect: targetRect,
@@ -4231,12 +4245,12 @@ Sortable.prototype = /** @lends Sortable.prototype */ {
             }, extra));
         } // Capture animation state
         function capture() {
-            dragOverEvent("dragOverAnimationCapture");
+            dragOverEvent('dragOverAnimationCapture');
             _this.captureAnimationState();
             if (_this !== fromSortable) fromSortable.captureAnimationState();
         } // Return invocation when dragEl is inserted (or completed)
         function completed(insertion) {
-            dragOverEvent("dragOverCompleted", {
+            dragOverEvent('dragOverCompleted', {
                 insertion: insertion
             });
             if (insertion) {
@@ -4253,7 +4267,7 @@ Sortable.prototype = /** @lends Sortable.prototype */ {
                  // Animation
                 if (fromSortable === _this) _this._ignoreWhileAnimating = target;
                 _this.animateAll(function() {
-                    dragOverEvent("dragOverAnimationComplete");
+                    dragOverEvent('dragOverAnimationComplete');
                     _this._ignoreWhileAnimating = null;
                 });
                 if (_this !== fromSortable) {
@@ -4275,7 +4289,7 @@ Sortable.prototype = /** @lends Sortable.prototype */ {
             newDraggableIndex = index(dragEl, options.draggable);
             _dispatchEvent({
                 sortable: _this,
-                name: "change",
+                name: 'change',
                 toEl: el,
                 newIndex: newIndex,
                 newDraggableIndex: newDraggableIndex,
@@ -4284,21 +4298,21 @@ Sortable.prototype = /** @lends Sortable.prototype */ {
         }
         if (evt.preventDefault !== void 0) evt.cancelable && evt.preventDefault();
         target = closest(target, options.draggable, el, true);
-        dragOverEvent("dragOver");
+        dragOverEvent('dragOver');
         if (Sortable.eventCanceled) return completedFired;
         if (dragEl.contains(evt.target) || target.animated && target.animatingX && target.animatingY || _this._ignoreWhileAnimating === target) return completed(false);
         ignoreNextClick = false;
         if (activeSortable && !options.disabled && (isOwner ? canSort || (revert = !rootEl.contains(dragEl) // Reverting item into the original list
         ) : putSortable === this || (this.lastPutMode = activeGroup.checkPull(this, activeSortable, dragEl, evt)) && group.checkPut(this, activeSortable, dragEl, evt))) {
-            vertical = this._getDirection(evt, target) === "vertical";
+            vertical = this._getDirection(evt, target) === 'vertical';
             dragRect = getRect(dragEl);
-            dragOverEvent("dragOverValid");
+            dragOverEvent('dragOverValid');
             if (Sortable.eventCanceled) return completedFired;
             if (revert) {
                 parentEl = rootEl; // actualization
                 capture();
                 this._hideClone();
-                dragOverEvent("revert");
+                dragOverEvent('revert');
                 if (!Sortable.eventCanceled) {
                     if (nextEl) rootEl.insertBefore(dragEl, nextEl);
                     else rootEl.appendChild(dragEl);
@@ -4321,7 +4335,7 @@ Sortable.prototype = /** @lends Sortable.prototype */ {
                 }
             } else if (target.parentNode === el) {
                 targetRect = getRect(target);
-                var direction = 0, targetBeforeFirstSwap, differentLevel = dragEl.parentNode !== el, differentRowCol = !_dragElInRowColumn(dragEl.animated && dragEl.toRect || dragRect, target.animated && target.toRect || targetRect, vertical), side1 = vertical ? "top" : "left", scrolledPastTop = isScrolledPast(target, "top", "top") || isScrolledPast(dragEl, "top", "top"), scrollBefore = scrolledPastTop ? scrolledPastTop.scrollTop : void 0;
+                var direction = 0, targetBeforeFirstSwap, differentLevel = dragEl.parentNode !== el, differentRowCol = !_dragElInRowColumn(dragEl.animated && dragEl.toRect || dragRect, target.animated && target.toRect || targetRect, vertical), side1 = vertical ? 'top' : 'left', scrolledPastTop = isScrolledPast(target, 'top', 'top') || isScrolledPast(dragEl, 'top', 'top'), scrollBefore = scrolledPastTop ? scrolledPastTop.scrollTop : void 0;
                 if (lastTarget !== target) {
                     targetBeforeFirstSwap = targetRect[side1];
                     pastFirstInvertThresh = false;
@@ -4335,7 +4349,7 @@ Sortable.prototype = /** @lends Sortable.prototype */ {
                     do {
                         dragIndex -= direction;
                         sibling = parentEl.children[dragIndex];
-                    }while (sibling && (css(sibling, "display") === "none" || sibling === ghostEl));
+                    }while (sibling && (css(sibling, 'display') === 'none' || sibling === ghostEl));
                 } // If dragEl is already beside target: Do not insert
                 if (direction === 0 || sibling === target) return completed(false);
                 lastTarget = target;
@@ -4365,26 +4379,26 @@ Sortable.prototype = /** @lends Sortable.prototype */ {
     },
     _ignoreWhileAnimating: null,
     _offMoveEvents: function _offMoveEvents() {
-        off(document, "mousemove", this._onTouchMove);
-        off(document, "touchmove", this._onTouchMove);
-        off(document, "pointermove", this._onTouchMove);
-        off(document, "dragover", nearestEmptyInsertDetectEvent);
-        off(document, "mousemove", nearestEmptyInsertDetectEvent);
-        off(document, "touchmove", nearestEmptyInsertDetectEvent);
+        off(document, 'mousemove', this._onTouchMove);
+        off(document, 'touchmove', this._onTouchMove);
+        off(document, 'pointermove', this._onTouchMove);
+        off(document, 'dragover', nearestEmptyInsertDetectEvent);
+        off(document, 'mousemove', nearestEmptyInsertDetectEvent);
+        off(document, 'touchmove', nearestEmptyInsertDetectEvent);
     },
     _offUpEvents: function _offUpEvents() {
         var ownerDocument = this.el.ownerDocument;
-        off(ownerDocument, "mouseup", this._onDrop);
-        off(ownerDocument, "touchend", this._onDrop);
-        off(ownerDocument, "pointerup", this._onDrop);
-        off(ownerDocument, "touchcancel", this._onDrop);
-        off(document, "selectstart", this);
+        off(ownerDocument, 'mouseup', this._onDrop);
+        off(ownerDocument, 'touchend', this._onDrop);
+        off(ownerDocument, 'pointerup', this._onDrop);
+        off(ownerDocument, 'touchcancel', this._onDrop);
+        off(document, 'selectstart', this);
     },
     _onDrop: function _onDrop(/**Event*/ evt) {
         var el = this.el, options = this.options; // Get the index of the dragged element within its parent
         newIndex = index(dragEl);
         newDraggableIndex = index(dragEl, options.draggable);
-        pluginEvent("drop", this, {
+        pluginEvent('drop', this, {
             evt: evt
         });
         parentEl = dragEl && dragEl.parentNode; // Get again after plugin event
@@ -4402,31 +4416,31 @@ Sortable.prototype = /** @lends Sortable.prototype */ {
         _cancelNextTick(this.cloneId);
         _cancelNextTick(this._dragStartId); // Unbind events
         if (this.nativeDraggable) {
-            off(document, "drop", this);
-            off(el, "dragstart", this._onDragStart);
+            off(document, 'drop', this);
+            off(el, 'dragstart', this._onDragStart);
         }
         this._offMoveEvents();
         this._offUpEvents();
-        if (Safari) css(document.body, "user-select", "");
-        css(dragEl, "transform", "");
+        if (Safari) css(document.body, 'user-select', '');
+        css(dragEl, 'transform', '');
         if (evt) {
             if (moved) {
                 evt.cancelable && evt.preventDefault();
                 !options.dropBubble && evt.stopPropagation();
             }
             ghostEl && ghostEl.parentNode && ghostEl.parentNode.removeChild(ghostEl);
-            if (rootEl === parentEl || putSortable && putSortable.lastPutMode !== "clone") // Remove clone(s)
+            if (rootEl === parentEl || putSortable && putSortable.lastPutMode !== 'clone') // Remove clone(s)
             cloneEl && cloneEl.parentNode && cloneEl.parentNode.removeChild(cloneEl);
             if (dragEl) {
-                if (this.nativeDraggable) off(dragEl, "dragend", this);
+                if (this.nativeDraggable) off(dragEl, 'dragend', this);
                 _disableDraggable(dragEl);
-                dragEl.style["will-change"] = ""; // Remove classes
+                dragEl.style['will-change'] = ''; // Remove classes
                 // ghostClass is added in dragStarted
                 if (moved && !awaitingDragStarted) toggleClass(dragEl, putSortable ? putSortable.options.ghostClass : this.options.ghostClass, false);
                 toggleClass(dragEl, this.options.chosenClass, false); // Drag stop event
                 _dispatchEvent({
                     sortable: this,
-                    name: "unchoose",
+                    name: 'unchoose',
                     toEl: parentEl,
                     newIndex: null,
                     newDraggableIndex: null,
@@ -4437,27 +4451,27 @@ Sortable.prototype = /** @lends Sortable.prototype */ {
                         // Add event
                         _dispatchEvent({
                             rootEl: parentEl,
-                            name: "add",
+                            name: 'add',
                             toEl: parentEl,
                             fromEl: rootEl,
                             originalEvent: evt
                         }); // Remove event
                         _dispatchEvent({
                             sortable: this,
-                            name: "remove",
+                            name: 'remove',
                             toEl: parentEl,
                             originalEvent: evt
                         }); // drag from one list and drop into another
                         _dispatchEvent({
                             rootEl: parentEl,
-                            name: "sort",
+                            name: 'sort',
                             toEl: parentEl,
                             fromEl: rootEl,
                             originalEvent: evt
                         });
                         _dispatchEvent({
                             sortable: this,
-                            name: "sort",
+                            name: 'sort',
                             toEl: parentEl,
                             originalEvent: evt
                         });
@@ -4469,13 +4483,13 @@ Sortable.prototype = /** @lends Sortable.prototype */ {
                             // drag & drop within the same list
                             _dispatchEvent({
                                 sortable: this,
-                                name: "update",
+                                name: 'update',
                                 toEl: parentEl,
                                 originalEvent: evt
                             });
                             _dispatchEvent({
                                 sortable: this,
-                                name: "sort",
+                                name: 'sort',
                                 toEl: parentEl,
                                 originalEvent: evt
                             });
@@ -4489,7 +4503,7 @@ Sortable.prototype = /** @lends Sortable.prototype */ {
                     }
                     _dispatchEvent({
                         sortable: this,
-                        name: "end",
+                        name: 'end',
                         toEl: parentEl,
                         originalEvent: evt
                     }); // Save sorting
@@ -4500,7 +4514,7 @@ Sortable.prototype = /** @lends Sortable.prototype */ {
         this._nulling();
     },
     _nulling: function _nulling() {
-        pluginEvent("nulling", this);
+        pluginEvent('nulling', this);
         rootEl = dragEl = parentEl = ghostEl = nextEl = cloneEl = lastDownEl = cloneHidden = tapEvt = touchEvt = moved = newIndex = newDraggableIndex = oldIndex = oldDraggableIndex = lastTarget = lastDirection = putSortable = activeGroup = Sortable.dragged = Sortable.ghost = Sortable.clone = Sortable.active = null;
         savedInputChecked.forEach(function(el) {
             el.checked = true;
@@ -4509,18 +4523,18 @@ Sortable.prototype = /** @lends Sortable.prototype */ {
     },
     handleEvent: function handleEvent(/**Event*/ evt) {
         switch(evt.type){
-            case "drop":
-            case "dragend":
+            case 'drop':
+            case 'dragend':
                 this._onDrop(evt);
                 break;
-            case "dragenter":
-            case "dragover":
+            case 'dragenter':
+            case 'dragover':
                 if (dragEl) {
                     this._onDragOver(evt);
                     _globalDragOver(evt);
                 }
                 break;
-            case "selectstart":
+            case 'selectstart':
                 evt.preventDefault();
                 break;
         }
@@ -4576,26 +4590,26 @@ Sortable.prototype = /** @lends Sortable.prototype */ {
         if (value === void 0) return options[name];
         else {
             var modifiedValue = PluginManager.modifyOption(this, name, value);
-            if (typeof modifiedValue !== "undefined") options[name] = modifiedValue;
+            if (typeof modifiedValue !== 'undefined') options[name] = modifiedValue;
             else options[name] = value;
-            if (name === "group") _prepareGroup(options);
+            if (name === 'group') _prepareGroup(options);
         }
     },
     /**
    * Destroy
    */ destroy: function destroy() {
-        pluginEvent("destroy", this);
+        pluginEvent('destroy', this);
         var el = this.el;
         el[expando] = null;
-        off(el, "mousedown", this._onTapStart);
-        off(el, "touchstart", this._onTapStart);
-        off(el, "pointerdown", this._onTapStart);
+        off(el, 'mousedown', this._onTapStart);
+        off(el, 'touchstart', this._onTapStart);
+        off(el, 'pointerdown', this._onTapStart);
         if (this.nativeDraggable) {
-            off(el, "dragover", this);
-            off(el, "dragenter", this);
+            off(el, 'dragover', this);
+            off(el, 'dragenter', this);
         } // Remove draggable attributes
-        Array.prototype.forEach.call(el.querySelectorAll("[draggable]"), function(el) {
-            el.removeAttribute("draggable");
+        Array.prototype.forEach.call(el.querySelectorAll('[draggable]'), function(el) {
+            el.removeAttribute('draggable');
         });
         this._onDrop();
         this._disableDelayedDragEvents();
@@ -4604,43 +4618,43 @@ Sortable.prototype = /** @lends Sortable.prototype */ {
     },
     _hideClone: function _hideClone() {
         if (!cloneHidden) {
-            pluginEvent("hideClone", this);
+            pluginEvent('hideClone', this);
             if (Sortable.eventCanceled) return;
-            css(cloneEl, "display", "none");
+            css(cloneEl, 'display', 'none');
             if (this.options.removeCloneOnHide && cloneEl.parentNode) cloneEl.parentNode.removeChild(cloneEl);
             cloneHidden = true;
         }
     },
     _showClone: function _showClone(putSortable) {
-        if (putSortable.lastPutMode !== "clone") {
+        if (putSortable.lastPutMode !== 'clone') {
             this._hideClone();
             return;
         }
         if (cloneHidden) {
-            pluginEvent("showClone", this);
+            pluginEvent('showClone', this);
             if (Sortable.eventCanceled) return; // show clone at dragEl or original position
             if (rootEl.contains(dragEl) && !this.options.group.revertClone) rootEl.insertBefore(cloneEl, dragEl);
             else if (nextEl) rootEl.insertBefore(cloneEl, nextEl);
             else rootEl.appendChild(cloneEl);
             if (this.options.group.revertClone) this.animate(dragEl, cloneEl);
-            css(cloneEl, "display", "");
+            css(cloneEl, 'display', '');
             cloneHidden = false;
         }
     }
 };
 function _globalDragOver(/**Event*/ evt) {
-    if (evt.dataTransfer) evt.dataTransfer.dropEffect = "move";
+    if (evt.dataTransfer) evt.dataTransfer.dropEffect = 'move';
     evt.cancelable && evt.preventDefault();
 }
 function _onMove(fromEl, toEl, dragEl, dragRect, targetEl, targetRect, originalEvent, willInsertAfter) {
     var evt, sortable = fromEl[expando], onMoveFn = sortable.options.onMove, retVal; // Support for new CustomEvent feature
-    if (window.CustomEvent && !IE11OrLess && !Edge) evt = new CustomEvent("move", {
+    if (window.CustomEvent && !IE11OrLess && !Edge) evt = new CustomEvent('move', {
         bubbles: true,
         cancelable: true
     });
     else {
-        evt = document.createEvent("Event");
-        evt.initEvent("move", true, true);
+        evt = document.createEvent('Event');
+        evt.initEvent('move', true, true);
     }
     evt.to = toEl;
     evt.from = fromEl;
@@ -4712,7 +4726,7 @@ function _getSwapDirection(evt, target, targetRect, vertical, swapThreshold, inv
 }
 function _saveInputCheckedState(root) {
     savedInputChecked.length = 0;
-    var inputs = root.getElementsByTagName("input");
+    var inputs = root.getElementsByTagName('input');
     var idx = inputs.length;
     while(idx--){
         var el = inputs[idx];
@@ -4725,7 +4739,7 @@ function _nextTick(fn) {
 function _cancelNextTick(id) {
     return clearTimeout(id);
 } // Fixed #973:
-if (documentExists) on(document, "touchmove", function(evt) {
+if (documentExists) on(document, 'touchmove', function(evt) {
     if ((Sortable.active || awaitingDragStarted) && evt.cancelable) evt.preventDefault();
 });
  // Export utils
@@ -4784,16 +4798,16 @@ function AutoScrollPlugin() {
             scrollSpeed: 10,
             bubbleScroll: true
         }; // Bind all private methods
-        for(var fn in this)if (fn.charAt(0) === "_" && typeof this[fn] === "function") this[fn] = this[fn].bind(this);
+        for(var fn in this)if (fn.charAt(0) === '_' && typeof this[fn] === 'function') this[fn] = this[fn].bind(this);
     }
     AutoScroll.prototype = {
         dragStarted: function dragStarted(_ref) {
             var originalEvent = _ref.originalEvent;
-            if (this.sortable.nativeDraggable) on(document, "dragover", this._handleAutoScroll);
+            if (this.sortable.nativeDraggable) on(document, 'dragover', this._handleAutoScroll);
             else {
-                if (this.options.supportPointer) on(document, "pointermove", this._handleFallbackAutoScroll);
-                else if (originalEvent.touches) on(document, "touchmove", this._handleFallbackAutoScroll);
-                else on(document, "mousemove", this._handleFallbackAutoScroll);
+                if (this.options.supportPointer) on(document, 'pointermove', this._handleFallbackAutoScroll);
+                else if (originalEvent.touches) on(document, 'touchmove', this._handleFallbackAutoScroll);
+                else on(document, 'mousemove', this._handleFallbackAutoScroll);
             }
         },
         dragOverCompleted: function dragOverCompleted(_ref2) {
@@ -4802,11 +4816,11 @@ function AutoScrollPlugin() {
             if (!this.options.dragOverBubble && !originalEvent.rootEl) this._handleAutoScroll(originalEvent);
         },
         drop: function drop() {
-            if (this.sortable.nativeDraggable) off(document, "dragover", this._handleAutoScroll);
+            if (this.sortable.nativeDraggable) off(document, 'dragover', this._handleAutoScroll);
             else {
-                off(document, "pointermove", this._handleFallbackAutoScroll);
-                off(document, "touchmove", this._handleFallbackAutoScroll);
-                off(document, "mousemove", this._handleFallbackAutoScroll);
+                off(document, 'pointermove', this._handleFallbackAutoScroll);
+                off(document, 'touchmove', this._handleFallbackAutoScroll);
+                off(document, 'mousemove', this._handleFallbackAutoScroll);
             }
             clearPointerElemChangedInterval();
             clearAutoScrolls();
@@ -4853,7 +4867,7 @@ function AutoScrollPlugin() {
         }
     };
     return _extends(AutoScroll, {
-        pluginName: "scroll",
+        pluginName: 'scroll',
         initializeByDefault: true
     });
 }
@@ -4883,11 +4897,11 @@ var autoScroll = throttle(function(evt, options, rootEl, isFallback) {
     do {
         var el = currentParent, rect = getRect(el), top = rect.top, bottom = rect.bottom, left = rect.left, right = rect.right, width = rect.width, height = rect.height, canScrollX = void 0, canScrollY = void 0, scrollWidth = el.scrollWidth, scrollHeight = el.scrollHeight, elCSS = css(el), scrollPosX = el.scrollLeft, scrollPosY = el.scrollTop;
         if (el === winScroller) {
-            canScrollX = width < scrollWidth && (elCSS.overflowX === "auto" || elCSS.overflowX === "scroll" || elCSS.overflowX === "visible");
-            canScrollY = height < scrollHeight && (elCSS.overflowY === "auto" || elCSS.overflowY === "scroll" || elCSS.overflowY === "visible");
+            canScrollX = width < scrollWidth && (elCSS.overflowX === 'auto' || elCSS.overflowX === 'scroll' || elCSS.overflowX === 'visible');
+            canScrollY = height < scrollHeight && (elCSS.overflowY === 'auto' || elCSS.overflowY === 'scroll' || elCSS.overflowY === 'visible');
         } else {
-            canScrollX = width < scrollWidth && (elCSS.overflowX === "auto" || elCSS.overflowX === "scroll");
-            canScrollY = height < scrollHeight && (elCSS.overflowY === "auto" || elCSS.overflowY === "scroll");
+            canScrollX = width < scrollWidth && (elCSS.overflowX === 'auto' || elCSS.overflowX === 'scroll');
+            canScrollY = height < scrollHeight && (elCSS.overflowY === 'auto' || elCSS.overflowY === 'scroll');
         }
         var vx = canScrollX && (Math.abs(right - x) <= sens && scrollPosX + width < scrollWidth) - (Math.abs(left - x) <= sens && !!scrollPosX);
         var vy = canScrollY && (Math.abs(bottom - y) <= sens && scrollPosY + height < scrollHeight) - (Math.abs(top - y) <= sens && !!scrollPosY);
@@ -4906,8 +4920,8 @@ var autoScroll = throttle(function(evt, options, rootEl, isFallback) {
                     if (isFallback && this.layer === 0) Sortable.active._onTouchMove(touchEvt$1); // To move ghost if it is positioned absolutely
                     var scrollOffsetY = autoScrolls[this.layer].vy ? autoScrolls[this.layer].vy * speed : 0;
                     var scrollOffsetX = autoScrolls[this.layer].vx ? autoScrolls[this.layer].vx * speed : 0;
-                    if (typeof scrollCustomFn === "function") {
-                        if (scrollCustomFn.call(Sortable.dragged.parentNode[expando], scrollOffsetX, scrollOffsetY, evt, touchEvt$1, autoScrolls[this.layer].el) !== "continue") return;
+                    if (typeof scrollCustomFn === 'function') {
+                        if (scrollCustomFn.call(Sortable.dragged.parentNode[expando], scrollOffsetX, scrollOffsetY, evt, touchEvt$1, autoScrolls[this.layer].el) !== 'continue') return;
                     }
                     scrollBy(autoScrolls[this.layer].el, scrollOffsetX, scrollOffsetY);
                 }).bind({
@@ -4928,7 +4942,7 @@ var drop = function drop(_ref) {
     var target = document.elementFromPoint(touch.clientX, touch.clientY);
     unhideGhostForTarget();
     if (toSortable && !toSortable.el.contains(target)) {
-        dispatchSortableEvent("spill");
+        dispatchSortableEvent('spill');
         this.onSpill({
             dragEl: dragEl,
             putSortable: putSortable
@@ -4955,7 +4969,7 @@ Revert.prototype = {
     drop: drop
 };
 _extends(Revert, {
-    pluginName: "revertOnSpill"
+    pluginName: 'revertOnSpill'
 });
 function Remove() {}
 Remove.prototype = {
@@ -4969,13 +4983,13 @@ Remove.prototype = {
     drop: drop
 };
 _extends(Remove, {
-    pluginName: "removeOnSpill"
+    pluginName: 'removeOnSpill'
 });
 var lastSwapEl;
 function SwapPlugin() {
     function Swap() {
         this.defaults = {
-            swapClass: "sortable-swap-highlight"
+            swapClass: 'sortable-swap-highlight'
         };
     }
     Swap.prototype = {
@@ -5019,7 +5033,7 @@ function SwapPlugin() {
         }
     };
     return _extends(Swap, {
-        pluginName: "swap",
+        pluginName: 'swap',
         eventProperties: function eventProperties() {
             return {
                 swapItem: lastSwapEl
@@ -5043,24 +5057,24 @@ dragStarted = false, dragEl$1, clonesFromRect, clonesHidden;
 function MultiDragPlugin() {
     function MultiDrag(sortable) {
         // Bind all private methods
-        for(var fn in this)if (fn.charAt(0) === "_" && typeof this[fn] === "function") this[fn] = this[fn].bind(this);
-        if (sortable.options.supportPointer) on(document, "pointerup", this._deselectMultiDrag);
+        for(var fn in this)if (fn.charAt(0) === '_' && typeof this[fn] === 'function') this[fn] = this[fn].bind(this);
+        if (sortable.options.supportPointer) on(document, 'pointerup', this._deselectMultiDrag);
         else {
-            on(document, "mouseup", this._deselectMultiDrag);
-            on(document, "touchend", this._deselectMultiDrag);
+            on(document, 'mouseup', this._deselectMultiDrag);
+            on(document, 'touchend', this._deselectMultiDrag);
         }
-        on(document, "keydown", this._checkKeyDown);
-        on(document, "keyup", this._checkKeyUp);
+        on(document, 'keydown', this._checkKeyDown);
+        on(document, 'keyup', this._checkKeyUp);
         this.defaults = {
-            selectedClass: "sortable-selected",
+            selectedClass: 'sortable-selected',
             multiDragKey: null,
             setData: function setData(dataTransfer, dragEl) {
-                var data = "";
+                var data = '';
                 if (multiDragElements.length && multiDragSortable === sortable) multiDragElements.forEach(function(multiDragElement, i) {
-                    data += (!i ? "" : ", ") + multiDragElement.textContent;
+                    data += (!i ? '' : ', ') + multiDragElement.textContent;
                 });
                 else data = dragEl.textContent;
-                dataTransfer.setData("Text", data);
+                dataTransfer.setData('Text', data);
             }
         };
     }
@@ -5081,7 +5095,7 @@ function MultiDragPlugin() {
                 multiDragClones.push(clone(multiDragElements[i]));
                 multiDragClones[i].sortableIndex = multiDragElements[i].sortableIndex;
                 multiDragClones[i].draggable = false;
-                multiDragClones[i].style["will-change"] = "";
+                multiDragClones[i].style['will-change'] = '';
                 toggleClass(multiDragClones[i], this.options.selectedClass, false);
                 multiDragElements[i] === dragEl$1 && toggleClass(multiDragClones[i], this.options.chosenClass, false);
             }
@@ -5094,7 +5108,7 @@ function MultiDragPlugin() {
             if (!this.options.removeCloneOnHide) {
                 if (multiDragElements.length && multiDragSortable === sortable) {
                     insertMultiDragClones(true, rootEl);
-                    dispatchSortableEvent("clone");
+                    dispatchSortableEvent('clone');
                     cancel();
                 }
             }
@@ -5104,7 +5118,7 @@ function MultiDragPlugin() {
             if (!this.isMultiDrag) return;
             insertMultiDragClones(false, rootEl);
             multiDragClones.forEach(function(clone) {
-                css(clone, "display", "");
+                css(clone, 'display', '');
             });
             cloneNowShown();
             clonesHidden = false;
@@ -5115,7 +5129,7 @@ function MultiDragPlugin() {
             var sortable = _ref5.sortable, cloneNowHidden = _ref5.cloneNowHidden, cancel = _ref5.cancel;
             if (!this.isMultiDrag) return;
             multiDragClones.forEach(function(clone) {
-                css(clone, "display", "none");
+                css(clone, 'display', 'none');
                 if (_this.options.removeCloneOnHide && clone.parentNode) clone.parentNode.removeChild(clone);
             });
             cloneNowHidden();
@@ -5148,7 +5162,7 @@ function MultiDragPlugin() {
                 if (this.options.animation) {
                     multiDragElements.forEach(function(multiDragElement) {
                         if (multiDragElement === dragEl$1) return;
-                        css(multiDragElement, "position", "absolute");
+                        css(multiDragElement, 'position', 'absolute');
                     });
                     var dragRect = getRect(dragEl$1, false, true, true);
                     multiDragElements.forEach(function(multiDragElement) {
@@ -5260,7 +5274,7 @@ function MultiDragPlugin() {
                     dispatchEvent({
                         sortable: sortable,
                         rootEl: rootEl,
-                        name: "select",
+                        name: 'select',
                         targetEl: dragEl$1,
                         originalEvt: evt
                     }); // Modifier activated, select from last to dragEl
@@ -5284,7 +5298,7 @@ function MultiDragPlugin() {
                                 dispatchEvent({
                                     sortable: sortable,
                                     rootEl: rootEl,
-                                    name: "select",
+                                    name: 'select',
                                     targetEl: children[i],
                                     originalEvt: evt
                                 });
@@ -5298,7 +5312,7 @@ function MultiDragPlugin() {
                     dispatchEvent({
                         sortable: sortable,
                         rootEl: rootEl,
-                        name: "deselect",
+                        name: 'deselect',
                         targetEl: dragEl$1,
                         originalEvt: evt
                     });
@@ -5307,7 +5321,7 @@ function MultiDragPlugin() {
             if (dragStarted && this.isMultiDrag) {
                 // Do not "unfold" after around dragEl if reverted
                 if ((parentEl[expando].options.sort || parentEl !== rootEl) && multiDragElements.length > 1) {
-                    var dragRect = getRect(dragEl$1), multiDragIndex = index(dragEl$1, ":not(." + this.options.selectedClass + ")");
+                    var dragRect = getRect(dragEl$1), multiDragIndex = index(dragEl$1, ':not(.' + this.options.selectedClass + ')');
                     if (!initialFolding && options.animation) dragEl$1.thisAnimationDuration = null;
                     toSortable.captureAnimationState();
                     if (!initialFolding) {
@@ -5342,7 +5356,7 @@ function MultiDragPlugin() {
                                     return;
                                 }
                             });
-                            if (update) dispatchSortableEvent("update");
+                            if (update) dispatchSortableEvent('update');
                         }
                     } // Must be done after capturing individual rects (scroll bar)
                     multiDragElements.forEach(function(multiDragElement) {
@@ -5352,7 +5366,7 @@ function MultiDragPlugin() {
                 }
                 multiDragSortable = toSortable;
             } // Remove clones if necessary
-            if (rootEl === parentEl || putSortable && putSortable.lastPutMode !== "clone") multiDragClones.forEach(function(clone) {
+            if (rootEl === parentEl || putSortable && putSortable.lastPutMode !== 'clone') multiDragClones.forEach(function(clone) {
                 clone.parentNode && clone.parentNode.removeChild(clone);
             });
         },
@@ -5362,11 +5376,11 @@ function MultiDragPlugin() {
         },
         destroyGlobal: function destroyGlobal() {
             this._deselectMultiDrag();
-            off(document, "pointerup", this._deselectMultiDrag);
-            off(document, "mouseup", this._deselectMultiDrag);
-            off(document, "touchend", this._deselectMultiDrag);
-            off(document, "keydown", this._checkKeyDown);
-            off(document, "keyup", this._checkKeyUp);
+            off(document, 'pointerup', this._deselectMultiDrag);
+            off(document, 'mouseup', this._deselectMultiDrag);
+            off(document, 'touchend', this._deselectMultiDrag);
+            off(document, 'keydown', this._checkKeyDown);
+            off(document, 'keyup', this._checkKeyUp);
         },
         _deselectMultiDrag: function _deselectMultiDrag(evt) {
             if (typeof dragStarted !== "undefined" && dragStarted) return; // Only deselect if selection is in this sortable
@@ -5380,7 +5394,7 @@ function MultiDragPlugin() {
                 dispatchEvent({
                     sortable: this.sortable,
                     rootEl: this.sortable.el,
-                    name: "deselect",
+                    name: 'deselect',
                     targetEl: el,
                     originalEvt: evt
                 });
@@ -5395,7 +5409,7 @@ function MultiDragPlugin() {
     };
     return _extends(MultiDrag, {
         // Static methods & properties
-        pluginName: "multiDrag",
+        pluginName: 'multiDrag',
         utils: {
             /**
        * Selects the provided multi-drag item
@@ -5430,7 +5444,7 @@ function MultiDragPlugin() {
                 }); // multiDragElements will already be sorted if folding
                 var newIndex;
                 if (folding && multiDragElement !== dragEl$1) newIndex = -1;
-                else if (folding) newIndex = index(multiDragElement, ":not(." + _this3.options.selectedClass + ")");
+                else if (folding) newIndex = index(multiDragElement, ':not(.' + _this3.options.selectedClass + ')');
                 else newIndex = index(multiDragElement);
                 newIndicies.push({
                     multiDragElement: multiDragElement,
@@ -5447,7 +5461,7 @@ function MultiDragPlugin() {
         optionListeners: {
             multiDragKey: function multiDragKey(key) {
                 key = key.toLowerCase();
-                if (key === "ctrl") key = "Control";
+                if (key === 'ctrl') key = 'Control';
                 else if (key.length > 1) key = key.charAt(0).toUpperCase() + key.substr(1);
                 return key;
             }
@@ -5482,6 +5496,6 @@ Sortable.mount(new AutoScrollPlugin());
 Sortable.mount(Remove, Revert);
 exports.default = Sortable;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},[], null, "parcelRequire02e5")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},[], null, "parcelRequire94c2")
 
 //# sourceMappingURL=spinal-env-viewer-plugin-ticket.ffece6af.js.map

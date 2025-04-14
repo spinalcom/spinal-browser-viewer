@@ -73,7 +73,7 @@
         localRequire,
         module,
         module.exports,
-        this
+        globalObject
       );
     }
 
@@ -142,7 +142,7 @@
       this[globalName] = mainExports;
     }
   }
-})({"iN1hs":[function(require,module,exports) {
+})({"iN1hs":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2020 SpinalCom - www.spinalcom.com
  *
@@ -177,7 +177,7 @@ const SIDE_BAR_HOOK_NAME = "GraphManagerSideBar";
 (0, _spinalEnvViewerContextMenuService.spinalContextMenuService).registerApp(SIDE_BAR_HOOK_NAME, new (0, _linkAndManageContextTicketMissionBtn.LinkAndManageContextTicketMissionBtn)(), [
     7
 ]);
-(0, _spinalEnvViewerPanelManagerServiceSpinalforgeextention.SpinalForgeExtention).registerExtention("LinkAndManageContextTicketMission", (0, _spinalEnvViewerPanelManagerServiceSpinalforgeextention.SpinalForgeExtention).createExtention({
+(0, _spinalEnvViewerPanelManagerServiceSpinalforgeextention.SpinalForgeExtention).registerExtention('LinkAndManageContextTicketMission', (0, _spinalEnvViewerPanelManagerServiceSpinalforgeextention.SpinalForgeExtention).createExtention({
     name: "LinkAndManageContextTicketMission",
     vueMountComponent: (0, _vueDefault.default).extend((0, _linkAndManageContextTicketMissionVueDefault.default)),
     parentContainer: document.body,
@@ -189,11 +189,11 @@ const SIDE_BAR_HOOK_NAME = "GraphManagerSideBar";
     style: {
         left: "405px",
         width: "500px",
-        height: "250px"
+        height: '250px'
     }
 }));
 
-},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-panel-manager-service_spinalforgeextention":"1mGHd","vue":"gt5MM","./src/views/LinkAndManageContextTicketMission.vue":"6ub1R","./src/buttons/LinkAndManageContextTicketMissionBtn":"3jxTN","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1mGHd":[function(require,module,exports) {
+},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-panel-manager-service_spinalforgeextention":"1mGHd","vue":"gt5MM","./src/views/LinkAndManageContextTicketMission.vue":"6ub1R","./src/buttons/LinkAndManageContextTicketMissionBtn":"3jxTN","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1mGHd":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -222,7 +222,7 @@ module.exports = {
     SpinalForgeExtention
 };
 
-},{"bf7edd8450503e22":"7Uw4d","64bd1569b4ded066":"gsEky"}],"7Uw4d":[function(require,module,exports) {
+},{"bf7edd8450503e22":"7Uw4d","64bd1569b4ded066":"gsEky"}],"7Uw4d":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -261,7 +261,7 @@ module.exports = {
     }
 };
 
-},{"8b71a79dcc12420e":"h7sS1","e47c36529e942a76":"cvBJ6","cfd4c6200ba55765":"9SKSV"}],"h7sS1":[function(require,module,exports) {
+},{"8b71a79dcc12420e":"h7sS1","e47c36529e942a76":"cvBJ6","cfd4c6200ba55765":"9SKSV"}],"h7sS1":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -341,7 +341,7 @@ module.exports = {
 }
 module.exports = SpinalPanelManagerService;
 
-},{}],"cvBJ6":[function(require,module,exports) {
+},{}],"cvBJ6":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -376,7 +376,7 @@ module.exports = SpinalPanelManagerService;
 }
 module.exports = SpinalPanelApp;
 
-},{}],"9SKSV":[function(require,module,exports) {
+},{}],"9SKSV":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -475,7 +475,7 @@ function getDialog() {
     };
 };
 
-},{}],"gsEky":[function(require,module,exports) {
+},{}],"gsEky":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
  * 
@@ -710,7 +710,7 @@ function getPanel() {
     };
 };
 
-},{}],"6ub1R":[function(require,module,exports) {
+},{}],"6ub1R":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -722,13 +722,13 @@ let initialize = ()=>{
     script._scopeId = "data-v-2a72d7";
     script.__cssModules = require("464d0e3b2573882").default;
     require("868f24a75dd03ab3").default(script);
-    script.__scopeId = "data-v-2a72d7";
+    script.__scopeId = 'data-v-2a72d7';
     script.__file = "LinkAndManageContextTicketMission.vue";
 };
 initialize();
 exports.default = script;
 
-},{"7d6b764ab470b9b2":"hv410","c7abcc866f4ec8fc":"j0ejj","464d0e3b2573882":"jWouQ","868f24a75dd03ab3":"c4zxG","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hv410":[function(require,module,exports) {
+},{"7d6b764ab470b9b2":"hv410","c7abcc866f4ec8fc":"j0ejj","464d0e3b2573882":"jWouQ","868f24a75dd03ab3":"c4zxG","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hv410":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerGraphService = require("spinal-env-viewer-graph-service");
@@ -737,7 +737,7 @@ var _setUpSelectedOrganVueDefault = parcelHelpers.interopDefault(_setUpSelectedO
 var _setUpContextEquipVue = require("./SetUpContextEquip.vue");
 var _setUpContextEquipVueDefault = parcelHelpers.interopDefault(_setUpContextEquipVue);
 var scriptExports = {
-    name: "LinkAndManageContextTicketMission",
+    name: 'LinkAndManageContextTicketMission',
     components: {
         SetUpSelectedOrgan: (0, _setUpSelectedOrganVueDefault.default),
         SetUpContextEquip: (0, _setUpContextEquipVueDefault.default)
@@ -746,7 +746,7 @@ var scriptExports = {
         return {
             openSetup: false,
             openSetupEquip: false,
-            contextId: "",
+            contextId: '',
             linked: false,
             status: -1,
             serverId: 0,
@@ -756,39 +756,39 @@ var scriptExports = {
     },
     computed: {
         statusCompu () {
-            if (this.linked === false) return "Not linked";
-            if (this.restart === true) return "Restarting";
+            if (this.linked === false) return 'Not linked';
+            if (this.restart === true) return 'Restarting';
             switch(this.status){
                 case 0:
-                    return "Stand By";
+                    return 'Stand By';
                 case 1:
-                    return "Sync spatial";
+                    return 'Sync spatial';
                 case 2:
-                    return "Sync process";
+                    return 'Sync process';
                 case 3:
-                    return "Running";
+                    return 'Running';
                 case 4:
-                    return "Sync Equipments";
+                    return 'Sync Equipments';
                 default:
-                    return "Stand By";
+                    return 'Stand By';
             }
         },
         statusIconCompu () {
-            if (this.linked === false) return "settings";
-            if (this.restart === true) return "refresh";
+            if (this.linked === false) return 'settings';
+            if (this.restart === true) return 'refresh';
             switch(this.status){
                 case 0:
-                    return "done";
+                    return 'done';
                 case 1:
-                    return "location_city";
+                    return 'location_city';
                 case 2:
-                    return "assignment_returned";
+                    return 'assignment_returned';
                 case 3:
-                    return "play_arrow";
+                    return 'play_arrow';
                 case 4:
-                    return "device_hub";
+                    return 'device_hub';
                 default:
-                    return "done";
+                    return 'done';
             }
         },
         spin () {
@@ -800,16 +800,16 @@ var scriptExports = {
             return true;
         },
         runStopCompu () {
-            if (this.linked === true && this.status === 3) return "Stop";
-            return "Run";
+            if (this.linked === true && this.status === 3) return 'Stop';
+            return 'Run';
         },
         runStopIconCompu () {
-            if (this.linked === true && this.status === 3) return "pause";
-            return "play_arrow";
+            if (this.linked === true && this.status === 3) return 'pause';
+            return 'play_arrow';
         },
         runStopColorCompu () {
-            if (this.linked === true && this.status === 3) return "red";
-            return "green";
+            if (this.linked === true && this.status === 3) return 'red';
+            return 'green';
         }
     },
     mounted () {},
@@ -823,7 +823,7 @@ var scriptExports = {
                 const unbind = element.bind(()=>{
                     if (this) {
                         this.status = element.mission.organStatus.get();
-                        console.log("this.status", this.status);
+                        console.log('this.status', this.status);
                         this.linked = true;
                         this.serverId = element._server_id;
                         this.restart = element.restart.get();
@@ -867,7 +867,7 @@ var scriptExports = {
             await this.getLinkedOrgan();
         },
         async opened (data) {
-            console.log("opened", data);
+            console.log('opened', data);
             this.contextId = data;
             this.status = -1;
             this.linked = false;
@@ -880,10 +880,10 @@ var scriptExports = {
         closeDialog () {}
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"spinal-env-viewer-graph-service":"9n7zp","./SetUpSelectedOrgan.vue":"cM74Q","./SetUpContextEquip.vue":"a05w5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"cM74Q":[function(require,module,exports) {
+},{"spinal-env-viewer-graph-service":"9n7zp","./SetUpSelectedOrgan.vue":"cM74Q","./SetUpContextEquip.vue":"a05w5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"cM74Q":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -895,13 +895,13 @@ let initialize = ()=>{
     script._scopeId = "data-v-1ffcc8";
     script.__cssModules = require("2a4879a533ff3461").default;
     require("4f0e981a37fbdff").default(script);
-    script.__scopeId = "data-v-1ffcc8";
+    script.__scopeId = 'data-v-1ffcc8';
     script.__file = "SetUpSelectedOrgan.vue";
 };
 initialize();
 exports.default = script;
 
-},{"678f74b183eea5f1":"8FW0A","ecc6fbc64b412399":"47iVr","2a4879a533ff3461":"augrr","4f0e981a37fbdff":"lphCJ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"8FW0A":[function(require,module,exports) {
+},{"678f74b183eea5f1":"8FW0A","ecc6fbc64b412399":"47iVr","2a4879a533ff3461":"augrr","4f0e981a37fbdff":"lphCJ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"8FW0A":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerGraphService = require("spinal-env-viewer-graph-service");
@@ -1034,10 +1034,10 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"spinal-env-viewer-graph-service":"9n7zp","spinal-core-connectorjs_type":"fRH70","moment":"jwcsj","spinal-env-viewer-context-geographic-service":"5QjJf","./SetUpToolbar.vue":"hd27W","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hd27W":[function(require,module,exports) {
+},{"spinal-env-viewer-graph-service":"9n7zp","spinal-core-connectorjs_type":"fRH70","moment":"jwcsj","spinal-env-viewer-context-geographic-service":"5QjJf","./SetUpToolbar.vue":"hd27W","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hd27W":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -1048,13 +1048,13 @@ let initialize = ()=>{
     script.staticRenderFns = require("88115b8567a89d2d").staticRenderFns;
     script._scopeId = "data-v-db574a";
     require("d9d674d478874ccd").default(script);
-    script.__scopeId = "data-v-db574a";
+    script.__scopeId = 'data-v-db574a';
     script.__file = "SetUpToolbar.vue";
 };
 initialize();
 exports.default = script;
 
-},{"75b68918ab8e7d27":"65uvS","88115b8567a89d2d":"9c8AI","d9d674d478874ccd":"iFUWB","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"65uvS":[function(require,module,exports) {
+},{"75b68918ab8e7d27":"65uvS","88115b8567a89d2d":"9c8AI","d9d674d478874ccd":"iFUWB","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"65uvS":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var scriptExports = {
@@ -1070,52 +1070,52 @@ var scriptExports = {
         return {};
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9c8AI":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9c8AI":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("v-toolbar", {
+    return _c('v-toolbar', {
         attrs: {
             "dense": "",
             "dark": ""
         }
     }, [
-        _c("v-btn", {
+        _c('v-btn', {
             attrs: {
                 "icon": ""
             },
             on: {
                 "click": function($event) {
-                    return _vm.$emit("back");
+                    return _vm.$emit('back');
                 }
             }
         }, [
-            _c("v-icon", [
+            _c('v-icon', [
                 _vm._v("arrow_back")
             ])
         ], 1),
         _vm._v(" "),
-        _c("v-toolbar-title", [
+        _c('v-toolbar-title', [
             _vm._v(_vm._s(_vm.label))
         ]),
         _vm._v(" "),
-        _c("v-spacer"),
+        _c('v-spacer'),
         _vm._v(" "),
-        _c("v-btn", {
+        _c('v-btn', {
             attrs: {
                 "icon": ""
             },
             on: {
                 "click": function($event) {
-                    return _vm.$emit("save");
+                    return _vm.$emit('save');
                 }
             }
         }, [
-            _c("v-icon", [
+            _c('v-icon', [
                 _vm._v("check")
             ])
         ], 1)
@@ -1125,21 +1125,21 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"iFUWB":[function(require,module,exports) {
+},{}],"iFUWB":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"47iVr":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"47iVr":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("v-card", {
+    return _c('v-card', {
         staticClass: "spinal-setup-organ-body"
     }, [
-        _c("set-up-toolbar", {
+        _c('set-up-toolbar', {
             attrs: {
                 "title": "Setup Context's equipment to send to Mission"
             },
@@ -1149,16 +1149,16 @@ var render = function() {
             }
         }),
         _vm._v(" "),
-        _c("v-card-text", {
+        _c('v-card-text', {
             staticClass: "spinal-setup-organ-container"
         }, [
-            _c("form", {
+            _c('form', {
                 attrs: {
                     "action": "none"
                 }
             }, [
-                _c("md-field", [
-                    _c("label", {
+                _c('md-field', [
+                    _c('label', {
                         attrs: {
                             "for": "Select Spatial Context"
                         }
@@ -1166,7 +1166,7 @@ var render = function() {
                         _vm._v("select the Organ")
                     ]),
                     _vm._v(" "),
-                    _c("md-select", {
+                    _c('md-select', {
                         attrs: {
                             "id": "modelselect",
                             "name": "modelselect",
@@ -1180,7 +1180,7 @@ var render = function() {
                             expression: "selectedOrgan"
                         }
                     }, _vm._l(_vm.organsCfg, function(organCfg) {
-                        return _c("md-option", {
+                        return _c('md-option', {
                             key: organCfg.id,
                             attrs: {
                                 "value": organCfg.id
@@ -1192,8 +1192,8 @@ var render = function() {
                 ], 1),
                 _vm._v(" "),
                 _vm.selectedOrgan ? [
-                    _c("md-field", [
-                        _c("label", {
+                    _c('md-field', [
+                        _c('label', {
                             attrs: {
                                 "for": "Select Spatial Context"
                             }
@@ -1201,7 +1201,7 @@ var render = function() {
                             _vm._v("Select the Spatial Context")
                         ]),
                         _vm._v(" "),
-                        _c("md-select", {
+                        _c('md-select', {
                             attrs: {
                                 "id": "modelselect",
                                 "name": "modelselect",
@@ -1215,12 +1215,12 @@ var render = function() {
                                 expression: "selectedSpatialContext"
                             }
                         }, [
-                            _vm.spatialContexts.length > 0 ? _c("md-optgroup", {
+                            _vm.spatialContexts.length > 0 ? _c('md-optgroup', {
                                 attrs: {
                                     "label": "Spatial contexts"
                                 }
                             }, _vm._l(_vm.spatialContexts, function(context) {
-                                return _c("md-option", {
+                                return _c('md-option', {
                                     key: context.id,
                                     attrs: {
                                         "value": context.id
@@ -1230,12 +1230,12 @@ var render = function() {
                                 ]);
                             }), 1) : _vm._e(),
                             _vm._v(" "),
-                            _vm.contexts.length > 0 ? _c("md-optgroup", {
+                            _vm.contexts.length > 0 ? _c('md-optgroup', {
                                 attrs: {
                                     "label": "Other contexts"
                                 }
                             }, _vm._l(_vm.contexts, function(context) {
-                                return _c("md-option", {
+                                return _c('md-option', {
                                     key: context.id,
                                     attrs: {
                                         "value": context.id
@@ -1247,7 +1247,7 @@ var render = function() {
                         ], 1)
                     ], 1),
                     _vm._v(" "),
-                    _c("v-text-field", {
+                    _c('v-text-field', {
                         attrs: {
                             "placeholder": "Api Login",
                             "autocomplete": "off",
@@ -1262,13 +1262,13 @@ var render = function() {
                         }
                     }),
                     _vm._v(" "),
-                    _c("v-text-field", {
+                    _c('v-text-field', {
                         attrs: {
                             "autocomplete": "off",
                             "placeholder": "Api Password",
                             "label": "Mission Api Password",
-                            "append-icon": _vm.showApiPassword ? "visibility" : "visibility_off",
-                            "type": _vm.showApiPassword ? "text" : "password"
+                            "append-icon": _vm.showApiPassword ? 'visibility' : 'visibility_off',
+                            "type": _vm.showApiPassword ? 'text' : 'password'
                         },
                         on: {
                             "click:append": function($event) {
@@ -1284,7 +1284,7 @@ var render = function() {
                         }
                     }),
                     _vm._v(" "),
-                    _c("v-text-field", {
+                    _c('v-text-field', {
                         attrs: {
                             "placeholder": "Api Appelant",
                             "autocomplete": "off",
@@ -1299,7 +1299,7 @@ var render = function() {
                         }
                     }),
                     _vm._v(" "),
-                    _c("v-text-field", {
+                    _c('v-text-field', {
                         attrs: {
                             "placeholder": "Mission Prefix Building",
                             "autocomplete": "off",
@@ -1314,7 +1314,7 @@ var render = function() {
                         }
                     }),
                     _vm._v(" "),
-                    _c("v-text-field", {
+                    _c('v-text-field', {
                         attrs: {
                             "placeholder": "Interval to pull data from Mission",
                             "type": "number",
@@ -1329,7 +1329,7 @@ var render = function() {
                         }
                     }),
                     _vm._v(" "),
-                    _c("VueCtkDateTimePicker", {
+                    _c('VueCtkDateTimePicker', {
                         attrs: {
                             "dark": true,
                             "max-date": _vm.today,
@@ -1347,7 +1347,7 @@ var render = function() {
             ], 2)
         ]),
         _vm._v(" "),
-        _c("v-text-field", {
+        _c('v-text-field', {
             attrs: {
                 "placeholder": "appelant",
                 "label": "appelant"
@@ -1366,13 +1366,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"augrr":[function() {},{}],"lphCJ":[function(require,module,exports) {
+},{}],"augrr":[function() {},{}],"lphCJ":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"a05w5":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"a05w5":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -1384,13 +1384,13 @@ let initialize = ()=>{
     script._scopeId = "data-v-75bddd";
     script.__cssModules = require("65a9b5f443759b37").default;
     require("53521bcc04d2aa60").default(script);
-    script.__scopeId = "data-v-75bddd";
+    script.__scopeId = 'data-v-75bddd';
     script.__file = "SetUpContextEquip.vue";
 };
 initialize();
 exports.default = script;
 
-},{"3074605bdee1ea95":"i6LTl","b8a75d10a77357ec":"7kB4O","65a9b5f443759b37":"6701F","53521bcc04d2aa60":"pRi2V","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"i6LTl":[function(require,module,exports) {
+},{"3074605bdee1ea95":"i6LTl","b8a75d10a77357ec":"7kB4O","65a9b5f443759b37":"6701F","53521bcc04d2aa60":"pRi2V","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"i6LTl":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerGraphService = require("spinal-env-viewer-graph-service");
@@ -1445,20 +1445,20 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"spinal-env-viewer-graph-service":"9n7zp","spinal-core-connectorjs_type":"fRH70","./SetUpToolbar.vue":"hd27W","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7kB4O":[function(require,module,exports) {
+},{"spinal-env-viewer-graph-service":"9n7zp","spinal-core-connectorjs_type":"fRH70","./SetUpToolbar.vue":"hd27W","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7kB4O":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("v-card", {
+    return _c('v-card', {
         staticClass: "spinal-setup-equip-body"
     }, [
-        _c("set-up-toolbar", {
+        _c('set-up-toolbar', {
             attrs: {
-                "title": "Setup Context's equipment to send to Mission"
+                "title": 'Setup Context\'s equipment to send to Mission'
             },
             on: {
                 "back": _vm.back,
@@ -1466,16 +1466,16 @@ var render = function() {
             }
         }),
         _vm._v(" "),
-        _c("v-card-text", {
+        _c('v-card-text', {
             staticClass: "spinal-setup-equip-container"
         }, [
-            _c("form", {
+            _c('form', {
                 attrs: {
                     "action": "none"
                 }
             }, [
-                _c("md-field", [
-                    _c("label", {
+                _c('md-field', [
+                    _c('label', {
                         attrs: {
                             "for": "Select Equipment Context(s)"
                         }
@@ -1483,7 +1483,7 @@ var render = function() {
                         _vm._v("Select Equipment Context(s) to send to Mission")
                     ]),
                     _vm._v(" "),
-                    _c("md-select", {
+                    _c('md-select', {
                         attrs: {
                             "name": "Equipment Context Select",
                             "md-dense": "",
@@ -1497,7 +1497,7 @@ var render = function() {
                             expression: "contexts"
                         }
                     }, _vm._l(_vm.equipContexts, function(equipContext) {
-                        return _c("md-option", {
+                        return _c('md-option', {
                             key: equipContext.id,
                             attrs: {
                                 "value": equipContext.id
@@ -1515,24 +1515,24 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"6701F":[function() {},{}],"pRi2V":[function(require,module,exports) {
+},{}],"6701F":[function() {},{}],"pRi2V":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"j0ejj":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"j0ejj":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("v-app", {
+    return _c('v-app', {
         staticClass: "LinkAndManageContextTicketMission-body",
         attrs: {
             "dark": ""
         }
     }, [
-        _vm.openSetupEquip ? _c("SetUpContextEquip", {
+        _vm.openSetupEquip ? _c('SetUpContextEquip', {
             attrs: {
                 "server-id": _vm.serverId
             },
@@ -1541,7 +1541,7 @@ var render = function() {
                     _vm.openSetupEquip = false;
                 }
             }
-        }) : _vm.openSetup ? _c("setUpSelectedOrgan", {
+        }) : _vm.openSetup ? _c('setUpSelectedOrgan', {
             attrs: {
                 "context-id": _vm.contextId
             },
@@ -1550,23 +1550,23 @@ var render = function() {
                     return _vm.onCloseSetup();
                 }
             }
-        }) : _c("v-card", {
+        }) : _c('v-card', {
             staticClass: "LinkAndManageContextTicketMission-card"
         }, [
-            _c("v-toolbar", {
+            _c('v-toolbar', {
                 staticClass: "LinkAndManageContextTicketMission-toolbar",
                 attrs: {
                     "dense": "",
                     "dark": ""
                 }
             }, [
-                _c("v-toolbar-title", [
+                _c('v-toolbar-title', [
                     _vm._v(" Status : " + _vm._s(_vm.statusCompu) + " ")
                 ]),
                 _vm._v(" "),
-                _c("v-spacer"),
+                _c('v-spacer'),
                 _vm._v(" "),
-                _c("v-btn", {
+                _c('v-btn', {
                     attrs: {
                         "icon": ""
                     },
@@ -1576,12 +1576,12 @@ var render = function() {
                         }
                     }
                 }, [
-                    _c("v-icon", [
+                    _c('v-icon', [
                         _vm._v("settings")
                     ])
                 ], 1),
                 _vm._v(" "),
-                _c("v-speed-dial", {
+                _c('v-speed-dial', {
                     attrs: {
                         "direction": "left",
                         "open-on-hover": false
@@ -1591,7 +1591,7 @@ var render = function() {
                             key: "activator",
                             fn: function() {
                                 return [
-                                    _c("v-btn", {
+                                    _c('v-btn', {
                                         attrs: {
                                             "color": "blue",
                                             "small": "",
@@ -1605,11 +1605,11 @@ var render = function() {
                                             expression: "fabBtn"
                                         }
                                     }, [
-                                        _c("v-icon", [
+                                        _c('v-icon', [
                                             _vm._v("more_vert")
                                         ]),
                                         _vm._v(" "),
-                                        _c("v-icon", [
+                                        _c('v-icon', [
                                             _vm._v("close")
                                         ])
                                     ], 1)
@@ -1627,7 +1627,7 @@ var render = function() {
                     }
                 }, [
                     _vm._v(" "),
-                    _c("v-btn", {
+                    _c('v-btn', {
                         directives: [
                             {
                                 name: "tooltip",
@@ -1646,17 +1646,17 @@ var render = function() {
                             "click": _vm.runOrStop
                         }
                     }, [
-                        _c("v-icon", [
+                        _c('v-icon', [
                             _vm._v(_vm._s(_vm.runStopIconCompu))
                         ])
                     ], 1),
                     _vm._v(" "),
-                    _c("v-btn", {
+                    _c('v-btn', {
                         directives: [
                             {
                                 name: "tooltip",
                                 rawName: "v-tooltip",
-                                value: "Restart Organ",
+                                value: 'Restart Organ',
                                 expression: "'Restart Organ'"
                             }
                         ],
@@ -1670,17 +1670,17 @@ var render = function() {
                             "click": _vm.restartOrgan
                         }
                     }, [
-                        _c("v-icon", [
+                        _c('v-icon', [
                             _vm._v("refresh")
                         ])
                     ], 1),
                     _vm._v(" "),
-                    _c("v-btn", {
+                    _c('v-btn', {
                         directives: [
                             {
                                 name: "tooltip",
                                 rawName: "v-tooltip",
-                                value: "Synchonize Spatial context to Mission",
+                                value: 'Synchonize Spatial context to Mission',
                                 expression: "'Synchonize Spatial context to Mission'"
                             }
                         ],
@@ -1694,17 +1694,17 @@ var render = function() {
                             "click": _vm.syncSpatialBtn
                         }
                     }, [
-                        _c("v-icon", [
+                        _c('v-icon', [
                             _vm._v("location_city")
                         ])
                     ], 1),
                     _vm._v(" "),
-                    _c("v-btn", {
+                    _c('v-btn', {
                         directives: [
                             {
                                 name: "tooltip",
                                 rawName: "v-tooltip",
-                                value: "Synchonize Mission's Process with this context",
+                                value: 'Synchonize Mission\'s Process with this context',
                                 expression: "'Synchonize Mission\\'s Process with this context'"
                             }
                         ],
@@ -1718,17 +1718,17 @@ var render = function() {
                             "click": _vm.syncProcessMission
                         }
                     }, [
-                        _c("v-icon", [
+                        _c('v-icon', [
                             _vm._v("assignment_returned")
                         ])
                     ], 1),
                     _vm._v(" "),
-                    _c("v-btn", {
+                    _c('v-btn', {
                         directives: [
                             {
                                 name: "tooltip",
                                 rawName: "v-tooltip",
-                                value: "Synchonize Spatial Equipment",
+                                value: 'Synchonize Spatial Equipment',
                                 expression: "'Synchonize Spatial Equipment'"
                             }
                         ],
@@ -1744,24 +1744,24 @@ var render = function() {
                             }
                         }
                     }, [
-                        _c("v-icon", [
+                        _c('v-icon', [
                             _vm._v("device_hub")
                         ])
                     ], 1)
                 ], 1)
             ], 1),
             _vm._v(" "),
-            _c("v-card-text", {
+            _c('v-card-text', {
                 staticClass: "LinkAndManageContextTicketMission-card-container"
             }, [
-                _c("md-empty-state", {
+                _c('md-empty-state', {
                     attrs: {
                         "md-icon": _vm.statusIconCompu,
                         "md-label": _vm.statusCompu,
                         "md-description": ""
                     }
                 }, [
-                    _vm.linked === false ? _c("md-button", {
+                    _vm.linked === false ? _c('md-button', {
                         staticClass: "md-primary md-raised",
                         on: {
                             "click": function($event) {
@@ -1775,7 +1775,7 @@ var render = function() {
             ], 1)
         ], 1),
         _vm._v(" "),
-        _vm.spin ? _c("v-progress-linear", {
+        _vm.spin ? _c('v-progress-linear', {
             staticClass: "spinal-modal-progress-bar",
             staticStyle: {
                 "margin": "0"
@@ -1791,13 +1791,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"jWouQ":[function() {},{}],"c4zxG":[function(require,module,exports) {
+},{}],"jWouQ":[function() {},{}],"c4zxG":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3jxTN":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3jxTN":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2019 SpinalCom - www.spinalcom.com
  *
@@ -1826,14 +1826,14 @@ parcelHelpers.export(exports, "LinkAndManageContextTicketMissionBtn", ()=>LinkAn
 var _spinalEnvViewerContextMenuService = require("spinal-env-viewer-context-menu-service");
 var _constants = require("spinal-service-ticket/dist/Constants");
 const { spinalPanelManagerService } = require("3a1e57bdbd2b666b");
-const LABEL = "Link And Manage Mission";
+const LABEL = 'Link And Manage Mission';
 class LinkAndManageContextTicketMissionBtn extends (0, _spinalEnvViewerContextMenuService.SpinalContextApp) {
     constructor(){
         super(LABEL, LABEL, {
-            icon: "settings_ethernet",
-            icon_type: "in",
-            backgroundColor: "#000000",
-            fontColor: "#ffffff"
+            icon: 'settings_ethernet',
+            icon_type: 'in',
+            backgroundColor: '#000000',
+            fontColor: '#ffffff'
         });
         this.action = this.openPanel.bind(this);
     }
@@ -1846,7 +1846,7 @@ class LinkAndManageContextTicketMissionBtn extends (0, _spinalEnvViewerContextMe
     }
 }
 
-},{"spinal-env-viewer-context-menu-service":"kHlxv","3a1e57bdbd2b666b":"7Uw4d","spinal-service-ticket/dist/Constants":"i0rBD","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"i0rBD":[function(require,module,exports) {
+},{"spinal-env-viewer-context-menu-service":"kHlxv","3a1e57bdbd2b666b":"7Uw4d","spinal-service-ticket/dist/Constants":"i0rBD","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"i0rBD":[function(require,module,exports,__globalThis) {
 "use strict";
 var __createBinding = this && this.__createBinding || (Object.create ? function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
@@ -1903,16 +1903,16 @@ Object.defineProperty(exports, "GEO_TYPES", {
 });
 exports.TICKET_CONTEXT_TYPE = OLD_CONSTANTS.SERVICE_TYPE;
 exports.TICKET_CONTEXT_SUBTYPE_LIST = [
-    "Ticket",
-    "Alarm"
+    'Ticket',
+    'Alarm'
 ];
 /////////////////////////////////////////
 /////////////// TICKET ///////////////////
 exports.TICKET_RELATION_TYPE = OLD_CONSTANTS.SPINAL_TICKET_SERVICE_TICKET_RELATION_TYPE; // STEP_TO_TICKET_RELATION_TYPE
 exports.TICKET_RELATION_NAME = OLD_CONSTANTS.SPINAL_TICKET_SERVICE_TICKET_RELATION_NAME; // STEP_TO_TICKET_RELATION_NAME
 exports.TIKET_TYPE = OLD_CONSTANTS.SPINAL_TICKET_SERVICE_TICKET_TYPE;
-exports.TICKET_ATTRIBUTE_OCCURENCE_NAME = "Occurrence number";
-exports.ALARM_RELATION_NAME = "hasAlarm";
+exports.TICKET_ATTRIBUTE_OCCURENCE_NAME = 'Occurrence number';
+exports.ALARM_RELATION_NAME = 'hasAlarm';
 /////////////////////////////////////////
 /////////////// PROCESS /////////////////
 exports.PROCESS_RELATION_TYPE = OLD_CONSTANTS.SPINAL_TICKET_SERVICE_PROCESS_RELATION_TYPE; // CONTEXT_TO_PROCESS_RELATION_TYPE
@@ -1943,22 +1943,22 @@ exports.LOGS_EVENTS_STEPS = OLD_CONSTANTS.LOGS_EVENTS;
 exports._TICKET_PRIORITIES = OLD_CONSTANTS.TICKET_PRIORITIES;
 /////////////////////////////////////////
 /////////////// ARCHIVE ////////////////
-exports.PROCESS_ARCHIVE_TICKET_RELATION = "ProcessHasArchiveTicket";
-exports.PROCESS_ARCHIVE_TICKET_TYPE = "ProcessArchiveTicket";
-exports.SPATIAL_ARCHIVE_TICKET_RELATION = "SpatialHasArchiveTicket";
-exports.SPATIAL_ARCHIVE_TICKET_TYPE = "SpatialArchiveTicket";
-exports.ARCHIVE_TICKET_PART_RELATION = "ArchiveTicketHasPart";
-exports.ARCHIVE_TICKET_PART_TYPE = "ArchiveTicketPart";
-exports.ARCHIVE_TICKET_PART_TICKET_RELATION = "ArchiveTicketPartHasTicket";
+exports.PROCESS_ARCHIVE_TICKET_RELATION = 'ProcessHasArchiveTicket';
+exports.PROCESS_ARCHIVE_TICKET_TYPE = 'ProcessArchiveTicket';
+exports.SPATIAL_ARCHIVE_TICKET_RELATION = 'SpatialHasArchiveTicket';
+exports.SPATIAL_ARCHIVE_TICKET_TYPE = 'SpatialArchiveTicket';
+exports.ARCHIVE_TICKET_PART_RELATION = 'ArchiveTicketHasPart';
+exports.ARCHIVE_TICKET_PART_TYPE = 'ArchiveTicketPart';
+exports.ARCHIVE_TICKET_PART_TICKET_RELATION = 'ArchiveTicketPartHasTicket';
 exports.ARCHIVE_TICKET_RELATION_TYPE = spinal_model_graph_1.SPINAL_RELATION_PTR_LST_TYPE;
-exports.ARCHIVE_TICKET_TIMESTAMP_ATTR_PROCESS = "ProcessArchiveTimestamp";
-exports.ARCHIVE_TICKET_TIMESTAMP_ATTR_SPATIAL = "SpatialArchiveTimestamp";
+exports.ARCHIVE_TICKET_TIMESTAMP_ATTR_PROCESS = 'ProcessArchiveTimestamp';
+exports.ARCHIVE_TICKET_TIMESTAMP_ATTR_SPATIAL = 'SpatialArchiveTimestamp';
 exports.ARCHIVE_TICKET_RELATIONS = [
     exports.SPATIAL_ARCHIVE_TICKET_RELATION,
     exports.ARCHIVE_TICKET_PART_RELATION
 ];
 
-},{"5f2287b5524fd3a7":"79Wiu","2f0e2599fe3a3648":"fkEXw","c6294f08f8af564d":"5QjJf"}],"79Wiu":[function(require,module,exports) {
+},{"5f2287b5524fd3a7":"79Wiu","2f0e2599fe3a3648":"fkEXw","c6294f08f8af564d":"5QjJf"}],"79Wiu":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2019 SpinalCom - www.spinalcom.com
@@ -1987,14 +1987,14 @@ exports.ARCHIVE_TICKET_RELATIONS = [
 });
 exports.TICKET_PRIORITIES = exports.LOGS_EVENTS_STRING = exports.LOGS_EVENTS_STEPS = exports.LOG_TYPE = exports.LOG_RELATION_NAME = exports.LOG_RELATION_TYPE = exports.EVENTS_TO_LOG = exports.LOGS_EVENTS = exports.SERVICE_LOG_TYPE = exports.SPINAL_TICKET_SERVICE_LOG_RELATION_NAME = exports.SPINAL_TICKET_SERVICE_LOG_RELATION_TYPE = exports.DEFAULT_INCIDENTS_NAME = exports.SPINAL_TICKET_SERVICE_INCIDENT_TYPE = exports.SPINAL_TICKET_SERVICE_INCIDENT_SECTION_RELATION_NAME = exports.SPINAL_TICKET_SERVICE_INCIDENT_RELATION_NAME = exports.SPINAL_TICKET_SERVICE_INCIDENT_SECTION_TYPE = exports.SPINAL_TICKET_SERVICE_INCIDENT_RELATION_TYPE = exports.SPINAL_TICKET_SERVICE_INCIDENT_SECTION_RELATION_TYPE = exports.DEFAULT_STEPS = exports.ARCHIVED_STEP = exports.SPINAL_TICKET_SERVICE_STEP_RELATION_NAME = exports.SPINAL_TICKET_SERVICE_STEP_TYPE = exports.SPINAL_TICKET_SERVICE_STEP_RELATION_TYPE = exports.PROCESS_TYPE = exports.SPINAL_TICKET_SERVICE_PROCESS_RELATION_NAME = exports.SPINAL_TICKET_SERVICE_PROCESS_RELATION_TYPE = exports.SPINAL_TICKET_SERVICE_TICKET_TYPE = exports.SPINAL_TICKET_SERVICE_TICKET_RELATION_NAME = exports.SPINAL_TICKET_SERVICE_TICKET_RELATION_TYPE = exports.SERVICE_TYPE = exports.SERVICE_NAME = void 0;
 const spinal_env_viewer_graph_service_1 = require("5f14db0a1cfd319d");
-exports.SERVICE_NAME = "Ticket Service";
-exports.SERVICE_TYPE = "SpinalSystemServiceTicket";
+exports.SERVICE_NAME = 'Ticket Service';
+exports.SERVICE_TYPE = 'SpinalSystemServiceTicket';
 /////////////////////////////////////////
 /////////////// TICKET ///////////////////
 // export const SPINAL_TICKET_SERVICE_TICKET_SECTION_RELATION_TYPE: string = SPINAL_RELATION_PTR_LST_TYPE;
 exports.SPINAL_TICKET_SERVICE_TICKET_RELATION_TYPE = spinal_env_viewer_graph_service_1.SPINAL_RELATION_PTR_LST_TYPE;
-exports.SPINAL_TICKET_SERVICE_TICKET_RELATION_NAME = "SpinalSystemServiceTicketHasTicket";
-exports.SPINAL_TICKET_SERVICE_TICKET_TYPE = "SpinalSystemServiceTicketTypeTicket";
+exports.SPINAL_TICKET_SERVICE_TICKET_RELATION_NAME = 'SpinalSystemServiceTicketHasTicket';
+exports.SPINAL_TICKET_SERVICE_TICKET_TYPE = 'SpinalSystemServiceTicketTypeTicket';
 // export const SPINAL_TICKET_SERVICE_TICKET_ARCHIVE_RELATION_TYPE: string = SPINAL_RELATION_PTR_LST_TYPE;
 // export const SPINAL_TICKET_SERVICE_TICKET_SECTION: string = 'SpinalSystemServiceHasTicket';
 // export const SPINAL_TICKET_SERVICE_TICKET_SECTION_NAME: string = 'Tickets';
@@ -2009,8 +2009,8 @@ exports.SPINAL_TICKET_SERVICE_TICKET_TYPE = "SpinalSystemServiceTicketTypeTicket
 /////////////////////////////////////////
 /////////////// PROCESS /////////////////
 exports.SPINAL_TICKET_SERVICE_PROCESS_RELATION_TYPE = spinal_env_viewer_graph_service_1.SPINAL_RELATION_PTR_LST_TYPE;
-exports.SPINAL_TICKET_SERVICE_PROCESS_RELATION_NAME = "SpinalSystemServiceTicketHasProcess";
-exports.PROCESS_TYPE = "SpinalServiceTicketProcess";
+exports.SPINAL_TICKET_SERVICE_PROCESS_RELATION_NAME = 'SpinalSystemServiceTicketHasProcess';
+exports.PROCESS_TYPE = 'SpinalServiceTicketProcess';
 // export const SPINAL_TICKET_SERVICE_PROCESS_ARCHIVE_RELATION_TYPE: string = SPINAL_RELATION_PTR_LST_TYPE;
 // export const SPINAL_TICKET_SERVICE_PROCESS_ARCHIVE_NAME: string = 'Spinal_Service_Ticket_Archive_Archive_Process';
 // export const SPINAL_TICKET_SERVICE_PROCESS_ARCHIVE_RELATION_NAME: string = 'SpinalSystemServiceArchiveHasProcess';
@@ -2025,8 +2025,8 @@ exports.PROCESS_TYPE = "SpinalServiceTicketProcess";
 //////////////////////////////////////
 /////////////// STEP /////////////////
 exports.SPINAL_TICKET_SERVICE_STEP_RELATION_TYPE = spinal_env_viewer_graph_service_1.SPINAL_RELATION_PTR_LST_TYPE;
-exports.SPINAL_TICKET_SERVICE_STEP_TYPE = "SpinalSystemServiceTicketTypeStep";
-exports.SPINAL_TICKET_SERVICE_STEP_RELATION_NAME = "SpinalSystemServiceTicketHasStep";
+exports.SPINAL_TICKET_SERVICE_STEP_TYPE = 'SpinalSystemServiceTicketTypeStep';
+exports.SPINAL_TICKET_SERVICE_STEP_RELATION_NAME = 'SpinalSystemServiceTicketHasStep';
 // export const SPINAL_TICKET_SERVICE_STEP_ARCHIVE_RELATION_TYPE: string = SPINAL_RELATION_PTR_LST_TYPE;
 // export const SPINAL_TICKET_SERVICE_ARCHIVE_RELATION_TYPE: string = SPINAL_RELATION_PTR_LST_TYPE;
 // export const SPINAL_TICKET_SERVICE_STEP_ARCHIVE_RELATION_NAME: string = 'SpinalSystemServiceArchiveHasStep';
@@ -2044,17 +2044,17 @@ exports.ARCHIVED_STEP = {
 exports.DEFAULT_STEPS = [
     {
         name: "D\xe9clar\xe9",
-        color: "#ff0019",
+        color: '#ff0019',
         order: 0
     },
     {
-        name: "Ouvert",
-        color: "#fff112",
+        name: 'Ouvert',
+        color: '#fff112',
         order: 1
     },
     {
         name: "R\xe9solu",
-        color: "#10ff1d",
+        color: '#10ff1d',
         order: 2
     },
     exports.ARCHIVED_STEP
@@ -2063,11 +2063,11 @@ exports.DEFAULT_STEPS = [
 /////////////// CATEGORY ////////////////
 exports.SPINAL_TICKET_SERVICE_INCIDENT_SECTION_RELATION_TYPE = spinal_env_viewer_graph_service_1.SPINAL_RELATION_PTR_LST_TYPE;
 exports.SPINAL_TICKET_SERVICE_INCIDENT_RELATION_TYPE = spinal_env_viewer_graph_service_1.SPINAL_RELATION_PTR_LST_TYPE;
-exports.SPINAL_TICKET_SERVICE_INCIDENT_SECTION_TYPE = "DEFAULT_INCIDENT_TYPE";
-exports.SPINAL_TICKET_SERVICE_INCIDENT_RELATION_NAME = "Spinal_Service_Ticket_Process_has_category";
-exports.SPINAL_TICKET_SERVICE_INCIDENT_SECTION_RELATION_NAME = "Spinal_Service_Ticket_Process_has_categories_section";
-exports.SPINAL_TICKET_SERVICE_INCIDENT_TYPE = "INCIDENT_TYPE";
-exports.DEFAULT_INCIDENTS_NAME = "Incidents commun";
+exports.SPINAL_TICKET_SERVICE_INCIDENT_SECTION_TYPE = 'DEFAULT_INCIDENT_TYPE';
+exports.SPINAL_TICKET_SERVICE_INCIDENT_RELATION_NAME = 'Spinal_Service_Ticket_Process_has_category';
+exports.SPINAL_TICKET_SERVICE_INCIDENT_SECTION_RELATION_NAME = 'Spinal_Service_Ticket_Process_has_categories_section';
+exports.SPINAL_TICKET_SERVICE_INCIDENT_TYPE = 'INCIDENT_TYPE';
+exports.DEFAULT_INCIDENTS_NAME = 'Incidents commun';
 // export const SPINAL_TICKET_SERVICE_INCIDENT_SUB_SECTION_RELATION_TYPE: string = SPINAL_RELATION_PTR_LST_TYPE;
 // export const SPINAL_TICKET_SERVICE_INCIDENT_SUB_SECTION_RELATION_NAME: string = 'Spinal_Service_Ticket_Process_has_sub_category';
 // export const DEFAULT_INCIDENT_TYPE: string = SPINAL_TICKET_SERVICE_INCIDENT_SECTION_TYPE;
@@ -2082,8 +2082,8 @@ exports.DEFAULT_INCIDENTS_NAME = "Incidents commun";
 /////////////////////////////////////////
 /////////////// LOG /////////////////
 exports.SPINAL_TICKET_SERVICE_LOG_RELATION_TYPE = spinal_env_viewer_graph_service_1.SPINAL_RELATION_PTR_LST_TYPE;
-exports.SPINAL_TICKET_SERVICE_LOG_RELATION_NAME = "SpinalSystemServiceTicketHasLog";
-exports.SERVICE_LOG_TYPE = "SpinalSystemServiceTicketLog";
+exports.SPINAL_TICKET_SERVICE_LOG_RELATION_NAME = 'SpinalSystemServiceTicketHasLog';
+exports.SERVICE_LOG_TYPE = 'SpinalSystemServiceTicketLog';
 var LOGS_EVENTS;
 (function(LOGS_EVENTS) {
     LOGS_EVENTS[LOGS_EVENTS["creation"] = 1] = "creation";
@@ -2131,6 +2131,6 @@ exports.TICKET_PRIORITIES = {
     urgent: 2
 };
 
-},{"5f14db0a1cfd319d":"9n7zp"}]},[], null, "parcelRequire02e5")
+},{"5f14db0a1cfd319d":"9n7zp"}]},[], null, "parcelRequire94c2")
 
 //# sourceMappingURL=spinal-env-viewer-plugin-organ_ticket_mission.d8efabbe.js.map

@@ -73,7 +73,7 @@
         localRequire,
         module,
         module.exports,
-        this
+        globalObject
       );
     }
 
@@ -142,7 +142,7 @@
       this[globalName] = mainExports;
     }
   }
-})({"5dUad":[function(require,module,exports) {
+})({"5dUad":[function(require,module,exports,__globalThis) {
 var global = arguments[3];
 "use strict";
 /*
@@ -251,12 +251,12 @@ const spinalControlPointService = new SpinalControlEndpointService_1.SpinalContr
 exports.spinalControlPointService = spinalControlPointService;
 const spinalHeatmapService = spinalControlPointService;
 exports.spinalHeatmapService = spinalHeatmapService;
-const globalRoot = typeof window === "undefined" ? global : window;
-if (typeof globalRoot.spinal === "undefined") globalRoot.spinal = {};
-if (typeof globalRoot.spinal.spinalHeatmapService === "undefined") globalRoot.spinal.spinalHeatmapService = spinalControlPointService;
-if (typeof globalRoot.spinal.spinalControlPointService === "undefined") globalRoot.spinal.spinalControlPointService = spinalControlPointService;
+const globalRoot = typeof window === 'undefined' ? global : window;
+if (typeof globalRoot.spinal === 'undefined') globalRoot.spinal = {};
+if (typeof globalRoot.spinal.spinalHeatmapService === 'undefined') globalRoot.spinal.spinalHeatmapService = spinalControlPointService;
+if (typeof globalRoot.spinal.spinalControlPointService === 'undefined') globalRoot.spinal.spinalControlPointService = spinalControlPointService;
 
-},{"3b60ea2cefec015":"hdgl5","a250dbb0128bb32":"1GjYD","6b471f13c4908e8c":"exr9H","4fa6ea461fde4a9d":"fRn9S","92553d244e1f62ee":"4CJNA","a9f0e9ba8d81f6c2":"hG8Oz","4259cdfd6225ff47":"4Iocs"}],"hdgl5":[function(require,module,exports) {
+},{"3b60ea2cefec015":"hdgl5","a250dbb0128bb32":"1GjYD","6b471f13c4908e8c":"exr9H","4fa6ea461fde4a9d":"fRn9S","92553d244e1f62ee":"4CJNA","a9f0e9ba8d81f6c2":"hG8Oz","4259cdfd6225ff47":"4Iocs"}],"hdgl5":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2021 SpinalCom - www.spinalcom.com
@@ -322,7 +322,7 @@ applyMixins(SpinalControlEndpointService, [
     ControlEndpoint_1.ControlEndpointService
 ]);
 
-},{"96f0ae08a3523036":"8hvTd","ece2b2691b677d55":"tSLpq","c8cbc01be6d05e67":"4Iocs","c2813343e0945cf2":"lamG3","e5c0f54561c63f4e":"jYFdi"}],"4Iocs":[function(require,module,exports) {
+},{"96f0ae08a3523036":"8hvTd","ece2b2691b677d55":"tSLpq","c8cbc01be6d05e67":"4Iocs","c2813343e0945cf2":"lamG3","e5c0f54561c63f4e":"jYFdi"}],"4Iocs":[function(require,module,exports,__globalThis) {
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -333,7 +333,7 @@ exports.CONTROL_GROUP_TYPE = "CONTROL_GROUP";
 exports.CONTROL_GROUP_TO_CONTROLPOINTS = "hasControlGroup";
 exports.ROOM_TO_CONTROL_GROUP = "hasControlPoints";
 
-},{}],"lamG3":[function(require,module,exports) {
+},{}],"lamG3":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2021 SpinalCom - www.spinalcom.com
@@ -412,7 +412,7 @@ class ControlEndpointService {
      */ getControlPointProfil(contextId, controlPointId) {
         return __awaiter(this, void 0, void 0, function*() {
             let realNode = spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(controlPointId);
-            if (typeof realNode === "undefined") yield spinal_env_viewer_graph_service_1.SpinalGraphService.findInContext(contextId, contextId, (node)=>{
+            if (typeof realNode === 'undefined') yield spinal_env_viewer_graph_service_1.SpinalGraphService.findInContext(contextId, contextId, (node)=>{
                 if (node.getId().get() === controlPointId) {
                     spinal_env_viewer_graph_service_1.SpinalGraphService._addNode(node);
                     realNode = node;
@@ -528,8 +528,8 @@ class ControlEndpointService {
                     const el = element.get();
                     const contextId = this.getContextId(el.id);
                     const controlPointProfil = yield this.getControlPointProfil(contextId, el.id);
-                    el["endpointProfils"] = controlPointProfil.endpoints.get();
-                    el["rooms"] = yield this.formatRooms(el.id, rooms);
+                    el['endpointProfils'] = controlPointProfil.endpoints.get();
+                    el['rooms'] = yield this.formatRooms(el.id, rooms);
                     return el;
                 }));
             return Promise.all(promises);
@@ -679,7 +679,7 @@ class ControlEndpointService {
         return __awaiter(this, void 0, void 0, function*() {
             const linked = yield this.getElementLinked(groupId);
             const found = linked.find((el)=>el.id.get() === profilId);
-            return typeof found !== "undefined";
+            return typeof found !== 'undefined';
         });
     }
     getContextId(nodeId) {
@@ -694,8 +694,8 @@ class ControlEndpointService {
     formatRooms(profilId, rooms) {
         const promises = rooms.map((room)=>__awaiter(this, void 0, void 0, function*() {
                 let obj = room.get();
-                obj["bimObjects"] = [];
-                obj["endpoints"] = yield this.getEndpointsLinked(obj.id, profilId);
+                obj['bimObjects'] = [];
+                obj['endpoints'] = yield this.getEndpointsLinked(obj.id, profilId);
                 return obj;
             }));
         return Promise.all(promises);
@@ -755,7 +755,7 @@ class ControlEndpointService {
 exports.default = ControlEndpointService;
 exports.ControlEndpointService = ControlEndpointService;
 
-},{"ba110c8d1a9d8e47":"fRH70","56fee426f4756e1d":"9n7zp","4dc416b25ad1806f":"gzkbg","52c3e3df4c8153f9":"4Iocs","fcabe83569e3bb26":"cYfPf"}],"cYfPf":[function(require,module,exports) {
+},{"ba110c8d1a9d8e47":"fRH70","56fee426f4756e1d":"9n7zp","4dc416b25ad1806f":"gzkbg","52c3e3df4c8153f9":"4Iocs","fcabe83569e3bb26":"cYfPf"}],"cYfPf":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2021 SpinalCom - www.spinalcom.com
@@ -849,7 +849,7 @@ class Utilities {
     static linkEndpointToProfil(controlPointContextId, groupNodeId, endpoint) {
         return __awaiter(this, void 0, void 0, function*() {
             // const endpoint = element.get();
-            endpoint["currentValue"] = this.getCurrentValue(endpoint.dataType);
+            endpoint['currentValue'] = this.getCurrentValue(endpoint.dataType);
             const endpointObj = this.createEndpointNode(endpoint);
             yield spinal_env_viewer_graph_service_1.SpinalGraphService.addChildInContext(groupNodeId, endpointObj.childId, controlPointContextId, spinal_model_bmsnetwork_1.SpinalBmsEndpoint.relationName, spinal_env_viewer_graph_service_1.SPINAL_RELATION_PTR_LST_TYPE);
             // await SpinalGraphService.addChild(groupNodeId, endpointObj.childId, SpinalBmsEndpoint.relationName, SPINAL_RELATION_PTR_LST_TYPE);
@@ -894,7 +894,7 @@ class Utilities {
             case ControlEndpointDataType_1.ControlEndpointDataType.Long:
                 return 0;
             default:
-                return "";
+                return '';
         }
     }
     static isLinked(items, id) {
@@ -907,11 +907,11 @@ class Utilities {
     static getDifference(oldEndpoint, newEndpoints) {
         const toCreate = newEndpoints.filter((el)=>{
             const found = oldEndpoint.find((el2)=>el2.id === el.id);
-            return typeof found === "undefined";
+            return typeof found === 'undefined';
         });
         const toRemove = oldEndpoint.filter((el)=>{
             const found = newEndpoints.find((el2)=>el2.id === el.id);
-            return typeof found === "undefined";
+            return typeof found === 'undefined';
         });
         const toUpdate = newEndpoints.filter((el)=>this.isUpdated(el, oldEndpoint));
         return {
@@ -930,9 +930,9 @@ class Utilities {
         return true;
     }
     static configAreEquals(config1, config2) {
-        const config1HasEnum = "enumeration" in config1;
+        const config1HasEnum = 'enumeration' in config1;
         if (config1HasEnum) {
-            const config2HasEnum = "enumeration" in config2;
+            const config2HasEnum = 'enumeration' in config2;
             if (!config2HasEnum) return false;
             const firstConfig = config1;
             const secondConfig = config2;
@@ -948,7 +948,7 @@ class Utilities {
         const keys2 = Object.keys(config2);
         if (keys1.length !== keys2.length) return false;
         for (const key of keys1){
-            if (typeof config1[key] !== "object" && config1[key] !== config2[key]) return false;
+            if (typeof config1[key] !== 'object' && config1[key] !== config2[key]) return false;
             else if (!this.objectsAreEquals(config1[key], config2[key])) return false;
         }
         return true;
@@ -958,7 +958,7 @@ class Utilities {
         const keys2 = Object.keys(object2);
         if (keys1.length !== keys2.length) return false;
         for (let key of keys1){
-            if (key !== "config" && object1[key] !== object2[key]) return false;
+            if (key !== 'config' && object1[key] !== object2[key]) return false;
         }
         return true;
     }
@@ -1001,7 +1001,7 @@ class Utilities {
             const info = spinal_env_viewer_graph_service_1.SpinalGraphService.getInfo(endpointId);
             const realNode = spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(endpointId);
             const element = yield info.element.load();
-            for (const key of Object.keys(newProfil))if (key !== "config" && element[key]) element[key].set(newProfil[key]);
+            for (const key of Object.keys(newProfil))if (key !== 'config' && element[key]) element[key].set(newProfil[key]);
             realNode.info.name.set(newProfil.name);
         });
     }
@@ -1048,7 +1048,7 @@ class Utilities {
 exports.default = Utilities;
 exports.Utilities = Utilities;
 
-},{"79c60731fdd0de9f":"fRH70","ebbc5b84a7c55e11":"9n7zp","89c092d8d8ffc033":"tSLpq","5e142feb6154e0f8":"gzkbg","68c172dc5bb7631c":"exr9H","d73f4e00d317b9b8":"fRn9S","e0c74ff21acb7864":"4Iocs"}],"exr9H":[function(require,module,exports) {
+},{"79c60731fdd0de9f":"fRH70","ebbc5b84a7c55e11":"9n7zp","89c092d8d8ffc033":"tSLpq","5e142feb6154e0f8":"gzkbg","68c172dc5bb7631c":"exr9H","d73f4e00d317b9b8":"fRn9S","e0c74ff21acb7864":"4Iocs"}],"exr9H":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2020 SpinalCom - www.spinalcom.com
@@ -1102,7 +1102,7 @@ var ControlEndpointDataType;
     ControlEndpointDataType["Enum"] = "Enum";
 })(ControlEndpointDataType = exports.ControlEndpointDataType || (exports.ControlEndpointDataType = {}));
 
-},{}],"fRn9S":[function(require,module,exports) {
+},{}],"fRn9S":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2020 SpinalCom - www.spinalcom.com
@@ -1143,7 +1143,7 @@ var ControlEndpointType;
     ControlEndpointType["co2"] = "co2";
 })(ControlEndpointType = exports.ControlEndpointType || (exports.ControlEndpointType = {}));
 
-},{}],"jYFdi":[function(require,module,exports) {
+},{}],"jYFdi":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2021 SpinalCom - www.spinalcom.com
@@ -1261,7 +1261,7 @@ class ControlEnpointsTree {
      * @param  {any} controlPointProfil
      * @returns Promise of new groupId and old groupId
      */ createControlPointProfil(contextId, groupId, controlPointProfil = {
-        name: "unknow",
+        name: 'unknow',
         endpoints: []
     }) {
         const profilNodeId = spinal_env_viewer_graph_service_1.SpinalGraphService.createNode({
@@ -1274,7 +1274,7 @@ class ControlEnpointsTree {
 exports.default = ControlEnpointsTree;
 exports.ControlEnpointsTree = ControlEnpointsTree;
 
-},{"4647b50cb40ba902":"fRH70","563741af32325660":"9n7zp","26f19721f8c6d50e":"tSLpq","3de4f6869f25192c":"4Iocs"}],"1GjYD":[function(require,module,exports) {
+},{"4647b50cb40ba902":"fRH70","563741af32325660":"9n7zp","26f19721f8c6d50e":"tSLpq","3de4f6869f25192c":"4Iocs"}],"1GjYD":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2020 SpinalCom - www.spinalcom.com
@@ -1309,7 +1309,7 @@ var CalculationRule;
     CalculationRule["Average"] = "Average";
 })(CalculationRule = exports.CalculationRule || (exports.CalculationRule = {}));
 
-},{}],"4CJNA":[function(require,module,exports) {
+},{}],"4CJNA":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2020 SpinalCom - www.spinalcom.com
@@ -1342,11 +1342,11 @@ const ControlEndpointDataType_1 = require("3c9d55ae878071d1");
 exports.BoolConfig = {
     min: {
         value: false,
-        color: "#008000"
+        color: '#008000'
     },
     max: {
         value: true,
-        color: "#FF0000"
+        color: '#FF0000'
     },
     calculation_rule: CalculationRulesDataType_1.CalculationRule.Reference
 };
@@ -1357,15 +1357,15 @@ exports.EnumConfig = {
 exports.NumberConfig = {
     min: {
         value: 0,
-        color: "#FF0000"
+        color: '#FF0000'
     },
     average: {
         value: 15,
-        color: "#ffff00"
+        color: '#ffff00'
     },
     max: {
         value: 30,
-        color: "#008000"
+        color: '#008000'
     },
     calculation_rule: CalculationRulesDataType_1.CalculationRule.Reference
 };
@@ -1386,7 +1386,7 @@ const getConfig = function(dataType) {
 };
 exports.getConfig = getConfig;
 
-},{"7a784f4dfee27431":"1GjYD","3c9d55ae878071d1":"exr9H"}],"hG8Oz":[function(require,module,exports) {
+},{"7a784f4dfee27431":"1GjYD","3c9d55ae878071d1":"exr9H"}],"hG8Oz":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2020 SpinalCom - www.spinalcom.com
@@ -1419,30 +1419,30 @@ const ControlEndpointDataType_1 = require("7d973f910d5ccd54");
 const ControlEndpointType_1 = require("1d9c446b6db051d5");
 const config_1 = require("a8481e84f179d63c");
 exports.ControlPointObj = Object.freeze({
-    name: "",
-    alias: "",
-    path: "",
-    unit: "",
+    name: '',
+    alias: '',
+    path: '',
+    unit: '',
     dataType: ControlEndpointDataType_1.ControlEndpointDataType.Float,
     type: ControlEndpointType_1.ControlEndpointType.Temperature,
     command: 0,
     saveTimeSeries: 0,
     config: (0, config_1.getConfig)(ControlEndpointDataType_1.ControlEndpointDataType.Float),
-    icon: "device_thermostat",
+    icon: 'device_thermostat',
     isActive: true
 });
 class SpinalControlPoint extends spinal_core_connectorjs_type_1.Model {
     constructor(controlPoint){
         super();
         if (controlPoint) controlPoint.config = (0, config_1.getConfig)(controlPoint.dataType);
-        if (typeof controlPoint === "undefined") controlPoint = exports.ControlPointObj;
+        if (typeof controlPoint === 'undefined') controlPoint = exports.ControlPointObj;
         this.add_attr(controlPoint);
         this.bindDataType();
     }
     bindDataType() {
         this.dataType.bind(()=>{
             const type = this.dataType.get();
-            this.mod_attr("config", (0, config_1.getConfig)(type));
+            this.mod_attr('config', (0, config_1.getConfig)(type));
         });
     }
 }
@@ -1451,6 +1451,6 @@ spinal_core_connectorjs_type_1.spinalCore.register_models([
     SpinalControlPoint
 ]);
 
-},{"f3b36af9ab6a8000":"fRH70","7d973f910d5ccd54":"exr9H","1d9c446b6db051d5":"fRn9S","a8481e84f179d63c":"4CJNA"}]},[], null, "parcelRequire02e5")
+},{"f3b36af9ab6a8000":"fRH70","7d973f910d5ccd54":"exr9H","1d9c446b6db051d5":"fRn9S","a8481e84f179d63c":"4CJNA"}]},[], null, "parcelRequire94c2")
 
 //# sourceMappingURL=spinal-env-viewer-room-manager.7317d2fc.js.map

@@ -73,7 +73,7 @@
         localRequire,
         module,
         module.exports,
-        this
+        globalObject
       );
     }
 
@@ -142,7 +142,7 @@
       this[globalName] = mainExports;
     }
   }
-})({"8YZk7":[function(require,module,exports) {
+})({"8YZk7":[function(require,module,exports,__globalThis) {
 var global = arguments[3];
 "use strict";
 /*
@@ -178,7 +178,7 @@ if (typeof g_win.spinal.SpinalForgeViewer === "undefined") {
     g_win.spinal.BimObjectService = g_win.spinal.SpinalForgeViewer.bimObjectService;
 }
 
-},{"20d41fec0f5c41e1":"54Ua6"}],"54Ua6":[function(require,module,exports) {
+},{"20d41fec0f5c41e1":"54Ua6"}],"54Ua6":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2020 SpinalCom - www.spinalcom.com
@@ -337,15 +337,15 @@ var THREE = require("cd8d1b969b97234d");
 var SpinalForgeViewer = /** @class */ function() {
     function SpinalForgeViewer() {
         this.bimObjectService = new BimObjectService_1.BimObjectService();
-        this.overlayName = "spinal-material-overlay";
+        this.overlayName = 'spinal-material-overlay';
     }
     SpinalForgeViewer.prototype.initialize = function(viewerManager) {
         var _this = this;
-        if (typeof this.initialized === "undefined") this.initialized = new Promise(function(resolve) {
+        if (typeof this.initialized === 'undefined') this.initialized = new Promise(function(resolve) {
             _this.viewerManager = viewerManager;
             var addEventListen = function() {
                 _this.viewerManager.viewer.addEventListener(Autodesk.Viewing.AGGREGATE_SELECTION_CHANGED_EVENT, function(event) {
-                    if (typeof event.selections !== "undefined" && event.selections.length > 0) {
+                    if (typeof event.selections !== 'undefined' && event.selections.length > 0) {
                         _this.viewerManager.setCurrentModel(event.selections[0].model);
                         _this.bimObjectService.setCurrentModel(event.selections[0].model);
                     }
@@ -358,13 +358,13 @@ var SpinalForgeViewer = /** @class */ function() {
         return this.initialized;
     };
     SpinalForgeViewer.prototype.isInitialize = function() {
-        return typeof this.initialized !== "undefined";
+        return typeof this.initialized !== 'undefined';
     };
     SpinalForgeViewer.prototype.waitForInitialization = function() {
         var _this = this;
         return new Promise(function(resolve) {
             var interval = setInterval(function() {
-                if (typeof _this.initialized !== "undefined") {
+                if (typeof _this.initialized !== 'undefined') {
                     clearInterval(interval);
                     _this.initialized.then(function() {
                         return resolve(true);
@@ -398,9 +398,9 @@ var SpinalForgeViewer = /** @class */ function() {
                     case 2:
                         elem = _a.sent();
                         res = [];
-                        if (elem.hasOwnProperty("items")) {
-                            for(i = 0; i < elem.items.length; i++)if (elem.items[i].path.get().indexOf("svf") !== -1) {
-                                thumbnail = elem.items[i].thumbnail ? elem.items[i].thumbnail.get() : elem.items[i].path.get() + ".png";
+                        if (elem.hasOwnProperty('items')) {
+                            for(i = 0; i < elem.items.length; i++)if (elem.items[i].path.get().indexOf('svf') !== -1) {
+                                thumbnail = elem.items[i].thumbnail ? elem.items[i].thumbnail.get() : elem.items[i].path.get() + '.png';
                                 res.push({
                                     path: elem.items[i].path.get(),
                                     name: elem.items[i].name.get(),
@@ -424,7 +424,7 @@ var SpinalForgeViewer = /** @class */ function() {
         var bimFileRNode = spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(bimFileId);
         if (bimFileRNode) {
             if (bimFileRNode.info.defaultItem) return bimFileRNode.info.defaultItem.set(path);
-            else return bimFileRNode.info.add_attr("defaultItem", path);
+            else return bimFileRNode.info.add_attr('defaultItem', path);
         }
     };
     SpinalForgeViewer.prototype.getSVF = function(element, nodeId, name) {
@@ -446,12 +446,12 @@ var SpinalForgeViewer = /** @class */ function() {
                         ];
                     case 2:
                         elem = _c.sent();
-                        if (elem.hasOwnProperty("items")) {
+                        if (elem.hasOwnProperty('items')) {
                             bimFileRNode = spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(nodeId);
                             if (bimFileRNode && bimFileRNode.info.defaultItem) {
                                 defaultPath = bimFileRNode.info.defaultItem.get();
-                                for(i = 0; i < elem.items.length; i++)if (elem.items[i].path.get().indexOf("svf") !== -1 && defaultPath === elem.items[i].path.get()) {
-                                    thumbnail = elem.items[i].thumbnail ? elem.items[i].thumbnail.get() : elem.items[i].path.get() + ".png";
+                                for(i = 0; i < elem.items.length; i++)if (elem.items[i].path.get().indexOf('svf') !== -1 && defaultPath === elem.items[i].path.get()) {
+                                    thumbnail = elem.items[i].thumbnail ? elem.items[i].thumbnail.get() : elem.items[i].path.get() + '.png';
                                     return [
                                         2 /*return*/ ,
                                         {
@@ -465,8 +465,8 @@ var SpinalForgeViewer = /** @class */ function() {
                                     ];
                                 }
                             }
-                            for(i = 0; i < elem.items.length; i++)if (elem.items[i].path.get().indexOf("svf") !== -1) {
-                                thumbnail = elem.items[i].thumbnail ? elem.items[i].thumbnail.get() : elem.items[i].path.get() + ".png";
+                            for(i = 0; i < elem.items.length; i++)if (elem.items[i].path.get().indexOf('svf') !== -1) {
+                                thumbnail = elem.items[i].thumbnail ? elem.items[i].thumbnail.get() : elem.items[i].path.get() + '.png';
                                 return [
                                     2 /*return*/ ,
                                     {
@@ -549,7 +549,7 @@ var SpinalForgeViewer = /** @class */ function() {
         };
     };
     SpinalForgeViewer.prototype.addDbIdToOption = function(option) {
-        if (option.hasOwnProperty("dbIds") && option.dbIds.length > 0) option.ids = option.dbIds;
+        if (option.hasOwnProperty('dbIds') && option.dbIds.length > 0) option.ids = option.dbIds;
     };
     SpinalForgeViewer.prototype.loadBimFile = function(bimFile, scene, options) {
         if (options === void 0) options = [];
@@ -566,13 +566,13 @@ var SpinalForgeViewer = /** @class */ function() {
                     case 1:
                         svfVersionFile = _b.sent();
                         option = null;
-                        if (!(typeof scene.sceneAlignMethod === "undefined")) return [
+                        if (!(typeof scene.sceneAlignMethod === 'undefined')) return [
                             3 /*break*/ ,
                             2
                         ];
                         // old scene handle
                         option = this.getOption(options, svfVersionFile);
-                        if (option.loadOption && option.loadOption.hasOwnProperty("globalOffset")) {
+                        if (option.loadOption && option.loadOption.hasOwnProperty('globalOffset')) {
                             if (!this.globalOffset) this.globalOffset = option.loadOption.globalOffset;
                             option.globalOffset = this.globalOffset;
                         }
@@ -693,7 +693,7 @@ var SpinalForgeViewer = /** @class */ function() {
                         ];
                     case 2:
                         children = _a.sent();
-                        option_1 = typeof node.options !== "undefined" ? node.options : [];
+                        option_1 = typeof node.options !== 'undefined' ? node.options : [];
                         data = children.map(function(child) {
                             return {
                                 child: child,
@@ -869,7 +869,7 @@ var SpinalForgeViewer = /** @class */ function() {
 }();
 exports.SpinalForgeViewer = SpinalForgeViewer;
 
-},{"b56d331c57e6f89d":"9n7zp","cdacbcd213eb7723":"kUTUC","420a4315dd6dd12e":"f3Ny6","7ea57096748cb98d":"iQm5n","13f6dc54f0606a8":"fBUOh","718e3a65d8e0425d":"jo6P5","1d4ddc000ca7a7ff":"feevh","cd8d1b969b97234d":"ktPTu"}],"kUTUC":[function(require,module,exports) {
+},{"b56d331c57e6f89d":"9n7zp","cdacbcd213eb7723":"kUTUC","420a4315dd6dd12e":"f3Ny6","7ea57096748cb98d":"iQm5n","13f6dc54f0606a8":"fBUOh","718e3a65d8e0425d":"jo6P5","1d4ddc000ca7a7ff":"feevh","cd8d1b969b97234d":"ktPTu"}],"kUTUC":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2020 SpinalCom - www.spinalcom.com
@@ -1082,7 +1082,7 @@ var Constants_1 = require("6a074d843bf1b8ea");
                         ];
                     case 2:
                         e_1 = _a.sent();
-                        console.error("BimObjectService.getBimFileContext", e_1);
+                        console.error('BimObjectService.getBimFileContext', e_1);
                         throw e_1;
                     case 3:
                         return [
@@ -1202,7 +1202,7 @@ var Constants_1 = require("6a074d843bf1b8ea");
                         ];
                     case 10:
                         e_2 = _a.sent();
-                        console.error("createBIMObject", e_2);
+                        console.error('createBIMObject', e_2);
                         throw e_2;
                     case 11:
                         return [
@@ -1284,7 +1284,7 @@ var Constants_1 = require("6a074d843bf1b8ea");
                         ];
                     case 6:
                         e_3 = _a.sent();
-                        console.error("getBIMObject", e_3);
+                        console.error('getBIMObject', e_3);
                         throw e_3;
                     case 7:
                         return [
@@ -1473,7 +1473,7 @@ var Constants_1 = require("6a074d843bf1b8ea");
                         ];
                     case 3:
                         e_5 = _a.sent();
-                        console.error("deleteBImObject", e_5);
+                        console.error('deleteBImObject', e_5);
                         throw e_5;
                     case 4:
                         return [
@@ -1615,7 +1615,7 @@ var Constants_1 = require("6a074d843bf1b8ea");
      */ BimObjectService.prototype.getModel = function(dbId, bimFileId) {
         var mapping = this.mappingBimFileIdModelId[bimFileId];
         if (typeof mapping !== "undefined") for(var i = 0; i < mapping.modelScene.length; i++){
-            if (mapping.modelScene[i].scene.hasOwnProperty("options") && mapping.modelScene[i].scene["options"].dbIds.contains(dbId)) return mapping.modelScene[i].model;
+            if (mapping.modelScene[i].scene.hasOwnProperty('options') && mapping.modelScene[i].scene['options'].dbIds.contains(dbId)) return mapping.modelScene[i].model;
         }
         return undefined;
     };
@@ -1640,7 +1640,7 @@ var Constants_1 = require("6a074d843bf1b8ea");
 }();
 exports.BimObjectService = BimObjectService;
 
-},{"b20fefd9d72f6b2d":"9n7zp","6a074d843bf1b8ea":"f3Ny6"}],"f3Ny6":[function(require,module,exports) {
+},{"b20fefd9d72f6b2d":"9n7zp","6a074d843bf1b8ea":"f3Ny6"}],"f3Ny6":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2020 SpinalCom - www.spinalcom.com
@@ -1668,9 +1668,9 @@ exports.BimObjectService = BimObjectService;
 exports.REFERENCE_OBJECT_RELATION_TYPE = exports.BIM_OBJECT_RELATION_TYPE = exports.BIM_NODE_RELATION_TYPE = exports.BIM_OBJECT_VERSION_RELATION_TYPE = exports.REFERENCE_OBJECT_RELATION_NAME = exports.BIM_OBJECT_VERSION_RELATION_NAME = exports.BIM_OBJECT_RELATION_NAME = exports.BIM_NODE_RELATION_NAME = exports.BIM_CONTEXT_RELATION_TYPE = exports.BIM_CONTEXT_RELATION_NAME = exports.BIM_OBJECT_TYPE = exports.PART_RELATION_TYPE = exports.SCENE_RELATION_TYPE = exports.PART_RELATION_NAME = exports.SCENE_TYPE = exports.SCENE_RELATION_NAME = void 0;
 var spinal_env_viewer_graph_service_1 = require("44f946b368e03b14");
 var constants_js_1 = require("3c0117970d993dce");
-exports.SCENE_RELATION_NAME = "hasScene";
+exports.SCENE_RELATION_NAME = 'hasScene';
 exports.SCENE_TYPE = "scene";
-exports.PART_RELATION_NAME = "hasParts";
+exports.PART_RELATION_NAME = 'hasParts';
 exports.SCENE_RELATION_TYPE = spinal_env_viewer_graph_service_1.SPINAL_RELATION_PTR_LST_TYPE;
 exports.PART_RELATION_TYPE = spinal_env_viewer_graph_service_1.SPINAL_RELATION_PTR_LST_TYPE;
 exports.BIM_OBJECT_TYPE = constants_js_1.EQUIPMENT_TYPE;
@@ -1685,7 +1685,7 @@ exports.BIM_NODE_RELATION_TYPE = spinal_env_viewer_graph_service_1.SPINAL_RELATI
 exports.BIM_OBJECT_RELATION_TYPE = spinal_env_viewer_graph_service_1.SPINAL_RELATION_PTR_LST_TYPE;
 exports.REFERENCE_OBJECT_RELATION_TYPE = spinal_env_viewer_graph_service_1.SPINAL_RELATION_PTR_LST_TYPE;
 
-},{"44f946b368e03b14":"9n7zp","3c0117970d993dce":"eV0id"}],"eV0id":[function(require,module,exports) {
+},{"44f946b368e03b14":"9n7zp","3c0117970d993dce":"eV0id"}],"eV0id":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -1713,47 +1713,47 @@ exports.REFERENCE_OBJECT_RELATION_TYPE = spinal_env_viewer_graph_service_1.SPINA
     value: true
 });
 exports.REFERENCE_ROOM_RELATION = exports.ROOM_REFERENCE_CONTEXT = exports.ZONE_REFERENCE_CONTEXT = exports.FLOOR_REFERENCE_CONTEXT = exports.BUILDING_REFERENCE_CONTEXT = exports.SITE_REFERENCE_CONTEXT = exports.REFERENCE_RELATION = exports.REFERENCE_TYPE = exports.MAP_RELATION_TYPE = exports.MAP_TYPE_RELATION = exports.GEOGRAPHIC_RELATIONS_ORDER = exports.EQUIPMENT_RELATION = exports.GEOGRAPHIC_RELATIONS = exports.ROOM_RELATION = exports.ZONE_RELATION = exports.FLOOR_RELATION = exports.BUILDING_RELATION = exports.SITE_RELATION = exports.GEOGRAPHIC_TYPES_ORDER = exports.EQUIPMENT_TYPE = exports.GEOGRAPHIC_TYPES = exports.ROOM_TYPE = exports.ZONE_TYPE = exports.FLOOR_TYPE = exports.BUILDING_TYPE = exports.SITE_TYPE = exports.CONTEXT_TYPE = void 0;
-const CONTEXT_TYPE = "geographicContext";
+const CONTEXT_TYPE = 'geographicContext';
 exports.CONTEXT_TYPE = CONTEXT_TYPE;
-const SITE_TYPE = "geographicSite";
+const SITE_TYPE = 'geographicSite';
 exports.SITE_TYPE = SITE_TYPE;
-const BUILDING_TYPE = "geographicBuilding";
+const BUILDING_TYPE = 'geographicBuilding';
 exports.BUILDING_TYPE = BUILDING_TYPE;
-const FLOOR_TYPE = "geographicFloor";
+const FLOOR_TYPE = 'geographicFloor';
 exports.FLOOR_TYPE = FLOOR_TYPE;
-const ZONE_TYPE = "geographicZone";
+const ZONE_TYPE = 'geographicZone';
 exports.ZONE_TYPE = ZONE_TYPE;
-const ROOM_TYPE = "geographicRoom";
+const ROOM_TYPE = 'geographicRoom';
 exports.ROOM_TYPE = ROOM_TYPE;
-const EQUIPMENT_TYPE = "BIMObject";
+const EQUIPMENT_TYPE = 'BIMObject';
 exports.EQUIPMENT_TYPE = EQUIPMENT_TYPE;
-const REFERENCE_TYPE = "geographicReference";
+const REFERENCE_TYPE = 'geographicReference';
 exports.REFERENCE_TYPE = REFERENCE_TYPE;
-const SITE_RELATION = "hasGeographicSite";
+const SITE_RELATION = 'hasGeographicSite';
 exports.SITE_RELATION = SITE_RELATION;
-const BUILDING_RELATION = "hasGeographicBuilding";
+const BUILDING_RELATION = 'hasGeographicBuilding';
 exports.BUILDING_RELATION = BUILDING_RELATION;
-const FLOOR_RELATION = "hasGeographicFloor";
+const FLOOR_RELATION = 'hasGeographicFloor';
 exports.FLOOR_RELATION = FLOOR_RELATION;
-const ZONE_RELATION = "hasGeographicZone";
+const ZONE_RELATION = 'hasGeographicZone';
 exports.ZONE_RELATION = ZONE_RELATION;
-const ROOM_RELATION = "hasGeographicRoom";
+const ROOM_RELATION = 'hasGeographicRoom';
 exports.ROOM_RELATION = ROOM_RELATION;
-const EQUIPMENT_RELATION = "hasBimObject";
+const EQUIPMENT_RELATION = 'hasBimObject';
 exports.EQUIPMENT_RELATION = EQUIPMENT_RELATION;
-const REFERENCE_RELATION = "hasReferenceObject";
+const REFERENCE_RELATION = 'hasReferenceObject';
 exports.REFERENCE_RELATION = REFERENCE_RELATION;
-const REFERENCE_ROOM_RELATION = "hasReferenceObject.ROOM";
+const REFERENCE_ROOM_RELATION = 'hasReferenceObject.ROOM';
 exports.REFERENCE_ROOM_RELATION = REFERENCE_ROOM_RELATION;
-const SITE_REFERENCE_CONTEXT = ".SiteContext";
+const SITE_REFERENCE_CONTEXT = '.SiteContext';
 exports.SITE_REFERENCE_CONTEXT = SITE_REFERENCE_CONTEXT;
-const BUILDING_REFERENCE_CONTEXT = ".BuildingContext";
+const BUILDING_REFERENCE_CONTEXT = '.BuildingContext';
 exports.BUILDING_REFERENCE_CONTEXT = BUILDING_REFERENCE_CONTEXT;
-const FLOOR_REFERENCE_CONTEXT = ".FloorContext";
+const FLOOR_REFERENCE_CONTEXT = '.FloorContext';
 exports.FLOOR_REFERENCE_CONTEXT = FLOOR_REFERENCE_CONTEXT;
-const ZONE_REFERENCE_CONTEXT = ".ZoneContext";
+const ZONE_REFERENCE_CONTEXT = '.ZoneContext';
 exports.ZONE_REFERENCE_CONTEXT = ZONE_REFERENCE_CONTEXT;
-const ROOM_REFERENCE_CONTEXT = ".RoomContext";
+const ROOM_REFERENCE_CONTEXT = '.RoomContext';
 exports.ROOM_REFERENCE_CONTEXT = ROOM_REFERENCE_CONTEXT;
 const GEOGRAPHIC_TYPES = Object.freeze([
     SITE_TYPE,
@@ -1846,7 +1846,7 @@ const MAP_RELATION_TYPE = Object.freeze(new Map([
 ]));
 exports.MAP_RELATION_TYPE = MAP_RELATION_TYPE;
 
-},{}],"iQm5n":[function(require,module,exports) {
+},{}],"iQm5n":[function(require,module,exports,__globalThis) {
 "use strict";
 exports.__esModule = true;
 exports.loadModelPtr = void 0;
@@ -1854,11 +1854,11 @@ var spinal_core_connectorjs_type_1 = require("be10f1e5016f21cc");
 var mapModelDictionary = new Map();
 function loadModelPtr(model) {
     if (model instanceof spinal_core_connectorjs_type_1.File) return loadModelPtr(model._ptr);
-    if (!(model instanceof spinal_core_connectorjs_type_1.Ptr)) throw new Error("loadModelPtr must take Ptr as parameter");
+    if (!(model instanceof spinal_core_connectorjs_type_1.Ptr)) throw new Error('loadModelPtr must take Ptr as parameter');
     if (!model.data.value && model.data.model) return Promise.resolve(model.data.model);
-    else if (!model.data.value) throw new Error("Trying to load a Ptr to 0");
+    else if (!model.data.value) throw new Error('Trying to load a Ptr to 0');
     if (mapModelDictionary.has(model.data.value)) return mapModelDictionary.get(model.data.value);
-    if (typeof spinal_core_connectorjs_type_1.FileSystem._objects[model.data.value] !== "undefined") {
+    if (typeof spinal_core_connectorjs_type_1.FileSystem._objects[model.data.value] !== 'undefined') {
         var promise_1 = Promise.resolve(spinal_core_connectorjs_type_1.FileSystem._objects[model.data.value]);
         mapModelDictionary.set(model.data.value, promise_1);
         return promise_1;
@@ -1867,7 +1867,7 @@ function loadModelPtr(model) {
         model.load(function(m) {
             if (!m) {
                 mapModelDictionary["delete"](model.data.value);
-                reject(new Error("Error in load Ptr"));
+                reject(new Error('Error in load Ptr'));
             } else resolve(m);
         });
     });
@@ -1876,7 +1876,7 @@ function loadModelPtr(model) {
 }
 exports.loadModelPtr = loadModelPtr;
 
-},{"be10f1e5016f21cc":"fRH70"}],"fBUOh":[function(require,module,exports) {
+},{"be10f1e5016f21cc":"fRH70"}],"fBUOh":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2020 SpinalCom - www.spinalcom.com
@@ -2096,7 +2096,7 @@ var SceneHelper = /** @class */ function() {
 }();
 exports.SceneHelper = SceneHelper;
 
-},{"8f37b5693929b675":"9n7zp","c7802459ec641ae1":"f3Ny6"}],"feevh":[function(require,module,exports) {
+},{"8f37b5693929b675":"9n7zp","c7802459ec641ae1":"f3Ny6"}],"feevh":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2021 SpinalCom - www.spinalcom.com
@@ -2129,6 +2129,6 @@ var SceneAlignMethod;
     SceneAlignMethod[SceneAlignMethod["ShareCoordinates"] = 2] = "ShareCoordinates";
 })(SceneAlignMethod = exports.SceneAlignMethod || (exports.SceneAlignMethod = {}));
 
-},{}]},[], null, "parcelRequire02e5")
+},{}]},[], null, "parcelRequire94c2")
 
 //# sourceMappingURL=dist.98fb3e50.js.map

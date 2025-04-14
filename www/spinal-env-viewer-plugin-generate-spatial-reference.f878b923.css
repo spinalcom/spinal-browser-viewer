@@ -72,7 +72,6 @@
 }
 
 .update-basic-info > p[data-v-62c676] {
-  -webkit-user-select: text;
   user-select: text;
   margin-bottom: 0;
 }
@@ -97,7 +96,6 @@
 }
 
 .spatial-diff-settings-body[data-v-f3aa04] {
-  -webkit-user-select: text;
   user-select: text;
   height: calc(100% - 50px);
   position: relative;
@@ -359,8 +357,8 @@
 }
 
 .spinal-project-item-group-item-arrow-container > button[data-v-28cc98] {
-  min-width: unset;
   height: 24px;
+  min-width: unset;
   margin: 0;
   padding: 0;
 }

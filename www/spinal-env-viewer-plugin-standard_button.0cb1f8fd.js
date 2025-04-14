@@ -73,7 +73,7 @@
         localRequire,
         module,
         module.exports,
-        this
+        globalObject
       );
     }
 
@@ -142,7 +142,7 @@
       this[globalName] = mainExports;
     }
   }
-})({"bOuNP":[function(require,module,exports) {
+})({"bOuNP":[function(require,module,exports,__globalThis) {
 var global = arguments[3];
 !function(e, t) {
     module.exports = t();
@@ -1055,7 +1055,7 @@ var global = arguments[3];
         function(e, t, n) {
             var r = n(16), i = n(89), o = n(30), a = n(28)("IE_PROTO"), s = function() {}, c = function() {
                 var e, t = n(43)("iframe"), r = o.length;
-                for(t.style.display = "none", n(94).appendChild(t), t.src = "javascript:", e = t.contentWindow.document, e.open(), e.write("<script>document.F=Object</script>"), e.close(), c = e.F; r--;)delete c.prototype[o[r]];
+                for(t.style.display = "none", n(94).appendChild(t), t.src = "javascript:", e = t.contentWindow.document, e.open(), e.write("<script>document.F=Object<\/script>"), e.close(), c = e.F; r--;)delete c.prototype[o[r]];
                 return c();
             };
             e.exports = Object.create || function(e, t) {
@@ -5332,6 +5332,6 @@ var global = arguments[3];
     ]);
 });
 
-},{}]},[], null, "parcelRequire02e5")
+},{}]},[], null, "parcelRequire94c2")
 
 //# sourceMappingURL=spinal-env-viewer-plugin-standard_button.0cb1f8fd.js.map

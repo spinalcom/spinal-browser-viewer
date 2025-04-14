@@ -73,7 +73,7 @@
         localRequire,
         module,
         module.exports,
-        this
+        globalObject
       );
     }
 
@@ -142,7 +142,7 @@
       this[globalName] = mainExports;
     }
   }
-})({"91D3E":[function(require,module,exports) {
+})({"91D3E":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -196,7 +196,7 @@ exports.default = new class {
     }
 }();
 
-},{"spinal-env-viewer-plugin-circular-menu-service":"e2lZQ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"e2lZQ":[function(require,module,exports) {
+},{"spinal-env-viewer-plugin-circular-menu-service":"e2lZQ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"e2lZQ":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2020 SpinalCom - www.spinalcom.com
  *
@@ -374,7 +374,7 @@ var circularMenu = class circularMenu {
 };
 module.exports.circularMenu = circularMenu;
 
-},{"spinal-env-viewer-plugin-circular-menu/circularMenu.vue":"5uFPK","vue":"gt5MM","spinal-env-viewer-graph-service":"9n7zp","df0105731b32998a":"kHlxv","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5uFPK":[function(require,module,exports) {
+},{"spinal-env-viewer-plugin-circular-menu/circularMenu.vue":"5uFPK","vue":"gt5MM","spinal-env-viewer-graph-service":"9n7zp","df0105731b32998a":"kHlxv","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5uFPK":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -386,13 +386,13 @@ let initialize = ()=>{
     script._scopeId = "data-v-d56c56";
     script.__cssModules = require("943c9ee8baa12b5c").default;
     require("df6e1cb3a78e64fa").default(script);
-    script.__scopeId = "data-v-d56c56";
+    script.__scopeId = 'data-v-d56c56';
     script.__file = "circularMenu.vue";
 };
 initialize();
 exports.default = script;
 
-},{"30e001849f9de112":"i4Wtv","70c64d8d3c820305":"3Ffv9","943c9ee8baa12b5c":"7p8JO","df6e1cb3a78e64fa":"2QPZs","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"i4Wtv":[function(require,module,exports) {
+},{"30e001849f9de112":"i4Wtv","70c64d8d3c820305":"3Ffv9","943c9ee8baa12b5c":"7p8JO","df6e1cb3a78e64fa":"2QPZs","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"i4Wtv":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var scriptExports = {
@@ -484,19 +484,19 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3Ffv9":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3Ffv9":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("div", [
-        _c("div", {
+    return _c('div', [
+        _c('div', {
             style: _vm.getStyle()
         }, _vm._l(_vm.buttonList, function(button, index) {
-            return _c("transition", {
+            return _c('transition', {
                 key: index,
                 attrs: {
                     "name": "myCircularOpen",
@@ -511,7 +511,7 @@ var render = function() {
                     }
                 }
             }, [
-                _c("md-button", {
+                _c('md-button', {
                     directives: [
                         {
                             name: "tooltip",
@@ -533,7 +533,7 @@ var render = function() {
                         }
                     }
                 }, [
-                    _c("md-icon", {
+                    _c('md-icon', {
                         style: _vm.getIconColor(index)
                     }, [
                         _vm._v(_vm._s(button.buttonCfg.icon))
@@ -547,12 +547,12 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"7p8JO":[function() {},{}],"2QPZs":[function(require,module,exports) {
+},{}],"7p8JO":[function() {},{}],"2QPZs":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},[], null, "parcelRequire02e5")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},[], null, "parcelRequire94c2")
 
 //# sourceMappingURL=spinal-env-viewer-plugin-circular-menu.0c6e4b20.js.map

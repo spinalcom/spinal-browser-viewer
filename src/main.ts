@@ -1,10 +1,10 @@
 /*
- * Copyright 2023 SpinalCom - www.spinalcom.com
+ * Copyright 2025 SpinalCom - www.spinalcom.com
  *
  * This file is part of SpinalCore.
  *
  * Please read all of the following terms and conditions
- * of the Free Software license Agreement ("Agreement")
+ * of the Software license Agreement ("Agreement")
  * carefully.
  *
  * This Agreement is a legally binding contract between
@@ -21,28 +21,37 @@
  * with this file. If not, see
  * <http://resources.spinalcom.com/licenses.pdf>.
  */
-import Vue from 'vue';
-import App from './App.vue';
-import VueMaterial from 'vue-material';
-import VTooltip from 'v-tooltip';
-import spinal from './SpinalSystem/spinal';
-import vClickOutside from 'v-click-outside';
-Vue.use(vClickOutside);
 
-import VueCtkDateTimePicker from './assets/vue-ctk-date-time-picker/index.vue';
-// @ts-ignore
-window.Autodesk.Viewing.Private.analytics.optOut();
+async function main() {
+  if (typeof Autodesk === 'undefined') {
+    // load offline
+    await loadCss('offline/cssroboto.css');
+    await loadCss('offline/styleoffline.css');
+    await loadScript('offline/viewer3D.js');
+  }
+  await loadScript('./Autodesk.ADN.Viewing.Extension.Color.js');
+  await loadScript('./panelClass.js');
+  await loadScript('./plotly/plotly.min.js');
+  await import('./startApp');
+}
 
-Vue.component('VueCtkDateTimePicker', VueCtkDateTimePicker);
+function loadCss(url: string) {
+  return new Promise<void>((resolve) => {
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = url;
+    link.onload = () => resolve();
+    document.head.appendChild(link);
+  });
+}
 
-import './main.css';
-import './app.css';
-
-Vue.use(spinal);
-Vue.use(VueMaterial);
-Vue.use(VTooltip);
-
-new Vue({
-  el: '#app',
-  render: (h) => h(App),
-});
+function loadScript(url: string) {
+  return new Promise<void>((resolve, reject) => {
+    const script = document.createElement('script');
+    script.src = url;
+    script.onload = () => resolve();
+    script.onerror = () => reject(new Error(`Failed to load script: ${url}`));
+    document.head.appendChild(script);
+  });
+}
+main();

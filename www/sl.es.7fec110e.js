@@ -73,7 +73,7 @@
         localRequire,
         module,
         module.exports,
-        this
+        globalObject
       );
     }
 
@@ -142,7 +142,7 @@
       this[globalName] = mainExports;
     }
   }
-})({"7Ccob":[function(require,module,exports) {
+})({"7Ccob":[function(require,module,exports,__globalThis) {
 /**
   * vue-cal v3.11.0
   * (c) 2022 Antoni Andre <antoniandre.web@gmail.com>
@@ -200,6 +200,6 @@ const e = [
     dateFormat: "dddd MMMM D, YYYY"
 };
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},[], null, "parcelRequire02e5")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},[], null, "parcelRequire94c2")
 
 //# sourceMappingURL=sl.es.7fec110e.js.map

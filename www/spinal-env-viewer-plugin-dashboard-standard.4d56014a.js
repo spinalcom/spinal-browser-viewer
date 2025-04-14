@@ -73,7 +73,7 @@
         localRequire,
         module,
         module.exports,
-        this
+        globalObject
       );
     }
 
@@ -142,7 +142,7 @@
       this[globalName] = mainExports;
     }
   }
-})({"gFC3c":[function(require,module,exports) {
+})({"gFC3c":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _addDashBoard = require("./buttons/addDashBoard");
 var _addDashBoardDefault = parcelHelpers.interopDefault(_addDashBoard);
@@ -179,7 +179,7 @@ spinalContextMenuService.registerApp(HeaderBarName, new (0, _createDashboardCont
     3
 ]);
 
-},{"ef41ea260a4b07cd":"kHlxv","./buttons/addDashBoard":"CDk90","./buttons/linkWithDashBoard":"83RUI","./buttons/linkAutoWithDashboard":"9Yg63","./buttons/createDashboardContext":"872vo","./buttons/calculateBtn":"1bJ5R","./buttons/globalCalculate":"liy8S","./js/registerDialog":"33fps","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"CDk90":[function(require,module,exports) {
+},{"ef41ea260a4b07cd":"kHlxv","./buttons/addDashBoard":"CDk90","./buttons/linkWithDashBoard":"83RUI","./buttons/linkAutoWithDashboard":"9Yg63","./buttons/createDashboardContext":"872vo","./buttons/calculateBtn":"1bJ5R","./buttons/globalCalculate":"liy8S","./js/registerDialog":"33fps","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"CDk90":[function(require,module,exports,__globalThis) {
 var _spinalEnvViewerDashboardStandardService = require("spinal-env-viewer-dashboard-standard-service");
 const { SpinalContextApp } = require("386d3e5acfce84c1");
 const { spinalPanelManagerService } = require("df0d5253527b48a8");
@@ -218,7 +218,7 @@ class AddDashboard extends SpinalContextApp {
 }
 module.exports = AddDashboard;
 
-},{"386d3e5acfce84c1":"kHlxv","df0d5253527b48a8":"7Uw4d","spinal-env-viewer-dashboard-standard-service":"ioaJh"}],"7Uw4d":[function(require,module,exports) {
+},{"386d3e5acfce84c1":"kHlxv","df0d5253527b48a8":"7Uw4d","spinal-env-viewer-dashboard-standard-service":"ioaJh"}],"7Uw4d":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -257,7 +257,7 @@ module.exports = {
     }
 };
 
-},{"8b71a79dcc12420e":"h7sS1","e47c36529e942a76":"cvBJ6","cfd4c6200ba55765":"9SKSV"}],"h7sS1":[function(require,module,exports) {
+},{"8b71a79dcc12420e":"h7sS1","e47c36529e942a76":"cvBJ6","cfd4c6200ba55765":"9SKSV"}],"h7sS1":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -337,7 +337,7 @@ module.exports = {
 }
 module.exports = SpinalPanelManagerService;
 
-},{}],"cvBJ6":[function(require,module,exports) {
+},{}],"cvBJ6":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -372,7 +372,7 @@ module.exports = SpinalPanelManagerService;
 }
 module.exports = SpinalPanelApp;
 
-},{}],"9SKSV":[function(require,module,exports) {
+},{}],"9SKSV":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -471,7 +471,7 @@ function getDialog() {
     };
 };
 
-},{}],"ioaJh":[function(require,module,exports) {
+},{}],"ioaJh":[function(require,module,exports,__globalThis) {
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -714,7 +714,7 @@ unLinkToDashBoard(dashboardId, nodeId, callback) {
 
 */ 
 
-},{"2b08083d6dd47dc4":"67C5P","60991b7cabcf0c72":"9n7zp","ce91997d1074d2c":"gzkbg","a1c89662925c9508":"jsnTF"}],"67C5P":[function(require,module,exports) {
+},{"2b08083d6dd47dc4":"67C5P","60991b7cabcf0c72":"9n7zp","ce91997d1074d2c":"gzkbg","a1c89662925c9508":"jsnTF"}],"67C5P":[function(require,module,exports,__globalThis) {
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -774,7 +774,7 @@ exports.ENDPOINT_RELATION_NAME = ENDPOINT_RELATION_NAME;
 exports.DASHBOARD_TO_ELEMENT_RELATION = DASHBOARD_TO_ELEMENT_RELATION;
 exports.CALCULATION_RULES = CALCULATION_RULES;
 
-},{"c57787d62cca9a23":"5QjJf"}],"jsnTF":[function(require,module,exports) {
+},{"c57787d62cca9a23":"5QjJf"}],"jsnTF":[function(require,module,exports,__globalThis) {
 var global = arguments[3];
 "use strict";
 Object.defineProperty(exports, "__esModule", {
@@ -795,7 +795,7 @@ const globalType = typeof window === "undefined" ? global : window;
 exports.AbstractElement = _AbstractElement2.default;
 exports.BIMElement = _BIMElement2.default;
 
-},{"19df3b4b51028d49":"d91KA","77b24a79bb80029a":"irx1v","294f8484813eef1b":"2uyD7"}],"d91KA":[function(require,module,exports) {
+},{"19df3b4b51028d49":"d91KA","77b24a79bb80029a":"irx1v","294f8484813eef1b":"2uyD7"}],"d91KA":[function(require,module,exports,__globalThis) {
 var global = arguments[3];
 "use strict";
 Object.defineProperty(exports, "__esModule", {
@@ -822,7 +822,7 @@ spinalCore.register_models([
     AbstractElement
 ]);
 
-},{"219bd63e96dc8d9":"8XE2J","f4839373ca56abfb":"2uyD7"}],"8XE2J":[function(require,module,exports) {
+},{"219bd63e96dc8d9":"8XE2J","f4839373ca56abfb":"2uyD7"}],"8XE2J":[function(require,module,exports,__globalThis) {
 var global = arguments[3];
 "use strict";
 Object.defineProperty(exports, "__esModule", {
@@ -988,7 +988,7 @@ Utilities.putOnTopLst = function(lst, elementB) {
 };
 exports.Utilities = Utilities;
 
-},{}],"irx1v":[function(require,module,exports) {
+},{}],"irx1v":[function(require,module,exports,__globalThis) {
 var global = arguments[3];
 "use strict";
 Object.defineProperty(exports, "__esModule", {
@@ -1059,7 +1059,7 @@ spinalCore.register_models([
     BIMElement
 ]);
 
-},{"83eb36b83bc3848a":"3Ibtq","d1acada118764380":"8XE2J","ee3a3f95aba74422":"2uyD7"}],"3Ibtq":[function(require,module,exports) {
+},{"83eb36b83bc3848a":"3Ibtq","d1acada118764380":"8XE2J","ee3a3f95aba74422":"2uyD7"}],"3Ibtq":[function(require,module,exports,__globalThis) {
 var global = arguments[3];
 "use strict";
 Object.defineProperty(exports, "__esModule", {
@@ -1081,7 +1081,7 @@ spinalCore.register_models([
     SpinalBIMObject
 ]);
 
-},{"e30868c801f59ada":"2uyD7"}],"83RUI":[function(require,module,exports) {
+},{"e30868c801f59ada":"2uyD7"}],"83RUI":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _spinalEnvViewerContextGeographicService = require("spinal-env-viewer-context-geographic-service");
 var _spinalEnvViewerContextGeographicServiceDefault = parcelHelpers.interopDefault(_spinalEnvViewerContextGeographicService);
@@ -1121,13 +1121,13 @@ class LinkWithDashBoard extends SpinalContextApp {
                 context: option.context,
                 selectedNode: option.selectedNode
             };
-            spinalPanelManagerService.openPanel("linkToDashBoardDialog", dialogParams);
+            spinalPanelManagerService.openPanel('linkToDashBoardDialog', dialogParams);
         }
     }
 }
 module.exports = LinkWithDashBoard;
 
-},{"195921f94fe8359a":"kHlxv","abdafa69e0775fd4":"7Uw4d","spinal-env-viewer-context-geographic-service":"5QjJf","spinal-env-viewer-dashboard-standard-service":"ioaJh","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9Yg63":[function(require,module,exports) {
+},{"195921f94fe8359a":"kHlxv","abdafa69e0775fd4":"7Uw4d","spinal-env-viewer-context-geographic-service":"5QjJf","spinal-env-viewer-dashboard-standard-service":"ioaJh","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9Yg63":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _spinalEnvViewerContextGeographicService = require("spinal-env-viewer-context-geographic-service");
 var _spinalEnvViewerContextGeographicServiceDefault = parcelHelpers.interopDefault(_spinalEnvViewerContextGeographicService);
@@ -1148,12 +1148,12 @@ class LinkAutoWithDashboard extends SpinalContextApp {
         return Promise.resolve(-1);
     }
     action(option) {
-        spinalPanelManagerService.openPanel("linkAutoWithDashboardDialog", option);
+        spinalPanelManagerService.openPanel('linkAutoWithDashboardDialog', option);
     }
 }
 module.exports = LinkAutoWithDashboard;
 
-},{"33c18624ae75325":"kHlxv","e0bbdc67efe3335a":"7Uw4d","spinal-env-viewer-context-geographic-service":"5QjJf","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"872vo":[function(require,module,exports) {
+},{"33c18624ae75325":"kHlxv","e0bbdc67efe3335a":"7Uw4d","spinal-env-viewer-context-geographic-service":"5QjJf","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"872vo":[function(require,module,exports,__globalThis) {
 const { SpinalContextApp } = require("999cb994543c28b8");
 const { spinalPanelManagerService } = require("7213d3fcd5c601c3");
 class CreateDashboardContext extends SpinalContextApp {
@@ -1174,7 +1174,7 @@ class CreateDashboardContext extends SpinalContextApp {
 }
 module.exports = CreateDashboardContext;
 
-},{"999cb994543c28b8":"kHlxv","7213d3fcd5c601c3":"7Uw4d"}],"1bJ5R":[function(require,module,exports) {
+},{"999cb994543c28b8":"kHlxv","7213d3fcd5c601c3":"7Uw4d"}],"1bJ5R":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _spinalEnvViewerDashboardStandardService = require("spinal-env-viewer-dashboard-standard-service");
 var _spinalEnvViewerContextGeographicService = require("spinal-env-viewer-context-geographic-service");
@@ -1204,7 +1204,7 @@ class CalculateBtn extends SpinalContextApp {
 }
 module.exports = CalculateBtn;
 
-},{"c57801e8231826d7":"kHlxv","da277f89cbcf423":"7Uw4d","spinal-env-viewer-dashboard-standard-service":"ioaJh","spinal-env-viewer-context-geographic-service":"5QjJf","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"liy8S":[function(require,module,exports) {
+},{"c57801e8231826d7":"kHlxv","da277f89cbcf423":"7Uw4d","spinal-env-viewer-dashboard-standard-service":"ioaJh","spinal-env-viewer-context-geographic-service":"5QjJf","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"liy8S":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _spinalEnvViewerContextGeographicService = require("spinal-env-viewer-context-geographic-service");
 var _spinalEnvViewerContextGeographicServiceDefault = parcelHelpers.interopDefault(_spinalEnvViewerContextGeographicService);
@@ -1229,7 +1229,7 @@ class GlobalCalculateBtn extends SpinalContextApp {
 }
 module.exports = GlobalCalculateBtn;
 
-},{"spinal-env-viewer-context-geographic-service":"5QjJf","cf30c896ea595923":"kHlxv","d04bb21daa8f319d":"7Uw4d","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"33fps":[function(require,module,exports) {
+},{"spinal-env-viewer-context-geographic-service":"5QjJf","cf30c896ea595923":"kHlxv","d04bb21daa8f319d":"7Uw4d","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"33fps":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _vue = require("vue");
 var _vueDefault = parcelHelpers.interopDefault(_vue);
@@ -1287,7 +1287,7 @@ const { SpinalMountExtention } = require("971aebcddf88aa39");
 ];
 for(let index = 0; index < dialogs.length; index++)SpinalMountExtention.mount(dialogs[index]);
 
-},{"vue":"gt5MM","../vue/dashBoardConfigDialog.vue":"7fZ8Y","../vue/linkToDashBoardDialog.vue":"abGhn","../vue/linkAutoWithDashboardDialog.vue":"fOHLz","../vue/createDashboardContext.vue":"12ffR","../vue/CalculParams.vue":"ggVvm","../vue/globalCalcul.vue":"i0zNk","../vue/bimObjectCalculReference.vue":"3OkO5","971aebcddf88aa39":"7Uw4d","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7fZ8Y":[function(require,module,exports) {
+},{"vue":"gt5MM","../vue/dashBoardConfigDialog.vue":"7fZ8Y","../vue/linkToDashBoardDialog.vue":"abGhn","../vue/linkAutoWithDashboardDialog.vue":"fOHLz","../vue/createDashboardContext.vue":"12ffR","../vue/CalculParams.vue":"ggVvm","../vue/globalCalcul.vue":"i0zNk","../vue/bimObjectCalculReference.vue":"3OkO5","971aebcddf88aa39":"7Uw4d","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7fZ8Y":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -1298,13 +1298,13 @@ let initialize = ()=>{
     script.staticRenderFns = require("fe6a971173da2de7").staticRenderFns;
     script._scopeId = "data-v-40011a";
     require("c411635d59ed1195").default(script);
-    script.__scopeId = "data-v-40011a";
+    script.__scopeId = 'data-v-40011a';
     script.__file = "dashBoardConfigDialog.vue";
 };
 initialize();
 exports.default = script;
 
-},{"e87615dca230e82a":"9rqYy","fe6a971173da2de7":"8nWDB","c411635d59ed1195":"4OVTi","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9rqYy":[function(require,module,exports) {
+},{"e87615dca230e82a":"9rqYy","fe6a971173da2de7":"8nWDB","c411635d59ed1195":"4OVTi","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9rqYy":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _choice = require("../js/choice");
@@ -1371,10 +1371,10 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"../js/choice":"6l62S","spinal-env-viewer-dashboard-standard-service":"ioaJh","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6l62S":[function(require,module,exports) {
+},{"../js/choice":"6l62S","spinal-env-viewer-dashboard-standard-service":"ioaJh","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6l62S":[function(require,module,exports,__globalThis) {
 module.exports = [
     {
         checked: true,
@@ -1432,13 +1432,13 @@ module.exports = [
     }
 ];
 
-},{}],"8nWDB":[function(require,module,exports) {
+},{}],"8nWDB":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("div", [
-        _c("md-dialog", {
+    return _c('div', [
+        _c('md-dialog', {
             attrs: {
                 "md-active": _vm.showDialog
             },
@@ -1454,17 +1454,17 @@ var render = function() {
                 }
             }
         }, [
-            _c("md-dialog-title", [
+            _c('md-dialog-title', [
                 _vm._v(_vm._s(_vm.title))
             ]),
             _vm._v(" "),
-            _c("md-dialog-content", [
-                _c("md-field", [
-                    _c("label", [
+            _c('md-dialog-content', [
+                _c('md-field', [
+                    _c('label', [
                         _vm._v("DashBoard Name")
                     ]),
                     _vm._v(" "),
-                    _c("md-input", {
+                    _c('md-input', {
                         model: {
                             value: _vm.inputValue,
                             callback: function($$v) {
@@ -1475,18 +1475,18 @@ var render = function() {
                     })
                 ], 1),
                 _vm._v(" "),
-                _c("br"),
+                _c('br'),
                 _vm._v(" "),
-                _c("span", {
+                _c('span', {
                     staticClass: "md-subheading"
                 }, [
                     _vm._v("Choose the type ")
                 ]),
                 _vm._v(" "),
-                _c("br"),
+                _c('br'),
                 _vm._v(" "),
-                _c("div", _vm._l(_vm.types, function(geo, index) {
-                    return _c("md-radio", {
+                _c('div', _vm._l(_vm.types, function(geo, index) {
+                    return _c('md-radio', {
                         key: index,
                         staticClass: "md-primary",
                         attrs: {
@@ -1505,20 +1505,20 @@ var render = function() {
                     ]);
                 }), 1),
                 _vm._v(" "),
-                _c("br"),
+                _c('br'),
                 _vm._v(" "),
-                _c("span", {
+                _c('span', {
                     staticClass: "md-subheading"
                 }, [
                     _vm._v("check the types of endpoints to add ")
                 ]),
                 _vm._v(" "),
-                _c("br"),
+                _c('br'),
                 _vm._v(" "),
-                _c("div", {
+                _c('div', {
                     staticClass: "md-layout"
                 }, _vm._l(_vm.choices, function(choice, index) {
-                    return _c("md-checkbox", {
+                    return _c('md-checkbox', {
                         key: index,
                         staticClass: "md-layout-item md-size-45 md-primary",
                         attrs: {
@@ -1537,8 +1537,8 @@ var render = function() {
                 }), 1)
             ], 1),
             _vm._v(" "),
-            _c("md-dialog-actions", [
-                _c("md-button", {
+            _c('md-dialog-actions', [
+                _c('md-button', {
                     staticClass: "md-primary",
                     on: {
                         "click": function($event) {
@@ -1549,7 +1549,7 @@ var render = function() {
                     _vm._v("Close")
                 ]),
                 _vm._v(" "),
-                _c("md-button", {
+                _c('md-button', {
                     staticClass: "md-primary",
                     attrs: {
                         "disabled": !_vm.formIsValid()
@@ -1570,13 +1570,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"4OVTi":[function(require,module,exports) {
+},{}],"4OVTi":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"abGhn":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"abGhn":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -1588,13 +1588,13 @@ let initialize = ()=>{
     script._scopeId = "data-v-e6f7a4";
     script.__cssModules = require("d4978e9f2c0396c1").default;
     require("a384c3a5e69b5dd5").default(script);
-    script.__scopeId = "data-v-e6f7a4";
+    script.__scopeId = 'data-v-e6f7a4';
     script.__file = "linkToDashBoardDialog.vue";
 };
 initialize();
 exports.default = script;
 
-},{"e2640aabecf430db":"9vQrx","2d73806550bbf6da":"6FXAQ","d4978e9f2c0396c1":"dUCVK","a384c3a5e69b5dd5":"gyu5F","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9vQrx":[function(require,module,exports) {
+},{"e2640aabecf430db":"9vQrx","2d73806550bbf6da":"6FXAQ","d4978e9f2c0396c1":"dUCVK","a384c3a5e69b5dd5":"gyu5F","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9vQrx":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerDashboardStandardService = require("spinal-env-viewer-dashboard-standard-service");
@@ -1642,16 +1642,16 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"spinal-env-viewer-dashboard-standard-service":"ioaJh","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6FXAQ":[function(require,module,exports) {
+},{"spinal-env-viewer-dashboard-standard-service":"ioaJh","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6FXAQ":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("div", [
-        _c("md-dialog", {
+    return _c('div', [
+        _c('md-dialog', {
             staticClass: "DashboardDialog",
             attrs: {
                 "md-active": _vm.showDialog
@@ -1668,22 +1668,22 @@ var render = function() {
                 }
             }
         }, [
-            _c("md-dialog-title", [
+            _c('md-dialog-title', [
                 _vm._v("Select a dashboard To link")
             ]),
             _vm._v(" "),
-            _c("md-dialog-content", [
-                _vm.hasDash ? _c("div", {
+            _c('md-dialog-content', [
+                _vm.hasDash ? _c('div', {
                     staticClass: "choicesEmpty"
                 }, [
                     _vm._v("\n\n        This element already has a dashboard, the old one will be removed !\n      ")
                 ]) : _vm._e(),
                 _vm._v(" "),
-                _c("div", {
+                _c('div', {
                     staticClass: "md-layout-item"
                 }, [
-                    _c("md-field", [
-                        _vm.dashboards.length ? _c("md-select", {
+                    _c('md-field', [
+                        _vm.dashboards.length ? _c('md-select', {
                             attrs: {
                                 "placeholder": "Select context"
                             },
@@ -1695,7 +1695,7 @@ var render = function() {
                                 expression: "dashboardContextSelected"
                             }
                         }, _vm._l(_vm.dashboards, function(d, index) {
-                            return _c("md-option", {
+                            return _c('md-option', {
                                 key: index,
                                 attrs: {
                                     "value": d.id
@@ -1707,17 +1707,17 @@ var render = function() {
                     ], 1)
                 ], 1),
                 _vm._v(" "),
-                _c("div", {
+                _c('div', {
                     staticClass: "dashboardDiv"
                 }, [
-                    _c("span", {
+                    _c('span', {
                         staticClass: "md-caption"
                     }, [
                         _vm._v("Select a dashboard")
                     ]),
                     _vm._v(" "),
                     _vm._l(_vm.choices, function(choice, index) {
-                        return _c("md-radio", {
+                        return _c('md-radio', {
                             key: index,
                             staticClass: "md-layout-item md-size-30 md-primary",
                             attrs: {
@@ -1735,7 +1735,7 @@ var render = function() {
                         ]);
                     }),
                     _vm._v(" "),
-                    _vm.choices.length == 0 && _vm.dashboardContextSelected.length !== 0 ? _c("div", {
+                    _vm.choices.length == 0 && _vm.dashboardContextSelected.length !== 0 ? _c('div', {
                         staticClass: "choicesEmpty"
                     }, [
                         _vm._v("\n          There is no Dahboard created for this type\n        ")
@@ -1743,8 +1743,8 @@ var render = function() {
                 ], 2)
             ]),
             _vm._v(" "),
-            _c("md-dialog-actions", [
-                _c("md-button", {
+            _c('md-dialog-actions', [
+                _c('md-button', {
                     staticClass: "md-primary",
                     on: {
                         "click": function($event) {
@@ -1755,7 +1755,7 @@ var render = function() {
                     _vm._v("Close")
                 ]),
                 _vm._v(" "),
-                _c("md-button", {
+                _c('md-button', {
                     staticClass: "md-primary",
                     attrs: {
                         "disabled": !(_vm.radio.length > 0)
@@ -1776,13 +1776,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"dUCVK":[function() {},{}],"gyu5F":[function(require,module,exports) {
+},{}],"dUCVK":[function() {},{}],"gyu5F":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fOHLz":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fOHLz":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -1794,13 +1794,13 @@ let initialize = ()=>{
     script._scopeId = "data-v-42ea0e";
     script.__cssModules = require("9843e348d6e10e5b").default;
     require("174cfd1ad29c7599").default(script);
-    script.__scopeId = "data-v-42ea0e";
+    script.__scopeId = 'data-v-42ea0e';
     script.__file = "linkAutoWithDashboardDialog.vue";
 };
 initialize();
 exports.default = script;
 
-},{"8a73acf7be5c3bf0":"2Xmwu","9275df3ca2bd0d26":"20Y2V","9843e348d6e10e5b":"kllC7","174cfd1ad29c7599":"6CzBX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2Xmwu":[function(require,module,exports) {
+},{"8a73acf7be5c3bf0":"2Xmwu","9275df3ca2bd0d26":"20Y2V","9843e348d6e10e5b":"kllC7","174cfd1ad29c7599":"6CzBX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2Xmwu":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerContextGeographicService = require("spinal-env-viewer-context-geographic-service");
@@ -1865,10 +1865,10 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"spinal-env-viewer-context-geographic-service":"5QjJf","spinal-env-viewer-dashboard-standard-service":"ioaJh","../js/find":"67MBH","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"67MBH":[function(require,module,exports) {
+},{"spinal-env-viewer-context-geographic-service":"5QjJf","spinal-env-viewer-dashboard-standard-service":"ioaJh","../js/find":"67MBH","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"67MBH":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "find", ()=>find);
@@ -1905,13 +1905,13 @@ let find = async function(id, relationNames, predicate) {
     return found;
 };
 
-},{"spinal-env-viewer-graph-service":"9n7zp","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"20Y2V":[function(require,module,exports) {
+},{"spinal-env-viewer-graph-service":"9n7zp","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"20Y2V":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("div", [
-        _c("md-dialog", {
+    return _c('div', [
+        _c('md-dialog', {
             staticClass: "dialogContainer",
             attrs: {
                 "md-active": _vm.showDialog
@@ -1928,26 +1928,26 @@ var render = function() {
                 }
             }
         }, [
-            _c("md-dialog-title", [
+            _c('md-dialog-title', [
                 _vm._v("Link Elements To Dashboard")
             ]),
             _vm._v(" "),
-            _c("md-dialog-content", _vm._l(_vm.allData, function(data, index) {
-                return _c("div", {
+            _c('md-dialog-content', _vm._l(_vm.allData, function(data, index) {
+                return _c('div', {
                     key: index,
                     staticClass: "md-layout md-gutter"
                 }, [
-                    _c("div", {
+                    _c('div', {
                         staticClass: "md-layout-item md-size-30 title"
                     }, [
                         _vm._v(_vm._s(data.name))
                     ]),
                     _vm._v(" "),
-                    _c("div", {
+                    _c('div', {
                         staticClass: "md-layout-item md-size-30"
                     }, [
-                        _c("md-field", [
-                            _c("md-select", {
+                        _c('md-field', [
+                            _c('md-select', {
                                 attrs: {
                                     "name": data.type,
                                     "id": "context"
@@ -1965,7 +1965,7 @@ var render = function() {
                                     expression: "data.contextSelected"
                                 }
                             }, [
-                                _c("md-option", {
+                                _c('md-option', {
                                     attrs: {
                                         "value": "none"
                                     }
@@ -1974,7 +1974,7 @@ var render = function() {
                                 ]),
                                 _vm._v(" "),
                                 _vm._l(_vm.dashboards, function(element, index) {
-                                    return _c("md-option", {
+                                    return _c('md-option', {
                                         key: index,
                                         attrs: {
                                             "value": element.id.get()
@@ -1987,11 +1987,11 @@ var render = function() {
                         ], 1)
                     ], 1),
                     _vm._v(" "),
-                    _c("div", {
+                    _c('div', {
                         staticClass: "md-layout-item md-size-30"
                     }, [
-                        data.contextSelected != "none" && data.dashboards.length > 0 ? _c("md-field", [
-                            _c("md-select", {
+                        data.contextSelected != 'none' && data.dashboards.length > 0 ? _c('md-field', [
+                            _c('md-select', {
                                 attrs: {
                                     "name": _vm.dash,
                                     "id": "dash"
@@ -2004,7 +2004,7 @@ var render = function() {
                                     expression: "data.dasboardSelected"
                                 }
                             }, [
-                                _c("md-option", {
+                                _c('md-option', {
                                     attrs: {
                                         "value": "none"
                                     }
@@ -2013,7 +2013,7 @@ var render = function() {
                                 ]),
                                 _vm._v(" "),
                                 _vm._l(data.dashboards, function(dash, index) {
-                                    return _c("md-option", {
+                                    return _c('md-option', {
                                         key: index,
                                         attrs: {
                                             "value": dash.id.get()
@@ -2025,8 +2025,8 @@ var render = function() {
                             ], 2)
                         ], 1) : _vm._e(),
                         _vm._v(" "),
-                        data.contextSelected != "none" && data.dashboards.length == 0 ? _c("md-field", [
-                            _c("span", {
+                        data.contextSelected != 'none' && data.dashboards.length == 0 ? _c('md-field', [
+                            _c('span', {
                                 staticClass: "md-caption noDashboard"
                             }, [
                                 _vm._v("No dashboard for this type")
@@ -2036,8 +2036,8 @@ var render = function() {
                 ]);
             }), 0),
             _vm._v(" "),
-            _c("md-dialog-actions", [
-                _c("md-button", {
+            _c('md-dialog-actions', [
+                _c('md-button', {
                     staticClass: "md-primary",
                     on: {
                         "click": function($event) {
@@ -2048,7 +2048,7 @@ var render = function() {
                     _vm._v("Close")
                 ]),
                 _vm._v(" "),
-                _c("md-button", {
+                _c('md-button', {
                     staticClass: "md-primary",
                     on: {
                         "click": function($event) {
@@ -2066,13 +2066,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"kllC7":[function() {},{}],"6CzBX":[function(require,module,exports) {
+},{}],"kllC7":[function() {},{}],"6CzBX":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"12ffR":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"12ffR":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -2083,13 +2083,13 @@ let initialize = ()=>{
     script.staticRenderFns = require("5067fd0934d83cf3").staticRenderFns;
     script._scopeId = "data-v-987c20";
     require("7199e9ae261ce6e9").default(script);
-    script.__scopeId = "data-v-987c20";
+    script.__scopeId = 'data-v-987c20';
     script.__file = "createDashboardContext.vue";
 };
 initialize();
 exports.default = script;
 
-},{"7672b03871584f2e":"idXKX","5067fd0934d83cf3":"2Pc6R","7199e9ae261ce6e9":"h4u8Y","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"idXKX":[function(require,module,exports) {
+},{"7672b03871584f2e":"idXKX","5067fd0934d83cf3":"2Pc6R","7199e9ae261ce6e9":"h4u8Y","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"idXKX":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerDashboardStandardService = require("spinal-env-viewer-dashboard-standard-service");
@@ -2129,15 +2129,15 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"spinal-env-viewer-dashboard-standard-service":"ioaJh","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2Pc6R":[function(require,module,exports) {
+},{"spinal-env-viewer-dashboard-standard-service":"ioaJh","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2Pc6R":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("md-dialog", {
+    return _c('md-dialog', {
         attrs: {
             "md-active": _vm.showDialog
         },
@@ -2153,17 +2153,17 @@ var render = function() {
             }
         }
     }, [
-        _c("md-dialog-title", [
+        _c('md-dialog-title', [
             _vm._v("Create Dashboard Standard context")
         ]),
         _vm._v(" "),
-        _c("md-dialog-content", [
-            _c("md-field", [
-                _c("label", [
+        _c('md-dialog-content', [
+            _c('md-field', [
+                _c('label', [
                     _vm._v("Enter context Name")
                 ]),
                 _vm._v(" "),
-                _c("md-input", {
+                _c('md-input', {
                     model: {
                         value: _vm.inputValue,
                         callback: function($$v) {
@@ -2175,8 +2175,8 @@ var render = function() {
             ], 1)
         ], 1),
         _vm._v(" "),
-        _c("md-dialog-actions", [
-            _c("md-button", {
+        _c('md-dialog-actions', [
+            _c('md-button', {
                 staticClass: "md-primary",
                 on: {
                     "click": function($event) {
@@ -2187,7 +2187,7 @@ var render = function() {
                 _vm._v("Close")
             ]),
             _vm._v(" "),
-            _c("md-button", {
+            _c('md-button', {
                 staticClass: "md-primary",
                 attrs: {
                     "disabled": !(_vm.inputValue.trim().length > 0)
@@ -2207,13 +2207,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"h4u8Y":[function(require,module,exports) {
+},{}],"h4u8Y":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ggVvm":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ggVvm":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -2225,13 +2225,13 @@ let initialize = ()=>{
     script._scopeId = "data-v-6ee456";
     script.__cssModules = require("db463dbccbc3df69").default;
     require("888ba2699536e601").default(script);
-    script.__scopeId = "data-v-6ee456";
+    script.__scopeId = 'data-v-6ee456';
     script.__file = "CalculParams.vue";
 };
 initialize();
 exports.default = script;
 
-},{"6500c32538446cdd":"keqRo","33ee3b7abd85410f":"eYFAH","db463dbccbc3df69":"3WKhx","888ba2699536e601":"3SW15","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"keqRo":[function(require,module,exports) {
+},{"6500c32538446cdd":"keqRo","33ee3b7abd85410f":"eYFAH","db463dbccbc3df69":"3WKhx","888ba2699536e601":"3SW15","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"keqRo":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerDashboardStandardService = require("spinal-env-viewer-dashboard-standard-service");
@@ -2309,15 +2309,15 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"spinal-env-viewer-dashboard-standard-service":"ioaJh","spinal-env-viewer-graph-service":"9n7zp","spinal-env-viewer-context-geographic-service":"5QjJf","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"eYFAH":[function(require,module,exports) {
+},{"spinal-env-viewer-dashboard-standard-service":"ioaJh","spinal-env-viewer-graph-service":"9n7zp","spinal-env-viewer-context-geographic-service":"5QjJf","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"eYFAH":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("md-dialog", {
+    return _c('md-dialog', {
         attrs: {
             "md-active": _vm.showDialog
         },
@@ -2333,7 +2333,7 @@ var render = function() {
             }
         }
     }, [
-        _c("md-dialog-title", {
+        _c('md-dialog-title', {
             staticStyle: {
                 "text-align": "center"
             }
@@ -2341,10 +2341,10 @@ var render = function() {
             _vm._v("Parameter " + _vm._s(_vm.name) + " calculation")
         ]),
         _vm._v(" "),
-        _c("md-dialog-content", [
-            _c("div", [
-                _c("md-field", [
-                    _c("label", {
+        _c('md-dialog-content', [
+            _c('div', [
+                _c('md-field', [
+                    _c('label', {
                         attrs: {
                             "for": "item"
                         }
@@ -2352,7 +2352,7 @@ var render = function() {
                         _vm._v("Select an item")
                     ]),
                     _vm._v(" "),
-                    _c("md-select", {
+                    _c('md-select', {
                         attrs: {
                             "name": "item",
                             "id": "item"
@@ -2365,7 +2365,7 @@ var render = function() {
                             expression: "endpointTypeSelected"
                         }
                     }, _vm._l(_vm.dashEndpoints, function(dash, index) {
-                        return _c("md-option", {
+                        return _c('md-option', {
                             key: index,
                             attrs: {
                                 "value": dash.id
@@ -2377,15 +2377,15 @@ var render = function() {
                 ], 1)
             ], 1),
             _vm._v(" "),
-            _vm.endpointTypeSelected ? _c("div", [
-                _c("span", {
+            _vm.endpointTypeSelected ? _c('div', [
+                _c('span', {
                     staticClass: "dashName md-title"
                 }, [
                     _vm._v("Choose :")
                 ]),
                 _vm._v(" "),
                 _vm._l(_vm.rules, function(rule, index) {
-                    return _c("md-radio", {
+                    return _c('md-radio', {
                         key: index,
                         staticClass: "md-primary",
                         attrs: {
@@ -2404,9 +2404,9 @@ var render = function() {
                 })
             ], 2) : _vm._e(),
             _vm._v(" "),
-            _vm.referenceSelect() ? _c("div", [
-                _c("md-field", [
-                    _c("label", {
+            _vm.referenceSelect() ? _c('div', [
+                _c('md-field', [
+                    _c('label', {
                         attrs: {
                             "for": "reference"
                         }
@@ -2414,7 +2414,7 @@ var render = function() {
                         _vm._v("Select a reference")
                     ]),
                     _vm._v(" "),
-                    _c("md-select", {
+                    _c('md-select', {
                         attrs: {
                             "name": "reference",
                             "id": "reference"
@@ -2427,7 +2427,7 @@ var render = function() {
                             expression: "reference"
                         }
                     }, _vm._l(_vm.children, function(ref, index) {
-                        return _c("md-option", {
+                        return _c('md-option', {
                             key: index,
                             attrs: {
                                 "value": ref.id.get()
@@ -2440,8 +2440,8 @@ var render = function() {
             ], 1) : _vm._e()
         ]),
         _vm._v(" "),
-        _c("md-dialog-actions", [
-            _c("md-button", {
+        _c('md-dialog-actions', [
+            _c('md-button', {
                 staticClass: "md-primary",
                 on: {
                     "click": function($event) {
@@ -2452,7 +2452,7 @@ var render = function() {
                 _vm._v("Close")
             ]),
             _vm._v(" "),
-            _c("md-button", {
+            _c('md-button', {
                 staticClass: "md-primary",
                 attrs: {
                     "disabled": _vm.formNotValid()
@@ -2472,13 +2472,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"3WKhx":[function() {},{}],"3SW15":[function(require,module,exports) {
+},{}],"3WKhx":[function() {},{}],"3SW15":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"i0zNk":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"i0zNk":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -2490,13 +2490,13 @@ let initialize = ()=>{
     script._scopeId = "data-v-1ebdc8";
     script.__cssModules = require("b60c7f7b149ae501").default;
     require("923ffc2d9e649c42").default(script);
-    script.__scopeId = "data-v-1ebdc8";
+    script.__scopeId = 'data-v-1ebdc8';
     script.__file = "globalCalcul.vue";
 };
 initialize();
 exports.default = script;
 
-},{"84a64ca0792b6e4d":"kkAqX","be9d1f950eecdd14":"iUQlW","b60c7f7b149ae501":"dUITY","923ffc2d9e649c42":"jSCRu","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"kkAqX":[function(require,module,exports) {
+},{"84a64ca0792b6e4d":"kkAqX","be9d1f950eecdd14":"iUQlW","b60c7f7b149ae501":"dUITY","923ffc2d9e649c42":"jSCRu","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"kkAqX":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _choice = require("../js/choice");
@@ -2579,15 +2579,15 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"../js/choice":"6l62S","spinal-env-viewer-dashboard-standard-service":"ioaJh","../js/find":"67MBH","spinal-env-viewer-context-geographic-service":"5QjJf","spinal-env-viewer-graph-service":"9n7zp","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"iUQlW":[function(require,module,exports) {
+},{"../js/choice":"6l62S","spinal-env-viewer-dashboard-standard-service":"ioaJh","../js/find":"67MBH","spinal-env-viewer-context-geographic-service":"5QjJf","spinal-env-viewer-graph-service":"9n7zp","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"iUQlW":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("md-dialog", {
+    return _c('md-dialog', {
         staticClass: "globalCalculDialog",
         attrs: {
             "md-active": _vm.showDialog
@@ -2604,30 +2604,30 @@ var render = function() {
             }
         }
     }, [
-        _c("md-dialog-title", [
+        _c('md-dialog-title', [
             _vm._v("Config Calulation rules")
         ]),
         _vm._v(" "),
-        _c("md-dialog-content", {
+        _c('md-dialog-content', {
             staticClass: "dialogContainer"
         }, [
-            _c("md-content", {
+            _c('md-content', {
                 staticClass: "paramContainer md-layout"
             }, [
-                _c("md-content", {
+                _c('md-content', {
                     staticClass: "md-layout-item md-size-50 paramDiv"
                 }, [
-                    _c("md-subheader", [
+                    _c('md-subheader', [
                         _vm._v("Nodes")
                     ]),
                     _vm._v(" "),
-                    _c("md-list", {
+                    _c('md-list', {
                         staticClass: "nodeDiv md-scrollbar"
                     }, _vm._l(_vm.elementsWithDashboard, function(element, index) {
-                        return _c("md-list-item", {
+                        return _c('md-list-item', {
                             key: index
                         }, [
-                            _c("md-checkbox", {
+                            _c('md-checkbox', {
                                 staticClass: "md-primary",
                                 model: {
                                     value: element.checked,
@@ -2638,7 +2638,7 @@ var render = function() {
                                 }
                             }),
                             _vm._v(" "),
-                            _c("span", {
+                            _c('span', {
                                 staticClass: "md-list-item-text"
                             }, [
                                 _vm._v(_vm._s(element.node.info.name.get()))
@@ -2647,15 +2647,15 @@ var render = function() {
                     }), 1)
                 ], 1),
                 _vm._v(" "),
-                _c("md-content", {
+                _c('md-content', {
                     staticClass: "md-layout-item md-size-50 paramDiv"
                 }, [
-                    _c("md-subheader", [
+                    _c('md-subheader', [
                         _vm._v("Rules")
                     ]),
                     _vm._v(" "),
-                    _c("md-field", [
-                        _c("label", {
+                    _c('md-field', [
+                        _c('label', {
                             attrs: {
                                 "for": "item"
                             }
@@ -2663,7 +2663,7 @@ var render = function() {
                             _vm._v("Select a type")
                         ]),
                         _vm._v(" "),
-                        _c("md-select", {
+                        _c('md-select', {
                             attrs: {
                                 "name": "item",
                                 "id": "item"
@@ -2676,7 +2676,7 @@ var render = function() {
                                 expression: "endpointTypeSelected"
                             }
                         }, _vm._l(_vm.endpointsTypes, function(endpointType, index) {
-                            return _c("md-option", {
+                            return _c('md-option', {
                                 key: index,
                                 attrs: {
                                     "value": endpointType.type
@@ -2687,14 +2687,14 @@ var render = function() {
                         }), 1)
                     ], 1),
                     _vm._v(" "),
-                    _c("md-content", {
+                    _c('md-content', {
                         staticClass: "ruleDiv md-scrollbar"
                     }, [
-                        _c("md-list", _vm._l(_vm.rules, function(rule, index) {
-                            return _c("md-list-item", {
+                        _c('md-list', _vm._l(_vm.rules, function(rule, index) {
+                            return _c('md-list-item', {
                                 key: index
                             }, [
-                                _c("md-radio", {
+                                _c('md-radio', {
                                     staticClass: "md-primary",
                                     attrs: {
                                         "value": index
@@ -2713,12 +2713,12 @@ var render = function() {
                         }), 1)
                     ], 1),
                     _vm._v(" "),
-                    _c("md-button", {
+                    _c('md-button', {
                         directives: [
                             {
                                 name: "tooltip",
                                 rawName: "v-tooltip",
-                                value: "add to list",
+                                value: 'add to list',
                                 expression: "'add to list'"
                             }
                         ],
@@ -2731,17 +2731,17 @@ var render = function() {
                             "click": _vm.addElementSelected
                         }
                     }, [
-                        _c("md-icon", [
+                        _c('md-icon', [
                             _vm._v("add")
                         ])
                     ], 1)
                 ], 1)
             ], 1),
             _vm._v(" "),
-            _c("md-content", {
+            _c('md-content', {
                 staticClass: "tableContainer"
             }, [
-                _c("md-table", {
+                _c('md-table', {
                     attrs: {
                         "md-fixed-header": ""
                     },
@@ -2750,8 +2750,8 @@ var render = function() {
                             key: "md-table-row",
                             fn: function(ref) {
                                 var item = ref.item;
-                                return _c("md-table-row", {}, [
-                                    _c("md-table-cell", {
+                                return _c('md-table-row', {}, [
+                                    _c('md-table-cell', {
                                         attrs: {
                                             "md-label": "Name"
                                         }
@@ -2759,7 +2759,7 @@ var render = function() {
                                         _vm._v(_vm._s(item.name))
                                     ]),
                                     _vm._v(" "),
-                                    _c("md-table-cell", {
+                                    _c('md-table-cell', {
                                         attrs: {
                                             "md-label": "Endpoint Name"
                                         }
@@ -2767,7 +2767,7 @@ var render = function() {
                                         _vm._v(_vm._s(item.endpoint))
                                     ]),
                                     _vm._v(" "),
-                                    _c("md-table-cell", {
+                                    _c('md-table-cell', {
                                         attrs: {
                                             "md-label": "Calculation"
                                         }
@@ -2775,12 +2775,12 @@ var render = function() {
                                         _vm._v(_vm._s(item.rule))
                                     ]),
                                     _vm._v(" "),
-                                    _c("md-table-cell", {
+                                    _c('md-table-cell', {
                                         attrs: {
                                             "md-label": ""
                                         }
                                     }, [
-                                        _c("md-button", {
+                                        _c('md-button', {
                                             staticClass: "md-icon-button md-dense md-primary",
                                             on: {
                                                 "click": function($event) {
@@ -2788,7 +2788,7 @@ var render = function() {
                                                 }
                                             }
                                         }, [
-                                            _c("md-icon", [
+                                            _c('md-icon', [
                                                 _vm._v("delete")
                                             ])
                                         ], 1)
@@ -2805,8 +2805,8 @@ var render = function() {
                         expression: "elementsSelected"
                     }
                 }, [
-                    _c("md-table-toolbar", [
-                        _c("h1", {
+                    _c('md-table-toolbar', [
+                        _c('h1', {
                             staticClass: "md-title"
                         }, [
                             _vm._v("Elements")
@@ -2816,8 +2816,8 @@ var render = function() {
             ], 1)
         ], 1),
         _vm._v(" "),
-        _c("md-dialog-actions", [
-            _c("md-button", {
+        _c('md-dialog-actions', [
+            _c('md-button', {
                 staticClass: "md-primary",
                 on: {
                     "click": function($event) {
@@ -2828,7 +2828,7 @@ var render = function() {
                 _vm._v("Close")
             ]),
             _vm._v(" "),
-            _c("md-button", {
+            _c('md-button', {
                 staticClass: "md-primary",
                 attrs: {
                     "disabled": _vm.elementsSelected.length == 0
@@ -2848,13 +2848,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"dUITY":[function() {},{}],"jSCRu":[function(require,module,exports) {
+},{}],"dUITY":[function() {},{}],"jSCRu":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3OkO5":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3OkO5":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -2865,13 +2865,13 @@ let initialize = ()=>{
     script.staticRenderFns = require("1c0a69250b74f659").staticRenderFns;
     script._scopeId = "data-v-adb62a";
     require("46187fa3d2b65bb9").default(script);
-    script.__scopeId = "data-v-adb62a";
+    script.__scopeId = 'data-v-adb62a';
     script.__file = "bimObjectCalculReference.vue";
 };
 initialize();
 exports.default = script;
 
-},{"11ebd8d91bea8f32":"bGXAy","1c0a69250b74f659":"pn0qT","46187fa3d2b65bb9":"dyymq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"bGXAy":[function(require,module,exports) {
+},{"11ebd8d91bea8f32":"bGXAy","1c0a69250b74f659":"pn0qT","46187fa3d2b65bb9":"dyymq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"bGXAy":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _choice = require("../js/choice");
@@ -2913,10 +2913,10 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"../js/choice":"6l62S","../js/utilities":"1XBKe","spinal-env-viewer-dashboard-standard-service":"ioaJh","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1XBKe":[function(require,module,exports) {
+},{"../js/choice":"6l62S","../js/utilities":"1XBKe","spinal-env-viewer-dashboard-standard-service":"ioaJh","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1XBKe":[function(require,module,exports,__globalThis) {
 var _find = require("./find");
 const { SpinalBmsDevice, SpinalBmsEndpoint, SpinalBmsEndpointGroup } = require("95fd8827a5d03665");
 module.exports = {
@@ -2932,12 +2932,12 @@ module.exports = {
     }
 };
 
-},{"./find":"67MBH","95fd8827a5d03665":"gzkbg"}],"pn0qT":[function(require,module,exports) {
+},{"./find":"67MBH","95fd8827a5d03665":"gzkbg"}],"pn0qT":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("md-dialog", {
+    return _c('md-dialog', {
         attrs: {
             "md-active": _vm.showDialog
         },
@@ -2953,7 +2953,7 @@ var render = function() {
             }
         }
     }, [
-        _c("md-dialog-title", {
+        _c('md-dialog-title', {
             staticStyle: {
                 "text-align": "center"
             }
@@ -2961,10 +2961,10 @@ var render = function() {
             _vm._v("Select Reference")
         ]),
         _vm._v(" "),
-        _c("md-dialog-content", [
-            _c("div", [
-                _c("md-field", [
-                    _c("label", {
+        _c('md-dialog-content', [
+            _c('div', [
+                _c('md-field', [
+                    _c('label', {
                         attrs: {
                             "for": "item"
                         }
@@ -2972,7 +2972,7 @@ var render = function() {
                         _vm._v("Select an item")
                     ]),
                     _vm._v(" "),
-                    _c("md-select", {
+                    _c('md-select', {
                         attrs: {
                             "name": "item",
                             "id": "item"
@@ -2985,7 +2985,7 @@ var render = function() {
                             expression: "endpointTypeSelected"
                         }
                     }, _vm._l(_vm.dashEndpoints, function(dash, index) {
-                        return _c("md-option", {
+                        return _c('md-option', {
                             key: index,
                             attrs: {
                                 "value": dash.type
@@ -2997,9 +2997,9 @@ var render = function() {
                 ], 1)
             ], 1),
             _vm._v(" "),
-            _c("div", [
-                _c("md-field", [
-                    _c("label", {
+            _c('div', [
+                _c('md-field', [
+                    _c('label', {
                         attrs: {
                             "for": "item"
                         }
@@ -3007,7 +3007,7 @@ var render = function() {
                         _vm._v("Select an item")
                     ]),
                     _vm._v(" "),
-                    _c("md-select", {
+                    _c('md-select', {
                         attrs: {
                             "name": "item",
                             "id": "item"
@@ -3020,7 +3020,7 @@ var render = function() {
                             expression: "referenceId"
                         }
                     }, _vm._l(_vm.allEndpoints, function(endpoint, index) {
-                        return _c("md-option", {
+                        return _c('md-option', {
                             key: index,
                             attrs: {
                                 "value": endpoint.info.id.get()
@@ -3033,8 +3033,8 @@ var render = function() {
             ], 1)
         ]),
         _vm._v(" "),
-        _c("md-dialog-actions", [
-            _c("md-button", {
+        _c('md-dialog-actions', [
+            _c('md-button', {
                 staticClass: "md-primary",
                 on: {
                     "click": function($event) {
@@ -3045,7 +3045,7 @@ var render = function() {
                 _vm._v("Close")
             ]),
             _vm._v(" "),
-            _c("md-button", {
+            _c('md-button', {
                 staticClass: "md-primary",
                 attrs: {
                     "disabled": _vm.formNotValid()
@@ -3065,12 +3065,12 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"dyymq":[function(require,module,exports) {
+},{}],"dyymq":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},[], null, "parcelRequire02e5")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},[], null, "parcelRequire94c2")
 
 //# sourceMappingURL=spinal-env-viewer-plugin-dashboard-standard.4d56014a.js.map

@@ -48,8 +48,8 @@
 }
 
 .LinkAndManageContextTicketMission-body > .application--wrap {
-  min-height: unset;
   height: 100%;
+  min-height: unset;
   position: relative;
 }
 

@@ -23,7 +23,6 @@ li[data-v-53383f] {
 }
 
 .node-list-icon[data-v-cd74c5] {
-  -webkit-user-select: none;
   user-select: none;
   width: 21px;
   position: absolute;
@@ -80,7 +79,6 @@ li[data-v-53383f] {
 
 .node-inspector-btn-icon[data-v-d93eaf] {
   cursor: pointer;
-  -webkit-user-select: none;
   user-select: none;
 }
 

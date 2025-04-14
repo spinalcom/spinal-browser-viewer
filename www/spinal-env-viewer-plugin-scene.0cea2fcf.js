@@ -73,7 +73,7 @@
         localRequire,
         module,
         module.exports,
-        this
+        globalObject
       );
     }
 
@@ -142,10 +142,10 @@
       this[globalName] = mainExports;
     }
   }
-})({"WtHLj":[function(require,module,exports) {
+})({"WtHLj":[function(require,module,exports,__globalThis) {
 (function webpackUniversalModuleDefinition(root, factory) {
     module.exports = factory(require("71665ec3925da2ec"));
-})(typeof self !== "undefined" ? self : this, function(__WEBPACK_EXTERNAL_MODULE_vue__) {
+})(typeof self !== 'undefined' ? self : this, function(__WEBPACK_EXTERNAL_MODULE_vue__) {
     return /******/ function(modules) {
         /******/ // The module cache
         /******/ var installedModules = {};
@@ -179,10 +179,10 @@
         /******/ };
         /******/ /******/ // define __esModule on exports
         /******/ __webpack_require__.r = function(exports) {
-            /******/ if (typeof Symbol !== "undefined" && Symbol.toStringTag) /******/ Object.defineProperty(exports, Symbol.toStringTag, {
-                value: "Module"
+            /******/ if (typeof Symbol !== 'undefined' && Symbol.toStringTag) /******/ Object.defineProperty(exports, Symbol.toStringTag, {
+                value: 'Module'
             });
-            /******/ Object.defineProperty(exports, "__esModule", {
+            /******/ Object.defineProperty(exports, '__esModule', {
                 value: true
             });
         /******/ };
@@ -194,14 +194,14 @@
         /******/ __webpack_require__.t = function(value, mode) {
             /******/ if (mode & 1) value = __webpack_require__(value);
             /******/ if (mode & 8) return value;
-            /******/ if (mode & 4 && typeof value === "object" && value && value.__esModule) return value;
+            /******/ if (mode & 4 && typeof value === 'object' && value && value.__esModule) return value;
             /******/ var ns = Object.create(null);
             /******/ __webpack_require__.r(ns);
-            /******/ Object.defineProperty(ns, "default", {
+            /******/ Object.defineProperty(ns, 'default', {
                 enumerable: true,
                 value: value
             });
-            /******/ if (mode & 2 && typeof value != "string") for(var key in value)__webpack_require__.d(ns, key, (function(key) {
+            /******/ if (mode & 2 && typeof value != 'string') for(var key in value)__webpack_require__.d(ns, key, (function(key) {
                 return value[key];
             }).bind(null, key));
             /******/ return ns;
@@ -209,11 +209,11 @@
         /******/ /******/ // getDefaultExport function for compatibility with non-harmony modules
         /******/ __webpack_require__.n = function(module1) {
             /******/ var getter = module1 && module1.__esModule ? /******/ function getDefault() {
-                return module1["default"];
+                return module1['default'];
             } : /******/ function getModuleExports() {
                 return module1;
             };
-            /******/ __webpack_require__.d(getter, "a", getter);
+            /******/ __webpack_require__.d(getter, 'a', getter);
             /******/ return getter;
         /******/ };
         /******/ /******/ // Object.prototype.hasOwnProperty.call
@@ -241,7 +241,7 @@
             // Components
             // Mixins
             /* @vue/component */ /* harmony default export */ __webpack_exports__["default"] = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_5__["default"])(_mixins_colorable__WEBPACK_IMPORTED_MODULE_2__["default"], _mixins_toggleable__WEBPACK_IMPORTED_MODULE_3__["default"], _mixins_transitionable__WEBPACK_IMPORTED_MODULE_4__["default"]).extend({
-                name: "v-alert",
+                name: 'v-alert',
                 props: {
                     dismissible: Boolean,
                     icon: String,
@@ -250,29 +250,29 @@
                         type: String,
                         validator: function validator(val) {
                             return [
-                                "info",
-                                "error",
-                                "success",
-                                "warning"
+                                'info',
+                                'error',
+                                'success',
+                                'warning'
                             ].includes(val);
                         }
                     }
                 },
                 computed: {
                     computedColor: function computedColor() {
-                        return this.type && !this.color ? this.type : this.color || "error";
+                        return this.type && !this.color ? this.type : this.color || 'error';
                     },
                     computedIcon: function computedIcon() {
                         if (this.icon || !this.type) return this.icon;
                         switch(this.type){
-                            case "info":
-                                return "$vuetify.icons.info";
-                            case "error":
-                                return "$vuetify.icons.error";
-                            case "success":
-                                return "$vuetify.icons.success";
-                            case "warning":
-                                return "$vuetify.icons.warning";
+                            case 'info':
+                                return '$vuetify.icons.info';
+                            case 'error':
+                                return '$vuetify.icons.error';
+                            case 'success':
+                                return '$vuetify.icons.success';
+                            case 'warning':
+                                return '$vuetify.icons.warning';
                         }
                     }
                 },
@@ -280,14 +280,14 @@
                     genIcon: function genIcon() {
                         if (!this.computedIcon) return null;
                         return this.$createElement(_VIcon__WEBPACK_IMPORTED_MODULE_1__["default"], {
-                            "class": "v-alert__icon"
+                            'class': 'v-alert__icon'
                         }, this.computedIcon);
                     },
                     genDismissible: function genDismissible() {
                         var _this = this;
                         if (!this.dismissible) return null;
-                        return this.$createElement("a", {
-                            "class": "v-alert__dismissible",
+                        return this.$createElement('a', {
+                            'class': 'v-alert__dismissible',
                             on: {
                                 click: function click() {
                                     _this.isActive = false;
@@ -298,32 +298,32 @@
                                 props: {
                                     right: true
                                 }
-                            }, "$vuetify.icons.cancel")
+                            }, '$vuetify.icons.cancel')
                         ]);
                     }
                 },
                 render: function render(h) {
                     var children = [
                         this.genIcon(),
-                        h("div", this.$slots.default),
+                        h('div', this.$slots.default),
                         this.genDismissible()
                     ];
                     var setColor = this.outline ? this.setTextColor : this.setBackgroundColor;
-                    var alert = h("div", setColor(this.computedColor, {
-                        staticClass: "v-alert",
-                        "class": {
-                            "v-alert--outline": this.outline
+                    var alert = h('div', setColor(this.computedColor, {
+                        staticClass: 'v-alert',
+                        'class': {
+                            'v-alert--outline': this.outline
                         },
                         directives: [
                             {
-                                name: "show",
+                                name: 'show',
                                 value: this.isActive
                             }
                         ],
                         on: this.$listeners
                     }), children);
                     if (!this.transition) return alert;
-                    return h("transition", {
+                    return h('transition', {
                         props: {
                             name: this.transition,
                             origin: this.origin,
@@ -369,7 +369,7 @@
             // Component level mixins
             // Directives
             /* @vue/component */ /* harmony default export */ __webpack_exports__["default"] = {
-                name: "v-app",
+                name: 'v-app',
                 directives: {
                     Resize: _directives_resize__WEBPACK_IMPORTED_MODULE_3__["default"]
                 },
@@ -380,14 +380,14 @@
                 props: {
                     id: {
                         type: String,
-                        default: "app"
+                        default: 'app'
                     },
                     dark: Boolean
                 },
                 computed: {
                     classes: function classes() {
                         return __assign({
-                            "application--is-rtl": this.$vuetify.rtl
+                            'application--is-rtl': this.$vuetify.rtl
                         }, this.themeClasses);
                     }
                 },
@@ -401,19 +401,19 @@
                 },
                 render: function render(h) {
                     var data = {
-                        staticClass: "application",
-                        "class": this.classes,
+                        staticClass: 'application',
+                        'class': this.classes,
                         attrs: {
-                            "data-app": true
+                            'data-app': true
                         },
                         domProps: {
                             id: this.id
                         }
                     };
-                    var wrapper = h("div", {
-                        staticClass: "application--wrap"
+                    var wrapper = h('div', {
+                        staticClass: 'application--wrap'
                     }, this.$slots.default);
-                    return h("div", data, [
+                    return h('div', data, [
                         wrapper
                     ]);
                 }
@@ -462,8 +462,8 @@
                         if (this.$vuetify.theme === false) return {};
                         var options = {
                             cssText: this.generatedStyles,
-                            id: "vuetify-theme-stylesheet",
-                            type: "text/css"
+                            id: 'vuetify-theme-stylesheet',
+                            type: 'text/css'
                         };
                         if (this.$vuetify.options.cspNonce) options.nonce = this.$vuetify.options.cspNonce;
                         return {
@@ -489,12 +489,12 @@
                 created: function created() {
                     if (this.$vuetify.theme === false) return;
                     if (this.$meta) ;
-                    else if (typeof document === "undefined" && this.$ssrContext) {
+                    else if (typeof document === 'undefined' && this.$ssrContext) {
                         // SSR
-                        var nonce = this.$vuetify.options.cspNonce ? ' nonce="' + this.$vuetify.options.cspNonce + '"' : "";
-                        this.$ssrContext.head = this.$ssrContext.head || "";
-                        this.$ssrContext.head += '<style type="text/css" id="vuetify-theme-stylesheet"' + nonce + ">" + this.generatedStyles + "</style>";
-                    } else if (typeof document !== "undefined") {
+                        var nonce = this.$vuetify.options.cspNonce ? " nonce=\"" + this.$vuetify.options.cspNonce + "\"" : '';
+                        this.$ssrContext.head = this.$ssrContext.head || '';
+                        this.$ssrContext.head += "<style type=\"text/css\" id=\"vuetify-theme-stylesheet\"" + nonce + ">" + this.generatedStyles + "</style>";
+                    } else if (typeof document !== 'undefined') {
                         // Client-side
                         this.genStyle();
                         this.applyTheme();
@@ -505,12 +505,12 @@
                         if (this.style) this.style.innerHTML = this.generatedStyles;
                     },
                     genStyle: function genStyle() {
-                        var style = document.getElementById("vuetify-theme-stylesheet");
+                        var style = document.getElementById('vuetify-theme-stylesheet');
                         if (!style) {
-                            style = document.createElement("style");
-                            style.type = "text/css";
-                            style.id = "vuetify-theme-stylesheet";
-                            if (this.$vuetify.options.cspNonce) style.setAttribute("nonce", this.$vuetify.options.cspNonce);
+                            style = document.createElement('style');
+                            style.type = 'text/css';
+                            style.id = 'vuetify-theme-stylesheet';
+                            if (this.$vuetify.options.cspNonce) style.setAttribute('nonce', this.$vuetify.options.cspNonce);
                             document.head.appendChild(style);
                         }
                         this.style = style;
@@ -547,7 +547,7 @@
                 transition: false
             });
             /* @vue/component */ /* harmony default export */ __webpack_exports__["default"] = _VSelect_VSelect__WEBPACK_IMPORTED_MODULE_1__["default"].extend({
-                name: "v-autocomplete",
+                name: 'v-autocomplete',
                 props: {
                     allowOverflow: {
                         type: Boolean,
@@ -555,7 +555,7 @@
                     },
                     browserAutocomplete: {
                         type: String,
-                        default: "off"
+                        default: 'off'
                     },
                     filter: {
                         type: Function,
@@ -588,8 +588,8 @@
                 computed: {
                     classes: function classes() {
                         return Object.assign({}, _VSelect_VSelect__WEBPACK_IMPORTED_MODULE_1__["default"].options.computed.classes.call(this), {
-                            "v-autocomplete": true,
-                            "v-autocomplete--is-selecting-index": this.selectedIndex > -1
+                            'v-autocomplete': true,
+                            'v-autocomplete--is-selecting-index': this.selectedIndex > -1
                         });
                     },
                     computedItems: function computedItems() {
@@ -628,7 +628,7 @@
                         },
                         set: function set(val) {
                             this.lazySearch = val;
-                            this.$emit("update:searchInput", val);
+                            this.$emit('update:searchInput', val);
                         }
                     },
                     isAnyValueAllowed: function isAnyValueAllowed() {
@@ -647,11 +647,11 @@
                     },
                     $_menuProps: function $_menuProps() {
                         var props = _VSelect_VSelect__WEBPACK_IMPORTED_MODULE_1__["default"].options.computed.$_menuProps.call(this);
-                        props.contentClass = ("v-autocomplete__content " + (props.contentClass || "")).trim();
+                        props.contentClass = ("v-autocomplete__content " + (props.contentClass || '')).trim();
                         return __assign({}, defaultMenuProps, props);
                     },
                     searchIsDirty: function searchIsDirty() {
-                        return this.internalSearch != null && this.internalSearch !== "";
+                        return this.internalSearch != null && this.internalSearch !== '';
                     },
                     selectedItem: function selectedItem() {
                         var _this = this;
@@ -754,7 +754,7 @@
                     },
                     genInput: function genInput() {
                         var input = _VTextField_VTextField__WEBPACK_IMPORTED_MODULE_2__["default"].options.methods.genInput.call(this);
-                        input.data.attrs.role = "combobox";
+                        input.data.attrs.role = 'combobox';
                         input.data.domProps.value = this.internalSearch;
                         return input;
                     },
@@ -859,7 +859,7 @@
             };
             // Mixins
             /* @vue/component */ /* harmony default export */ __webpack_exports__["default"] = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_3__["default"])(_mixins_colorable__WEBPACK_IMPORTED_MODULE_1__["default"]).extend({
-                name: "v-avatar",
+                name: 'v-avatar',
                 functional: true,
                 props: {
                     // TODO: inherit these
@@ -875,14 +875,14 @@
                 },
                 render: function render(h, _a) {
                     var data = _a.data, props = _a.props, children = _a.children;
-                    data.staticClass = ("v-avatar " + (data.staticClass || "")).trim();
-                    if (props.tile) data.staticClass += " v-avatar--tile";
+                    data.staticClass = ("v-avatar " + (data.staticClass || '')).trim();
+                    if (props.tile) data.staticClass += ' v-avatar--tile';
                     var size = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_2__["convertToUnit"])(props.size);
                     data.style = __assign({
                         height: size,
                         width: size
                     }, data.style);
-                    return h("div", _mixins_colorable__WEBPACK_IMPORTED_MODULE_1__["default"].options.methods.setBackgroundColor(props.color, data), children);
+                    return h('div', _mixins_colorable__WEBPACK_IMPORTED_MODULE_1__["default"].options.methods.setBackgroundColor(props.color, data), children);
                 }
             });
         /***/ },
@@ -912,19 +912,19 @@
             // Styles
             // Mixins
             /* harmony default export */ __webpack_exports__["default"] = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_5__["default"])(_mixins_colorable__WEBPACK_IMPORTED_MODULE_1__["default"], _mixins_toggleable__WEBPACK_IMPORTED_MODULE_2__["default"], Object(_mixins_positionable__WEBPACK_IMPORTED_MODULE_3__["factory"])([
-                "left",
-                "bottom"
+                'left',
+                'bottom'
             ]), _mixins_transitionable__WEBPACK_IMPORTED_MODULE_4__["default"]).extend({
-                name: "v-badge",
+                name: 'v-badge',
                 props: {
                     color: {
                         type: String,
-                        default: "primary"
+                        default: 'primary'
                     },
                     overlap: Boolean,
                     transition: {
                         type: String,
-                        default: "fab-transition"
+                        default: 'fab-transition'
                     },
                     value: {
                         default: true
@@ -933,31 +933,31 @@
                 computed: {
                     classes: function classes() {
                         return {
-                            "v-badge--bottom": this.bottom,
-                            "v-badge--left": this.left,
-                            "v-badge--overlap": this.overlap
+                            'v-badge--bottom': this.bottom,
+                            'v-badge--left': this.left,
+                            'v-badge--overlap': this.overlap
                         };
                     }
                 },
                 render: function render(h) {
                     var badge = this.$slots.badge && [
-                        h("span", this.setBackgroundColor(this.color, {
-                            staticClass: "v-badge__badge",
+                        h('span', this.setBackgroundColor(this.color, {
+                            staticClass: 'v-badge__badge',
                             attrs: this.$attrs,
                             directives: [
                                 {
-                                    name: "show",
+                                    name: 'show',
                                     value: this.isActive
                                 }
                             ]
                         }), this.$slots.badge)
                     ];
-                    return h("span", {
-                        staticClass: "v-badge",
-                        "class": this.classes
+                    return h('span', {
+                        staticClass: 'v-badge',
+                        'class': this.classes
                     }, [
                         this.$slots.default,
-                        h("transition", {
+                        h('transition', {
                             props: {
                                 name: this.transition,
                                 origin: this.origin,
@@ -994,11 +994,11 @@
             // Styles
             // Mixins
             // Util
-            /* harmony default export */ __webpack_exports__["default"] = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_5__["default"])(Object(_mixins_applicationable__WEBPACK_IMPORTED_MODULE_1__["default"])("bottom", [
-                "height",
-                "value"
+            /* harmony default export */ __webpack_exports__["default"] = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_5__["default"])(Object(_mixins_applicationable__WEBPACK_IMPORTED_MODULE_1__["default"])('bottom', [
+                'height',
+                'value'
             ]), _mixins_colorable__WEBPACK_IMPORTED_MODULE_3__["default"], _mixins_themeable__WEBPACK_IMPORTED_MODULE_4__["default"]).extend({
-                name: "v-bottom-nav",
+                name: 'v-bottom-nav',
                 props: {
                     active: [
                         Number,
@@ -1021,10 +1021,10 @@
                 computed: {
                     classes: function classes() {
                         return {
-                            "v-bottom-nav--absolute": this.absolute,
-                            "v-bottom-nav--fixed": !this.absolute && (this.app || this.fixed),
-                            "v-bottom-nav--shift": this.shift,
-                            "v-bottom-nav--active": this.value
+                            'v-bottom-nav--absolute': this.absolute,
+                            'v-bottom-nav--fixed': !this.absolute && (this.app || this.fixed),
+                            'v-bottom-nav--shift': this.shift,
+                            'v-bottom-nav--active': this.value
                         };
                     },
                     computedHeight: function computedHeight() {
@@ -1036,12 +1036,12 @@
                         return !this.value ? 0 : this.computedHeight;
                     },
                     updateValue: function updateValue(val) {
-                        this.$emit("update:active", val);
+                        this.$emit('update:active', val);
                     }
                 },
                 render: function render(h) {
                     return h(_mixins_button_group__WEBPACK_IMPORTED_MODULE_2__["default"], this.setBackgroundColor(this.color, {
-                        staticClass: "v-bottom-nav",
+                        staticClass: 'v-bottom-nav',
                         class: this.classes,
                         style: {
                             height: parseInt(this.computedHeight) + "px"
@@ -1087,7 +1087,7 @@
                 return __assign.apply(this, arguments);
             };
             /* @vue/component */ /* harmony default export */ __webpack_exports__["default"] = {
-                name: "v-bottom-sheet",
+                name: 'v-bottom-sheet',
                 props: {
                     disabled: Boolean,
                     fullWidth: Boolean,
@@ -1099,26 +1099,26 @@
                             String,
                             Number
                         ],
-                        default: "auto"
+                        default: 'auto'
                     },
                     persistent: Boolean,
                     value: null
                 },
                 render: function render(h) {
-                    var activator = h("template", {
-                        slot: "activator"
+                    var activator = h('template', {
+                        slot: 'activator'
                     }, this.$slots.activator);
                     var contentClass = [
-                        "v-bottom-sheet",
-                        this.inset ? "v-bottom-sheet--inset" : ""
-                    ].join(" ");
+                        'v-bottom-sheet',
+                        this.inset ? 'v-bottom-sheet--inset' : ''
+                    ].join(' ');
                     return h(_VDialog_VDialog__WEBPACK_IMPORTED_MODULE_1__["default"], {
                         attrs: __assign({}, this.$props),
                         on: __assign({}, this.$listeners),
                         props: {
                             contentClass: contentClass,
                             noClickAnimation: true,
-                            transition: "bottom-sheet-transition",
+                            transition: 'bottom-sheet-transition',
                             value: this.value
                         }
                     }, [
@@ -1165,11 +1165,11 @@
             // Mixins
             // Utils
             /* harmony default export */ __webpack_exports__["default"] = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_4__["default"])(_mixins_themeable__WEBPACK_IMPORTED_MODULE_2__["default"]).extend({
-                name: "v-breadcrumbs",
+                name: 'v-breadcrumbs',
                 props: {
                     divider: {
                         type: String,
-                        default: "/"
+                        default: '/'
                     },
                     items: {
                         type: Array,
@@ -1184,16 +1184,16 @@
                 computed: {
                     classes: function classes() {
                         return __assign({
-                            "v-breadcrumbs--large": this.large,
-                            "justify-center": this.justifyCenter,
-                            "justify-end": this.justifyEnd
+                            'v-breadcrumbs--large': this.large,
+                            'justify-center': this.justifyCenter,
+                            'justify-end': this.justifyEnd
                         }, this.themeClasses);
                     }
                 },
                 mounted: function mounted() {
-                    if (this.justifyCenter) Object(_util_console__WEBPACK_IMPORTED_MODULE_3__["deprecate"])("justify-center", 'class="justify-center"', this);
-                    if (this.justifyEnd) Object(_util_console__WEBPACK_IMPORTED_MODULE_3__["deprecate"])("justify-end", 'class="justify-end"', this);
-                    if (this.$slots.default) Object(_util_console__WEBPACK_IMPORTED_MODULE_3__["deprecate"])("default slot", ':items and scoped slot "item"', this);
+                    if (this.justifyCenter) Object(_util_console__WEBPACK_IMPORTED_MODULE_3__["deprecate"])('justify-center', 'class="justify-center"', this);
+                    if (this.justifyEnd) Object(_util_console__WEBPACK_IMPORTED_MODULE_3__["deprecate"])('justify-end', 'class="justify-end"', this);
+                    if (this.$slots.default) Object(_util_console__WEBPACK_IMPORTED_MODULE_3__["deprecate"])('default slot', ':items and scoped slot "item"', this);
                 },
                 methods: {
                     /* @deprecated */ genChildren: function genChildren() {
@@ -1202,7 +1202,7 @@
                         var createDividers = false;
                         for(var i = 0; i < this.$slots.default.length; i++){
                             var elm = this.$slots.default[i];
-                            if (!elm.componentOptions || elm.componentOptions.Ctor.options.name !== "v-breadcrumbs-item") children.push(elm);
+                            if (!elm.componentOptions || elm.componentOptions.Ctor.options.name !== 'v-breadcrumbs-item') children.push(elm);
                             else {
                                 if (createDividers) children.push(this.genDivider());
                                 children.push(elm);
@@ -1225,7 +1225,7 @@
                                 item: item
                             }));
                             else items.push(this.$createElement(___WEBPACK_IMPORTED_MODULE_1__["VBreadcrumbsItem"], {
-                                key: keys.join("."),
+                                key: keys.join('.'),
                                 props: item
                             }, [
                                 item.text
@@ -1237,9 +1237,9 @@
                 },
                 render: function render(h) {
                     var children = this.$slots.default ? this.genChildren() : this.genItems();
-                    return h("ul", {
-                        staticClass: "v-breadcrumbs",
-                        "class": this.classes
+                    return h('ul', {
+                        staticClass: 'v-breadcrumbs',
+                        'class': this.classes
                     }, children);
                 }
             });
@@ -1252,26 +1252,26 @@
             /* harmony import */ var _mixins_routable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../mixins/routable */ "./src/mixins/routable.ts");
             /* harmony import */ var _util_mixins__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../util/mixins */ "./src/util/mixins.ts");
             /* @vue/component */ /* harmony default export */ __webpack_exports__["default"] = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_1__["default"])(_mixins_routable__WEBPACK_IMPORTED_MODULE_0__["default"]).extend({
-                name: "v-breadcrumbs-item",
+                name: 'v-breadcrumbs-item',
                 props: {
                     // In a breadcrumb, the currently
                     // active item should be dimmed
                     activeClass: {
                         type: String,
-                        default: "v-breadcrumbs__item--disabled"
+                        default: 'v-breadcrumbs__item--disabled'
                     }
                 },
                 computed: {
                     classes: function classes() {
                         var _a;
                         return _a = {
-                            "v-breadcrumbs__item": true
+                            'v-breadcrumbs__item': true
                         }, _a[this.activeClass] = this.disabled, _a;
                     }
                 },
                 render: function render(h) {
                     var _a = this.generateRouteLink(this.classes), tag = _a.tag, data = _a.data;
-                    return h("li", [
+                    return h('li', [
                         h(tag, data, this.$slots.default)
                     ]);
                 }
@@ -1294,7 +1294,7 @@
                 return _VBreadcrumbsItem__WEBPACK_IMPORTED_MODULE_1__["default"];
             });
             /* harmony import */ var _util_helpers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../util/helpers */ "./src/util/helpers.ts");
-            var VBreadcrumbsDivider = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_2__["createSimpleFunctional"])("v-breadcrumbs__divider", "li");
+            var VBreadcrumbsDivider = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_2__["createSimpleFunctional"])('v-breadcrumbs__divider', 'li');
             /* harmony default export */ __webpack_exports__["default"] = {
                 $_vuetify_subcomponents: {
                     VBreadcrumbs: _VBreadcrumbs__WEBPACK_IMPORTED_MODULE_0__["default"],
@@ -1338,13 +1338,13 @@
             // Components
             // Mixins
             // Utilities
-            var baseMixins = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_1__["default"])(_mixins_colorable__WEBPACK_IMPORTED_MODULE_3__["default"], _mixins_routable__WEBPACK_IMPORTED_MODULE_6__["default"], _mixins_positionable__WEBPACK_IMPORTED_MODULE_5__["default"], _mixins_themeable__WEBPACK_IMPORTED_MODULE_7__["default"], Object(_mixins_groupable__WEBPACK_IMPORTED_MODULE_4__["factory"])("btnToggle"), Object(_mixins_toggleable__WEBPACK_IMPORTED_MODULE_8__["factory"])("inputValue"));
+            var baseMixins = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_1__["default"])(_mixins_colorable__WEBPACK_IMPORTED_MODULE_3__["default"], _mixins_routable__WEBPACK_IMPORTED_MODULE_6__["default"], _mixins_positionable__WEBPACK_IMPORTED_MODULE_5__["default"], _mixins_themeable__WEBPACK_IMPORTED_MODULE_7__["default"], Object(_mixins_groupable__WEBPACK_IMPORTED_MODULE_4__["factory"])('btnToggle'), Object(_mixins_toggleable__WEBPACK_IMPORTED_MODULE_8__["factory"])('inputValue'));
             /* harmony default export */ __webpack_exports__["default"] = baseMixins.extend().extend({
-                name: "v-btn",
+                name: 'v-btn',
                 props: {
                     activeClass: {
                         type: String,
-                        default: "v-btn--active"
+                        default: 'v-btn--active'
                     },
                     block: Boolean,
                     depressed: Boolean,
@@ -1365,11 +1365,11 @@
                     small: Boolean,
                     tag: {
                         type: String,
-                        default: "button"
+                        default: 'button'
                     },
                     type: {
                         type: String,
-                        default: "button"
+                        default: 'button'
                     },
                     value: null
                 },
@@ -1377,8 +1377,8 @@
                     classes: function classes() {
                         var _a;
                         return __assign((_a = {
-                            "v-btn": true
-                        }, _a[this.activeClass] = this.isActive, _a["v-btn--absolute"] = this.absolute, _a["v-btn--block"] = this.block, _a["v-btn--bottom"] = this.bottom, _a["v-btn--disabled"] = this.disabled, _a["v-btn--flat"] = this.flat, _a["v-btn--floating"] = this.fab, _a["v-btn--fixed"] = this.fixed, _a["v-btn--icon"] = this.icon, _a["v-btn--large"] = this.large, _a["v-btn--left"] = this.left, _a["v-btn--loader"] = this.loading, _a["v-btn--outline"] = this.outline, _a["v-btn--depressed"] = this.depressed && !this.flat || this.outline, _a["v-btn--right"] = this.right, _a["v-btn--round"] = this.round, _a["v-btn--router"] = this.to, _a["v-btn--small"] = this.small, _a["v-btn--top"] = this.top, _a), this.themeClasses);
+                            'v-btn': true
+                        }, _a[this.activeClass] = this.isActive, _a['v-btn--absolute'] = this.absolute, _a['v-btn--block'] = this.block, _a['v-btn--bottom'] = this.bottom, _a['v-btn--disabled'] = this.disabled, _a['v-btn--flat'] = this.flat, _a['v-btn--floating'] = this.fab, _a['v-btn--fixed'] = this.fixed, _a['v-btn--icon'] = this.icon, _a['v-btn--large'] = this.large, _a['v-btn--left'] = this.left, _a['v-btn--loader'] = this.loading, _a['v-btn--outline'] = this.outline, _a['v-btn--depressed'] = this.depressed && !this.flat || this.outline, _a['v-btn--right'] = this.right, _a['v-btn--round'] = this.round, _a['v-btn--router'] = this.to, _a['v-btn--small'] = this.small, _a['v-btn--top'] = this.top, _a), this.themeClasses);
                     },
                     computedRipple: function computedRipple() {
                         var defaultRipple = this.icon || this.fab ? {
@@ -1389,23 +1389,23 @@
                     }
                 },
                 watch: {
-                    "$route": "onRouteChange"
+                    '$route': 'onRouteChange'
                 },
                 methods: {
                     // Prevent focus to match md spec
                     click: function click(e) {
                         !this.fab && e.detail && this.$el.blur();
-                        this.$emit("click", e);
+                        this.$emit('click', e);
                         this.btnToggle && this.toggle();
                     },
                     genContent: function genContent() {
-                        return this.$createElement("div", {
-                            "class": "v-btn__content"
+                        return this.$createElement('div', {
+                            'class': 'v-btn__content'
                         }, this.$slots.default);
                     },
                     genLoader: function genLoader() {
-                        return this.$createElement("span", {
-                            class: "v-btn__loading"
+                        return this.$createElement('span', {
+                            class: 'v-btn__loading'
                         }, this.$slots.loader || [
                             this.$createElement(_VProgressCircular__WEBPACK_IMPORTED_MODULE_2__["default"], {
                                 props: {
@@ -1432,12 +1432,12 @@
                         this.genContent(),
                         this.loading && this.genLoader()
                     ];
-                    if (tag === "button") data.attrs.type = this.type;
+                    if (tag === 'button') data.attrs.type = this.type;
                     data.attrs.value = [
-                        "string",
-                        "number"
+                        'string',
+                        'number'
                     ].includes(_typeof(this.value)) ? this.value : JSON.stringify(this.value);
-                    if (this.btnToggle) data.ref = "link";
+                    if (this.btnToggle) data.ref = 'link';
                     return h(tag, setColor(this.color, data), children);
                 }
             });
@@ -1474,19 +1474,19 @@
             // Styles
             // Mixins
             /* @vue/component */ /* harmony default export */ __webpack_exports__["default"] = _mixins_button_group__WEBPACK_IMPORTED_MODULE_1__["default"].extend({
-                name: "v-btn-toggle",
+                name: 'v-btn-toggle',
                 props: {
                     activeClass: {
                         type: String,
-                        default: "v-btn--active"
+                        default: 'v-btn--active'
                     }
                 },
                 computed: {
                     classes: function classes() {
                         return __assign({}, _mixins_button_group__WEBPACK_IMPORTED_MODULE_1__["default"].options.computed.classes.call(this), {
-                            "v-btn-toggle": true,
-                            "v-btn-toggle--only-child": this.selectedItems.length === 1,
-                            "v-btn-toggle--selected": this.selectedItems.length > 0
+                            'v-btn-toggle': true,
+                            'v-btn-toggle--only-child': this.selectedItems.length === 1,
+                            'v-btn-toggle--selected': this.selectedItems.length > 0
                         });
                     }
                 }
@@ -1530,7 +1530,7 @@
             // Util
             // Calendars
             /* @vue/component */ /* harmony default export */ __webpack_exports__["default"] = _mixins_calendar_base__WEBPACK_IMPORTED_MODULE_0__["default"].extend({
-                name: "v-calendar",
+                name: 'v-calendar',
                 props: __assign({}, _util_props__WEBPACK_IMPORTED_MODULE_1__["default"].calendar, _util_props__WEBPACK_IMPORTED_MODULE_1__["default"].weeks, _util_props__WEBPACK_IMPORTED_MODULE_1__["default"].intervals),
                 data: function data() {
                     return {
@@ -1544,38 +1544,38 @@
                     },
                     renderProps: function renderProps() {
                         var around = this.parsedValue;
-                        var component = "div";
+                        var component = 'div';
                         var maxDays = this.maxDays;
                         var start = around;
                         var end = around;
                         switch(this.type){
-                            case "month":
+                            case 'month':
                                 component = _VCalendarMonthly__WEBPACK_IMPORTED_MODULE_3__["default"];
                                 start = Object(_util_timestamp__WEBPACK_IMPORTED_MODULE_2__["getStartOfMonth"])(around);
                                 end = Object(_util_timestamp__WEBPACK_IMPORTED_MODULE_2__["getEndOfMonth"])(around);
                                 break;
-                            case "week":
+                            case 'week':
                                 component = _VCalendarDaily__WEBPACK_IMPORTED_MODULE_4__["default"];
                                 start = this.getStartOfWeek(around);
                                 end = this.getEndOfWeek(around);
                                 maxDays = 7;
                                 break;
-                            case "day":
+                            case 'day':
                                 component = _VCalendarDaily__WEBPACK_IMPORTED_MODULE_4__["default"];
                                 maxDays = 1;
                                 break;
-                            case "4day":
+                            case '4day':
                                 component = _VCalendarDaily__WEBPACK_IMPORTED_MODULE_4__["default"];
                                 end = Object(_util_timestamp__WEBPACK_IMPORTED_MODULE_2__["relativeDays"])(Object(_util_timestamp__WEBPACK_IMPORTED_MODULE_2__["copyTimestamp"])(end), _util_timestamp__WEBPACK_IMPORTED_MODULE_2__["nextDay"], 4);
                                 Object(_util_timestamp__WEBPACK_IMPORTED_MODULE_2__["updateFormatted"])(end);
                                 maxDays = 4;
                                 break;
-                            case "custom-weekly":
+                            case 'custom-weekly':
                                 component = _VCalendarWeekly__WEBPACK_IMPORTED_MODULE_5__["default"];
                                 start = this.parsedStart || around;
                                 end = this.parsedEnd;
                                 break;
-                            case "custom-daily":
+                            case 'custom-daily':
                                 component = _VCalendarDaily__WEBPACK_IMPORTED_MODULE_4__["default"];
                                 start = this.parsedStart || around;
                                 end = this.parsedEnd;
@@ -1590,7 +1590,7 @@
                     }
                 },
                 watch: {
-                    renderProps: "checkChange"
+                    renderProps: 'checkChange'
                 },
                 methods: {
                     checkChange: function checkChange() {
@@ -1598,7 +1598,7 @@
                         if (start !== this.lastStart || end !== this.lastEnd) {
                             this.lastStart = start;
                             this.lastEnd = end;
-                            this.$emit("change", {
+                            this.$emit('change', {
                                 start: start,
                                 end: end
                             });
@@ -1612,25 +1612,25 @@
                         var limit = forward ? _util_timestamp__WEBPACK_IMPORTED_MODULE_2__["DAYS_IN_MONTH_MAX"] : _util_timestamp__WEBPACK_IMPORTED_MODULE_2__["DAY_MIN"];
                         var times = forward ? amount : -amount;
                         while(--times >= 0)switch(this.type){
-                            case "month":
+                            case 'month':
                                 moved.day = limit;
                                 mover(moved);
                                 break;
-                            case "week":
+                            case 'week':
                                 Object(_util_timestamp__WEBPACK_IMPORTED_MODULE_2__["relativeDays"])(moved, mover, _util_timestamp__WEBPACK_IMPORTED_MODULE_2__["DAYS_IN_WEEK"]);
                                 break;
-                            case "day":
+                            case 'day':
                                 mover(moved);
                                 break;
-                            case "4day":
+                            case '4day':
                                 Object(_util_timestamp__WEBPACK_IMPORTED_MODULE_2__["relativeDays"])(moved, mover, 4);
                                 break;
                         }
                         Object(_util_timestamp__WEBPACK_IMPORTED_MODULE_2__["updateWeekday"])(moved);
                         Object(_util_timestamp__WEBPACK_IMPORTED_MODULE_2__["updateFormatted"])(moved);
                         Object(_util_timestamp__WEBPACK_IMPORTED_MODULE_2__["updateRelative"])(moved, this.times.now);
-                        this.$emit("input", moved.date);
-                        this.$emit("moved", moved);
+                        this.$emit('input', moved.date);
+                        this.$emit('moved', moved);
                     },
                     next: function next(amount) {
                         if (amount === void 0) amount = 1;
@@ -1661,16 +1661,16 @@
                     var _this = this;
                     var _a = this.renderProps, start = _a.start, end = _a.end, maxDays = _a.maxDays, component = _a.component;
                     return h(component, {
-                        staticClass: "v-calendar",
+                        staticClass: 'v-calendar',
                         props: __assign({}, this.$props, {
                             start: start.date,
                             end: end.date,
                             maxDays: maxDays
                         }),
                         on: __assign({}, this.$listeners, {
-                            "click:date": function clickDate(day) {
-                                if (_this.$listeners["input"]) _this.$emit("input", day.date);
-                                if (_this.$listeners["click:date"]) _this.$emit("click:date", day);
+                            'click:date': function clickDate(day) {
+                                if (_this.$listeners['input']) _this.$emit('input', day.date);
+                                if (_this.$listeners['click:date']) _this.$emit('click:date', day);
                             }
                         }),
                         scopedSlots: this.$scopedSlots
@@ -1726,7 +1726,7 @@
             // Mixins
             // Util
             /* @vue/component */ /* harmony default export */ __webpack_exports__["default"] = _mixins_calendar_with_intervals__WEBPACK_IMPORTED_MODULE_2__["default"].extend({
-                name: "v-calendar-daily",
+                name: 'v-calendar-daily',
                 directives: {
                     Resize: _directives_resize__WEBPACK_IMPORTED_MODULE_1__["default"]
                 },
@@ -1738,7 +1738,7 @@
                 computed: {
                     classes: function classes() {
                         return __assign({
-                            "v-calendar-daily": true
+                            'v-calendar-daily': true
                         }, this.themeClasses);
                     }
                 },
@@ -1758,18 +1758,18 @@
                         return area && pane ? area.offsetWidth - pane.offsetWidth : 0;
                     },
                     genHead: function genHead() {
-                        return this.$createElement("div", {
-                            staticClass: "v-calendar-daily__head",
+                        return this.$createElement('div', {
+                            staticClass: 'v-calendar-daily__head',
                             style: {
-                                marginRight: this.scrollPush + "px"
+                                marginRight: this.scrollPush + 'px'
                             }
                         }, __spread([
                             this.genHeadIntervals()
                         ], this.genHeadDays()));
                     },
                     genHeadIntervals: function genHeadIntervals() {
-                        return this.$createElement("div", {
-                            staticClass: "v-calendar-daily__intervals-head"
+                        return this.$createElement('div', {
+                            staticClass: 'v-calendar-daily__intervals-head'
                         });
                     },
                     genHeadDays: function genHeadDays() {
@@ -1778,36 +1778,36 @@
                     genHeadDay: function genHeadDay(day) {
                         var _this = this;
                         var slot = this.$scopedSlots.dayHeader;
-                        return this.$createElement("div", {
+                        return this.$createElement('div', {
                             key: day.date,
-                            staticClass: "v-calendar-daily_head-day",
+                            staticClass: 'v-calendar-daily_head-day',
                             class: this.getRelativeClasses(day),
-                            on: this.getDefaultMouseEventHandlers(":day", function(_e) {
+                            on: this.getDefaultMouseEventHandlers(':day', function(_e) {
                                 return _this.getSlotScope(day);
                             })
                         }, [
                             this.genHeadWeekday(day),
                             this.genHeadDayLabel(day),
-                            slot ? slot(day) : ""
+                            slot ? slot(day) : ''
                         ]);
                     },
                     genHeadWeekday: function genHeadWeekday(day) {
                         var color = day.present ? this.color : undefined;
-                        return this.$createElement("div", this.setTextColor(color, {
-                            staticClass: "v-calendar-daily_head-weekday"
+                        return this.$createElement('div', this.setTextColor(color, {
+                            staticClass: 'v-calendar-daily_head-weekday'
                         }), this.weekdayFormatter(day, this.shortWeekdays));
                     },
                     genHeadDayLabel: function genHeadDayLabel(day) {
                         var color = day.present ? this.color : undefined;
-                        return this.$createElement("div", this.setTextColor(color, {
-                            staticClass: "v-calendar-daily_head-day-label",
+                        return this.$createElement('div', this.setTextColor(color, {
+                            staticClass: 'v-calendar-daily_head-day-label',
                             on: this.getMouseEventHandlers({
-                                "click:date": {
-                                    event: "click",
+                                'click:date': {
+                                    event: 'click',
                                     stop: true
                                 },
-                                "contextmenu:date": {
-                                    event: "contextmenu",
+                                'contextmenu:date': {
+                                    event: 'contextmenu',
                                     stop: true,
                                     prevent: true,
                                     result: false
@@ -1818,24 +1818,24 @@
                         }), this.dayFormatter(day, false));
                     },
                     genBody: function genBody() {
-                        return this.$createElement("div", {
-                            staticClass: "v-calendar-daily__body"
+                        return this.$createElement('div', {
+                            staticClass: 'v-calendar-daily__body'
                         }, [
                             this.genScrollArea()
                         ]);
                     },
                     genScrollArea: function genScrollArea() {
-                        return this.$createElement("div", {
-                            ref: "scrollArea",
-                            staticClass: "v-calendar-daily__scroll-area"
+                        return this.$createElement('div', {
+                            ref: 'scrollArea',
+                            staticClass: 'v-calendar-daily__scroll-area'
                         }, [
                             this.genPane()
                         ]);
                     },
                     genPane: function genPane() {
-                        return this.$createElement("div", {
-                            ref: "pane",
-                            staticClass: "v-calendar-daily__pane",
+                        return this.$createElement('div', {
+                            ref: 'pane',
+                            staticClass: 'v-calendar-daily__pane',
                             style: {
                                 height: Object(_util_helpers__WEBPACK_IMPORTED_MODULE_3__["convertToUnit"])(this.bodyHeight)
                             }
@@ -1844,8 +1844,8 @@
                         ]);
                     },
                     genDayContainer: function genDayContainer() {
-                        return this.$createElement("div", {
-                            staticClass: "v-calendar-daily__day-container"
+                        return this.$createElement('div', {
+                            staticClass: 'v-calendar-daily__day-container'
                         }, __spread([
                             this.genBodyIntervals()
                         ], this.genDays()));
@@ -1857,15 +1857,15 @@
                         var _this = this;
                         var slot = this.$scopedSlots.dayBody;
                         var scope = this.getSlotScope(day);
-                        return this.$createElement("div", {
+                        return this.$createElement('div', {
                             key: day.date,
-                            staticClass: "v-calendar-daily__day",
+                            staticClass: 'v-calendar-daily__day',
                             class: this.getRelativeClasses(day),
-                            on: this.getDefaultMouseEventHandlers(":time", function(e) {
+                            on: this.getDefaultMouseEventHandlers(':time', function(e) {
                                 return _this.getSlotScope(_this.getTimestampAtEvent(e, day));
                             })
                         }, __spread(this.genDayIntervals(index), [
-                            slot ? slot(scope) : ""
+                            slot ? slot(scope) : ''
                         ]));
                     },
                     genDayIntervals: function genDayIntervals(index) {
@@ -1878,23 +1878,23 @@
                         var scope = this.getSlotScope(interval);
                         var data = {
                             key: interval.time,
-                            staticClass: "v-calendar-daily__day-interval",
+                            staticClass: 'v-calendar-daily__day-interval',
                             style: __assign({
                                 height: height
                             }, styler(interval))
                         };
                         var children = slot ? slot(scope) : undefined;
-                        return this.$createElement("div", data, children);
+                        return this.$createElement('div', data, children);
                     },
                     genBodyIntervals: function genBodyIntervals() {
                         var _this = this;
                         var data = {
-                            staticClass: "v-calendar-daily__intervals-body",
-                            on: this.getDefaultMouseEventHandlers(":interval", function(e) {
+                            staticClass: 'v-calendar-daily__intervals-body',
+                            on: this.getDefaultMouseEventHandlers(':interval', function(e) {
                                 return _this.getTimestampAtEvent(e, _this.parsedStart);
                             })
                         };
-                        return this.$createElement("div", data, this.genIntervalLabels());
+                        return this.$createElement('div', data, this.genIntervalLabels());
                     },
                     genIntervalLabels: function genIntervalLabels() {
                         return this.intervals[0].map(this.genIntervalLabel);
@@ -1905,21 +1905,21 @@
                         var shower = this.showIntervalLabel || this.showIntervalLabelDefault;
                         var show = shower(interval);
                         var label = show ? this.intervalFormatter(interval, short) : undefined;
-                        return this.$createElement("div", {
+                        return this.$createElement('div', {
                             key: interval.time,
-                            staticClass: "v-calendar-daily__interval",
+                            staticClass: 'v-calendar-daily__interval',
                             style: {
                                 height: height
                             }
                         }, [
-                            this.$createElement("div", {
-                                staticClass: "v-calendar-daily__interval-text"
+                            this.$createElement('div', {
+                                staticClass: 'v-calendar-daily__interval-text'
                             }, label)
                         ]);
                     }
                 },
                 render: function render(h) {
-                    return h("div", {
+                    return h('div', {
                         class: this.classes,
                         nativeOn: {
                             dragstart: function dragstart(e) {
@@ -1931,12 +1931,12 @@
                                 modifiers: {
                                     quiet: true
                                 },
-                                name: "resize",
+                                name: 'resize',
                                 value: this.onResize
                             }
                         ]
                     }, [
-                        !this.hideHeader ? this.genHead() : "",
+                        !this.hideHeader ? this.genHead() : '',
                         this.genBody()
                     ]);
                 }
@@ -1955,10 +1955,10 @@
             // Mixins
             // Util
             /* @vue/component */ /* harmony default export */ __webpack_exports__["default"] = _VCalendarWeekly__WEBPACK_IMPORTED_MODULE_1__["default"].extend({
-                name: "v-calendar-monthly",
+                name: 'v-calendar-monthly',
                 computed: {
                     staticClass: function staticClass() {
-                        return "v-calendar-monthly v-calendar-weekly";
+                        return 'v-calendar-monthly v-calendar-weekly';
                     },
                     parsedStart: function parsedStart() {
                         return Object(_util_timestamp__WEBPACK_IMPORTED_MODULE_2__["getStartOfMonth"])(Object(_util_timestamp__WEBPACK_IMPORTED_MODULE_2__["parseTimestamp"])(this.start));
@@ -2016,11 +2016,11 @@
             // Mixins
             // Util
             /* @vue/component */ /* harmony default export */ __webpack_exports__["default"] = _mixins_calendar_base__WEBPACK_IMPORTED_MODULE_1__["default"].extend({
-                name: "v-calendar-weekly",
+                name: 'v-calendar-weekly',
                 props: _util_props__WEBPACK_IMPORTED_MODULE_2__["default"].weeks,
                 computed: {
                     staticClass: function staticClass() {
-                        return "v-calendar-weekly";
+                        return 'v-calendar-weekly';
                     },
                     classes: function classes() {
                         return this.themeClasses;
@@ -2043,12 +2043,12 @@
                     monthFormatter: function monthFormatter() {
                         if (this.monthFormat) return this.monthFormat;
                         var longOptions = {
-                            timeZone: "UTC",
-                            month: "long"
+                            timeZone: 'UTC',
+                            month: 'long'
                         };
                         var shortOptions = {
-                            timeZone: "UTC",
-                            month: "short"
+                            timeZone: 'UTC',
+                            month: 'short'
                         };
                         return Object(_util_timestamp__WEBPACK_IMPORTED_MODULE_3__["createNativeLocaleFormatter"])(this.locale, function(_tms, short) {
                             return short ? shortOptions : longOptions;
@@ -2061,8 +2061,8 @@
                         return dayIdentifier < Object(_util_timestamp__WEBPACK_IMPORTED_MODULE_3__["getDayIdentifier"])(this.parsedStart) || dayIdentifier > Object(_util_timestamp__WEBPACK_IMPORTED_MODULE_3__["getDayIdentifier"])(this.parsedEnd);
                     },
                     genHead: function genHead() {
-                        return this.$createElement("div", {
-                            staticClass: "v-calendar-weekly__head"
+                        return this.$createElement('div', {
+                            staticClass: 'v-calendar-weekly__head'
                         }, this.genHeadDays());
                     },
                     genHeadDays: function genHeadDays() {
@@ -2071,9 +2071,9 @@
                     genHeadDay: function genHeadDay(day, index) {
                         var outside = this.isOutside(this.days[index]);
                         var color = day.present ? this.color : undefined;
-                        return this.$createElement("div", this.setTextColor(color, {
+                        return this.$createElement('div', this.setTextColor(color, {
                             key: day.date,
-                            staticClass: "v-calendar-weekly__head-weekday",
+                            staticClass: 'v-calendar-weekly__head-weekday',
                             class: this.getRelativeClasses(day, outside)
                         }), this.weekdayFormatter(day, this.shortWeekdays));
                     },
@@ -2085,9 +2085,9 @@
                         return weeks;
                     },
                     genWeek: function genWeek(week) {
-                        return this.$createElement("div", {
+                        return this.$createElement('div', {
                             key: week[0].date,
-                            staticClass: "v-calendar-weekly__week"
+                            staticClass: 'v-calendar-weekly__week'
                         }, week.map(this.genDay));
                     },
                     genDay: function genDay(day) {
@@ -2097,31 +2097,31 @@
                             outside: outside
                         }, day);
                         var hasMonth = day.day === 1 && this.showMonthOnFirst;
-                        return this.$createElement("div", {
+                        return this.$createElement('div', {
                             key: day.date,
-                            staticClass: "v-calendar-weekly__day",
+                            staticClass: 'v-calendar-weekly__day',
                             class: this.getRelativeClasses(day, outside),
-                            on: this.getDefaultMouseEventHandlers(":day", function(_e) {
+                            on: this.getDefaultMouseEventHandlers(':day', function(_e) {
                                 return day;
                             })
                         }, [
                             this.genDayLabel(day),
-                            hasMonth ? this.genDayMonth(day) : "",
-                            slot ? slot(slotData) : ""
+                            hasMonth ? this.genDayMonth(day) : '',
+                            slot ? slot(slotData) : ''
                         ]);
                     },
                     genDayLabel: function genDayLabel(day) {
                         var color = day.present ? this.color : undefined;
                         var slot = this.$scopedSlots.dayLabel;
-                        return this.$createElement("div", this.setTextColor(color, {
-                            staticClass: "v-calendar-weekly__day-label",
+                        return this.$createElement('div', this.setTextColor(color, {
+                            staticClass: 'v-calendar-weekly__day-label',
                             on: this.getMouseEventHandlers({
-                                "click:date": {
-                                    event: "click",
+                                'click:date': {
+                                    event: 'click',
                                     stop: true
                                 },
-                                "contextmenu:date": {
-                                    event: "contextmenu",
+                                'contextmenu:date': {
+                                    event: 'contextmenu',
                                     stop: true,
                                     prevent: true,
                                     result: false
@@ -2134,13 +2134,13 @@
                     genDayMonth: function genDayMonth(day) {
                         var color = day.present ? this.color : undefined;
                         var slot = this.$scopedSlots.dayMonth;
-                        return this.$createElement("div", this.setTextColor(color, {
-                            staticClass: "v-calendar-weekly__day-month"
+                        return this.$createElement('div', this.setTextColor(color, {
+                            staticClass: 'v-calendar-weekly__day-month'
                         }), slot ? slot(day) : this.monthFormatter(day, this.shortMonths));
                     }
                 },
                 render: function render(h) {
-                    return h("div", {
+                    return h('div', {
                         staticClass: this.staticClass,
                         class: this.classes,
                         nativeOn: {
@@ -2149,7 +2149,7 @@
                             }
                         }
                     }, __spread([
-                        !this.hideHeader ? this.genHead() : ""
+                        !this.hideHeader ? this.genHead() : ''
                     ], this.genWeeks()));
                 }
             });
@@ -2199,7 +2199,7 @@
             // Mixins
             // Util
             /* @vue/component */ /* harmony default export */ __webpack_exports__["default"] = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_0__["default"])(_mixins_colorable__WEBPACK_IMPORTED_MODULE_2__["default"], _mixins_themeable__WEBPACK_IMPORTED_MODULE_1__["default"], _times__WEBPACK_IMPORTED_MODULE_3__["default"], _mouse__WEBPACK_IMPORTED_MODULE_4__["default"]).extend({
-                name: "calendar-base",
+                name: 'calendar-base',
                 props: _util_props__WEBPACK_IMPORTED_MODULE_5__["default"].base,
                 computed: {
                     weekdaySkips: function weekdaySkips() {
@@ -2217,8 +2217,8 @@
                     dayFormatter: function dayFormatter() {
                         if (this.dayFormat) return this.dayFormat;
                         var options = {
-                            timeZone: "UTC",
-                            day: "numeric"
+                            timeZone: 'UTC',
+                            day: 'numeric'
                         };
                         return Object(_util_timestamp__WEBPACK_IMPORTED_MODULE_6__["createNativeLocaleFormatter"])(this.locale, function(_tms, _short) {
                             return options;
@@ -2227,12 +2227,12 @@
                     weekdayFormatter: function weekdayFormatter() {
                         if (this.weekdayFormat) return this.weekdayFormat;
                         var longOptions = {
-                            timeZone: "UTC",
-                            weekday: "long"
+                            timeZone: 'UTC',
+                            weekday: 'long'
                         };
                         var shortOptions = {
-                            timeZone: "UTC",
-                            weekday: "short"
+                            timeZone: 'UTC',
+                            weekday: 'short'
                         };
                         return Object(_util_timestamp__WEBPACK_IMPORTED_MODULE_6__["createNativeLocaleFormatter"])(this.locale, function(_tms, short) {
                             return short ? shortOptions : longOptions;
@@ -2243,10 +2243,10 @@
                     getRelativeClasses: function getRelativeClasses(timestamp, outside) {
                         if (outside === void 0) outside = false;
                         return {
-                            "v-present": timestamp.present,
-                            "v-past": timestamp.past,
-                            "v-future": timestamp.future,
-                            "v-outside": outside
+                            'v-present': timestamp.present,
+                            'v-past': timestamp.past,
+                            'v-future': timestamp.future,
+                            'v-outside': outside
                         };
                     },
                     getStartOfWeek: function getStartOfWeek(timestamp) {
@@ -2269,7 +2269,7 @@
             // Mixins
             // Util
             /* @vue/component */ /* harmony default export */ __webpack_exports__["default"] = _calendar_base__WEBPACK_IMPORTED_MODULE_0__["default"].extend({
-                name: "calendar-with-intervals",
+                name: 'calendar-with-intervals',
                 props: _util_props__WEBPACK_IMPORTED_MODULE_1__["default"].intervals,
                 computed: {
                     parsedFirstInterval: function parsedFirstInterval() {
@@ -2306,21 +2306,21 @@
                     intervalFormatter: function intervalFormatter() {
                         if (this.intervalFormat) return this.intervalFormat;
                         var longOptions = {
-                            timeZone: "UTC",
+                            timeZone: 'UTC',
                             hour12: true,
-                            hour: "2-digit",
-                            minute: "2-digit"
+                            hour: '2-digit',
+                            minute: '2-digit'
                         };
                         var shortOptions = {
-                            timeZone: "UTC",
+                            timeZone: 'UTC',
                             hour12: true,
-                            hour: "numeric",
-                            minute: "2-digit"
+                            hour: 'numeric',
+                            minute: '2-digit'
                         };
                         var shortHourOptions = {
-                            timeZone: "UTC",
+                            timeZone: 'UTC',
                             hour12: true,
-                            hour: "numeric"
+                            hour: 'numeric'
                         };
                         return Object(_util_timestamp__WEBPACK_IMPORTED_MODULE_2__["createNativeLocaleFormatter"])(this.locale, function(tms, short) {
                             return short ? tms.minute === 0 ? shortHourOptions : shortOptions : longOptions;
@@ -2390,32 +2390,32 @@
             /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "vue");
             /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/ __webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
             /* harmony default export */ __webpack_exports__["default"] = vue__WEBPACK_IMPORTED_MODULE_0___default.a.extend({
-                name: "mouse",
+                name: 'mouse',
                 methods: {
                     getDefaultMouseEventHandlers: function getDefaultMouseEventHandlers(suffix, getEvent) {
                         var _a;
-                        return this.getMouseEventHandlers((_a = {}, _a["click" + suffix] = {
-                            event: "click"
-                        }, _a["contextmenu" + suffix] = {
-                            event: "contextmenu",
+                        return this.getMouseEventHandlers((_a = {}, _a['click' + suffix] = {
+                            event: 'click'
+                        }, _a['contextmenu' + suffix] = {
+                            event: 'contextmenu',
                             prevent: true,
                             result: false
-                        }, _a["mousedown" + suffix] = {
-                            event: "mousedown"
-                        }, _a["mousemove" + suffix] = {
-                            event: "mousemove"
-                        }, _a["mouseup" + suffix] = {
-                            event: "mouseup"
-                        }, _a["mouseenter" + suffix] = {
-                            event: "mouseenter"
-                        }, _a["mouseleave" + suffix] = {
-                            event: "mouseleave"
-                        }, _a["touchstart" + suffix] = {
-                            event: "touchstart"
-                        }, _a["touchmove" + suffix] = {
-                            event: "touchmove"
-                        }, _a["touchend" + suffix] = {
-                            event: "touchend"
+                        }, _a['mousedown' + suffix] = {
+                            event: 'mousedown'
+                        }, _a['mousemove' + suffix] = {
+                            event: 'mousemove'
+                        }, _a['mouseup' + suffix] = {
+                            event: 'mouseup'
+                        }, _a['mouseenter' + suffix] = {
+                            event: 'mouseenter'
+                        }, _a['mouseleave' + suffix] = {
+                            event: 'mouseleave'
+                        }, _a['touchstart' + suffix] = {
+                            event: 'touchstart'
+                        }, _a['touchmove' + suffix] = {
+                            event: 'touchmove'
+                        }, _a['touchend' + suffix] = {
+                            event: 'touchend'
                         }, _a), getEvent);
                     },
                     getMouseEventHandlers: function getMouseEventHandlers(events, getEvent) {
@@ -2425,7 +2425,7 @@
                             var eventOptions = events[event];
                             if (!this_1.$listeners[event]) return "continue";
                             // TODO somehow pull in modifiers
-                            var prefix = eventOptions.passive ? "&" : (eventOptions.once ? "~" : "") + (eventOptions.capture ? "!" : "");
+                            var prefix = eventOptions.passive ? '&' : (eventOptions.once ? '~' : '') + (eventOptions.capture ? '!' : '');
                             var key = prefix + eventOptions.event;
                             var handler = function handler(e) {
                                 var mouseEvent = e;
@@ -2460,7 +2460,7 @@
             /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/ __webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
             /* harmony import */ var _util_timestamp__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../util/timestamp */ "./src/components/VCalendar/util/timestamp.ts");
             /* harmony default export */ __webpack_exports__["default"] = vue__WEBPACK_IMPORTED_MODULE_0___default.a.extend({
-                name: "times",
+                name: 'times',
                 props: {
                     now: {
                         type: String,
@@ -2470,8 +2470,8 @@
                 data: function data() {
                     return {
                         times: {
-                            now: Object(_util_timestamp__WEBPACK_IMPORTED_MODULE_1__["parseTimestamp"])("0000-00-00 00:00"),
-                            today: Object(_util_timestamp__WEBPACK_IMPORTED_MODULE_1__["parseTimestamp"])("0000-00-00")
+                            now: Object(_util_timestamp__WEBPACK_IMPORTED_MODULE_1__["parseTimestamp"])('0000-00-00 00:00'),
+                            today: Object(_util_timestamp__WEBPACK_IMPORTED_MODULE_1__["parseTimestamp"])('0000-00-00')
                         }
                     };
                 },
@@ -2481,7 +2481,7 @@
                     }
                 },
                 watch: {
-                    parsedNow: "updateTimes"
+                    parsedNow: 'updateTimes'
                 },
                 created: function created() {
                     this.updateTimes();
@@ -2539,7 +2539,7 @@
                     end: {
                         type: String,
                         validate: _timestamp__WEBPACK_IMPORTED_MODULE_0__["validateTimestamp"],
-                        default: "0000-00-00"
+                        default: '0000-00-00'
                     },
                     weekdays: {
                         type: Array,
@@ -2573,7 +2573,7 @@
                     },
                     locale: {
                         type: String,
-                        default: "en-us"
+                        default: 'en-us'
                     }
                 },
                 intervals: {
@@ -2651,7 +2651,7 @@
                 calendar: {
                     type: {
                         type: String,
-                        default: "month"
+                        default: 'month'
                     },
                     value: {
                         type: String,
@@ -2872,16 +2872,16 @@
                 return end;
             }
             function parseTime(input) {
-                if (typeof input === "number") // when a number is given, it's minutes since 12:00am
+                if (typeof input === 'number') // when a number is given, it's minutes since 12:00am
                 return input;
-                else if (typeof input === "string") {
+                else if (typeof input === 'string') {
                     // when a string is given, it's a hh:mm:ss format where seconds are optional
                     var parts = PARSE_TIME.exec(input);
                     if (!parts) return false;
                     return parseInt(parts[1]) * 60 + parseInt(parts[3] || 0);
-                } else if ((typeof input === "undefined" ? "undefined" : _typeof(input)) === "object") {
+                } else if ((typeof input === 'undefined' ? 'undefined' : _typeof(input)) === 'object') {
                     // when an object is given, it must have hour and minute
-                    if (typeof input.hour !== "number" || typeof input.minute !== "number") return false;
+                    if (typeof input.hour !== 'number' || typeof input.minute !== 'number') return false;
                     return input.hour * 60 + input.minute;
                 } else // unsupported type
                 return false;
@@ -2895,7 +2895,7 @@
                 if (!parts) return null;
                 var timestamp = {
                     date: input,
-                    time: "",
+                    time: '',
                     year: parseInt(parts[1]),
                     month: parseInt(parts[2]),
                     day: parseInt(parts[4]) || 1,
@@ -2915,8 +2915,8 @@
             }
             function parseDate(date) {
                 return updateFormatted({
-                    date: "",
-                    time: "",
+                    date: '',
+                    time: '',
                     year: date.getFullYear(),
                     month: date.getMonth() + 1,
                     day: date.getDate(),
@@ -3005,7 +3005,7 @@
             }
             function padNumber(x, length) {
                 var padded = String(x);
-                while(padded.length < length)padded = "0" + padded;
+                while(padded.length < length)padded = '0' + padded;
                 return padded;
             }
             function getDate(timestamp) {
@@ -3014,7 +3014,7 @@
                 return str;
             }
             function getTime(timestamp) {
-                if (!timestamp.hasTime) return "";
+                if (!timestamp.hasTime) return '';
                 return padNumber(timestamp.hour, 2) + ":" + padNumber(timestamp.minute, 2);
             }
             function nextMinutes(timestamp, minutes) {
@@ -3133,9 +3133,9 @@
             }
             function createNativeLocaleFormatter(locale, getOptions) {
                 var emptyFormatter = function emptyFormatter(_t, _s) {
-                    return "";
+                    return '';
                 };
-                if (typeof Intl === "undefined" || typeof Intl.DateTimeFormat === "undefined") return emptyFormatter;
+                if (typeof Intl === 'undefined' || typeof Intl.DateTimeFormat === 'undefined') return emptyFormatter;
                 return function(timestamp, short) {
                     try {
                         var intlFormatter = new Intl.DateTimeFormat(locale || undefined, getOptions(timestamp, short));
@@ -3143,7 +3143,7 @@
                         var date = timestamp.date;
                         return intlFormatter.format(new Date(date + "T" + time + ":00+00:00"));
                     } catch (e) {
-                        return "";
+                        return '';
                     }
                 };
             }
@@ -3173,7 +3173,7 @@
             // Mixins
             // Helpers
             /* @vue/component */ /* harmony default export */ __webpack_exports__["default"] = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_3__["default"])(_mixins_routable__WEBPACK_IMPORTED_MODULE_2__["default"], _VSheet__WEBPACK_IMPORTED_MODULE_1__["default"]).extend({
-                name: "v-card",
+                name: 'v-card',
                 props: {
                     flat: Boolean,
                     hover: Boolean,
@@ -3183,14 +3183,14 @@
                 computed: {
                     classes: function classes() {
                         return __assign({
-                            "v-card": true,
-                            "v-card--flat": this.flat,
-                            "v-card--hover": this.hover
+                            'v-card': true,
+                            'v-card--flat': this.flat,
+                            'v-card--hover': this.hover
                         }, _VSheet__WEBPACK_IMPORTED_MODULE_1__["default"].options.computed.classes.call(this));
                     },
                     styles: function styles() {
                         var style = __assign({}, _VSheet__WEBPACK_IMPORTED_MODULE_1__["default"].options.computed.styles.call(this));
-                        if (this.img) style.background = 'url("' + this.img + '") center center / cover no-repeat';
+                        if (this.img) style.background = "url(\"" + this.img + "\") center center / cover no-repeat";
                         return style;
                     }
                 },
@@ -3211,9 +3211,9 @@
             // Components
             // Utils
             /* istanbul ignore next */ /* @vue/component */ /* harmony default export */ __webpack_exports__["default"] = _VImg_VImg__WEBPACK_IMPORTED_MODULE_0__["default"].extend({
-                name: "v-card-media",
+                name: 'v-card-media',
                 mounted: function mounted() {
-                    Object(_util_console__WEBPACK_IMPORTED_MODULE_1__["deprecate"])("v-card-media", this.src ? "v-img" : "v-responsive", this);
+                    Object(_util_console__WEBPACK_IMPORTED_MODULE_1__["deprecate"])('v-card-media', this.src ? 'v-img' : 'v-responsive', this);
                 }
             });
         /***/ },
@@ -3226,16 +3226,16 @@
             /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/ __webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
             // Types
             /* @vue/component */ /* harmony default export */ __webpack_exports__["default"] = vue__WEBPACK_IMPORTED_MODULE_0___default.a.extend({
-                name: "v-card-title",
+                name: 'v-card-title',
                 functional: true,
                 props: {
                     primaryTitle: Boolean
                 },
                 render: function render(h, _a) {
                     var data = _a.data, props = _a.props, children = _a.children;
-                    data.staticClass = ("v-card__title " + (data.staticClass || "")).trim();
-                    if (props.primaryTitle) data.staticClass += " v-card__title--primary";
-                    return h("div", data, children);
+                    data.staticClass = ("v-card__title " + (data.staticClass || '')).trim();
+                    if (props.primaryTitle) data.staticClass += ' v-card__title--primary';
+                    return h('div', data, children);
                 }
             });
         /***/ },
@@ -3263,8 +3263,8 @@
             /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "VCardTitle", function() {
                 return _VCardTitle__WEBPACK_IMPORTED_MODULE_3__["default"];
             });
-            var VCardActions = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_0__["createSimpleFunctional"])("v-card__actions");
-            var VCardText = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_0__["createSimpleFunctional"])("v-card__text");
+            var VCardActions = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_0__["createSimpleFunctional"])('v-card__actions');
+            var VCardText = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_0__["createSimpleFunctional"])('v-card__text');
             /* harmony default export */ __webpack_exports__["default"] = {
                 $_vuetify_subcomponents: {
                     VCard: _VCard__WEBPACK_IMPORTED_MODULE_1__["default"],
@@ -3295,7 +3295,7 @@
             // TODO: Move this into core components v2.0
             // Utilities
             /* harmony default export */ __webpack_exports__["default"] = _VWindow_VWindow__WEBPACK_IMPORTED_MODULE_1__["default"].extend({
-                name: "v-carousel",
+                name: 'v-carousel',
                 props: {
                     cycle: {
                         type: Boolean,
@@ -3303,7 +3303,7 @@
                     },
                     delimiterIcon: {
                         type: String,
-                        default: "$vuetify.icons.delimiter"
+                        default: '$vuetify.icons.delimiter'
                     },
                     height: {
                         type: [
@@ -3333,14 +3333,14 @@
                             Boolean,
                             String
                         ],
-                        default: "$vuetify.icons.next"
+                        default: '$vuetify.icons.next'
                     },
                     prevIcon: {
                         type: [
                             Boolean,
                             String
                         ],
-                        default: "$vuetify.icons.prev"
+                        default: '$vuetify.icons.prev'
                     }
                 },
                 data: function data() {
@@ -3358,10 +3358,10 @@
                 watch: {
                     internalValue: function internalValue(val) {
                         this.restartTimeout();
-                        /* @deprecate */ /* istanbul ignore else */ if (!this.$listeners["input"]) return;
-                        this.$emit("input", val);
+                        /* @deprecate */ /* istanbul ignore else */ if (!this.$listeners['input']) return;
+                        this.$emit('input', val);
                     },
-                    interval: "restartTimeout",
+                    interval: 'restartTimeout',
                     height: function height(val, oldVal) {
                         if (val === oldVal || !val) return;
                         this.internalHeight = val;
@@ -3375,20 +3375,20 @@
                     }
                 },
                 mounted: function mounted() {
-                    /* @deprecate */ /* istanbul ignore next */ if (this.$listeners["input"]) Object(_util_console__WEBPACK_IMPORTED_MODULE_6__["deprecate"])("@input", "@change", this);
+                    /* @deprecate */ /* istanbul ignore next */ if (this.$listeners['input']) Object(_util_console__WEBPACK_IMPORTED_MODULE_6__["deprecate"])('@input', '@change', this);
                     this.startTimeout();
                 },
                 methods: {
                     genDelimiters: function genDelimiters() {
-                        return this.$createElement("div", {
-                            staticClass: "v-carousel__controls"
+                        return this.$createElement('div', {
+                            staticClass: 'v-carousel__controls'
                         }, [
                             this.genItems()
                         ]);
                     },
                     genIcon: function genIcon(direction, icon, fn) {
                         var _this = this;
-                        return this.$createElement("div", {
+                        return this.$createElement('div', {
                             staticClass: "v-carousel__" + direction
                         }, [
                             this.$createElement(_VBtn__WEBPACK_IMPORTED_MODULE_2__["default"], {
@@ -3396,7 +3396,7 @@
                                     icon: true
                                 },
                                 attrs: {
-                                    "aria-label": this.$vuetify.t("$vuetify.carousel." + direction)
+                                    'aria-label': this.$vuetify.t("$vuetify.carousel." + direction)
                                 },
                                 on: {
                                     click: function click() {
@@ -3407,7 +3407,7 @@
                             }, [
                                 this.$createElement(_VIcon__WEBPACK_IMPORTED_MODULE_3__["default"], {
                                     props: {
-                                        "size": "46px"
+                                        'size': '46px'
                                     }
                                 }, icon)
                             ])
@@ -3416,9 +3416,9 @@
                     genIcons: function genIcons() {
                         var icons = [];
                         var prevIcon = this.$vuetify.rtl ? this.nextIcon : this.prevIcon;
-                        if (prevIcon && typeof prevIcon === "string") icons.push(this.genIcon("prev", prevIcon, this.prev));
+                        if (prevIcon && typeof prevIcon === 'string') icons.push(this.genIcon('prev', prevIcon, this.prev));
                         var nextIcon = this.$vuetify.rtl ? this.prevIcon : this.nextIcon;
-                        if (nextIcon && typeof nextIcon === "string") icons.push(this.genIcon("next", nextIcon, this.next));
+                        if (nextIcon && typeof nextIcon === 'string') icons.push(this.genIcon('next', nextIcon, this.next));
                         return icons;
                     },
                     genItems: function genItems() {
@@ -3428,7 +3428,7 @@
                         for(var i = 0; i < length; i++){
                             var child = this.$createElement(_VBtn__WEBPACK_IMPORTED_MODULE_2__["default"], {
                                 class: {
-                                    "v-carousel__controls__item": true
+                                    'v-carousel__controls__item': true
                                 },
                                 props: {
                                     icon: true,
@@ -3476,14 +3476,14 @@
                 render: function render(h) {
                     var children = [];
                     var data = {
-                        staticClass: "v-window v-carousel",
+                        staticClass: 'v-window v-carousel',
                         style: {
                             height: Object(_util_helpers__WEBPACK_IMPORTED_MODULE_5__["convertToUnit"])(this.height)
                         },
                         directives: []
                     };
                     if (!this.touchless) data.directives.push({
-                        name: "touch",
+                        name: 'touch',
                         value: {
                             left: this.next,
                             right: this.prev
@@ -3491,7 +3491,7 @@
                     });
                     if (!this.hideControls) children.push(this.genIcons());
                     if (!this.hideDelimiters) children.push(this.genDelimiters());
-                    return h("div", data, [
+                    return h('div', data, [
                         this.genContainer(),
                         children
                     ]);
@@ -3518,13 +3518,13 @@
             // Extensions
             // Components
             /* @vue/component */ /* harmony default export */ __webpack_exports__["default"] = _VWindow_VWindowItem__WEBPACK_IMPORTED_MODULE_0__["default"].extend({
-                name: "v-carousel-item",
+                name: 'v-carousel-item',
                 inheritAttrs: false,
                 methods: {
                     genDefaultSlot: function genDefaultSlot() {
                         return [
                             this.$createElement(_VImg__WEBPACK_IMPORTED_MODULE_1__["VImg"], {
-                                staticClass: "v-carousel__item",
+                                staticClass: 'v-carousel__item',
                                 props: __assign({}, this.$attrs, {
                                     height: this.windowGroup.internalHeight
                                 }),
@@ -3584,7 +3584,7 @@
             // import { VFadeTransition } from '../transitions'
             // Mixins
             /* @vue/component */ /* harmony default export */ __webpack_exports__["default"] = {
-                name: "v-checkbox",
+                name: 'v-checkbox',
                 mixins: [
                     _mixins_selectable__WEBPACK_IMPORTED_MODULE_2__["default"]
                 ],
@@ -3592,15 +3592,15 @@
                     indeterminate: Boolean,
                     indeterminateIcon: {
                         type: String,
-                        default: "$vuetify.icons.checkboxIndeterminate"
+                        default: '$vuetify.icons.checkboxIndeterminate'
                     },
                     onIcon: {
                         type: String,
-                        default: "$vuetify.icons.checkboxOn"
+                        default: '$vuetify.icons.checkboxOn'
                     },
                     offIcon: {
                         type: String,
-                        default: "$vuetify.icons.checkboxOff"
+                        default: '$vuetify.icons.checkboxOff'
                     }
                 },
                 data: function data(vm) {
@@ -3611,8 +3611,8 @@
                 computed: {
                     classes: function classes() {
                         return {
-                            "v-input--selection-controls": true,
-                            "v-input--checkbox": true
+                            'v-input--selection-controls': true,
+                            'v-input--checkbox': true
                         };
                     },
                     computedIcon: function computedIcon() {
@@ -3628,11 +3628,11 @@
                 },
                 methods: {
                     genCheckbox: function genCheckbox() {
-                        return this.$createElement("div", {
-                            staticClass: "v-input--selection-controls__input"
+                        return this.$createElement('div', {
+                            staticClass: 'v-input--selection-controls__input'
                         }, [
-                            this.genInput("checkbox", __assign({}, this.$attrs, {
-                                "aria-checked": this.inputIndeterminate ? "mixed" : this.isActive.toString()
+                            this.genInput('checkbox', __assign({}, this.$attrs, {
+                                'aria-checked': this.inputIndeterminate ? 'mixed' : this.isActive.toString()
                             })),
                             this.genRipple(this.setTextColor(this.computedColor)),
                             this.$createElement(_VIcon__WEBPACK_IMPORTED_MODULE_1__["default"], this.setTextColor(this.computedColor, {
@@ -3688,7 +3688,7 @@
             // Components
             // Mixins
             /* @vue/component */ /* harmony default export */ __webpack_exports__["default"] = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_1__["default"])(_mixins_colorable__WEBPACK_IMPORTED_MODULE_3__["default"], _mixins_themeable__WEBPACK_IMPORTED_MODULE_4__["default"], _mixins_toggleable__WEBPACK_IMPORTED_MODULE_5__["default"]).extend({
-                name: "v-chip",
+                name: 'v-chip',
                 props: {
                     close: Boolean,
                     disabled: Boolean,
@@ -3706,12 +3706,12 @@
                 computed: {
                     classes: function classes() {
                         return __assign({
-                            "v-chip--disabled": this.disabled,
-                            "v-chip--selected": this.selected && !this.disabled,
-                            "v-chip--label": this.label,
-                            "v-chip--outline": this.outline,
-                            "v-chip--small": this.small,
-                            "v-chip--removable": this.close
+                            'v-chip--disabled': this.disabled,
+                            'v-chip--selected': this.selected && !this.disabled,
+                            'v-chip--label': this.label,
+                            'v-chip--outline': this.outline,
+                            'v-chip--small': this.small,
+                            'v-chip--removable': this.close
                         }, this.themeClasses);
                     }
                 },
@@ -3719,21 +3719,21 @@
                     genClose: function genClose(h) {
                         var _this = this;
                         var data = {
-                            staticClass: "v-chip__close",
+                            staticClass: 'v-chip__close',
                             on: {
                                 click: function click(e) {
                                     e.stopPropagation();
-                                    _this.$emit("input", false);
+                                    _this.$emit('input', false);
                                 }
                             }
                         };
-                        return h("div", data, [
-                            h(_VIcon__WEBPACK_IMPORTED_MODULE_2__["default"], "$vuetify.icons.delete")
+                        return h('div', data, [
+                            h(_VIcon__WEBPACK_IMPORTED_MODULE_2__["default"], '$vuetify.icons.delete')
                         ]);
                     },
                     genContent: function genContent(h) {
-                        return h("span", {
-                            staticClass: "v-chip__content"
+                        return h('span', {
+                            staticClass: 'v-chip__content'
                         }, [
                             this.$slots.default,
                             this.close && this.genClose(h)
@@ -3742,21 +3742,21 @@
                 },
                 render: function render(h) {
                     var data = this.setBackgroundColor(this.color, {
-                        staticClass: "v-chip",
-                        "class": this.classes,
+                        staticClass: 'v-chip',
+                        'class': this.classes,
                         attrs: {
                             tabindex: this.disabled ? -1 : 0
                         },
                         directives: [
                             {
-                                name: "show",
+                                name: 'show',
                                 value: this.isActive
                             }
                         ],
                         on: this.$listeners
                     });
                     var color = this.textColor || this.outline && this.color;
-                    return h("span", this.setTextColor(color, data), [
+                    return h('span', this.setTextColor(color, data), [
                         this.genContent(h)
                     ]);
                 }
@@ -3787,7 +3787,7 @@
             // Extensions
             // Utils
             /* @vue/component */ /* harmony default export */ __webpack_exports__["default"] = {
-                name: "v-combobox",
+                name: 'v-combobox',
                 extends: _VAutocomplete_VAutocomplete__WEBPACK_IMPORTED_MODULE_2__["default"],
                 props: {
                     delimiters: {
@@ -3808,7 +3808,7 @@
                 },
                 computed: {
                     counterValue: function counterValue() {
-                        return this.multiple ? this.selectedItems.length : (this.internalSearch || "").toString().length;
+                        return this.multiple ? this.selectedItems.length : (this.internalSearch || '').toString().length;
                     },
                     hasSlot: function hasSlot() {
                         return _VSelect_VSelect__WEBPACK_IMPORTED_MODULE_1__["default"].options.computed.hasSlot.call(this) || this.multiple;
@@ -3818,7 +3818,7 @@
                     },
                     menuCanShow: function menuCanShow() {
                         if (!this.isFocused) return false;
-                        return this.hasDisplayedItems || !!this.$slots["no-data"] && !this.hideNoData;
+                        return this.hasDisplayedItems || !!this.$slots['no-data'] && !this.hideNoData;
                     }
                 },
                 methods: {
@@ -3890,7 +3890,7 @@
                         else _VAutocomplete_VAutocomplete__WEBPACK_IMPORTED_MODULE_2__["default"].options.methods.selectItem.call(this, item);
                     },
                     setSelectedItems: function setSelectedItems() {
-                        if (this.internalValue == null || this.internalValue === "") this.selectedItems = [];
+                        if (this.internalValue == null || this.internalValue === '') this.selectedItems = [];
                         else this.selectedItems = this.multiple ? this.internalValue : [
                             this.internalValue
                         ];
@@ -3979,7 +3979,7 @@
             // Styles
             // Mixins
             /* @vue/component */ /* harmony default export */ __webpack_exports__["default"] = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_2__["default"])(_mixins_themeable__WEBPACK_IMPORTED_MODULE_1__["default"]).extend({
-                name: "v-counter",
+                name: 'v-counter',
                 functional: true,
                 props: {
                     value: {
@@ -3987,7 +3987,7 @@
                             Number,
                             String
                         ],
-                        default: ""
+                        default: ''
                     },
                     max: [
                         Number,
@@ -4000,10 +4000,10 @@
                     var value = parseInt(props.value, 10);
                     var content = max ? value + " / " + max : String(props.value);
                     var isGreater = max && value > max;
-                    return h("div", {
-                        staticClass: "v-counter",
+                    return h('div', {
+                        staticClass: 'v-counter',
                         class: __assign({
-                            "error--text": isGreater
+                            'error--text': isGreater
                         }, Object(_mixins_themeable__WEBPACK_IMPORTED_MODULE_1__["functionalThemeClasses"])(ctx))
                     }, content);
                 }
@@ -4039,7 +4039,7 @@
                 return __assign.apply(this, arguments);
             };
             /* @vue/component */ /* harmony default export */ __webpack_exports__["default"] = {
-                name: "v-data-iterator",
+                name: 'v-data-iterator',
                 mixins: [
                     _mixins_data_iterable__WEBPACK_IMPORTED_MODULE_1__["default"]
                 ],
@@ -4047,7 +4047,7 @@
                 props: {
                     contentTag: {
                         type: String,
-                        default: "div"
+                        default: 'div'
                     },
                     contentProps: {
                         type: Object,
@@ -4061,8 +4061,8 @@
                 computed: {
                     classes: function classes() {
                         return __assign({
-                            "v-data-iterator": true,
-                            "v-data-iterator--select-all": this.selectAll !== false
+                            'v-data-iterator': true,
+                            'v-data-iterator--select-all': this.selectAll !== false
                         }, this.themeClasses);
                     }
                 },
@@ -4073,7 +4073,7 @@
                     genContent: function genContent() {
                         var children = this.genItems();
                         var data = {
-                            "class": this.contentClass,
+                            'class': this.contentClass,
                             attrs: this.$attrs,
                             on: this.$listeners,
                             props: this.contentProps
@@ -4082,9 +4082,9 @@
                     },
                     genEmptyItems: function genEmptyItems(content) {
                         return [
-                            this.$createElement("div", {
-                                "class": "text-xs-center",
-                                style: "width: 100%"
+                            this.$createElement('div', {
+                                'class': 'text-xs-center',
+                                style: 'width: 100%'
                             }, content)
                         ];
                     },
@@ -4103,18 +4103,18 @@
                         if (this.$slots.footer) children.push(this.$slots.footer);
                         if (!this.hideActions) children.push(this.genActions());
                         if (!children.length) return null;
-                        return this.$createElement("div", children);
+                        return this.$createElement('div', children);
                     },
                     genHeader: function genHeader() {
                         var children = [];
                         if (this.$slots.header) children.push(this.$slots.header);
                         if (!children.length) return null;
-                        return this.$createElement("div", children);
+                        return this.$createElement('div', children);
                     }
                 },
                 render: function render(h) {
-                    return h("div", {
-                        "class": this.classes
+                    return h('div', {
+                        'class': this.classes
                     }, [
                         this.genHeader(),
                         this.genContent(),
@@ -4160,9 +4160,9 @@
                 return __assign.apply(this, arguments);
             };
             // Importing does not work properly
-            var VTableOverflow = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_7__["createSimpleFunctional"])("v-table__overflow");
+            var VTableOverflow = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_7__["createSimpleFunctional"])('v-table__overflow');
             /* @vue/component */ /* harmony default export */ __webpack_exports__["default"] = {
-                name: "v-data-table",
+                name: 'v-data-table',
                 mixins: [
                     _mixins_data_iterable__WEBPACK_IMPORTED_MODULE_2__["default"],
                     _mixins_head__WEBPACK_IMPORTED_MODULE_3__["default"],
@@ -4182,7 +4182,7 @@
                     },
                     headerText: {
                         type: String,
-                        default: "text"
+                        default: 'text'
                     },
                     headerKey: {
                         type: String,
@@ -4191,13 +4191,13 @@
                     hideHeaders: Boolean,
                     rowsPerPageText: {
                         type: String,
-                        default: "$vuetify.dataTable.rowsPerPageText"
+                        default: '$vuetify.dataTable.rowsPerPageText'
                     },
                     customFilter: {
                         type: Function,
                         default: function _default(items, search, filter, headers) {
                             search = search.toString().toLowerCase();
-                            if (search.trim() === "") return items;
+                            if (search.trim() === '') return items;
                             var props = headers.map(function(h) {
                                 return h.value;
                             });
@@ -4211,17 +4211,17 @@
                 },
                 data: function data() {
                     return {
-                        actionsClasses: "v-datatable__actions",
-                        actionsRangeControlsClasses: "v-datatable__actions__range-controls",
-                        actionsSelectClasses: "v-datatable__actions__select",
-                        actionsPaginationClasses: "v-datatable__actions__pagination"
+                        actionsClasses: 'v-datatable__actions',
+                        actionsRangeControlsClasses: 'v-datatable__actions__range-controls',
+                        actionsSelectClasses: 'v-datatable__actions__select',
+                        actionsPaginationClasses: 'v-datatable__actions__pagination'
                     };
                 },
                 computed: {
                     classes: function classes() {
                         return __assign({
-                            "v-datatable v-table": true,
-                            "v-datatable--select-all": this.selectAll !== false
+                            'v-datatable v-table': true,
+                            'v-datatable--select-all': this.selectAll !== false
                         }, this.themeClasses);
                     },
                     filteredItems: function filteredItems() {
@@ -4233,7 +4233,7 @@
                 },
                 created: function created() {
                     var firstSortable = this.headers.find(function(h) {
-                        return !("sortable" in h) || h.sortable;
+                        return !('sortable' in h) || h.sortable;
                     });
                     this.defaultPagination.sortBy = !this.disableInitialSort && firstSortable ? firstSortable.value : null;
                     this.initPagination();
@@ -4246,20 +4246,20 @@
                     },
                     genTR: function genTR(children, data) {
                         if (data === void 0) data = {};
-                        return this.$createElement("tr", data, children);
+                        return this.$createElement('tr', data, children);
                     }
                 },
                 render: function render(h) {
                     var tableOverflow = h(VTableOverflow, {}, [
-                        h("table", {
-                            "class": this.classes
+                        h('table', {
+                            'class': this.classes
                         }, [
                             this.genTHead(),
                             this.genTBody(),
                             this.genTFoot()
                         ])
                     ]);
-                    return h("div", [
+                    return h('div', [
                         tableOverflow,
                         this.genActionsFooter()
                     ]);
@@ -4281,24 +4281,24 @@
             // Mixins
             // Utils
             /* @vue/component */ /* harmony default export */ __webpack_exports__["default"] = {
-                name: "v-edit-dialog",
+                name: 'v-edit-dialog',
                 mixins: [
                     _mixins_returnable__WEBPACK_IMPORTED_MODULE_1__["default"],
                     _mixins_themeable__WEBPACK_IMPORTED_MODULE_2__["default"]
                 ],
                 props: {
                     cancelText: {
-                        default: "Cancel"
+                        default: 'Cancel'
                     },
                     large: Boolean,
                     lazy: Boolean,
                     persistent: Boolean,
                     saveText: {
-                        default: "Save"
+                        default: 'Save'
                     },
                     transition: {
                         type: String,
-                        default: "slide-x-reverse-transition"
+                        default: 'slide-x-reverse-transition'
                     }
                 },
                 data: function data() {
@@ -4309,25 +4309,25 @@
                 watch: {
                     isActive: function isActive(val) {
                         if (val) {
-                            this.$emit("open");
+                            this.$emit('open');
                             setTimeout(this.focus, 50); // Give DOM time to paint
-                        } else this.$emit("close");
+                        } else this.$emit('close');
                     }
                 },
                 methods: {
                     cancel: function cancel() {
                         this.isActive = false;
-                        this.$emit("cancel");
+                        this.$emit('cancel');
                     },
                     focus: function focus() {
-                        var input = this.$refs.content.querySelector("input");
+                        var input = this.$refs.content.querySelector('input');
                         input && input.focus();
                     },
                     genButton: function genButton(fn, text) {
                         return this.$createElement(_VBtn__WEBPACK_IMPORTED_MODULE_4__["default"], {
                             props: {
                                 flat: true,
-                                color: "primary",
+                                color: 'primary',
                                 light: true
                             },
                             on: {
@@ -4337,30 +4337,30 @@
                     },
                     genActions: function genActions() {
                         var _this = this;
-                        return this.$createElement("div", {
-                            "class": "v-small-dialog__actions"
+                        return this.$createElement('div', {
+                            'class': 'v-small-dialog__actions'
                         }, [
                             this.genButton(this.cancel, this.cancelText),
                             this.genButton(function() {
                                 _this.save(_this.returnValue);
-                                _this.$emit("save");
+                                _this.$emit('save');
                             }, this.saveText)
                         ]);
                     },
                     genContent: function genContent() {
                         var _this = this;
-                        return this.$createElement("div", {
+                        return this.$createElement('div', {
                             on: {
                                 keydown: function keydown(e) {
-                                    var input = _this.$refs.content.querySelector("input");
+                                    var input = _this.$refs.content.querySelector('input');
                                     e.keyCode === _util_helpers__WEBPACK_IMPORTED_MODULE_3__["keyCodes"].esc && _this.cancel();
                                     if (e.keyCode === _util_helpers__WEBPACK_IMPORTED_MODULE_3__["keyCodes"].enter && input) {
                                         _this.save(input.value);
-                                        _this.$emit("save");
+                                        _this.$emit('save');
                                     }
                                 }
                             },
-                            ref: "content"
+                            ref: 'content'
                         }, [
                             this.$slots.input
                         ]);
@@ -4369,12 +4369,12 @@
                 render: function render(h) {
                     var _this = this;
                     return h(_VMenu__WEBPACK_IMPORTED_MODULE_5__["default"], {
-                        staticClass: "v-small-dialog",
+                        staticClass: 'v-small-dialog',
                         class: this.themeClasses,
                         props: {
-                            contentClass: "v-small-dialog__content",
+                            contentClass: 'v-small-dialog__content',
                             transition: this.transition,
-                            origin: "top right",
+                            origin: 'top right',
                             right: true,
                             value: this.isActive,
                             closeOnClick: !this.persistent,
@@ -4389,8 +4389,8 @@
                             }
                         }
                     }, [
-                        h("a", {
-                            slot: "activator"
+                        h('a', {
+                            slot: 'activator'
                         }, this.$slots.default),
                         this.genContent(),
                         this.large ? this.genActions() : null
@@ -4415,7 +4415,7 @@
             /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "VEditDialog", function() {
                 return _VEditDialog__WEBPACK_IMPORTED_MODULE_2__["default"];
             });
-            var VTableOverflow = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_0__["createSimpleFunctional"])("v-table__overflow");
+            var VTableOverflow = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_0__["createSimpleFunctional"])('v-table__overflow');
             /* harmony default export */ __webpack_exports__["default"] = {
                 $_vuetify_subcomponents: {
                     VDataTable: _VDataTable__WEBPACK_IMPORTED_MODULE_1__["default"],
@@ -4435,13 +4435,13 @@
                 methods: {
                     genTBody: function genTBody() {
                         var children = this.genItems();
-                        return this.$createElement("tbody", children);
+                        return this.$createElement('tbody', children);
                     },
                     genExpandedRow: function genExpandedRow(props) {
                         var children = [];
                         if (this.isExpanded(props.item)) {
-                            var expand = this.$createElement("div", {
-                                class: "v-datatable__expand-content",
+                            var expand = this.$createElement('div', {
+                                class: 'v-datatable__expand-content',
                                 key: Object(_util_helpers__WEBPACK_IMPORTED_MODULE_1__["getObjectValueByPath"])(props.item, this.itemKey)
                             }, [
                                 this.$scopedSlots.expand(props)
@@ -4449,23 +4449,23 @@
                             children.push(expand);
                         }
                         var classes = {
-                            "v-datatable__expand-col": true,
-                            "v-datatable__expand-col--expanded": this.isExpanded(props.item)
+                            'v-datatable__expand-col': true,
+                            'v-datatable__expand-col--expanded': this.isExpanded(props.item)
                         };
-                        var transition = this.$createElement("transition-group", {
+                        var transition = this.$createElement('transition-group', {
                             class: classes,
                             attrs: {
                                 colspan: this.headerColumns
                             },
                             props: {
-                                tag: "td"
+                                tag: 'td'
                             },
-                            on: Object(_transitions_expand_transition__WEBPACK_IMPORTED_MODULE_0__["default"])("v-datatable__expand-col--expanded")
+                            on: Object(_transitions_expand_transition__WEBPACK_IMPORTED_MODULE_0__["default"])('v-datatable__expand-col--expanded')
                         }, children);
                         return this.genTR([
                             transition
                         ], {
-                            class: "v-datatable__expand-row"
+                            class: 'v-datatable__expand-row'
                         });
                     },
                     genFilteredItems: function genFilteredItems() {
@@ -4475,7 +4475,7 @@
                             var item = this.filteredItems[index];
                             var props = this.createProps(item, index);
                             var row = this.$scopedSlots.items(props);
-                            rows.push(this.hasTag(row, "td") ? this.genTR(row, {
+                            rows.push(this.hasTag(row, 'td') ? this.genTR(row, {
                                 key: this.itemKey ? Object(_util_helpers__WEBPACK_IMPORTED_MODULE_1__["getObjectValueByPath"])(props.item, this.itemKey) : index,
                                 attrs: {
                                     active: this.isSelected(item)
@@ -4489,12 +4489,12 @@
                         return rows;
                     },
                     genEmptyItems: function genEmptyItems(content) {
-                        if (this.hasTag(content, "tr")) return content;
-                        else if (this.hasTag(content, "td")) return this.genTR(content);
+                        if (this.hasTag(content, 'tr')) return content;
+                        else if (this.hasTag(content, 'td')) return this.genTR(content);
                         else return this.genTR([
-                            this.$createElement("td", {
+                            this.$createElement('td', {
                                 class: {
-                                    "text-xs-center": typeof content === "string"
+                                    'text-xs-center': typeof content === 'string'
                                 },
                                 attrs: {
                                     colspan: this.headerColumns
@@ -4515,15 +4515,15 @@
                     genTFoot: function genTFoot() {
                         if (!this.$slots.footer) return null;
                         var footer = this.$slots.footer;
-                        var row = this.hasTag(footer, "td") ? this.genTR(footer) : footer;
-                        return this.$createElement("tfoot", [
+                        var row = this.hasTag(footer, 'td') ? this.genTR(footer) : footer;
+                        return this.$createElement('tfoot', [
                             row
                         ]);
                     },
                     genActionsFooter: function genActionsFooter() {
                         if (this.hideActions) return null;
-                        return this.$createElement("div", {
-                            "class": this.classes
+                        return this.$createElement('div', {
+                            'class': this.classes
                         }, this.genActions());
                     }
                 }
@@ -4564,7 +4564,7 @@
                 props: {
                     sortIcon: {
                         type: String,
-                        default: "$vuetify.icons.sort"
+                        default: '$vuetify.icons.sort'
                     }
                 },
                 methods: {
@@ -4579,7 +4579,7 @@
                                 all: this.everyItem
                             });
                             children = [
-                                this.hasTag(row, "th") ? this.genTR(row) : row,
+                                this.hasTag(row, 'th') ? this.genTR(row) : row,
                                 this.genTProgress()
                             ];
                         } else {
@@ -4590,7 +4590,7 @@
                                 props: {
                                     dark: this.dark,
                                     light: this.light,
-                                    color: this.selectAll === true ? "" : this.selectAll,
+                                    color: this.selectAll === true ? '' : this.selectAll,
                                     hideDetails: true,
                                     inputValue: this.everyItem,
                                     indeterminate: this.indeterminate
@@ -4599,7 +4599,7 @@
                                     change: this.toggle
                                 }
                             });
-                            this.hasSelectAll && row.unshift(this.$createElement("th", [
+                            this.hasSelectAll && row.unshift(this.$createElement('th', [
                                 checkbox
                             ]));
                             children = [
@@ -4607,7 +4607,7 @@
                                 this.genTProgress()
                             ];
                         }
-                        return this.$createElement("thead", [
+                        return this.$createElement('thead', [
                             children
                         ]);
                     },
@@ -4618,26 +4618,26 @@
                             }) : header[this.headerText]
                         ];
                         return this.$createElement.apply(this, __spread([
-                            "th"
+                            'th'
                         ], this.genHeaderData(header, array, key)));
                     },
                     genHeaderData: function genHeaderData(header, children, key) {
                         var classes = [
-                            "column"
+                            'column'
                         ];
                         var data = {
                             key: key,
                             attrs: {
-                                role: "columnheader",
-                                scope: "col",
+                                role: 'columnheader',
+                                scope: 'col',
                                 width: header.width || null,
-                                "aria-label": header[this.headerText] || "",
-                                "aria-sort": "none"
+                                'aria-label': header[this.headerText] || '',
+                                'aria-sort': 'none'
                             }
                         };
                         if (header.sortable == null || header.sortable) this.genHeaderSortingData(header, children, data, classes);
-                        else data.attrs["aria-label"] += ": Not sorted."; // TODO: Localization
-                        classes.push("text-xs-" + (header.align || "left"));
+                        else data.attrs['aria-label'] += ': Not sorted.'; // TODO: Localization
+                        classes.push("text-xs-" + (header.align || 'left'));
                         if (Array.isArray(header.class)) classes.push.apply(classes, __spread(header.class));
                         else if (header.class) classes.push(header.class);
                         data.class = classes;
@@ -4648,7 +4648,7 @@
                     },
                     genHeaderSortingData: function genHeaderSortingData(header, children, data, classes) {
                         var _this = this;
-                        if (!("value" in header)) Object(_util_console__WEBPACK_IMPORTED_MODULE_0__["consoleWarn"])("Headers must have a value property that corresponds to a value in the v-model array", this);
+                        if (!('value' in header)) Object(_util_console__WEBPACK_IMPORTED_MODULE_0__["consoleWarn"])('Headers must have a value property that corresponds to a value in the v-model array', this);
                         data.attrs.tabIndex = 0;
                         data.on = {
                             click: function click() {
@@ -4663,28 +4663,28 @@
                                 }
                             }
                         };
-                        classes.push("sortable");
+                        classes.push('sortable');
                         var icon = this.$createElement(_VIcon__WEBPACK_IMPORTED_MODULE_2__["default"], {
                             props: {
                                 small: true
                             }
                         }, this.sortIcon);
-                        if (!header.align || header.align === "left") children.push(icon);
+                        if (!header.align || header.align === 'left') children.push(icon);
                         else children.unshift(icon);
                         var pagination = this.computedPagination;
                         var beingSorted = pagination.sortBy === header.value;
                         if (beingSorted) {
-                            classes.push("active");
+                            classes.push('active');
                             if (pagination.descending) {
-                                classes.push("desc");
-                                data.attrs["aria-sort"] = "descending";
-                                data.attrs["aria-label"] += ": Sorted descending. Activate to remove sorting."; // TODO: Localization
+                                classes.push('desc');
+                                data.attrs['aria-sort'] = 'descending';
+                                data.attrs['aria-label'] += ': Sorted descending. Activate to remove sorting.'; // TODO: Localization
                             } else {
-                                classes.push("asc");
-                                data.attrs["aria-sort"] = "ascending";
-                                data.attrs["aria-label"] += ": Sorted ascending. Activate to sort descending."; // TODO: Localization
+                                classes.push('asc');
+                                data.attrs['aria-sort'] = 'ascending';
+                                data.attrs['aria-label'] += ': Sorted ascending. Activate to sort descending.'; // TODO: Localization
                             }
-                        } else data.attrs["aria-label"] += ": Not sorted. Activate to sort ascending."; // TODO: Localization
+                        } else data.attrs['aria-label'] += ': Not sorted. Activate to sort ascending.'; // TODO: Localization
                     }
                 }
             };
@@ -4697,8 +4697,8 @@
             /* @vue/component */ /* harmony default export */ __webpack_exports__["default"] = {
                 methods: {
                     genTProgress: function genTProgress() {
-                        var col = this.$createElement("th", {
-                            staticClass: "column",
+                        var col = this.$createElement('th', {
+                            staticClass: 'column',
                             attrs: {
                                 colspan: this.headerColumns
                             }
@@ -4708,7 +4708,7 @@
                         return this.genTR([
                             col
                         ], {
-                            staticClass: "v-datatable__progress"
+                            staticClass: 'v-datatable__progress'
                         });
                     }
                 }
@@ -4755,7 +4755,7 @@
             // Adds leading zero to month/day if necessary, returns 'YYYY' if type = 'year',
             // 'YYYY-MM' if 'month' and 'YYYY-MM-DD' if 'date'
             function sanitizeDateString(dateString, type) {
-                var _a = __read(dateString.split("-"), 3), year = _a[0], _b = _a[1], month = _b === void 0 ? 1 : _b, _c = _a[2], date = _c === void 0 ? 1 : _c;
+                var _a = __read(dateString.split('-'), 3), year = _a[0], _b = _a[1], month = _b === void 0 ? 1 : _b, _c = _a[2], date = _c === void 0 ? 1 : _c;
                 return (year + "-" + Object(_util__WEBPACK_IMPORTED_MODULE_6__["pad"])(month) + "-" + Object(_util__WEBPACK_IMPORTED_MODULE_6__["pad"])(date)).substr(0, {
                     date: 10,
                     month: 7,
@@ -4763,7 +4763,7 @@
                 }[type]);
             }
             /* harmony default export */ __webpack_exports__["default"] = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_10__["default"])(_mixins_picker__WEBPACK_IMPORTED_MODULE_5__["default"]).extend({
-                name: "v-date-picker",
+                name: 'v-date-picker',
                 props: {
                     allowedDates: Function,
                     // Function formatting the day in date picker table
@@ -4787,7 +4787,7 @@
                             String
                         ],
                         default: function _default() {
-                            return "warning";
+                            return 'warning';
                         }
                     },
                     firstDayOfWeek: {
@@ -4801,7 +4801,7 @@
                     headerDateFormat: Function,
                     locale: {
                         type: String,
-                        default: "en-us"
+                        default: 'en-us'
                     },
                     max: String,
                     min: String,
@@ -4810,12 +4810,12 @@
                     multiple: Boolean,
                     nextIcon: {
                         type: String,
-                        default: "$vuetify.icons.next"
+                        default: '$vuetify.icons.next'
                     },
                     pickerDate: String,
                     prevIcon: {
                         type: String,
-                        default: "$vuetify.icons.prev"
+                        default: '$vuetify.icons.prev'
                     },
                     reactive: Boolean,
                     readonly: Boolean,
@@ -4832,11 +4832,11 @@
                     titleDateFormat: Function,
                     type: {
                         type: String,
-                        default: "date",
+                        default: 'date',
                         validator: function validator(type) {
                             return [
-                                "date",
-                                "month"
+                                'date',
+                                'month'
                             ].includes(type);
                         } // TODO: year
                     },
@@ -4863,7 +4863,7 @@
                         tableDate: function() {
                             if (_this.pickerDate) return _this.pickerDate;
                             var date = (_this.multiple ? _this.value[_this.value.length - 1] : _this.value) || now.getFullYear() + "-" + (now.getMonth() + 1);
-                            return sanitizeDateString(date, _this.type === "date" ? "month" : "year");
+                            return sanitizeDateString(date, _this.type === 'date' ? 'month' : 'year');
                         }()
                     };
                 },
@@ -4872,7 +4872,7 @@
                         return this.multiple ? this.value[this.value.length - 1] : this.value;
                     },
                     selectedMonths: function selectedMonths() {
-                        if (!this.value || !this.value.length || this.type === "month") return this.value;
+                        if (!this.value || !this.value.length || this.type === 'month') return this.value;
                         else if (this.multiple) return this.value.map(function(val) {
                             return val.substr(0, 7);
                         });
@@ -4883,31 +4883,31 @@
                         return this.showCurrent || null;
                     },
                     inputDate: function inputDate() {
-                        return this.type === "date" ? this.inputYear + "-" + Object(_util__WEBPACK_IMPORTED_MODULE_6__["pad"])(this.inputMonth + 1) + "-" + Object(_util__WEBPACK_IMPORTED_MODULE_6__["pad"])(this.inputDay) : this.inputYear + "-" + Object(_util__WEBPACK_IMPORTED_MODULE_6__["pad"])(this.inputMonth + 1);
+                        return this.type === 'date' ? this.inputYear + "-" + Object(_util__WEBPACK_IMPORTED_MODULE_6__["pad"])(this.inputMonth + 1) + "-" + Object(_util__WEBPACK_IMPORTED_MODULE_6__["pad"])(this.inputDay) : this.inputYear + "-" + Object(_util__WEBPACK_IMPORTED_MODULE_6__["pad"])(this.inputMonth + 1);
                     },
                     tableMonth: function tableMonth() {
-                        return Number((this.pickerDate || this.tableDate).split("-")[1]) - 1;
+                        return Number((this.pickerDate || this.tableDate).split('-')[1]) - 1;
                     },
                     tableYear: function tableYear() {
-                        return Number((this.pickerDate || this.tableDate).split("-")[0]);
+                        return Number((this.pickerDate || this.tableDate).split('-')[0]);
                     },
                     minMonth: function minMonth() {
-                        return this.min ? sanitizeDateString(this.min, "month") : null;
+                        return this.min ? sanitizeDateString(this.min, 'month') : null;
                     },
                     maxMonth: function maxMonth() {
-                        return this.max ? sanitizeDateString(this.max, "month") : null;
+                        return this.max ? sanitizeDateString(this.max, 'month') : null;
                     },
                     minYear: function minYear() {
-                        return this.min ? sanitizeDateString(this.min, "year") : null;
+                        return this.min ? sanitizeDateString(this.min, 'year') : null;
                     },
                     maxYear: function maxYear() {
-                        return this.max ? sanitizeDateString(this.max, "year") : null;
+                        return this.max ? sanitizeDateString(this.max, 'year') : null;
                     },
                     formatters: function formatters() {
                         return {
                             year: this.yearFormat || Object(_util__WEBPACK_IMPORTED_MODULE_6__["createNativeLocaleFormatter"])(this.locale, {
-                                year: "numeric",
-                                timeZone: "UTC"
+                                year: 'numeric',
+                                timeZone: 'UTC'
                             }, {
                                 length: 4
                             }),
@@ -4917,7 +4917,7 @@
                     defaultTitleMultipleDateFormatter: function defaultTitleMultipleDateFormatter() {
                         var _this = this;
                         if (this.value.length < 2) return function(dates) {
-                            return dates.length ? _this.defaultTitleDateFormatter(dates[0]) : "0 selected";
+                            return dates.length ? _this.defaultTitleDateFormatter(dates[0]) : '0 selected';
                         };
                         return function(dates) {
                             return dates.length + " selected";
@@ -4926,18 +4926,18 @@
                     defaultTitleDateFormatter: function defaultTitleDateFormatter() {
                         var titleFormats = {
                             year: {
-                                year: "numeric",
-                                timeZone: "UTC"
+                                year: 'numeric',
+                                timeZone: 'UTC'
                             },
                             month: {
-                                month: "long",
-                                timeZone: "UTC"
+                                month: 'long',
+                                timeZone: 'UTC'
                             },
                             date: {
-                                weekday: "short",
-                                month: "short",
-                                day: "numeric",
-                                timeZone: "UTC"
+                                weekday: 'short',
+                                month: 'short',
+                                day: 'numeric',
+                                timeZone: 'UTC'
                             }
                         };
                         var titleDateFormatter = Object(_util__WEBPACK_IMPORTED_MODULE_6__["createNativeLocaleFormatter"])(this.locale, titleFormats[this.type], {
@@ -4951,7 +4951,7 @@
                         var landscapeFormatter = function landscapeFormatter(date) {
                             return titleDateFormatter(date).replace(/([^\d\s])([\d])/g, function(match, nonDigit, digit) {
                                 return nonDigit + " " + digit;
-                            }).replace(", ", ",<br>");
+                            }).replace(', ', ',<br>');
                         };
                         return this.landscape ? landscapeFormatter : titleDateFormatter;
                     }
@@ -4960,20 +4960,20 @@
                     tableDate: function tableDate(val, prev) {
                         // Make a ISO 8601 strings from val and prev for comparision, otherwise it will incorrectly
                         // compare for example '2000-9' and '2000-10'
-                        var sanitizeType = this.type === "month" ? "year" : "month";
+                        var sanitizeType = this.type === 'month' ? 'year' : 'month';
                         this.isReversing = sanitizeDateString(val, sanitizeType) < sanitizeDateString(prev, sanitizeType);
-                        this.$emit("update:pickerDate", val);
+                        this.$emit('update:pickerDate', val);
                     },
                     pickerDate: function pickerDate(val) {
                         if (val) this.tableDate = val;
-                        else if (this.lastValue && this.type === "date") this.tableDate = sanitizeDateString(this.lastValue, "month");
-                        else if (this.lastValue && this.type === "month") this.tableDate = sanitizeDateString(this.lastValue, "year");
+                        else if (this.lastValue && this.type === 'date') this.tableDate = sanitizeDateString(this.lastValue, 'month');
+                        else if (this.lastValue && this.type === 'month') this.tableDate = sanitizeDateString(this.lastValue, 'year');
                     },
                     value: function value(newValue, oldValue) {
                         this.checkMultipleProp();
                         this.setInputDate();
-                        if (!this.multiple && this.value && !this.pickerDate) this.tableDate = sanitizeDateString(this.inputDate, this.type === "month" ? "year" : "month");
-                        else if (this.multiple && this.value.length && !oldValue.length && !this.pickerDate) this.tableDate = sanitizeDateString(this.inputDate, this.type === "month" ? "year" : "month");
+                        if (!this.multiple && this.value && !this.pickerDate) this.tableDate = sanitizeDateString(this.inputDate, this.type === 'month' ? 'year' : 'month');
+                        else if (this.multiple && this.value.length && !oldValue.length && !this.pickerDate) this.tableDate = sanitizeDateString(this.inputDate, this.type === 'month' ? 'year' : 'month');
                     },
                     type: function type(_type) {
                         this.activePicker = _type.toUpperCase();
@@ -4983,13 +4983,13 @@
                             ]).map(function(val) {
                                 return sanitizeDateString(val, _type);
                             }).filter(this.isDateAllowed);
-                            this.$emit("input", this.multiple ? output : output[0]);
+                            this.$emit('input', this.multiple ? output : output[0]);
                         }
                     }
                 },
                 created: function created() {
                     this.checkMultipleProp();
-                    if (this.pickerDate !== this.tableDate) this.$emit("update:pickerDate", this.tableDate);
+                    if (this.pickerDate !== this.tableDate) this.$emit('update:pickerDate', this.tableDate);
                     this.setInputDate();
                 },
                 methods: {
@@ -4999,57 +4999,57 @@
                         ]) : this.value.filter(function(x) {
                             return x !== newInput;
                         }) : newInput;
-                        this.$emit("input", output);
-                        this.multiple || this.$emit("change", newInput);
+                        this.$emit('input', output);
+                        this.multiple || this.$emit('change', newInput);
                     },
                     checkMultipleProp: function checkMultipleProp() {
                         if (this.value == null) return;
                         var valueType = this.value.constructor.name;
-                        var expected = this.multiple ? "Array" : "String";
-                        if (valueType !== expected) Object(_util_console__WEBPACK_IMPORTED_MODULE_8__["consoleWarn"])("Value must be " + (this.multiple ? "an" : "a") + " " + expected + ", got " + valueType, this);
+                        var expected = this.multiple ? 'Array' : 'String';
+                        if (valueType !== expected) Object(_util_console__WEBPACK_IMPORTED_MODULE_8__["consoleWarn"])("Value must be " + (this.multiple ? 'an' : 'a') + " " + expected + ", got " + valueType, this);
                     },
                     isDateAllowed: function isDateAllowed(value) {
                         return Object(_util_isDateAllowed__WEBPACK_IMPORTED_MODULE_7__["default"])(value, this.min, this.max, this.allowedDates);
                     },
                     yearClick: function yearClick(value) {
                         this.inputYear = value;
-                        if (this.type === "month") this.tableDate = "" + value;
+                        if (this.type === 'month') this.tableDate = "" + value;
                         else this.tableDate = value + "-" + Object(_util__WEBPACK_IMPORTED_MODULE_6__["pad"])((this.tableMonth || 0) + 1);
-                        this.activePicker = "MONTH";
-                        if (this.reactive && !this.readonly && !this.multiple && this.isDateAllowed(this.inputDate)) this.$emit("input", this.inputDate);
+                        this.activePicker = 'MONTH';
+                        if (this.reactive && !this.readonly && !this.multiple && this.isDateAllowed(this.inputDate)) this.$emit('input', this.inputDate);
                     },
                     monthClick: function monthClick(value) {
-                        this.inputYear = parseInt(value.split("-")[0], 10);
-                        this.inputMonth = parseInt(value.split("-")[1], 10) - 1;
-                        if (this.type === "date") {
+                        this.inputYear = parseInt(value.split('-')[0], 10);
+                        this.inputMonth = parseInt(value.split('-')[1], 10) - 1;
+                        if (this.type === 'date') {
                             if (this.inputDay) this.inputDay = Math.min(this.inputDay, Object(_VCalendar_util_timestamp__WEBPACK_IMPORTED_MODULE_9__["daysInMonth"])(this.inputYear, this.inputMonth + 1));
                             this.tableDate = value;
-                            this.activePicker = "DATE";
-                            if (this.reactive && !this.readonly && !this.multiple && this.isDateAllowed(this.inputDate)) this.$emit("input", this.inputDate);
+                            this.activePicker = 'DATE';
+                            if (this.reactive && !this.readonly && !this.multiple && this.isDateAllowed(this.inputDate)) this.$emit('input', this.inputDate);
                         } else this.emitInput(this.inputDate);
                     },
                     dateClick: function dateClick(value) {
-                        this.inputYear = parseInt(value.split("-")[0], 10);
-                        this.inputMonth = parseInt(value.split("-")[1], 10) - 1;
-                        this.inputDay = parseInt(value.split("-")[2], 10);
+                        this.inputYear = parseInt(value.split('-')[0], 10);
+                        this.inputMonth = parseInt(value.split('-')[1], 10) - 1;
+                        this.inputDay = parseInt(value.split('-')[2], 10);
                         this.emitInput(this.inputDate);
                     },
                     genPickerTitle: function genPickerTitle() {
                         var _this = this;
                         return this.$createElement(_VDatePickerTitle__WEBPACK_IMPORTED_MODULE_0__["default"], {
                             props: {
-                                date: this.value ? this.formatters.titleDate(this.value) : "",
+                                date: this.value ? this.formatters.titleDate(this.value) : '',
                                 disabled: this.disabled,
                                 readonly: this.readonly,
-                                selectingYear: this.activePicker === "YEAR",
+                                selectingYear: this.activePicker === 'YEAR',
                                 year: this.formatters.year(this.value ? "" + this.inputYear : this.tableDate),
                                 yearIcon: this.yearIcon,
                                 value: this.multiple ? this.value[0] : this.value
                             },
-                            slot: "title",
+                            slot: 'title',
                             on: {
-                                "update:selectingYear": function updateSelectingYear(value) {
-                                    return _this.activePicker = value ? "YEAR" : _this.type.toUpperCase();
+                                'update:selectingYear': function updateSelectingYear(value) {
+                                    return _this.activePicker = value ? 'YEAR' : _this.type.toUpperCase();
                                 }
                             }
                         });
@@ -5065,15 +5065,15 @@
                                 format: this.headerDateFormat,
                                 light: this.light,
                                 locale: this.locale,
-                                min: this.activePicker === "DATE" ? this.minMonth : this.minYear,
-                                max: this.activePicker === "DATE" ? this.maxMonth : this.maxYear,
+                                min: this.activePicker === 'DATE' ? this.minMonth : this.minYear,
+                                max: this.activePicker === 'DATE' ? this.maxMonth : this.maxYear,
                                 prevIcon: this.prevIcon,
                                 readonly: this.readonly,
-                                value: this.activePicker === "DATE" ? Object(_util__WEBPACK_IMPORTED_MODULE_6__["pad"])(this.tableYear, 4) + "-" + Object(_util__WEBPACK_IMPORTED_MODULE_6__["pad"])(this.tableMonth + 1) : "" + Object(_util__WEBPACK_IMPORTED_MODULE_6__["pad"])(this.tableYear, 4)
+                                value: this.activePicker === 'DATE' ? Object(_util__WEBPACK_IMPORTED_MODULE_6__["pad"])(this.tableYear, 4) + "-" + Object(_util__WEBPACK_IMPORTED_MODULE_6__["pad"])(this.tableMonth + 1) : "" + Object(_util__WEBPACK_IMPORTED_MODULE_6__["pad"])(this.tableYear, 4)
                             },
                             on: {
                                 toggle: function toggle() {
-                                    return _this.activePicker = _this.activePicker === "DATE" ? "MONTH" : "YEAR";
+                                    return _this.activePicker = _this.activePicker === 'DATE' ? 'MONTH' : 'YEAR';
                                 },
                                 input: function input(value) {
                                     return _this.tableDate = value;
@@ -5105,17 +5105,17 @@
                                 value: this.value,
                                 weekdayFormat: this.weekdayFormat
                             },
-                            ref: "table",
+                            ref: 'table',
                             on: {
                                 input: this.dateClick,
                                 tableDate: function tableDate(value) {
                                     return _this.tableDate = value;
                                 },
-                                "click:date": function clickDate(value) {
-                                    return _this.$emit("click:date", value);
+                                'click:date': function clickDate(value) {
+                                    return _this.$emit('click:date', value);
                                 },
-                                "dblclick:date": function dblclickDate(value) {
-                                    return _this.$emit("dblclick:date", value);
+                                'dblclick:date': function dblclickDate(value) {
+                                    return _this.$emit('dblclick:date', value);
                                 }
                             }
                         });
@@ -5124,34 +5124,34 @@
                         var _this = this;
                         return this.$createElement(_VDatePickerMonthTable__WEBPACK_IMPORTED_MODULE_3__["default"], {
                             props: {
-                                allowedDates: this.type === "month" ? this.allowedDates : null,
+                                allowedDates: this.type === 'month' ? this.allowedDates : null,
                                 color: this.color,
-                                current: this.current ? sanitizeDateString(this.current, "month") : null,
+                                current: this.current ? sanitizeDateString(this.current, 'month') : null,
                                 dark: this.dark,
                                 disabled: this.disabled,
-                                events: this.type === "month" ? this.events : null,
-                                eventColor: this.type === "month" ? this.eventColor : null,
+                                events: this.type === 'month' ? this.events : null,
+                                eventColor: this.type === 'month' ? this.eventColor : null,
                                 format: this.monthFormat,
                                 light: this.light,
                                 locale: this.locale,
                                 min: this.minMonth,
                                 max: this.maxMonth,
-                                readonly: this.readonly && this.type === "month",
+                                readonly: this.readonly && this.type === 'month',
                                 scrollable: this.scrollable,
                                 value: this.selectedMonths,
                                 tableDate: "" + Object(_util__WEBPACK_IMPORTED_MODULE_6__["pad"])(this.tableYear, 4)
                             },
-                            ref: "table",
+                            ref: 'table',
                             on: {
                                 input: this.monthClick,
                                 tableDate: function tableDate(value) {
                                     return _this.tableDate = value;
                                 },
-                                "click:month": function clickMonth(value) {
-                                    return _this.$emit("click:month", value);
+                                'click:month': function clickMonth(value) {
+                                    return _this.$emit('click:month', value);
                                 },
-                                "dblclick:month": function dblclickMonth(value) {
-                                    return _this.$emit("dblclick:month", value);
+                                'dblclick:month': function dblclickMonth(value) {
+                                    return _this.$emit('dblclick:month', value);
                                 }
                             }
                         });
@@ -5172,22 +5172,22 @@
                         });
                     },
                     genPickerBody: function genPickerBody() {
-                        var children = this.activePicker === "YEAR" ? [
+                        var children = this.activePicker === 'YEAR' ? [
                             this.genYears()
                         ] : [
                             this.genTableHeader(),
-                            this.activePicker === "DATE" ? this.genDateTable() : this.genMonthTable()
+                            this.activePicker === 'DATE' ? this.genDateTable() : this.genMonthTable()
                         ];
-                        return this.$createElement("div", {
+                        return this.$createElement('div', {
                             key: this.activePicker
                         }, children);
                     },
                     setInputDate: function setInputDate() {
                         if (this.lastValue) {
-                            var array = this.lastValue.split("-");
+                            var array = this.lastValue.split('-');
                             this.inputYear = parseInt(array[0], 10);
                             this.inputMonth = parseInt(array[1], 10) - 1;
-                            if (this.type === "date") this.inputDay = parseInt(array[2], 10);
+                            if (this.type === 'date') this.inputDay = parseInt(array[2], 10);
                         } else {
                             this.inputYear = this.inputYear || this.now.getFullYear();
                             this.inputMonth = this.inputMonth == null ? this.inputMonth : this.now.getMonth();
@@ -5196,7 +5196,7 @@
                     }
                 },
                 render: function render() {
-                    return this.genPicker("v-picker--date");
+                    return this.genPicker('v-picker--date');
                 }
             });
         /***/ },
@@ -5212,7 +5212,7 @@
             // Mixins
             // Utils
             /* harmony default export */ __webpack_exports__["default"] = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_3__["default"])(_mixins_date_picker_table__WEBPACK_IMPORTED_MODULE_0__["default"]).extend({
-                name: "v-date-picker-date-table",
+                name: 'v-date-picker-date-table',
                 props: {
                     firstDayOfWeek: {
                         type: [
@@ -5227,8 +5227,8 @@
                 computed: {
                     formatter: function formatter() {
                         return this.format || Object(_util__WEBPACK_IMPORTED_MODULE_1__["createNativeLocaleFormatter"])(this.locale, {
-                            day: "numeric",
-                            timeZone: "UTC"
+                            day: 'numeric',
+                            timeZone: 'UTC'
                         }, {
                             start: 8,
                             length: 2
@@ -5236,8 +5236,8 @@
                     },
                     weekdayFormatter: function weekdayFormatter() {
                         return this.weekdayFormat || Object(_util__WEBPACK_IMPORTED_MODULE_1__["createNativeLocaleFormatter"])(this.locale, {
-                            weekday: "narrow",
-                            timeZone: "UTC"
+                            weekday: 'narrow',
+                            timeZone: 'UTC'
                         });
                     },
                     weekDays: function weekDays() {
@@ -5248,13 +5248,13 @@
                         }) // 2017-01-15 is Sunday
                          : Object(_util_helpers__WEBPACK_IMPORTED_MODULE_2__["createRange"])(7).map(function(i) {
                             return [
-                                "S",
-                                "M",
-                                "T",
-                                "W",
-                                "T",
-                                "F",
-                                "S"
+                                'S',
+                                'M',
+                                'T',
+                                'W',
+                                'T',
+                                'F',
+                                'S'
                             ][(i + first) % 7];
                         });
                     }
@@ -5266,10 +5266,10 @@
                     genTHead: function genTHead() {
                         var _this = this;
                         var days = this.weekDays.map(function(day) {
-                            return _this.$createElement("th", day);
+                            return _this.$createElement('th', day);
                         });
-                        this.showWeek && days.unshift(this.$createElement("th"));
-                        return this.$createElement("thead", this.genTR(days));
+                        this.showWeek && days.unshift(this.$createElement('th'));
+                        return this.$createElement('thead', this.genTR(days));
                     },
                     // Returns number of the days from the firstDayOfWeek to the first day of the current month
                     weekDaysBeforeFirstDayOfTheMonth: function weekDaysBeforeFirstDayOfTheMonth() {
@@ -5297,10 +5297,10 @@
                         return Math.floor((dayOfYear + offset) / 7) + 1;
                     },
                     genWeekNumber: function genWeekNumber(weekNumber) {
-                        return this.$createElement("td", [
-                            this.$createElement("small", {
-                                staticClass: "v-date-picker-table--date__week"
-                            }, String(weekNumber).padStart(2, "0"))
+                        return this.$createElement('td', [
+                            this.$createElement('small', {
+                                staticClass: 'v-date-picker-table--date__week'
+                            }, String(weekNumber).padStart(2, '0'))
                         ]);
                     },
                     genTBody: function genTBody() {
@@ -5310,11 +5310,11 @@
                         var day = this.weekDaysBeforeFirstDayOfTheMonth();
                         var weekNumber = this.getWeekNumber();
                         this.showWeek && rows.push(this.genWeekNumber(weekNumber++));
-                        while(day--)rows.push(this.$createElement("td"));
+                        while(day--)rows.push(this.$createElement('td'));
                         for(day = 1; day <= daysInMonth; day++){
                             var date = this.displayedYear + "-" + Object(_util__WEBPACK_IMPORTED_MODULE_1__["pad"])(this.displayedMonth + 1) + "-" + Object(_util__WEBPACK_IMPORTED_MODULE_1__["pad"])(day);
-                            rows.push(this.$createElement("td", [
-                                this.genButton(date, true, "date", this.formatter)
+                            rows.push(this.$createElement('td', [
+                                this.genButton(date, true, 'date', this.formatter)
                             ]));
                             if (rows.length % (this.showWeek ? 8 : 7) === 0) {
                                 children.push(this.genTR(rows));
@@ -5323,16 +5323,16 @@
                             }
                         }
                         if (rows.length) children.push(this.genTR(rows));
-                        return this.$createElement("tbody", children);
+                        return this.$createElement('tbody', children);
                     },
                     genTR: function genTR(children) {
                         return [
-                            this.$createElement("tr", children)
+                            this.$createElement('tr', children)
                         ];
                     }
                 },
                 render: function render() {
-                    return this.genTable("v-date-picker-table v-date-picker-table--date", [
+                    return this.genTable('v-date-picker-table v-date-picker-table--date', [
                         this.genTHead(),
                         this.genTBody()
                     ], this.calculateTableDate);
@@ -5385,23 +5385,23 @@
             // Mixins
             // Utils
             /* harmony default export */ __webpack_exports__["default"] = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_6__["default"])(_mixins_colorable__WEBPACK_IMPORTED_MODULE_3__["default"], _mixins_themeable__WEBPACK_IMPORTED_MODULE_4__["default"]).extend({
-                name: "v-date-picker-header",
+                name: 'v-date-picker-header',
                 props: {
                     disabled: Boolean,
                     format: Function,
                     locale: {
                         type: String,
-                        default: "en-us"
+                        default: 'en-us'
                     },
                     min: String,
                     max: String,
                     nextIcon: {
                         type: String,
-                        default: "$vuetify.icons.next"
+                        default: '$vuetify.icons.next'
                     },
                     prevIcon: {
                         type: String,
-                        default: "$vuetify.icons.prev"
+                        default: '$vuetify.icons.prev'
                     },
                     readonly: Boolean,
                     value: {
@@ -5420,16 +5420,16 @@
                 computed: {
                     formatter: function formatter() {
                         if (this.format) return this.format;
-                        else if (String(this.value).split("-")[1]) return Object(_util__WEBPACK_IMPORTED_MODULE_5__["createNativeLocaleFormatter"])(this.locale, {
-                            month: "long",
-                            year: "numeric",
-                            timeZone: "UTC"
+                        else if (String(this.value).split('-')[1]) return Object(_util__WEBPACK_IMPORTED_MODULE_5__["createNativeLocaleFormatter"])(this.locale, {
+                            month: 'long',
+                            year: 'numeric',
+                            timeZone: 'UTC'
                         }, {
                             length: 7
                         });
                         else return Object(_util__WEBPACK_IMPORTED_MODULE_5__["createNativeLocaleFormatter"])(this.locale, {
-                            year: "numeric",
-                            timeZone: "UTC"
+                            year: 'numeric',
+                            timeZone: 'UTC'
                         }, {
                             length: 4
                         });
@@ -5454,7 +5454,7 @@
                             nativeOn: {
                                 click: function click(e) {
                                     e.stopPropagation();
-                                    _this.$emit("input", _this.calculateChange(change));
+                                    _this.$emit('input', _this.calculateChange(change));
                                 }
                             }
                         }, [
@@ -5462,40 +5462,40 @@
                         ]);
                     },
                     calculateChange: function calculateChange(sign) {
-                        var _a = __read(String(this.value).split("-").map(Number), 2), year = _a[0], month = _a[1];
+                        var _a = __read(String(this.value).split('-').map(Number), 2), year = _a[0], month = _a[1];
                         if (month == null) return "" + (year + sign);
                         else return Object(_util__WEBPACK_IMPORTED_MODULE_5__["monthChange"])(String(this.value), sign);
                     },
                     genHeader: function genHeader() {
                         var _this = this;
-                        var color = !this.disabled && (this.color || "accent");
-                        var header = this.$createElement("div", this.setTextColor(color, {
+                        var color = !this.disabled && (this.color || 'accent');
+                        var header = this.$createElement('div', this.setTextColor(color, {
                             key: String(this.value)
                         }), [
-                            this.$createElement("button", {
+                            this.$createElement('button', {
                                 attrs: {
-                                    type: "button"
+                                    type: 'button'
                                 },
                                 on: {
                                     click: function click() {
-                                        return _this.$emit("toggle");
+                                        return _this.$emit('toggle');
                                     }
                                 }
                             }, [
                                 this.$slots.default || this.formatter(String(this.value))
                             ])
                         ]);
-                        var transition = this.$createElement("transition", {
+                        var transition = this.$createElement('transition', {
                             props: {
-                                name: this.isReversing === !this.$vuetify.rtl ? "tab-reverse-transition" : "tab-transition"
+                                name: this.isReversing === !this.$vuetify.rtl ? 'tab-reverse-transition' : 'tab-transition'
                             }
                         }, [
                             header
                         ]);
-                        return this.$createElement("div", {
-                            staticClass: "v-date-picker-header__value",
+                        return this.$createElement('div', {
+                            staticClass: 'v-date-picker-header__value',
                             class: {
-                                "v-date-picker-header__value--disabled": this.disabled
+                                'v-date-picker-header__value--disabled': this.disabled
                             }
                         }, [
                             transition
@@ -5503,10 +5503,10 @@
                     }
                 },
                 render: function render() {
-                    return this.$createElement("div", {
-                        staticClass: "v-date-picker-header",
+                    return this.$createElement('div', {
+                        staticClass: 'v-date-picker-header',
                         class: __assign({
-                            "v-date-picker-header--disabled": this.disabled
+                            'v-date-picker-header--disabled': this.disabled
                         }, this.themeClasses)
                     }, [
                         this.genBtn(-1),
@@ -5527,12 +5527,12 @@
             // Mixins
             // Utils
             /* harmony default export */ __webpack_exports__["default"] = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_2__["default"])(_mixins_date_picker_table__WEBPACK_IMPORTED_MODULE_0__["default"]).extend({
-                name: "v-date-picker-month-table",
+                name: 'v-date-picker-month-table',
                 computed: {
                     formatter: function formatter() {
                         return this.format || Object(_util__WEBPACK_IMPORTED_MODULE_1__["createNativeLocaleFormatter"])(this.locale, {
-                            month: "short",
-                            timeZone: "UTC"
+                            month: 'short',
+                            timeZone: 'UTC'
                         }, {
                             start: 5,
                             length: 2
@@ -5552,23 +5552,23 @@
                             var tds = cols.map(function(_, col) {
                                 var month = row * cols.length + col;
                                 var date = _this.displayedYear + "-" + Object(_util__WEBPACK_IMPORTED_MODULE_1__["pad"])(month + 1);
-                                return _this.$createElement("td", {
+                                return _this.$createElement('td', {
                                     key: month
                                 }, [
-                                    _this.genButton(date, false, "month", _this.formatter)
+                                    _this.genButton(date, false, 'month', _this.formatter)
                                 ]);
                             });
-                            children.push(this_1.$createElement("tr", {
+                            children.push(this_1.$createElement('tr', {
                                 key: row
                             }, tds));
                         };
                         var this_1 = this;
                         for(var row = 0; row < rows; row++)_loop_1(row);
-                        return this.$createElement("tbody", children);
+                        return this.$createElement('tbody', children);
                     }
                 },
                 render: function render() {
-                    return this.genTable("v-date-picker-table v-date-picker-table--month", [
+                    return this.genTable('v-date-picker-table v-date-picker-table--month', [
                         this.genTBody()
                     ], this.calculateTableDate);
                 }
@@ -5588,11 +5588,11 @@
             // Mixins
             // Utils
             /* harmony default export */ __webpack_exports__["default"] = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_3__["default"])(_mixins_picker_button__WEBPACK_IMPORTED_MODULE_2__["default"]).extend({
-                name: "v-date-picker-title",
+                name: 'v-date-picker-title',
                 props: {
                     date: {
                         type: String,
-                        default: ""
+                        default: ''
                     },
                     disabled: Boolean,
                     readonly: Boolean,
@@ -5605,7 +5605,7 @@
                             Number,
                             String
                         ],
-                        default: ""
+                        default: ''
                     },
                     yearIcon: {
                         type: String
@@ -5618,7 +5618,7 @@
                 },
                 computed: {
                     computedTransition: function computedTransition() {
-                        return this.isReversing ? "picker-reverse-transition" : "picker-transition";
+                        return this.isReversing ? 'picker-reverse-transition' : 'picker-transition';
                     }
                 },
                 watch: {
@@ -5635,36 +5635,36 @@
                         }, this.yearIcon);
                     },
                     getYearBtn: function getYearBtn() {
-                        return this.genPickerButton("selectingYear", true, [
+                        return this.genPickerButton('selectingYear', true, [
                             String(this.year),
                             this.yearIcon ? this.genYearIcon() : null
-                        ], false, "v-date-picker-title__year");
+                        ], false, 'v-date-picker-title__year');
                     },
                     genTitleText: function genTitleText() {
-                        return this.$createElement("transition", {
+                        return this.$createElement('transition', {
                             props: {
                                 name: this.computedTransition
                             }
                         }, [
-                            this.$createElement("div", {
+                            this.$createElement('div', {
                                 domProps: {
-                                    innerHTML: this.date || "&nbsp;"
+                                    innerHTML: this.date || '&nbsp;'
                                 },
                                 key: this.value
                             })
                         ]);
                     },
                     genTitleDate: function genTitleDate() {
-                        return this.genPickerButton("selectingYear", false, [
+                        return this.genPickerButton('selectingYear', false, [
                             this.genTitleText()
-                        ], false, "v-date-picker-title__date");
+                        ], false, 'v-date-picker-title__date');
                     }
                 },
                 render: function render(h) {
-                    return h("div", {
-                        staticClass: "v-date-picker-title",
-                        "class": {
-                            "v-date-picker-title--disabled": this.disabled
+                    return h('div', {
+                        staticClass: 'v-date-picker-title',
+                        'class': {
+                            'v-date-picker-title--disabled': this.disabled
                         }
                     }, [
                         this.getYearBtn(),
@@ -5686,12 +5686,12 @@
             // Mixins
             // Utils
             /* harmony default export */ __webpack_exports__["default"] = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_3__["default"])(_mixins_colorable__WEBPACK_IMPORTED_MODULE_1__["default"]).extend({
-                name: "v-date-picker-years",
+                name: 'v-date-picker-years',
                 props: {
                     format: Function,
                     locale: {
                         type: String,
-                        default: "en-us"
+                        default: 'en-us'
                     },
                     min: [
                         Number,
@@ -5709,14 +5709,14 @@
                 },
                 data: function data() {
                     return {
-                        defaultColor: "primary"
+                        defaultColor: 'primary'
                     };
                 },
                 computed: {
                     formatter: function formatter() {
                         return this.format || Object(_util__WEBPACK_IMPORTED_MODULE_2__["createNativeLocaleFormatter"])(this.locale, {
-                            year: "numeric",
-                            timeZone: "UTC"
+                            year: 'numeric',
+                            timeZone: 'UTC'
                         }, {
                             length: 4
                         });
@@ -5725,7 +5725,7 @@
                 mounted: function mounted() {
                     var _this = this;
                     setTimeout(function() {
-                        var activeItem = _this.$el.getElementsByClassName("active")[0];
+                        var activeItem = _this.$el.getElementsByClassName('active')[0];
                         if (activeItem) _this.$el.scrollTop = activeItem.offsetTop - _this.$el.offsetHeight / 2 + activeItem.offsetHeight / 2;
                         else _this.$el.scrollTop = _this.$el.scrollHeight / 2 - _this.$el.offsetHeight / 2;
                     });
@@ -5735,15 +5735,15 @@
                         var _this = this;
                         var formatted = this.formatter("" + year);
                         var active = parseInt(this.value, 10) === year;
-                        var color = active && (this.color || "primary");
-                        return this.$createElement("li", this.setTextColor(color, {
+                        var color = active && (this.color || 'primary');
+                        return this.$createElement('li', this.setTextColor(color, {
                             key: year,
-                            "class": {
+                            'class': {
                                 active: active
                             },
                             on: {
                                 click: function click() {
-                                    return _this.$emit("input", year);
+                                    return _this.$emit('input', year);
                                 }
                             }
                         }), formatted);
@@ -5758,9 +5758,9 @@
                     }
                 },
                 render: function render() {
-                    return this.$createElement("ul", {
-                        staticClass: "v-date-picker-years",
-                        ref: "years"
+                    return this.$createElement('ul', {
+                        staticClass: 'v-date-picker-years',
+                        ref: 'years'
                     }, this.genYearItems());
                 }
             });
@@ -5857,12 +5857,12 @@
                             String
                         ],
                         default: function _default() {
-                            return "warning";
+                            return 'warning';
                         }
                     },
                     locale: {
                         type: String,
-                        default: "en-us"
+                        default: 'en-us'
                     },
                     min: String,
                     max: String,
@@ -5884,13 +5884,13 @@
                 },
                 computed: {
                     computedTransition: function computedTransition() {
-                        return this.isReversing === !this.$vuetify.rtl ? "tab-reverse-transition" : "tab-transition";
+                        return this.isReversing === !this.$vuetify.rtl ? 'tab-reverse-transition' : 'tab-transition';
                     },
                     displayedMonth: function displayedMonth() {
-                        return Number(this.tableDate.split("-")[1]) - 1;
+                        return Number(this.tableDate.split('-')[1]) - 1;
                     },
                     displayedYear: function displayedYear() {
-                        return Number(this.tableDate.split("-")[0]);
+                        return Number(this.tableDate.split('-')[0]);
                     }
                 },
                 watch: {
@@ -5901,13 +5901,13 @@
                 methods: {
                     genButtonClasses: function genButtonClasses(isAllowed, isFloating, isSelected, isCurrent) {
                         return __assign({
-                            "v-btn--active": isSelected,
-                            "v-btn--flat": !isSelected,
-                            "v-btn--icon": isSelected && isAllowed && isFloating,
-                            "v-btn--floating": isFloating,
-                            "v-btn--depressed": !isFloating && isSelected,
-                            "v-btn--disabled": !isAllowed || this.disabled && isSelected,
-                            "v-btn--outline": isCurrent && !isSelected
+                            'v-btn--active': isSelected,
+                            'v-btn--flat': !isSelected,
+                            'v-btn--icon': isSelected && isAllowed && isFloating,
+                            'v-btn--floating': isFloating,
+                            'v-btn--depressed': !isFloating && isSelected,
+                            'v-btn--disabled': !isAllowed || this.disabled && isSelected,
+                            'v-btn--outline': isCurrent && !isSelected
                         }, this.themeClasses);
                     },
                     genButtonEvents: function genButtonEvents(value, isAllowed, mouseEventType) {
@@ -5915,7 +5915,7 @@
                         if (this.disabled) return undefined;
                         return {
                             click: function click() {
-                                isAllowed && !_this.readonly && _this.$emit("input", value);
+                                isAllowed && !_this.readonly && _this.$emit('input', value);
                                 _this.$emit("click:" + mouseEventType, value);
                             },
                             dblclick: function dblclick() {
@@ -5928,20 +5928,20 @@
                         var isSelected = value === this.value || Array.isArray(this.value) && this.value.indexOf(value) !== -1;
                         var isCurrent = value === this.current;
                         var setColor = isSelected ? this.setBackgroundColor : this.setTextColor;
-                        var color = (isSelected || isCurrent) && (this.color || "accent");
-                        return this.$createElement("button", setColor(color, {
-                            staticClass: "v-btn",
-                            "class": this.genButtonClasses(isAllowed, isFloating, isSelected, isCurrent),
+                        var color = (isSelected || isCurrent) && (this.color || 'accent');
+                        return this.$createElement('button', setColor(color, {
+                            staticClass: 'v-btn',
+                            'class': this.genButtonClasses(isAllowed, isFloating, isSelected, isCurrent),
                             attrs: {
-                                type: "button"
+                                type: 'button'
                             },
                             domProps: {
                                 disabled: this.disabled || !isAllowed
                             },
                             on: this.genButtonEvents(value, isAllowed, mouseEventType)
                         }), [
-                            this.$createElement("div", {
-                                staticClass: "v-btn__content"
+                            this.$createElement('div', {
+                                staticClass: 'v-btn__content'
                             }, [
                                 formatter(value)
                             ]),
@@ -5962,10 +5962,10 @@
                         else eventData = false;
                         if (!eventData) return [];
                         else if (eventData !== true) eventColors = arrayize(eventData);
-                        else if (typeof this.eventColor === "string") eventColors = [
+                        else if (typeof this.eventColor === 'string') eventColors = [
                             this.eventColor
                         ];
-                        else if (typeof this.eventColor === "function") eventColors = arrayize(this.eventColor(date));
+                        else if (typeof this.eventColor === 'function') eventColors = arrayize(this.eventColor(date));
                         else if (Array.isArray(this.eventColor)) eventColors = this.eventColor;
                         else eventColors = arrayize(this.eventColor[date]);
                         return eventColors.filter(function(v) {
@@ -5975,32 +5975,32 @@
                     genEvents: function genEvents(date) {
                         var _this = this;
                         var eventColors = this.getEventColors(date);
-                        return eventColors.length ? this.$createElement("div", {
-                            staticClass: "v-date-picker-table__events"
+                        return eventColors.length ? this.$createElement('div', {
+                            staticClass: 'v-date-picker-table__events'
                         }, eventColors.map(function(color) {
-                            return _this.$createElement("div", _this.setBackgroundColor(color));
+                            return _this.$createElement('div', _this.setBackgroundColor(color));
                         })) : null;
                     },
                     wheel: function wheel(e, calculateTableDate) {
                         e.preventDefault();
-                        this.$emit("tableDate", calculateTableDate(e.deltaY));
+                        this.$emit('tableDate', calculateTableDate(e.deltaY));
                     },
                     touch: function touch(value, calculateTableDate) {
-                        this.$emit("tableDate", calculateTableDate(value));
+                        this.$emit('tableDate', calculateTableDate(value));
                     },
                     genTable: function genTable(staticClass, children, calculateTableDate) {
                         var _this = this;
-                        var transition = this.$createElement("transition", {
+                        var transition = this.$createElement('transition', {
                             props: {
                                 name: this.computedTransition
                             }
                         }, [
-                            this.$createElement("table", {
+                            this.$createElement('table', {
                                 key: this.tableDate
                             }, children)
                         ]);
                         var touchDirective = {
-                            name: "touch",
+                            name: 'touch',
                             value: {
                                 left: function left(e) {
                                     return e.offsetX < -15 && _this.touch(1, calculateTableDate);
@@ -6010,10 +6010,10 @@
                                 }
                             }
                         };
-                        return this.$createElement("div", {
+                        return this.$createElement('div', {
                             staticClass: staticClass,
                             class: __assign({
-                                "v-date-picker-table--disabled": this.disabled
+                                'v-date-picker-table--disabled': this.disabled
                             }, this.themeClasses),
                             on: !this.disabled && this.scrollable ? {
                                 wheel: function wheel(e) {
@@ -6061,12 +6061,12 @@
                     length: 0
                 };
                 var makeIsoString = function makeIsoString(dateString) {
-                    var _a = __read(dateString.trim().split(" ")[0].split("-"), 3), year = _a[0], month = _a[1], date = _a[2];
+                    var _a = __read(dateString.trim().split(' ')[0].split('-'), 3), year = _a[0], month = _a[1], date = _a[2];
                     return [
                         Object(_pad__WEBPACK_IMPORTED_MODULE_0__["default"])(year, 4),
                         Object(_pad__WEBPACK_IMPORTED_MODULE_0__["default"])(month || 1),
                         Object(_pad__WEBPACK_IMPORTED_MODULE_0__["default"])(date || 1)
-                    ].join("-");
+                    ].join('-');
                 };
                 try {
                     var intlFormatter_1 = new Intl.DateTimeFormat(locale || undefined, options);
@@ -6140,7 +6140,7 @@
  * @param {String} value YYYY-MM format
  * @param {Number} sign -1 or +1
  */ /* harmony default export */ __webpack_exports__["default"] = function(value, sign) {
-                var _a = __read(value.split("-").map(Number), 2), year = _a[0], month = _a[1];
+                var _a = __read(value.split('-').map(Number), 2), year = _a[0], month = _a[1];
                 if (month + sign === 0) return year - 1 + "-12";
                 else if (month + sign === 13) return year + 1 + "-01";
                 else return year + "-" + Object(_pad__WEBPACK_IMPORTED_MODULE_0__["default"])(month + sign);
@@ -6162,7 +6162,7 @@
             };
             /* harmony default export */ __webpack_exports__["default"] = function(n, length) {
                 if (length === void 0) length = 2;
-                return padStart(n, length, "0");
+                return padStart(n, length, '0');
             };
         /***/ },
         /***/ "./src/components/VDialog/VDialog.js": /*!*******************************************!*\
@@ -6196,7 +6196,7 @@
             // Directives
             // Helpers
             /* @vue/component */ /* harmony default export */ __webpack_exports__["default"] = {
-                name: "v-dialog",
+                name: 'v-dialog',
                 directives: {
                     ClickOutside: _directives_click_outside__WEBPACK_IMPORTED_MODULE_7__["default"]
                 },
@@ -6221,18 +6221,18 @@
                             String,
                             Number
                         ],
-                        default: "none"
+                        default: 'none'
                     },
                     origin: {
                         type: String,
-                        default: "center center"
+                        default: 'center center'
                     },
                     width: {
                         type: [
                             String,
                             Number
                         ],
-                        default: "auto"
+                        default: 'auto'
                     },
                     scrollable: Boolean,
                     transition: {
@@ -6240,26 +6240,26 @@
                             String,
                             Boolean
                         ],
-                        default: "dialog-transition"
+                        default: 'dialog-transition'
                     }
                 },
                 data: function data() {
                     return {
                         animate: false,
                         animateTimeout: null,
-                        stackClass: "v-dialog__content--active",
+                        stackClass: 'v-dialog__content--active',
                         stackMinZIndex: 200
                     };
                 },
                 computed: {
                     classes: function classes() {
                         var _a;
-                        return _a = {}, _a[("v-dialog " + this.contentClass).trim()] = true, _a["v-dialog--active"] = this.isActive, _a["v-dialog--persistent"] = this.persistent, _a["v-dialog--fullscreen"] = this.fullscreen, _a["v-dialog--scrollable"] = this.scrollable, _a["v-dialog--animated"] = this.animate, _a;
+                        return _a = {}, _a[("v-dialog " + this.contentClass).trim()] = true, _a['v-dialog--active'] = this.isActive, _a['v-dialog--persistent'] = this.persistent, _a['v-dialog--fullscreen'] = this.fullscreen, _a['v-dialog--scrollable'] = this.scrollable, _a['v-dialog--animated'] = this.animate, _a;
                     },
                     contentClasses: function contentClasses() {
                         return {
-                            "v-dialog__content": true,
-                            "v-dialog__content--active": this.isActive
+                            'v-dialog__content': true,
+                            'v-dialog__content--active': this.isActive
                         };
                     },
                     hasActivator: function hasActivator() {
@@ -6292,7 +6292,7 @@
                     });
                 },
                 mounted: function mounted() {
-                    if (Object(_util_helpers__WEBPACK_IMPORTED_MODULE_8__["getSlotType"])(this, "activator", true) === "v-slot") Object(_util_console__WEBPACK_IMPORTED_MODULE_10__["consoleError"])("v-dialog's activator slot must be bound, try '<template #activator=\"data\"><v-btn v-on=\"data.on>'", this);
+                    if (Object(_util_helpers__WEBPACK_IMPORTED_MODULE_8__["getSlotType"])(this, 'activator', true) === 'v-slot') Object(_util_console__WEBPACK_IMPORTED_MODULE_10__["consoleError"])("v-dialog's activator slot must be bound, try '<template #activator=\"data\"><v-btn v-on=\"data.on>'", this);
                 },
                 methods: {
                     animateClick: function animateClick() {
@@ -6325,7 +6325,7 @@
                         return this.activeZIndex >= this.getMaxZIndex();
                     },
                     hideScroll: function hideScroll() {
-                        if (this.fullscreen) document.documentElement.classList.add("overflow-y-hidden");
+                        if (this.fullscreen) document.documentElement.classList.add('overflow-y-hidden');
                         else _mixins_overlayable__WEBPACK_IMPORTED_MODULE_3__["default"].options.methods.hideScroll.call(this);
                     },
                     show: function show() {
@@ -6342,7 +6342,7 @@
                                 });
                             } else if (!this.noClickAnimation) this.animateClick();
                         }
-                        this.$emit("keydown", e);
+                        this.$emit('keydown', e);
                     },
                     getActivator: function getActivator(e) {
                         if (this.$refs.activator) return this.$refs.activator.children.length > 0 ? this.$refs.activator.children[0] : this.$refs.activator;
@@ -6365,19 +6365,19 @@
                                 if (!_this.disabled) _this.isActive = !_this.isActive;
                             }
                         };
-                        if (Object(_util_helpers__WEBPACK_IMPORTED_MODULE_8__["getSlotType"])(this, "activator") === "scoped") {
+                        if (Object(_util_helpers__WEBPACK_IMPORTED_MODULE_8__["getSlotType"])(this, 'activator') === 'scoped') {
                             var activator = this.$scopedSlots.activator({
                                 on: listeners
                             });
                             this.activatorNode = activator;
                             return activator;
                         }
-                        return this.$createElement("div", {
-                            staticClass: "v-dialog__activator",
+                        return this.$createElement('div', {
+                            staticClass: 'v-dialog__activator',
                             class: {
-                                "v-dialog__activator--disabled": this.disabled
+                                'v-dialog__activator--disabled': this.disabled
                             },
-                            ref: "activator",
+                            ref: 'activator',
                             on: listeners
                         }, this.$slots.activator);
                     }
@@ -6386,11 +6386,11 @@
                     var _this = this;
                     var children = [];
                     var data = {
-                        "class": this.classes,
-                        ref: "dialog",
+                        'class': this.classes,
+                        ref: 'dialog',
                         directives: [
                             {
-                                name: "click-outside",
+                                name: 'click-outside',
                                 value: function value() {
                                     _this.isActive = false;
                                 },
@@ -6400,7 +6400,7 @@
                                 }
                             },
                             {
-                                name: "show",
+                                name: 'show',
                                 value: this.isActive
                             }
                         ],
@@ -6411,12 +6411,12 @@
                         }
                     };
                     if (!this.fullscreen) data.style = {
-                        maxWidth: this.maxWidth === "none" ? undefined : Object(_util_helpers__WEBPACK_IMPORTED_MODULE_8__["convertToUnit"])(this.maxWidth),
-                        width: this.width === "auto" ? undefined : Object(_util_helpers__WEBPACK_IMPORTED_MODULE_8__["convertToUnit"])(this.width)
+                        maxWidth: this.maxWidth === 'none' ? undefined : Object(_util_helpers__WEBPACK_IMPORTED_MODULE_8__["convertToUnit"])(this.maxWidth),
+                        width: this.width === 'auto' ? undefined : Object(_util_helpers__WEBPACK_IMPORTED_MODULE_8__["convertToUnit"])(this.width)
                     };
                     children.push(this.genActivator());
-                    var dialog = h("div", data, this.showLazyContent(this.$slots.default));
-                    if (this.transition) dialog = h("transition", {
+                    var dialog = h('div', data, this.showLazyContent(this.$slots.default));
+                    if (this.transition) dialog = h('transition', {
                         props: {
                             name: this.transition,
                             origin: this.origin
@@ -6424,10 +6424,10 @@
                     }, [
                         dialog
                     ]);
-                    children.push(h("div", {
-                        "class": this.contentClasses,
+                    children.push(h('div', {
+                        'class': this.contentClasses,
                         attrs: __assign({
-                            tabIndex: "-1"
+                            tabIndex: '-1'
                         }, this.getScopeIdAttrs()),
                         on: {
                             keydown: this.onKeydown
@@ -6435,7 +6435,7 @@
                         style: {
                             zIndex: this.activeZIndex
                         },
-                        ref: "content"
+                        ref: 'content'
                     }, [
                         this.$createElement(_util_ThemeProvider__WEBPACK_IMPORTED_MODULE_9__["default"], {
                             props: {
@@ -6447,10 +6447,10 @@
                             dialog
                         ])
                     ]));
-                    return h("div", {
-                        staticClass: "v-dialog__container",
+                    return h('div', {
+                        staticClass: 'v-dialog__container',
                         style: {
-                            display: !this.hasActivator || this.fullWidth ? "block" : "inline-block"
+                            display: !this.hasActivator || this.fullWidth ? 'block' : 'inline-block'
                         }
                     }, children);
                 }
@@ -6488,17 +6488,17 @@
             // Styles
             // Mixins
             /* harmony default export */ __webpack_exports__["default"] = _mixins_themeable__WEBPACK_IMPORTED_MODULE_1__["default"].extend({
-                name: "v-divider",
+                name: 'v-divider',
                 props: {
                     inset: Boolean,
                     vertical: Boolean
                 },
                 render: function render(h) {
-                    return h("hr", {
+                    return h('hr', {
                         class: __assign({
-                            "v-divider": true,
-                            "v-divider--inset": this.inset,
-                            "v-divider--vertical": this.vertical
+                            'v-divider': true,
+                            'v-divider--inset': this.inset,
+                            'v-divider--vertical': this.vertical
                         }, this.themeClasses),
                         attrs: this.$attrs,
                         on: this.$listeners
@@ -6537,8 +6537,8 @@
                 };
                 return __assign.apply(this, arguments);
             };
-            /* @vue/component */ /* harmony default export */ __webpack_exports__["default"] = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_3__["default"])(_mixins_themeable__WEBPACK_IMPORTED_MODULE_1__["default"], Object(_mixins_registrable__WEBPACK_IMPORTED_MODULE_2__["provide"])("expansionPanel")).extend({
-                name: "v-expansion-panel",
+            /* @vue/component */ /* harmony default export */ __webpack_exports__["default"] = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_3__["default"])(_mixins_themeable__WEBPACK_IMPORTED_MODULE_1__["default"], Object(_mixins_registrable__WEBPACK_IMPORTED_MODULE_2__["provide"])('expansionPanel')).extend({
+                name: 'v-expansion-panel',
                 provide: function provide() {
                     return {
                         expansionPanel: this
@@ -6570,9 +6570,9 @@
                 computed: {
                     classes: function classes() {
                         return __assign({
-                            "v-expansion-panel--focusable": this.focusable,
-                            "v-expansion-panel--popout": this.popout,
-                            "v-expansion-panel--inset": this.inset
+                            'v-expansion-panel--focusable': this.focusable,
+                            'v-expansion-panel--popout': this.popout,
+                            'v-expansion-panel--inset': this.inset
                         }, this.themeClasses);
                     }
                 },
@@ -6589,7 +6589,7 @@
                             if (openIndex > -1) open[openIndex] = true;
                             this.open = open;
                         }
-                        this.$emit("input", v ? this.open : openIndex > -1 ? openIndex : null);
+                        this.$emit('input', v ? this.open : openIndex > -1 ? openIndex : null);
                     },
                     value: function value(v) {
                         this.updateFromValue(v);
@@ -6602,7 +6602,7 @@
                     updateFromValue: function updateFromValue(v) {
                         if (Array.isArray(v) && !this.expand) return;
                         var open = Array(this.items.length).fill(false);
-                        if (typeof v === "number") open[v] = true;
+                        if (typeof v === 'number') open[v] = true;
                         else if (v !== null) open = v;
                         this.updatePanels(open);
                     },
@@ -6614,10 +6614,10 @@
                         var open = this.expand ? this.open.slice() : Array(this.items.length).fill(false);
                         for(var i = 0; i < this.items.length; i++)if (this.items[i]._uid === uid) {
                             open[i] = !this.open[i];
-                            !this.expand && this.$emit("input", open[i] ? i : null);
+                            !this.expand && this.$emit('input', open[i] ? i : null);
                         }
                         this.updatePanels(open);
-                        if (this.expand) this.$emit("input", open);
+                        if (this.expand) this.$emit('input', open);
                     },
                     register: function register(content) {
                         var i = this.items.push(content) - 1;
@@ -6633,8 +6633,8 @@
                     }
                 },
                 render: function render(h) {
-                    return h("ul", {
-                        staticClass: "v-expansion-panel",
+                    return h('ul', {
+                        staticClass: 'v-expansion-panel',
                         class: this.classes
                     }, this.$slots.default);
                 }
@@ -6676,14 +6676,14 @@
                 for(var ar = [], i = 0; i < arguments.length; i++)ar = ar.concat(__read(arguments[i]));
                 return ar;
             };
-            /* harmony default export */ __webpack_exports__["default"] = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_6__["default"])(_mixins_bootable__WEBPACK_IMPORTED_MODULE_1__["default"], _mixins_toggleable__WEBPACK_IMPORTED_MODULE_2__["default"], _mixins_rippleable__WEBPACK_IMPORTED_MODULE_3__["default"], Object(_mixins_registrable__WEBPACK_IMPORTED_MODULE_4__["inject"])("expansionPanel", "v-expansion-panel-content", "v-expansion-panel")).extend({
-                name: "v-expansion-panel-content",
+            /* harmony default export */ __webpack_exports__["default"] = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_6__["default"])(_mixins_bootable__WEBPACK_IMPORTED_MODULE_1__["default"], _mixins_toggleable__WEBPACK_IMPORTED_MODULE_2__["default"], _mixins_rippleable__WEBPACK_IMPORTED_MODULE_3__["default"], Object(_mixins_registrable__WEBPACK_IMPORTED_MODULE_4__["inject"])('expansionPanel', 'v-expansion-panel-content', 'v-expansion-panel')).extend({
+                name: 'v-expansion-panel-content',
                 props: {
                     disabled: Boolean,
                     readonly: Boolean,
                     expandIcon: {
                         type: String,
-                        default: "$vuetify.icons.expand"
+                        default: '$vuetify.icons.expand'
                     },
                     hideActions: Boolean,
                     ripple: {
@@ -6696,14 +6696,14 @@
                 },
                 data: function data() {
                     return {
-                        height: "auto"
+                        height: 'auto'
                     };
                 },
                 computed: {
                     containerClasses: function containerClasses() {
                         return {
-                            "v-expansion-panel__container--active": this.isActive,
-                            "v-expansion-panel__container--disabled": this.isDisabled
+                            'v-expansion-panel__container--active': this.isActive,
+                            'v-expansion-panel__container--disabled': this.isDisabled
                         };
                     },
                     isDisabled: function isDisabled() {
@@ -6716,7 +6716,7 @@
                 beforeMount: function beforeMount() {
                     this.expansionPanel.register(this);
                     // Can be removed once fully deprecated
-                    if (typeof this.value !== "undefined") Object(_util_console__WEBPACK_IMPORTED_MODULE_7__["consoleWarn"])("v-model has been deprecated", this);
+                    if (typeof this.value !== 'undefined') Object(_util_console__WEBPACK_IMPORTED_MODULE_7__["consoleWarn"])('v-model has been deprecated', this);
                 },
                 beforeDestroy: function beforeDestroy() {
                     this.expansionPanel.unregister(this);
@@ -6730,12 +6730,12 @@
                         this.isReadonly || this.expansionPanel.panelClick(this._uid);
                     },
                     genBody: function genBody() {
-                        return this.$createElement("div", {
-                            ref: "body",
-                            class: "v-expansion-panel__body",
+                        return this.$createElement('div', {
+                            ref: 'body',
+                            class: 'v-expansion-panel__body',
                             directives: [
                                 {
-                                    name: "show",
+                                    name: 'show',
                                     value: this.isActive
                                 }
                             ]
@@ -6744,11 +6744,11 @@
                     genHeader: function genHeader() {
                         var children = __spread(this.$slots.header || []);
                         if (!this.hideActions) children.push(this.genIcon());
-                        return this.$createElement("div", {
-                            staticClass: "v-expansion-panel__header",
+                        return this.$createElement('div', {
+                            staticClass: 'v-expansion-panel__header',
                             directives: [
                                 {
-                                    name: "ripple",
+                                    name: 'ripple',
                                     value: this.ripple
                                 }
                             ],
@@ -6761,16 +6761,16 @@
                         var icon = this.$slots.actions || [
                             this.$createElement(_VIcon__WEBPACK_IMPORTED_MODULE_5__["default"], this.expandIcon)
                         ];
-                        return this.$createElement("transition", {
+                        return this.$createElement('transition', {
                             attrs: {
-                                name: "fade-transition"
+                                name: 'fade-transition'
                             }
                         }, [
-                            this.$createElement("div", {
-                                staticClass: "v-expansion-panel__header__icon",
+                            this.$createElement('div', {
+                                staticClass: 'v-expansion-panel__header__icon',
                                 directives: [
                                     {
-                                        name: "show",
+                                        name: 'show',
                                         value: !this.isDisabled
                                     }
                                 ]
@@ -6786,12 +6786,12 @@
                     }
                 },
                 render: function render(h) {
-                    return h("li", {
-                        staticClass: "v-expansion-panel__container",
+                    return h('li', {
+                        staticClass: 'v-expansion-panel__container',
                         class: this.containerClasses,
                         attrs: {
                             tabindex: this.isReadonly || this.isDisabled ? null : 0,
-                            "aria-expanded": Boolean(this.isActive)
+                            'aria-expanded': Boolean(this.isActive)
                         },
                         on: {
                             keydown: this.onKeydown
@@ -6848,11 +6848,11 @@
             // Styles
             // Mixins
             /* @vue/component */ /* harmony default export */ __webpack_exports__["default"] = {
-                name: "v-footer",
+                name: 'v-footer',
                 mixins: [
                     Object(_mixins_applicationable__WEBPACK_IMPORTED_MODULE_1__["default"])(null, [
-                        "height",
-                        "inset"
+                        'height',
+                        'inset'
                     ]),
                     _mixins_colorable__WEBPACK_IMPORTED_MODULE_2__["default"],
                     _mixins_themeable__WEBPACK_IMPORTED_MODULE_3__["default"]
@@ -6869,7 +6869,7 @@
                 },
                 computed: {
                     applicationProperty: function applicationProperty() {
-                        return this.inset ? "insetFooter" : "footer";
+                        return this.inset ? 'insetFooter' : 'footer';
                     },
                     computedMarginBottom: function computedMarginBottom() {
                         if (!this.app) return;
@@ -6903,16 +6903,16 @@
                 },
                 render: function render(h) {
                     var data = this.setBackgroundColor(this.color, {
-                        staticClass: "v-footer",
-                        "class": __assign({
-                            "v-footer--absolute": this.absolute,
-                            "v-footer--fixed": !this.absolute && (this.app || this.fixed),
-                            "v-footer--inset": this.inset
+                        staticClass: 'v-footer',
+                        'class': __assign({
+                            'v-footer--absolute': this.absolute,
+                            'v-footer--fixed': !this.absolute && (this.app || this.fixed),
+                            'v-footer--inset': this.inset
                         }, this.themeClasses),
                         style: this.styles,
-                        ref: "content"
+                        ref: 'content'
                     });
-                    return h("footer", data, this.$slots.default);
+                    return h('footer', data, this.$slots.default);
                 }
             };
         /***/ },
@@ -6937,9 +6937,9 @@
             /* harmony import */ var _mixins_registrable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../mixins/registrable */ "./src/mixins/registrable.ts");
             // Styles
             /* @vue/component */ /* harmony default export */ __webpack_exports__["default"] = {
-                name: "v-form",
+                name: 'v-form',
                 mixins: [
-                    Object(_mixins_registrable__WEBPACK_IMPORTED_MODULE_1__["provide"])("form")
+                    Object(_mixins_registrable__WEBPACK_IMPORTED_MODULE_1__["provide"])('form')
                 ],
                 inheritAttrs: false,
                 props: {
@@ -6957,7 +6957,7 @@
                     errorBag: {
                         handler: function handler() {
                             var errors = Object.values(this.errorBag).includes(true);
-                            this.$emit("input", !errors);
+                            this.$emit('input', !errors);
                         },
                         deep: true,
                         immediate: true
@@ -6967,7 +6967,7 @@
                     watchInput: function watchInput(input) {
                         var _this = this;
                         var watcher = function watcher(input) {
-                            return input.$watch("hasError", function(val) {
+                            return input.$watch('hasError', function(val) {
                                 _this.$set(_this.errorBag, input._uid, val);
                             }, {
                                 immediate: true
@@ -6979,7 +6979,7 @@
                             shouldValidate: undefined
                         };
                         if (this.lazyValidation) // Only start watching inputs if we need to
-                        watchers.shouldValidate = input.$watch("shouldValidate", function(val) {
+                        watchers.shouldValidate = input.$watch('shouldValidate', function(val) {
                             if (!val) return;
                             // Only watch if we're not already doing it
                             if (_this.errorBag.hasOwnProperty(input._uid)) return;
@@ -7036,14 +7036,14 @@
                 },
                 render: function render(h) {
                     var _this = this;
-                    return h("form", {
-                        staticClass: "v-form",
+                    return h('form', {
+                        staticClass: 'v-form',
                         attrs: Object.assign({
                             novalidate: true
                         }, this.$attrs),
                         on: {
                             submit: function submit(e) {
-                                return _this.$emit("submit", e);
+                                return _this.$emit('submit', e);
                             }
                         }
                     }, this.$slots.default);
@@ -7069,7 +7069,7 @@
             /* harmony import */ var _stylus_components_grid_styl__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../stylus/components/_grid.styl */ "./src/stylus/components/_grid.styl");
             /* harmony import */ var _stylus_components_grid_styl__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/ __webpack_require__.n(_stylus_components_grid_styl__WEBPACK_IMPORTED_MODULE_0__);
             /* harmony import */ var _grid__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./grid */ "./src/components/VGrid/grid.js");
-            /* harmony default export */ __webpack_exports__["default"] = Object(_grid__WEBPACK_IMPORTED_MODULE_1__["default"])("container");
+            /* harmony default export */ __webpack_exports__["default"] = Object(_grid__WEBPACK_IMPORTED_MODULE_1__["default"])('container');
         /***/ },
         /***/ "./src/components/VGrid/VContent.js": /*!******************************************!*\
   !*** ./src/components/VGrid/VContent.js ***!
@@ -7082,14 +7082,14 @@
             // Styles
             // Mixins
             /* @vue/component */ /* harmony default export */ __webpack_exports__["default"] = {
-                name: "v-content",
+                name: 'v-content',
                 mixins: [
                     _mixins_ssr_bootable__WEBPACK_IMPORTED_MODULE_1__["default"]
                 ],
                 props: {
                     tag: {
                         type: String,
-                        default: "main"
+                        default: 'main'
                     }
                 },
                 computed: {
@@ -7105,13 +7105,13 @@
                 },
                 render: function render(h) {
                     var data = {
-                        staticClass: "v-content",
+                        staticClass: 'v-content',
                         style: this.styles,
-                        ref: "content"
+                        ref: 'content'
                     };
                     return h(this.tag, data, [
-                        h("div", {
-                            staticClass: "v-content__wrap"
+                        h('div', {
+                            staticClass: 'v-content__wrap'
                         }, this.$slots.default)
                     ]);
                 }
@@ -7125,7 +7125,7 @@
             /* harmony import */ var _stylus_components_grid_styl__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../stylus/components/_grid.styl */ "./src/stylus/components/_grid.styl");
             /* harmony import */ var _stylus_components_grid_styl__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/ __webpack_require__.n(_stylus_components_grid_styl__WEBPACK_IMPORTED_MODULE_0__);
             /* harmony import */ var _grid__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./grid */ "./src/components/VGrid/grid.js");
-            /* harmony default export */ __webpack_exports__["default"] = Object(_grid__WEBPACK_IMPORTED_MODULE_1__["default"])("flex");
+            /* harmony default export */ __webpack_exports__["default"] = Object(_grid__WEBPACK_IMPORTED_MODULE_1__["default"])('flex');
         /***/ },
         /***/ "./src/components/VGrid/VLayout.js": /*!*****************************************!*\
   !*** ./src/components/VGrid/VLayout.js ***!
@@ -7135,7 +7135,7 @@
             /* harmony import */ var _stylus_components_grid_styl__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../stylus/components/_grid.styl */ "./src/stylus/components/_grid.styl");
             /* harmony import */ var _stylus_components_grid_styl__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/ __webpack_require__.n(_stylus_components_grid_styl__WEBPACK_IMPORTED_MODULE_0__);
             /* harmony import */ var _grid__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./grid */ "./src/components/VGrid/grid.js");
-            /* harmony default export */ __webpack_exports__["default"] = Object(_grid__WEBPACK_IMPORTED_MODULE_1__["default"])("layout");
+            /* harmony default export */ __webpack_exports__["default"] = Object(_grid__WEBPACK_IMPORTED_MODULE_1__["default"])('layout');
         /***/ },
         /***/ "./src/components/VGrid/grid.js": /*!**************************************!*\
   !*** ./src/components/VGrid/grid.js ***!
@@ -7153,12 +7153,12 @@
                         id: String,
                         tag: {
                             type: String,
-                            default: "div"
+                            default: 'div'
                         }
                     },
                     render: function render(h, _a) {
                         var props = _a.props, data = _a.data, children = _a.children;
-                        data.staticClass = (name + " " + (data.staticClass || "")).trim();
+                        data.staticClass = (name + " " + (data.staticClass || '')).trim();
                         var attrs = data.attrs;
                         if (attrs) {
                             // reset attrs to extract utility clases like pa-3
@@ -7166,17 +7166,17 @@
                             var classes = Object.keys(attrs).filter(function(key) {
                                 // TODO: Remove once resolved
                                 // https://github.com/vuejs/vue/issues/7841
-                                if (key === "slot") return false;
+                                if (key === 'slot') return false;
                                 var value = attrs[key];
                                 // add back data attributes like data-test="foo" but do not
                                 // add them as classes
-                                if (key.startsWith("data-")) {
+                                if (key.startsWith('data-')) {
                                     data.attrs[key] = value;
                                     return false;
                                 }
-                                return value || typeof value === "string";
+                                return value || typeof value === 'string';
                             });
-                            if (classes.length) data.staticClass += " " + classes.join(" ");
+                            if (classes.length) data.staticClass += " " + classes.join(' ');
                         }
                         if (props.id) {
                             data.domProps = data.domProps || {};
@@ -7212,7 +7212,7 @@
             /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "VLayout", function() {
                 return _VLayout__WEBPACK_IMPORTED_MODULE_4__["default"];
             });
-            var VSpacer = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_0__["createSimpleFunctional"])("spacer", "div", "v-spacer");
+            var VSpacer = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_0__["createSimpleFunctional"])('spacer', 'div', 'v-spacer');
             /* harmony default export */ __webpack_exports__["default"] = {
                 $_vuetify_subcomponents: {
                     VContainer: _VContainer__WEBPACK_IMPORTED_MODULE_1__["default"],
@@ -7235,7 +7235,7 @@
             // Mixins
             // Utilities
             /* harmony default export */ __webpack_exports__["default"] = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_2__["default"])(_mixins_delayable__WEBPACK_IMPORTED_MODULE_0__["default"], _mixins_toggleable__WEBPACK_IMPORTED_MODULE_1__["default"]).extend({
-                name: "v-hover",
+                name: 'v-hover',
                 props: {
                     disabled: {
                         type: Boolean,
@@ -7248,15 +7248,15 @@
                 },
                 methods: {
                     onMouseEnter: function onMouseEnter() {
-                        this.runDelay("open");
+                        this.runDelay('open');
                     },
                     onMouseLeave: function onMouseLeave() {
-                        this.runDelay("close");
+                        this.runDelay('close');
                     }
                 },
                 render: function render() {
                     if (!this.$scopedSlots.default && this.value === undefined) {
-                        Object(_util_console__WEBPACK_IMPORTED_MODULE_3__["consoleWarn"])("v-hover is missing a default scopedSlot or bound value", this);
+                        Object(_util_console__WEBPACK_IMPORTED_MODULE_3__["consoleWarn"])('v-hover is missing a default scopedSlot or bound value', this);
                         return null;
                     }
                     var element;
@@ -7266,7 +7266,7 @@
                     else if (this.$slots.default && this.$slots.default.length === 1) element = this.$slots.default[0];
                     if (Array.isArray(element) && element.length === 1) element = element[0];
                     if (!element || Array.isArray(element) || !element.tag) {
-                        Object(_util_console__WEBPACK_IMPORTED_MODULE_3__["consoleWarn"])("v-hover should only contain a single element", this);
+                        Object(_util_console__WEBPACK_IMPORTED_MODULE_3__["consoleWarn"])('v-hover should only contain a single element', this);
                         return element;
                     }
                     if (!this.disabled) {
@@ -7328,16 +7328,16 @@
             })(SIZE_MAP || (SIZE_MAP = {}));
             function isFontAwesome5(iconType) {
                 return [
-                    "fas",
-                    "far",
-                    "fal",
-                    "fab"
+                    'fas',
+                    'far',
+                    'fal',
+                    'fab'
                 ].some(function(val) {
                     return iconType.includes(val);
                 });
             }
             var VIcon = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_6__["default"])(_mixins_colorable__WEBPACK_IMPORTED_MODULE_1__["default"], _mixins_sizeable__WEBPACK_IMPORTED_MODULE_2__["default"], _mixins_themeable__WEBPACK_IMPORTED_MODULE_3__["default"]).extend({
-                name: "v-icon",
+                name: 'v-icon',
                 props: {
                     disabled: Boolean,
                     left: Boolean,
@@ -7345,7 +7345,7 @@
                 },
                 methods: {
                     getIcon: function getIcon() {
-                        var iconName = "";
+                        var iconName = '';
                         if (this.$slots.default) iconName = this.$slots.default[0].text.trim();
                         return Object(_util_helpers__WEBPACK_IMPORTED_MODULE_4__["remapInternalIcon"])(this, iconName);
                     },
@@ -7364,15 +7364,15 @@
                     // Component data for both font and svg icon.
                     getDefaultData: function getDefaultData() {
                         var data = {
-                            staticClass: "v-icon",
+                            staticClass: 'v-icon',
                             class: {
-                                "v-icon--disabled": this.disabled,
-                                "v-icon--left": this.left,
-                                "v-icon--link": this.$listeners.click || this.$listeners["!click"],
-                                "v-icon--right": this.right
+                                'v-icon--disabled': this.disabled,
+                                'v-icon--left': this.left,
+                                'v-icon--link': this.$listeners.click || this.$listeners['!click'],
+                                'v-icon--right': this.right
                             },
                             attrs: __assign({
-                                "aria-hidden": true
+                                'aria-hidden': true
                             }, this.$attrs),
                             on: this.$listeners
                         };
@@ -7385,16 +7385,16 @@
                     renderFontIcon: function renderFontIcon(icon, h) {
                         var newChildren = [];
                         var data = this.getDefaultData();
-                        var iconType = "material-icons";
+                        var iconType = 'material-icons';
                         // Material Icon delimiter is _
                         // https://material.io/icons/
-                        var delimiterIndex = icon.indexOf("-");
+                        var delimiterIndex = icon.indexOf('-');
                         var isMaterialIcon = delimiterIndex <= -1;
                         if (isMaterialIcon) // Material icon uses ligatures.
                         newChildren.push(icon);
                         else {
                             iconType = icon.slice(0, delimiterIndex);
-                            if (isFontAwesome5(iconType)) iconType = "";
+                            if (isFontAwesome5(iconType)) iconType = '';
                         }
                         data.class[iconType] = true;
                         data.class[icon] = !isMaterialIcon;
@@ -7403,11 +7403,11 @@
                             fontSize: fontSize
                         };
                         this.applyColors(data);
-                        return h("i", data, newChildren);
+                        return h('i', data, newChildren);
                     },
                     renderSvgIcon: function renderSvgIcon(icon, h) {
                         var data = this.getDefaultData();
-                        data.class["v-icon--is-component"] = true;
+                        data.class['v-icon--is-component'] = true;
                         var size = this.getSize();
                         if (size) data.style = {
                             fontSize: size,
@@ -7422,17 +7422,17 @@
                 },
                 render: function render(h) {
                     var icon = this.getIcon();
-                    if (typeof icon === "string") return this.renderFontIcon(icon, h);
+                    if (typeof icon === 'string') return this.renderFontIcon(icon, h);
                     return this.renderSvgIcon(icon, h);
                 }
             });
             /* harmony default export */ __webpack_exports__["default"] = vue__WEBPACK_IMPORTED_MODULE_5___default.a.extend({
-                name: "v-icon",
+                name: 'v-icon',
                 $_wrapperFor: VIcon,
                 functional: true,
                 render: function render(h, _a) {
                     var data = _a.data, children = _a.children;
-                    var iconName = "";
+                    var iconName = '';
                     // Support usage of v-text and v-html
                     if (data.domProps) {
                         iconName = data.domProps.textContent || data.domProps.innerHTML || iconName;
@@ -7470,7 +7470,7 @@
             // Components
             // Utils
             /* @vue/component */ /* harmony default export */ __webpack_exports__["default"] = _VResponsive__WEBPACK_IMPORTED_MODULE_1__["default"].extend({
-                name: "v-img",
+                name: 'v-img',
                 props: {
                     alt: String,
                     contain: Boolean,
@@ -7479,7 +7479,7 @@
                             String,
                             Object
                         ],
-                        default: ""
+                        default: ''
                     },
                     gradient: String,
                     lazySrc: String,
@@ -7487,19 +7487,19 @@
                     sizes: String,
                     position: {
                         type: String,
-                        default: "center center"
+                        default: 'center center'
                     },
                     transition: {
                         type: [
                             Boolean,
                             String
                         ],
-                        default: "fade-transition"
+                        default: 'fade-transition'
                     }
                 },
                 data: function data() {
                     return {
-                        currentSrc: "",
+                        currentSrc: '',
                         image: null,
                         isLoading: true,
                         calculatedAspectRatio: undefined
@@ -7510,7 +7510,7 @@
                         return this.normalisedSrc.aspect;
                     },
                     normalisedSrc: function normalisedSrc() {
-                        return typeof this.src === "string" ? {
+                        return typeof this.src === 'string' ? {
                             src: this.src,
                             srcset: this.srcset,
                             lazySrc: this.lazySrc,
@@ -7527,25 +7527,25 @@
                         var backgroundImage = [];
                         var src = this.isLoading ? this.normalisedSrc.lazySrc : this.currentSrc;
                         if (this.gradient) backgroundImage.push("linear-gradient(" + this.gradient + ")");
-                        if (src) backgroundImage.push('url("' + src + '")');
-                        var image = this.$createElement("div", {
-                            staticClass: "v-image__image",
+                        if (src) backgroundImage.push("url(\"" + src + "\")");
+                        var image = this.$createElement('div', {
+                            staticClass: 'v-image__image',
                             class: {
-                                "v-image__image--preload": this.isLoading,
-                                "v-image__image--contain": this.contain,
-                                "v-image__image--cover": !this.contain
+                                'v-image__image--preload': this.isLoading,
+                                'v-image__image--contain': this.contain,
+                                'v-image__image--cover': !this.contain
                             },
                             style: {
-                                backgroundImage: backgroundImage.join(", "),
+                                backgroundImage: backgroundImage.join(', '),
                                 backgroundPosition: this.position
                             },
                             key: +this.isLoading
                         });
                         if (!this.transition) return image;
-                        return this.$createElement("transition", {
+                        return this.$createElement('transition', {
                             attrs: {
                                 name: this.transition,
-                                mode: "in-out"
+                                mode: 'in-out'
                             }
                         }, [
                             image
@@ -7557,7 +7557,7 @@
                         if (!this.isLoading) this.init();
                         else this.loadImage();
                     },
-                    "$vuetify.breakpoint.width": "getSrc"
+                    '$vuetify.breakpoint.width': 'getSrc'
                 },
                 mounted: function mounted() {
                     this.init();
@@ -7574,11 +7574,11 @@
                     onLoad: function onLoad() {
                         this.getSrc();
                         this.isLoading = false;
-                        this.$emit("load", this.src);
+                        this.$emit('load', this.src);
                     },
                     onError: function onError() {
                         Object(_util_console__WEBPACK_IMPORTED_MODULE_2__["consoleError"])("Image load failed\n\n" + ("src: " + this.normalisedSrc.src), this);
-                        this.$emit("error", this.src);
+                        this.$emit('error', this.src);
                     },
                     getSrc: function getSrc() {
                         /* istanbul ignore else */ if (this.image) this.currentSrc = this.image.currentSrc || this.image.src;
@@ -7589,7 +7589,7 @@
                         this.image = image;
                         image.onload = function() {
                             /* istanbul ignore if */ if (image.decode) image.decode().catch(function(err) {
-                                Object(_util_console__WEBPACK_IMPORTED_MODULE_2__["consoleWarn"])("Failed to decode image, trying to render anyway\n\n" + ("src: " + _this.normalisedSrc.src) + (err.message ? "\nOriginal error: " + err.message : ""), _this);
+                                Object(_util_console__WEBPACK_IMPORTED_MODULE_2__["consoleWarn"])("Failed to decode image, trying to render anyway\n\n" + ("src: " + _this.normalisedSrc.src) + (err.message ? "\nOriginal error: " + err.message : ''), _this);
                             }).then(_this.onLoad);
                             else _this.onLoad();
                         };
@@ -7613,12 +7613,12 @@
                     __genPlaceholder: function __genPlaceholder() {
                         if (this.$slots.placeholder) {
                             var placeholder = this.isLoading ? [
-                                this.$createElement("div", {
-                                    staticClass: "v-image__placeholder"
+                                this.$createElement('div', {
+                                    staticClass: 'v-image__placeholder'
                                 }, this.$slots.placeholder)
                             ] : [];
                             if (!this.transition) return placeholder[0];
-                            return this.$createElement("transition", {
+                            return this.$createElement('transition', {
                                 attrs: {
                                     name: this.transition
                                 }
@@ -7628,10 +7628,10 @@
                 },
                 render: function render(h) {
                     var node = _VResponsive__WEBPACK_IMPORTED_MODULE_1__["default"].options.render.call(this, h);
-                    node.data.staticClass += " v-image";
+                    node.data.staticClass += ' v-image';
                     node.data.attrs = {
-                        role: this.alt ? "img" : undefined,
-                        "aria-label": this.alt
+                        role: this.alt ? 'img' : undefined,
+                        'aria-label': this.alt
                     };
                     node.children = [
                         this.__cachedSizer,
@@ -7685,13 +7685,13 @@
             // Mixins
             // Utilities
             /* harmony default export */ __webpack_exports__["default"] = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_9__["default"])(_mixins_colorable__WEBPACK_IMPORTED_MODULE_4__["default"], _mixins_themeable__WEBPACK_IMPORTED_MODULE_5__["default"], _mixins_validatable__WEBPACK_IMPORTED_MODULE_6__["default"]).extend({
-                name: "v-input",
+                name: 'v-input',
                 props: {
                     appendIcon: String,
                     /** @deprecated */ appendIconCb: Function,
                     backgroundColor: {
                         type: String,
-                        default: ""
+                        default: ''
                     },
                     height: [
                         Number,
@@ -7721,14 +7721,14 @@
                     },
                     classesInput: function classesInput() {
                         return __assign({}, this.classes, {
-                            "v-input--has-state": this.hasState,
-                            "v-input--hide-details": this.hideDetails,
-                            "v-input--is-label-active": this.isLabelActive,
-                            "v-input--is-dirty": this.isDirty,
-                            "v-input--is-disabled": this.disabled,
-                            "v-input--is-focused": this.isFocused,
-                            "v-input--is-loading": this.loading !== false && this.loading !== undefined,
-                            "v-input--is-readonly": this.readonly
+                            'v-input--has-state': this.hasState,
+                            'v-input--hide-details': this.hideDetails,
+                            'v-input--is-label-active': this.isLabelActive,
+                            'v-input--is-dirty': this.isDirty,
+                            'v-input--is-disabled': this.disabled,
+                            'v-input--is-focused': this.isFocused,
+                            'v-input--is-loading': this.loading !== false && this.loading !== undefined,
+                            'v-input--is-readonly': this.readonly
                         }, this.themeClasses);
                     },
                     directivesInput: function directivesInput() {
@@ -7771,7 +7771,7 @@
                 beforeCreate: function beforeCreate() {
                     // v-radio-group needs to emit a different event
                     // https://github.com/vuetifyjs/vuetify/issues/4752
-                    this.$_modelEvent = this.$options.model && this.$options.model.event || "input";
+                    this.$_modelEvent = this.$options.model && this.$options.model.event || 'input';
                 },
                 methods: {
                     genContent: function genContent() {
@@ -7782,8 +7782,8 @@
                         ];
                     },
                     genControl: function genControl() {
-                        return this.$createElement("div", {
-                            staticClass: "v-input__control"
+                        return this.$createElement('div', {
+                            staticClass: 'v-input__control'
                         }, [
                             this.genInputSlot(),
                             this.genMessages()
@@ -7825,7 +7825,7 @@
                                 }
                             }
                         };
-                        return this.$createElement("div", {
+                        return this.$createElement('div', {
                             staticClass: "v-input__icon v-input__icon--" + Object(_util_helpers__WEBPACK_IMPORTED_MODULE_7__["kebabCase"])(type),
                             key: "" + type + icon
                         }, [
@@ -7833,8 +7833,8 @@
                         ]);
                     },
                     genInputSlot: function genInputSlot() {
-                        return this.$createElement("div", this.setBackgroundColor(this.backgroundColor, {
-                            staticClass: "v-input__slot",
+                        return this.$createElement('div', this.setBackgroundColor(this.backgroundColor, {
+                            staticClass: 'v-input__slot',
                             style: {
                                 height: Object(_util_helpers__WEBPACK_IMPORTED_MODULE_7__["convertToUnit"])(this.height)
                             },
@@ -7844,7 +7844,7 @@
                                 mousedown: this.onMouseDown,
                                 mouseup: this.onMouseUp
                             },
-                            ref: "input-slot"
+                            ref: 'input-slot'
                         }), [
                             this.genDefaultSlot()
                         ]);
@@ -7869,7 +7869,7 @@
                         ] : this.validations;
                         return this.$createElement(_VMessages__WEBPACK_IMPORTED_MODULE_3__["default"], {
                             props: {
-                                color: this.hasHint ? "" : this.validationState,
+                                color: this.hasHint ? '' : this.validationState,
                                 dark: this.dark,
                                 light: this.light,
                                 value: this.hasMessages || this.hasHint ? messages : []
@@ -7884,7 +7884,7 @@
                     genSlot: function genSlot(type, location, slot) {
                         if (!slot.length) return null;
                         var ref = type + "-" + location;
-                        return this.$createElement("div", {
+                        return this.$createElement('div', {
                             staticClass: "v-input__" + ref,
                             ref: ref
                         }, slot);
@@ -7892,8 +7892,8 @@
                     genPrependSlot: function genPrependSlot() {
                         var slot = [];
                         if (this.$slots.prepend) slot.push(this.$slots.prepend);
-                        else if (this.prependIcon) slot.push(this.genIcon("prepend"));
-                        return this.genSlot("prepend", "outer", slot);
+                        else if (this.prependIcon) slot.push(this.genIcon('prepend'));
+                        return this.genSlot('prepend', 'outer', slot);
                     },
                     genAppendSlot: function genAppendSlot() {
                         var slot = [];
@@ -7902,26 +7902,26 @@
                         // will overwrite this method in order to obtain
                         // backwards compat
                         if (this.$slots.append) slot.push(this.$slots.append);
-                        else if (this.appendIcon) slot.push(this.genIcon("append"));
-                        return this.genSlot("append", "outer", slot);
+                        else if (this.appendIcon) slot.push(this.genIcon('append'));
+                        return this.genSlot('append', 'outer', slot);
                     },
                     onClick: function onClick(e) {
-                        this.$emit("click", e);
+                        this.$emit('click', e);
                     },
                     onMouseDown: function onMouseDown(e) {
                         this.hasMouseDown = true;
-                        this.$emit("mousedown", e);
+                        this.$emit('mousedown', e);
                     },
                     onMouseUp: function onMouseUp(e) {
                         this.hasMouseDown = false;
-                        this.$emit("mouseup", e);
+                        this.$emit('mouseup', e);
                     }
                 },
                 render: function render(h) {
-                    return h("div", this.setTextColor(this.validationState, {
-                        staticClass: "v-input",
+                    return h('div', this.setTextColor(this.validationState, {
+                        staticClass: 'v-input',
                         attrs: this.attrsInput,
-                        "class": this.classesInput
+                        'class': this.classesInput
                     }), this.genContent());
                 }
             });
@@ -7947,8 +7947,8 @@
             /* harmony import */ var _util_console__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../util/console */ "./src/util/console.ts");
             // Mixins
             // Utilities
-            /* harmony default export */ __webpack_exports__["default"] = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_1__["default"])(Object(_mixins_groupable__WEBPACK_IMPORTED_MODULE_0__["factory"])("itemGroup", "v-item", "v-item-group")).extend({
-                name: "v-item",
+            /* harmony default export */ __webpack_exports__["default"] = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_1__["default"])(Object(_mixins_groupable__WEBPACK_IMPORTED_MODULE_0__["factory"])('itemGroup', 'v-item', 'v-item-group')).extend({
+                name: 'v-item',
                 props: {
                     value: {
                         required: false
@@ -7957,7 +7957,7 @@
                 render: function render() {
                     var _a;
                     if (!this.$scopedSlots.default) {
-                        Object(_util_console__WEBPACK_IMPORTED_MODULE_2__["consoleWarn"])("v-item is missing a default scopedSlot", this);
+                        Object(_util_console__WEBPACK_IMPORTED_MODULE_2__["consoleWarn"])('v-item is missing a default scopedSlot', this);
                         return null;
                     }
                     var element;
@@ -7967,7 +7967,7 @@
                     });
                     if (Array.isArray(element) && element.length === 1) element = element[0];
                     if (!element || Array.isArray(element) || !element.tag) {
-                        Object(_util_console__WEBPACK_IMPORTED_MODULE_2__["consoleWarn"])("v-item should only contain a single element", this);
+                        Object(_util_console__WEBPACK_IMPORTED_MODULE_2__["consoleWarn"])('v-item should only contain a single element', this);
                         return element;
                     }
                     element.data = this._b(element.data || {}, element.tag, {
@@ -8004,11 +8004,11 @@
             // Styles
             // Utilities
             var BaseItemGroup = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_3__["default"])(_mixins_proxyable__WEBPACK_IMPORTED_MODULE_1__["default"], _mixins_themeable__WEBPACK_IMPORTED_MODULE_2__["default"]).extend({
-                name: "base-item-group",
+                name: 'base-item-group',
                 props: {
                     activeClass: {
                         type: String,
-                        default: "v-item--active"
+                        default: 'v-item--active'
                     },
                     mandatory: Boolean,
                     max: {
@@ -8065,11 +8065,11 @@
                     }
                 },
                 created: function created() {
-                    if (this.multiple && !Array.isArray(this.internalValue)) Object(_util_console__WEBPACK_IMPORTED_MODULE_4__["consoleWarn"])("Model must be bound to an array if the multiple property is true.", this);
+                    if (this.multiple && !Array.isArray(this.internalValue)) Object(_util_console__WEBPACK_IMPORTED_MODULE_4__["consoleWarn"])('Model must be bound to an array if the multiple property is true.', this);
                 },
                 methods: {
                     getValue: function getValue(item, i) {
-                        return item.value == null || item.value === "" ? i : item.value;
+                        return item.value == null || item.value === '' ? i : item.value;
                     },
                     onClick: function onClick(item, index) {
                         this.updateInternalValue(this.getValue(item, index));
@@ -8077,7 +8077,7 @@
                     register: function register(item) {
                         var _this = this;
                         var index = this.items.push(item) - 1;
-                        item.$on("change", function() {
+                        item.$on('change', function() {
                             return _this.onClick(item, index);
                         });
                         // If no value provided and mandatory,
@@ -8146,14 +8146,14 @@
                     }
                 },
                 render: function render(h) {
-                    return h("div", {
-                        staticClass: "v-item-group",
+                    return h('div', {
+                        staticClass: 'v-item-group',
                         class: this.classes
                     }, this.$slots.default);
                 }
             });
             /* harmony default export */ __webpack_exports__["default"] = BaseItemGroup.extend({
-                name: "v-item-group",
+                name: 'v-item-group',
                 provide: function provide() {
                     return {
                         itemGroup: this
@@ -8195,7 +8195,7 @@
             // Mixins
             // Utils
             /* @vue/component */ /* harmony default export */ __webpack_exports__["default"] = {
-                name: "v-jumbotron",
+                name: 'v-jumbotron',
                 mixins: [
                     _mixins_colorable__WEBPACK_IMPORTED_MODULE_1__["default"],
                     _mixins_routable__WEBPACK_IMPORTED_MODULE_2__["default"],
@@ -8208,12 +8208,12 @@
                             Number,
                             String
                         ],
-                        default: "400px"
+                        default: '400px'
                     },
                     src: String,
                     tag: {
                         type: String,
-                        default: "div"
+                        default: 'div'
                     }
                 },
                 computed: {
@@ -8232,18 +8232,18 @@
                     }
                 },
                 mounted: function mounted() {
-                    Object(_util_console__WEBPACK_IMPORTED_MODULE_4__["deprecate"])("v-jumbotron", this.src ? "v-img" : "v-responsive", this);
+                    Object(_util_console__WEBPACK_IMPORTED_MODULE_4__["deprecate"])('v-jumbotron', this.src ? 'v-img' : 'v-responsive', this);
                 },
                 methods: {
                     genBackground: function genBackground() {
-                        return this.$createElement("div", this.setBackgroundColor(this.color, {
-                            staticClass: "v-jumbotron__background",
+                        return this.$createElement('div', this.setBackgroundColor(this.color, {
+                            staticClass: 'v-jumbotron__background',
                             style: this.backgroundStyles
                         }));
                     },
                     genContent: function genContent() {
-                        return this.$createElement("div", {
-                            staticClass: "v-jumbotron__content"
+                        return this.$createElement('div', {
+                            staticClass: 'v-jumbotron__content'
                         }, this.$slots.default);
                     },
                     genImage: function genImage() {
@@ -8251,16 +8251,16 @@
                         if (this.$slots.img) return this.$slots.img({
                             src: this.src
                         });
-                        return this.$createElement("img", {
-                            staticClass: "v-jumbotron__image",
+                        return this.$createElement('img', {
+                            staticClass: 'v-jumbotron__image',
                             attrs: {
                                 src: this.src
                             }
                         });
                     },
                     genWrapper: function genWrapper() {
-                        return this.$createElement("div", {
-                            staticClass: "v-jumbotron__wrapper"
+                        return this.$createElement('div', {
+                            staticClass: 'v-jumbotron__wrapper'
                         }, [
                             this.genImage(),
                             this.genBackground(),
@@ -8270,7 +8270,7 @@
                 },
                 render: function render(h) {
                     var _a = this.generateRouteLink(this.classes), tag = _a.tag, data = _a.data;
-                    data.staticClass = "v-jumbotron";
+                    data.staticClass = 'v-jumbotron';
                     data.style = this.styles;
                     return h(tag, data, [
                         this.genWrapper()
@@ -8314,13 +8314,13 @@
             // Mixins
             // Helpers
             /* @vue/component */ /* harmony default export */ __webpack_exports__["default"] = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_3__["default"])(_mixins_themeable__WEBPACK_IMPORTED_MODULE_2__["default"]).extend({
-                name: "v-label",
+                name: 'v-label',
                 functional: true,
                 props: {
                     absolute: Boolean,
                     color: {
                         type: String,
-                        default: "primary"
+                        default: 'primary'
                     },
                     disabled: Boolean,
                     focused: Boolean,
@@ -8337,30 +8337,30 @@
                             Number,
                             String
                         ],
-                        default: "auto"
+                        default: 'auto'
                     },
                     value: Boolean
                 },
                 render: function render(h, ctx) {
                     var children = ctx.children, listeners = ctx.listeners, props = ctx.props;
                     var data = {
-                        staticClass: "v-label",
-                        "class": __assign({
-                            "v-label--active": props.value,
-                            "v-label--is-disabled": props.disabled
+                        staticClass: 'v-label',
+                        'class': __assign({
+                            'v-label--active': props.value,
+                            'v-label--is-disabled': props.disabled
                         }, Object(_mixins_themeable__WEBPACK_IMPORTED_MODULE_2__["functionalThemeClasses"])(ctx)),
                         attrs: {
                             for: props.for,
-                            "aria-hidden": !props.for
+                            'aria-hidden': !props.for
                         },
                         on: listeners,
                         style: {
                             left: Object(_util_helpers__WEBPACK_IMPORTED_MODULE_4__["convertToUnit"])(props.left),
                             right: Object(_util_helpers__WEBPACK_IMPORTED_MODULE_4__["convertToUnit"])(props.right),
-                            position: props.absolute ? "absolute" : "relative"
+                            position: props.absolute ? 'absolute' : 'relative'
                         }
                     };
-                    return h("label", _mixins_colorable__WEBPACK_IMPORTED_MODULE_1__["default"].options.methods.setTextColor(props.focused && props.color, data), children);
+                    return h('label', _mixins_colorable__WEBPACK_IMPORTED_MODULE_1__["default"].options.methods.setTextColor(props.focused && props.color, data), children);
                 }
             });
         /***/ },
@@ -8411,8 +8411,8 @@
             // Styles
             // Mixins
             // Types
-            /* harmony default export */ __webpack_exports__["default"] = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_3__["default"])(Object(_mixins_registrable__WEBPACK_IMPORTED_MODULE_2__["provide"])("list"), _mixins_themeable__WEBPACK_IMPORTED_MODULE_1__["default"]).extend({
-                name: "v-list",
+            /* harmony default export */ __webpack_exports__["default"] = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_3__["default"])(Object(_mixins_registrable__WEBPACK_IMPORTED_MODULE_2__["provide"])('list'), _mixins_themeable__WEBPACK_IMPORTED_MODULE_1__["default"]).extend({
+                name: 'v-list',
                 provide: function provide() {
                     return {
                         listClick: this.listClick
@@ -8433,10 +8433,10 @@
                 computed: {
                     classes: function classes() {
                         return __assign({
-                            "v-list--dense": this.dense,
-                            "v-list--subheader": this.subheader,
-                            "v-list--two-line": this.twoLine,
-                            "v-list--three-line": this.threeLine
+                            'v-list--dense': this.dense,
+                            'v-list--subheader': this.subheader,
+                            'v-list--two-line': this.twoLine,
+                            'v-list--three-line': this.threeLine
                         }, this.themeClasses);
                     }
                 },
@@ -8473,13 +8473,13 @@
                 },
                 render: function render(h) {
                     var data = {
-                        staticClass: "v-list",
+                        staticClass: 'v-list',
                         class: this.classes,
                         attrs: {
-                            role: "list"
+                            role: 'list'
                         }
                     };
-                    return h("div", data, [
+                    return h('div', data, [
                         this.$slots.default
                     ]);
                 }
@@ -8510,19 +8510,19 @@
             // Mixins
             // Transitions
             // Utils
-            /* harmony default export */ __webpack_exports__["default"] = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_5__["default"])(_mixins_bootable__WEBPACK_IMPORTED_MODULE_1__["default"], Object(_mixins_registrable__WEBPACK_IMPORTED_MODULE_3__["inject"])("list", "v-list-group", "v-list"), _mixins_toggleable__WEBPACK_IMPORTED_MODULE_2__["default"]).extend({
-                name: "v-list-group",
+            /* harmony default export */ __webpack_exports__["default"] = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_5__["default"])(_mixins_bootable__WEBPACK_IMPORTED_MODULE_1__["default"], Object(_mixins_registrable__WEBPACK_IMPORTED_MODULE_3__["inject"])('list', 'v-list-group', 'v-list'), _mixins_toggleable__WEBPACK_IMPORTED_MODULE_2__["default"]).extend({
+                name: 'v-list-group',
                 inject: [
-                    "listClick"
+                    'listClick'
                 ],
                 props: {
                     activeClass: {
                         type: String,
-                        default: "primary--text"
+                        default: 'primary--text'
                     },
                     appendIcon: {
                         type: String,
-                        default: "$vuetify.icons.expand"
+                        default: '$vuetify.icons.expand'
                     },
                     disabled: Boolean,
                     group: String,
@@ -8538,19 +8538,19 @@
                 computed: {
                     groupClasses: function groupClasses() {
                         return {
-                            "v-list__group--active": this.isActive,
-                            "v-list__group--disabled": this.disabled
+                            'v-list__group--active': this.isActive,
+                            'v-list__group--disabled': this.disabled
                         };
                     },
                     headerClasses: function headerClasses() {
                         return {
-                            "v-list__group__header--active": this.isActive,
-                            "v-list__group__header--sub-group": this.subGroup
+                            'v-list__group__header--active': this.isActive,
+                            'v-list__group__header--sub-group': this.subGroup
                         };
                     },
                     itemsClasses: function itemsClasses() {
                         return {
-                            "v-list__group__items--no-action": this.noAction
+                            'v-list__group__items--no-action': this.noAction
                         };
                     }
                 },
@@ -8576,7 +8576,7 @@
                 methods: {
                     click: function click(e) {
                         if (this.disabled) return;
-                        this.$emit("click", e);
+                        this.$emit('click', e);
                         this.isActive = !this.isActive;
                     },
                     genIcon: function genIcon(icon) {
@@ -8585,20 +8585,20 @@
                     genAppendIcon: function genAppendIcon() {
                         var icon = !this.subGroup ? this.appendIcon : false;
                         if (!icon && !this.$slots.appendIcon) return null;
-                        return this.$createElement("div", {
-                            staticClass: "v-list__group__header__append-icon"
+                        return this.$createElement('div', {
+                            staticClass: 'v-list__group__header__append-icon'
                         }, [
                             this.$slots.appendIcon || this.genIcon(icon)
                         ]);
                     },
                     genGroup: function genGroup() {
-                        return this.$createElement("div", {
-                            staticClass: "v-list__group__header",
+                        return this.$createElement('div', {
+                            staticClass: 'v-list__group__header',
                             class: this.headerClasses,
                             on: __assign({}, this.$listeners, {
                                 click: this.click
                             }),
-                            ref: "item"
+                            ref: 'item'
                         }, [
                             this.genPrependIcon(),
                             this.$slots.activator,
@@ -8606,25 +8606,25 @@
                         ]);
                     },
                     genItems: function genItems() {
-                        return this.$createElement("div", {
-                            staticClass: "v-list__group__items",
+                        return this.$createElement('div', {
+                            staticClass: 'v-list__group__items',
                             class: this.itemsClasses,
                             directives: [
                                 {
-                                    name: "show",
+                                    name: 'show',
                                     value: this.isActive
                                 }
                             ],
-                            ref: "group"
+                            ref: 'group'
                         }, this.showLazyContent(this.$slots.default));
                     },
                     genPrependIcon: function genPrependIcon() {
                         var _a;
-                        var icon = this.prependIcon ? this.prependIcon : this.subGroup ? "$vuetify.icons.subgroup" : false;
+                        var icon = this.prependIcon ? this.prependIcon : this.subGroup ? '$vuetify.icons.subgroup' : false;
                         if (!icon && !this.$slots.prependIcon) return null;
-                        return this.$createElement("div", {
-                            staticClass: "v-list__group__header__prepend-icon",
-                            "class": (_a = {}, _a[this.activeClass] = this.isActive, _a)
+                        return this.$createElement('div', {
+                            staticClass: 'v-list__group__header__prepend-icon',
+                            'class': (_a = {}, _a[this.activeClass] = this.isActive, _a)
                         }, [
                             this.$slots.prependIcon || this.genIcon(icon)
                         ]);
@@ -8638,8 +8638,8 @@
                     }
                 },
                 render: function render(h) {
-                    return h("div", {
-                        staticClass: "v-list__group",
+                    return h('div', {
+                        staticClass: 'v-list__group',
                         class: this.groupClasses
                     }, [
                         this.genGroup(),
@@ -8675,7 +8675,7 @@
             // Directives
             // Types
             /* @vue/component */ /* harmony default export */ __webpack_exports__["default"] = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_5__["default"])(_mixins_colorable__WEBPACK_IMPORTED_MODULE_0__["default"], _mixins_routable__WEBPACK_IMPORTED_MODULE_1__["default"], _mixins_toggleable__WEBPACK_IMPORTED_MODULE_2__["default"], _mixins_themeable__WEBPACK_IMPORTED_MODULE_3__["default"]).extend({
-                name: "v-list-tile",
+                name: 'v-list-tile',
                 directives: {
                     Ripple: _directives_ripple__WEBPACK_IMPORTED_MODULE_4__["default"]
                 },
@@ -8683,7 +8683,7 @@
                 props: {
                     activeClass: {
                         type: String,
-                        default: "primary--text"
+                        default: 'primary--text'
                     },
                     avatar: Boolean,
                     inactive: Boolean,
@@ -8691,44 +8691,44 @@
                 },
                 data: function data() {
                     return {
-                        proxyClass: "v-list__tile--active"
+                        proxyClass: 'v-list__tile--active'
                     };
                 },
                 computed: {
                     listClasses: function listClasses() {
                         return this.disabled ? {
-                            "v-list--disabled": true
+                            'v-list--disabled': true
                         } : undefined;
                     },
                     classes: function classes() {
                         var _a;
                         return __assign({
-                            "v-list__tile": true,
-                            "v-list__tile--link": this.isLink && !this.inactive,
-                            "v-list__tile--avatar": this.avatar,
-                            "v-list__tile--disabled": this.disabled,
-                            "v-list__tile--active": !this.to && this.isActive
+                            'v-list__tile': true,
+                            'v-list__tile--link': this.isLink && !this.inactive,
+                            'v-list__tile--avatar': this.avatar,
+                            'v-list__tile--disabled': this.disabled,
+                            'v-list__tile--active': !this.to && this.isActive
                         }, this.themeClasses, (_a = {}, _a[this.activeClass] = this.isActive, _a));
                     },
                     isLink: function isLink() {
-                        var hasClick = this.$listeners && (this.$listeners.click || this.$listeners["!click"]);
+                        var hasClick = this.$listeners && (this.$listeners.click || this.$listeners['!click']);
                         return Boolean(this.href || this.to || hasClick);
                     }
                 },
                 render: function render(h) {
                     var isRouteLink = !this.inactive && this.isLink;
                     var _a = isRouteLink ? this.generateRouteLink(this.classes) : {
-                        tag: this.tag || "div",
+                        tag: this.tag || 'div',
                         data: {
                             class: this.classes
                         }
                     }, tag = _a.tag, data = _a.data;
                     data.attrs = Object.assign({}, data.attrs, this.$attrs);
-                    return h("div", this.setTextColor(!this.disabled && this.isActive && this.color, {
+                    return h('div', this.setTextColor(!this.disabled && this.isActive && this.color, {
                         class: this.listClasses,
                         attrs: {
                             disabled: this.disabled,
-                            role: "listitem"
+                            role: 'listitem'
                         }
                     }), [
                         h(tag, data, this.$slots.default)
@@ -8745,16 +8745,16 @@
             /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/ __webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
             // Types
             /* @vue/component */ /* harmony default export */ __webpack_exports__["default"] = vue__WEBPACK_IMPORTED_MODULE_0___default.a.extend({
-                name: "v-list-tile-action",
+                name: 'v-list-tile-action',
                 functional: true,
                 render: function render(h, _a) {
                     var data = _a.data, _b = _a.children, children = _b === void 0 ? [] : _b;
-                    data.staticClass = data.staticClass ? "v-list__tile__action " + data.staticClass : "v-list__tile__action";
+                    data.staticClass = data.staticClass ? "v-list__tile__action " + data.staticClass : 'v-list__tile__action';
                     var filteredChild = children.filter(function(VNode) {
-                        return VNode.isComment === false && VNode.text !== " ";
+                        return VNode.isComment === false && VNode.text !== ' ';
                     });
-                    if (filteredChild.length > 1) data.staticClass += " v-list__tile__action--stack";
-                    return h("div", data, children);
+                    if (filteredChild.length > 1) data.staticClass += ' v-list__tile__action--stack';
+                    return h('div', data, children);
                 }
             });
         /***/ },
@@ -8769,7 +8769,7 @@
             // Components
             // Types
             /* @vue/component */ /* harmony default export */ __webpack_exports__["default"] = vue__WEBPACK_IMPORTED_MODULE_1___default.a.extend({
-                name: "v-list-tile-avatar",
+                name: 'v-list-tile-avatar',
                 functional: true,
                 props: {
                     color: String,
@@ -8784,7 +8784,7 @@
                 },
                 render: function render(h, _a) {
                     var data = _a.data, children = _a.children, props = _a.props;
-                    data.staticClass = ("v-list__tile__avatar " + (data.staticClass || "")).trim();
+                    data.staticClass = ("v-list__tile__avatar " + (data.staticClass || '')).trim();
                     var avatar = h(_VAvatar__WEBPACK_IMPORTED_MODULE_0__["default"], {
                         props: {
                             color: props.color,
@@ -8794,7 +8794,7 @@
                     }, [
                         children
                     ]);
-                    return h("div", data, [
+                    return h('div', data, [
                         avatar
                     ]);
                 }
@@ -8838,10 +8838,10 @@
             /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "VListTileAvatar", function() {
                 return _VListTileAvatar__WEBPACK_IMPORTED_MODULE_5__["default"];
             });
-            var VListTileActionText = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_0__["createSimpleFunctional"])("v-list__tile__action-text", "span");
-            var VListTileContent = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_0__["createSimpleFunctional"])("v-list__tile__content", "div");
-            var VListTileTitle = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_0__["createSimpleFunctional"])("v-list__tile__title", "div");
-            var VListTileSubTitle = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_0__["createSimpleFunctional"])("v-list__tile__sub-title", "div");
+            var VListTileActionText = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_0__["createSimpleFunctional"])('v-list__tile__action-text', 'span');
+            var VListTileContent = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_0__["createSimpleFunctional"])('v-list__tile__content', 'div');
+            var VListTileTitle = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_0__["createSimpleFunctional"])('v-list__tile__title', 'div');
+            var VListTileSubTitle = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_0__["createSimpleFunctional"])('v-list__tile__sub-title', 'div');
             /* harmony default export */ __webpack_exports__["default"] = {
                 $_vuetify_subcomponents: {
                     VList: _VList__WEBPACK_IMPORTED_MODULE_1__["default"],
@@ -8886,7 +8886,7 @@
             // Directives
             // Helpers
             /* @vue/component */ /* harmony default export */ __webpack_exports__["default"] = vue__WEBPACK_IMPORTED_MODULE_1___default.a.extend({
-                name: "v-menu",
+                name: 'v-menu',
                 provide: function provide() {
                     return {
                         // Pass theme through to default slot
@@ -8923,7 +8923,7 @@
                     disabled: Boolean,
                     fullWidth: Boolean,
                     maxHeight: {
-                        default: "auto"
+                        default: 'auto'
                     },
                     openOnClick: {
                         type: Boolean,
@@ -8934,14 +8934,14 @@
                     openOnHover: Boolean,
                     origin: {
                         type: String,
-                        default: "top left"
+                        default: 'top left'
                     },
                     transition: {
                         type: [
                             Boolean,
                             String
                         ],
-                        default: "v-menu-transition"
+                        default: 'v-menu-transition'
                     }
                 },
                 data: function data() {
@@ -8958,7 +8958,7 @@
                         return this.calcXOverflow(this.calcLeftAuto(), menuWidth) + "px";
                     },
                     calculatedMaxHeight: function calculatedMaxHeight() {
-                        return this.auto ? "200px" : Object(_util_helpers__WEBPACK_IMPORTED_MODULE_15__["convertToUnit"])(this.maxHeight);
+                        return this.auto ? '200px' : Object(_util_helpers__WEBPACK_IMPORTED_MODULE_15__["convertToUnit"])(this.maxHeight);
                     },
                     calculatedMaxWidth: function calculatedMaxWidth() {
                         return isNaN(this.maxWidth) ? this.maxWidth : this.maxWidth + "px";
@@ -9001,7 +9001,7 @@
                 },
                 mounted: function mounted() {
                     this.isActive && this.activate();
-                    if (Object(_util_helpers__WEBPACK_IMPORTED_MODULE_15__["getSlotType"])(this, "activator", true) === "v-slot") Object(_util_console__WEBPACK_IMPORTED_MODULE_17__["consoleError"])("v-tooltip's activator slot must be bound, try '<template #activator=\"data\"><v-btn v-on=\"data.on>'", this);
+                    if (Object(_util_helpers__WEBPACK_IMPORTED_MODULE_15__["getSlotType"])(this, 'activator', true) === 'v-slot') Object(_util_console__WEBPACK_IMPORTED_MODULE_17__["consoleError"])("v-tooltip's activator slot must be bound, try '<template #activator=\"data\"><v-btn v-on=\"data.on>'", this);
                 },
                 methods: {
                     activate: function activate() {
@@ -9044,14 +9044,14 @@
                 },
                 render: function render(h) {
                     var data = {
-                        staticClass: "v-menu",
+                        staticClass: 'v-menu',
                         class: {
-                            "v-menu--inline": !this.fullWidth && this.$slots.activator
+                            'v-menu--inline': !this.fullWidth && this.$slots.activator
                         },
                         directives: [
                             {
                                 arg: 500,
-                                name: "resize",
+                                name: 'resize',
                                 value: this.onResize
                             }
                         ],
@@ -9059,7 +9059,7 @@
                             keydown: this.onKeyDown
                         }
                     };
-                    return h("div", data, [
+                    return h('div', data, [
                         this.genActivator(),
                         this.$createElement(_util_ThemeProvider__WEBPACK_IMPORTED_MODULE_16__["default"], {
                             props: {
@@ -9112,7 +9112,7 @@
                     },
                     mouseEnterHandler: function mouseEnterHandler() {
                         var _this = this;
-                        this.runDelay("open", function() {
+                        this.runDelay('open', function() {
                             if (_this.hasJustFocused) return;
                             _this.hasJustFocused = true;
                             _this.isActive = true;
@@ -9121,7 +9121,7 @@
                     mouseLeaveHandler: function mouseLeaveHandler(e) {
                         var _this = this;
                         // Prevent accidental re-activation
-                        this.runDelay("close", function() {
+                        this.runDelay('close', function() {
                             if (_this.$refs.content.contains(e.relatedTarget)) return;
                             requestAnimationFrame(function() {
                                 _this.isActive = false;
@@ -9132,12 +9132,12 @@
                     addActivatorEvents: function addActivatorEvents(activator) {
                         if (activator === void 0) activator = null;
                         if (!activator || this.disabled) return;
-                        activator.addEventListener("click", this.activatorClickHandler);
+                        activator.addEventListener('click', this.activatorClickHandler);
                     },
                     removeActivatorEvents: function removeActivatorEvents(activator) {
                         if (activator === void 0) activator = null;
                         if (!activator) return;
-                        activator.removeEventListener("click", this.activatorClickHandler);
+                        activator.removeEventListener('click', this.activatorClickHandler);
                     }
                 }
             };
@@ -9192,7 +9192,7 @@
                                 listeners.mouseleave = this.mouseLeaveHandler;
                             } else if (this.openOnClick) listeners.click = this.activatorClickHandler;
                         }
-                        if (Object(_util_helpers__WEBPACK_IMPORTED_MODULE_0__["getSlotType"])(this, "activator") === "scoped") {
+                        if (Object(_util_helpers__WEBPACK_IMPORTED_MODULE_0__["getSlotType"])(this, 'activator') === 'scoped') {
                             listeners.keydown = this.onKeyDown;
                             var activator = this.$scopedSlots.activator({
                                 on: listeners
@@ -9200,19 +9200,19 @@
                             this.activatorNode = activator;
                             return activator;
                         }
-                        return this.$createElement("div", {
-                            staticClass: "v-menu__activator",
-                            "class": {
-                                "v-menu__activator--active": this.hasJustFocused || this.isActive,
-                                "v-menu__activator--disabled": this.disabled
+                        return this.$createElement('div', {
+                            staticClass: 'v-menu__activator',
+                            'class': {
+                                'v-menu__activator--active': this.hasJustFocused || this.isActive,
+                                'v-menu__activator--disabled': this.disabled
                             },
-                            ref: "activator",
+                            ref: 'activator',
                             on: listeners
                         }, this.$slots.activator);
                     },
                     genTransition: function genTransition() {
                         if (!this.transition) return this.genContent();
-                        return this.$createElement("transition", {
+                        return this.$createElement('transition', {
                             props: {
                                 name: this.transition
                             }
@@ -9225,7 +9225,7 @@
                         // Do not add click outside for hover menu
                         var directives = !this.openOnHover && this.closeOnClick ? [
                             {
-                                name: "click-outside",
+                                name: 'click-outside',
                                 value: function value() {
                                     _this.isActive = false;
                                 },
@@ -9240,7 +9240,7 @@
                             }
                         ] : [];
                         directives.push({
-                            name: "show",
+                            name: 'show',
                             value: this.isContentActive
                         });
                         return directives;
@@ -9250,19 +9250,19 @@
                         var _a;
                         var options = {
                             attrs: this.getScopeIdAttrs(),
-                            staticClass: "v-menu__content",
-                            "class": __assign({}, this.rootThemeClasses, (_a = {
-                                "v-menu__content--auto": this.auto,
-                                "v-menu__content--fixed": this.activatorFixed,
-                                "menuable__content__active": this.isActive
+                            staticClass: 'v-menu__content',
+                            'class': __assign({}, this.rootThemeClasses, (_a = {
+                                'v-menu__content--auto': this.auto,
+                                'v-menu__content--fixed': this.activatorFixed,
+                                'menuable__content__active': this.isActive
                             }, _a[this.contentClass.trim()] = true, _a)),
                             style: this.styles,
                             directives: this.genDirectives(),
-                            ref: "content",
+                            ref: 'content',
                             on: {
                                 click: function click(e) {
                                     e.stopPropagation();
-                                    if (e.target.getAttribute("disabled")) return;
+                                    if (e.target.getAttribute('disabled')) return;
                                     if (_this.closeOnContentClick) _this.isActive = false;
                                 },
                                 keydown: this.onKeyDown
@@ -9270,7 +9270,7 @@
                         };
                         !this.disabled && this.openOnHover && (options.on.mouseenter = this.mouseEnterHandler);
                         this.openOnHover && (options.on.mouseleave = this.mouseLeaveHandler);
-                        return this.$createElement("div", options, this.showLazyContent(this.$slots.default));
+                        return this.$createElement('div', options, this.showLazyContent(this.$slots.default));
                     }
                 }
             };
@@ -9307,10 +9307,10 @@
                     listIndex: function listIndex(next, prev) {
                         if (next in this.tiles) {
                             var tile = this.tiles[next];
-                            tile.classList.add("v-list__tile--highlighted");
+                            tile.classList.add('v-list__tile--highlighted');
                             this.$refs.content.scrollTop = tile.offsetTop - tile.clientHeight;
                         }
-                        prev in this.tiles && this.tiles[prev].classList.remove("v-list__tile--highlighted");
+                        prev in this.tiles && this.tiles[prev].classList.remove('v-list__tile--highlighted');
                     }
                 },
                 methods: {
@@ -9341,7 +9341,7 @@
                         e.preventDefault();
                     },
                     getTiles: function getTiles() {
-                        this.tiles = this.$refs.content.querySelectorAll(".v-list__tile");
+                        this.tiles = this.$refs.content.querySelectorAll('.v-list__tile');
                     }
                 }
             };
@@ -9367,7 +9367,7 @@
                 methods: {
                     calcScrollPosition: function calcScrollPosition() {
                         var $el = this.$refs.content;
-                        var activeTile = $el.querySelector(".v-list__tile--active");
+                        var activeTile = $el.querySelector('.v-list__tile--active');
                         var maxScrollTop = $el.scrollHeight - $el.offsetHeight;
                         return activeTile ? Math.min(maxScrollTop, Math.max(0, activeTile.offsetTop - $el.offsetHeight / 2 + activeTile.offsetHeight / 2)) : $el.scrollTop;
                     },
@@ -9377,12 +9377,12 @@
                     },
                     calcTopAuto: function calcTopAuto() {
                         var $el = this.$refs.content;
-                        var activeTile = $el.querySelector(".v-list__tile--active");
+                        var activeTile = $el.querySelector('.v-list__tile--active');
                         if (!activeTile) this.selectedIndex = null;
                         if (this.offsetY || !activeTile) return this.computedTop;
                         this.selectedIndex = Array.from(this.tiles).indexOf(activeTile);
                         var tileDistanceFromMenuTop = activeTile.offsetTop - this.calcScrollPosition();
-                        var firstTileOffsetTop = $el.querySelector(".v-list__tile").offsetTop;
+                        var firstTileOffsetTop = $el.querySelector('.v-list__tile').offsetTop;
                         return this.computedTop - tileDistanceFromMenuTop - firstTileOffsetTop;
                     }
                 }
@@ -9403,7 +9403,7 @@
             // Mixins
             // Utilities
             /* @vue/component */ /* harmony default export */ __webpack_exports__["default"] = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_3__["default"])(_mixins_colorable__WEBPACK_IMPORTED_MODULE_1__["default"], _mixins_themeable__WEBPACK_IMPORTED_MODULE_2__["default"]).extend({
-                name: "v-messages",
+                name: 'v-messages',
                 props: {
                     value: {
                         type: Array,
@@ -9414,11 +9414,11 @@
                 },
                 methods: {
                     genChildren: function genChildren() {
-                        return this.$createElement("transition-group", {
-                            staticClass: "v-messages__wrapper",
+                        return this.$createElement('transition-group', {
+                            staticClass: 'v-messages__wrapper',
                             attrs: {
-                                name: "message-transition",
-                                tag: "div"
+                                name: 'message-transition',
+                                tag: 'div'
                             }
                         }, this.value.map(this.genMessage));
                     },
@@ -9429,8 +9429,8 @@
                         }) : undefined;
                         var escapedHTML = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_4__["escapeHTML"])(message);
                         var innerHTML = !slot ? escapedHTML : undefined;
-                        return this.$createElement("div", {
-                            staticClass: "v-messages__message",
+                        return this.$createElement('div', {
+                            staticClass: 'v-messages__message',
                             key: key,
                             domProps: {
                                 innerHTML: innerHTML
@@ -9439,8 +9439,8 @@
                     }
                 },
                 render: function render(h) {
-                    return h("div", this.setTextColor(this.color, {
-                        staticClass: "v-messages",
+                    return h('div', this.setTextColor(this.color, {
+                        staticClass: 'v-messages',
                         class: this.themeClasses
                     }), [
                         this.genChildren()
@@ -9490,12 +9490,12 @@
             // Mixins
             // Directives
             // Utilities
-            /* harmony default export */ __webpack_exports__["default"] = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_10__["default"])(Object(_mixins_applicationable__WEBPACK_IMPORTED_MODULE_1__["default"])("left", [
-                "miniVariant",
-                "right",
-                "width"
+            /* harmony default export */ __webpack_exports__["default"] = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_10__["default"])(Object(_mixins_applicationable__WEBPACK_IMPORTED_MODULE_1__["default"])('left', [
+                'miniVariant',
+                'right',
+                'width'
             ]), _mixins_dependent__WEBPACK_IMPORTED_MODULE_2__["default"], _mixins_overlayable__WEBPACK_IMPORTED_MODULE_3__["default"], _mixins_ssr_bootable__WEBPACK_IMPORTED_MODULE_4__["default"], _mixins_themeable__WEBPACK_IMPORTED_MODULE_5__["default"]).extend({
-                name: "v-navigation-drawer",
+                name: 'v-navigation-drawer',
                 directives: {
                     ClickOutside: _directives_click_outside__WEBPACK_IMPORTED_MODULE_6__["default"],
                     Resize: _directives_resize__WEBPACK_IMPORTED_MODULE_7__["default"],
@@ -9510,7 +9510,7 @@
                             Number,
                             String
                         ],
-                        default: "100%"
+                        default: '100%'
                     },
                     floating: Boolean,
                     miniVariant: Boolean,
@@ -9558,7 +9558,7 @@
          * Used for setting an app value from a dynamic
          * property. Called from applicationable.js
          */ applicationProperty: function applicationProperty() {
-                        return this.right ? "right" : "left";
+                        return this.right ? 'right' : 'left';
                     },
                     calculatedTransform: function calculatedTransform() {
                         if (this.isActive) return 0;
@@ -9569,17 +9569,17 @@
                     },
                     classes: function classes() {
                         return __assign({
-                            "v-navigation-drawer": true,
-                            "v-navigation-drawer--absolute": this.absolute,
-                            "v-navigation-drawer--clipped": this.clipped,
-                            "v-navigation-drawer--close": !this.isActive,
-                            "v-navigation-drawer--fixed": !this.absolute && (this.app || this.fixed),
-                            "v-navigation-drawer--floating": this.floating,
-                            "v-navigation-drawer--is-mobile": this.isMobile,
-                            "v-navigation-drawer--mini-variant": this.miniVariant,
-                            "v-navigation-drawer--open": this.isActive,
-                            "v-navigation-drawer--right": this.right,
-                            "v-navigation-drawer--temporary": this.temporary
+                            'v-navigation-drawer': true,
+                            'v-navigation-drawer--absolute': this.absolute,
+                            'v-navigation-drawer--clipped': this.clipped,
+                            'v-navigation-drawer--close': !this.isActive,
+                            'v-navigation-drawer--fixed': !this.absolute && (this.app || this.fixed),
+                            'v-navigation-drawer--floating': this.floating,
+                            'v-navigation-drawer--is-mobile': this.isMobile,
+                            'v-navigation-drawer--mini-variant': this.miniVariant,
+                            'v-navigation-drawer--open': this.isActive,
+                            'v-navigation-drawer--right': this.right,
+                            'v-navigation-drawer--temporary': this.temporary
                         }, this.themeClasses);
                     },
                     hasApp: function hasApp() {
@@ -9631,7 +9631,7 @@
                         if (this.reactsToRoute && this.closeConditional()) this.isActive = false;
                     },
                     isActive: function isActive(val) {
-                        this.$emit("input", val);
+                        this.$emit('input', val);
                         this.callUpdate();
                     },
                     /**
@@ -9683,7 +9683,7 @@
                         var _this_1 = this;
                         var directives = [
                             {
-                                name: "click-outside",
+                                name: 'click-outside',
                                 value: function value() {
                                     return _this_1.isActive = false;
                                 },
@@ -9694,7 +9694,7 @@
                             }
                         ];
                         !this.touchless && directives.push({
-                            name: "touch",
+                            name: 'touch',
                             value: {
                                 parent: true,
                                 left: this.swipeLeft,
@@ -9734,28 +9734,28 @@
                 render: function render(h) {
                     var _this_1 = this;
                     var data = {
-                        "class": this.classes,
+                        'class': this.classes,
                         style: this.styles,
                         directives: this.genDirectives(),
                         on: {
                             click: function click() {
                                 if (!_this_1.miniVariant) return;
-                                _this_1.$emit("update:miniVariant", false);
+                                _this_1.$emit('update:miniVariant', false);
                             },
                             transitionend: function transitionend(e) {
                                 if (e.target !== e.currentTarget) return;
-                                _this_1.$emit("transitionend", e);
+                                _this_1.$emit('transitionend', e);
                                 // IE11 does not support new Event('resize')
-                                var resizeEvent = document.createEvent("UIEvents");
-                                resizeEvent.initUIEvent("resize", true, false, window, 0);
+                                var resizeEvent = document.createEvent('UIEvents');
+                                resizeEvent.initUIEvent('resize', true, false, window, 0);
                                 window.dispatchEvent(resizeEvent);
                             }
                         }
                     };
-                    return h("aside", data, [
+                    return h('aside', data, [
                         this.$slots.default,
-                        h("div", {
-                            "class": "v-navigation-drawer__border"
+                        h('div', {
+                            'class': 'v-navigation-drawer__border'
                         })
                     ]);
                 }
@@ -9787,7 +9787,7 @@
             // Styles
             // Extensions
             /* @vue/component */ /* harmony default export */ __webpack_exports__["default"] = _VAutocomplete__WEBPACK_IMPORTED_MODULE_2__["default"].extend({
-                name: "v-overflow-btn",
+                name: 'v-overflow-btn',
                 props: {
                     segmented: Boolean,
                     editable: Boolean,
@@ -9796,9 +9796,9 @@
                 computed: {
                     classes: function classes() {
                         return Object.assign(_VAutocomplete__WEBPACK_IMPORTED_MODULE_2__["default"].options.computed.classes.call(this), {
-                            "v-overflow-btn": true,
-                            "v-overflow-btn--segmented": this.segmented,
-                            "v-overflow-btn--editable": this.editable
+                            'v-overflow-btn': true,
+                            'v-overflow-btn--segmented': this.segmented,
+                            'v-overflow-btn--editable': this.editable
                         });
                     },
                     isAnyValueAllowed: function isAnyValueAllowed() {
@@ -9812,7 +9812,7 @@
                     },
                     $_menuProps: function $_menuProps() {
                         var props = _VAutocomplete__WEBPACK_IMPORTED_MODULE_2__["default"].options.computed.$_menuProps.call(this);
-                        props.transition = props.transition || "v-menu-transition";
+                        props.transition = props.transition || 'v-menu-transition';
                         return props;
                     }
                 },
@@ -9825,7 +9825,7 @@
                     },
                     genInput: function genInput() {
                         var input = _VTextField_VTextField__WEBPACK_IMPORTED_MODULE_3__["default"].options.methods.genInput.call(this);
-                        input.data.domProps.value = this.editable ? this.internalSearch : "";
+                        input.data.domProps.value = this.editable ? this.internalSearch : '';
                         input.data.attrs.readonly = !this.isAnyValueAllowed;
                         return input;
                     },
@@ -9844,7 +9844,7 @@
                             return _this.getValue(i) === itemValue;
                         }) || item;
                         if (!itemObj.text || !itemObj.callback) {
-                            Object(_util_console__WEBPACK_IMPORTED_MODULE_5__["consoleWarn"])("When using 'segmented' prop without a selection slot, items must contain both a text and callback property", this);
+                            Object(_util_console__WEBPACK_IMPORTED_MODULE_5__["consoleWarn"])('When using \'segmented\' prop without a selection slot, items must contain both a text and callback property', this);
                             return null;
                         }
                         return this.$createElement(_VBtn__WEBPACK_IMPORTED_MODULE_4__["default"], {
@@ -9923,7 +9923,7 @@
             // Directives
             // Mixins
             /* @vue/component */ /* harmony default export */ __webpack_exports__["default"] = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_3__["default"])(_mixins_colorable__WEBPACK_IMPORTED_MODULE_4__["default"], _mixins_themeable__WEBPACK_IMPORTED_MODULE_5__["default"]).extend({
-                name: "v-pagination",
+                name: 'v-pagination',
                 directives: {
                     Resize: _directives_resize__WEBPACK_IMPORTED_MODULE_2__["default"]
                 },
@@ -9943,11 +9943,11 @@
                     ],
                     nextIcon: {
                         type: String,
-                        default: "$vuetify.icons.next"
+                        default: '$vuetify.icons.next'
                     },
                     prevIcon: {
                         type: String,
-                        default: "$vuetify.icons.prev"
+                        default: '$vuetify.icons.prev'
                     },
                     value: {
                         type: Number,
@@ -9963,9 +9963,9 @@
                 computed: {
                     classes: function classes() {
                         return __assign({
-                            "v-pagination": true,
-                            "v-pagination--circle": this.circle,
-                            "v-pagination--disabled": this.disabled
+                            'v-pagination': true,
+                            'v-pagination--circle': this.circle,
+                            'v-pagination--disabled': this.disabled
                         }, this.themeClasses);
                     },
                     items: function items() {
@@ -9979,25 +9979,25 @@
                             var end = this.value + left - 2 - even;
                             return __spread([
                                 1,
-                                "..."
+                                '...'
                             ], this.range(start, end), [
-                                "...",
+                                '...',
                                 this.length
                             ]);
                         } else if (this.value === left) {
                             var end = this.value + left - 1 - even;
                             return __spread(this.range(1, end), [
-                                "...",
+                                '...',
                                 this.length
                             ]);
                         } else if (this.value === right) {
                             var start = this.value - left + 1;
                             return __spread([
                                 1,
-                                "..."
+                                '...'
                             ], this.range(start, this.length));
                         } else return __spread(this.range(1, left), [
-                            "..."
+                            '...'
                         ], this.range(right, this.length));
                     }
                 },
@@ -10025,13 +10025,13 @@
                     },
                     next: function next(e) {
                         e.preventDefault();
-                        this.$emit("input", this.value + 1);
-                        this.$emit("next");
+                        this.$emit('input', this.value + 1);
+                        this.$emit('next');
                     },
                     previous: function previous(e) {
                         e.preventDefault();
-                        this.$emit("input", this.value - 1);
-                        this.$emit("previous");
+                        this.$emit('input', this.value - 1);
+                        this.$emit('previous');
                     },
                     range: function range(from, to) {
                         var range = [];
@@ -10040,14 +10040,14 @@
                         return range;
                     },
                     genIcon: function genIcon(h, icon, disabled, fn) {
-                        return h("li", [
-                            h("button", {
-                                staticClass: "v-pagination__navigation",
+                        return h('li', [
+                            h('button', {
+                                staticClass: 'v-pagination__navigation',
                                 class: {
-                                    "v-pagination__navigation--disabled": disabled
+                                    'v-pagination__navigation--disabled': disabled
                                 },
                                 attrs: {
-                                    type: "button"
+                                    type: 'button'
                                 },
                                 on: disabled ? {} : {
                                     click: fn
@@ -10061,18 +10061,18 @@
                     },
                     genItem: function genItem(h, i) {
                         var _this = this;
-                        var color = i === this.value && (this.color || "primary");
-                        return h("button", this.setBackgroundColor(color, {
-                            staticClass: "v-pagination__item",
+                        var color = i === this.value && (this.color || 'primary');
+                        return h('button', this.setBackgroundColor(color, {
+                            staticClass: 'v-pagination__item',
                             class: {
-                                "v-pagination__item--active": i === this.value
+                                'v-pagination__item--active': i === this.value
                             },
                             attrs: {
-                                type: "button"
+                                type: 'button'
                             },
                             on: {
                                 click: function click() {
-                                    return _this.$emit("input", i);
+                                    return _this.$emit('input', i);
                                 }
                             }
                         }), [
@@ -10082,11 +10082,11 @@
                     genItems: function genItems(h) {
                         var _this = this;
                         return this.items.map(function(i, index) {
-                            return h("li", {
+                            return h('li', {
                                 key: index
                             }, [
-                                isNaN(Number(i)) ? h("span", {
-                                    class: "v-pagination__more"
+                                isNaN(Number(i)) ? h('span', {
+                                    class: 'v-pagination__more'
                                 }, [
                                     i.toString()
                                 ]) : _this.genItem(h, i)
@@ -10100,13 +10100,13 @@
                         this.genItems(h),
                         this.genIcon(h, this.$vuetify.rtl ? this.prevIcon : this.nextIcon, this.value >= this.length, this.next)
                     ];
-                    return h("ul", {
+                    return h('ul', {
                         directives: [
                             {
                                 modifiers: {
                                     quiet: true
                                 },
-                                name: "resize",
+                                name: 'resize',
                                 value: this.onResize
                             }
                         ],
@@ -10138,11 +10138,11 @@
             // Style
             // Mixins
             /* @vue/component */ /* harmony default export */ __webpack_exports__["default"] = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_2__["default"])(_mixins_translatable__WEBPACK_IMPORTED_MODULE_1__["default"]).extend({
-                name: "v-parallax",
+                name: 'v-parallax',
                 props: {
                     alt: {
                         type: String,
-                        default: ""
+                        default: ''
                     },
                     height: {
                         type: [
@@ -10161,7 +10161,7 @@
                 computed: {
                     styles: function styles() {
                         return {
-                            display: "block",
+                            display: 'block',
                             opacity: this.isBooted ? 1 : 0,
                             transform: "translate(-50%, " + this.parallax + "px)"
                         };
@@ -10183,7 +10183,7 @@
                         if (img.complete) {
                             this.translate();
                             this.listeners();
-                        } else img.addEventListener("load", function() {
+                        } else img.addEventListener('load', function() {
                             _this.translate();
                             _this.listeners();
                         }, false);
@@ -10194,24 +10194,24 @@
                 },
                 render: function render(h) {
                     var imgData = {
-                        staticClass: "v-parallax__image",
+                        staticClass: 'v-parallax__image',
                         style: this.styles,
                         attrs: {
                             src: this.src,
                             alt: this.alt
                         },
-                        ref: "img"
+                        ref: 'img'
                     };
-                    var container = h("div", {
-                        staticClass: "v-parallax__image-container"
+                    var container = h('div', {
+                        staticClass: 'v-parallax__image-container'
                     }, [
-                        h("img", imgData)
+                        h('img', imgData)
                     ]);
-                    var content = h("div", {
-                        staticClass: "v-parallax__content"
+                    var content = h('div', {
+                        staticClass: 'v-parallax__content'
                     }, this.$slots.default);
-                    return h("div", {
-                        staticClass: "v-parallax",
+                    return h('div', {
+                        staticClass: 'v-parallax',
                         style: {
                             height: this.height + "px"
                         },
@@ -10260,13 +10260,13 @@
             // Mixins
             // Helpers
             /* @vue/component */ /* harmony default export */ __webpack_exports__["default"] = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_5__["default"])(_mixins_colorable__WEBPACK_IMPORTED_MODULE_2__["default"], _mixins_themeable__WEBPACK_IMPORTED_MODULE_3__["default"]).extend({
-                name: "v-picker",
+                name: 'v-picker',
                 props: {
                     fullWidth: Boolean,
                     landscape: Boolean,
                     transition: {
                         type: String,
-                        default: "fade-transition"
+                        default: 'fade-transition'
                     },
                     width: {
                         type: [
@@ -10278,30 +10278,30 @@
                 },
                 computed: {
                     computedTitleColor: function computedTitleColor() {
-                        var defaultTitleColor = this.isDark ? false : this.color || "primary";
+                        var defaultTitleColor = this.isDark ? false : this.color || 'primary';
                         return this.color || defaultTitleColor;
                     }
                 },
                 methods: {
                     genTitle: function genTitle() {
-                        return this.$createElement("div", this.setBackgroundColor(this.computedTitleColor, {
-                            staticClass: "v-picker__title",
-                            "class": {
-                                "v-picker__title--landscape": this.landscape
+                        return this.$createElement('div', this.setBackgroundColor(this.computedTitleColor, {
+                            staticClass: 'v-picker__title',
+                            'class': {
+                                'v-picker__title--landscape': this.landscape
                             }
                         }), this.$slots.title);
                     },
                     genBodyTransition: function genBodyTransition() {
-                        return this.$createElement("transition", {
+                        return this.$createElement('transition', {
                             props: {
                                 name: this.transition
                             }
                         }, this.$slots.default);
                     },
                     genBody: function genBody() {
-                        return this.$createElement("div", {
-                            staticClass: "v-picker__body",
-                            "class": this.themeClasses,
+                        return this.$createElement('div', {
+                            staticClass: 'v-picker__body',
+                            'class': this.themeClasses,
                             style: this.fullWidth ? undefined : {
                                 width: Object(_util_helpers__WEBPACK_IMPORTED_MODULE_4__["convertToUnit"])(this.width)
                             }
@@ -10310,17 +10310,17 @@
                         ]);
                     },
                     genActions: function genActions() {
-                        return this.$createElement("div", {
-                            staticClass: "v-picker__actions v-card__actions"
+                        return this.$createElement('div', {
+                            staticClass: 'v-picker__actions v-card__actions'
                         }, this.$slots.actions);
                     }
                 },
                 render: function render(h) {
-                    return h("div", {
-                        staticClass: "v-picker v-card",
-                        "class": __assign({
-                            "v-picker--landscape": this.landscape,
-                            "v-picker--full-width": this.fullWidth
+                    return h('div', {
+                        staticClass: 'v-picker v-card',
+                        'class': __assign({
+                            'v-picker--landscape': this.landscape,
+                            'v-picker--full-width': this.fullWidth
                         }, this.themeClasses)
                     }, [
                         this.$slots.title ? this.genTitle() : null,
@@ -10352,7 +10352,7 @@
             /* harmony import */ var _util_mixins__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../util/mixins */ "./src/util/mixins.ts");
             // Mixins
             /* @vue/component */ /* harmony default export */ __webpack_exports__["default"] = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_2__["default"])(_mixins_colorable__WEBPACK_IMPORTED_MODULE_1__["default"]).extend({
-                name: "v-progress-circular",
+                name: 'v-progress-circular',
                 props: {
                     button: Boolean,
                     indeterminate: Boolean,
@@ -10394,8 +10394,8 @@
                     },
                     classes: function classes() {
                         return {
-                            "v-progress-circular--indeterminate": this.indeterminate,
-                            "v-progress-circular--button": this.button
+                            'v-progress-circular--indeterminate': this.indeterminate,
+                            'v-progress-circular--button': this.button
                         };
                     },
                     normalizedValue: function normalizedValue() {
@@ -10410,7 +10410,7 @@
                         return Math.round(this.circumference * 1000) / 1000;
                     },
                     strokeDashOffset: function strokeDashOffset() {
-                        return (100 - this.normalizedValue) / 100 * this.circumference + "px";
+                        return (100 - this.normalizedValue) / 100 * this.circumference + 'px';
                     },
                     strokeWidth: function strokeWidth() {
                         return Number(this.width) / +this.size * this.viewBoxSize * 2;
@@ -10432,45 +10432,45 @@
                 },
                 methods: {
                     genCircle: function genCircle(h, name, offset) {
-                        return h("circle", {
+                        return h('circle', {
                             class: "v-progress-circular__" + name,
                             attrs: {
-                                fill: "transparent",
+                                fill: 'transparent',
                                 cx: 2 * this.viewBoxSize,
                                 cy: 2 * this.viewBoxSize,
                                 r: this.radius,
-                                "stroke-width": this.strokeWidth,
-                                "stroke-dasharray": this.strokeDashArray,
-                                "stroke-dashoffset": offset
+                                'stroke-width': this.strokeWidth,
+                                'stroke-dasharray': this.strokeDashArray,
+                                'stroke-dashoffset': offset
                             }
                         });
                     },
                     genSvg: function genSvg(h) {
                         var children = [
-                            this.indeterminate || this.genCircle(h, "underlay", 0),
-                            this.genCircle(h, "overlay", this.strokeDashOffset)
+                            this.indeterminate || this.genCircle(h, 'underlay', 0),
+                            this.genCircle(h, 'overlay', this.strokeDashOffset)
                         ];
-                        return h("svg", {
+                        return h('svg', {
                             style: this.svgStyles,
                             attrs: {
-                                xmlns: "http://www.w3.org/2000/svg",
+                                xmlns: 'http://www.w3.org/2000/svg',
                                 viewBox: this.viewBoxSize + " " + this.viewBoxSize + " " + 2 * this.viewBoxSize + " " + 2 * this.viewBoxSize
                             }
                         }, children);
                     }
                 },
                 render: function render(h) {
-                    var info = h("div", {
-                        staticClass: "v-progress-circular__info"
+                    var info = h('div', {
+                        staticClass: 'v-progress-circular__info'
                     }, this.$slots.default);
                     var svg = this.genSvg(h);
-                    return h("div", this.setTextColor(this.color, {
-                        staticClass: "v-progress-circular",
+                    return h('div', this.setTextColor(this.color, {
+                        staticClass: 'v-progress-circular',
                         attrs: {
-                            "role": "progressbar",
-                            "aria-valuemin": 0,
-                            "aria-valuemax": 100,
-                            "aria-valuenow": this.indeterminate ? undefined : this.normalizedValue
+                            'role': 'progressbar',
+                            'aria-valuemin': 0,
+                            'aria-valuemax': 100,
+                            'aria-valuenow': this.indeterminate ? undefined : this.normalizedValue
                         },
                         class: this.classes,
                         style: this.styles,
@@ -10507,7 +10507,7 @@
             // Mixins
             // Helpers
             /* @vue/component */ /* harmony default export */ __webpack_exports__["default"] = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_3__["default"])(_mixins_colorable__WEBPACK_IMPORTED_MODULE_1__["default"]).extend({
-                name: "v-progress-linear",
+                name: 'v-progress-linear',
                 props: {
                     active: {
                         type: Boolean,
@@ -10533,7 +10533,7 @@
                     },
                     color: {
                         type: String,
-                        default: "primary"
+                        default: 'primary'
                     },
                     height: {
                         type: [
@@ -10584,8 +10584,8 @@
                 },
                 methods: {
                     genDeterminate: function genDeterminate(h) {
-                        return h("div", this.setBackgroundColor(this.color, {
-                            ref: "front",
+                        return h('div', this.setBackgroundColor(this.color, {
+                            ref: 'front',
                             staticClass: "v-progress-linear__bar__determinate",
                             style: {
                                 width: this.effectiveWidth + "%"
@@ -10594,21 +10594,21 @@
                     },
                     genBar: function genBar(h, name) {
                         var _a;
-                        return h("div", this.setBackgroundColor(this.color, {
-                            staticClass: "v-progress-linear__bar__indeterminate",
+                        return h('div', this.setBackgroundColor(this.color, {
+                            staticClass: 'v-progress-linear__bar__indeterminate',
                             class: (_a = {}, _a[name] = true, _a)
                         }));
                     },
                     genIndeterminate: function genIndeterminate(h) {
-                        return h("div", {
-                            ref: "front",
-                            staticClass: "v-progress-linear__bar__indeterminate",
+                        return h('div', {
+                            ref: 'front',
+                            staticClass: 'v-progress-linear__bar__indeterminate',
                             class: {
-                                "v-progress-linear__bar__indeterminate--active": this.active
+                                'v-progress-linear__bar__indeterminate--active': this.active
                             }
                         }, [
-                            this.genBar(h, "long"),
-                            this.genBar(h, "short")
+                            this.genBar(h, 'long'),
+                            this.genBar(h, 'short')
                         ]);
                     }
                 },
@@ -10619,30 +10619,30 @@
                     var slide = h(_transitions__WEBPACK_IMPORTED_MODULE_4__["VSlideXTransition"], this.indeterminate ? [] : [
                         this.genDeterminate(h)
                     ]);
-                    var bar = h("div", {
-                        staticClass: "v-progress-linear__bar",
+                    var bar = h('div', {
+                        staticClass: 'v-progress-linear__bar',
                         style: this.styles
                     }, [
                         fade,
                         slide
                     ]);
-                    var background = h("div", this.setBackgroundColor(this.backgroundColor || this.color, {
-                        staticClass: "v-progress-linear__background",
+                    var background = h('div', this.setBackgroundColor(this.backgroundColor || this.color, {
+                        staticClass: 'v-progress-linear__background',
                         style: this.backgroundStyle
                     }));
-                    var content = this.$slots.default && h("div", {
-                        staticClass: "v-progress-linear__content"
+                    var content = this.$slots.default && h('div', {
+                        staticClass: 'v-progress-linear__content'
                     }, this.$slots.default);
-                    return h("div", {
-                        staticClass: "v-progress-linear",
+                    return h('div', {
+                        staticClass: 'v-progress-linear',
                         attrs: {
-                            "role": "progressbar",
-                            "aria-valuemin": 0,
-                            "aria-valuemax": this.normalizedBufer,
-                            "aria-valuenow": this.indeterminate ? undefined : this.normalizedValue
+                            'role': 'progressbar',
+                            'aria-valuemin': 0,
+                            'aria-valuemax': this.normalizedBufer,
+                            'aria-valuenow': this.indeterminate ? undefined : this.normalizedValue
                         },
                         class: {
-                            "v-progress-linear--query": this.query
+                            'v-progress-linear--query': this.query
                         },
                         style: {
                             height: Object(_util_helpers__WEBPACK_IMPORTED_MODULE_2__["convertToUnit"])(this.height)
@@ -10718,28 +10718,28 @@
             // Components
             // Mixins
             /* @vue/component */ /* harmony default export */ __webpack_exports__["default"] = {
-                name: "v-radio",
+                name: 'v-radio',
                 mixins: [
                     _mixins_colorable__WEBPACK_IMPORTED_MODULE_3__["default"],
                     _mixins_rippleable__WEBPACK_IMPORTED_MODULE_4__["default"],
-                    Object(_mixins_registrable__WEBPACK_IMPORTED_MODULE_7__["inject"])("radio", "v-radio", "v-radio-group"),
+                    Object(_mixins_registrable__WEBPACK_IMPORTED_MODULE_7__["inject"])('radio', 'v-radio', 'v-radio-group'),
                     _mixins_themeable__WEBPACK_IMPORTED_MODULE_5__["default"]
                 ],
                 inheritAttrs: false,
                 props: {
                     color: {
                         type: String,
-                        default: "accent"
+                        default: 'accent'
                     },
                     disabled: Boolean,
                     label: String,
                     onIcon: {
                         type: String,
-                        default: "$vuetify.icons.radioOn"
+                        default: '$vuetify.icons.radioOn'
                     },
                     offIcon: {
                         type: String,
-                        default: "$vuetify.icons.radioOff"
+                        default: '$vuetify.icons.radioOff'
                     },
                     readonly: Boolean,
                     value: null
@@ -10754,10 +10754,10 @@
                 computed: {
                     computedData: function computedData() {
                         return this.setTextColor(!this.parentError && this.isActive && this.color, {
-                            staticClass: "v-radio",
-                            "class": __assign({
-                                "v-radio--is-disabled": this.isDisabled,
-                                "v-radio--is-focused": this.isFocused
+                            staticClass: 'v-radio',
+                            'class': __assign({
+                                'v-radio--is-disabled': this.isDisabled,
+                                'v-radio--is-focused': this.isFocused
                             }, this.themeClasses)
                         });
                     },
@@ -10804,7 +10804,7 @@
                                 for: this.id
                             },
                             props: {
-                                color: this.radio.validationState || "",
+                                color: this.radio.validationState || '',
                                 dark: this.dark,
                                 focused: this.hasState,
                                 light: this.light
@@ -10812,11 +10812,11 @@
                         }, this.$slots.label || this.label);
                     },
                     genRadio: function genRadio() {
-                        return this.$createElement("div", {
-                            staticClass: "v-input--selection-controls__input"
+                        return this.$createElement('div', {
+                            staticClass: 'v-input--selection-controls__input'
                         }, [
-                            this.genInput("radio", __assign({
-                                name: this.radio.name || (this.radio._uid ? "v-radio-" + this.radio._uid : false),
+                            this.genInput('radio', __assign({
+                                name: this.radio.name || (this.radio._uid ? 'v-radio-' + this.radio._uid : false),
                                 value: this.value
                             }, this.$attrs)),
                             this.genRipple(this.setTextColor(this.computedColor)),
@@ -10830,20 +10830,20 @@
                     },
                     onFocus: function onFocus(e) {
                         this.isFocused = true;
-                        this.$emit("focus", e);
+                        this.$emit('focus', e);
                     },
                     onBlur: function onBlur(e) {
                         this.isFocused = false;
-                        this.$emit("blur", e);
+                        this.$emit('blur', e);
                     },
                     onChange: function onChange() {
                         if (this.isDisabled || this.isReadonly) return;
-                        if (!this.isDisabled && (!this.isActive || !this.radio.mandatory)) this.$emit("change", this.value);
+                        if (!this.isDisabled && (!this.isActive || !this.radio.mandatory)) this.$emit('change', this.value);
                     },
                     onKeydown: function onKeydown() {}
                 },
                 render: function render(h) {
-                    return h("div", this.computedData, [
+                    return h('div', this.computedData, [
                         this.genRadio(),
                         this.genLabel()
                     ]);
@@ -10866,14 +10866,14 @@
             // Components
             // Mixins
             /* @vue/component */ /* harmony default export */ __webpack_exports__["default"] = _VInput__WEBPACK_IMPORTED_MODULE_2__["default"].extend({
-                name: "v-radio-group",
+                name: 'v-radio-group',
                 mixins: [
                     _mixins_comparable__WEBPACK_IMPORTED_MODULE_3__["default"],
-                    Object(_mixins_registrable__WEBPACK_IMPORTED_MODULE_4__["provide"])("radio")
+                    Object(_mixins_registrable__WEBPACK_IMPORTED_MODULE_4__["provide"])('radio')
                 ],
                 model: {
-                    prop: "value",
-                    event: "change"
+                    prop: 'value',
+                    event: 'change'
                 },
                 provide: function provide() {
                     return {
@@ -10890,7 +10890,7 @@
                             Number,
                             String
                         ],
-                        default: "auto"
+                        default: 'auto'
                     },
                     mandatory: {
                         type: Boolean,
@@ -10914,15 +10914,15 @@
                 computed: {
                     classes: function classes() {
                         return {
-                            "v-input--selection-controls v-input--radio-group": true,
-                            "v-input--radio-group--column": this.column && !this.row,
-                            "v-input--radio-group--row": this.row
+                            'v-input--selection-controls v-input--radio-group': true,
+                            'v-input--radio-group--column': this.column && !this.row,
+                            'v-input--radio-group--row': this.row
                         };
                     }
                 },
                 watch: {
-                    hasError: "setErrorState",
-                    internalValue: "setActiveRadio"
+                    hasError: 'setErrorState',
+                    internalValue: 'setActiveRadio'
                 },
                 mounted: function mounted() {
                     this.setErrorState(this.hasError);
@@ -10930,10 +10930,10 @@
                 },
                 methods: {
                     genDefaultSlot: function genDefaultSlot() {
-                        return this.$createElement("div", {
-                            staticClass: "v-input--radio-group__input",
+                        return this.$createElement('div', {
+                            staticClass: 'v-input--radio-group__input',
                             attrs: {
-                                role: "radiogroup"
+                                role: 'radiogroup'
                             }
                         }, _VInput__WEBPACK_IMPORTED_MODULE_2__["default"].options.methods.genDefaultSlot.call(this));
                     },
@@ -10945,15 +10945,15 @@
                         this.$nextTick(this.validate);
                     },
                     onRadioBlur: function onRadioBlur(e) {
-                        if (!e.relatedTarget || !e.relatedTarget.classList.contains("v-radio")) {
+                        if (!e.relatedTarget || !e.relatedTarget.classList.contains('v-radio')) {
                             this.hasInput = true;
-                            this.$emit("blur", e);
+                            this.$emit('blur', e);
                         }
                     },
                     register: function register(radio) {
                         radio.isActive = this.valueComparator(this.internalValue, radio.value);
-                        radio.$on("change", this.onRadioChange);
-                        radio.$on("blur", this.onRadioBlur);
+                        radio.$on('change', this.onRadioChange);
+                        radio.$on('blur', this.onRadioBlur);
                         this.radios.push(radio);
                     },
                     setErrorState: function setErrorState(val) {
@@ -10966,8 +10966,8 @@
                         }
                     },
                     unregister: function unregister(radio) {
-                        radio.$off("change", this.onRadioChange);
-                        radio.$off("blur", this.onRadioBlur);
+                        radio.$off('change', this.onRadioChange);
+                        radio.$off('blur', this.onRadioBlur);
                         var index = this.radios.findIndex(function(r) {
                             return r === radio;
                         });
@@ -11008,7 +11008,7 @@
             // Styles
             // Extensions
             /* @vue/component */ /* harmony default export */ __webpack_exports__["default"] = {
-                name: "v-range-slider",
+                name: 'v-range-slider',
                 extends: _VSlider__WEBPACK_IMPORTED_MODULE_1__["default"],
                 props: {
                     value: {
@@ -11030,7 +11030,7 @@
                 computed: {
                     classes: function classes() {
                         return Object.assign({}, {
-                            "v-input--range-slider": true
+                            'v-input--range-slider': true
                         }, _VSlider__WEBPACK_IMPORTED_MODULE_1__["default"].options.computed.classes.call(this));
                     },
                     internalValue: {
@@ -11055,7 +11055,7 @@
                                 ];
                             }
                             this.lazyValue = value;
-                            if (!Object(_util_helpers__WEBPACK_IMPORTED_MODULE_2__["deepEqual"])(value, this.value)) this.$emit("input", value);
+                            if (!Object(_util_helpers__WEBPACK_IMPORTED_MODULE_2__["deepEqual"])(value, this.value)) this.$emit('input', value);
                             this.validate();
                         }
                     },
@@ -11075,7 +11075,7 @@
                         var styles = _VSlider__WEBPACK_IMPORTED_MODULE_1__["default"].options.computed.trackFillStyles.call(this);
                         var fillPercent = Math.abs(this.inputWidth[0] - this.inputWidth[1]);
                         styles.width = "calc(" + fillPercent + "% - " + this.trackPadding + "px)";
-                        styles[this.$vuetify.rtl ? "right" : "left"] = this.inputWidth[0] + "%";
+                        styles[this.$vuetify.rtl ? 'right' : 'left'] = this.inputWidth[0] + "%";
                         return styles;
                     },
                     trackPadding: function trackPadding() {
@@ -11123,7 +11123,7 @@
                         if (!this.isActive) {
                             this.isFocused = true;
                             this.onMouseMove(e, true);
-                            this.$emit("change", this.internalValue);
+                            this.$emit('change', this.internalValue);
                         }
                     },
                     onMouseMove: function onMouseMove(e, trackClick) {
@@ -11180,28 +11180,28 @@
             // Mixins
             // Utilities
             /* @vue/component */ /* harmony default export */ __webpack_exports__["default"] = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_8__["default"])(_mixins_colorable__WEBPACK_IMPORTED_MODULE_2__["default"], _mixins_delayable__WEBPACK_IMPORTED_MODULE_3__["default"], _mixins_rippleable__WEBPACK_IMPORTED_MODULE_5__["default"], _mixins_sizeable__WEBPACK_IMPORTED_MODULE_4__["default"], _mixins_themeable__WEBPACK_IMPORTED_MODULE_6__["default"]).extend({
-                name: "v-rating",
+                name: 'v-rating',
                 props: {
                     backgroundColor: {
                         type: String,
-                        default: "accent"
+                        default: 'accent'
                     },
                     color: {
                         type: String,
-                        default: "primary"
+                        default: 'primary'
                     },
                     dense: Boolean,
                     emptyIcon: {
                         type: String,
-                        default: "$vuetify.icons.ratingEmpty"
+                        default: '$vuetify.icons.ratingEmpty'
                     },
                     fullIcon: {
                         type: String,
-                        default: "$vuetify.icons.ratingFull"
+                        default: '$vuetify.icons.ratingFull'
                     },
                     halfIcon: {
                         type: String,
-                        default: "$vuetify.icons.ratingHalf"
+                        default: '$vuetify.icons.ratingHalf'
                     },
                     halfIncrements: Boolean,
                     length: {
@@ -11230,7 +11230,7 @@
                         if (this.readonly || !this.ripple) return [];
                         return [
                             {
-                                name: "ripple",
+                                name: 'ripple',
                                 value: {
                                     circle: true
                                 }
@@ -11255,7 +11255,7 @@
                 },
                 watch: {
                     internalValue: function internalValue(val) {
-                        val !== this.value && this.$emit("input", val);
+                        val !== this.value && this.$emit('input', val);
                     },
                     value: function value(val) {
                         this.internalValue = val;
@@ -11310,13 +11310,13 @@
                     },
                     onMouseEnter: function onMouseEnter(e, i) {
                         var _this = this;
-                        this.runDelay("open", function() {
+                        this.runDelay('open', function() {
                             _this.hoverIndex = _this.genHoverIndex(e, i);
                         });
                     },
                     onMouseLeave: function onMouseLeave() {
                         var _this = this;
-                        this.runDelay("close", function() {
+                        this.runDelay('close', function() {
                             return _this.hoverIndex = -1;
                         });
                     },
@@ -11350,11 +11350,11 @@
                     var children = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_7__["createRange"])(Number(this.length)).map(function(i) {
                         return _this.genItem(i);
                     });
-                    return h("div", {
-                        staticClass: "v-rating",
+                    return h('div', {
+                        staticClass: 'v-rating',
                         class: {
-                            "v-rating--readonly": this.readonly,
-                            "v-rating--dense": this.dense
+                            'v-rating--readonly': this.readonly,
+                            'v-rating--dense': this.dense
                         }
                     }, children);
                 }
@@ -11383,7 +11383,7 @@
             // Mixins
             // Utils
             /* @vue/component */ /* harmony default export */ __webpack_exports__["default"] = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_2__["default"])(_mixins_measurable__WEBPACK_IMPORTED_MODULE_1__["default"]).extend({
-                name: "v-responsive",
+                name: 'v-responsive',
                 props: {
                     aspectRatio: [
                         String,
@@ -11396,27 +11396,27 @@
                     },
                     aspectStyle: function aspectStyle() {
                         return this.computedAspectRatio ? {
-                            paddingBottom: 1 / this.computedAspectRatio * 100 + "%"
+                            paddingBottom: 1 / this.computedAspectRatio * 100 + '%'
                         } : undefined;
                     },
                     __cachedSizer: function __cachedSizer() {
                         if (!this.aspectStyle) return [];
-                        return this.$createElement("div", {
+                        return this.$createElement('div', {
                             style: this.aspectStyle,
-                            staticClass: "v-responsive__sizer"
+                            staticClass: 'v-responsive__sizer'
                         });
                     }
                 },
                 methods: {
                     genContent: function genContent() {
-                        return this.$createElement("div", {
-                            staticClass: "v-responsive__content"
+                        return this.$createElement('div', {
+                            staticClass: 'v-responsive__content'
                         }, this.$slots.default);
                     }
                 },
                 render: function render(h) {
-                    return h("div", {
-                        staticClass: "v-responsive",
+                    return h('div', {
+                        staticClass: 'v-responsive',
                         style: this.measurableStyles,
                         on: this.$listeners
                     }, [
@@ -11494,7 +11494,7 @@
                 maxHeight: 300
             };
             /* @vue/component */ /* harmony default export */ __webpack_exports__["default"] = _VTextField_VTextField__WEBPACK_IMPORTED_MODULE_5__["default"].extend({
-                name: "v-select",
+                name: 'v-select',
                 directives: {
                     ClickOutside: _directives_click_outside__WEBPACK_IMPORTED_MODULE_8__["default"]
                 },
@@ -11505,7 +11505,7 @@
                 props: {
                     appendIcon: {
                         type: String,
-                        default: "$vuetify.icons.dropdown"
+                        default: '$vuetify.icons.dropdown'
                     },
                     appendIconCb: Function,
                     attach: {
@@ -11514,7 +11514,7 @@
                     },
                     browserAutocomplete: {
                         type: String,
-                        default: "on"
+                        default: 'on'
                     },
                     cacheItems: Boolean,
                     chips: Boolean,
@@ -11534,7 +11534,7 @@
                             Array,
                             Function
                         ],
-                        default: "avatar"
+                        default: 'avatar'
                     },
                     itemDisabled: {
                         type: [
@@ -11542,7 +11542,7 @@
                             Array,
                             Function
                         ],
-                        default: "disabled"
+                        default: 'disabled'
                     },
                     itemText: {
                         type: [
@@ -11550,7 +11550,7 @@
                             Array,
                             Function
                         ],
-                        default: "text"
+                        default: 'text'
                     },
                     itemValue: {
                         type: [
@@ -11558,7 +11558,7 @@
                             Array,
                             Function
                         ],
-                        default: "value"
+                        default: 'value'
                     },
                     menuProps: {
                         type: [
@@ -11581,7 +11581,7 @@
                 data: function data(vm) {
                     return {
                         attrsInput: {
-                            role: "combobox"
+                            role: 'combobox'
                         },
                         cachedItems: vm.cacheItems ? vm.items : [],
                         content: null,
@@ -11594,7 +11594,7 @@
                         lazyValue: vm.value !== undefined ? vm.value : vm.multiple ? [] : undefined,
                         selectedIndex: -1,
                         selectedItems: [],
-                        keyboardLookupPrefix: "",
+                        keyboardLookupPrefix: '',
                         keyboardLookupLastTime: 0
                     };
                 },
@@ -11604,22 +11604,22 @@
                     },
                     classes: function classes() {
                         return Object.assign({}, _VTextField_VTextField__WEBPACK_IMPORTED_MODULE_5__["default"].options.computed.classes.call(this), {
-                            "v-select": true,
-                            "v-select--chips": this.hasChips,
-                            "v-select--chips--small": this.smallChips,
-                            "v-select--is-menu-active": this.isMenuActive
+                            'v-select': true,
+                            'v-select--chips': this.hasChips,
+                            'v-select--chips--small': this.smallChips,
+                            'v-select--is-menu-active': this.isMenuActive
                         });
                     },
                     /* Used by other components to overwrite */ computedItems: function computedItems() {
                         return this.allItems;
                     },
                     counterValue: function counterValue() {
-                        return this.multiple ? this.selectedItems.length : (this.getText(this.selectedItems[0]) || "").toString().length;
+                        return this.multiple ? this.selectedItems.length : (this.getText(this.selectedItems[0]) || '').toString().length;
                     },
                     directives: function directives() {
                         return this.isFocused ? [
                             {
-                                name: "click-outside",
+                                name: 'click-outside',
                                 value: this.blur,
                                 args: {
                                     closeConditional: this.closeConditional
@@ -11628,7 +11628,7 @@
                         ] : undefined;
                     },
                     dynamicHeight: function dynamicHeight() {
-                        return "auto";
+                        return 'auto';
                     },
                     hasChips: function hasChips() {
                         return this.chips || this.smallChips;
@@ -11666,7 +11666,7 @@
                         };
                     },
                     staticList: function staticList() {
-                        if (this.$slots["no-data"] || this.$slots["prepend-item"] || this.$slots["append-item"]) Object(_util_console__WEBPACK_IMPORTED_MODULE_10__["consoleError"])("assert: staticList should not be called if slots are used");
+                        if (this.$slots['no-data'] || this.$slots['prepend-item'] || this.$slots['append-item']) Object(_util_console__WEBPACK_IMPORTED_MODULE_10__["consoleError"])('assert: staticList should not be called if slots are used');
                         return this.$createElement(_VSelectList__WEBPACK_IMPORTED_MODULE_4__["default"], this.listData);
                     },
                     virtualizedItems: function virtualizedItems() {
@@ -11677,7 +11677,7 @@
                     },
                     $_menuProps: function $_menuProps() {
                         var normalisedProps;
-                        normalisedProps = typeof this.menuProps === "string" ? this.menuProps.split(",") : this.menuProps;
+                        normalisedProps = typeof this.menuProps === 'string' ? this.menuProps.split(',') : this.menuProps;
                         if (Array.isArray(normalisedProps)) normalisedProps = normalisedProps.reduce(function(acc, p) {
                             acc[p.trim()] = true;
                             return acc;
@@ -11696,7 +11696,7 @@
                     isBooted: function isBooted() {
                         var _this = this;
                         this.$nextTick(function() {
-                            if (_this.content && _this.content.addEventListener) _this.content.addEventListener("scroll", _this.onScroll, false);
+                            if (_this.content && _this.content.addEventListener) _this.content.addEventListener('scroll', _this.onScroll, false);
                         });
                     },
                     isMenuActive: function isMenuActive(val) {
@@ -11758,7 +11758,7 @@
                         var _this = this;
                         var isDisabled = this.disabled || this.readonly || this.getDisabled(item);
                         return this.$createElement(_VChip__WEBPACK_IMPORTED_MODULE_2__["default"], {
-                            staticClass: "v-chip--select-multi",
+                            staticClass: 'v-chip--select-multi',
                             attrs: {
                                 tabindex: -1
                             },
@@ -11787,13 +11787,13 @@
                         var key = JSON.stringify(this.getValue(item));
                         var color = index === this.selectedIndex && this.color;
                         var isDisabled = this.disabled || this.getDisabled(item);
-                        return this.$createElement("div", this.setTextColor(color, {
-                            staticClass: "v-select__selection v-select__selection--comma",
-                            "class": {
-                                "v-select__selection--disabled": isDisabled
+                        return this.$createElement('div', this.setTextColor(color, {
+                            staticClass: 'v-select__selection v-select__selection--comma',
+                            'class': {
+                                'v-select__selection--disabled': isDisabled
                             },
                             key: key
-                        }), "" + this.getText(item) + (last ? "" : ", "));
+                        }), "" + this.getText(item) + (last ? '' : ', '));
                     },
                     genDefaultSlot: function genDefaultSlot() {
                         var selections = this.genSelections();
@@ -11806,14 +11806,14 @@
                             selections.children.push(input);
                         }
                         return [
-                            this.$createElement("div", {
-                                staticClass: "v-select__slot",
+                            this.$createElement('div', {
+                                staticClass: 'v-select__slot',
                                 directives: this.directives
                             }, [
                                 this.genLabel(),
-                                this.prefix ? this.genAffix("prefix") : null,
+                                this.prefix ? this.genAffix('prefix') : null,
                                 selections,
-                                this.suffix ? this.genAffix("suffix") : null,
+                                this.suffix ? this.genAffix('suffix') : null,
                                 this.genClearIcon(),
                                 this.genIconSlot()
                             ]),
@@ -11825,25 +11825,25 @@
                         var input = _VTextField_VTextField__WEBPACK_IMPORTED_MODULE_5__["default"].options.methods.genInput.call(this);
                         input.data.domProps.value = null;
                         input.data.attrs.readonly = true;
-                        input.data.attrs["aria-readonly"] = String(this.readonly);
+                        input.data.attrs['aria-readonly'] = String(this.readonly);
                         input.data.on.keypress = this.onKeyPress;
                         return input;
                     },
                     genList: function genList() {
                         // If there's no slots, we can use a cached VNode to improve performance
-                        if (this.$slots["no-data"] || this.$slots["prepend-item"] || this.$slots["append-item"]) return this.genListWithSlot();
+                        if (this.$slots['no-data'] || this.$slots['prepend-item'] || this.$slots['append-item']) return this.genListWithSlot();
                         else return this.staticList;
                     },
                     genListWithSlot: function genListWithSlot() {
                         var _this = this;
                         var slots = [
-                            "prepend-item",
-                            "no-data",
-                            "append-item"
+                            'prepend-item',
+                            'no-data',
+                            'append-item'
                         ].filter(function(slotName) {
                             return _this.$slots[slotName];
                         }).map(function(slotName) {
-                            return _this.$createElement("template", {
+                            return _this.$createElement('template', {
                                 slot: slotName
                             }, _this.$slots[slotName]);
                         });
@@ -11856,7 +11856,7 @@
                         var _this = this;
                         var e_1, _a;
                         var props = this.$_menuProps;
-                        props.activator = this.$refs["input-slot"];
+                        props.activator = this.$refs['input-slot'];
                         // Deprecate using menu props directly
                         // TODO: remove (2.0)
                         var inheritedProps = Object.keys(_VMenu__WEBPACK_IMPORTED_MODULE_3__["default"].options.props);
@@ -11888,23 +11888,23 @@
                             }, {});
                             var props_1 = deprecatedProps.map(function(p) {
                                 return "'" + p + "'";
-                            }).join(", ");
-                            var separator = multiple ? "\n" : "'";
+                            }).join(', ');
+                            var separator = multiple ? '\n' : '\'';
                             var onlyBools = Object.keys(replacement_1).every(function(prop) {
                                 var propType = _VMenu__WEBPACK_IMPORTED_MODULE_3__["default"].options.props[prop];
                                 var value = replacement_1[prop];
-                                return value === true || (propType.type || propType) === Boolean && value === "";
+                                return value === true || (propType.type || propType) === Boolean && value === '';
                             });
-                            if (onlyBools) replacement_1 = Object.keys(replacement_1).join(", ");
-                            else replacement_1 = JSON.stringify(replacement_1, null, multiple ? 2 : 0).replace(/"([^(")"]+)":/g, "$1:").replace(/"/g, "'");
-                            Object(_util_console__WEBPACK_IMPORTED_MODULE_10__["consoleWarn"])(props_1 + " " + (multiple ? "are" : "is") + " deprecated, use " + ("" + separator + (onlyBools ? "" : ":") + 'menu-props="' + replacement_1 + '"' + separator + " instead"), this);
+                            if (onlyBools) replacement_1 = Object.keys(replacement_1).join(', ');
+                            else replacement_1 = JSON.stringify(replacement_1, null, multiple ? 2 : 0).replace(/"([^(")"]+)":/g, '$1:').replace(/"/g, '\'');
+                            Object(_util_console__WEBPACK_IMPORTED_MODULE_10__["consoleWarn"])(props_1 + " " + (multiple ? 'are' : 'is') + " deprecated, use " + ("" + separator + (onlyBools ? '' : ':') + "menu-props=\"" + replacement_1 + "\"" + separator + " instead"), this);
                         }
                         // Attach to root el so that
                         // menu covers prepend/append icons
                         if (// TODO: make this a computed property or helper or something
-                        this.attach === "" || // If used as a boolean prop (<v-menu attach>)
+                        this.attach === '' || // If used as a boolean prop (<v-menu attach>)
                         this.attach === true || // If bound to a boolean (<v-menu :attach="true">)
-                        this.attach === "attach" // If bound as boolean prop in pug (v-menu(attach))
+                        this.attach === 'attach' // If bound as boolean prop in pug (v-menu(attach))
                         ) props.attach = this.$el;
                         else props.attach = this.attach;
                         return this.$createElement(_VMenu__WEBPACK_IMPORTED_MODULE_3__["default"], {
@@ -11915,7 +11915,7 @@
                                     _this.isFocused = val;
                                 }
                             },
-                            ref: "menu"
+                            ref: 'menu'
                         }, [
                             this.genList()
                         ]);
@@ -11928,8 +11928,8 @@
                         else if (this.hasChips) genSelection = this.genChipSelection;
                         else genSelection = this.genCommaSelection;
                         while(length--)children[length] = genSelection(this.selectedItems[length], length, length === children.length - 1);
-                        return this.$createElement("div", {
-                            staticClass: "v-select__selections"
+                        return this.$createElement('div', {
+                            staticClass: 'v-select__selections'
                         }, children);
                     },
                     genSlotSelection: function genSlotSelection(item, index) {
@@ -11954,7 +11954,7 @@
                         return Object(_util_helpers__WEBPACK_IMPORTED_MODULE_9__["getPropertyFromItem"])(item, this.itemValue, this.getText(item));
                     },
                     onBlur: function onBlur(e) {
-                        e && this.$emit("blur", e);
+                        e && this.$emit('blur', e);
                     },
                     onChipInput: function onChipInput(item) {
                         if (this.multiple) this.selectItem(item);
@@ -11970,7 +11970,7 @@
                         this.isMenuActive = true;
                         if (!this.isFocused) {
                             this.isFocused = true;
-                            this.$emit("focus");
+                            this.$emit('focus');
                         }
                     },
                     onEnterDown: function onEnterDown() {
@@ -11988,11 +11988,11 @@
                         if (this.multiple) return;
                         var KEYBOARD_LOOKUP_THRESHOLD = 1000; // milliseconds
                         var now = performance.now();
-                        if (now - this.keyboardLookupLastTime > KEYBOARD_LOOKUP_THRESHOLD) this.keyboardLookupPrefix = "";
+                        if (now - this.keyboardLookupLastTime > KEYBOARD_LOOKUP_THRESHOLD) this.keyboardLookupPrefix = '';
                         this.keyboardLookupPrefix += e.key.toLowerCase();
                         this.keyboardLookupLastTime = now;
                         var index = this.allItems.findIndex(function(item) {
-                            var text = (_this.getText(item) || "").toString();
+                            var text = (_this.getText(item) || '').toString();
                             return text.toLowerCase().startsWith(_this.keyboardLookupPrefix);
                         });
                         var item = this.allItems[index];
@@ -12023,7 +12023,7 @@
                     onMouseUp: function onMouseUp(e) {
                         var _this = this;
                         if (this.hasMouseDown) {
-                            var appendInner = this.$refs["append-inner"];
+                            var appendInner = this.$refs['append-inner'];
                             // If append inner is present
                             // and the target is itself
                             // or inside, toggle menu
@@ -12050,7 +12050,7 @@
                         var listTile = this.$refs.menu.tiles[menuIndex];
                         // An item that is selected by
                         // menu-index should toggled
-                        if (listTile && listTile.className.indexOf("v-list__tile--highlighted") > -1 && this.isMenuActive && menuIndex > -1) {
+                        if (listTile && listTile.className.indexOf('v-list__tile--highlighted') > -1 && this.isMenuActive && menuIndex > -1) {
                             e.preventDefault();
                             e.stopPropagation();
                             listTile.click();
@@ -12117,7 +12117,7 @@
                     setValue: function setValue(value) {
                         var oldValue = this.internalValue;
                         this.internalValue = value;
-                        value !== oldValue && this.$emit("change", value);
+                        value !== oldValue && this.$emit('change', value);
                     }
                 }
             });
@@ -12153,7 +12153,7 @@
             // Mixins
             // Helpers
             /* @vue/component */ /* harmony default export */ __webpack_exports__["default"] = {
-                name: "v-select-list",
+                name: 'v-select-list',
                 mixins: [
                     _mixins_colorable__WEBPACK_IMPORTED_MODULE_5__["default"],
                     _mixins_themeable__WEBPACK_IMPORTED_MODULE_6__["default"]
@@ -12174,7 +12174,7 @@
                             Array,
                             Function
                         ],
-                        default: "avatar"
+                        default: 'avatar'
                     },
                     itemDisabled: {
                         type: [
@@ -12182,7 +12182,7 @@
                             Array,
                             Function
                         ],
-                        default: "disabled"
+                        default: 'disabled'
                     },
                     itemText: {
                         type: [
@@ -12190,7 +12190,7 @@
                             Array,
                             Function
                         ],
-                        default: "text"
+                        default: 'text'
                     },
                     itemValue: {
                         type: [
@@ -12198,7 +12198,7 @@
                             Array,
                             Function
                         ],
-                        default: "value"
+                        default: 'value'
                     },
                     noDataText: String,
                     noFilter: Boolean,
@@ -12220,7 +12220,7 @@
                         });
                     },
                     tileActiveClass: function tileActiveClass() {
-                        return Object.keys(this.setTextColor(this.color).class || {}).join(" ");
+                        return Object.keys(this.setTextColor(this.color).class || {}).join(' ');
                     },
                     staticNoDataTile: function staticNoDataTile() {
                         var tile = {
@@ -12242,7 +12242,7 @@
                             on: {
                                 click: function click(e) {
                                     e.stopPropagation();
-                                    _this.$emit("select", item);
+                                    _this.$emit('select', item);
                                 }
                             }
                         };
@@ -12261,7 +12261,7 @@
                         });
                     },
                     genFilteredText: function genFilteredText(text) {
-                        text = (text || "").toString();
+                        text = (text || '').toString();
                         if (!this.searchInput || this.noFilter) return Object(_util_helpers__WEBPACK_IMPORTED_MODULE_7__["escapeHTML"])(text);
                         var _a = this.getMaskedCharacters(text), start = _a.start, middle = _a.middle, end = _a.end;
                         return "" + Object(_util_helpers__WEBPACK_IMPORTED_MODULE_7__["escapeHTML"])(start) + this.genHighlight(middle) + Object(_util_helpers__WEBPACK_IMPORTED_MODULE_7__["escapeHTML"])(end);
@@ -12272,15 +12272,15 @@
                         }, props.header);
                     },
                     genHighlight: function genHighlight(text) {
-                        return '<span class="v-list__tile__mask">' + Object(_util_helpers__WEBPACK_IMPORTED_MODULE_7__["escapeHTML"])(text) + "</span>";
+                        return "<span class=\"v-list__tile__mask\">" + Object(_util_helpers__WEBPACK_IMPORTED_MODULE_7__["escapeHTML"])(text) + "</span>";
                     },
                     getMaskedCharacters: function getMaskedCharacters(text) {
-                        var searchInput = (this.searchInput || "").toString().toLocaleLowerCase();
+                        var searchInput = (this.searchInput || '').toString().toLocaleLowerCase();
                         var index = text.toLocaleLowerCase().indexOf(searchInput);
                         if (index < 0) return {
-                            start: "",
+                            start: '',
                             middle: text,
-                            end: ""
+                            end: ''
                         };
                         var start = text.slice(0, index);
                         var middle = text.slice(index, index + searchInput.length);
@@ -12307,7 +12307,7 @@
                                     e.preventDefault();
                                 },
                                 click: function click() {
-                                    return disabled || _this.$emit("select", item);
+                                    return disabled || _this.$emit('select', item);
                                 }
                             },
                             props: {
@@ -12345,7 +12345,7 @@
                         return this.parsedItems.indexOf(this.getValue(item)) > -1;
                     },
                     needsTile: function needsTile(slot) {
-                        return slot.length !== 1 || slot[0].componentOptions == null || slot[0].componentOptions.Ctor.options.name !== "v-list-tile";
+                        return slot.length !== 1 || slot[0].componentOptions == null || slot[0].componentOptions.Ctor.options.name !== 'v-list-tile';
                     },
                     getAvatar: function getAvatar(item) {
                         return Boolean(Object(_util_helpers__WEBPACK_IMPORTED_MODULE_7__["getPropertyFromItem"])(item, this.itemAvatar, false));
@@ -12383,12 +12383,12 @@
                             if (e_1) throw e_1.error;
                         }
                     }
-                    children.length || children.push(this.$slots["no-data"] || this.staticNoDataTile);
-                    this.$slots["prepend-item"] && children.unshift(this.$slots["prepend-item"]);
-                    this.$slots["append-item"] && children.push(this.$slots["append-item"]);
-                    return this.$createElement("div", {
-                        staticClass: "v-select-list v-card",
-                        "class": this.themeClasses
+                    children.length || children.push(this.$slots['no-data'] || this.staticNoDataTile);
+                    this.$slots['prepend-item'] && children.unshift(this.$slots['prepend-item']);
+                    this.$slots['append-item'] && children.push(this.$slots['append-item']);
+                    return this.$createElement('div', {
+                        staticClass: 'v-select-list v-card',
+                        'class': this.themeClasses
                     }, [
                         this.$createElement(_VList__WEBPACK_IMPORTED_MODULE_4__["VList"], {
                             props: {
@@ -12432,12 +12432,12 @@
                     var props = _a.props, data = _a.data, slots = _a.slots, parent = _a.parent;
                     Object(_util_dedupeModelListeners__WEBPACK_IMPORTED_MODULE_5__["default"])(data);
                     var children = Object(_util_rebuildFunctionalSlots__WEBPACK_IMPORTED_MODULE_4__["default"])(slots(), h);
-                    if (props.autocomplete) Object(_util_console__WEBPACK_IMPORTED_MODULE_6__["deprecate"])("<v-select autocomplete>", "<v-autocomplete>", wrapper, parent);
-                    if (props.combobox) Object(_util_console__WEBPACK_IMPORTED_MODULE_6__["deprecate"])("<v-select combobox>", "<v-combobox>", wrapper, parent);
-                    if (props.tags) Object(_util_console__WEBPACK_IMPORTED_MODULE_6__["deprecate"])("<v-select tags>", "<v-combobox multiple>", wrapper, parent);
-                    if (props.overflow) Object(_util_console__WEBPACK_IMPORTED_MODULE_6__["deprecate"])("<v-select overflow>", "<v-overflow-btn>", wrapper, parent);
-                    if (props.segmented) Object(_util_console__WEBPACK_IMPORTED_MODULE_6__["deprecate"])("<v-select segmented>", "<v-overflow-btn segmented>", wrapper, parent);
-                    if (props.editable) Object(_util_console__WEBPACK_IMPORTED_MODULE_6__["deprecate"])("<v-select editable>", "<v-overflow-btn editable>", wrapper, parent);
+                    if (props.autocomplete) Object(_util_console__WEBPACK_IMPORTED_MODULE_6__["deprecate"])('<v-select autocomplete>', '<v-autocomplete>', wrapper, parent);
+                    if (props.combobox) Object(_util_console__WEBPACK_IMPORTED_MODULE_6__["deprecate"])('<v-select combobox>', '<v-combobox>', wrapper, parent);
+                    if (props.tags) Object(_util_console__WEBPACK_IMPORTED_MODULE_6__["deprecate"])('<v-select tags>', '<v-combobox multiple>', wrapper, parent);
+                    if (props.overflow) Object(_util_console__WEBPACK_IMPORTED_MODULE_6__["deprecate"])('<v-select overflow>', '<v-overflow-btn>', wrapper, parent);
+                    if (props.segmented) Object(_util_console__WEBPACK_IMPORTED_MODULE_6__["deprecate"])('<v-select segmented>', '<v-overflow-btn segmented>', wrapper, parent);
+                    if (props.editable) Object(_util_console__WEBPACK_IMPORTED_MODULE_6__["deprecate"])('<v-select editable>', '<v-overflow-btn editable>', wrapper, parent);
                     data.attrs = data.attrs || {};
                     if (props.combobox || props.tags) {
                         data.attrs.multiple = props.tags;
@@ -12483,19 +12483,19 @@
             // Mixins
             // Helpers
             /* @vue/component */ /* harmony default export */ __webpack_exports__["default"] = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_5__["default"])(_mixins_colorable__WEBPACK_IMPORTED_MODULE_1__["default"], _mixins_elevatable__WEBPACK_IMPORTED_MODULE_2__["default"], _mixins_measurable__WEBPACK_IMPORTED_MODULE_3__["default"], _mixins_themeable__WEBPACK_IMPORTED_MODULE_4__["default"]).extend({
-                name: "v-sheet",
+                name: 'v-sheet',
                 props: {
                     tag: {
                         type: String,
-                        default: "div"
+                        default: 'div'
                     },
                     tile: Boolean
                 },
                 computed: {
                     classes: function classes() {
                         return __assign({
-                            "v-sheet": true,
-                            "v-sheet--tile": this.tile
+                            'v-sheet': true,
+                            'v-sheet--tile': this.tile
                         }, this.themeClasses, this.elevationClasses);
                     },
                     styles: function styles() {
@@ -12552,7 +12552,7 @@
             // Directives
             // Utilities
             /* @vue/component */ /* harmony default export */ __webpack_exports__["default"] = _VInput__WEBPACK_IMPORTED_MODULE_2__["default"].extend({
-                name: "v-slider",
+                name: 'v-slider',
                 directives: {
                     ClickOutside: _directives_click_outside__WEBPACK_IMPORTED_MODULE_3__["default"]
                 },
@@ -12591,7 +12591,7 @@
                         ],
                         default: false,
                         validator: function validator(v) {
-                            return typeof v === "boolean" || v === "always";
+                            return typeof v === 'boolean' || v === 'always';
                         }
                     },
                     tickLabels: {
@@ -12618,7 +12618,7 @@
                         ],
                         default: null,
                         validator: function validator(v) {
-                            return typeof v === "boolean" || v === "always";
+                            return typeof v === 'boolean' || v === 'always';
                         }
                     },
                     thumbSize: {
@@ -12642,36 +12642,36 @@
                         app: {},
                         isActive: false,
                         keyPressed: 0,
-                        lazyValue: typeof vm.value !== "undefined" ? vm.value : Number(vm.min),
+                        lazyValue: typeof vm.value !== 'undefined' ? vm.value : Number(vm.min),
                         oldValue: null
                     };
                 },
                 computed: {
                     classes: function classes() {
                         return {
-                            "v-input--slider": true,
-                            "v-input--slider--ticks": this.showTicks,
-                            "v-input--slider--inverse-label": this.inverseLabel,
-                            "v-input--slider--ticks-labels": this.tickLabels.length > 0,
-                            "v-input--slider--thumb-label": this.thumbLabel || this.$scopedSlots.thumbLabel
+                            'v-input--slider': true,
+                            'v-input--slider--ticks': this.showTicks,
+                            'v-input--slider--inverse-label': this.inverseLabel,
+                            'v-input--slider--ticks-labels': this.tickLabels.length > 0,
+                            'v-input--slider--thumb-label': this.thumbLabel || this.$scopedSlots.thumbLabel
                         };
                     },
                     showTicks: function showTicks() {
                         return this.tickLabels.length > 0 || !this.disabled && this.stepNumeric && !!this.ticks;
                     },
                     showThumbLabel: function showThumbLabel() {
-                        return !this.disabled && (!!this.thumbLabel || this.thumbLabel === "" || this.$scopedSlots["thumb-label"]);
+                        return !this.disabled && (!!this.thumbLabel || this.thumbLabel === '' || this.$scopedSlots['thumb-label']);
                     },
                     computedColor: function computedColor() {
                         if (this.disabled) return null;
-                        return this.validationState || this.color || "primary";
+                        return this.validationState || this.color || 'primary';
                     },
                     computedTrackColor: function computedTrackColor() {
                         return this.disabled ? null : this.trackColor || null;
                     },
                     computedThumbColor: function computedThumbColor() {
                         if (this.disabled || !this.isDirty) return null;
-                        return this.validationState || this.thumbColor || this.color || "primary";
+                        return this.validationState || this.thumbColor || this.color || 'primary';
                     },
                     internalValue: {
                         get: function get() {
@@ -12685,7 +12685,7 @@
                             var value = this.roundValue(Math.min(Math.max(val, min), max));
                             if (value === this.lazyValue) return;
                             this.lazyValue = value;
-                            this.$emit("input", value);
+                            this.$emit('input', value);
                             this.validate();
                         }
                     },
@@ -12693,8 +12693,8 @@
                         return this.step > 0 ? parseFloat(this.step) : 0;
                     },
                     trackFillStyles: function trackFillStyles() {
-                        var left = this.$vuetify.rtl ? "auto" : 0;
-                        var right = this.$vuetify.rtl ? 0 : "auto";
+                        var left = this.$vuetify.rtl ? 'auto' : 0;
+                        var right = this.$vuetify.rtl ? 0 : 'auto';
                         var width = this.inputWidth + "%";
                         if (this.disabled) width = "calc(" + this.inputWidth + "% - 8px)";
                         return {
@@ -12709,9 +12709,9 @@
                     },
                     trackStyles: function trackStyles() {
                         var trackPadding = this.disabled ? "calc(" + this.inputWidth + "% + 8px)" : this.trackPadding + "px";
-                        var left = this.$vuetify.rtl ? "auto" : trackPadding;
-                        var right = this.$vuetify.rtl ? trackPadding : "auto";
-                        var width = this.disabled ? "calc(" + (100 - this.inputWidth) + "% - 8px)" : "100%";
+                        var left = this.$vuetify.rtl ? 'auto' : trackPadding;
+                        var right = this.$vuetify.rtl ? trackPadding : 'auto';
+                        var width = this.disabled ? "calc(" + (100 - this.inputWidth) + "% - 8px)" : '100%';
                         return {
                             transition: this.trackTransition,
                             left: left,
@@ -12722,13 +12722,13 @@
                     tickStyles: function tickStyles() {
                         var size = Number(this.tickSize);
                         return {
-                            "border-width": size + "px",
-                            "border-radius": size > 1 ? "50%" : null,
+                            'border-width': size + "px",
+                            'border-radius': size > 1 ? '50%' : null,
                             transform: size > 1 ? "translateX(-" + size + "px) translateY(-" + (size - 1) + "px)" : null
                         };
                     },
                     trackTransition: function trackTransition() {
-                        return this.keyPressed >= 2 ? "none" : "";
+                        return this.keyPressed >= 2 ? 'none' : '';
                     },
                     numTicks: function numTicks() {
                         return Math.ceil((this.max - this.min) / this.stepNumeric);
@@ -12742,10 +12742,10 @@
                 },
                 watch: {
                     min: function min(val) {
-                        val > this.internalValue && this.$emit("input", parseFloat(val));
+                        val > this.internalValue && this.$emit('input', parseFloat(val));
                     },
                     max: function max(val) {
-                        val < this.internalValue && this.$emit("input", parseFloat(val));
+                        val < this.internalValue && this.$emit('input', parseFloat(val));
                     },
                     value: function value(val) {
                         this.internalValue = val;
@@ -12753,7 +12753,7 @@
                 },
                 mounted: function mounted() {
                     // Without a v-app, iOS does not work with body selectors
-                    this.app = document.querySelector("[data-app]") || Object(_util_console__WEBPACK_IMPORTED_MODULE_5__["consoleWarn"])("Missing v-app or a non-body wrapping element with the [data-app] attribute", this);
+                    this.app = document.querySelector('[data-app]') || Object(_util_console__WEBPACK_IMPORTED_MODULE_5__["consoleWarn"])('Missing v-app or a non-body wrapping element with the [data-app] attribute', this);
                 },
                 methods: {
                     genDefaultSlot: function genDefaultSlot() {
@@ -12775,32 +12775,32 @@
                         };
                     },
                     genInput: function genInput() {
-                        return this.$createElement("input", {
+                        return this.$createElement('input', {
                             attrs: __assign({
-                                "aria-label": this.label,
+                                'aria-label': this.label,
                                 name: this.name,
-                                role: "slider",
+                                role: 'slider',
                                 tabindex: this.disabled ? -1 : this.$attrs.tabindex,
                                 value: this.internalValue,
                                 readonly: true,
-                                "aria-readonly": String(this.readonly),
-                                "aria-valuemin": this.min,
-                                "aria-valuemax": this.max,
-                                "aria-valuenow": this.internalValue
+                                'aria-readonly': String(this.readonly),
+                                'aria-valuemin': this.min,
+                                'aria-valuemax': this.max,
+                                'aria-valuenow': this.internalValue
                             }, this.$attrs),
                             on: this.genListeners(),
-                            ref: "input"
+                            ref: 'input'
                         });
                     },
                     genSlider: function genSlider() {
-                        return this.$createElement("div", {
-                            staticClass: "v-slider",
-                            "class": {
-                                "v-slider--is-active": this.isActive
+                        return this.$createElement('div', {
+                            staticClass: 'v-slider',
+                            'class': {
+                                'v-slider--is-active': this.isActive
                             },
                             directives: [
                                 {
-                                    name: "click-outside",
+                                    name: 'click-outside',
                                     value: this.onBlur
                                 }
                             ]
@@ -12819,25 +12819,25 @@
                         if (!this.step || !this.showTicks) return null;
                         var ticks = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_4__["createRange"])(this.numTicks + 1).map(function(i) {
                             var children = [];
-                            if (_this.tickLabels[i]) children.push(_this.$createElement("span", _this.tickLabels[i]));
-                            return _this.$createElement("span", {
+                            if (_this.tickLabels[i]) children.push(_this.$createElement('span', _this.tickLabels[i]));
+                            return _this.$createElement('span', {
                                 key: i,
-                                staticClass: "v-slider__ticks",
+                                staticClass: 'v-slider__ticks',
                                 class: {
-                                    "v-slider__ticks--always-show": _this.ticks === "always" || _this.tickLabels.length > 0
+                                    'v-slider__ticks--always-show': _this.ticks === 'always' || _this.tickLabels.length > 0
                                 },
                                 style: __assign({}, _this.tickStyles, {
                                     left: i * (100 / _this.numTicks) + "%"
                                 })
                             }, children);
                         });
-                        return this.$createElement("div", {
-                            staticClass: "v-slider__ticks-container"
+                        return this.$createElement('div', {
+                            staticClass: 'v-slider__ticks-container'
                         }, ticks);
                     },
                     genThumb: function genThumb() {
-                        return this.$createElement("div", this.setBackgroundColor(this.computedThumbColor, {
-                            staticClass: "v-slider__thumb"
+                        return this.$createElement('div', this.setBackgroundColor(this.computedThumbColor, {
+                            staticClass: 'v-slider__thumb'
                         }));
                     },
                     genThumbContainer: function genThumbContainer(value, valueWidth, isActive, onDrag) {
@@ -12846,11 +12846,11 @@
                         ];
                         var thumbLabelContent = this.getLabel(value);
                         this.showThumbLabel && children.push(this.genThumbLabel(thumbLabelContent));
-                        return this.$createElement("div", this.setTextColor(this.computedThumbColor, {
-                            staticClass: "v-slider__thumb-container",
-                            "class": {
-                                "v-slider__thumb-container--is-active": isActive,
-                                "v-slider__thumb-container--show-label": this.showThumbLabel
+                        return this.$createElement('div', this.setTextColor(this.computedThumbColor, {
+                            staticClass: 'v-slider__thumb-container',
+                            'class': {
+                                'v-slider__thumb-container--is-active': isActive,
+                                'v-slider__thumb-container--show-label': this.showThumbLabel
                             },
                             style: {
                                 transition: this.trackTransition,
@@ -12866,20 +12866,20 @@
                         var size = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_4__["convertToUnit"])(this.thumbSize);
                         return this.$createElement(_transitions__WEBPACK_IMPORTED_MODULE_1__["VScaleTransition"], {
                             props: {
-                                origin: "bottom center"
+                                origin: 'bottom center'
                             }
                         }, [
-                            this.$createElement("div", {
-                                staticClass: "v-slider__thumb-label__container",
+                            this.$createElement('div', {
+                                staticClass: 'v-slider__thumb-label__container',
                                 directives: [
                                     {
-                                        name: "show",
-                                        value: this.isFocused || this.isActive || this.thumbLabel === "always"
+                                        name: 'show',
+                                        value: this.isFocused || this.isActive || this.thumbLabel === 'always'
                                     }
                                 ]
                             }, [
-                                this.$createElement("div", this.setBackgroundColor(this.computedThumbColor, {
-                                    staticClass: "v-slider__thumb-label",
+                                this.$createElement('div', this.setBackgroundColor(this.computedThumbColor, {
+                                    staticClass: 'v-slider__thumb-label',
                                     style: {
                                         height: size,
                                         width: size
@@ -12892,34 +12892,34 @@
                     },
                     genTrackContainer: function genTrackContainer() {
                         var children = [
-                            this.$createElement("div", this.setBackgroundColor(this.computedTrackColor, {
-                                staticClass: "v-slider__track",
+                            this.$createElement('div', this.setBackgroundColor(this.computedTrackColor, {
+                                staticClass: 'v-slider__track',
                                 style: this.trackStyles
                             })),
-                            this.$createElement("div", this.setBackgroundColor(this.computedColor, {
-                                staticClass: "v-slider__track-fill",
+                            this.$createElement('div', this.setBackgroundColor(this.computedColor, {
+                                staticClass: 'v-slider__track-fill',
                                 style: this.trackFillStyles
                             }))
                         ];
-                        return this.$createElement("div", {
-                            staticClass: "v-slider__track__container",
-                            ref: "track"
+                        return this.$createElement('div', {
+                            staticClass: 'v-slider__track__container',
+                            ref: 'track'
                         }, children);
                     },
                     getLabel: function getLabel(value) {
-                        return this.$scopedSlots["thumb-label"] ? this.$scopedSlots["thumb-label"]({
+                        return this.$scopedSlots['thumb-label'] ? this.$scopedSlots['thumb-label']({
                             value: value
-                        }) : this.$createElement("span", value);
+                        }) : this.$createElement('span', value);
                     },
                     onBlur: function onBlur(e) {
                         if (this.keyPressed === 2) return;
                         this.isActive = false;
                         this.isFocused = false;
-                        this.$emit("blur", e);
+                        this.$emit('blur', e);
                     },
                     onFocus: function onFocus(e) {
                         this.isFocused = true;
-                        this.$emit("focus", e);
+                        this.$emit('focus', e);
                     },
                     onThumbMouseDown: function onThumbMouseDown(e) {
                         this.oldValue = this.internalValue;
@@ -12929,14 +12929,14 @@
                         };
                         this.isActive = true;
                         this.isFocused = false;
-                        if ("touches" in e) {
-                            this.app.addEventListener("touchmove", this.onMouseMove, options);
-                            Object(_util_helpers__WEBPACK_IMPORTED_MODULE_4__["addOnceEventListener"])(this.app, "touchend", this.onSliderMouseUp);
+                        if ('touches' in e) {
+                            this.app.addEventListener('touchmove', this.onMouseMove, options);
+                            Object(_util_helpers__WEBPACK_IMPORTED_MODULE_4__["addOnceEventListener"])(this.app, 'touchend', this.onSliderMouseUp);
                         } else {
-                            this.app.addEventListener("mousemove", this.onMouseMove, options);
-                            Object(_util_helpers__WEBPACK_IMPORTED_MODULE_4__["addOnceEventListener"])(this.app, "mouseup", this.onSliderMouseUp);
+                            this.app.addEventListener('mousemove', this.onMouseMove, options);
+                            Object(_util_helpers__WEBPACK_IMPORTED_MODULE_4__["addOnceEventListener"])(this.app, 'mouseup', this.onSliderMouseUp);
                         }
-                        this.$emit("start", this.internalValue);
+                        this.$emit('start', this.internalValue);
                     },
                     onSliderMouseUp: function onSliderMouseUp() {
                         this.keyPressed = 0;
@@ -12945,10 +12945,10 @@
                         };
                         this.isActive = false;
                         this.isFocused = false;
-                        this.app.removeEventListener("touchmove", this.onMouseMove, options);
-                        this.app.removeEventListener("mousemove", this.onMouseMove, options);
-                        this.$emit("end", this.internalValue);
-                        if (!Object(_util_helpers__WEBPACK_IMPORTED_MODULE_4__["deepEqual"])(this.oldValue, this.internalValue)) this.$emit("change", this.internalValue);
+                        this.app.removeEventListener('touchmove', this.onMouseMove, options);
+                        this.app.removeEventListener('mousemove', this.onMouseMove, options);
+                        this.$emit('end', this.internalValue);
+                        if (!Object(_util_helpers__WEBPACK_IMPORTED_MODULE_4__["deepEqual"])(this.oldValue, this.internalValue)) this.$emit('change', this.internalValue);
                     },
                     onMouseMove: function onMouseMove(e) {
                         var _a = this.parseMouseMove(e), value = _a.value, isInsideTrack = _a.isInsideTrack;
@@ -12959,7 +12959,7 @@
                         var value = this.parseKeyDown(e);
                         if (value == null) return;
                         this.setInternalValue(value);
-                        this.$emit("change", value);
+                        this.$emit('change', value);
                     },
                     onKeyUp: function onKeyUp() {
                         this.keyPressed = 0;
@@ -12967,11 +12967,11 @@
                     onSliderClick: function onSliderClick(e) {
                         this.isFocused = true;
                         this.onMouseMove(e);
-                        this.$emit("change", this.internalValue);
+                        this.$emit('change', this.internalValue);
                     },
                     parseMouseMove: function parseMouseMove(e) {
                         var _a = this.$refs.track.getBoundingClientRect(), offsetLeft = _a.left, trackWidth = _a.width;
-                        var clientX = "touches" in e ? e.touches[0].clientX : e.clientX;
+                        var clientX = 'touches' in e ? e.touches[0].clientX : e.clientX;
                         // It is possible for left to be NaN, force to number
                         var left = Math.min(Math.max((clientX - offsetLeft) / trackWidth, 0), 1) || 0;
                         if (this.$vuetify.rtl) left = 1 - left;
@@ -13030,7 +13030,7 @@
                         // Format input value using the same number
                         // of decimals places as in the step prop
                         var trimmedStep = this.step.toString().trim();
-                        var decimals = trimmedStep.indexOf(".") > -1 ? trimmedStep.length - trimmedStep.indexOf(".") - 1 : 0;
+                        var decimals = trimmedStep.indexOf('.') > -1 ? trimmedStep.length - trimmedStep.indexOf('.') - 1 : 0;
                         var offset = this.min % this.stepNumeric;
                         var newValue = Math.round((value - offset) / this.stepNumeric) * this.stepNumeric + offset;
                         return parseFloat(Math.max(Math.min(newValue, this.max), this.min).toFixed(decimals));
@@ -13064,13 +13064,13 @@
             /* harmony import */ var _mixins_positionable__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../mixins/positionable */ "./src/mixins/positionable.ts");
             /* harmony import */ var _util_mixins__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../util/mixins */ "./src/util/mixins.ts");
             /* harmony default export */ __webpack_exports__["default"] = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_4__["default"])(_mixins_colorable__WEBPACK_IMPORTED_MODULE_1__["default"], _mixins_toggleable__WEBPACK_IMPORTED_MODULE_2__["default"], Object(_mixins_positionable__WEBPACK_IMPORTED_MODULE_3__["factory"])([
-                "absolute",
-                "top",
-                "bottom",
-                "left",
-                "right"
+                'absolute',
+                'top',
+                'bottom',
+                'left',
+                'right'
             ])).extend({
-                name: "v-snackbar",
+                name: 'v-snackbar',
                 props: {
                     autoHeight: Boolean,
                     multiLine: Boolean,
@@ -13089,15 +13089,15 @@
                 computed: {
                     classes: function classes() {
                         return {
-                            "v-snack--active": this.isActive,
-                            "v-snack--absolute": this.absolute,
-                            "v-snack--auto-height": this.autoHeight,
-                            "v-snack--bottom": this.bottom || !this.top,
-                            "v-snack--left": this.left,
-                            "v-snack--multi-line": this.multiLine && !this.vertical,
-                            "v-snack--right": this.right,
-                            "v-snack--top": this.top,
-                            "v-snack--vertical": this.vertical
+                            'v-snack--active': this.isActive,
+                            'v-snack--absolute': this.absolute,
+                            'v-snack--auto-height': this.autoHeight,
+                            'v-snack--bottom': this.bottom || !this.top,
+                            'v-snack--left': this.left,
+                            'v-snack--multi-line': this.multiLine && !this.vertical,
+                            'v-snack--right': this.right,
+                            'v-snack--top': this.top,
+                            'v-snack--vertical': this.vertical
                         };
                     }
                 },
@@ -13119,21 +13119,21 @@
                     }
                 },
                 render: function render(h) {
-                    return h("transition", {
+                    return h('transition', {
                         attrs: {
-                            name: "v-snack-transition"
+                            name: 'v-snack-transition'
                         }
                     }, this.isActive && [
-                        h("div", {
-                            staticClass: "v-snack",
+                        h('div', {
+                            staticClass: 'v-snack',
                             class: this.classes,
                             on: this.$listeners
                         }, [
-                            h("div", this.setBackgroundColor(this.color, {
-                                staticClass: "v-snack__wrapper"
+                            h('div', this.setBackgroundColor(this.color, {
+                                staticClass: 'v-snack__wrapper'
                             }), [
-                                h("div", {
-                                    staticClass: "v-snack__content"
+                                h('div', {
+                                    staticClass: 'v-snack__content'
                                 }, this.$slots.default)
                             ])
                         ])
@@ -13174,7 +13174,7 @@
             // Mixins
             // Utilities
             /* harmony default export */ __webpack_exports__["default"] = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_1__["default"])(_mixins_colorable__WEBPACK_IMPORTED_MODULE_0__["default"]).extend({
-                name: "VSparkline",
+                name: 'VSparkline',
                 props: {
                     autoDraw: Boolean,
                     autoDrawDuration: {
@@ -13183,7 +13183,7 @@
                     },
                     autoDrawEasing: {
                         type: String,
-                        default: "ease"
+                        default: 'ease'
                     },
                     autoLineWidth: {
                         type: Boolean,
@@ -13191,7 +13191,7 @@
                     },
                     color: {
                         type: String,
-                        default: "primary"
+                        default: 'primary'
                     },
                     fill: {
                         type: Boolean,
@@ -13207,13 +13207,13 @@
                         type: String,
                         validator: function validator(val) {
                             return [
-                                "top",
-                                "bottom",
-                                "left",
-                                "right"
+                                'top',
+                                'bottom',
+                                'left',
+                                'right'
                             ].includes(val);
                         },
-                        default: "top"
+                        default: 'top'
                     },
                     height: {
                         type: [
@@ -13253,11 +13253,11 @@
                     showLabels: Boolean,
                     type: {
                         type: String,
-                        default: "trend",
+                        default: 'trend',
                         validator: function validator(val) {
                             return [
-                                "trend",
-                                "bar"
+                                'trend',
+                                'bar'
                             ].includes(val);
                         }
                     },
@@ -13298,7 +13298,7 @@
                         return this.value.length;
                     },
                     _lineWidth: function _lineWidth() {
-                        if (this.autoLineWidth && this.type !== "trend") {
+                        if (this.autoLineWidth && this.type !== 'trend') {
                             var totalPadding = this.parsedPadding * (this.totalBars + 1);
                             return (this.parsedWidth - totalPadding) / this.totalBars;
                         } else return Number(this.lineWidth) || 4;
@@ -13342,19 +13342,19 @@
                         handler: function handler() {
                             var _this = this;
                             this.$nextTick(function() {
-                                if (!_this.autoDraw || _this.type === "bar") return;
+                                if (!_this.autoDraw || _this.type === 'bar') return;
                                 var path = _this.$refs.path;
                                 var length = path.getTotalLength();
                                 if (!_this.fill) {
-                                    path.style.transition = "none";
-                                    path.style.strokeDasharray = length + " " + length;
+                                    path.style.transition = 'none';
+                                    path.style.strokeDasharray = length + ' ' + length;
                                     path.style.strokeDashoffset = Math.abs(length - (_this.lastLength || 0)).toString();
                                     path.getBoundingClientRect();
                                     path.style.transition = "stroke-dashoffset " + _this.autoDrawDuration + "ms " + _this.autoDrawEasing;
-                                    path.style.strokeDashoffset = "0";
+                                    path.style.strokeDashoffset = '0';
                                 } else {
-                                    path.style.transformOrigin = "bottom center";
-                                    path.style.transition = "none";
+                                    path.style.transformOrigin = 'bottom center';
+                                    path.style.transition = 'none';
                                     path.style.transform = "scaleY(0)";
                                     path.getBoundingClientRect();
                                     path.style.transition = "transform " + _this.autoDrawDuration + "ms " + _this.autoDrawEasing;
@@ -13372,35 +13372,35 @@
                         var gradient = this.gradient.slice();
                         // Pushes empty string to force
                         // a fallback to currentColor
-                        if (!gradient.length) gradient.push("");
+                        if (!gradient.length) gradient.push('');
                         var len = Math.max(gradient.length - 1, 1);
                         var stops = gradient.reverse().map(function(color, index) {
-                            return _this.$createElement("stop", {
+                            return _this.$createElement('stop', {
                                 attrs: {
                                     offset: index / len,
-                                    "stop-color": color || _this.color || "currentColor"
+                                    'stop-color': color || _this.color || 'currentColor'
                                 }
                             });
                         });
-                        return this.$createElement("defs", [
-                            this.$createElement("linearGradient", {
+                        return this.$createElement('defs', [
+                            this.$createElement('linearGradient', {
                                 attrs: {
                                     id: this._uid,
-                                    x1: +(gradientDirection === "left"),
-                                    y1: +(gradientDirection === "top"),
-                                    x2: +(gradientDirection === "right"),
-                                    y2: +(gradientDirection === "bottom")
+                                    x1: +(gradientDirection === 'left'),
+                                    y1: +(gradientDirection === 'top'),
+                                    x2: +(gradientDirection === 'right'),
+                                    y2: +(gradientDirection === 'bottom')
                                 }
                             }, stops)
                         ]);
                     },
                     genG: function genG(children) {
-                        return this.$createElement("g", {
+                        return this.$createElement('g', {
                             style: {
-                                fontSize: "8",
-                                textAnchor: "middle",
-                                dominantBaseline: "mathematical",
-                                fill: this.color || "currentColor"
+                                fontSize: '8',
+                                textAnchor: 'middle',
+                                dominantBaseline: 'mathematical',
+                                fill: this.color || 'currentColor'
                             }
                         }, children);
                     },
@@ -13410,14 +13410,14 @@
                     },
                     genPath: function genPath() {
                         var radius = this.smooth === true ? 8 : Number(this.smooth);
-                        return this.$createElement("path", {
+                        return this.$createElement('path', {
                             attrs: {
                                 id: this._uid,
                                 d: Object(_helpers_path__WEBPACK_IMPORTED_MODULE_3__["genPath"])(this.points.slice(), radius, this.fill, Number(this.height)),
-                                fill: this.fill ? "url(#" + this._uid + ")" : "none",
-                                stroke: this.fill ? "none" : "url(#" + this._uid + ")"
+                                fill: this.fill ? "url(#" + this._uid + ")" : 'none',
+                                stroke: this.fill ? 'none' : "url(#" + this._uid + ")"
                             },
-                            ref: "path"
+                            ref: 'path'
                         });
                     },
                     genText: function genText(item, index) {
@@ -13425,7 +13425,7 @@
                             index: index,
                             value: item.value
                         }) : item.value;
-                        return this.$createElement("text", {
+                        return this.$createElement('text', {
                             attrs: {
                                 x: item.x,
                                 y: this.textY
@@ -13452,24 +13452,24 @@
                         props.lineWidth = _lineWidth || totalWidth - Number(parsedPadding || 5);
                         props.offsetX = 0;
                         if (!this.autoLineWidth) props.offsetX = boundary.maxX / this.totalBars / 2 - boundary.minX;
-                        return this.$createElement("svg", {
+                        return this.$createElement('svg', {
                             attrs: {
-                                width: "100%",
-                                height: "25%",
+                                width: '100%',
+                                height: '25%',
                                 viewBox: "0 0 " + viewWidth + " " + viewHeight
                             }
                         }, [
                             this.genGradient(),
-                            this.genClipPath(props.offsetX, props.lineWidth, "sparkline-bar-" + this._uid),
+                            this.genClipPath(props.offsetX, props.lineWidth, 'sparkline-bar-' + this._uid),
                             this.hasLabels ? this.genBarLabels(props) : undefined,
-                            this.$createElement("g", {
+                            this.$createElement('g', {
                                 attrs: {
                                     transform: "scale(1,-1) translate(0,-" + boundary.maxY + ")",
-                                    "clip-path": "url(#sparkline-bar-" + this._uid + "-clip)",
+                                    'clip-path': "url(#sparkline-bar-" + this._uid + "-clip)",
                                     fill: "url(#" + this._uid + ")"
                                 }
                             }, [
-                                this.$createElement("rect", {
+                                this.$createElement('rect', {
                                     attrs: {
                                         x: 0,
                                         y: 0,
@@ -13483,13 +13483,13 @@
                     genClipPath: function genClipPath(offsetX, lineWidth, id) {
                         var _this = this;
                         var maxY = this.boundary.maxY;
-                        var rounding = typeof this.smooth === "number" ? this.smooth : this.smooth ? 2 : 0;
-                        return this.$createElement("clipPath", {
+                        var rounding = typeof this.smooth === 'number' ? this.smooth : this.smooth ? 2 : 0;
+                        return this.$createElement('clipPath', {
                             attrs: {
                                 id: id + "-clip"
                             }
                         }, this.points.map(function(item) {
-                            return _this.$createElement("rect", {
+                            return _this.$createElement('rect', {
                                 attrs: {
                                     x: item.x + offsetX,
                                     y: 0,
@@ -13499,13 +13499,13 @@
                                     ry: rounding
                                 }
                             }, [
-                                _this.autoDraw ? _this.$createElement("animate", {
+                                _this.autoDraw ? _this.$createElement('animate', {
                                     attrs: {
-                                        attributeName: "height",
+                                        attributeName: 'height',
                                         from: 0,
                                         to: maxY - item.y,
                                         dur: _this.autoDrawDuration + "ms",
-                                        fill: "freeze"
+                                        fill: 'freeze'
                                     }
                                 }) : undefined
                             ]);
@@ -13515,22 +13515,22 @@
                         var _this = this;
                         var offsetX = props.offsetX || 0;
                         var children = props.points.map(function(item) {
-                            return _this.$createElement("text", {
+                            return _this.$createElement('text', {
                                 attrs: {
                                     x: item.x + offsetX + _this._lineWidth / 2,
                                     y: props.boundary.maxY + (Number(_this.labelSize) || 7),
-                                    "font-size": Number(_this.labelSize) || 7
+                                    'font-size': Number(_this.labelSize) || 7
                                 }
                             }, item.value.toString());
                         });
                         return this.genG(children);
                     },
                     genTrend: function genTrend() {
-                        return this.$createElement("svg", this.setTextColor(this.color, {
+                        return this.$createElement('svg', this.setTextColor(this.color, {
                             attrs: {
-                                "stroke-width": this._lineWidth || 1,
-                                width: "100%",
-                                height: "25%",
+                                'stroke-width': this._lineWidth || 1,
+                                width: '100%',
+                                height: '25%',
                                 viewBox: "0 0 " + this.width + " " + this.height
                             }
                         }), [
@@ -13542,7 +13542,7 @@
                 },
                 render: function render(h) {
                     if (this.totalBars < 2) return undefined;
-                    return this.type === "trend" ? this.genTrend() : this.genBar();
+                    return this.type === 'trend' ? this.genTrend() : this.genBar();
                 }
             });
         /***/ },
@@ -13580,14 +13580,14 @@
             function genPoints(points, boundary, type) {
                 var minX = boundary.minX, minY = boundary.minY, maxX = boundary.maxX, maxY = boundary.maxY;
                 var normalisedPoints = points.map(function(item) {
-                    return typeof item === "number" ? item : item.value;
+                    return typeof item === 'number' ? item : item.value;
                 });
                 var totalPoints = normalisedPoints.length;
                 var maxValue = Math.max.apply(Math, __spread(normalisedPoints)) + 1;
                 var minValue = Math.min.apply(Math, __spread(normalisedPoints));
                 if (minValue) minValue -= 1;
                 var gridX = (maxX - minX) / (totalPoints - 1);
-                if (type === "bar") gridX = maxX / totalPoints;
+                if (type === 'bar') gridX = maxX / totalPoints;
                 var gridY = (maxY - minY) / (maxValue - minValue);
                 return normalisedPoints.map(function(value, index) {
                     return {
@@ -13668,7 +13668,7 @@
                     var before = Object(_math__WEBPACK_IMPORTED_MODULE_0__["moveTo"])(prev, point, radiusForPoint);
                     var after = Object(_math__WEBPACK_IMPORTED_MODULE_0__["moveTo"])(next, point, radiusForPoint);
                     return "L" + before.x + " " + before.y + "S" + point.x + " " + point.y + " " + after.x + " " + after.y;
-                }).join("") + (fill ? "L" + end.x + " " + height + " Z" : "");
+                }).join('') + (fill ? "L" + end.x + " " + height + " Z" : '');
             }
         /***/ },
         /***/ "./src/components/VSparkline/index.ts": /*!********************************************!*\
@@ -13694,7 +13694,7 @@
             /* harmony import */ var _mixins_transitionable__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../mixins/transitionable */ "./src/mixins/transitionable.ts");
             /* harmony import */ var _directives_click_outside__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../directives/click-outside */ "./src/directives/click-outside.ts");
             /* @vue/component */ /* harmony default export */ __webpack_exports__["default"] = {
-                name: "v-speed-dial",
+                name: 'v-speed-dial',
                 directives: {
                     ClickOutside: _directives_click_outside__WEBPACK_IMPORTED_MODULE_4__["default"]
                 },
@@ -13706,33 +13706,33 @@
                 props: {
                     direction: {
                         type: String,
-                        default: "top",
+                        default: 'top',
                         validator: function validator(val) {
                             return [
-                                "top",
-                                "right",
-                                "bottom",
-                                "left"
+                                'top',
+                                'right',
+                                'bottom',
+                                'left'
                             ].includes(val);
                         }
                     },
                     openOnHover: Boolean,
                     transition: {
                         type: String,
-                        default: "scale-transition"
+                        default: 'scale-transition'
                     }
                 },
                 computed: {
                     classes: function classes() {
                         var _a;
                         return _a = {
-                            "v-speed-dial": true,
-                            "v-speed-dial--top": this.top,
-                            "v-speed-dial--right": this.right,
-                            "v-speed-dial--bottom": this.bottom,
-                            "v-speed-dial--left": this.left,
-                            "v-speed-dial--absolute": this.absolute,
-                            "v-speed-dial--fixed": this.fixed
+                            'v-speed-dial': true,
+                            'v-speed-dial--top': this.top,
+                            'v-speed-dial--right': this.right,
+                            'v-speed-dial--bottom': this.bottom,
+                            'v-speed-dial--left': this.left,
+                            'v-speed-dial--absolute': this.absolute,
+                            'v-speed-dial--fixed': this.fixed
                         }, _a["v-speed-dial--direction-" + this.direction] = true, _a;
                     }
                 },
@@ -13740,10 +13740,10 @@
                     var _this = this;
                     var children = [];
                     var data = {
-                        "class": this.classes,
+                        'class': this.classes,
                         directives: [
                             {
-                                name: "click-outside",
+                                name: 'click-outside',
                                 value: function value() {
                                     return _this.isActive = false;
                                 }
@@ -13766,11 +13766,11 @@
                     if (this.isActive) {
                         var btnCount_1 = 0;
                         children = (this.$slots.default || []).map(function(b, i) {
-                            if (b.tag && typeof b.componentOptions !== "undefined" && b.componentOptions.Ctor.options.name === "v-btn") {
+                            if (b.tag && typeof b.componentOptions !== 'undefined' && b.componentOptions.Ctor.options.name === 'v-btn') {
                                 btnCount_1++;
-                                return h("div", {
+                                return h('div', {
                                     style: {
-                                        transitionDelay: btnCount_1 * 0.05 + "s"
+                                        transitionDelay: btnCount_1 * 0.05 + 's'
                                     },
                                     key: i
                                 }, [
@@ -13782,16 +13782,16 @@
                             }
                         });
                     }
-                    var list = h("transition-group", {
-                        "class": "v-speed-dial__list",
+                    var list = h('transition-group', {
+                        'class': 'v-speed-dial__list',
                         props: {
                             name: this.transition,
                             mode: this.mode,
                             origin: this.origin,
-                            tag: "div"
+                            tag: 'div'
                         }
                     }, children);
-                    return h("div", data, [
+                    return h('div', data, [
                         this.$slots.activator,
                         list
                     ]);
@@ -13832,8 +13832,8 @@
             // Styles
             // Mixins
             // Util
-            /* harmony default export */ __webpack_exports__["default"] = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_3__["default"])(Object(_mixins_registrable__WEBPACK_IMPORTED_MODULE_1__["provide"])("stepper"), _mixins_themeable__WEBPACK_IMPORTED_MODULE_2__["default"]).extend({
-                name: "v-stepper",
+            /* harmony default export */ __webpack_exports__["default"] = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_3__["default"])(Object(_mixins_registrable__WEBPACK_IMPORTED_MODULE_1__["provide"])('stepper'), _mixins_themeable__WEBPACK_IMPORTED_MODULE_2__["default"]).extend({
+                name: 'v-stepper',
                 provide: function provide() {
                     return {
                         stepClick: this.stepClick,
@@ -13861,11 +13861,11 @@
                 computed: {
                     classes: function classes() {
                         return __assign({
-                            "v-stepper": true,
-                            "v-stepper--is-booted": this.isBooted,
-                            "v-stepper--vertical": this.vertical,
-                            "v-stepper--alt-labels": this.altLabels,
-                            "v-stepper--non-linear": this.nonLinear
+                            'v-stepper': true,
+                            'v-stepper--is-booted': this.isBooted,
+                            'v-stepper--vertical': this.vertical,
+                            'v-stepper--alt-labels': this.altLabels,
+                            'v-stepper--non-linear': this.nonLinear
                         }, this.themeClasses);
                     }
                 },
@@ -13874,7 +13874,7 @@
                         this.isReverse = Number(val) < Number(prev);
                         for(var index = this.steps.length; --index >= 0;)this.steps[index].toggle(this.inputValue);
                         for(var index = this.content.length; --index >= 0;)this.content[index].toggle(this.inputValue, this.isReverse);
-                        this.$emit("input", this.inputValue);
+                        this.$emit('input', this.inputValue);
                         prev && (this.isBooted = true);
                     },
                     value: function value() {
@@ -13889,17 +13889,17 @@
                 },
                 methods: {
                     register: function register(item) {
-                        if (item.$options.name === "v-stepper-step") this.steps.push(item);
-                        else if (item.$options.name === "v-stepper-content") {
+                        if (item.$options.name === 'v-stepper-step') this.steps.push(item);
+                        else if (item.$options.name === 'v-stepper-content') {
                             item.isVertical = this.vertical;
                             this.content.push(item);
                         }
                     },
                     unregister: function unregister(item) {
-                        if (item.$options.name === "v-stepper-step") this.steps = this.steps.filter(function(i) {
+                        if (item.$options.name === 'v-stepper-step') this.steps = this.steps.filter(function(i) {
                             return i !== item;
                         });
-                        else if (item.$options.name === "v-stepper-content") {
+                        else if (item.$options.name === 'v-stepper-content') {
                             item.isVertical = this.vertical;
                             this.content = this.content.filter(function(i) {
                                 return i !== item;
@@ -13914,8 +13914,8 @@
                     }
                 },
                 render: function render(h) {
-                    return h("div", {
-                        "class": this.classes
+                    return h('div', {
+                        'class': this.classes
                     }, this.$slots.default);
                 }
             });
@@ -13933,11 +13933,11 @@
             // Mixins
             // Helpers
             // Util
-            /* harmony default export */ __webpack_exports__["default"] = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_3__["default"])(Object(_mixins_registrable__WEBPACK_IMPORTED_MODULE_1__["inject"])("stepper", "v-stepper-content", "v-stepper")).extend({
-                name: "v-stepper-content",
+            /* harmony default export */ __webpack_exports__["default"] = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_3__["default"])(Object(_mixins_registrable__WEBPACK_IMPORTED_MODULE_1__["inject"])('stepper', 'v-stepper-content', 'v-stepper')).extend({
+                name: 'v-stepper-content',
                 inject: {
                     isVerticalProvided: {
-                        from: "isVertical"
+                        from: 'isVertical'
                     }
                 },
                 props: {
@@ -13962,7 +13962,7 @@
                 computed: {
                     classes: function classes() {
                         return {
-                            "v-stepper__content": true
+                            'v-stepper__content': true
                         };
                     },
                     computedTransition: function computedTransition() {
@@ -13976,7 +13976,7 @@
                     },
                     wrapperClasses: function wrapperClasses() {
                         return {
-                            "v-stepper__wrapper": true
+                            'v-stepper__wrapper': true
                         };
                     }
                 },
@@ -13985,7 +13985,7 @@
                         // If active and the previous state
                         // was null, is just booting up
                         if (current && previous == null) {
-                            this.height = "auto";
+                            this.height = 'auto';
                             return;
                         }
                         if (!this.isVertical) return;
@@ -13994,17 +13994,17 @@
                     }
                 },
                 mounted: function mounted() {
-                    this.$refs.wrapper.addEventListener("transitionend", this.onTransition, false);
+                    this.$refs.wrapper.addEventListener('transitionend', this.onTransition, false);
                     this.stepper && this.stepper.register(this);
                 },
                 beforeDestroy: function beforeDestroy() {
-                    this.$refs.wrapper.removeEventListener("transitionend", this.onTransition, false);
+                    this.$refs.wrapper.removeEventListener('transitionend', this.onTransition, false);
                     this.stepper && this.stepper.unregister(this);
                 },
                 methods: {
                     onTransition: function onTransition(e) {
-                        if (!this.isActive || e.propertyName !== "height") return;
-                        this.height = "auto";
+                        if (!this.isActive || e.propertyName !== 'height') return;
+                        this.height = 'auto';
                     },
                     enter: function enter() {
                         var _this = this;
@@ -14016,7 +14016,7 @@
                         this.height = 0;
                         // Give the collapsing element time to collapse
                         setTimeout(function() {
-                            return _this.isActive && (_this.height = scrollHeight || "auto");
+                            return _this.isActive && (_this.height = scrollHeight || 'auto');
                         }, 450);
                     },
                     leave: function leave() {
@@ -14033,23 +14033,23 @@
                 },
                 render: function render(h) {
                     var contentData = {
-                        "class": this.classes
+                        'class': this.classes
                     };
                     var wrapperData = {
-                        "class": this.wrapperClasses,
+                        'class': this.wrapperClasses,
                         style: this.styles,
-                        ref: "wrapper"
+                        ref: 'wrapper'
                     };
                     if (!this.isVertical) contentData.directives = [
                         {
-                            name: "show",
+                            name: 'show',
                             value: this.isActive
                         }
                     ];
-                    var wrapper = h("div", wrapperData, [
+                    var wrapper = h('div', wrapperData, [
                         this.$slots.default
                     ]);
-                    var content = h("div", contentData, [
+                    var content = h('div', contentData, [
                         wrapper
                     ]);
                     return h(this.computedTransition, {
@@ -14074,31 +14074,31 @@
             // Mixins
             // Directives
             // Util
-            /* harmony default export */ __webpack_exports__["default"] = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_4__["default"])(_mixins_colorable__WEBPACK_IMPORTED_MODULE_1__["default"], Object(_mixins_registrable__WEBPACK_IMPORTED_MODULE_2__["inject"])("stepper", "v-stepper-step", "v-stepper")).extend({
-                name: "v-stepper-step",
+            /* harmony default export */ __webpack_exports__["default"] = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_4__["default"])(_mixins_colorable__WEBPACK_IMPORTED_MODULE_1__["default"], Object(_mixins_registrable__WEBPACK_IMPORTED_MODULE_2__["inject"])('stepper', 'v-stepper-step', 'v-stepper')).extend({
+                name: 'v-stepper-step',
                 directives: {
                     Ripple: _directives_ripple__WEBPACK_IMPORTED_MODULE_3__["default"]
                 },
                 inject: [
-                    "stepClick"
+                    'stepClick'
                 ],
                 props: {
                     color: {
                         type: String,
-                        default: "primary"
+                        default: 'primary'
                     },
                     complete: Boolean,
                     completeIcon: {
                         type: String,
-                        default: "$vuetify.icons.complete"
+                        default: '$vuetify.icons.complete'
                     },
                     editIcon: {
                         type: String,
-                        default: "$vuetify.icons.edit"
+                        default: '$vuetify.icons.edit'
                     },
                     errorIcon: {
                         type: String,
-                        default: "$vuetify.icons.error"
+                        default: '$vuetify.icons.error'
                     },
                     editable: Boolean,
                     rules: {
@@ -14121,13 +14121,13 @@
                 computed: {
                     classes: function classes() {
                         return {
-                            "v-stepper__step": true,
-                            "v-stepper__step--active": this.isActive,
-                            "v-stepper__step--editable": this.editable,
-                            "v-stepper__step--inactive": this.isInactive,
-                            "v-stepper__step--error": this.hasError,
-                            "v-stepper__step--complete": this.complete,
-                            "error--text": this.hasError
+                            'v-stepper__step': true,
+                            'v-stepper__step--active': this.isActive,
+                            'v-stepper__step--editable': this.editable,
+                            'v-stepper__step--inactive': this.isInactive,
+                            'v-stepper__step--error': this.hasError,
+                            'v-stepper__step--complete': this.complete,
+                            'error--text': this.hasError
                         };
                     },
                     hasError: function hasError() {
@@ -14145,7 +14145,7 @@
                 methods: {
                     click: function click(e) {
                         e.stopPropagation();
-                        this.$emit("click", e);
+                        this.$emit('click', e);
                         if (this.editable) this.stepClick(this.step);
                     },
                     toggle: function toggle(step) {
@@ -14155,10 +14155,10 @@
                 },
                 render: function render(h) {
                     var data = {
-                        "class": this.classes,
+                        'class': this.classes,
                         directives: [
                             {
-                                name: "ripple",
+                                name: 'ripple',
                                 value: this.editable
                             }
                         ],
@@ -14179,13 +14179,13 @@
                         ];
                     } else stepContent = String(this.step);
                     var color = !this.hasError && (this.complete || this.isActive) ? this.color : false;
-                    var step = h("span", this.setBackgroundColor(color, {
-                        staticClass: "v-stepper__step__step"
+                    var step = h('span', this.setBackgroundColor(color, {
+                        staticClass: 'v-stepper__step__step'
                     }), stepContent);
-                    var label = h("div", {
-                        staticClass: "v-stepper__label"
+                    var label = h('div', {
+                        staticClass: 'v-stepper__label'
                     }, this.$slots.default);
-                    return h("div", data, [
+                    return h('div', data, [
                         step,
                         label
                     ]);
@@ -14216,8 +14216,8 @@
             /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "VStepperContent", function() {
                 return _VStepperContent__WEBPACK_IMPORTED_MODULE_3__["default"];
             });
-            var VStepperHeader = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_0__["createSimpleFunctional"])("v-stepper__header");
-            var VStepperItems = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_0__["createSimpleFunctional"])("v-stepper__items");
+            var VStepperHeader = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_0__["createSimpleFunctional"])('v-stepper__header');
+            var VStepperItems = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_0__["createSimpleFunctional"])('v-stepper__items');
             /* harmony default export */ __webpack_exports__["default"] = {
                 $_vuetify_subcomponents: {
                     VStepper: _VStepper__WEBPACK_IMPORTED_MODULE_1__["default"],
@@ -14250,15 +14250,15 @@
             // Styles
             // Mixins
             /* harmony default export */ __webpack_exports__["default"] = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_2__["default"])(_mixins_themeable__WEBPACK_IMPORTED_MODULE_1__["default"]).extend({
-                name: "v-subheader",
+                name: 'v-subheader',
                 props: {
                     inset: Boolean
                 },
                 render: function render(h) {
-                    return h("div", {
-                        staticClass: "v-subheader",
+                    return h('div', {
+                        staticClass: 'v-subheader',
                         class: __assign({
-                            "v-subheader--inset": this.inset
+                            'v-subheader--inset': this.inset
                         }, this.themeClasses),
                         attrs: this.$attrs,
                         on: this.$listeners
@@ -14306,7 +14306,7 @@
             // Components
             // Helpers
             /* @vue/component */ /* harmony default export */ __webpack_exports__["default"] = {
-                name: "v-switch",
+                name: 'v-switch',
                 directives: {
                     Touch: _directives_touch__WEBPACK_IMPORTED_MODULE_3__["default"]
                 },
@@ -14325,7 +14325,7 @@
                 computed: {
                     classes: function classes() {
                         return {
-                            "v-input--selection-controls v-input--switch": true
+                            'v-input--selection-controls v-input--switch': true
                         };
                     },
                     switchData: function switchData() {
@@ -14342,14 +14342,14 @@
                         ];
                     },
                     genSwitch: function genSwitch() {
-                        return this.$createElement("div", {
-                            staticClass: "v-input--selection-controls__input"
+                        return this.$createElement('div', {
+                            staticClass: 'v-input--selection-controls__input'
                         }, [
-                            this.genInput("checkbox", this.$attrs),
+                            this.genInput('checkbox', this.$attrs),
                             this.genRipple(this.setTextColor(this.computedColor, {
                                 directives: [
                                     {
-                                        name: "touch",
+                                        name: 'touch',
                                         value: {
                                             left: this.onSwipeLeft,
                                             right: this.onSwipeRight
@@ -14357,11 +14357,11 @@
                                     }
                                 ]
                             })),
-                            this.$createElement("div", __assign({
-                                staticClass: "v-input--switch__track"
+                            this.$createElement('div', __assign({
+                                staticClass: 'v-input--switch__track'
                             }, this.switchData)),
-                            this.$createElement("div", __assign({
-                                staticClass: "v-input--switch__thumb"
+                            this.$createElement('div', __assign({
+                                staticClass: 'v-input--switch__thumb'
                             }, this.switchData), [
                                 this.genProgress()
                             ])
@@ -14371,7 +14371,7 @@
                         return this.$createElement(_transitions__WEBPACK_IMPORTED_MODULE_4__["VFabTransition"], {}, [
                             this.loading === false ? null : this.$slots.progress || this.$createElement(_VProgressCircular_VProgressCircular__WEBPACK_IMPORTED_MODULE_5__["default"], {
                                 props: {
-                                    color: this.loading === true || this.loading === "" ? this.color || "primary" : this.loading,
+                                    color: this.loading === true || this.loading === '' ? this.color || 'primary' : this.loading,
                                     size: 16,
                                     width: 2,
                                     indeterminate: true
@@ -14423,11 +14423,11 @@
                 };
                 return __assign.apply(this, arguments);
             };
-            /* harmony default export */ __webpack_exports__["default"] = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_4__["default"])(Object(_mixins_applicationable__WEBPACK_IMPORTED_MODULE_1__["default"])("bar", [
-                "height",
-                "window"
+            /* harmony default export */ __webpack_exports__["default"] = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_4__["default"])(Object(_mixins_applicationable__WEBPACK_IMPORTED_MODULE_1__["default"])('bar', [
+                'height',
+                'window'
             ]), _mixins_colorable__WEBPACK_IMPORTED_MODULE_2__["default"], _mixins_themeable__WEBPACK_IMPORTED_MODULE_3__["default"]).extend({
-                name: "v-system-bar",
+                name: 'v-system-bar',
                 props: {
                     height: {
                         type: [
@@ -14445,11 +14445,11 @@
                 computed: {
                     classes: function classes() {
                         return __assign({
-                            "v-system-bar--lights-out": this.lightsOut,
-                            "v-system-bar--absolute": this.absolute,
-                            "v-system-bar--fixed": !this.absolute && (this.app || this.fixed),
-                            "v-system-bar--status": this.status,
-                            "v-system-bar--window": this.window
+                            'v-system-bar--lights-out': this.lightsOut,
+                            'v-system-bar--absolute': this.absolute,
+                            'v-system-bar--fixed': !this.absolute && (this.app || this.fixed),
+                            'v-system-bar--status': this.status,
+                            'v-system-bar--window': this.window
                         }, this.themeClasses);
                     },
                     computedHeight: function computedHeight() {
@@ -14468,13 +14468,13 @@
                 },
                 render: function render(h) {
                     var data = {
-                        staticClass: "v-system-bar",
-                        "class": this.classes,
+                        staticClass: 'v-system-bar',
+                        'class': this.classes,
                         style: {
                             height: this.computedHeight + "px"
                         }
                     };
-                    return h("div", this.setBackgroundColor(this.color, data), this.$slots.default);
+                    return h('div', this.setBackgroundColor(this.color, data), this.$slots.default);
                 }
             });
         /***/ },
@@ -14511,12 +14511,12 @@
             // Mixins
             // Utilities
             /* @vue/component */ /* harmony default export */ __webpack_exports__["default"] = {
-                name: "v-tab",
+                name: 'v-tab',
                 mixins: [
                     _mixins_routable__WEBPACK_IMPORTED_MODULE_1__["default"],
                     // Must be after routable
                     // to overwrite activeClass
-                    Object(_mixins_groupable__WEBPACK_IMPORTED_MODULE_0__["factory"])("tabGroup"),
+                    Object(_mixins_groupable__WEBPACK_IMPORTED_MODULE_0__["factory"])('tabGroup'),
                     _mixins_themeable__WEBPACK_IMPORTED_MODULE_2__["default"]
                 ],
                 props: {
@@ -14531,21 +14531,21 @@
                 computed: {
                     classes: function classes() {
                         return __assign({
-                            "v-tabs__item": true,
-                            "v-tabs__item--disabled": this.disabled
+                            'v-tabs__item': true,
+                            'v-tabs__item--disabled': this.disabled
                         }, this.groupClasses);
                     },
                     value: function value() {
-                        var to = this.to || this.href || "";
+                        var to = this.to || this.href || '';
                         if (this.$router && this.to === Object(this.to)) {
                             var resolve = this.$router.resolve(this.to, this.$route, this.append);
                             to = resolve.href;
                         }
-                        return to.replace("#", "");
+                        return to.replace('#', '');
                     }
                 },
                 watch: {
-                    $route: "onRouteChange"
+                    $route: 'onRouteChange'
                 },
                 mounted: function mounted() {
                     this.onRouteChange();
@@ -14555,8 +14555,8 @@
                         // If user provides an
                         // actual link, do not
                         // prevent default
-                        if (this.href && this.href.indexOf("#") > -1) e.preventDefault();
-                        this.$emit("click", e);
+                        if (this.href && this.href.indexOf('#') > -1) e.preventDefault();
+                        this.$emit('click', e);
                         this.to || this.toggle();
                     },
                     onRouteChange: function onRouteChange() {
@@ -14573,10 +14573,10 @@
                     var data = link.data;
                     // If disabled, use div as anchor tags do not support
                     // being disabled
-                    var tag = this.disabled ? "div" : link.tag;
-                    data.ref = "link";
-                    return h("div", {
-                        staticClass: "v-tabs__div"
+                    var tag = this.disabled ? 'div' : link.tag;
+                    data.ref = 'link';
+                    return h('div', {
+                        staticClass: 'v-tabs__div'
                     }, [
                         h(tag, data, this.$slots.default)
                     ]);
@@ -14593,7 +14593,7 @@
             // Extensions
             // Mixins
             /* @vue/component */ /* harmony default export */ __webpack_exports__["default"] = _VWindow_VWindowItem__WEBPACK_IMPORTED_MODULE_0__["default"].extend({
-                name: "v-tab-item",
+                name: 'v-tab-item',
                 props: {
                     id: String
                 },
@@ -14601,7 +14601,7 @@
                     var render = _VWindow_VWindowItem__WEBPACK_IMPORTED_MODULE_0__["default"].options.render.call(this, h);
                     // For backwards compatibility with v1.2
                     /* istanbul ignore next */ if (this.id) {
-                        Object(_util_console__WEBPACK_IMPORTED_MODULE_1__["deprecate"])("id", "value", this);
+                        Object(_util_console__WEBPACK_IMPORTED_MODULE_1__["deprecate"])('id', 'value', this);
                         render.data.domProps = render.data.domProps || {};
                         render.data.domProps.id = this.id;
                     }
@@ -14636,7 +14636,7 @@
             // Directives
             // Utils
             /* @vue/component */ /* harmony default export */ __webpack_exports__["default"] = _VItemGroup_VItemGroup__WEBPACK_IMPORTED_MODULE_1__["BaseItemGroup"].extend({
-                name: "v-tabs",
+                name: 'v-tabs',
                 directives: {
                     Resize: _directives_resize__WEBPACK_IMPORTED_MODULE_10__["default"],
                     Touch: _directives_touch__WEBPACK_IMPORTED_MODULE_11__["default"]
@@ -14681,8 +14681,8 @@
                     };
                 },
                 watch: {
-                    items: "onResize",
-                    tabs: "onResize"
+                    items: 'onResize',
+                    tabs: 'onResize'
                 },
                 mounted: function mounted() {
                     this.init();
@@ -14714,7 +14714,7 @@
                     // until DOM is
                     // painted
                     init: function init() {
-                        /* istanbul ignore next */ if (this.$listeners["input"]) Object(_util_console__WEBPACK_IMPORTED_MODULE_12__["deprecate"])("@input", "@change", this);
+                        /* istanbul ignore next */ if (this.$listeners['input']) Object(_util_console__WEBPACK_IMPORTED_MODULE_12__["deprecate"])('@input', '@change', this);
                     },
                     /**
          * When v-navigation-drawer changes the
@@ -14756,13 +14756,13 @@
                         for(var i = 0; i < length; i++){
                             var vnode = this.$slots.default[i];
                             if (vnode.componentOptions) switch(vnode.componentOptions.Ctor.options.name){
-                                case "v-tabs-slider":
+                                case 'v-tabs-slider':
                                     slider.push(vnode);
                                     break;
-                                case "v-tabs-items":
+                                case 'v-tabs-items':
                                     items.push(vnode);
                                     break;
-                                case "v-tab-item":
+                                case 'v-tab-item':
                                     item.push(vnode);
                                     break;
                                 // case 'v-tab' - intentionally omitted
@@ -14807,11 +14807,11 @@
                 },
                 render: function render(h) {
                     var _a = this.parseNodes(), tab = _a.tab, slider = _a.slider, items = _a.items, item = _a.item;
-                    return h("div", {
-                        staticClass: "v-tabs",
+                    return h('div', {
+                        staticClass: 'v-tabs',
                         directives: [
                             {
-                                name: "resize",
+                                name: 'resize',
                                 modifiers: {
                                     quiet: true
                                 },
@@ -14843,7 +14843,7 @@
             /* harmony import */ var _VWindow_VWindow__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../VWindow/VWindow */ "./src/components/VWindow/VWindow.ts");
             // Extensions
             /* @vue/component */ /* harmony default export */ __webpack_exports__["default"] = _VWindow_VWindow__WEBPACK_IMPORTED_MODULE_0__["default"].extend({
-                name: "v-tabs-items",
+                name: 'v-tabs-items',
                 inject: {
                     registerItems: {
                         default: null
@@ -14896,13 +14896,13 @@
             __webpack_require__.r(__webpack_exports__);
             /* harmony import */ var _mixins_colorable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../mixins/colorable */ "./src/mixins/colorable.ts");
             /* @vue/component */ /* harmony default export */ __webpack_exports__["default"] = {
-                name: "v-tabs-slider",
+                name: 'v-tabs-slider',
                 mixins: [
                     _mixins_colorable__WEBPACK_IMPORTED_MODULE_0__["default"]
                 ],
                 render: function render(h) {
-                    return h("div", this.setBackgroundColor(this.color || "accent", {
-                        staticClass: "v-tabs__slider"
+                    return h('div', this.setBackgroundColor(this.color || 'accent', {
+                        staticClass: 'v-tabs__slider'
                     }));
                 }
             };
@@ -14971,7 +14971,7 @@
                     sliderStyles: function sliderStyles() {
                         return {
                             left: this.sliderLeft + "px",
-                            transition: this.sliderLeft != null ? null : "none",
+                            transition: this.sliderLeft != null ? null : 'none',
                             width: this.sliderWidth + "px"
                         };
                     }
@@ -14993,30 +14993,30 @@
  */ /* @vue/component */ /* harmony default export */ __webpack_exports__["default"] = {
                 methods: {
                     genBar: function genBar(items) {
-                        return this.$createElement("div", this.setBackgroundColor(this.color, {
-                            staticClass: "v-tabs__bar",
-                            "class": this.themeClasses,
-                            ref: "bar"
+                        return this.$createElement('div', this.setBackgroundColor(this.color, {
+                            staticClass: 'v-tabs__bar',
+                            'class': this.themeClasses,
+                            ref: 'bar'
                         }), [
-                            this.genTransition("prev"),
+                            this.genTransition('prev'),
                             this.genWrapper(this.genContainer(items)),
-                            this.genTransition("next")
+                            this.genTransition('next')
                         ]);
                     },
                     genContainer: function genContainer(items) {
-                        return this.$createElement("div", {
-                            staticClass: "v-tabs__container",
+                        return this.$createElement('div', {
+                            staticClass: 'v-tabs__container',
                             class: {
-                                "v-tabs__container--align-with-title": this.alignWithTitle,
-                                "v-tabs__container--centered": this.centered,
-                                "v-tabs__container--fixed-tabs": this.fixedTabs,
-                                "v-tabs__container--grow": this.grow,
-                                "v-tabs__container--icons-and-text": this.iconsAndText,
-                                "v-tabs__container--overflow": this.isOverflowing,
-                                "v-tabs__container--right": this.right
+                                'v-tabs__container--align-with-title': this.alignWithTitle,
+                                'v-tabs__container--centered': this.centered,
+                                'v-tabs__container--fixed-tabs': this.fixedTabs,
+                                'v-tabs__container--grow': this.grow,
+                                'v-tabs__container--icons-and-text': this.iconsAndText,
+                                'v-tabs__container--overflow': this.isOverflowing,
+                                'v-tabs__container--right': this.right
                             },
                             style: this.containerStyles,
-                            ref: "container"
+                            ref: 'container'
                         }, items);
                     },
                     genIcon: function genIcon(direction) {
@@ -15040,9 +15040,9 @@
                         return this.$createElement(_VTabsItems__WEBPACK_IMPORTED_MODULE_0__["default"], item);
                     },
                     genTransition: function genTransition(direction) {
-                        return this.$createElement("transition", {
+                        return this.$createElement('transition', {
                             props: {
-                                name: "fade-transition"
+                                name: 'fade-transition'
                             }
                         }, [
                             this.genIcon(direction)
@@ -15050,15 +15050,15 @@
                     },
                     genWrapper: function genWrapper(items) {
                         var _this = this;
-                        return this.$createElement("div", {
-                            staticClass: "v-tabs__wrapper",
+                        return this.$createElement('div', {
+                            staticClass: 'v-tabs__wrapper',
                             class: {
-                                "v-tabs__wrapper--show-arrows": this.hasArrows
+                                'v-tabs__wrapper--show-arrows': this.hasArrows
                             },
-                            ref: "wrapper",
+                            ref: 'wrapper',
                             directives: [
                                 {
-                                    name: "touch",
+                                    name: 'touch',
                                     value: {
                                         start: function start(e) {
                                             return _this.overflowCheck(e, _this.onTouchStart);
@@ -15084,8 +15084,8 @@
                                 }
                             })
                         ];
-                        return this.$createElement("div", {
-                            staticClass: "v-tabs__slider-wrapper",
+                        return this.$createElement('div', {
+                            staticClass: 'v-tabs__slider-wrapper',
                             style: this.sliderStyles
                         }, items);
                     }
@@ -15105,7 +15105,7 @@
                 props: {
                     activeClass: {
                         type: String,
-                        default: "v-tabs__item--active"
+                        default: 'v-tabs__item--active'
                     },
                     alignWithTitle: Boolean,
                     centered: Boolean,
@@ -15139,17 +15139,17 @@
                     },
                     nextIcon: {
                         type: String,
-                        default: "$vuetify.icons.next"
+                        default: '$vuetify.icons.next'
                     },
                     prevIcon: {
                         type: String,
-                        default: "$vuetify.icons.prev"
+                        default: '$vuetify.icons.prev'
                     },
                     right: Boolean,
                     showArrows: Boolean,
                     sliderColor: {
                         type: String,
-                        default: "accent"
+                        default: 'accent'
                     },
                     value: [
                         Number,
@@ -15171,13 +15171,13 @@
                 methods: {
                     newOffset: function newOffset(direction) {
                         var clientWidth = this.$refs.wrapper.clientWidth;
-                        if (direction === "prev") return Math.max(this.scrollOffset - clientWidth, 0);
+                        if (direction === 'prev') return Math.max(this.scrollOffset - clientWidth, 0);
                         else return Math.min(this.scrollOffset + clientWidth, this.$refs.container.clientWidth - clientWidth);
                     },
                     onTouchStart: function onTouchStart(e) {
                         this.startX = this.scrollOffset + e.touchstartX;
-                        this.$refs.container.style.transition = "none";
-                        this.$refs.container.style.willChange = "transform";
+                        this.$refs.container.style.transition = 'none';
+                        this.$refs.container.style.willChange = 'transform';
                     },
                     onTouchMove: function onTouchMove(e) {
                         this.scrollOffset = this.startX - e.touchmoveX;
@@ -15215,20 +15215,20 @@
                         if (oldVal == null) return;
                         this.updateTabsView();
                     },
-                    alignWithTitle: "callSlider",
-                    centered: "callSlider",
-                    fixedTabs: "callSlider",
+                    alignWithTitle: 'callSlider',
+                    centered: 'callSlider',
+                    fixedTabs: 'callSlider',
                     hasArrows: function hasArrows(val) {
                         if (!val) this.scrollOffset = 0;
                     },
                     /* @deprecate */ internalValue: function internalValue(val) {
-                        /* istanbul ignore else */ if (!this.$listeners["input"]) return;
-                        this.$emit("input", val);
+                        /* istanbul ignore else */ if (!this.$listeners['input']) return;
+                        this.$emit('input', val);
                     },
-                    lazyValue: "updateTabs",
-                    right: "callSlider",
-                    "$vuetify.application.left": "onResize",
-                    "$vuetify.application.right": "onResize",
+                    lazyValue: 'updateTabs',
+                    right: 'callSlider',
+                    '$vuetify.application.left': 'onResize',
+                    '$vuetify.application.right': 'onResize',
                     scrollOffset: function scrollOffset(val) {
                         this.$refs.container.style.transform = "translateX(" + -val + "px)";
                         if (this.hasArrows) {
@@ -15271,16 +15271,16 @@
             // Directives
             // Utilities
             var dirtyTypes = [
-                "color",
-                "file",
-                "time",
-                "date",
-                "datetime-local",
-                "week",
-                "month"
+                'color',
+                'file',
+                'time',
+                'date',
+                'datetime-local',
+                'week',
+                'month'
             ];
             /* @vue/component */ /* harmony default export */ __webpack_exports__["default"] = _VInput__WEBPACK_IMPORTED_MODULE_1__["default"].extend({
-                name: "v-text-field",
+                name: 'v-text-field',
                 directives: {
                     Ripple: _directives_ripple__WEBPACK_IMPORTED_MODULE_6__["default"]
                 },
@@ -15298,12 +15298,12 @@
                     clearable: Boolean,
                     clearIcon: {
                         type: String,
-                        default: "$vuetify.icons.clear"
+                        default: '$vuetify.icons.clear'
                     },
                     clearIconCb: Function,
                     color: {
                         type: String,
-                        default: "primary"
+                        default: 'primary'
                     },
                     counter: [
                         Boolean,
@@ -15325,7 +15325,7 @@
                     suffix: String,
                     type: {
                         type: String,
-                        default: "text"
+                        default: 'text'
                     }
                 },
                 data: function data() {
@@ -15339,22 +15339,22 @@
                 computed: {
                     classes: function classes() {
                         return {
-                            "v-text-field": true,
-                            "v-text-field--full-width": this.fullWidth,
-                            "v-text-field--prefix": this.prefix,
-                            "v-text-field--single-line": this.isSingle,
-                            "v-text-field--solo": this.isSolo,
-                            "v-text-field--solo-inverted": this.soloInverted,
-                            "v-text-field--solo-flat": this.flat,
-                            "v-text-field--box": this.box,
-                            "v-text-field--enclosed": this.isEnclosed,
-                            "v-text-field--reverse": this.reverse,
-                            "v-text-field--outline": this.hasOutline,
-                            "v-text-field--placeholder": this.placeholder
+                            'v-text-field': true,
+                            'v-text-field--full-width': this.fullWidth,
+                            'v-text-field--prefix': this.prefix,
+                            'v-text-field--single-line': this.isSingle,
+                            'v-text-field--solo': this.isSolo,
+                            'v-text-field--solo-inverted': this.soloInverted,
+                            'v-text-field--solo-flat': this.flat,
+                            'v-text-field--box': this.box,
+                            'v-text-field--enclosed': this.isEnclosed,
+                            'v-text-field--reverse': this.reverse,
+                            'v-text-field--outline': this.hasOutline,
+                            'v-text-field--placeholder': this.placeholder
                         };
                     },
                     counterValue: function counterValue() {
-                        return (this.internalValue || "").toString().length;
+                        return (this.internalValue || '').toString().length;
                     },
                     directivesInput: function directivesInput() {
                         return [];
@@ -15373,7 +15373,7 @@
                                 this.setSelectionRange();
                             } else {
                                 this.lazyValue = val;
-                                this.$emit("input", this.lazyValue);
+                                this.$emit('input', this.lazyValue);
                             }
                         }
                     },
@@ -15395,11 +15395,11 @@
                     labelPosition: function labelPosition() {
                         var offset = this.prefix && !this.labelValue ? this.prefixWidth : 0;
                         return !this.$vuetify.rtl !== !this.reverse ? {
-                            left: "auto",
+                            left: 'auto',
                             right: offset
                         } : {
                             left: offset,
-                            right: "auto"
+                            right: 'auto'
                         };
                     },
                     showLabel: function showLabel() {
@@ -15421,7 +15421,7 @@
                         // Sets validationState from validatable
                         this.hasColor = val;
                         if (val) this.initialValue = this.lazyValue;
-                        else if (this.initialValue !== this.lazyValue) this.$emit("change", this.lazyValue);
+                        else if (this.initialValue !== this.lazyValue) this.$emit('change', this.lazyValue);
                     },
                     value: function value(val) {
                         var _this = this;
@@ -15431,7 +15431,7 @@
                             // Emit when the externally set value was modified internally
                             String(val) !== this.lazyValue && this.$nextTick(function() {
                                 _this.$refs.input.value = masked_1;
-                                _this.$emit("input", _this.lazyValue);
+                                _this.$emit('input', _this.lazyValue);
                             });
                         } else this.lazyValue = val;
                     }
@@ -15461,21 +15461,21 @@
                     },
                     genAppendSlot: function genAppendSlot() {
                         var slot = [];
-                        if (this.$slots["append-outer"]) slot.push(this.$slots["append-outer"]);
-                        else if (this.appendOuterIcon) slot.push(this.genIcon("appendOuter"));
-                        return this.genSlot("append", "outer", slot);
+                        if (this.$slots['append-outer']) slot.push(this.$slots['append-outer']);
+                        else if (this.appendOuterIcon) slot.push(this.genIcon('appendOuter'));
+                        return this.genSlot('append', 'outer', slot);
                     },
                     genPrependInnerSlot: function genPrependInnerSlot() {
                         var slot = [];
-                        if (this.$slots["prepend-inner"]) slot.push(this.$slots["prepend-inner"]);
-                        else if (this.prependInnerIcon) slot.push(this.genIcon("prependInner"));
-                        return this.genSlot("prepend", "inner", slot);
+                        if (this.$slots['prepend-inner']) slot.push(this.$slots['prepend-inner']);
+                        else if (this.prependInnerIcon) slot.push(this.genIcon('prependInner'));
+                        return this.genSlot('prepend', 'inner', slot);
                     },
                     genIconSlot: function genIconSlot() {
                         var slot = [];
-                        if (this.$slots["append"]) slot.push(this.$slots["append"]);
-                        else if (this.appendIcon) slot.push(this.genIcon("append"));
-                        return this.genSlot("append", "inner", slot);
+                        if (this.$slots['append']) slot.push(this.$slots['append']);
+                        else if (this.appendIcon) slot.push(this.genIcon('append'));
+                        return this.genSlot('append', 'inner', slot);
                     },
                     genInputSlot: function genInputSlot() {
                         var input = _VInput__WEBPACK_IMPORTED_MODULE_1__["default"].options.methods.genInputSlot.call(this);
@@ -15485,10 +15485,10 @@
                     },
                     genClearIcon: function genClearIcon() {
                         if (!this.clearable) return null;
-                        var icon = !this.isDirty ? false : "clear";
-                        if (this.clearIconCb) Object(_util_console__WEBPACK_IMPORTED_MODULE_8__["deprecate"])(":clear-icon-cb", "@click:clear", this);
-                        return this.genSlot("append", "inner", [
-                            this.genIcon(icon, !this.$listeners["click:clear"] && this.clearIconCb || this.clearableCallback, false)
+                        var icon = !this.isDirty ? false : 'clear';
+                        if (this.clearIconCb) Object(_util_console__WEBPACK_IMPORTED_MODULE_8__["deprecate"])(':clear-icon-cb', '@click:clear', this);
+                        return this.genSlot('append', 'inner', [
+                            this.genIcon(icon, !this.$listeners['click:clear'] && this.clearIconCb || this.clearableCallback, false)
                         ]);
                     },
                     genCounter: function genCounter() {
@@ -15531,14 +15531,14 @@
                     },
                     genInput: function genInput() {
                         var listeners = Object.assign({}, this.$listeners);
-                        delete listeners["change"]; // Change should not be bound externally
+                        delete listeners['change']; // Change should not be bound externally
                         var data = {
                             style: {},
                             domProps: {
                                 value: this.maskText(this.lazyValue)
                             },
                             attrs: __assign({
-                                "aria-label": (!this.$attrs || !this.$attrs.id) && this.label
+                                'aria-label': (!this.$attrs || !this.$attrs.id) && this.label
                             }, this.$attrs, {
                                 autofocus: this.autofocus,
                                 disabled: this.disabled,
@@ -15551,35 +15551,35 @@
                                 focus: this.onFocus,
                                 keydown: this.onKeyDown
                             }),
-                            ref: "input"
+                            ref: 'input'
                         };
                         if (this.placeholder) data.attrs.placeholder = this.placeholder;
                         if (this.mask) data.attrs.maxlength = this.masked.length;
                         if (this.browserAutocomplete) data.attrs.autocomplete = this.browserAutocomplete;
-                        return this.$createElement("input", data);
+                        return this.$createElement('input', data);
                     },
                     genMessages: function genMessages() {
                         if (this.hideDetails) return null;
-                        return this.$createElement("div", {
-                            staticClass: "v-text-field__details"
+                        return this.$createElement('div', {
+                            staticClass: 'v-text-field__details'
                         }, [
                             _VInput__WEBPACK_IMPORTED_MODULE_1__["default"].options.methods.genMessages.call(this),
                             this.genCounter()
                         ]);
                     },
                     genTextFieldSlot: function genTextFieldSlot() {
-                        return this.$createElement("div", {
-                            staticClass: "v-text-field__slot"
+                        return this.$createElement('div', {
+                            staticClass: 'v-text-field__slot'
                         }, [
                             this.genLabel(),
-                            this.prefix ? this.genAffix("prefix") : null,
+                            this.prefix ? this.genAffix('prefix') : null,
                             this.genInput(),
-                            this.suffix ? this.genAffix("suffix") : null
+                            this.suffix ? this.genAffix('suffix') : null
                         ]);
                     },
                     genAffix: function genAffix(type) {
-                        return this.$createElement("div", {
-                            "class": "v-text-field__" + type,
+                        return this.$createElement('div', {
+                            'class': "v-text-field__" + type,
                             ref: type
                         }, this[type]);
                     },
@@ -15589,7 +15589,7 @@
                         // to allow external change
                         // to persist
                         this.internalChange = false;
-                        e && this.$emit("blur", e);
+                        e && this.$emit('blur', e);
                     },
                     onClick: function onClick() {
                         if (this.isFocused || this.disabled) return;
@@ -15600,7 +15600,7 @@
                         if (document.activeElement !== this.$refs.input) return this.$refs.input.focus();
                         if (!this.isFocused) {
                             this.isFocused = true;
-                            this.$emit("focus", e);
+                            this.$emit('focus', e);
                         }
                     },
                     onInput: function onInput(e) {
@@ -15611,8 +15611,8 @@
                     },
                     onKeyDown: function onKeyDown(e) {
                         this.internalChange = true;
-                        if (e.keyCode === _util_helpers__WEBPACK_IMPORTED_MODULE_7__["keyCodes"].enter) this.$emit("change", this.internalValue);
-                        this.$emit("keydown", e);
+                        if (e.keyCode === _util_helpers__WEBPACK_IMPORTED_MODULE_7__["keyCodes"].enter) this.$emit('change', this.internalValue);
+                        this.$emit('keydown', e);
                     },
                     onMouseDown: function onMouseDown(e) {
                         // Prevent input from being blurred
@@ -15654,8 +15654,8 @@
                     var props = _a.props, data = _a.data, slots = _a.slots, parent = _a.parent;
                     Object(_util_dedupeModelListeners__WEBPACK_IMPORTED_MODULE_3__["default"])(data);
                     var children = Object(_util_rebuildFunctionalSlots__WEBPACK_IMPORTED_MODULE_2__["default"])(slots(), h);
-                    if (props.textarea) Object(_util_console__WEBPACK_IMPORTED_MODULE_4__["deprecate"])("<v-text-field textarea>", "<v-textarea outline>", wrapper, parent);
-                    if (props.multiLine) Object(_util_console__WEBPACK_IMPORTED_MODULE_4__["deprecate"])("<v-text-field multi-line>", "<v-textarea>", wrapper, parent);
+                    if (props.textarea) Object(_util_console__WEBPACK_IMPORTED_MODULE_4__["deprecate"])('<v-text-field textarea>', '<v-textarea outline>', wrapper, parent);
+                    if (props.multiLine) Object(_util_console__WEBPACK_IMPORTED_MODULE_4__["deprecate"])('<v-text-field multi-line>', '<v-textarea>', wrapper, parent);
                     if (props.textarea || props.multiLine) {
                         data.attrs.outline = props.textarea;
                         return h(_VTextarea_VTextarea__WEBPACK_IMPORTED_MODULE_1__["default"], data, children);
@@ -15686,7 +15686,7 @@
             // Styles
             // Extensions
             /* @vue/component */ /* harmony default export */ __webpack_exports__["default"] = {
-                name: "v-textarea",
+                name: 'v-textarea',
                 extends: _VTextField_VTextField__WEBPACK_IMPORTED_MODULE_1__["default"],
                 props: {
                     autoGrow: Boolean,
@@ -15716,13 +15716,13 @@
                 computed: {
                     classes: function classes() {
                         return __assign({
-                            "v-textarea": true,
-                            "v-textarea--auto-grow": this.autoGrow,
-                            "v-textarea--no-resize": this.noResizeHandle
+                            'v-textarea': true,
+                            'v-textarea--auto-grow': this.autoGrow,
+                            'v-textarea--no-resize': this.noResizeHandle
                         }, _VTextField_VTextField__WEBPACK_IMPORTED_MODULE_1__["default"].options.computed.classes.call(this, null));
                     },
                     dynamicHeight: function dynamicHeight() {
-                        return this.autoGrow ? this.inputHeight : "auto";
+                        return this.autoGrow ? this.inputHeight : 'auto';
                     },
                     isEnclosed: function isEnclosed() {
                         return this.textarea || _VTextField_VTextField__WEBPACK_IMPORTED_MODULE_1__["default"].options.computed.isEnclosed.call(this);
@@ -15753,12 +15753,12 @@
                             var minHeight = parseInt(this.rows, 10) * parseFloat(this.rowHeight);
                             // This has to be done ASAP, waiting for Vue
                             // to update the DOM causes ugly layout jumping
-                            input.style.height = Math.max(minHeight, height) + "px";
+                            input.style.height = Math.max(minHeight, height) + 'px';
                         }
                     },
                     genInput: function genInput() {
                         var input = _VTextField_VTextField__WEBPACK_IMPORTED_MODULE_1__["default"].options.methods.genInput.call(this);
-                        input.tag = "textarea";
+                        input.tag = 'textarea';
                         delete input.data.attrs.type;
                         input.data.attrs.rows = this.rows;
                         return input;
@@ -15773,7 +15773,7 @@
                         // enter
                         if (this.isFocused && e.keyCode === 13) e.stopPropagation();
                         this.internalChange = true;
-                        this.$emit("keydown", e);
+                        this.$emit('keydown', e);
                     }
                 }
             };
@@ -15837,12 +15837,12 @@
                 second: 3
             };
             var selectingNames = {
-                1: "hour",
-                2: "minute",
-                3: "second"
+                1: 'hour',
+                2: 'minute',
+                3: 'second'
             };
             /* harmony default export */ __webpack_exports__["default"] = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_5__["default"])(_mixins_picker__WEBPACK_IMPORTED_MODULE_2__["default"]).extend({
-                name: "v-time-picker",
+                name: 'v-time-picker',
                 props: {
                     allowedHours: Function,
                     allowedMinutes: Function,
@@ -15850,11 +15850,11 @@
                     disabled: Boolean,
                     format: {
                         type: String,
-                        default: "ampm",
+                        default: 'ampm',
                         validator: function validator(val) {
                             return [
-                                "ampm",
-                                "24hr"
+                                'ampm',
+                                '24hr'
                             ].includes(val);
                         }
                     },
@@ -15873,7 +15873,7 @@
                         lazyInputHour: null,
                         lazyInputMinute: null,
                         lazyInputSecond: null,
-                        period: "am",
+                        period: 'am',
                         selecting: selectingTimes.hour
                     };
                 },
@@ -15905,8 +15905,8 @@
                     isAllowedHourCb: function isAllowedHourCb() {
                         var _this = this;
                         if (!this.min && !this.max) return this.allowedHours;
-                        var minHour = this.min ? Number(this.min.split(":")[0]) : 0;
-                        var maxHour = this.max ? Number(this.max.split(":")[0]) : 23;
+                        var minHour = this.min ? Number(this.min.split(':')[0]) : 0;
+                        var maxHour = this.max ? Number(this.max.split(':')[0]) : 23;
                         return function(val) {
                             return val >= minHour * 1 && val <= maxHour * 1 && (!_this.allowedHours || _this.allowedHours(val));
                         };
@@ -15917,11 +15917,11 @@
                         if (!this.min && !this.max) return isHourAllowed ? this.allowedMinutes : function() {
                             return false;
                         };
-                        var _a = __read(this.min ? this.min.split(":").map(Number) : [
+                        var _a = __read(this.min ? this.min.split(':').map(Number) : [
                             0,
                             0
                         ], 2), minHour = _a[0], minMinute = _a[1];
-                        var _b = __read(this.max ? this.max.split(":").map(Number) : [
+                        var _b = __read(this.max ? this.max.split(':').map(Number) : [
                             23,
                             59
                         ], 2), maxHour = _b[0], maxMinute = _b[1];
@@ -15939,12 +15939,12 @@
                         if (!this.min && !this.max) return isHourAllowed && isMinuteAllowed ? this.allowedSeconds : function() {
                             return false;
                         };
-                        var _a = __read(this.min ? this.min.split(":").map(Number) : [
+                        var _a = __read(this.min ? this.min.split(':').map(Number) : [
                             0,
                             0,
                             0
                         ], 3), minHour = _a[0], minMinute = _a[1], minSecond = _a[2];
-                        var _b = __read(this.max ? this.max.split(":").map(Number) : [
+                        var _b = __read(this.max ? this.max.split(':').map(Number) : [
                             23,
                             59,
                             59
@@ -15957,34 +15957,34 @@
                         };
                     },
                     isAmPm: function isAmPm() {
-                        return this.format === "ampm";
+                        return this.format === 'ampm';
                     }
                 },
                 watch: {
-                    value: "setInputData"
+                    value: 'setInputData'
                 },
                 mounted: function mounted() {
                     this.setInputData(this.value);
                 },
                 methods: {
                     genValue: function genValue() {
-                        if (this.inputHour != null && this.inputMinute != null && (!this.useSeconds || this.inputSecond != null)) return Object(_VDatePicker_util_pad__WEBPACK_IMPORTED_MODULE_4__["default"])(this.inputHour) + ":" + Object(_VDatePicker_util_pad__WEBPACK_IMPORTED_MODULE_4__["default"])(this.inputMinute) + (this.useSeconds ? ":" + Object(_VDatePicker_util_pad__WEBPACK_IMPORTED_MODULE_4__["default"])(this.inputSecond) : "");
+                        if (this.inputHour != null && this.inputMinute != null && (!this.useSeconds || this.inputSecond != null)) return Object(_VDatePicker_util_pad__WEBPACK_IMPORTED_MODULE_4__["default"])(this.inputHour) + ":" + Object(_VDatePicker_util_pad__WEBPACK_IMPORTED_MODULE_4__["default"])(this.inputMinute) + (this.useSeconds ? ":" + Object(_VDatePicker_util_pad__WEBPACK_IMPORTED_MODULE_4__["default"])(this.inputSecond) : '');
                         return null;
                     },
                     emitValue: function emitValue() {
                         var value = this.genValue();
-                        if (value !== null) this.$emit("input", value);
+                        if (value !== null) this.$emit('input', value);
                     },
                     setPeriod: function setPeriod(period) {
                         this.period = period;
                         if (this.inputHour != null) {
-                            var newHour = this.inputHour + (period === "am" ? -12 : 12);
-                            this.inputHour = this.firstAllowed("hour", newHour);
+                            var newHour = this.inputHour + (period === 'am' ? -12 : 12);
+                            this.inputHour = this.firstAllowed('hour', newHour);
                             this.emitValue();
                         }
                     },
                     setInputData: function setInputData(value) {
-                        if (value == null || value === "") {
+                        if (value == null || value === '') {
                             this.inputHour = null;
                             this.inputMinute = null;
                             this.inputSecond = null;
@@ -15998,13 +15998,13 @@
                             this.inputMinute = parseInt(minute, 10);
                             this.inputSecond = parseInt(second || 0, 10);
                         }
-                        this.period = this.inputHour == null || this.inputHour < 12 ? "am" : "pm";
+                        this.period = this.inputHour == null || this.inputHour < 12 ? 'am' : 'pm';
                     },
                     convert24to12: function convert24to12(hour) {
                         return hour ? (hour - 1) % 12 + 1 : 12;
                     },
                     convert12to24: function convert12to24(hour, period) {
-                        return hour % 12 + (period === "pm" ? 12 : 0);
+                        return hour % 12 + (period === 'pm' ? 12 : 0);
                     },
                     onInput: function onInput(value) {
                         if (this.selecting === selectingTimes.hour) this.inputHour = this.isAmPm ? this.convert12to24(value, this.period) : value;
@@ -16023,13 +16023,13 @@
                         this.lazyInputHour = this.inputHour;
                         this.lazyInputMinute = this.inputMinute;
                         this.useSeconds && (this.lazyInputSecond = this.inputSecond);
-                        emitChange && this.$emit("change", time);
+                        emitChange && this.$emit('change', time);
                     },
                     firstAllowed: function firstAllowed(type, value) {
-                        var allowedFn = type === "hour" ? this.isAllowedHourCb : type === "minute" ? this.isAllowedMinuteCb : this.isAllowedSecondCb;
+                        var allowedFn = type === 'hour' ? this.isAllowedHourCb : type === 'minute' ? this.isAllowedMinuteCb : this.isAllowedSecondCb;
                         if (!allowedFn) return value;
                         // TODO: clean up
-                        var range = type === "minute" ? range60 : type === "second" ? range60 : this.isAmPm ? value < 12 ? rangeHours12am : rangeHours12pm : rangeHours24;
+                        var range = type === 'minute' ? range60 : type === 'second' ? range60 : this.isAmPm ? value < 12 ? rangeHours12am : rangeHours12pm : rangeHours24;
                         var first = range.find(function(v) {
                             return allowedFn((v + value) % range.length + range[0]);
                         });
@@ -16049,8 +16049,8 @@
                                     return Object(_VDatePicker_util_pad__WEBPACK_IMPORTED_MODULE_4__["default"])(val, 2);
                                 },
                                 light: this.light,
-                                max: this.selecting === selectingTimes.hour ? this.isAmPm && this.period === "am" ? 11 : 23 : 59,
-                                min: this.selecting === selectingTimes.hour && this.isAmPm && this.period === "pm" ? 12 : 0,
+                                max: this.selecting === selectingTimes.hour ? this.isAmPm && this.period === 'am' ? 11 : 23 : 59,
+                                min: this.selecting === selectingTimes.hour && this.isAmPm && this.period === 'pm' ? 12 : 0,
                                 readonly: this.readonly,
                                 scrollable: this.scrollable,
                                 size: Number(this.width) - (!this.fullWidth && this.landscape ? 80 : 20),
@@ -16061,12 +16061,12 @@
                                 input: this.onInput,
                                 change: this.onChange
                             },
-                            ref: "clock"
+                            ref: 'clock'
                         });
                     },
                     genPickerBody: function genPickerBody() {
-                        return this.$createElement("div", {
-                            staticClass: "v-time-picker-clock__container",
+                        return this.$createElement('div', {
+                            staticClass: 'v-time-picker-clock__container',
                             key: this.selecting
                         }, [
                             this.genClock()
@@ -16087,18 +16087,18 @@
                                 selecting: this.selecting
                             },
                             on: {
-                                "update:selecting": function updateSelecting(value) {
+                                'update:selecting': function updateSelecting(value) {
                                     return _this.selecting = value;
                                 },
-                                "update:period": this.setPeriod
+                                'update:period': this.setPeriod
                             },
-                            ref: "title",
-                            slot: "title"
+                            ref: 'title',
+                            slot: 'title'
                         });
                     }
                 },
                 render: function render() {
-                    return this.genPicker("v-picker--time");
+                    return this.genPicker('v-picker--time');
                 }
             });
         /***/ },
@@ -16124,7 +16124,7 @@
             };
             // Mixins
             /* harmony default export */ __webpack_exports__["default"] = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_3__["default"])(_mixins_colorable__WEBPACK_IMPORTED_MODULE_1__["default"], _mixins_themeable__WEBPACK_IMPORTED_MODULE_2__["default"]).extend({
-                name: "v-time-picker-clock",
+                name: 'v-time-picker-clock',
                 props: {
                     allowedValues: Function,
                     disabled: Boolean,
@@ -16211,12 +16211,12 @@
                     genValues: function genValues() {
                         var children = [];
                         for(var value = this.min; value <= this.max; value = value + this.step){
-                            var color = value === this.value && (this.color || "accent");
-                            children.push(this.$createElement("span", this.setBackgroundColor(color, {
-                                staticClass: "v-time-picker-clock__item",
-                                "class": {
-                                    "v-time-picker-clock__item--active": value === this.displayedValue,
-                                    "v-time-picker-clock__item--disabled": this.disabled || !this.isAllowed(value)
+                            var color = value === this.value && (this.color || 'accent');
+                            children.push(this.$createElement('span', this.setBackgroundColor(color, {
+                                staticClass: 'v-time-picker-clock__item',
+                                'class': {
+                                    'v-time-picker-clock__item--active': value === this.displayedValue,
+                                    'v-time-picker-clock__item--disabled': this.disabled || !this.isAllowed(value)
                                 },
                                 style: this.getTransform(value),
                                 domProps: {
@@ -16229,11 +16229,11 @@
                     genHand: function genHand() {
                         var scale = "scaleY(" + this.handScale(this.displayedValue) + ")";
                         var angle = this.rotate + this.degreesPerUnit * (this.displayedValue - this.min);
-                        var color = this.value != null && (this.color || "accent");
-                        return this.$createElement("div", this.setBackgroundColor(color, {
-                            staticClass: "v-time-picker-clock__hand",
-                            "class": {
-                                "v-time-picker-clock__hand--inner": this.isInner(this.value)
+                        var color = this.value != null && (this.color || 'accent');
+                        return this.$createElement('div', this.setBackgroundColor(color, {
+                            staticClass: 'v-time-picker-clock__hand',
+                            'class': {
+                                'v-time-picker-clock__hand--inner': this.isInner(this.value)
                             },
                             style: {
                                 transform: "rotate(" + angle + "deg) " + scale
@@ -16263,14 +16263,14 @@
                     },
                     onMouseUp: function onMouseUp() {
                         this.isDragging = false;
-                        if (this.valueOnMouseUp !== null && this.isAllowed(this.valueOnMouseUp)) this.$emit("change", this.valueOnMouseUp);
+                        if (this.valueOnMouseUp !== null && this.isAllowed(this.valueOnMouseUp)) this.$emit('change', this.valueOnMouseUp);
                     },
                     onDragMove: function onDragMove(e) {
                         e.preventDefault();
-                        if (!this.isDragging && e.type !== "click") return;
+                        if (!this.isDragging && e.type !== 'click') return;
                         var _a = this.$refs.clock.getBoundingClientRect(), width = _a.width, top = _a.top, left = _a.left;
                         var innerWidth = this.$refs.innerClock.getBoundingClientRect().width;
-                        var _b = "touches" in e ? e.touches[0] : e, clientX = _b.clientX, clientY = _b.clientY;
+                        var _b = 'touches' in e ? e.touches[0] : e, clientX = _b.clientX, clientY = _b.clientY;
                         var center = {
                             x: width / 2,
                             y: -width / 2
@@ -16295,7 +16295,7 @@
                     update: function update(value) {
                         if (this.inputValue !== value) {
                             this.inputValue = value;
-                            this.$emit("input", value);
+                            this.$emit('input', value);
                         }
                     },
                     euclidean: function euclidean(p0, p1) {
@@ -16311,9 +16311,9 @@
                 render: function render(h) {
                     var _this = this;
                     var data = {
-                        staticClass: "v-time-picker-clock",
+                        staticClass: 'v-time-picker-clock',
                         class: __assign({
-                            "v-time-picker-clock--indeterminate": this.value == null
+                            'v-time-picker-clock--indeterminate': this.value == null
                         }, this.themeClasses),
                         on: this.readonly || this.disabled ? undefined : Object.assign({
                             mousedown: this.onMouseDown,
@@ -16328,12 +16328,12 @@
                         }, this.scrollable ? {
                             wheel: this.wheel
                         } : {}),
-                        ref: "clock"
+                        ref: 'clock'
                     };
-                    return h("div", data, [
-                        h("div", {
-                            staticClass: "v-time-picker-clock__inner",
-                            ref: "innerClock"
+                    return h('div', data, [
+                        h('div', {
+                            staticClass: 'v-time-picker-clock__inner',
+                            ref: 'innerClock'
                         }, [
                             this.genHand(),
                             this.genValues()
@@ -16356,7 +16356,7 @@
             // Mixins
             // Utils
             /* harmony default export */ __webpack_exports__["default"] = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_3__["default"])(_mixins_picker_button__WEBPACK_IMPORTED_MODULE_1__["default"]).extend({
-                name: "v-time-picker-title",
+                name: 'v-time-picker-title',
                 props: {
                     ampm: Boolean,
                     disabled: Boolean,
@@ -16366,7 +16366,7 @@
                     period: {
                         type: String,
                         validator: function validator(period) {
-                            return period === "am" || period === "pm";
+                            return period === 'am' || period === 'pm';
                         }
                     },
                     readonly: Boolean,
@@ -16377,28 +16377,28 @@
                     genTime: function genTime() {
                         var hour = this.hour;
                         if (this.ampm) hour = hour ? (hour - 1) % 12 + 1 : 12;
-                        var displayedHour = this.hour == null ? "--" : this.ampm ? String(hour) : Object(_VDatePicker_util__WEBPACK_IMPORTED_MODULE_2__["pad"])(hour);
-                        var displayedMinute = this.minute == null ? "--" : Object(_VDatePicker_util__WEBPACK_IMPORTED_MODULE_2__["pad"])(this.minute);
+                        var displayedHour = this.hour == null ? '--' : this.ampm ? String(hour) : Object(_VDatePicker_util__WEBPACK_IMPORTED_MODULE_2__["pad"])(hour);
+                        var displayedMinute = this.minute == null ? '--' : Object(_VDatePicker_util__WEBPACK_IMPORTED_MODULE_2__["pad"])(this.minute);
                         var titleContent = [
-                            this.genPickerButton("selecting", _VTimePicker__WEBPACK_IMPORTED_MODULE_4__["selectingTimes"].hour, displayedHour, this.disabled),
-                            this.$createElement("span", ":"),
-                            this.genPickerButton("selecting", _VTimePicker__WEBPACK_IMPORTED_MODULE_4__["selectingTimes"].minute, displayedMinute, this.disabled)
+                            this.genPickerButton('selecting', _VTimePicker__WEBPACK_IMPORTED_MODULE_4__["selectingTimes"].hour, displayedHour, this.disabled),
+                            this.$createElement('span', ':'),
+                            this.genPickerButton('selecting', _VTimePicker__WEBPACK_IMPORTED_MODULE_4__["selectingTimes"].minute, displayedMinute, this.disabled)
                         ];
                         if (this.useSeconds) {
-                            var displayedSecond = this.second == null ? "--" : Object(_VDatePicker_util__WEBPACK_IMPORTED_MODULE_2__["pad"])(this.second);
-                            titleContent.push(this.$createElement("span", ":"));
-                            titleContent.push(this.genPickerButton("selecting", _VTimePicker__WEBPACK_IMPORTED_MODULE_4__["selectingTimes"].second, displayedSecond, this.disabled));
+                            var displayedSecond = this.second == null ? '--' : Object(_VDatePicker_util__WEBPACK_IMPORTED_MODULE_2__["pad"])(this.second);
+                            titleContent.push(this.$createElement('span', ':'));
+                            titleContent.push(this.genPickerButton('selecting', _VTimePicker__WEBPACK_IMPORTED_MODULE_4__["selectingTimes"].second, displayedSecond, this.disabled));
                         }
-                        return this.$createElement("div", {
-                            "class": "v-time-picker-title__time"
+                        return this.$createElement('div', {
+                            'class': 'v-time-picker-title__time'
                         }, titleContent);
                     },
                     genAmPm: function genAmPm() {
-                        return this.$createElement("div", {
-                            staticClass: "v-time-picker-title__ampm"
+                        return this.$createElement('div', {
+                            staticClass: 'v-time-picker-title__ampm'
                         }, [
-                            this.genPickerButton("period", "am", "am", this.disabled || this.readonly),
-                            this.genPickerButton("period", "pm", "pm", this.disabled || this.readonly)
+                            this.genPickerButton('period', 'am', 'am', this.disabled || this.readonly),
+                            this.genPickerButton('period', 'pm', 'pm', this.disabled || this.readonly)
                         ]);
                     }
                 },
@@ -16407,8 +16407,8 @@
                         this.genTime()
                     ];
                     this.ampm && children.push(this.genAmPm());
-                    return h("div", {
-                        staticClass: "v-time-picker-title"
+                    return h('div', {
+                        staticClass: 'v-time-picker-title'
                     }, children);
                 }
             });
@@ -16460,7 +16460,7 @@
             // Styles
             // Mixins
             /* harmony default export */ __webpack_exports__["default"] = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_1__["default"])(_mixins_themeable__WEBPACK_IMPORTED_MODULE_2__["default"]).extend({
-                name: "v-timeline",
+                name: 'v-timeline',
                 props: {
                     alignTop: Boolean,
                     dense: Boolean
@@ -16468,15 +16468,15 @@
                 computed: {
                     classes: function classes() {
                         return __assign({
-                            "v-timeline--align-top": this.alignTop,
-                            "v-timeline--dense": this.dense
+                            'v-timeline--align-top': this.alignTop,
+                            'v-timeline--dense': this.dense
                         }, this.themeClasses);
                     }
                 },
                 render: function render(h) {
-                    return h("div", {
-                        staticClass: "v-timeline",
-                        "class": this.classes
+                    return h('div', {
+                        staticClass: 'v-timeline',
+                        'class': this.classes
                     }, this.$slots.default);
                 }
             });
@@ -16504,11 +16504,11 @@
             // Components
             // Mixins
             /* harmony default export */ __webpack_exports__["default"] = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_0__["default"])(_mixins_colorable__WEBPACK_IMPORTED_MODULE_3__["default"], _mixins_themeable__WEBPACK_IMPORTED_MODULE_2__["default"]).extend({
-                name: "v-timeline-item",
+                name: 'v-timeline-item',
                 props: {
                     color: {
                         type: String,
-                        default: "primary"
+                        default: 'primary'
                     },
                     fillDot: Boolean,
                     hideDot: Boolean,
@@ -16526,8 +16526,8 @@
                 },
                 methods: {
                     genBody: function genBody() {
-                        return this.$createElement("div", {
-                            staticClass: "v-timeline-item__body"
+                        return this.$createElement('div', {
+                            staticClass: 'v-timeline-item__body'
                         }, this.$slots.default);
                     },
                     genIcon: function genIcon() {
@@ -16542,26 +16542,26 @@
                     },
                     genInnerDot: function genInnerDot() {
                         var data = this.setBackgroundColor(this.color);
-                        return this.$createElement("div", __assign({
-                            staticClass: "v-timeline-item__inner-dot"
+                        return this.$createElement('div', __assign({
+                            staticClass: 'v-timeline-item__inner-dot'
                         }, data), [
                             this.hasIcon && this.genIcon()
                         ]);
                     },
                     genDot: function genDot() {
-                        return this.$createElement("div", {
-                            staticClass: "v-timeline-item__dot",
+                        return this.$createElement('div', {
+                            staticClass: 'v-timeline-item__dot',
                             class: {
-                                "v-timeline-item__dot--small": this.small,
-                                "v-timeline-item__dot--large": this.large
+                                'v-timeline-item__dot--small': this.small,
+                                'v-timeline-item__dot--large': this.large
                             }
                         }, [
                             this.genInnerDot()
                         ]);
                     },
                     genOpposite: function genOpposite() {
-                        return this.$createElement("div", {
-                            staticClass: "v-timeline-item__opposite"
+                        return this.$createElement('div', {
+                            staticClass: 'v-timeline-item__opposite'
                         }, this.$slots.opposite);
                     }
                 },
@@ -16571,12 +16571,12 @@
                     ];
                     if (!this.hideDot) children.unshift(this.genDot());
                     if (this.$slots.opposite) children.push(this.genOpposite());
-                    return h("div", {
-                        staticClass: "v-timeline-item",
+                    return h('div', {
+                        staticClass: 'v-timeline-item',
                         class: __assign({
-                            "v-timeline-item--fill-dot": this.fillDot,
-                            "v-timeline-item--left": this.left,
-                            "v-timeline-item--right": this.right
+                            'v-timeline-item--fill-dot': this.fillDot,
+                            'v-timeline-item--left': this.left,
+                            'v-timeline-item--right': this.right
                         }, this.themeClasses)
                     }, children);
                 }
@@ -16630,14 +16630,14 @@
             // Mixins
             // Directives
             // Types
-            /* harmony default export */ __webpack_exports__["default"] = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_7__["default"])(Object(_mixins_applicationable__WEBPACK_IMPORTED_MODULE_1__["default"])("top", [
-                "clippedLeft",
-                "clippedRight",
-                "computedHeight",
-                "invertedScroll",
-                "manualScroll"
+            /* harmony default export */ __webpack_exports__["default"] = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_7__["default"])(Object(_mixins_applicationable__WEBPACK_IMPORTED_MODULE_1__["default"])('top', [
+                'clippedLeft',
+                'clippedRight',
+                'computedHeight',
+                'invertedScroll',
+                'manualScroll'
             ]), _mixins_colorable__WEBPACK_IMPORTED_MODULE_2__["default"], _mixins_ssr_bootable__WEBPACK_IMPORTED_MODULE_4__["default"], _mixins_themeable__WEBPACK_IMPORTED_MODULE_3__["default"]).extend({
-                name: "v-toolbar",
+                name: 'v-toolbar',
                 directives: {
                     Scroll: _directives_scroll__WEBPACK_IMPORTED_MODULE_5__["default"]
                 },
@@ -16701,7 +16701,7 @@
                     canScroll: function canScroll() {
                         // TODO: remove
                         if (this.scrollToolbarOffScreen) {
-                            Object(_util_console__WEBPACK_IMPORTED_MODULE_6__["deprecate"])("scrollToolbarOffScreen", "scrollOffScreen", this);
+                            Object(_util_console__WEBPACK_IMPORTED_MODULE_6__["deprecate"])('scrollToolbarOffScreen', 'scrollOffScreen', this);
                             return true;
                         }
                         return this.scrollOffScreen || this.invertedScroll;
@@ -16728,16 +16728,16 @@
                     },
                     classes: function classes() {
                         return __assign({
-                            "v-toolbar": true,
-                            "elevation-0": this.flat || !this.isActive && !this.tabs && this.canScroll,
-                            "v-toolbar--absolute": this.absolute,
-                            "v-toolbar--card": this.card,
-                            "v-toolbar--clipped": this.clippedLeft || this.clippedRight,
-                            "v-toolbar--dense": this.dense,
-                            "v-toolbar--extended": this.isExtended,
-                            "v-toolbar--fixed": !this.absolute && (this.app || this.fixed),
-                            "v-toolbar--floating": this.floating,
-                            "v-toolbar--prominent": this.prominent
+                            'v-toolbar': true,
+                            'elevation-0': this.flat || !this.isActive && !this.tabs && this.canScroll,
+                            'v-toolbar--absolute': this.absolute,
+                            'v-toolbar--card': this.card,
+                            'v-toolbar--clipped': this.clippedLeft || this.clippedRight,
+                            'v-toolbar--dense': this.dense,
+                            'v-toolbar--extended': this.isExtended,
+                            'v-toolbar--fixed': !this.absolute && (this.app || this.fixed),
+                            'v-toolbar--floating': this.floating,
+                            'v-toolbar--prominent': this.prominent
                         }, this.themeClasses);
                     },
                     computedPaddingLeft: function computedPaddingLeft() {
@@ -16794,7 +16794,7 @@
                 },
                 methods: {
                     onScroll: function onScroll() {
-                        if (!this.canScroll || this.manualScroll || typeof window === "undefined") return;
+                        if (!this.canScroll || this.manualScroll || typeof window === 'undefined') return;
                         this.currentScroll = this.target ? this.target.scrollTop : window.pageYOffset;
                         this.isScrollingUp = this.currentScroll < this.previousScroll;
                         this.previousScroll = this.currentScroll;
@@ -16807,31 +16807,31 @@
                     this.isExtended = this.extended || !!this.$slots.extension;
                     var children = [];
                     var data = this.setBackgroundColor(this.color, {
-                        "class": this.classes,
+                        'class': this.classes,
                         style: this.styles,
                         on: this.$listeners
                     });
                     data.directives = [
                         {
                             arg: this.scrollTarget,
-                            name: "scroll",
+                            name: 'scroll',
                             value: this.onScroll
                         }
                     ];
-                    children.push(h("div", {
-                        staticClass: "v-toolbar__content",
+                    children.push(h('div', {
+                        staticClass: 'v-toolbar__content',
                         style: {
                             height: this.computedContentHeight + "px"
                         },
-                        ref: "content"
+                        ref: 'content'
                     }, this.$slots.default));
-                    if (this.isExtended) children.push(h("div", {
-                        staticClass: "v-toolbar__extension",
+                    if (this.isExtended) children.push(h('div', {
+                        staticClass: 'v-toolbar__extension',
                         style: {
                             height: this.computedExtensionHeight + "px"
                         }
                     }, this.$slots.extension));
-                    return h("nav", data, children);
+                    return h('nav', data, children);
                 }
             });
         /***/ },
@@ -16845,11 +16845,11 @@
             /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue */ "vue");
             /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/ __webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_2__);
             /* @vue/component */ /* harmony default export */ __webpack_exports__["default"] = vue__WEBPACK_IMPORTED_MODULE_2___default.a.extend({
-                name: "v-toolbar-side-icon",
+                name: 'v-toolbar-side-icon',
                 functional: true,
                 render: function render(h, _a) {
                     var slots = _a.slots, listeners = _a.listeners, props = _a.props, data = _a.data;
-                    var classes = data.staticClass ? data.staticClass + " v-toolbar__side-icon" : "v-toolbar__side-icon";
+                    var classes = data.staticClass ? data.staticClass + " v-toolbar__side-icon" : 'v-toolbar__side-icon';
                     var d = Object.assign(data, {
                         staticClass: classes,
                         props: Object.assign(props, {
@@ -16859,7 +16859,7 @@
                     });
                     var defaultSlot = slots().default;
                     return h(_VBtn__WEBPACK_IMPORTED_MODULE_0__["default"], d, defaultSlot || [
-                        h(_VIcon__WEBPACK_IMPORTED_MODULE_1__["default"], "$vuetify.icons.menu")
+                        h(_VIcon__WEBPACK_IMPORTED_MODULE_1__["default"], '$vuetify.icons.menu')
                     ]);
                 }
             });
@@ -16884,8 +16884,8 @@
             /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "VToolbarSideIcon", function() {
                 return _VToolbarSideIcon__WEBPACK_IMPORTED_MODULE_2__["default"];
             });
-            var VToolbarTitle = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_0__["createSimpleFunctional"])("v-toolbar__title");
-            var VToolbarItems = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_0__["createSimpleFunctional"])("v-toolbar__items");
+            var VToolbarTitle = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_0__["createSimpleFunctional"])('v-toolbar__title');
+            var VToolbarItems = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_0__["createSimpleFunctional"])('v-toolbar__items');
             /* harmony default export */ __webpack_exports__["default"] = {
                 $_vuetify_subcomponents: {
                     VToolbar: _VToolbar__WEBPACK_IMPORTED_MODULE_1__["default"],
@@ -16913,7 +16913,7 @@
             // Mixins
             // Helpers
             /* @vue/component */ /* harmony default export */ __webpack_exports__["default"] = {
-                name: "v-tooltip",
+                name: 'v-tooltip',
                 mixins: [
                     _mixins_colorable__WEBPACK_IMPORTED_MODULE_1__["default"],
                     _mixins_delayable__WEBPACK_IMPORTED_MODULE_2__["default"],
@@ -16951,7 +16951,7 @@
                     },
                     tag: {
                         type: String,
-                        default: "span"
+                        default: 'span'
                     },
                     transition: String,
                     zIndex: {
@@ -16988,19 +16988,19 @@
                     },
                     classes: function classes() {
                         return {
-                            "v-tooltip--top": this.top,
-                            "v-tooltip--right": this.right,
-                            "v-tooltip--bottom": this.bottom,
-                            "v-tooltip--left": this.left
+                            'v-tooltip--top': this.top,
+                            'v-tooltip--right': this.right,
+                            'v-tooltip--bottom': this.bottom,
+                            'v-tooltip--left': this.left
                         };
                     },
                     computedTransition: function computedTransition() {
                         if (this.transition) return this.transition;
-                        if (this.top) return "slide-y-reverse-transition";
-                        if (this.right) return "slide-x-transition";
-                        if (this.bottom) return "slide-y-transition";
-                        if (this.left) return "slide-x-reverse-transition";
-                        return "";
+                        if (this.top) return 'slide-y-reverse-transition';
+                        if (this.right) return 'slide-x-transition';
+                        if (this.bottom) return 'slide-y-transition';
+                        if (this.left) return 'slide-x-reverse-transition';
+                        return '';
                     },
                     offsetY: function offsetY() {
                         return this.top || this.bottom;
@@ -17026,7 +17026,7 @@
                     });
                 },
                 mounted: function mounted() {
-                    if (Object(_util_helpers__WEBPACK_IMPORTED_MODULE_7__["getSlotType"])(this, "activator", true) === "v-slot") Object(_util_console__WEBPACK_IMPORTED_MODULE_8__["consoleError"])("v-tooltip's activator slot must be bound, try '<template #activator=\"data\"><v-btn v-on=\"data.on>'", this);
+                    if (Object(_util_helpers__WEBPACK_IMPORTED_MODULE_7__["getSlotType"])(this, 'activator', true) === 'v-slot') Object(_util_console__WEBPACK_IMPORTED_MODULE_8__["consoleError"])("v-tooltip's activator slot must be bound, try '<template #activator=\"data\"><v-btn v-on=\"data.on>'", this);
                 },
                 methods: {
                     activate: function activate() {
@@ -17041,46 +17041,46 @@
                         var listeners = this.disabled ? {} : {
                             mouseenter: function mouseenter(e) {
                                 _this.getActivator(e);
-                                _this.runDelay("open");
+                                _this.runDelay('open');
                             },
                             mouseleave: function mouseleave(e) {
                                 _this.getActivator(e);
-                                _this.runDelay("close");
+                                _this.runDelay('close');
                             }
                         };
-                        if (Object(_util_helpers__WEBPACK_IMPORTED_MODULE_7__["getSlotType"])(this, "activator") === "scoped") {
+                        if (Object(_util_helpers__WEBPACK_IMPORTED_MODULE_7__["getSlotType"])(this, 'activator') === 'scoped') {
                             var activator = this.$scopedSlots.activator({
                                 on: listeners
                             });
                             this.activatorNode = activator;
                             return activator;
                         }
-                        return this.$createElement("span", {
+                        return this.$createElement('span', {
                             on: listeners,
-                            ref: "activator"
+                            ref: 'activator'
                         }, this.$slots.activator);
                     }
                 },
                 render: function render(h) {
                     var _a;
-                    var tooltip = h("div", this.setBackgroundColor(this.color, {
-                        staticClass: "v-tooltip__content",
-                        "class": (_a = {}, _a[this.contentClass] = true, _a["menuable__content__active"] = this.isActive, _a["v-tooltip__content--fixed"] = this.activatorFixed, _a),
+                    var tooltip = h('div', this.setBackgroundColor(this.color, {
+                        staticClass: 'v-tooltip__content',
+                        'class': (_a = {}, _a[this.contentClass] = true, _a['menuable__content__active'] = this.isActive, _a['v-tooltip__content--fixed'] = this.activatorFixed, _a),
                         style: this.styles,
                         attrs: this.getScopeIdAttrs(),
                         directives: [
                             {
-                                name: "show",
+                                name: 'show',
                                 value: this.isContentActive
                             }
                         ],
-                        ref: "content"
+                        ref: 'content'
                     }), this.showLazyContent(this.$slots.default));
                     return h(this.tag, {
-                        staticClass: "v-tooltip",
-                        "class": this.classes
+                        staticClass: 'v-tooltip',
+                        'class': this.classes
                     }, [
-                        h("transition", {
+                        h('transition', {
                             props: {
                                 name: this.computedTransition
                             }
@@ -17167,8 +17167,8 @@
             // Components
             // Mixins
             // Utils
-            /* harmony default export */ __webpack_exports__["default"] = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_5__["default"])(Object(_mixins_registrable__WEBPACK_IMPORTED_MODULE_3__["provide"])("treeview"), _mixins_themeable__WEBPACK_IMPORTED_MODULE_2__["default"]).extend({
-                name: "v-treeview",
+            /* harmony default export */ __webpack_exports__["default"] = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_5__["default"])(Object(_mixins_registrable__WEBPACK_IMPORTED_MODULE_3__["provide"])('treeview'), _mixins_themeable__WEBPACK_IMPORTED_MODULE_2__["default"]).extend({
+                name: 'v-treeview',
                 provide: function provide() {
                     return {
                         treeview: this
@@ -17278,7 +17278,7 @@
                 mounted: function mounted() {
                     var _this = this;
                     // Save the developer from themselves
-                    if (this.$slots.prepend || this.$slots.append) Object(_util_console__WEBPACK_IMPORTED_MODULE_6__["consoleWarn"])("The prepend and append slots require a slot-scope attribute", this);
+                    if (this.$slots.prepend || this.$slots.append) Object(_util_console__WEBPACK_IMPORTED_MODULE_6__["consoleWarn"])('The prepend and append slots require a slot-scope attribute', this);
                     if (this.openAll) this.updateAll(true);
                     else {
                         this.open.forEach(function(key) {
@@ -17360,13 +17360,13 @@
                         return node;
                     },
                     emitOpen: function emitOpen() {
-                        this.emitNodeCache("update:open", this.openCache);
+                        this.emitNodeCache('update:open', this.openCache);
                     },
                     emitSelected: function emitSelected() {
-                        this.emitNodeCache("input", this.selectedCache);
+                        this.emitNodeCache('input', this.selectedCache);
                     },
                     emitActive: function emitActive() {
-                        this.emitNodeCache("update:active", this.activeCache);
+                        this.emitNodeCache('update:active', this.activeCache);
                     },
                     emitNodeCache: function emitNodeCache(event, cache) {
                         var _this = this;
@@ -17497,10 +17497,10 @@
                 },
                 render: function render(h) {
                     var children = this.items.length ? this.items.map(_VTreeviewNode__WEBPACK_IMPORTED_MODULE_1__["default"].options.methods.genChild.bind(this)) : this.$slots.default; // TODO: remove type annotation with TS 3.2
-                    return h("div", {
-                        staticClass: "v-treeview",
+                    return h('div', {
+                        staticClass: 'v-treeview',
                         class: __assign({
-                            "v-treeview--hoverable": this.hoverable
+                            'v-treeview--hoverable': this.hoverable
                         }, this.themeClasses)
                     }, children);
                 }
@@ -17537,51 +17537,51 @@
                 activatable: Boolean,
                 activeClass: {
                     type: String,
-                    default: "v-treeview-node--active"
+                    default: 'v-treeview-node--active'
                 },
                 selectable: Boolean,
                 selectedColor: {
                     type: String,
-                    default: "accent"
+                    default: 'accent'
                 },
                 indeterminateIcon: {
                     type: String,
-                    default: "$vuetify.icons.checkboxIndeterminate"
+                    default: '$vuetify.icons.checkboxIndeterminate'
                 },
                 onIcon: {
                     type: String,
-                    default: "$vuetify.icons.checkboxOn"
+                    default: '$vuetify.icons.checkboxOn'
                 },
                 offIcon: {
                     type: String,
-                    default: "$vuetify.icons.checkboxOff"
+                    default: '$vuetify.icons.checkboxOff'
                 },
                 expandIcon: {
                     type: String,
-                    default: "$vuetify.icons.subgroup"
+                    default: '$vuetify.icons.subgroup'
                 },
                 loadingIcon: {
                     type: String,
-                    default: "$vuetify.icons.loading"
+                    default: '$vuetify.icons.loading'
                 },
                 itemKey: {
                     type: String,
-                    default: "id"
+                    default: 'id'
                 },
                 itemText: {
                     type: String,
-                    default: "name"
+                    default: 'name'
                 },
                 itemChildren: {
                     type: String,
-                    default: "children"
+                    default: 'children'
                 },
                 loadChildren: Function,
                 openOnClick: Boolean,
                 transition: Boolean
             };
-            /* harmony default export */ __webpack_exports__["default"] = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_4__["default"])(Object(_mixins_registrable__WEBPACK_IMPORTED_MODULE_3__["inject"])("treeview")).extend({
-                name: "v-treeview-node",
+            /* harmony default export */ __webpack_exports__["default"] = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_4__["default"])(Object(_mixins_registrable__WEBPACK_IMPORTED_MODULE_3__["inject"])('treeview')).extend({
+                name: 'v-treeview-node',
                 inject: {
                     treeview: {
                         default: null
@@ -17663,9 +17663,9 @@
                         var children = [];
                         if (this.$scopedSlots.label) children.push(this.$scopedSlots.label(this.scopedProps));
                         else children.push(this.text);
-                        return this.$createElement("div", {
-                            slot: "label",
-                            staticClass: "v-treeview-node__label"
+                        return this.$createElement('div', {
+                            slot: 'label',
+                            staticClass: 'v-treeview-node__label'
                         }, children);
                     },
                     genContent: function genContent() {
@@ -17674,19 +17674,19 @@
                             this.genLabel(),
                             this.$scopedSlots.append && this.$scopedSlots.append(this.scopedProps)
                         ];
-                        return this.$createElement("div", {
-                            staticClass: "v-treeview-node__content"
+                        return this.$createElement('div', {
+                            staticClass: 'v-treeview-node__content'
                         }, children);
                     },
                     genToggle: function genToggle() {
                         var _this = this;
                         return this.$createElement(_VIcon__WEBPACK_IMPORTED_MODULE_1__["VIcon"], {
-                            staticClass: "v-treeview-node__toggle",
+                            staticClass: 'v-treeview-node__toggle',
                             class: {
-                                "v-treeview-node__toggle--open": this.isOpen,
-                                "v-treeview-node__toggle--loading": this.isLoading
+                                'v-treeview-node__toggle--open': this.isOpen,
+                                'v-treeview-node__toggle--loading': this.isLoading
                             },
-                            slot: "prepend",
+                            slot: 'prepend',
                             on: {
                                 click: function click(e) {
                                     e.stopPropagation();
@@ -17703,7 +17703,7 @@
                     genCheckbox: function genCheckbox() {
                         var _this = this;
                         return this.$createElement(_VIcon__WEBPACK_IMPORTED_MODULE_1__["VIcon"], {
-                            staticClass: "v-treeview-node__checkbox",
+                            staticClass: 'v-treeview-node__checkbox',
                             props: {
                                 color: this.isSelected ? this.selectedColor : undefined
                             },
@@ -17734,8 +17734,8 @@
                         ];
                         if (this.selectable) children.unshift(this.genCheckbox());
                         if (this.hasChildren) children.unshift(this.genToggle());
-                        return this.$createElement("div", {
-                            staticClass: "v-treeview-node__root",
+                        return this.$createElement('div', {
+                            staticClass: 'v-treeview-node__root',
                             class: (_a = {}, _a[this.activeClass] = this.isActive, _a),
                             on: {
                                 click: function click() {
@@ -17778,8 +17778,8 @@
                         var children = [
                             this.children.map(this.genChild)
                         ];
-                        return this.$createElement("div", {
-                            staticClass: "v-treeview-node__children"
+                        return this.$createElement('div', {
+                            staticClass: 'v-treeview-node__children'
                         }, children);
                     },
                     genTransition: function genTransition() {
@@ -17794,13 +17794,13 @@
                     ];
                     if (this.transition) children.push(this.genTransition());
                     else children.push(this.genChildrenWrapper());
-                    return h("div", {
-                        staticClass: "v-treeview-node",
+                    return h('div', {
+                        staticClass: 'v-treeview-node',
                         class: {
-                            "v-treeview-node--leaf": !this.hasChildren,
-                            "v-treeview-node--click": this.openOnClick,
-                            "v-treeview-node--selected": this.isSelected,
-                            "v-treeview-node--excluded": this.treeview.isExcluded(this.key)
+                            'v-treeview-node--leaf': !this.hasChildren,
+                            'v-treeview-node--click': this.openOnClick,
+                            'v-treeview-node--selected': this.isSelected,
+                            'v-treeview-node--excluded': this.treeview.isExcluded(this.key)
                         }
                     }, children);
                 }
@@ -17867,7 +17867,7 @@
             // Components
             // Directives
             /* @vue/component */ /* harmony default export */ __webpack_exports__["default"] = _VItemGroup_VItemGroup__WEBPACK_IMPORTED_MODULE_1__["BaseItemGroup"].extend({
-                name: "v-window",
+                name: 'v-window',
                 provide: function provide() {
                     return {
                         windowGroup: this
@@ -17902,9 +17902,9 @@
                 },
                 computed: {
                     computedTransition: function computedTransition() {
-                        if (!this.isBooted) return "";
-                        var axis = this.vertical ? "y" : "x";
-                        var direction = this.internalReverse === !this.$vuetify.rtl ? "-reverse" : "";
+                        if (!this.isBooted) return '';
+                        var axis = this.vertical ? 'y' : 'x';
+                        var direction = this.internalReverse === !this.$vuetify.rtl ? '-reverse' : '';
                         return "v-window-" + axis + direction + "-transition";
                     },
                     internalIndex: function internalIndex() {
@@ -17919,7 +17919,7 @@
                     }
                 },
                 watch: {
-                    internalIndex: "updateReverse"
+                    internalIndex: 'updateReverse'
                 },
                 mounted: function mounted() {
                     var _this = this;
@@ -17929,10 +17929,10 @@
                 },
                 methods: {
                     genContainer: function genContainer() {
-                        return this.$createElement("div", {
-                            staticClass: "v-window__container",
+                        return this.$createElement('div', {
+                            staticClass: 'v-window__container',
                             class: {
-                                "v-window__container--is-active": this.isActive
+                                'v-window__container--is-active': this.isActive
                             },
                             style: {
                                 height: this.internalHeight
@@ -17957,7 +17957,7 @@
                 },
                 render: function render(h) {
                     var data = {
-                        staticClass: "v-window",
+                        staticClass: 'v-window',
                         directives: []
                     };
                     if (!this.touchless) {
@@ -17966,11 +17966,11 @@
                             right: this.prev
                         };
                         data.directives.push({
-                            name: "touch",
+                            name: 'touch',
                             value: value
                         });
                     }
-                    return h("div", data, [
+                    return h('div', data, [
                         this.genContainer()
                     ]);
                 }
@@ -17989,8 +17989,8 @@
             // Mixins
             // Directives
             // Utilities
-            /* harmony default export */ __webpack_exports__["default"] = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_4__["default"])(_mixins_bootable__WEBPACK_IMPORTED_MODULE_0__["default"], Object(_mixins_groupable__WEBPACK_IMPORTED_MODULE_1__["factory"])("windowGroup", "v-window-item", "v-window")).extend({
-                name: "v-window-item",
+            /* harmony default export */ __webpack_exports__["default"] = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_4__["default"])(_mixins_bootable__WEBPACK_IMPORTED_MODULE_0__["default"], Object(_mixins_groupable__WEBPACK_IMPORTED_MODULE_1__["factory"])('windowGroup', 'v-window-item', 'v-window')).extend({
+                name: 'v-window-item',
                 directives: {
                     Touch: _directives_touch__WEBPACK_IMPORTED_MODULE_2__["default"]
                 },
@@ -18022,15 +18022,15 @@
                 },
                 computed: {
                     computedTransition: function computedTransition() {
-                        if (!this.windowGroup.internalReverse) return typeof this.transition !== "undefined" ? this.transition || "" : this.windowGroup.computedTransition;
-                        return typeof this.reverseTransition !== "undefined" ? this.reverseTransition || "" : this.windowGroup.computedTransition;
+                        if (!this.windowGroup.internalReverse) return typeof this.transition !== 'undefined' ? this.transition || '' : this.windowGroup.computedTransition;
+                        return typeof this.reverseTransition !== 'undefined' ? this.reverseTransition || '' : this.windowGroup.computedTransition;
                     }
                 },
                 mounted: function mounted() {
-                    this.$el.addEventListener("transitionend", this.onTransitionEnd, false);
+                    this.$el.addEventListener('transitionend', this.onTransitionEnd, false);
                 },
                 beforeDestroy: function beforeDestroy() {
-                    this.$el.removeEventListener("transitionend", this.onTransitionEnd, false);
+                    this.$el.removeEventListener('transitionend', this.onTransitionEnd, false);
                 },
                 methods: {
                     genDefaultSlot: function genDefaultSlot() {
@@ -18073,23 +18073,23 @@
                         // This ensures we only call done
                         // when the element transform
                         // completes
-                        if (e.propertyName !== "transform" || e.target !== this.$el || !this.done) return;
+                        if (e.propertyName !== 'transform' || e.target !== this.$el || !this.done) return;
                         this.done();
                         this.done = null;
                     }
                 },
                 render: function render(h) {
-                    var div = h("div", {
-                        staticClass: "v-window-item",
+                    var div = h('div', {
+                        staticClass: 'v-window-item',
                         directives: [
                             {
-                                name: "show",
+                                name: 'show',
                                 value: this.isActive
                             }
                         ],
                         on: this.$listeners
                     }, this.showLazyContent(this.genDefaultSlot()));
-                    return h("transition", {
+                    return h('transition', {
                         props: {
                             name: this.computedTransition
                         },
@@ -18251,13 +18251,13 @@
                     container: document.scrollingElement || document.body || document.documentElement,
                     duration: 500,
                     offset: 0,
-                    easing: "easeInOutCubic",
+                    easing: 'easeInOutCubic',
                     appOffset: true
                 }, _settings);
                 var container = Object(_util__WEBPACK_IMPORTED_MODULE_1__["getContainer"])(settings.container);
                 if (settings.appOffset) {
-                    var isDrawer = container.classList.contains("v-navigation-drawer");
-                    var isClipped = container.classList.contains("v-navigation-drawer--clipped");
+                    var isDrawer = container.classList.contains('v-navigation-drawer');
+                    var isClipped = container.classList.contains('v-navigation-drawer--clipped');
                     settings.offset += vue__WEBPACK_IMPORTED_MODULE_2___default.a.prototype.$vuetify.application.bar;
                     if (!isDrawer || isClipped) settings.offset += vue__WEBPACK_IMPORTED_MODULE_2___default.a.prototype.$vuetify.application.top;
                 }
@@ -18265,8 +18265,8 @@
                 var targetLocation = Object(_util__WEBPACK_IMPORTED_MODULE_1__["getOffset"])(_target) - settings.offset;
                 var startLocation = container.scrollTop;
                 if (targetLocation === startLocation) return Promise.resolve(targetLocation);
-                var ease = typeof settings.easing === "function" ? settings.easing : _easing_patterns__WEBPACK_IMPORTED_MODULE_0__[settings.easing];
-                if (!ease) throw new TypeError('Easing function "' + settings.easing + '" not found.');
+                var ease = typeof settings.easing === 'function' ? settings.easing : _easing_patterns__WEBPACK_IMPORTED_MODULE_0__[settings.easing];
+                if (!ease) throw new TypeError("Easing function \"" + settings.easing + "\" not found.");
                 // tslint:disable-next-line:promise-must-complete
                 return new Promise(function(resolve) {
                     return requestAnimationFrame(function step(currentTime) {
@@ -18293,9 +18293,9 @@
             });
             // Return target's cumulative offset from the top
             function getOffset(target) {
-                if (typeof target === "number") return target;
+                if (typeof target === 'number') return target;
                 var el = $(target);
-                if (!el) throw typeof target === "string" ? new Error('Target element "' + target + '" not found.') : new TypeError("Target must be a Number/Selector/HTMLElement/VueComponent, received " + type(target) + " instead.");
+                if (!el) throw typeof target === 'string' ? new Error("Target element \"" + target + "\" not found.") : new TypeError("Target must be a Number/Selector/HTMLElement/VueComponent, received " + type(target) + " instead.");
                 var totalOffset = 0;
                 while(el){
                     totalOffset += el.offsetTop;
@@ -18306,13 +18306,13 @@
             function getContainer(container) {
                 var el = $(container);
                 if (el) return el;
-                throw typeof container === "string" ? new Error('Container element "' + container + '" not found.') : new TypeError("Container must be a Selector/HTMLElement/VueComponent, received " + type(container) + " instead.");
+                throw typeof container === 'string' ? new Error("Container element \"" + container + "\" not found.") : new TypeError("Container must be a Selector/HTMLElement/VueComponent, received " + type(container) + " instead.");
             }
             function type(el) {
                 return el == null ? el : el.constructor.name;
             }
             function $(el) {
-                if (typeof el === "string") return document.querySelector(el);
+                if (typeof el === 'string') return document.querySelector(el);
                 else if (el && el._isVue) return el.$el;
                 else if (el instanceof HTMLElement) return el;
                 else return null;
@@ -18342,7 +18342,7 @@
                     if (opts === void 0) opts = {};
                     if (this.installed) return;
                     this.installed = true;
-                    if (vue__WEBPACK_IMPORTED_MODULE_0___default.a !== Vue) Object(_util_console__WEBPACK_IMPORTED_MODULE_8__["consoleError"])("Multiple instances of Vue detected\nSee https://github.com/vuetifyjs/vuetify/issues/4068\n\nIf you're seeing \"$attrs is readonly\", it's caused by this");
+                    if (vue__WEBPACK_IMPORTED_MODULE_0___default.a !== Vue) Object(_util_console__WEBPACK_IMPORTED_MODULE_8__["consoleError"])('Multiple instances of Vue detected\nSee https://github.com/vuetifyjs/vuetify/issues/4068\n\nIf you\'re seeing "$attrs is readonly", it\'s caused by this');
                     checkVueVersion(Vue);
                     var lang = Object(_mixins_lang__WEBPACK_IMPORTED_MODULE_6__["default"])(opts.lang);
                     Vue.prototype.$vuetify = new Vue({
@@ -18375,14 +18375,14 @@
                         return false;
                     })(opts.components);
                 },
-                version: "1.5.24"
+                version: '1.5.24'
             };
             function checkVueVersion(Vue, requiredVue) {
-                var vueDep = requiredVue || "^2.5.18";
-                var required = vueDep.split(".", 3).map(function(v) {
-                    return v.replace(/\D/g, "");
+                var vueDep = requiredVue || '^2.5.18';
+                var required = vueDep.split('.', 3).map(function(v) {
+                    return v.replace(/\D/g, '');
                 }).map(Number);
-                var actual = Vue.version.split(".", 3).map(function(n) {
+                var actual = Vue.version.split('.', 3).map(function(n) {
                     return parseInt(n, 10);
                 });
                 // Simple semver caret range comparison
@@ -18496,19 +18496,19 @@
                             var name;
                             switch(true){
                                 case xs:
-                                    name = "xs";
+                                    name = 'xs';
                                     break;
                                 case sm:
-                                    name = "sm";
+                                    name = 'sm';
                                     break;
                                 case md:
-                                    name = "md";
+                                    name = 'md';
                                     break;
                                 case lg:
-                                    name = "lg";
+                                    name = 'lg';
                                     break;
                                 default:
-                                    name = "xl";
+                                    name = 'xl';
                                     break;
                             }
                             return {
@@ -18541,14 +18541,14 @@
                         }
                     },
                     created: function created() {
-                        if (typeof window === "undefined") return;
-                        window.addEventListener("resize", this.onResize, {
+                        if (typeof window === 'undefined') return;
+                        window.addEventListener('resize', this.onResize, {
                             passive: true
                         });
                     },
                     beforeDestroy: function beforeDestroy() {
-                        if (typeof window === "undefined") return;
-                        window.removeEventListener("resize", this.onResize);
+                        if (typeof window === 'undefined') return;
+                        window.removeEventListener('resize', this.onResize);
                     },
                     methods: {
                         onResize: function onResize() {
@@ -18569,11 +18569,11 @@
             // Cross-browser support as described in:
             // https://stackoverflow.com/questions/1248081
             function getClientWidth() {
-                if (typeof document === "undefined") return 0; // SSR
+                if (typeof document === 'undefined') return 0; // SSR
                 return Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
             }
             function getClientHeight() {
-                if (typeof document === "undefined") return 0; // SSR
+                if (typeof document === 'undefined') return 0; // SSR
                 return Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
             }
         /***/ },
@@ -18590,127 +18590,127 @@
             });
             // Maps internal Vuetify icon names to actual Material Design icon names.
             var ICONS_MATERIAL = {
-                "complete": "check",
-                "cancel": "cancel",
-                "close": "close",
-                "delete": "cancel",
-                "clear": "clear",
-                "success": "check_circle",
-                "info": "info",
-                "warning": "priority_high",
-                "error": "warning",
-                "prev": "chevron_left",
-                "next": "chevron_right",
-                "checkboxOn": "check_box",
-                "checkboxOff": "check_box_outline_blank",
-                "checkboxIndeterminate": "indeterminate_check_box",
-                "delimiter": "fiber_manual_record",
-                "sort": "arrow_upward",
-                "expand": "keyboard_arrow_down",
-                "menu": "menu",
-                "subgroup": "arrow_drop_down",
-                "dropdown": "arrow_drop_down",
-                "radioOn": "radio_button_checked",
-                "radioOff": "radio_button_unchecked",
-                "edit": "edit",
-                "ratingEmpty": "star_border",
-                "ratingFull": "star",
-                "ratingHalf": "star_half",
-                "loading": "cached"
+                'complete': 'check',
+                'cancel': 'cancel',
+                'close': 'close',
+                'delete': 'cancel',
+                'clear': 'clear',
+                'success': 'check_circle',
+                'info': 'info',
+                'warning': 'priority_high',
+                'error': 'warning',
+                'prev': 'chevron_left',
+                'next': 'chevron_right',
+                'checkboxOn': 'check_box',
+                'checkboxOff': 'check_box_outline_blank',
+                'checkboxIndeterminate': 'indeterminate_check_box',
+                'delimiter': 'fiber_manual_record',
+                'sort': 'arrow_upward',
+                'expand': 'keyboard_arrow_down',
+                'menu': 'menu',
+                'subgroup': 'arrow_drop_down',
+                'dropdown': 'arrow_drop_down',
+                'radioOn': 'radio_button_checked',
+                'radioOff': 'radio_button_unchecked',
+                'edit': 'edit',
+                'ratingEmpty': 'star_border',
+                'ratingFull': 'star',
+                'ratingHalf': 'star_half',
+                'loading': 'cached'
             };
             // Maps internal Vuetify icon names to actual icons from materialdesignicons.com
             var ICONS_MDI = {
-                "complete": "mdi-check",
-                "cancel": "mdi-close-circle",
-                "close": "mdi-close",
-                "delete": "mdi-close-circle",
-                "clear": "mdi-close",
-                "success": "mdi-check-circle",
-                "info": "mdi-information",
-                "warning": "mdi-exclamation",
-                "error": "mdi-alert",
-                "prev": "mdi-chevron-left",
-                "next": "mdi-chevron-right",
-                "checkboxOn": "mdi-checkbox-marked",
-                "checkboxOff": "mdi-checkbox-blank-outline",
-                "checkboxIndeterminate": "mdi-minus-box",
-                "delimiter": "mdi-circle",
-                "sort": "mdi-arrow-up",
-                "expand": "mdi-chevron-down",
-                "menu": "mdi-menu",
-                "subgroup": "mdi-menu-down",
-                "dropdown": "mdi-menu-down",
-                "radioOn": "mdi-radiobox-marked",
-                "radioOff": "mdi-radiobox-blank",
-                "edit": "mdi-pencil",
-                "ratingEmpty": "mdi-star-outline",
-                "ratingFull": "mdi-star",
-                "ratingHalf": "mdi-star-half"
+                'complete': 'mdi-check',
+                'cancel': 'mdi-close-circle',
+                'close': 'mdi-close',
+                'delete': 'mdi-close-circle',
+                'clear': 'mdi-close',
+                'success': 'mdi-check-circle',
+                'info': 'mdi-information',
+                'warning': 'mdi-exclamation',
+                'error': 'mdi-alert',
+                'prev': 'mdi-chevron-left',
+                'next': 'mdi-chevron-right',
+                'checkboxOn': 'mdi-checkbox-marked',
+                'checkboxOff': 'mdi-checkbox-blank-outline',
+                'checkboxIndeterminate': 'mdi-minus-box',
+                'delimiter': 'mdi-circle',
+                'sort': 'mdi-arrow-up',
+                'expand': 'mdi-chevron-down',
+                'menu': 'mdi-menu',
+                'subgroup': 'mdi-menu-down',
+                'dropdown': 'mdi-menu-down',
+                'radioOn': 'mdi-radiobox-marked',
+                'radioOff': 'mdi-radiobox-blank',
+                'edit': 'mdi-pencil',
+                'ratingEmpty': 'mdi-star-outline',
+                'ratingFull': 'mdi-star',
+                'ratingHalf': 'mdi-star-half'
             };
             // Maps internal Vuetify icon names to actual Font-Awesome 4 icon names.
             var ICONS_FONTAWESOME4 = {
-                "complete": "fa fa-check",
-                "cancel": "fa fa-times-circle",
-                "close": "fa fa-times",
-                "delete": "fa fa-times-circle",
-                "clear": "fa fa-times-circle",
-                "success": "fa fa-check-circle",
-                "info": "fa fa-info-circle",
-                "warning": "fa fa-exclamation",
-                "error": "fa fa-exclamation-triangle",
-                "prev": "fa fa-chevron-left",
-                "next": "fa fa-chevron-right",
-                "checkboxOn": "fa fa-check-square",
-                "checkboxOff": "fa fa-square-o",
-                "checkboxIndeterminate": "fa fa-minus-square",
-                "delimiter": "fa fa-circle",
-                "sort": "fa fa-sort-up",
-                "expand": "fa fa-chevron-down",
-                "menu": "fa fa-bars",
-                "subgroup": "fa fa-caret-down",
-                "dropdown": "fa fa-caret-down",
-                "radioOn": "fa fa-dot-circle",
-                "radioOff": "fa fa-circle-o",
-                "edit": "fa fa-pencil",
-                "ratingEmpty": "fa fa-star-o",
-                "ratingFull": "fa fa-star",
-                "ratingHalf": "fa fa-star-half-o"
+                'complete': 'fa fa-check',
+                'cancel': 'fa fa-times-circle',
+                'close': 'fa fa-times',
+                'delete': 'fa fa-times-circle',
+                'clear': 'fa fa-times-circle',
+                'success': 'fa fa-check-circle',
+                'info': 'fa fa-info-circle',
+                'warning': 'fa fa-exclamation',
+                'error': 'fa fa-exclamation-triangle',
+                'prev': 'fa fa-chevron-left',
+                'next': 'fa fa-chevron-right',
+                'checkboxOn': 'fa fa-check-square',
+                'checkboxOff': 'fa fa-square-o',
+                'checkboxIndeterminate': 'fa fa-minus-square',
+                'delimiter': 'fa fa-circle',
+                'sort': 'fa fa-sort-up',
+                'expand': 'fa fa-chevron-down',
+                'menu': 'fa fa-bars',
+                'subgroup': 'fa fa-caret-down',
+                'dropdown': 'fa fa-caret-down',
+                'radioOn': 'fa fa-dot-circle',
+                'radioOff': 'fa fa-circle-o',
+                'edit': 'fa fa-pencil',
+                'ratingEmpty': 'fa fa-star-o',
+                'ratingFull': 'fa fa-star',
+                'ratingHalf': 'fa fa-star-half-o'
             };
             // Maps internal Vuetify icon names to actual Font-Awesome 5+ icon names.
             var ICONS_FONTAWESOME = {
-                "complete": "fas fa-check",
-                "cancel": "fas fa-times-circle",
-                "close": "fas fa-times",
-                "delete": "fas fa-times-circle",
-                "clear": "fas fa-times-circle",
-                "success": "fas fa-check-circle",
-                "info": "fas fa-info-circle",
-                "warning": "fas fa-exclamation",
-                "error": "fas fa-exclamation-triangle",
-                "prev": "fas fa-chevron-left",
-                "next": "fas fa-chevron-right",
-                "checkboxOn": "fas fa-check-square",
-                "checkboxOff": "far fa-square",
-                "checkboxIndeterminate": "fas fa-minus-square",
-                "delimiter": "fas fa-circle",
-                "sort": "fas fa-sort-up",
-                "expand": "fas fa-chevron-down",
-                "menu": "fas fa-bars",
-                "subgroup": "fas fa-caret-down",
-                "dropdown": "fas fa-caret-down",
-                "radioOn": "far fa-dot-circle",
-                "radioOff": "far fa-circle",
-                "edit": "fas fa-edit",
-                "ratingEmpty": "far fa-star",
-                "ratingFull": "fas fa-star",
-                "ratingHalf": "fas fa-star-half"
+                'complete': 'fas fa-check',
+                'cancel': 'fas fa-times-circle',
+                'close': 'fas fa-times',
+                'delete': 'fas fa-times-circle',
+                'clear': 'fas fa-times-circle',
+                'success': 'fas fa-check-circle',
+                'info': 'fas fa-info-circle',
+                'warning': 'fas fa-exclamation',
+                'error': 'fas fa-exclamation-triangle',
+                'prev': 'fas fa-chevron-left',
+                'next': 'fas fa-chevron-right',
+                'checkboxOn': 'fas fa-check-square',
+                'checkboxOff': 'far fa-square',
+                'checkboxIndeterminate': 'fas fa-minus-square',
+                'delimiter': 'fas fa-circle',
+                'sort': 'fas fa-sort-up',
+                'expand': 'fas fa-chevron-down',
+                'menu': 'fas fa-bars',
+                'subgroup': 'fas fa-caret-down',
+                'dropdown': 'fas fa-caret-down',
+                'radioOn': 'far fa-dot-circle',
+                'radioOff': 'far fa-circle',
+                'edit': 'fas fa-edit',
+                'ratingEmpty': 'far fa-star',
+                'ratingFull': 'fas fa-star',
+                'ratingHalf': 'fas fa-star-half'
             };
             function convertToComponentDeclarations(component, iconSet) {
                 var result = {};
                 for(var key in iconSet)result[key] = {
                     component: component,
                     props: {
-                        icon: iconSet[key].split(" fa-")
+                        icon: iconSet[key].split(' fa-')
                     }
                 };
                 return result;
@@ -18720,10 +18720,10 @@
                 mdi: ICONS_MDI,
                 fa: ICONS_FONTAWESOME,
                 fa4: ICONS_FONTAWESOME4,
-                faSvg: convertToComponentDeclarations("font-awesome-icon", ICONS_FONTAWESOME)
+                faSvg: convertToComponentDeclarations('font-awesome-icon', ICONS_FONTAWESOME)
             };
             function icons(iconfont, icons) {
-                if (iconfont === void 0) iconfont = "md";
+                if (iconfont === void 0) iconfont = 'md';
                 if (icons === void 0) icons = {};
                 return Object.assign({}, iconSets[iconfont] || iconSets.md, icons);
             }
@@ -18762,18 +18762,18 @@
                 for(var ar = [], i = 0; i < arguments.length; i++)ar = ar.concat(__read(arguments[i]));
                 return ar;
             };
-            var LANG_PREFIX = "$vuetify.";
-            var fallback = Symbol("Lang fallback");
+            var LANG_PREFIX = '$vuetify.';
+            var fallback = Symbol('Lang fallback');
             function getTranslation(locale, key, usingFallback) {
                 if (usingFallback === void 0) usingFallback = false;
-                var shortKey = key.replace(LANG_PREFIX, "");
+                var shortKey = key.replace(LANG_PREFIX, '');
                 var translation = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_1__["getObjectValueByPath"])(locale, shortKey, fallback);
                 if (translation === fallback) {
                     if (usingFallback) {
-                        Object(_util_console__WEBPACK_IMPORTED_MODULE_2__["consoleError"])('Translation key "' + shortKey + '" not found in fallback');
+                        Object(_util_console__WEBPACK_IMPORTED_MODULE_2__["consoleError"])("Translation key \"" + shortKey + "\" not found in fallback");
                         translation = key;
                     } else {
-                        Object(_util_console__WEBPACK_IMPORTED_MODULE_2__["consoleWarn"])('Translation key "' + shortKey + '" not found, falling back to default');
+                        Object(_util_console__WEBPACK_IMPORTED_MODULE_2__["consoleWarn"])("Translation key \"" + shortKey + "\" not found, falling back to default");
                         translation = getTranslation(_locale_en__WEBPACK_IMPORTED_MODULE_0__["default"], key, true);
                     }
                 }
@@ -18785,7 +18785,7 @@
                     locales: Object.assign({
                         en: _locale_en__WEBPACK_IMPORTED_MODULE_0__["default"]
                     }, config.locales),
-                    current: config.current || "en",
+                    current: config.current || 'en',
                     t: function t(key) {
                         var params = [];
                         for(var _i = 1; _i < arguments.length; _i++)params[_i - 1] = arguments[_i];
@@ -18849,13 +18849,13 @@
                 return __assign.apply(this, arguments);
             };
             /* eslint-disable no-multi-spaces */ var THEME_DEFAULTS = {
-                primary: "#1976D2",
-                secondary: "#424242",
-                accent: "#82B1FF",
-                error: "#FF5252",
-                info: "#2196F3",
-                success: "#4CAF50",
-                warning: "#FB8C00" // orange.darken1
+                primary: '#1976D2',
+                secondary: '#424242',
+                accent: '#82B1FF',
+                error: '#FF5252',
+                info: '#2196F3',
+                success: '#4CAF50',
+                warning: '#FB8C00' // orange.darken1
             };
             function theme(theme) {
                 if (theme === void 0) theme = {};
@@ -19351,9 +19351,9 @@
             __webpack_require__.r(__webpack_exports__);
             /* harmony import */ var _util_helpers__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../util/helpers */ "./src/util/helpers.ts");
             /* harmony default export */ __webpack_exports__["default"] = function(expandedParentClass, x) {
-                if (expandedParentClass === void 0) expandedParentClass = "";
+                if (expandedParentClass === void 0) expandedParentClass = '';
                 if (x === void 0) x = false;
-                var sizeProperty = x ? "width" : "height";
+                var sizeProperty = x ? 'width' : 'height';
                 return {
                     beforeEnter: function beforeEnter(el) {
                         var _a;
@@ -19366,11 +19366,11 @@
                     },
                     enter: function enter(el) {
                         var initialStyle = el._initialStyle;
-                        el.style.setProperty("transition", "none", "important");
-                        el.style.visibility = "hidden";
-                        var size = el["offset" + Object(_util_helpers__WEBPACK_IMPORTED_MODULE_0__["upperFirst"])(sizeProperty)] + "px";
+                        el.style.setProperty('transition', 'none', 'important');
+                        el.style.visibility = 'hidden';
+                        var size = el['offset' + Object(_util_helpers__WEBPACK_IMPORTED_MODULE_0__["upperFirst"])(sizeProperty)] + "px";
                         el.style.visibility = initialStyle.visibility;
-                        el.style.overflow = "hidden";
+                        el.style.overflow = 'hidden';
                         el.style[sizeProperty] = 0;
                         el.offsetHeight; // force reflow
                         el.style.transition = initialStyle.transition;
@@ -19386,8 +19386,8 @@
                         el._initialStyle = (_a = {
                             overflow: el.style.overflow
                         }, _a[sizeProperty] = el.style[sizeProperty], _a);
-                        el.style.overflow = "hidden";
-                        el.style[sizeProperty] = el["offset" + Object(_util_helpers__WEBPACK_IMPORTED_MODULE_0__["upperFirst"])(sizeProperty)] + "px";
+                        el.style.overflow = 'hidden';
+                        el.style[sizeProperty] = el['offset' + Object(_util_helpers__WEBPACK_IMPORTED_MODULE_0__["upperFirst"])(sizeProperty)] + "px";
                         el.offsetHeight; // force reflow
                         requestAnimationFrame(function() {
                             return el.style[sizeProperty] = 0;
@@ -19481,30 +19481,30 @@
             /* harmony import */ var _util_helpers__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../util/helpers */ "./src/util/helpers.ts");
             /* harmony import */ var _expand_transition__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./expand-transition */ "./src/components/transitions/expand-transition.js");
             // Component specific transitions
-            var VBottomSheetTransition = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_0__["createSimpleTransition"])("bottom-sheet-transition");
-            var VCarouselTransition = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_0__["createSimpleTransition"])("carousel-transition");
-            var VCarouselReverseTransition = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_0__["createSimpleTransition"])("carousel-reverse-transition");
-            var VTabTransition = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_0__["createSimpleTransition"])("tab-transition");
-            var VTabReverseTransition = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_0__["createSimpleTransition"])("tab-reverse-transition");
-            var VMenuTransition = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_0__["createSimpleTransition"])("menu-transition");
-            var VFabTransition = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_0__["createSimpleTransition"])("fab-transition", "center center", "out-in");
+            var VBottomSheetTransition = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_0__["createSimpleTransition"])('bottom-sheet-transition');
+            var VCarouselTransition = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_0__["createSimpleTransition"])('carousel-transition');
+            var VCarouselReverseTransition = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_0__["createSimpleTransition"])('carousel-reverse-transition');
+            var VTabTransition = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_0__["createSimpleTransition"])('tab-transition');
+            var VTabReverseTransition = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_0__["createSimpleTransition"])('tab-reverse-transition');
+            var VMenuTransition = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_0__["createSimpleTransition"])('menu-transition');
+            var VFabTransition = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_0__["createSimpleTransition"])('fab-transition', 'center center', 'out-in');
             // Generic transitions
-            var VDialogTransition = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_0__["createSimpleTransition"])("dialog-transition");
-            var VDialogBottomTransition = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_0__["createSimpleTransition"])("dialog-bottom-transition");
-            var VFadeTransition = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_0__["createSimpleTransition"])("fade-transition");
-            var VScaleTransition = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_0__["createSimpleTransition"])("scale-transition");
-            var VScrollXTransition = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_0__["createSimpleTransition"])("scroll-x-transition");
-            var VScrollXReverseTransition = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_0__["createSimpleTransition"])("scroll-x-reverse-transition");
-            var VScrollYTransition = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_0__["createSimpleTransition"])("scroll-y-transition");
-            var VScrollYReverseTransition = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_0__["createSimpleTransition"])("scroll-y-reverse-transition");
-            var VSlideXTransition = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_0__["createSimpleTransition"])("slide-x-transition");
-            var VSlideXReverseTransition = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_0__["createSimpleTransition"])("slide-x-reverse-transition");
-            var VSlideYTransition = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_0__["createSimpleTransition"])("slide-y-transition");
-            var VSlideYReverseTransition = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_0__["createSimpleTransition"])("slide-y-reverse-transition");
+            var VDialogTransition = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_0__["createSimpleTransition"])('dialog-transition');
+            var VDialogBottomTransition = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_0__["createSimpleTransition"])('dialog-bottom-transition');
+            var VFadeTransition = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_0__["createSimpleTransition"])('fade-transition');
+            var VScaleTransition = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_0__["createSimpleTransition"])('scale-transition');
+            var VScrollXTransition = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_0__["createSimpleTransition"])('scroll-x-transition');
+            var VScrollXReverseTransition = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_0__["createSimpleTransition"])('scroll-x-reverse-transition');
+            var VScrollYTransition = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_0__["createSimpleTransition"])('scroll-y-transition');
+            var VScrollYReverseTransition = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_0__["createSimpleTransition"])('scroll-y-reverse-transition');
+            var VSlideXTransition = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_0__["createSimpleTransition"])('slide-x-transition');
+            var VSlideXReverseTransition = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_0__["createSimpleTransition"])('slide-x-reverse-transition');
+            var VSlideYTransition = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_0__["createSimpleTransition"])('slide-y-transition');
+            var VSlideYReverseTransition = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_0__["createSimpleTransition"])('slide-y-reverse-transition');
             // JavaScript transitions
-            var VExpandTransition = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_0__["createJavaScriptTransition"])("expand-transition", Object(_expand_transition__WEBPACK_IMPORTED_MODULE_1__["default"])());
-            var VExpandXTransition = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_0__["createJavaScriptTransition"])("expand-x-transition", Object(_expand_transition__WEBPACK_IMPORTED_MODULE_1__["default"])("", true));
-            var VRowExpandTransition = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_0__["createJavaScriptTransition"])("row-expand-transition", Object(_expand_transition__WEBPACK_IMPORTED_MODULE_1__["default"])("datatable__expand-col--expanded"));
+            var VExpandTransition = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_0__["createJavaScriptTransition"])('expand-transition', Object(_expand_transition__WEBPACK_IMPORTED_MODULE_1__["default"])());
+            var VExpandXTransition = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_0__["createJavaScriptTransition"])('expand-x-transition', Object(_expand_transition__WEBPACK_IMPORTED_MODULE_1__["default"])('', true));
+            var VRowExpandTransition = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_0__["createJavaScriptTransition"])('row-expand-transition', Object(_expand_transition__WEBPACK_IMPORTED_MODULE_1__["default"])('datatable__expand-col--expanded'));
             /* harmony default export */ __webpack_exports__["default"] = {
                 $_vuetify_subcomponents: {
                     VBottomSheetTransition: VBottomSheetTransition,
@@ -19555,7 +19555,7 @@
                 // Chrome/Firefox support isTrusted property
                 // IE/Edge support pointerType property (empty if not triggered
                 // by pointing device)
-                if ("isTrusted" in e && !e.isTrusted || "pointerType" in e && !e.pointerType) return;
+                if ('isTrusted' in e && !e.isTrusted || 'pointerType' in e && !e.pointerType) return;
                 // Check if additional elements were passed to be included in check
                 // (click must be outside all included elements, if any)
                 var elements = (binding.args.include || function() {
@@ -19587,14 +19587,14 @@
                     // iOS does not recognize click events on document
                     // or body, this is the entire purpose of the v-app
                     // component and [data-app], stop removing this
-                    var app = document.querySelector("[data-app]") || document.body; // This is only for unit tests
-                    app.addEventListener("click", onClick, true);
+                    var app = document.querySelector('[data-app]') || document.body; // This is only for unit tests
+                    app.addEventListener('click', onClick, true);
                     el._clickOutside = onClick;
                 },
                 unbind: function unbind(el) {
                     if (!el._clickOutside) return;
-                    var app = document.querySelector("[data-app]") || document.body; // This is only for unit tests
-                    app && app.removeEventListener("click", el._clickOutside, true);
+                    var app = document.querySelector('[data-app]') || document.body; // This is only for unit tests
+                    app && app.removeEventListener('click', el._clickOutside, true);
                     delete el._clickOutside;
                 }
             };
@@ -19642,7 +19642,7 @@
                 var options = binding.options || {
                     passive: true
                 };
-                window.addEventListener("resize", callback, options);
+                window.addEventListener('resize', callback, options);
                 el._onResize = {
                     callback: callback,
                     options: options
@@ -19652,7 +19652,7 @@
             function unbind(el) {
                 if (!el._onResize) return;
                 var _a = el._onResize, callback = _a.callback, options = _a.options;
-                window.removeEventListener("resize", callback, options);
+                window.removeEventListener('resize', callback, options);
                 delete el._onResize;
             }
             /* harmony default export */ __webpack_exports__["default"] = {
@@ -19690,14 +19690,14 @@
                 return ar;
             };
             function transform(el, value) {
-                el.style["transform"] = value;
-                el.style["webkitTransform"] = value;
+                el.style['transform'] = value;
+                el.style['webkitTransform'] = value;
             }
             function opacity(el, value) {
-                el.style["opacity"] = value.toString();
+                el.style['opacity'] = value.toString();
             }
             function isTouchEvent(e) {
-                return e.constructor.name === "TouchEvent";
+                return e.constructor.name === 'TouchEvent';
             }
             var calculate = function calculate(e, el, value) {
                 if (value === void 0) value = {};
@@ -19729,49 +19729,49 @@
                 /* eslint-disable max-statements */ show: function show(e, el, value) {
                     if (value === void 0) value = {};
                     if (!el._ripple || !el._ripple.enabled) return;
-                    var container = document.createElement("span");
-                    var animation = document.createElement("span");
+                    var container = document.createElement('span');
+                    var animation = document.createElement('span');
                     container.appendChild(animation);
-                    container.className = "v-ripple__container";
+                    container.className = 'v-ripple__container';
                     if (value.class) container.className += " " + value.class;
                     var _a = calculate(e, el, value), radius = _a.radius, scale = _a.scale, x = _a.x, y = _a.y, centerX = _a.centerX, centerY = _a.centerY;
                     var size = radius * 2 + "px";
-                    animation.className = "v-ripple__animation";
+                    animation.className = 'v-ripple__animation';
                     animation.style.width = size;
                     animation.style.height = size;
                     el.appendChild(container);
                     var computed = window.getComputedStyle(el);
-                    if (computed && computed.position === "static") {
-                        el.style.position = "relative";
-                        el.dataset.previousPosition = "static";
+                    if (computed && computed.position === 'static') {
+                        el.style.position = 'relative';
+                        el.dataset.previousPosition = 'static';
                     }
-                    animation.classList.add("v-ripple__animation--enter");
-                    animation.classList.add("v-ripple__animation--visible");
+                    animation.classList.add('v-ripple__animation--enter');
+                    animation.classList.add('v-ripple__animation--visible');
                     transform(animation, "translate(" + x + ", " + y + ") scale3d(" + scale + "," + scale + "," + scale + ")");
                     opacity(animation, 0);
                     animation.dataset.activated = String(performance.now());
                     setTimeout(function() {
-                        animation.classList.remove("v-ripple__animation--enter");
-                        animation.classList.add("v-ripple__animation--in");
+                        animation.classList.remove('v-ripple__animation--enter');
+                        animation.classList.add('v-ripple__animation--in');
                         transform(animation, "translate(" + centerX + ", " + centerY + ") scale3d(1,1,1)");
                         opacity(animation, 0.25);
                     }, 0);
                 },
                 hide: function hide(el) {
                     if (!el || !el._ripple || !el._ripple.enabled) return;
-                    var ripples = el.getElementsByClassName("v-ripple__animation");
+                    var ripples = el.getElementsByClassName('v-ripple__animation');
                     if (ripples.length === 0) return;
                     var animation = ripples[ripples.length - 1];
                     if (animation.dataset.isHiding) return;
-                    else animation.dataset.isHiding = "true";
+                    else animation.dataset.isHiding = 'true';
                     var diff = performance.now() - Number(animation.dataset.activated);
                     var delay = Math.max(250 - diff, 0);
                     setTimeout(function() {
-                        animation.classList.remove("v-ripple__animation--in");
-                        animation.classList.add("v-ripple__animation--out");
+                        animation.classList.remove('v-ripple__animation--in');
+                        animation.classList.add('v-ripple__animation--out');
                         opacity(animation, 0);
                         setTimeout(function() {
-                            var ripples = el.getElementsByClassName("v-ripple__animation");
+                            var ripples = el.getElementsByClassName('v-ripple__animation');
                             if (ripples.length === 1 && el.dataset.previousPosition) {
                                 el.style.position = el.dataset.previousPosition;
                                 delete el.dataset.previousPosition;
@@ -19782,7 +19782,7 @@
                 }
             };
             function isRippleEnabled(value) {
-                return typeof value === "undefined" || !!value;
+                return typeof value === 'undefined' || !!value;
             }
             function rippleShow(e) {
                 var value = {};
@@ -19811,37 +19811,37 @@
                 if (value.class) el._ripple.class = binding.value.class;
                 if (value.circle) el._ripple.circle = value.circle;
                 if (enabled && !wasEnabled) {
-                    el.addEventListener("touchstart", rippleShow, {
+                    el.addEventListener('touchstart', rippleShow, {
                         passive: true
                     });
-                    el.addEventListener("touchend", rippleHide, {
+                    el.addEventListener('touchend', rippleHide, {
                         passive: true
                     });
-                    el.addEventListener("touchcancel", rippleHide);
-                    el.addEventListener("mousedown", rippleShow);
-                    el.addEventListener("mouseup", rippleHide);
-                    el.addEventListener("mouseleave", rippleHide);
+                    el.addEventListener('touchcancel', rippleHide);
+                    el.addEventListener('mousedown', rippleShow);
+                    el.addEventListener('mouseup', rippleHide);
+                    el.addEventListener('mouseleave', rippleHide);
                     // Anchor tags can be dragged, causes other hides to fail - #1537
-                    el.addEventListener("dragstart", rippleHide, {
+                    el.addEventListener('dragstart', rippleHide, {
                         passive: true
                     });
                 } else if (!enabled && wasEnabled) removeListeners(el);
             }
             function removeListeners(el) {
-                el.removeEventListener("mousedown", rippleShow);
-                el.removeEventListener("touchstart", rippleHide);
-                el.removeEventListener("touchend", rippleHide);
-                el.removeEventListener("touchcancel", rippleHide);
-                el.removeEventListener("mouseup", rippleHide);
-                el.removeEventListener("mouseleave", rippleHide);
-                el.removeEventListener("dragstart", rippleHide);
+                el.removeEventListener('mousedown', rippleShow);
+                el.removeEventListener('touchstart', rippleHide);
+                el.removeEventListener('touchend', rippleHide);
+                el.removeEventListener('touchcancel', rippleHide);
+                el.removeEventListener('mouseup', rippleHide);
+                el.removeEventListener('mouseleave', rippleHide);
+                el.removeEventListener('dragstart', rippleHide);
             }
             function directive(el, binding, node) {
                 updateRipple(el, binding, false);
                 // warn if an inline element is used, waiting for el to be in the DOM first
                 node.context && node.context.$nextTick(function() {
                     var computed = window.getComputedStyle(el);
-                    if (computed && computed.display === "inline") {
+                    if (computed && computed.display === 'inline') {
                         var context = node.fnOptions ? [
                             node.fnOptions,
                             node.context
@@ -19849,7 +19849,7 @@
                             node.componentInstance
                         ];
                         _util_console__WEBPACK_IMPORTED_MODULE_0__["consoleWarn"].apply(void 0, __spread([
-                            "v-ripple can only be used on block-level elements"
+                            'v-ripple can only be used on block-level elements'
                         ], context));
                     }
                 });
@@ -19881,7 +19881,7 @@
                 };
                 var target = binding.arg ? document.querySelector(binding.arg) : window;
                 if (!target) return;
-                target.addEventListener("scroll", callback, options);
+                target.addEventListener('scroll', callback, options);
                 el._onScroll = {
                     callback: callback,
                     options: options,
@@ -19891,7 +19891,7 @@
             function unbind(el) {
                 if (!el._onScroll) return;
                 var _a = el._onScroll, callback = _a.callback, options = _a.options, target = _a.target;
-                target.removeEventListener("scroll", callback, options);
+                target.removeEventListener('scroll', callback, options);
                 delete el._onScroll;
             }
             /* harmony default export */ __webpack_exports__["default"] = {
@@ -20025,9 +20025,9 @@
                         directives: _directives__WEBPACK_IMPORTED_MODULE_3__["default"]
                     }, args));
                 },
-                version: "1.5.24"
+                version: '1.5.24'
             };
-            if (typeof window !== "undefined" && window.Vue) window.Vue.use(Vuetify);
+            if (typeof window !== 'undefined' && window.Vue) window.Vue.use(Vuetify);
             /* harmony default export */ __webpack_exports__["default"] = Vuetify;
         /***/ },
         /***/ "./src/locale/en.ts": /*!**************************!*\
@@ -20037,20 +20037,20 @@
             __webpack_require__.r(__webpack_exports__);
             /* harmony default export */ __webpack_exports__["default"] = {
                 dataIterator: {
-                    rowsPerPageText: "Items per page:",
-                    rowsPerPageAll: "All",
-                    pageText: "{0}-{1} of {2}",
-                    noResultsText: "No matching records found",
-                    nextPage: "Next page",
-                    prevPage: "Previous page"
+                    rowsPerPageText: 'Items per page:',
+                    rowsPerPageAll: 'All',
+                    pageText: '{0}-{1} of {2}',
+                    noResultsText: 'No matching records found',
+                    nextPage: 'Next page',
+                    prevPage: 'Previous page'
                 },
                 dataTable: {
-                    rowsPerPageText: "Rows per page:"
+                    rowsPerPageText: 'Rows per page:'
                 },
-                noDataText: "No data available",
+                noDataText: 'No data available',
                 carousel: {
-                    prev: "Previous visual",
-                    next: "Next visual"
+                    prev: 'Previous visual',
+                    next: 'Next visual'
                 }
             };
         /***/ },
@@ -20068,10 +20068,10 @@
             function applicationable(value, events) {
                 if (events === void 0) events = [];
                 /* @vue/component */ return Object(_util_mixins__WEBPACK_IMPORTED_MODULE_1__["default"])(Object(_positionable__WEBPACK_IMPORTED_MODULE_0__["factory"])([
-                    "absolute",
-                    "fixed"
+                    'absolute',
+                    'fixed'
                 ])).extend({
-                    name: "applicationable",
+                    name: 'applicationable',
                     props: {
                         app: Boolean
                     },
@@ -20138,7 +20138,7 @@
  * Looks for change in "isActive" to automatically boot
  * Otherwise can be set manually
  */ /* @vue/component */ /* harmony default export */ __webpack_exports__["default"] = vue__WEBPACK_IMPORTED_MODULE_0___default.a.extend().extend({
-                name: "bootable",
+                name: 'bootable',
                 props: {
                     lazy: Boolean
                 },
@@ -20172,7 +20172,7 @@
             /* harmony import */ var _components_VItemGroup_VItemGroup__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/VItemGroup/VItemGroup */ "./src/components/VItemGroup/VItemGroup.ts");
             // Extensions
             /* @vue/component */ /* harmony default export */ __webpack_exports__["default"] = _components_VItemGroup_VItemGroup__WEBPACK_IMPORTED_MODULE_0__["BaseItemGroup"].extend({
-                name: "button-group",
+                name: 'button-group',
                 provide: function provide() {
                     return {
                         btnToggle: this
@@ -20181,7 +20181,7 @@
                 props: {
                     activeClass: {
                         type: String,
-                        default: "v-btn--active"
+                        default: 'v-btn--active'
                     }
                 },
                 computed: {
@@ -20231,7 +20231,7 @@
                 return !!color && !!color.match(/^(#|(rgb|hsl)a?\()/);
             }
             /* harmony default export */ __webpack_exports__["default"] = vue__WEBPACK_IMPORTED_MODULE_0___default.a.extend({
-                name: "colorable",
+                name: 'colorable',
                 props: {
                     color: String
                 },
@@ -20240,8 +20240,8 @@
                         if (data === void 0) data = {};
                         var _a;
                         if (isCssColor(color)) data.style = __assign({}, data.style, {
-                            "background-color": "" + color,
-                            "border-color": "" + color
+                            'background-color': "" + color,
+                            'border-color': "" + color
                         });
                         else if (color) data.class = __assign({}, data.class, (_a = {}, _a[color] = true, _a));
                         return data;
@@ -20250,13 +20250,13 @@
                         if (data === void 0) data = {};
                         var _a;
                         if (isCssColor(color)) data.style = __assign({}, data.style, {
-                            "color": "" + color,
-                            "caret-color": "" + color
+                            'color': "" + color,
+                            'caret-color': "" + color
                         });
                         else if (color) {
-                            var _b = __read(color.toString().trim().split(" ", 2), 2), colorName = _b[0], colorModifier = _b[1];
-                            data.class = __assign({}, data.class, (_a = {}, _a[colorName + "--text"] = true, _a));
-                            if (colorModifier) data.class["text--" + colorModifier] = true;
+                            var _b = __read(color.toString().trim().split(' ', 2), 2), colorName = _b[0], colorModifier = _b[1];
+                            data.class = __assign({}, data.class, (_a = {}, _a[colorName + '--text'] = true, _a));
+                            if (colorModifier) data.class['text--' + colorModifier] = true;
                         }
                         return data;
                     }
@@ -20272,7 +20272,7 @@
             /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/ __webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
             /* harmony import */ var _util_helpers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../util/helpers */ "./src/util/helpers.ts");
             /* harmony default export */ __webpack_exports__["default"] = vue__WEBPACK_IMPORTED_MODULE_0___default.a.extend({
-                name: "comparable",
+                name: 'comparable',
                 props: {
                     valueComparator: {
                         type: Function,
@@ -20326,7 +20326,7 @@
  * providing selection, pagination, sorting and filtering.
  *
  */ /* @vue/component */ /* harmony default export */ __webpack_exports__["default"] = {
-                name: "data-iterable",
+                name: 'data-iterable',
                 mixins: [
                     _filterable__WEBPACK_IMPORTED_MODULE_3__["default"],
                     _loadable__WEBPACK_IMPORTED_MODULE_5__["default"],
@@ -20339,15 +20339,15 @@
                     mustSort: Boolean,
                     noResultsText: {
                         type: String,
-                        default: "$vuetify.dataIterator.noResultsText"
+                        default: '$vuetify.dataIterator.noResultsText'
                     },
                     nextIcon: {
                         type: String,
-                        default: "$vuetify.icons.next"
+                        default: '$vuetify.icons.next'
                     },
                     prevIcon: {
                         type: String,
-                        default: "$vuetify.icons.prev"
+                        default: '$vuetify.icons.prev'
                     },
                     rowsPerPageItems: {
                         type: Array,
@@ -20357,7 +20357,7 @@
                                 10,
                                 25,
                                 {
-                                    text: "$vuetify.dataIterator.rowsPerPageAll",
+                                    text: '$vuetify.dataIterator.rowsPerPageAll',
                                     value: -1
                                 }
                             ];
@@ -20365,7 +20365,7 @@
                     },
                     rowsPerPageText: {
                         type: String,
-                        default: "$vuetify.dataIterator.rowsPerPageText"
+                        default: '$vuetify.dataIterator.rowsPerPageText'
                     },
                     selectAll: [
                         Boolean,
@@ -20377,14 +20377,14 @@
                     filter: {
                         type: Function,
                         default: function _default(val, search) {
-                            return val != null && typeof val !== "boolean" && val.toString().toLowerCase().indexOf(search) !== -1;
+                            return val != null && typeof val !== 'boolean' && val.toString().toLowerCase().indexOf(search) !== -1;
                         }
                     },
                     customFilter: {
                         type: Function,
                         default: function _default(items, search, filter) {
                             search = search.toString().toLowerCase();
-                            if (search.trim() === "") return items;
+                            if (search.trim() === '') return items;
                             return items.filter(function(i) {
                                 return Object.keys(i).some(function(j) {
                                     return filter(i[j], search);
@@ -20412,7 +20412,7 @@
                                     sortA,
                                     sortB
                                 ].map(function(s) {
-                                    return (s || "").toString().toLocaleLowerCase();
+                                    return (s || '').toString().toLocaleLowerCase();
                                 }), 2), sortA = _b[0], sortB = _b[1];
                                 if (sortA > sortB) return 1;
                                 if (sortA < sortB) return -1;
@@ -20439,7 +20439,7 @@
                     },
                     itemKey: {
                         type: String,
-                        default: "id"
+                        default: 'id'
                     },
                     pagination: {
                         type: Object,
@@ -20457,10 +20457,10 @@
                             totalItems: 0
                         },
                         expanded: {},
-                        actionsClasses: "v-data-iterator__actions",
-                        actionsRangeControlsClasses: "v-data-iterator__actions__range-controls",
-                        actionsSelectClasses: "v-data-iterator__actions__select",
-                        actionsPaginationClasses: "v-data-iterator__actions__pagination"
+                        actionsClasses: 'v-data-iterator__actions',
+                        actionsRangeControlsClasses: 'v-data-iterator__actions__range-controls',
+                        actionsSelectClasses: 'v-data-iterator__actions__select',
+                        actionsPaginationClasses: 'v-data-iterator__actions__pagination'
                     };
                 },
                 computed: {
@@ -20540,7 +20540,7 @@
                             var selection = this.value.filter(function(item) {
                                 return newItemKeys_1.has(Object(_util_helpers__WEBPACK_IMPORTED_MODULE_6__["getObjectValueByPath"])(item, _this.itemKey));
                             });
-                            if (selection.length !== this.value.length) this.$emit("input", selection);
+                            if (selection.length !== this.value.length) this.$emit('input', selection);
                         }
                     },
                     search: function search() {
@@ -20552,8 +20552,8 @@
                             });
                         });
                     },
-                    "computedPagination.sortBy": "resetPagination",
-                    "computedPagination.descending": "resetPagination"
+                    'computedPagination.sortBy': 'resetPagination',
+                    'computedPagination.descending': 'resetPagination'
                 },
                 methods: {
                     initPagination: function initPagination() {
@@ -20565,7 +20565,7 @@
                     updatePagination: function updatePagination(val) {
                         var pagination = this.hasPagination ? this.pagination : this.defaultPagination;
                         var updatedPagination = Object.assign({}, pagination, val);
-                        this.$emit("update:pagination", updatedPagination);
+                        this.$emit('update:pagination', updatedPagination);
                         if (!this.hasPagination) this.defaultPagination = updatedPagination;
                     },
                     isSelected: function isSelected(item) {
@@ -20624,7 +20624,7 @@
                             var key = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_6__["getObjectValueByPath"])(this.filteredItems[index], this.itemKey);
                             selected[key] = value;
                         }
-                        this.$emit("input", this.items.filter(function(i) {
+                        this.$emit('input', this.items.filter(function(i) {
                             var key = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_6__["getObjectValueByPath"])(i, _this.itemKey);
                             return selected[key];
                         }));
@@ -20637,26 +20637,26 @@
                         };
                         var keyProp = this.itemKey;
                         var itemKey = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_6__["getObjectValueByPath"])(item, keyProp);
-                        Object.defineProperty(props, "selected", {
+                        Object.defineProperty(props, 'selected', {
                             get: function get() {
                                 return _this.selected[itemKey];
                             },
                             set: function set(value) {
-                                if (itemKey == null) Object(_util_console__WEBPACK_IMPORTED_MODULE_7__["consoleWarn"])('"' + keyProp + '" attribute must be defined for item', _this);
+                                if (itemKey == null) Object(_util_console__WEBPACK_IMPORTED_MODULE_7__["consoleWarn"])("\"" + keyProp + "\" attribute must be defined for item", _this);
                                 var selected = _this.value.slice();
                                 if (value) selected.push(item);
                                 else selected = selected.filter(function(i) {
                                     return Object(_util_helpers__WEBPACK_IMPORTED_MODULE_6__["getObjectValueByPath"])(i, keyProp) !== itemKey;
                                 });
-                                _this.$emit("input", selected);
+                                _this.$emit('input', selected);
                             }
                         });
-                        Object.defineProperty(props, "expanded", {
+                        Object.defineProperty(props, 'expanded', {
                             get: function get() {
                                 return _this.expanded[itemKey];
                             },
                             set: function set(value) {
-                                if (itemKey == null) Object(_util_console__WEBPACK_IMPORTED_MODULE_7__["consoleWarn"])('"' + keyProp + '" attribute must be defined for item', _this);
+                                if (itemKey == null) Object(_util_console__WEBPACK_IMPORTED_MODULE_7__["consoleWarn"])("\"" + keyProp + "\" attribute must be defined for item", _this);
                                 if (!_this.expand) for(var key in _this.expanded)_this.expanded.hasOwnProperty(key) && _this.$set(_this.expanded, key, false);
                                 _this.$set(_this.expanded, itemKey, value);
                             }
@@ -20665,13 +20665,13 @@
                     },
                     genItems: function genItems() {
                         if (!this.itemsLength && !this.items.length) {
-                            var noData = this.$slots["no-data"] || this.$vuetify.t(this.noDataText);
+                            var noData = this.$slots['no-data'] || this.$vuetify.t(this.noDataText);
                             return [
                                 this.genEmptyItems(noData)
                             ];
                         }
                         if (!this.filteredItems.length) {
-                            var noResults = this.$slots["no-results"] || this.$vuetify.t(this.noResultsText);
+                            var noResults = this.$slots['no-results'] || this.$vuetify.t(this.noResultsText);
                             return [
                                 this.genEmptyItems(noResults)
                             ];
@@ -20695,7 +20695,7 @@
                                 }
                             },
                             attrs: {
-                                "aria-label": this.$vuetify.t("$vuetify.dataIterator.prevPage")
+                                'aria-label': this.$vuetify.t('$vuetify.dataIterator.prevPage')
                             }
                         }, [
                             this.$createElement(_components_VIcon__WEBPACK_IMPORTED_MODULE_1__["default"], this.$vuetify.rtl ? this.nextIcon : this.prevIcon)
@@ -20720,7 +20720,7 @@
                                 }
                             },
                             attrs: {
-                                "aria-label": this.$vuetify.t("$vuetify.dataIterator.nextPage")
+                                'aria-label': this.$vuetify.t('$vuetify.dataIterator.nextPage')
                             }
                         }, [
                             this.$createElement(_components_VIcon__WEBPACK_IMPORTED_MODULE_1__["default"], this.$vuetify.rtl ? this.prevIcon : this.nextIcon)
@@ -20728,13 +20728,13 @@
                     },
                     genSelect: function genSelect() {
                         var _this = this;
-                        return this.$createElement("div", {
-                            "class": this.actionsSelectClasses
+                        return this.$createElement('div', {
+                            'class': this.actionsSelectClasses
                         }, [
                             this.$vuetify.t(this.rowsPerPageText),
                             this.$createElement(_components_VSelect__WEBPACK_IMPORTED_MODULE_2__["default"], {
                                 attrs: {
-                                    "aria-label": this.$vuetify.t(this.rowsPerPageText)
+                                    'aria-label': this.$vuetify.t(this.rowsPerPageText)
                                 },
                                 props: {
                                     items: this.computedRowsPerPageItems,
@@ -20744,7 +20744,7 @@
                                         auto: true,
                                         dark: this.dark,
                                         light: this.light,
-                                        minWidth: "75px"
+                                        minWidth: '75px'
                                     }
                                 },
                                 on: {
@@ -20769,7 +20769,7 @@
                                 pageStop: stop,
                                 itemsLength: this.itemsLength
                             }) : (_a = this.$vuetify).t.apply(_a, __spread([
-                                "$vuetify.dataIterator.pageText"
+                                '$vuetify.dataIterator.pageText'
                             ], [
                                 this.pageStart + 1,
                                 stop,
@@ -20778,28 +20778,28 @@
                                 return Number(n).toLocaleString(_this.$vuetify.lang.current);
                             })));
                         }
-                        return this.$createElement("div", {
-                            "class": this.actionsPaginationClasses
+                        return this.$createElement('div', {
+                            'class': this.actionsPaginationClasses
                         }, [
                             pagination
                         ]);
                     },
                     genActions: function genActions() {
-                        var rangeControls = this.$createElement("div", {
-                            "class": this.actionsRangeControlsClasses
+                        var rangeControls = this.$createElement('div', {
+                            'class': this.actionsRangeControlsClasses
                         }, [
                             this.genPagination(),
                             this.genPrevIcon(),
                             this.genNextIcon()
                         ]);
                         return [
-                            this.$createElement("div", {
-                                "class": this.actionsClasses
+                            this.$createElement('div', {
+                                'class': this.actionsClasses
                             }, [
-                                this.$slots["actions-prepend"] ? this.$createElement("div", {}, this.$slots["actions-prepend"]) : null,
+                                this.$slots['actions-prepend'] ? this.$createElement('div', {}, this.$slots['actions-prepend']) : null,
                                 this.rowsPerPageItems.length > 1 ? this.genSelect() : null,
                                 rangeControls,
-                                this.$slots["actions-append"] ? this.$createElement("div", {}, this.$slots["actions-append"]) : null
+                                this.$slots['actions-append'] ? this.$createElement('div', {}, this.$slots['actions-append']) : null
                             ])
                         ];
                     }
@@ -20820,7 +20820,7 @@
  *
  * Changes the open or close delay time for elements
  */ /* harmony default export */ __webpack_exports__["default"] = vue__WEBPACK_IMPORTED_MODULE_0___default.a.extend().extend({
-                name: "delayable",
+                name: 'delayable',
                 props: {
                     openDelay: {
                         type: [
@@ -20905,7 +20905,7 @@
                 return results;
             }
             /* @vue/component */ /* harmony default export */ __webpack_exports__["default"] = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_0__["default"])().extend({
-                name: "dependent",
+                name: 'dependent',
                 data: function data() {
                     return {
                         closeDependents: true,
@@ -20956,12 +20956,12 @@
                 return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
             };
             function validateAttachTarget(val) {
-                var type = typeof val === "undefined" ? "undefined" : _typeof(val);
-                if (type === "boolean" || type === "string") return true;
+                var type = typeof val === 'undefined' ? 'undefined' : _typeof(val);
+                if (type === 'boolean' || type === 'string') return true;
                 return val.nodeType === Node.ELEMENT_NODE;
             }
             /* @vue/component */ /* harmony default export */ __webpack_exports__["default"] = {
-                name: "detachable",
+                name: 'detachable',
                 mixins: [
                     _bootable__WEBPACK_IMPORTED_MODULE_0__["default"]
                 ],
@@ -20972,7 +20972,7 @@
                         validator: validateAttachTarget
                     },
                     contentClass: {
-                        default: ""
+                        default: ''
                     }
                 },
                 data: function data() {
@@ -20985,7 +20985,7 @@
                         this.hasDetached = false;
                         this.initDetach();
                     },
-                    hasContent: "initDetach"
+                    hasContent: 'initDetach'
                 },
                 beforeMount: function beforeMount() {
                     var _this = this;
@@ -21026,24 +21026,24 @@
                     getScopeIdAttrs: function getScopeIdAttrs() {
                         var _a;
                         var scopeId = this.$vnode && this.$vnode.context.$options._scopeId;
-                        return scopeId && (_a = {}, _a[scopeId] = "", _a);
+                        return scopeId && (_a = {}, _a[scopeId] = '', _a);
                     },
                     initDetach: function initDetach() {
                         if (this._isDestroyed || !this.$refs.content || this.hasDetached || // Leave menu in place if attached
                         // and dev has not changed target
-                        this.attach === "" || // If used as a boolean prop (<v-menu attach>)
+                        this.attach === '' || // If used as a boolean prop (<v-menu attach>)
                         this.attach === true || // If bound to a boolean (<v-menu :attach="true">)
-                        this.attach === "attach" // If bound as boolean prop in pug (v-menu(attach))
+                        this.attach === 'attach' // If bound as boolean prop in pug (v-menu(attach))
                         ) return;
                         var target;
                         if (this.attach === false) // Default, detach to app
-                        target = document.querySelector("[data-app]");
-                        else if (typeof this.attach === "string") // CSS selector
+                        target = document.querySelector('[data-app]');
+                        else if (typeof this.attach === 'string') // CSS selector
                         target = document.querySelector(this.attach);
                         else // DOM Element
                         target = this.attach;
                         if (!target) {
-                            Object(_util_console__WEBPACK_IMPORTED_MODULE_1__["consoleWarn"])("Unable to locate target " + (this.attach || "[data-app]"), this);
+                            Object(_util_console__WEBPACK_IMPORTED_MODULE_1__["consoleWarn"])("Unable to locate target " + (this.attach || '[data-app]'), this);
                             return;
                         }
                         target.insertBefore(this.$refs.content, target.firstChild);
@@ -21060,7 +21060,7 @@
             /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "vue");
             /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/ __webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
             /* harmony default export */ __webpack_exports__["default"] = vue__WEBPACK_IMPORTED_MODULE_0___default.a.extend({
-                name: "elevatable",
+                name: 'elevatable',
                 props: {
                     elevation: [
                         Number,
@@ -21087,11 +21087,11 @@
             /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "vue");
             /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/ __webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
             /* @vue/component */ /* harmony default export */ __webpack_exports__["default"] = vue__WEBPACK_IMPORTED_MODULE_0___default.a.extend({
-                name: "filterable",
+                name: 'filterable',
                 props: {
                     noDataText: {
                         type: String,
-                        default: "$vuetify.noDataText"
+                        default: '$vuetify.noDataText'
                     }
                 }
             });
@@ -21108,7 +21108,7 @@
             // Mixins
             function factory(namespace, child, parent) {
                 return Object(_registrable__WEBPACK_IMPORTED_MODULE_0__["inject"])(namespace, child, parent).extend({
-                    name: "groupable",
+                    name: 'groupable',
                     props: {
                         activeClass: {
                             type: String,
@@ -21139,12 +21139,12 @@
                     },
                     methods: {
                         toggle: function toggle() {
-                            this.$emit("change");
+                            this.$emit('change');
                         }
                     }
                 });
             }
-            /* eslint-disable-next-line no-redeclare */ var Groupable = factory("itemGroup");
+            /* eslint-disable-next-line no-redeclare */ var Groupable = factory('itemGroup');
             /* harmony default export */ __webpack_exports__["default"] = Groupable;
         /***/ },
         /***/ "./src/mixins/loadable.ts": /*!********************************!*\
@@ -21164,7 +21164,7 @@
  * Can use a default bar with a specific color
  * or designate a custom progress linear bar
  */ /* @vue/component */ /* harmony default export */ __webpack_exports__["default"] = vue__WEBPACK_IMPORTED_MODULE_0___default.a.extend().extend({
-                name: "loadable",
+                name: 'loadable',
                 props: {
                     loading: {
                         type: [
@@ -21179,7 +21179,7 @@
                         if (this.loading === false) return null;
                         return this.$slots.progress || this.$createElement(_components_VProgressLinear__WEBPACK_IMPORTED_MODULE_1__["default"], {
                             props: {
-                                color: this.loading === true || this.loading === "" ? this.color || "primary" : this.loading,
+                                color: this.loading === true || this.loading === '' ? this.color || 'primary' : this.loading,
                                 height: 2,
                                 indeterminate: true
                             }
@@ -21204,7 +21204,7 @@
  *
  * Example: mask="#### #### #### ####"
  */ /* @vue/component */ /* harmony default export */ __webpack_exports__["default"] = {
-                name: "maskable",
+                name: 'maskable',
                 props: {
                     dontFillMaskBlanks: Boolean,
                     mask: {
@@ -21225,21 +21225,21 @@
                         lazySelection: 0,
                         lazyValue: vm.value,
                         preDefined: {
-                            "credit-card": "#### - #### - #### - ####",
-                            "date": "##/##/####",
-                            "date-with-time": "##/##/#### ##:##",
-                            "phone": "(###) ### - ####",
-                            "social": "###-##-####",
-                            "time": "##:##",
-                            "time-with-seconds": "##:##:##"
+                            'credit-card': '#### - #### - #### - ####',
+                            'date': '##/##/####',
+                            'date-with-time': '##/##/#### ##:##',
+                            'phone': '(###) ### - ####',
+                            'social': '###-##-####',
+                            'time': '##:##',
+                            'time-with-seconds': '##:##:##'
                         }
                     };
                 },
                 computed: {
                     masked: function masked() {
                         var preDefined = this.preDefined[this.mask];
-                        var mask = preDefined || this.mask || "";
-                        return mask.split("");
+                        var mask = preDefined || this.mask || '';
+                        return mask.split('');
                     }
                 },
                 watch: {
@@ -21272,7 +21272,7 @@
                     // See if masked value does not
                     // match the user given value
                     if (value === this.value) return;
-                    this.$emit("input", value);
+                    this.$emit('input', value);
                 },
                 methods: {
                     setCaretPosition: function setCaretPosition(selection) {
@@ -21294,7 +21294,7 @@
                         }
                         this.setCaretPosition(selection);
                         // this.$emit() must occur only when all internal values are correct
-                        this.$emit("input", this.returnMaskedValue ? this.$refs.input.value : this.lazyValue);
+                        this.$emit('input', this.returnMaskedValue ? this.$refs.input.value : this.lazyValue);
                     },
                     maskText: function maskText(text) {
                         return this.mask ? Object(_util_mask__WEBPACK_IMPORTED_MODULE_0__["maskText"])(text, this.masked, this.dontFillMaskBlanks) : text;
@@ -21328,7 +21328,7 @@
             // Helpers
             // Types
             /* harmony default export */ __webpack_exports__["default"] = vue__WEBPACK_IMPORTED_MODULE_1___default.a.extend({
-                name: "measurable",
+                name: 'measurable',
                 props: {
                     height: [
                         Number,
@@ -21422,7 +21422,7 @@
  * Can calculate X and Y axis overflows
  * As well as be manually positioned
  */ /* @vue/component */ /* harmony default export */ __webpack_exports__["default"] = vue__WEBPACK_IMPORTED_MODULE_0___default.a.extend({
-                name: "menuable",
+                name: 'menuable',
                 mixins: [
                     _positionable__WEBPACK_IMPORTED_MODULE_1__["default"],
                     _stackable__WEBPACK_IMPORTED_MODULE_2__["default"]
@@ -21432,9 +21432,9 @@
                         default: null,
                         validator: function validator(val) {
                             return [
-                                "string",
-                                "object"
-                            ].includes(typeof val === "undefined" ? "undefined" : _typeof(val));
+                                'string',
+                                'object'
+                            ].includes(typeof val === 'undefined' ? 'undefined' : _typeof(val));
                         }
                     },
                     allowOverflow: Boolean,
@@ -21446,7 +21446,7 @@
                             Number,
                             String
                         ],
-                        default: "auto"
+                        default: 'auto'
                     },
                     minWidth: [
                         Number,
@@ -21513,7 +21513,7 @@
                         isContentActive: false,
                         pageWidth: 0,
                         pageYOffset: 0,
-                        stackClass: "v-menu__content--active",
+                        stackClass: 'v-menu__content--active',
                         stackMinZIndex: 6
                     };
                 },
@@ -21560,8 +21560,8 @@
                         if (this.disabled) return;
                         val ? this.callActivate() : this.callDeactivate();
                     },
-                    positionX: "updateDimensions",
-                    positionY: "updateDimensions"
+                    positionX: 'updateDimensions',
+                    positionY: 'updateDimensions'
                 },
                 beforeMount: function beforeMount() {
                     this.checkForWindow();
@@ -21618,7 +21618,7 @@
                         this.deactivate();
                     },
                     checkForWindow: function checkForWindow() {
-                        if (!this.hasWindow) this.hasWindow = typeof window !== "undefined";
+                        if (!this.hasWindow) this.hasWindow = typeof window !== 'undefined';
                     },
                     checkForPageYOffset: function checkForPageYOffset() {
                         if (this.hasWindow) this.pageYOffset = this.activatorFixed ? 0 : this.getOffsetTop();
@@ -21627,7 +21627,7 @@
                         if (this.attach !== false) return;
                         var el = this.getActivator();
                         while(el){
-                            if (window.getComputedStyle(el).position === "fixed") {
+                            if (window.getComputedStyle(el).position === 'fixed') {
                                 this.activatorFixed = true;
                                 return;
                             }
@@ -21637,8 +21637,8 @@
                     },
                     deactivate: function deactivate() {},
                     getActivator: function getActivator(e) {
-                        if (this.inputActivator) return this.$el.querySelector(".v-input__slot");
-                        if (this.activator) return typeof this.activator === "string" ? document.querySelector(this.activator) : this.activator;
+                        if (this.inputActivator) return this.$el.querySelector('.v-input__slot');
+                        if (this.activator) return typeof this.activator === 'string' ? document.querySelector(this.activator) : this.activator;
                         if (this.$refs.activator) return this.$refs.activator.children.length > 0 ? this.$refs.activator.children[0] : this.$refs.activator;
                         if (e) {
                             this.activatedBy = e.currentTarget || e.target;
@@ -21690,9 +21690,9 @@
                         requestAnimationFrame(function() {
                             var el = _this.$refs.content;
                             if (!el || _this.isShown(el)) return cb();
-                            el.style.display = "inline-block";
+                            el.style.display = 'inline-block';
                             cb();
-                            el.style.display = "none";
+                            el.style.display = 'none';
                         });
                     },
                     startTransition: function startTransition() {
@@ -21705,7 +21705,7 @@
                         });
                     },
                     isShown: function isShown(el) {
-                        return el.style.display !== "none";
+                        return el.style.display !== 'none';
                     },
                     updateDimensions: function updateDimensions() {
                         var _this = this;
@@ -21748,7 +21748,7 @@
             // Utilities
             // Types
             /* @vue/component */ /* harmony default export */ __webpack_exports__["default"] = vue__WEBPACK_IMPORTED_MODULE_2___default.a.extend().extend({
-                name: "overlayable",
+                name: 'overlayable',
                 props: {
                     hideOverlay: Boolean
                 },
@@ -21777,20 +21777,20 @@
                         // cancel removal of overlay and re-add active
                         if (!this.isActive || this.hideOverlay || this.isActive && this.overlayTimeout || this.overlay) {
                             clearTimeout(this.overlayTimeout);
-                            return this.overlay && this.overlay.classList.add("v-overlay--active");
+                            return this.overlay && this.overlay.classList.add('v-overlay--active');
                         }
-                        this.overlay = document.createElement("div");
-                        this.overlay.className = "v-overlay";
-                        if (this.absolute) this.overlay.className += " v-overlay--absolute";
+                        this.overlay = document.createElement('div');
+                        this.overlay.className = 'v-overlay';
+                        if (this.absolute) this.overlay.className += ' v-overlay--absolute';
                         this.hideScroll();
-                        var parent = this.absolute ? this.$el.parentNode : document.querySelector("[data-app]");
+                        var parent = this.absolute ? this.$el.parentNode : document.querySelector('[data-app]');
                         parent && parent.insertBefore(this.overlay, parent.firstChild);
                         // eslint-disable-next-line no-unused-expressions
                         this.overlay.clientHeight; // Force repaint
                         requestAnimationFrame(function() {
                             // https://github.com/vuetifyjs/vuetify/issues/4678
                             if (!_this.overlay) return;
-                            _this.overlay.className += " v-overlay--active";
+                            _this.overlay.className += ' v-overlay--active';
                             if (_this.activeZIndex !== undefined) _this.overlay.style.zIndex = String(_this.activeZIndex - 1);
                         });
                         return true;
@@ -21799,7 +21799,7 @@
                         var _this = this;
                         if (showScroll === void 0) showScroll = true;
                         if (!this.overlay) return showScroll && this.showScroll();
-                        this.overlay.classList.remove("v-overlay--active");
+                        this.overlay.classList.remove('v-overlay--active');
                         this.overlayTimeout = window.setTimeout(function() {
                             // IE11 Fix
                             try {
@@ -21814,11 +21814,11 @@
                         }, this.overlayTransitionDuration);
                     },
                     scrollListener: function scrollListener(e) {
-                        if (e.type === "keydown") {
+                        if (e.type === 'keydown') {
                             if ([
-                                "INPUT",
-                                "TEXTAREA",
-                                "SELECT"
+                                'INPUT',
+                                'TEXTAREA',
+                                'SELECT'
                             ].includes(e.target.tagName) || // https://github.com/vuetifyjs/vuetify/issues/4715
                             e.target.isContentEditable) return;
                             var up = [
@@ -21833,14 +21833,14 @@
                             else if (down.includes(e.keyCode)) e.deltaY = 1;
                             else return;
                         }
-                        if (e.target === this.overlay || e.type !== "keydown" && e.target === document.body || this.checkPath(e)) e.preventDefault();
+                        if (e.target === this.overlay || e.type !== 'keydown' && e.target === document.body || this.checkPath(e)) e.preventDefault();
                     },
                     hasScrollbar: function hasScrollbar(el) {
                         if (!el || el.nodeType !== Node.ELEMENT_NODE) return false;
                         var style = window.getComputedStyle(el);
                         return [
-                            "auto",
-                            "scroll"
+                            'auto',
+                            'scroll'
                         ].includes(style.overflowY) && el.scrollHeight > el.clientHeight;
                     },
                     shouldScroll: function shouldScroll(el, delta) {
@@ -21855,7 +21855,7 @@
                     checkPath: function checkPath(e) {
                         var path = e.path || this.composedPath(e);
                         var delta = e.deltaY;
-                        if (e.type === "keydown" && path[0] === document.body) {
+                        if (e.type === 'keydown' && path[0] === document.body) {
                             var dialog = this.$refs.dialog;
                             var selected = window.getSelection().anchorNode;
                             if (dialog && this.hasScrollbar(dialog) && this.isInside(selected, dialog)) return this.shouldScroll(dialog, delta);
@@ -21878,7 +21878,7 @@
                         var el = e.target;
                         while(el){
                             path.push(el);
-                            if (el.tagName === "HTML") {
+                            if (el.tagName === 'HTML') {
                                 path.push(document);
                                 path.push(window);
                                 return path;
@@ -21888,18 +21888,18 @@
                         return path;
                     },
                     hideScroll: function hideScroll() {
-                        if (this.$vuetify.breakpoint.smAndDown) document.documentElement.classList.add("overflow-y-hidden");
+                        if (this.$vuetify.breakpoint.smAndDown) document.documentElement.classList.add('overflow-y-hidden');
                         else {
-                            Object(_util_helpers__WEBPACK_IMPORTED_MODULE_1__["addPassiveEventListener"])(window, "wheel", this.scrollListener, {
+                            Object(_util_helpers__WEBPACK_IMPORTED_MODULE_1__["addPassiveEventListener"])(window, 'wheel', this.scrollListener, {
                                 passive: false
                             });
-                            window.addEventListener("keydown", this.scrollListener);
+                            window.addEventListener('keydown', this.scrollListener);
                         }
                     },
                     showScroll: function showScroll() {
-                        document.documentElement.classList.remove("overflow-y-hidden");
-                        window.removeEventListener("wheel", this.scrollListener);
-                        window.removeEventListener("keydown", this.scrollListener);
+                        document.documentElement.classList.remove('overflow-y-hidden');
+                        window.removeEventListener('wheel', this.scrollListener);
+                        window.removeEventListener('keydown', this.scrollListener);
                     }
                 }
             });
@@ -21918,17 +21918,17 @@
                     genPickerButton: function genPickerButton(prop, value, content, readonly, staticClass) {
                         var _this = this;
                         if (readonly === void 0) readonly = false;
-                        if (staticClass === void 0) staticClass = "";
+                        if (staticClass === void 0) staticClass = '';
                         var active = this[prop] === value;
                         var click = function click(event) {
                             event.stopPropagation();
                             _this.$emit("update:" + prop, value);
                         };
-                        return this.$createElement("div", {
+                        return this.$createElement('div', {
                             staticClass: ("v-picker__title__btn " + staticClass).trim(),
-                            "class": {
-                                "v-picker__title__btn--active": active,
-                                "v-picker__title__btn--readonly": readonly
+                            'class': {
+                                'v-picker__title__btn--active': active,
+                                'v-picker__title__btn--readonly': readonly
                             },
                             on: active || readonly ? undefined : {
                                 click: click
@@ -21953,7 +21953,7 @@
             // Mixins
             // Utils
             /* harmony default export */ __webpack_exports__["default"] = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_3__["default"])(_colorable__WEBPACK_IMPORTED_MODULE_1__["default"], _themeable__WEBPACK_IMPORTED_MODULE_2__["default"]).extend({
-                name: "picker",
+                name: 'picker',
                 props: {
                     fullWidth: Boolean,
                     headerColor: String,
@@ -21988,8 +21988,8 @@
                         }
                         var body = this.genPickerBody();
                         body && children.push(body);
-                        children.push(this.$createElement("template", {
-                            slot: "actions"
+                        children.push(this.$createElement('template', {
+                            slot: 'actions'
                         }, [
                             this.genPickerActionsSlot()
                         ]));
@@ -22030,7 +22030,7 @@
             function factory(selected) {
                 if (selected === void 0) selected = [];
                 return vue__WEBPACK_IMPORTED_MODULE_0___default.a.extend({
-                    name: "positionable",
+                    name: 'positionable',
                     props: selected.length ? Object(_util_helpers__WEBPACK_IMPORTED_MODULE_1__["filterObjectOnKeys"])(availableProps, selected) : availableProps
                 });
             }
@@ -22073,11 +22073,11 @@ let all = factory().extend({
             /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "vue");
             /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/ __webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
             function factory(prop, event) {
-                if (prop === void 0) prop = "value";
-                if (event === void 0) event = "change";
+                if (prop === void 0) prop = 'value';
+                if (event === void 0) event = 'change';
                 var _a, _b;
                 return vue__WEBPACK_IMPORTED_MODULE_0___default.a.extend({
-                    name: "proxyable",
+                    name: 'proxyable',
                     model: {
                         prop: prop,
                         event: event
@@ -22136,7 +22136,7 @@ let all = factory().extend({
                     unregister: generateWarning(child, parent)
                 } : null;
                 return vue__WEBPACK_IMPORTED_MODULE_0___default.a.extend({
-                    name: "registrable-inject",
+                    name: 'registrable-inject',
                     inject: (_a = {}, _a[namespace] = {
                         default: defaultImpl
                     }, _a)
@@ -22144,7 +22144,7 @@ let all = factory().extend({
             }
             function provide(namespace) {
                 return vue__WEBPACK_IMPORTED_MODULE_0___default.a.extend({
-                    name: "registrable-provide",
+                    name: 'registrable-provide',
                     methods: {
                         register: null,
                         unregister: null
@@ -22167,7 +22167,7 @@ let all = factory().extend({
             /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "vue");
             /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/ __webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
             /* @vue/component */ /* harmony default export */ __webpack_exports__["default"] = vue__WEBPACK_IMPORTED_MODULE_0___default.a.extend({
-                name: "returnable",
+                name: 'returnable',
                 props: {
                     returnValue: null
                 },
@@ -22180,7 +22180,7 @@ let all = factory().extend({
                 watch: {
                     isActive: function isActive(val) {
                         if (val) this.originalValue = this.returnValue;
-                        else this.$emit("update:returnValue", this.originalValue);
+                        else this.$emit('update:returnValue', this.originalValue);
                     }
                 },
                 methods: {
@@ -22205,7 +22205,7 @@ let all = factory().extend({
             // Directives
             // Types
             /* harmony default export */ __webpack_exports__["default"] = vue__WEBPACK_IMPORTED_MODULE_1___default.a.extend({
-                name: "rippleable",
+                name: 'rippleable',
                 directives: {
                     Ripple: _directives_ripple__WEBPACK_IMPORTED_MODULE_0__["default"]
                 },
@@ -22222,10 +22222,10 @@ let all = factory().extend({
                     genRipple: function genRipple(data) {
                         if (data === void 0) data = {};
                         if (!this.ripple) return null;
-                        data.staticClass = "v-input--selection-controls__ripple";
+                        data.staticClass = 'v-input--selection-controls__ripple';
                         data.directives = data.directives || [];
                         data.directives.push({
-                            name: "ripple",
+                            name: 'ripple',
                             value: {
                                 center: true
                             }
@@ -22233,7 +22233,7 @@ let all = factory().extend({
                         data.on = Object.assign({
                             click: this.onChange
                         }, this.$listeners);
-                        return this.$createElement("div", data);
+                        return this.$createElement('div', data);
                     },
                     onChange: function onChange() {}
                 }
@@ -22258,7 +22258,7 @@ let all = factory().extend({
                 return __assign.apply(this, arguments);
             };
             /* harmony default export */ __webpack_exports__["default"] = vue__WEBPACK_IMPORTED_MODULE_0___default.a.extend({
-                name: "routable",
+                name: 'routable',
                 directives: {
                     Ripple: _directives_ripple__WEBPACK_IMPORTED_MODULE_1__["default"]
                 },
@@ -22295,7 +22295,7 @@ let all = factory().extend({
                 },
                 methods: {
                     click: function click(e) {
-                        this.$emit("click", e);
+                        this.$emit('click', e);
                     },
                     generateRouteLink: function generateRouteLink(classes) {
                         var _a;
@@ -22309,14 +22309,14 @@ let all = factory().extend({
                             props: {},
                             directives: [
                                 {
-                                    name: "ripple",
+                                    name: 'ripple',
                                     value: this.computedRipple
                                 }
                             ]
-                        }, _a[this.to ? "nativeOn" : "on"] = __assign({}, this.$listeners, {
+                        }, _a[this.to ? 'nativeOn' : 'on'] = __assign({}, this.$listeners, {
                             click: this.click
                         }), _a);
-                        if (typeof this.exact === "undefined") exact = this.to === "/" || this.to === Object(this.to) && this.to.path === "/";
+                        if (typeof this.exact === 'undefined') exact = this.to === '/' || this.to === Object(this.to) && this.to.path === '/';
                         if (this.to) {
                             // Add a special activeClass hook
                             // for component level styles
@@ -22324,10 +22324,10 @@ let all = factory().extend({
                             var exactActiveClass = this.exactActiveClass || activeClass;
                             // TODO: apply only in VListTile
                             if (this.proxyClass) {
-                                activeClass += " " + this.proxyClass;
-                                exactActiveClass += " " + this.proxyClass;
+                                activeClass += ' ' + this.proxyClass;
+                                exactActiveClass += ' ' + this.proxyClass;
                             }
-                            tag = this.nuxt ? "nuxt-link" : "router-link";
+                            tag = this.nuxt ? 'nuxt-link' : 'router-link';
                             Object.assign(data.props, {
                                 to: this.to,
                                 exact: exact,
@@ -22337,8 +22337,8 @@ let all = factory().extend({
                                 replace: this.replace
                             });
                         } else {
-                            tag = this.href && "a" || this.tag || "a";
-                            if (tag === "a" && this.href) data.attrs.href = this.href;
+                            tag = this.href && 'a' || this.tag || 'a';
+                            if (tag === 'a' && this.href) data.attrs.href = this.href;
                         }
                         if (this.target) data.attrs.target = this.target;
                         return {
@@ -22360,19 +22360,19 @@ let all = factory().extend({
             // Components
             // Mixins
             /* @vue/component */ /* harmony default export */ __webpack_exports__["default"] = _components_VInput__WEBPACK_IMPORTED_MODULE_0__["default"].extend({
-                name: "selectable",
+                name: 'selectable',
                 mixins: [
                     _rippleable__WEBPACK_IMPORTED_MODULE_1__["default"],
                     _comparable__WEBPACK_IMPORTED_MODULE_2__["default"]
                 ],
                 model: {
-                    prop: "inputValue",
-                    event: "change"
+                    prop: 'inputValue',
+                    event: 'change'
                 },
                 props: {
                     color: {
                         type: String,
-                        default: "accent"
+                        default: 'accent'
                     },
                     id: String,
                     inputValue: null,
@@ -22428,10 +22428,10 @@ let all = factory().extend({
                         return label;
                     },
                     genInput: function genInput(type, attrs) {
-                        return this.$createElement("input", {
+                        return this.$createElement('input', {
                             attrs: Object.assign({
-                                "aria-label": this.label,
-                                "aria-checked": this.isActive.toString(),
+                                'aria-label': this.label,
+                                'aria-checked': this.isActive.toString(),
                                 disabled: this.isDisabled,
                                 id: this.id,
                                 role: type,
@@ -22447,7 +22447,7 @@ let all = factory().extend({
                                 focus: this.onFocus,
                                 keydown: this.onKeydown
                             },
-                            ref: "input"
+                            ref: 'input'
                         });
                     },
                     onBlur: function onBlur() {
@@ -22486,7 +22486,7 @@ let all = factory().extend({
             /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "vue");
             /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/ __webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
             /* harmony default export */ __webpack_exports__["default"] = vue__WEBPACK_IMPORTED_MODULE_0___default.a.extend({
-                name: "sizeable",
+                name: 'sizeable',
                 props: {
                     large: Boolean,
                     medium: Boolean,
@@ -22516,7 +22516,7 @@ let all = factory().extend({
  * Used in layout components (drawer, toolbar, content)
  * to avoid an entry animation when using SSR
  */ /* harmony default export */ __webpack_exports__["default"] = vue__WEBPACK_IMPORTED_MODULE_0___default.a.extend({
-                name: "ssr-bootable",
+                name: 'ssr-bootable',
                 data: function data() {
                     return {
                         isBooted: false
@@ -22528,7 +22528,7 @@ let all = factory().extend({
                     // because dataset does not work well
                     // with unit tests
                     window.requestAnimationFrame(function() {
-                        _this.$el.setAttribute("data-booted", "true");
+                        _this.$el.setAttribute('data-booted', 'true');
                         _this.isBooted = true;
                     });
                 }
@@ -22566,10 +22566,10 @@ let all = factory().extend({
                 return ar;
             };
             /* @vue/component */ /* harmony default export */ __webpack_exports__["default"] = vue__WEBPACK_IMPORTED_MODULE_0___default.a.extend().extend({
-                name: "stackable",
+                name: 'stackable',
                 data: function data() {
                     return {
-                        stackClass: "unpecified",
+                        stackClass: 'unpecified',
                         stackElement: null,
                         stackExclude: null,
                         stackMinZIndex: 0,
@@ -22578,7 +22578,7 @@ let all = factory().extend({
                 },
                 computed: {
                     activeZIndex: function activeZIndex() {
-                        if (typeof window === "undefined") return 0;
+                        if (typeof window === 'undefined') return 0;
                         var content = this.stackElement || this.$refs.content;
                         // Return current zindex if not active
                         var index = !this.isActive ? Object(_util_helpers__WEBPACK_IMPORTED_MODULE_1__["getZIndex"])(content) : this.getMaxZIndex(this.stackExclude || [
@@ -22639,7 +22639,7 @@ let all = factory().extend({
                 });
             }
             /* @vue/component */ var Themeable = vue__WEBPACK_IMPORTED_MODULE_0___default.a.extend().extend({
-                name: "themeable",
+                name: 'themeable',
                 provide: function provide() {
                     return {
                         theme: this.themeableProvide
@@ -22680,8 +22680,8 @@ let all = factory().extend({
                     },
                     themeClasses: function themeClasses() {
                         return {
-                            "theme--dark": this.isDark,
-                            "theme--light": !this.isDark
+                            'theme--dark': this.isDark,
+                            'theme--light': !this.isDark
                         };
                     },
                     /** Used by menus and dialogs, inherits from v-app instead of the parent */ rootIsDark: function rootIsDark() {
@@ -22694,8 +22694,8 @@ let all = factory().extend({
                     },
                     rootThemeClasses: function rootThemeClasses() {
                         return {
-                            "theme--dark": this.rootIsDark,
-                            "theme--light": !this.rootIsDark
+                            'theme--dark': this.rootIsDark,
+                            'theme--light': !this.rootIsDark
                         };
                     }
                 },
@@ -22721,11 +22721,11 @@ let all = factory().extend({
             /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "vue");
             /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/ __webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
             function factory(prop, event) {
-                if (prop === void 0) prop = "value";
-                if (event === void 0) event = "input";
+                if (prop === void 0) prop = 'value';
+                if (event === void 0) event = 'input';
                 var _a, _b;
                 return vue__WEBPACK_IMPORTED_MODULE_0___default.a.extend({
-                    name: "toggleable",
+                    name: 'toggleable',
                     model: {
                         prop: prop,
                         event: event
@@ -22756,7 +22756,7 @@ let all = factory().extend({
             /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "vue");
             /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/ __webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
             /* harmony default export */ __webpack_exports__["default"] = vue__WEBPACK_IMPORTED_MODULE_0___default.a.extend({
-                name: "transitionable",
+                name: 'transitionable',
                 props: {
                     mode: String,
                     origin: String,
@@ -22772,7 +22772,7 @@ let all = factory().extend({
             /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "vue");
             /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/ __webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
             /* harmony default export */ __webpack_exports__["default"] = vue__WEBPACK_IMPORTED_MODULE_0___default.a.extend({
-                name: "translatable",
+                name: 'translatable',
                 props: {
                     height: Number
                 },
@@ -22793,8 +22793,8 @@ let all = factory().extend({
                     }
                 },
                 beforeDestroy: function beforeDestroy() {
-                    window.removeEventListener("scroll", this.translate, false);
-                    window.removeEventListener("resize", this.translate, false);
+                    window.removeEventListener('scroll', this.translate, false);
+                    window.removeEventListener('resize', this.translate, false);
                 },
                 methods: {
                     calcDimensions: function calcDimensions() {
@@ -22806,11 +22806,11 @@ let all = factory().extend({
                         this.windowBottom = this.scrollTop + this.windowHeight;
                     },
                     listeners: function listeners() {
-                        window.addEventListener("scroll", this.translate, false);
-                        window.addEventListener("resize", this.translate, false);
+                        window.addEventListener('scroll', this.translate, false);
+                        window.addEventListener('resize', this.translate, false);
                     },
                     /** @abstract **/ objHeight: function objHeight() {
-                        throw new Error("Not implemented !");
+                        throw new Error('Not implemented !');
                     },
                     translate: function translate() {
                         this.calcDimensions();
@@ -22837,8 +22837,8 @@ let all = factory().extend({
             };
             // Mixins
             // Utilities
-            /* @vue/component */ /* harmony default export */ __webpack_exports__["default"] = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_4__["default"])(_colorable__WEBPACK_IMPORTED_MODULE_0__["default"], Object(_registrable__WEBPACK_IMPORTED_MODULE_1__["inject"])("form")).extend({
-                name: "validatable",
+            /* @vue/component */ /* harmony default export */ __webpack_exports__["default"] = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_4__["default"])(_colorable__WEBPACK_IMPORTED_MODULE_0__["default"], Object(_registrable__WEBPACK_IMPORTED_MODULE_1__["inject"])('form')).extend({
+                name: 'validatable',
                 props: {
                     disabled: Boolean,
                     error: Boolean,
@@ -22934,7 +22934,7 @@ let all = factory().extend({
                         },
                         set: function set(val) {
                             this.lazyValue = val;
-                            this.$emit("input", val);
+                            this.$emit('input', val);
                         }
                     },
                     shouldValidate: function shouldValidate() {
@@ -22946,8 +22946,8 @@ let all = factory().extend({
                         return this.validationTarget.slice(0, Number(this.errorCount));
                     },
                     validationState: function validationState() {
-                        if (this.hasError && this.shouldValidate) return "error";
-                        if (this.hasSuccess) return "success";
+                        if (this.hasError && this.shouldValidate) return 'error';
+                        if (this.hasSuccess) return 'success';
                         if (this.hasColor) return this.color;
                         return undefined;
                     },
@@ -22991,7 +22991,7 @@ let all = factory().extend({
                         }, 0);
                     },
                     hasError: function hasError(val) {
-                        if (this.shouldValidate) this.$emit("update:error", val);
+                        if (this.shouldValidate) this.$emit('update:error', val);
                     },
                     value: function value(val) {
                         this.lazyValue = val;
@@ -23028,9 +23028,9 @@ let all = factory().extend({
                         if (force) this.hasInput = this.hasFocused = true;
                         for(var index = 0; index < this.rules.length; index++){
                             var rule = this.rules[index];
-                            var valid = typeof rule === "function" ? rule(value) : rule;
-                            if (typeof valid === "string") errorBucket.push(valid);
-                            else if (typeof valid !== "boolean") Object(_util_console__WEBPACK_IMPORTED_MODULE_3__["consoleError"])("Rules should return a string or boolean, received '" + (typeof valid === "undefined" ? "undefined" : _typeof(valid)) + "' instead", this);
+                            var valid = typeof rule === 'function' ? rule(value) : rule;
+                            if (typeof valid === 'string') errorBucket.push(valid);
+                            else if (typeof valid !== 'boolean') Object(_util_console__WEBPACK_IMPORTED_MODULE_3__["consoleError"])("Rules should return a string or boolean, received '" + (typeof valid === 'undefined' ? 'undefined' : _typeof(valid)) + "' instead", this);
                         }
                         this.errorBucket = errorBucket;
                         this.valid = errorBucket.length === 0;
@@ -23417,7 +23417,7 @@ let all = factory().extend({
             /* harmony import */ var _mixins_themeable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../mixins/themeable */ "./src/mixins/themeable.ts");
             /* harmony import */ var _mixins__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./mixins */ "./src/util/mixins.ts");
             /* @vue/component */ /* harmony default export */ __webpack_exports__["default"] = Object(_mixins__WEBPACK_IMPORTED_MODULE_1__["default"])(_mixins_themeable__WEBPACK_IMPORTED_MODULE_0__["default"]).extend({
-                name: "theme-provider",
+                name: 'theme-provider',
                 props: {
                     root: Boolean
                 },
@@ -23428,7 +23428,7 @@ let all = factory().extend({
                 },
                 render: function render() {
                     return this.$slots.default && this.$slots.default.find(function(node) {
-                        return !node.isComment && node.text !== " ";
+                        return !node.isComment && node.text !== ' ';
                     });
                 }
             });
@@ -23571,12 +23571,12 @@ let all = factory().extend({
             /* harmony import */ var _console__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./console */ "./src/util/console.ts");
             function colorToInt(color) {
                 var rgb;
-                if (typeof color === "number") rgb = color;
-                else if (typeof color === "string") {
-                    var c = color[0] === "#" ? color.substring(1) : color;
-                    if (c.length === 3) c = c.split("").map(function(char) {
+                if (typeof color === 'number') rgb = color;
+                else if (typeof color === 'string') {
+                    var c = color[0] === '#' ? color.substring(1) : color;
+                    if (c.length === 3) c = c.split('').map(function(char) {
                         return char + char;
-                    }).join("");
+                    }).join('');
                     if (c.length !== 6) Object(_console__WEBPACK_IMPORTED_MODULE_0__["consoleWarn"])("'" + color + "' is not a valid rgb color");
                     rgb = parseInt(c, 16);
                 } else throw new TypeError("Colors can only be numbers or strings, recieved " + (color == null ? color : color.constructor.name) + " instead");
@@ -23591,8 +23591,8 @@ let all = factory().extend({
             }
             function intToHex(color) {
                 var hexColor = color.toString(16);
-                if (hexColor.length < 6) hexColor = "0".repeat(6 - hexColor.length) + hexColor;
-                return "#" + hexColor;
+                if (hexColor.length < 6) hexColor = '0'.repeat(6 - hexColor.length) + hexColor;
+                return '#' + hexColor;
             }
             function colorToHex(color) {
                 return intToHex(colorToInt(color));
@@ -23627,7 +23627,7 @@ let all = factory().extend({
                     if (vm.$_alreadyWarned.includes(message)) return;
                     vm.$_alreadyWarned.push(message);
                 }
-                return "[Vuetify] " + message + (vm ? generateComponentTrace(vm) : "");
+                return "[Vuetify] " + message + (vm ? generateComponentTrace(vm) : '');
             }
             function consoleInfo(message, vm, parent) {
                 var newMessage = createMessage(message, vm, parent);
@@ -23650,18 +23650,18 @@ let all = factory().extend({
             var classify = function classify(str) {
                 return str.replace(classifyRE, function(c) {
                     return c.toUpperCase();
-                }).replace(/[-_]/g, "");
+                }).replace(/[-_]/g, '');
             };
             function formatComponentName(vm, includeFile) {
-                if (vm.$root === vm) return "<Root>";
-                var options = typeof vm === "function" && vm.cid != null ? vm.options : vm._isVue ? vm.$options || vm.constructor.options : vm || {};
+                if (vm.$root === vm) return '<Root>';
+                var options = typeof vm === 'function' && vm.cid != null ? vm.options : vm._isVue ? vm.$options || vm.constructor.options : vm || {};
                 var name = options.name || options._componentTag;
                 var file = options.__file;
                 if (!name && file) {
                     var match = file.match(/([^/\\]+)\.vue$/);
                     name = match && match[1];
                 }
-                return (name ? "<" + classify(name) + ">" : "<Anonymous>") + (file && includeFile !== false ? " at " + file : "");
+                return (name ? "<" + classify(name) + ">" : "<Anonymous>") + (file && includeFile !== false ? " at " + file : '');
             }
             function generateComponentTrace(vm) {
                 if (vm._isVue && vm.$parent) {
@@ -23685,9 +23685,9 @@ let all = factory().extend({
                         tree.push(vm);
                         vm = vm.$parent;
                     }
-                    return "\n\nfound in\n\n" + tree.map(function(vm, i) {
-                        return "" + (i === 0 ? "---> " : " ".repeat(5 + i * 2)) + (Array.isArray(vm) ? formatComponentName(vm[0]) + "... (" + vm[1] + " recursive calls)" : formatComponentName(vm));
-                    }).join("\n");
+                    return '\n\nfound in\n\n' + tree.map(function(vm, i) {
+                        return "" + (i === 0 ? '---> ' : ' '.repeat(5 + i * 2)) + (Array.isArray(vm) ? formatComponentName(vm[0]) + "... (" + vm[1] + " recursive calls)" : formatComponentName(vm));
+                    }).join('\n');
                 } else return "\n\n(found in " + formatComponentName(vm) + ")";
             }
         /***/ },
@@ -23814,13 +23814,13 @@ let all = factory().extend({
                 return __assign.apply(this, arguments);
             };
             function createSimpleFunctional(c, el, name) {
-                if (el === void 0) el = "div";
+                if (el === void 0) el = 'div';
                 return vue__WEBPACK_IMPORTED_MODULE_0___default.a.extend({
-                    name: name || c.replace(/__/g, "-"),
+                    name: name || c.replace(/__/g, '-'),
                     functional: true,
                     render: function render(h, _a) {
                         var data = _a.data, children = _a.children;
-                        data.staticClass = (c + " " + (data.staticClass || "")).trim();
+                        data.staticClass = (c + " " + (data.staticClass || '')).trim();
                         return h(el, data, children);
                     }
                 });
@@ -23831,7 +23831,7 @@ let all = factory().extend({
                 return array;
             }
             function createSimpleTransition(name, origin, mode) {
-                if (origin === void 0) origin = "top center 0";
+                if (origin === void 0) origin = 'top center 0';
                 return {
                     name: name,
                     functional: true,
@@ -23858,7 +23858,7 @@ let all = factory().extend({
                         }
                     },
                     render: function render(h, context) {
-                        var tag = "transition" + (context.props.group ? "-group" : "");
+                        var tag = "transition" + (context.props.group ? '-group' : '');
                         context.data = context.data || {};
                         context.data.props = {
                             name: name,
@@ -23869,7 +23869,7 @@ let all = factory().extend({
                         var ourBeforeEnter = [];
                         var ourLeave = [];
                         var absolute = function absolute(el) {
-                            return el.style.position = "absolute";
+                            return el.style.position = 'absolute';
                         };
                         ourBeforeEnter.push(function(el) {
                             el.style.transformOrigin = context.props.origin;
@@ -23877,7 +23877,7 @@ let all = factory().extend({
                         });
                         if (context.props.leaveAbsolute) ourLeave.push(absolute);
                         if (context.props.hideOnLeave) ourLeave.push(function(el) {
-                            return el.style.display = "none";
+                            return el.style.display = 'none';
                         });
                         var _a = context.data.on, beforeEnter = _a.beforeEnter, leave = _a.leave;
                         // Type says Function | Function[] but
@@ -23891,7 +23891,7 @@ let all = factory().extend({
                 };
             }
             function createJavaScriptTransition(name, functions, mode) {
-                if (mode === void 0) mode = "in-out";
+                if (mode === void 0) mode = 'in-out';
                 return {
                     name: name,
                     functional: true,
@@ -23908,7 +23908,7 @@ let all = factory().extend({
                             }),
                             on: functions
                         };
-                        return h("transition", data, context.children);
+                        return h('transition', data, context.children);
                     }
                 };
             }
@@ -23927,14 +23927,14 @@ let all = factory().extend({
             }
             var passiveSupported = false;
             try {
-                if (typeof window !== "undefined") {
-                    var testListenerOpts = Object.defineProperty({}, "passive", {
+                if (typeof window !== 'undefined') {
+                    var testListenerOpts = Object.defineProperty({}, 'passive', {
                         get: function get() {
                             passiveSupported = true;
                         }
                     });
-                    window.addEventListener("testListener", testListenerOpts, testListenerOpts);
-                    window.removeEventListener("testListener", testListenerOpts, testListenerOpts);
+                    window.addEventListener('testListener', testListenerOpts, testListenerOpts);
+                    window.removeEventListener('testListener', testListenerOpts, testListenerOpts);
                 }
             } catch (e) {
                 console.warn(e);
@@ -23970,18 +23970,18 @@ let all = factory().extend({
             function getObjectValueByPath(obj, path, fallback) {
                 // credit: http://stackoverflow.com/questions/6491463/accessing-nested-javascript-objects-with-string-key#comment55278413_6491621
                 if (!path || path.constructor !== String) return fallback;
-                path = path.replace(/\[(\w+)\]/g, ".$1"); // convert indexes to properties
-                path = path.replace(/^\./, ""); // strip a leading dot
-                return getNestedValue(obj, path.split("."), fallback);
+                path = path.replace(/\[(\w+)\]/g, '.$1'); // convert indexes to properties
+                path = path.replace(/^\./, ''); // strip a leading dot
+                return getNestedValue(obj, path.split('.'), fallback);
             }
             function getPropertyFromItem(item, property, fallback) {
                 if (property == null) return item === undefined ? fallback : item;
                 if (item !== Object(item)) return fallback === undefined ? item : fallback;
-                if (typeof property === "string") return getObjectValueByPath(item, property, fallback);
+                if (typeof property === 'string') return getObjectValueByPath(item, property, fallback);
                 if (Array.isArray(property)) return getNestedValue(item, property, fallback);
-                if (typeof property !== "function") return fallback;
+                if (typeof property !== 'function') return fallback;
                 var value = property(item, fallback);
-                return typeof value === "undefined" ? fallback : value;
+                return typeof value === 'undefined' ? fallback : value;
             }
             function createRange(length) {
                 return Array.from({
@@ -23992,14 +23992,14 @@ let all = factory().extend({
             }
             function getZIndex(el) {
                 if (!el || el.nodeType !== Node.ELEMENT_NODE) return 0;
-                var index = +window.getComputedStyle(el).getPropertyValue("z-index");
+                var index = +window.getComputedStyle(el).getPropertyValue('z-index');
                 if (!index) return getZIndex(el.parentNode);
                 return index;
             }
             var tagsToReplace = {
-                "&": "&amp;",
-                "<": "&lt;",
-                ">": "&gt;"
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;'
             };
             function escapeHTML(str) {
                 return str.replace(/[&<>]/g, function(tag) {
@@ -24010,7 +24010,7 @@ let all = factory().extend({
                 var filtered = {};
                 for(var i = 0; i < keys.length; i++){
                     var key = keys[i];
-                    if (typeof obj[key] !== "undefined") filtered[key] = obj[key];
+                    if (typeof obj[key] !== 'undefined') filtered[key] = obj[key];
                 }
                 return filtered;
             }
@@ -24021,16 +24021,16 @@ let all = factory().extend({
                 });
             }
             function convertToUnit(str, unit) {
-                if (unit === void 0) unit = "px";
-                if (str == null || str === "") return undefined;
+                if (unit === void 0) unit = 'px';
+                if (str == null || str === '') return undefined;
                 else if (isNaN(+str)) return String(str);
                 else return "" + Number(str) + unit;
             }
             function kebabCase(str) {
-                return (str || "").replace(/([a-z])([A-Z])/g, "$1-$2").toLowerCase();
+                return (str || '').replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
             }
             function isObject(obj) {
-                return obj !== null && (typeof obj === "undefined" ? "undefined" : _typeof(obj)) === "object";
+                return obj !== null && (typeof obj === 'undefined' ? 'undefined' : _typeof(obj)) === 'object';
             }
             // KeyboardEvent.keyCode aliases
             var keyCodes = Object.freeze({
@@ -24051,7 +24051,7 @@ let all = factory().extend({
                 pageup: 33,
                 pagedown: 34
             });
-            var ICONS_PREFIX = "$vuetify.icons.";
+            var ICONS_PREFIX = '$vuetify.icons.';
             // This remaps internal names like '$vuetify.icons.cancel'
             // to the current name or component for that icon.
             function remapInternalIcon(vm, iconName) {
@@ -24067,7 +24067,7 @@ let all = factory().extend({
  */ var camelizeRE = /-(\w)/g;
             var camelize = function camelize(str) {
                 return str.replace(camelizeRE, function(_, c) {
-                    return c ? c.toUpperCase() : "";
+                    return c ? c.toUpperCase() : '';
                 });
             };
             /**
@@ -24088,9 +24088,9 @@ let all = factory().extend({
  *  - 'scoped' for old style scoped slots (`<template slot="default" slot-scope="data">`) or bound v-slot (`#default="data"`)
  *  - 'v-slot' for unbound v-slot (`#default`) - only if the third param is true, otherwise counts as scoped
  */ function getSlotType(vm, name, split) {
-                if (vm.$slots[name] && vm.$scopedSlots[name] && vm.$scopedSlots[name].name) return split ? "v-slot" : "scoped";
-                if (vm.$slots[name]) return "normal";
-                if (vm.$scopedSlots[name]) return "scoped";
+                if (vm.$slots[name] && vm.$scopedSlots[name] && vm.$scopedSlots[name].name) return split ? 'v-slot' : 'scoped';
+                if (vm.$slots[name]) return 'normal';
+                if (vm.$scopedSlots[name]) return 'scoped';
             }
         /***/ },
         /***/ "./src/util/mask.ts": /*!**************************!*\
@@ -24115,12 +24115,12 @@ let all = factory().extend({
                 return char ? defaultDelimiters.test(char) : false;
             };
             var allowedMasks = {
-                "#": {
+                '#': {
                     test: function test(char) {
                         return /[0-9]/.test(char);
                     }
                 },
-                "A": {
+                'A': {
                     test: function test(char) {
                         return /[A-Z]/i.test(char);
                     },
@@ -24128,7 +24128,7 @@ let all = factory().extend({
                         return char.toUpperCase();
                     }
                 },
-                "a": {
+                'a': {
                     test: function test(char) {
                         return /[a-z]/i.test(char);
                     },
@@ -24136,7 +24136,7 @@ let all = factory().extend({
                         return char.toLowerCase();
                     }
                 },
-                "N": {
+                'N': {
                     test: function test(char) {
                         return /[0-9A-Z]/i.test(char);
                     },
@@ -24144,7 +24144,7 @@ let all = factory().extend({
                         return char.toUpperCase();
                     }
                 },
-                "n": {
+                'n': {
                     test: function test(char) {
                         return /[0-9a-z]/i.test(char);
                     },
@@ -24152,7 +24152,7 @@ let all = factory().extend({
                         return char.toLowerCase();
                     }
                 },
-                "X": {
+                'X': {
                     test: isMaskDelimiter
                 }
             };
@@ -24167,13 +24167,13 @@ let all = factory().extend({
                 return allowedMasks[mask].test(char);
             };
             var maskText = function maskText(text, masked, dontFillMaskBlanks) {
-                if (text == null) return "";
+                if (text == null) return '';
                 text = String(text);
                 if (!masked.length || !text.length) return text;
-                if (!Array.isArray(masked)) masked = masked.split("");
+                if (!Array.isArray(masked)) masked = masked.split('');
                 var textIndex = 0;
                 var maskIndex = 0;
-                var newText = "";
+                var newText = '';
                 while(maskIndex < masked.length){
                     var mask = masked[maskIndex];
                     // Assign the next character
@@ -24194,7 +24194,7 @@ let all = factory().extend({
                 return newText;
             };
             var unmaskText = function unmaskText(text) {
-                return text ? String(text).replace(new RegExp(defaultDelimiters.source, "g"), "") : text;
+                return text ? String(text).replace(new RegExp(defaultDelimiters.source, 'g'), '') : text;
             };
         /***/ },
         /***/ "./src/util/mixins.ts": /*!****************************!*\
@@ -24225,7 +24225,7 @@ let all = factory().extend({
             });
             function rebuildFunctionalSlots(slots, h) {
                 var children = [];
-                for(var slot in slots)if (slots.hasOwnProperty(slot)) children.push(h("template", {
+                for(var slot in slots)if (slots.hasOwnProperty(slot)) children.push(h('template', {
                     slot: slot
                 }, slots[slot]));
                 return children;
@@ -24280,8 +24280,8 @@ let all = factory().extend({
                     var name = colors[i];
                     var value = theme[name];
                     if (isItem) {
-                        if (name === "base" || name.startsWith("lighten") || name.startsWith("darken")) parsedTheme[name] = Object(_colorUtils__WEBPACK_IMPORTED_MODULE_0__["colorToHex"])(value);
-                    } else if ((typeof value === "undefined" ? "undefined" : _typeof(value)) === "object") parsedTheme[name] = parse(value, true);
+                        if (name === 'base' || name.startsWith('lighten') || name.startsWith('darken')) parsedTheme[name] = Object(_colorUtils__WEBPACK_IMPORTED_MODULE_0__["colorToHex"])(value);
+                    } else if ((typeof value === "undefined" ? "undefined" : _typeof(value)) === 'object') parsedTheme[name] = parse(value, true);
                     else parsedTheme[name] = genVariations(name, Object(_colorUtils__WEBPACK_IMPORTED_MODULE_0__["colorToInt"])(value));
                 }
                 return parsedTheme;
@@ -24298,32 +24298,32 @@ let all = factory().extend({
                 return "\n." + name + "." + type + "-" + n + " {\n  background-color: " + value + " !important;\n  border-color: " + value + " !important;\n}\n." + name + "--text.text--" + type + "-" + n + " {\n  color: " + value + " !important;\n  caret-color: " + value + " !important;\n}";
             };
             var genColorVariableName = function genColorVariableName(name, variant) {
-                if (variant === void 0) variant = "base";
+                if (variant === void 0) variant = 'base';
                 return "--v-" + name + "-" + variant;
             };
             var genColorVariable = function genColorVariable(name, variant) {
-                if (variant === void 0) variant = "base";
+                if (variant === void 0) variant = 'base';
                 return "var(" + genColorVariableName(name, variant) + ")";
             };
             function genStyles(theme, cssVar) {
                 if (cssVar === void 0) cssVar = false;
                 var colors = Object.keys(theme);
-                if (!colors.length) return "";
-                var variablesCss = "";
-                var css = "";
-                var aColor = cssVar ? genColorVariable("primary") : theme.primary.base;
+                if (!colors.length) return '';
+                var variablesCss = '';
+                var css = '';
+                var aColor = cssVar ? genColorVariable('primary') : theme.primary.base;
                 css += "a { color: " + aColor + "; }";
                 for(var i = 0; i < colors.length; ++i){
                     var name = colors[i];
                     var value = theme[name];
-                    if ((typeof value === "undefined" ? "undefined" : _typeof(value)) !== "object") continue;
+                    if ((typeof value === "undefined" ? "undefined" : _typeof(value)) !== 'object') continue;
                     css += genBaseColor(name, cssVar ? genColorVariable(name) : value.base);
                     cssVar && (variablesCss += "  " + genColorVariableName(name) + ": " + value.base + ";\n");
                     var variants = Object.keys(value);
                     for(var i_1 = 0; i_1 < variants.length; ++i_1){
                         var variant = variants[i_1];
                         var variantValue = value[variant];
-                        if (variant === "base") continue;
+                        if (variant === 'base') continue;
                         css += genVariantColor(name, variant, cssVar ? genColorVariable(name, variant) : variantValue);
                         cssVar && (variablesCss += "  " + genColorVariableName(name, variant) + ": " + variantValue + ";\n");
                     }
@@ -24358,6 +24358,6 @@ let all = factory().extend({
     })["default"];
 });
 
-},{"71665ec3925da2ec":"gt5MM"}]},[], null, "parcelRequire02e5")
+},{"71665ec3925da2ec":"gt5MM"}]},[], null, "parcelRequire94c2")
 
 //# sourceMappingURL=spinal-env-viewer-plugin-scene.0cea2fcf.js.map

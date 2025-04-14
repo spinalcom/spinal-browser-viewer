@@ -73,7 +73,7 @@
         localRequire,
         module,
         module.exports,
-        this
+        globalObject
       );
     }
 
@@ -142,7 +142,7 @@
       this[globalName] = mainExports;
     }
   }
-})({"hmxzM":[function(require,module,exports) {
+})({"hmxzM":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2020 SpinalCom - www.spinalcom.com
  *
@@ -218,6 +218,6 @@ class CircularMenuOpenGraphViewer extends (0, _spinalEnvViewerContextMenuService
     7
 ]);
 
-},{"spinal-env-viewer-context-menu-service":"kHlxv"}]},[], null, "parcelRequire02e5")
+},{"spinal-env-viewer-context-menu-service":"kHlxv"}]},[], null, "parcelRequire94c2")
 
 //# sourceMappingURL=spinal-env-viewer-plugin-graph_viewer.ce1d8f15.js.map

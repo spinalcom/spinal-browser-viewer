@@ -73,7 +73,7 @@
         localRequire,
         module,
         module.exports,
-        this
+        globalObject
       );
     }
 
@@ -142,7 +142,7 @@
       this[globalName] = mainExports;
     }
   }
-})({"eS1a6":[function(require,module,exports) {
+})({"eS1a6":[function(require,module,exports,__globalThis) {
 /**
   * vue-cal v3.11.0
   * (c) 2022 Antoni Andre <antoniandre.web@gmail.com>
@@ -169,7 +169,7 @@ const e = [
     "Miercuri",
     "Joi",
     "Vineri",
-    "S\xe2mb\u0103ta",
+    "S\xE2mb\u0103ta",
     "Duminic\u0103"
 ], a = [
     "Ianuarie",
@@ -184,13 +184,13 @@ const e = [
     "Octombrie",
     "Noiembrie",
     "Decembrie"
-], i = "Ani", t = "An", n = "Lun\u0103", r = "S\u0103pt\u0103m\xe2n\u0103", s = "Zi", u = "Azi", d = "Nici o interac\u021Biune", o = "Toat\u0103 ziua", m = "\u0218terge", M = "Adaug\u0103 un eveniment", c = "dddd D MMMM YYYY", y = {
+], i = "Ani", t = "An", n = "Lun\u0103", r = "S\u0103pt\u0103m\xE2n\u0103", s = "Zi", u = "Azi", d = "Nici o interac\u021Biune", o = "Toat\u0103 ziua", m = "\u0218terge", M = "Adaug\u0103 un eveniment", c = "dddd D MMMM YYYY", y = {
     weekDays: e,
     months: a,
     years: "Ani",
     year: "An",
     month: "Lun\u0103",
-    week: "S\u0103pt\u0103m\xe2n\u0103",
+    week: "S\u0103pt\u0103m\xE2n\u0103",
     day: "Zi",
     today: "Azi",
     noEvent: "Nici o interac\u021Biune",
@@ -200,6 +200,6 @@ const e = [
     dateFormat: "dddd D MMMM YYYY"
 };
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},[], null, "parcelRequire02e5")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},[], null, "parcelRequire94c2")
 
 //# sourceMappingURL=ro.es.4a153ae8.js.map

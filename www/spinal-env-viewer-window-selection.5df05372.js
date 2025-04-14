@@ -73,7 +73,7 @@
         localRequire,
         module,
         module.exports,
-        this
+        globalObject
       );
     }
 
@@ -142,7 +142,7 @@
       this[globalName] = mainExports;
     }
   }
-})({"4j68z":[function(require,module,exports) {
+})({"4j68z":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _selection = require("./js/selection");
 var _selectionDefault = parcelHelpers.interopDefault(_selection);
@@ -178,7 +178,7 @@ const windowSelection = (0, _createToolbarDefault.default)({
 window.Autodesk.Viewing.theExtensionManager.registerExtension(EXTENSION_NAME, windowSelection);
 window.spinal.ForgeExtentionManager.addExtention(EXTENSION_NAME);
 
-},{"./js/selection":"5UrJW","./js/createToolbar":"6t91Z","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5UrJW":[function(require,module,exports) {
+},{"./js/selection":"5UrJW","./js/createToolbar":"6t91Z","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5UrJW":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _viewingExtensionSelectionWindowTool = require("../extensions/Viewing.Extension.SelectionWindow.Tool");
@@ -215,14 +215,14 @@ class SelectionComponent {
         return true;
     }
     get className() {
-        return "selection-window";
+        return 'selection-window';
     }
     /////////////////////////////////////////////////////////
     // Extension Id
     //
     /////////////////////////////////////////////////////////
     static get ExtensionId() {
-        return "Viewing.Extension.SelectionWindow";
+        return 'Viewing.Extension.SelectionWindow';
     }
     /////////////////////////////////////////////////////////
     // Unload callback
@@ -239,13 +239,13 @@ class SelectionComponent {
     /////////////////////////////////////////////////////////
     onModelRootLoaded() {
         this.selectionWindowTool = new (0, _viewingExtensionSelectionWindowToolDefault.default)(this.viewer);
-        this.selectionWindowTool.on("deactivate", ()=>{
+        this.selectionWindowTool.on('deactivate', ()=>{
             this.active = false;
         });
-        this.selectionWindowTool.on("activate", ()=>{
+        this.selectionWindowTool.on('activate', ()=>{
             this.active = true;
         });
-        this.selectionWindowTool.on("selection", (selection)=>{
+        this.selectionWindowTool.on('selection', (selection)=>{
             this.viewer.impl.selector.setSelection(selection.dbIds, selection.model);
             this.selection = selection;
         });
@@ -289,22 +289,22 @@ class SelectionComponent {
     onNodeClicked(node) {
         const model = node.model;
         if (model) switch(node.type){
-            case "component":
+            case 'component':
                 this.viewer.impl.selector.setSelection([
                     node.id
                 ], model);
                 break;
-            case "root":
+            case 'root':
                 this.viewer.impl.selector.setSelection(node.props.childIds, model);
                 break;
         }
     }
 }
 window.Autodesk.Viewing.theExtensionManager.registerExtension(SelectionComponent.ExtensionId, SelectionComponent);
-window.spinal.ForgeExtentionManager.addExtention("Viewing.Extension.SelectionWindow");
-exports.default = "Viewing.Extension.SelectionWindow";
+window.spinal.ForgeExtentionManager.addExtention('Viewing.Extension.SelectionWindow');
+exports.default = 'Viewing.Extension.SelectionWindow';
 
-},{"../extensions/Viewing.Extension.SelectionWindow.Tool":"d7Kbe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"d7Kbe":[function(require,module,exports) {
+},{"../extensions/Viewing.Extension.SelectionWindow.Tool":"d7Kbe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"d7Kbe":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _selectionExtension = require("./selectionExtension");
@@ -353,7 +353,7 @@ class SelectionWindowTool extends (0, _eventsEmitterDefault.default) {
     //
     /////////////////////////////////////////////////////////
     onResize() {
-        const overlay = this.viewer.impl.overlayScenes["selectionWindowOverlay"];
+        const overlay = this.viewer.impl.overlayScenes['selectionWindowOverlay'];
         if (overlay) {
             const canvas = this.viewer.canvas;
             const camera = new window.THREE.OrthographicCamera(0, canvas.clientWidth, 0, canvas.clientHeight, 1, 1000);
@@ -397,10 +397,10 @@ class SelectionWindowTool extends (0, _eventsEmitterDefault.default) {
             this.mouseEnd = new window.THREE.Vector3(0, 0, -10);
             const canvas = this.viewer.canvas;
             const camera = new window.THREE.OrthographicCamera(0, canvas.clientWidth, 0, canvas.clientHeight, 1, 1000);
-            this.viewer.impl.createOverlayScene("selectionWindowOverlay", this.materialLine, this.materialLine, camera);
+            this.viewer.impl.createOverlayScene('selectionWindowOverlay', this.materialLine, this.materialLine, camera);
             this.viewer.impl.api.addEventListener(window.Autodesk.Viewing.VIEWER_RESIZE_EVENT, this.onResize);
             this.isActive = true;
-            this.emit("activate");
+            this.emit('activate');
         }
     }
     /////////////////////////////////////////////////////////
@@ -409,7 +409,7 @@ class SelectionWindowTool extends (0, _eventsEmitterDefault.default) {
     /////////////////////////////////////////////////////////
     deactivate() {
         if (this.isActive) {
-            this.viewer.impl.removeOverlayScene("selectionWindowOverlay");
+            this.viewer.impl.removeOverlayScene('selectionWindowOverlay');
             this.mouseStart.set(0, 0, -10);
             this.mouseEnd.set(0, 0, -10);
             this.isDragging = false;
@@ -417,7 +417,7 @@ class SelectionWindowTool extends (0, _eventsEmitterDefault.default) {
             this.rectGroup = null;
             this.viewer.impl.api.removeEventListener(window.Autodesk.Viewing.VIEWER_RESIZE_EVENT, this.onResize);
             this.viewer.toolController.deactivateTool(this.getName());
-            this.emit("deactivate");
+            this.emit('deactivate');
         }
     }
     /////////////////////////////////////////////////////////
@@ -600,7 +600,7 @@ class SelectionWindowTool extends (0, _eventsEmitterDefault.default) {
         if (rectWidth === 0 || rectHeight === 0) return false;
         const dbIdsByModel = this.selectSet.compute(this.pointerStart, this.pointerEnd, this.partialSelect);
         dbIdsByModel.forEach((el)=>{
-            for (const iterator of el)this.emit("selection", {
+            for (const iterator of el)this.emit('selection', {
                 model: iterator.model,
                 guid: this.guid(),
                 dbIds: iterator.dbIds
@@ -612,7 +612,7 @@ class SelectionWindowTool extends (0, _eventsEmitterDefault.default) {
 }
 exports.default = SelectionWindowTool;
 
-},{"./selectionExtension":"lwUpp","./EventsEmitter":"2ONrl","./cursors":"97IHg","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"lwUpp":[function(require,module,exports) {
+},{"./selectionExtension":"lwUpp","./EventsEmitter":"2ONrl","./cursors":"97IHg","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"lwUpp":[function(require,module,exports,__globalThis) {
 ///////////////////////////////////////////////////////////
 // SelectSet util for Selection Window in Forge Viewer
 // By Philippe Leefsma, September 2017
@@ -987,7 +987,7 @@ class SelectSet {
 }
 exports.default = SelectSet;
 
-},{"./GeometryIntersectsBox3":"lvyTG","./viewer.toolkit":"ijOXA","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"lvyTG":[function(require,module,exports) {
+},{"./GeometryIntersectsBox3":"lvyTG","./viewer.toolkit":"ijOXA","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"lvyTG":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let norm = new window.THREE.Vector3();
@@ -1077,7 +1077,7 @@ function geometryIntersectsBox3(geometry, box) {
 }
 exports.default = geometryIntersectsBox3;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ijOXA":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ijOXA":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 class ViewerToolkit {
@@ -1085,12 +1085,12 @@ class ViewerToolkit {
     //
     //
     ///////////////////////////////////////////////////////////////////
-    static guid(format = "xxxxxxxxxxxx") {
+    static guid(format = 'xxxxxxxxxxxx') {
         var d = new Date().getTime();
         var guid = format.replace(/[xy]/g, function(c) {
             var r = (d + Math.random() * 16) % 16 | 0;
             d = Math.floor(d / 16);
-            return (c == "x" ? r : r & 0x7 | 0x8).toString(16);
+            return (c == 'x' ? r : r & 0x7 | 0x8).toString(16);
         });
         return guid;
     }
@@ -1134,8 +1134,8 @@ class ViewerToolkit {
     //
     //////////////////////////////////////////////////////////////////////////
     static getDefaultViewablePath(doc, roles = [
-        "3d",
-        "2d"
+        '3d',
+        '2d'
     ]) {
         var rootItem = doc.getRootItem();
         let roleArray = [
@@ -1146,7 +1146,7 @@ class ViewerToolkit {
             items = [
                 ...items,
                 ...window.Autodesk.Viewing.Document.getSubItemsWithProperties(rootItem, {
-                    type: "geometry",
+                    type: 'geometry',
                     role
                 }, true)
             ];
@@ -1159,7 +1159,7 @@ class ViewerToolkit {
     /////////////////////////////////////////////////////////////////
     static createButton(id, className, tooltip, handler) {
         var button = new window.Autodesk.Viewing.UI.Button(id);
-        button.icon.style.fontSize = "24px";
+        button.icon.style.fontSize = '24px';
         button.icon.className = className;
         button.setToolTip(tooltip);
         button.onClick = handler;
@@ -1246,7 +1246,7 @@ class ViewerToolkit {
         return new Promise(async (resolve, reject)=>{
             try {
                 var fragIds = await ViewerToolkit.getFragIds(model, dbId);
-                if (!fragIds.length) return reject("No geometry, invalid dbId?");
+                if (!fragIds.length) return reject('No geometry, invalid dbId?');
                 var fragList = model.getFragmentList();
                 var fragbBox = new window.THREE.Box3();
                 var nodebBox = new window.THREE.Box3();
@@ -1269,14 +1269,14 @@ class ViewerToolkit {
             try {
                 if (requestedProps) {
                     const propTasks = requestedProps.map((displayName)=>{
-                        return ViewerToolkit.getProperty(model, dbId, displayName, "Not Available");
+                        return ViewerToolkit.getProperty(model, dbId, displayName, 'Not Available');
                     });
                     Promise.all(propTasks).then((properties)=>{
                         resolve(properties);
                     });
                 } else model.getProperties(dbId, function(result) {
                     if (result.properties) return resolve(result.properties);
-                    return reject("No Properties");
+                    return reject('No Properties');
                 });
             } catch (ex) {
                 // console.log(ex)
@@ -1294,7 +1294,7 @@ class ViewerToolkit {
                 model.getProperties(dbId, function(result) {
                     if (result.properties) {
                         result.properties.forEach((prop)=>{
-                            if (typeof displayName === "function") {
+                            if (typeof displayName === 'function') {
                                 if (displayName(prop.displayName)) resolve(prop);
                             } else if (displayName === prop.displayName) resolve(prop);
                         });
@@ -1302,8 +1302,8 @@ class ViewerToolkit {
                             displayValue: defaultValue,
                             displayName
                         });
-                        reject(new Error("Not Found"));
-                    } else reject(new Error("Error getting properties"));
+                        reject(new Error('Not Found'));
+                    } else reject(new Error('Error getting properties'));
                 });
             } catch (ex) {
                 return reject(ex);
@@ -1364,7 +1364,7 @@ class ViewerToolkit {
                 var componentsMap = {};
                 propertyResults.forEach((result)=>{
                     var value = result.displayValue;
-                    if (typeof value == "string") value = value.split(":")[0];
+                    if (typeof value == 'string') value = value.split(':')[0];
                     if (!componentsMap[value]) componentsMap[value] = [];
                     componentsMap[value].push(result.dbId);
                 });
@@ -1402,7 +1402,7 @@ class ViewerToolkit {
                 color: 0xffff00,
                 linewidth: 2
             });
-            viewer.impl.matman().addMaterial("ADN-Material-Line", _material, true);
+            viewer.impl.matman().addMaterial('ADN-Material-Line', _material, true);
         }
         function drawLines(coordsArray, mat) {
             var lines = [];
@@ -1634,7 +1634,7 @@ class ViewerToolkit {
 }
 exports.default = ViewerToolkit;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2ONrl":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2ONrl":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "EventsEmitterComposer", ()=>EventsEmitterComposer);
@@ -1651,7 +1651,7 @@ const EventsEmitter = class EventsEmitter {
     //
     /////////////////////////////////////////////////////////
     on(events, fct) {
-        events.split(" ").forEach((event)=>{
+        events.split(' ').forEach((event)=>{
             this._events[event] = this._events[event] || [];
             this._events[event].push(fct);
         });
@@ -1666,7 +1666,7 @@ const EventsEmitter = class EventsEmitter {
             this._events = {};
             return;
         }
-        events.split(" ").forEach((event)=>{
+        events.split(' ').forEach((event)=>{
             if (event in this._events === false) return;
             if (fct) this._events[event].splice(this._events[event].indexOf(fct), 1);
             else this._events[event] = [];
@@ -1689,12 +1689,12 @@ const EventsEmitter = class EventsEmitter {
     //
     //
     /////////////////////////////////////////////////////////
-    guid(format = "xxxxxxxxxxxx") {
+    guid(format = 'xxxxxxxxxxxx') {
         var d = new Date().getTime();
         const guid = format.replace(/[xy]/g, function(c) {
             var r = (d + Math.random() * 16) % 16 | 0;
             d = Math.floor(d / 16);
-            return (c == "x" ? r : r & 0x7 | 0x8).toString(16);
+            return (c == 'x' ? r : r & 0x7 | 0x8).toString(16);
         });
         return guid;
     }
@@ -1713,7 +1713,7 @@ const EventsEmitterComposer = (BaseClass)=>class extends BaseClass {
         //
         /////////////////////////////////////////////////////////
         on(events, fct) {
-            events.split(" ").forEach((event)=>{
+            events.split(' ').forEach((event)=>{
                 this._events[event] = this._events[event] || [];
                 this._events[event].push(fct);
             });
@@ -1728,7 +1728,7 @@ const EventsEmitterComposer = (BaseClass)=>class extends BaseClass {
                 this._events = {};
                 return;
             }
-            events.split(" ").forEach((event)=>{
+            events.split(' ').forEach((event)=>{
                 if (event in this._events === false) return;
                 if (fct) this._events[event].splice(this._events[event].indexOf(fct), 1);
                 else this._events[event] = [];
@@ -1751,12 +1751,12 @@ const EventsEmitterComposer = (BaseClass)=>class extends BaseClass {
         //
         //
         /////////////////////////////////////////////////////////
-        guid(format = "xxxxxxxxxxxx") {
+        guid(format = 'xxxxxxxxxxxx') {
             var d = new Date().getTime();
             const guid = format.replace(/[xy]/g, function(c) {
                 var r = (d + Math.random() * 16) % 16 | 0;
                 d = Math.floor(d / 16);
-                return (c == "x" ? r : r & 0x7 | 0x8).toString(16);
+                return (c == 'x' ? r : r & 0x7 | 0x8).toString(16);
             });
             return guid;
         }
@@ -1764,7 +1764,7 @@ const EventsEmitterComposer = (BaseClass)=>class extends BaseClass {
 EventsEmitter.Composer = EventsEmitterComposer;
 exports.default = EventsEmitter;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"97IHg":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"97IHg":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 exports.default = {
@@ -1773,7 +1773,7 @@ exports.default = {
     pan: "url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAMAAADXqc3KAAABHVBMVEUAAABPTk4AAAAAAAAJCQkRERE0MzQQEBAODg4QEBB4d3dbWlo9PDw/Pj4vLy8sLCwZGBgWFhYcHBwKCgoSEhIAAAAKCgoICAgKCgoQEBAODg4EBAQICAgPDw8REREMDAx2dnY0NDQvLy9QUFAaGhomJSYjIyM7OjokJCQNDA0mJiYNDQ0AAAAUFBQJCQkQEBAEBAQNDQ0PDw8VFRX///+amJkAAAD5+fnz8/PKycn9/f339vbi4eLR0dDNzMyAgIB8e3xycHH7+/vw7+/o6OjX1ta7urq4t7iwsLCnp6eioqKbmppva21OTk74+Pjl5eXc3Nzb29vLy8vDw8PDwsKrqqqdnZ2WlpaSkpKTkZKMiouEg4NkZGRISEgxLzBpgbsEAAAANHRSTlMA+fiQXgngKSYG/vX17uvBuqackpCNg3BpUkpAPBwTDvj18+vl0s/NwrOwoZZ+TDg4NBkBGrzX8QAAAP5JREFUKM99j9Vuw0AQRdeuKZyGkyZNmbnXDLHDVGb8/8/oy7paK1bO0+oc7WiGnGiaxq+QRTQAOh8f9Jv4H/Ge8PZPrCdlvkxfYluUT2WyyCq3mZ7unwlKVLcqOzA/Mf71j0TWJ/Ym6rPeca05Ni4iIevYc7yoUD2zQFhq71BdI9nvBeBabFDSPe8DswlUc1Riw3VxbH0NHBUPQ0jrbDnPYDjALQBMq9E7nkC5y7VDKTZlUg8Q0lmjvl74zlYErgvKa42GPKf3/a0kQmYCDY1SYMDosqMoiWrGwz/uAbNvc/fNon4kXRKGq+PUo2Mb96afV0iUxqGU2s4VBbKUP65NL/LKF+7ZAAAAAElFTkSuQmCC), auto"
 };
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6t91Z":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6t91Z":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "default", ()=>function(params, callback) {
@@ -1824,6 +1824,6 @@ parcelHelpers.export(exports, "default", ()=>function(params, callback) {
         return ViewerToolbarButtonManager;
     });
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},[], null, "parcelRequire02e5")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},[], null, "parcelRequire94c2")
 
 //# sourceMappingURL=spinal-env-viewer-window-selection.5df05372.js.map

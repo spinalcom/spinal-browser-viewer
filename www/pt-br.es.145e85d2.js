@@ -73,7 +73,7 @@
         localRequire,
         module,
         module.exports,
-        this
+        globalObject
       );
     }
 
@@ -142,7 +142,7 @@
       this[globalName] = mainExports;
     }
   }
-})({"8t45J":[function(require,module,exports) {
+})({"8t45J":[function(require,module,exports,__globalThis) {
 /**
   * vue-cal v3.11.0
   * (c) 2022 Antoni Andre <antoniandre.web@gmail.com>
@@ -165,16 +165,16 @@ parcelHelpers.export(exports, "year", ()=>t);
 parcelHelpers.export(exports, "years", ()=>o);
 const e = [
     "Segunda-feira",
-    "Ter\xe7a-feira",
+    "Ter\xE7a-feira",
     "Quarta-feira",
     "Quinta-feira",
     "Sexta-feira",
-    "S\xe1bado",
+    "S\xE1bado",
     "Domingo"
 ], a = [
     "Janeiro",
     "Fevereiro",
-    "Mar\xe7o",
+    "Mar\xE7o",
     "Abril",
     "Maio",
     "Junho",
@@ -184,12 +184,12 @@ const e = [
     "Outubro",
     "Novembro",
     "Dezembro"
-], o = "Anos", t = "Ano", r = "M\xeas", n = "Semana", s = "Dia", i = "Hoje", d = "Sem eventos", m = "Dia inteiro", v = "Remover", D = "Criar um evento", M = "dddd D MMMM YYYY", y = {
+], o = "Anos", t = "Ano", r = "M\xEAs", n = "Semana", s = "Dia", i = "Hoje", d = "Sem eventos", m = "Dia inteiro", v = "Remover", D = "Criar um evento", M = "dddd D MMMM YYYY", y = {
     weekDays: e,
     months: a,
     years: "Anos",
     year: "Ano",
-    month: "M\xeas",
+    month: "M\xEAs",
     week: "Semana",
     day: "Dia",
     today: "Hoje",
@@ -200,6 +200,6 @@ const e = [
     dateFormat: "dddd D MMMM YYYY"
 };
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},[], null, "parcelRequire02e5")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},[], null, "parcelRequire94c2")
 
 //# sourceMappingURL=pt-br.es.145e85d2.js.map

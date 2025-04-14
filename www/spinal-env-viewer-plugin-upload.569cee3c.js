@@ -73,7 +73,7 @@
         localRequire,
         module,
         module.exports,
-        this
+        globalObject
       );
     }
 
@@ -142,7 +142,7 @@
       this[globalName] = mainExports;
     }
   }
-})({"4EGcp":[function(require,module,exports) {
+})({"4EGcp":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _registerDialog = require("./registerDialog");
 var _spinalEnvViewerContextMenuService = require("spinal-env-viewer-context-menu-service");
@@ -165,7 +165,7 @@ const topbarName = "GraphManagerTopBar";
     3
 ]); // spinalContextMenuService.registerApp(sidebarName, new LinkGroupToEndpoint(), [3]);
 
-},{"./registerDialog":"lfRwW","spinal-env-viewer-context-menu-service":"kHlxv","./src/button/uploadExcel":"cZTta","./src/button/contextUpload":"hVcEr","./src/button/linkEndpointToProfil":"etqTI","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"lfRwW":[function(require,module,exports) {
+},{"./registerDialog":"lfRwW","spinal-env-viewer-context-menu-service":"kHlxv","./src/button/uploadExcel":"cZTta","./src/button/contextUpload":"hVcEr","./src/button/linkEndpointToProfil":"etqTI","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"lfRwW":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _vue = require("vue");
 var _vueDefault = parcelHelpers.interopDefault(_vue);
@@ -209,7 +209,7 @@ const dialogs = [
 ];
 for(let index = 0; index < dialogs.length; index++)SpinalMountExtention.mount(dialogs[index]);
 
-},{"vue":"gt5MM","./src/vue/uploadFile.vue":"k5CJL","./src/vue/createContext.vue":"jnKHX","./src/vue/linkProfil.vue":"6BPv7","./src/vue/linkGroup.vue":"8XkxC","./src/vue/selectControlEndpoint.vue":"iXN7I","26997a5d367e0278":"7Uw4d","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"k5CJL":[function(require,module,exports) {
+},{"vue":"gt5MM","./src/vue/uploadFile.vue":"k5CJL","./src/vue/createContext.vue":"jnKHX","./src/vue/linkProfil.vue":"6BPv7","./src/vue/linkGroup.vue":"8XkxC","./src/vue/selectControlEndpoint.vue":"iXN7I","26997a5d367e0278":"7Uw4d","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"k5CJL":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -220,13 +220,13 @@ let initialize = ()=>{
     script.staticRenderFns = require("f54b6b3e7d249ff8").staticRenderFns;
     script._scopeId = "data-v-819535";
     require("579627595bda4e13").default(script);
-    script.__scopeId = "data-v-819535";
+    script.__scopeId = 'data-v-819535';
     script.__file = "uploadFile.vue";
 };
 initialize();
 exports.default = script;
 
-},{"4ba3ef69f69dab93":"bAhrD","f54b6b3e7d249ff8":"1a7x2","579627595bda4e13":"5qq0Z","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"bAhrD":[function(require,module,exports) {
+},{"4ba3ef69f69dab93":"bAhrD","f54b6b3e7d249ff8":"1a7x2","579627595bda4e13":"5qq0Z","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"bAhrD":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerGraphService = require("spinal-env-viewer-graph-service");
@@ -298,10 +298,10 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"spinal-env-viewer-graph-service":"9n7zp","../model/profilModel":"1pgMH","56e4e6839454d2b4":"d1IEa","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1pgMH":[function(require,module,exports) {
+},{"spinal-env-viewer-graph-service":"9n7zp","../model/profilModel":"1pgMH","56e4e6839454d2b4":"d1IEa","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1pgMH":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "ProfilModel", ()=>ProfilModel);
@@ -319,13 +319,13 @@ class ProfilModel extends (0, _spinalCoreConnectorjsType.Model) {
     ProfilModel
 ]);
 
-},{"spinal-core-connectorjs_type":"fRH70","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1a7x2":[function(require,module,exports) {
+},{"spinal-core-connectorjs_type":"fRH70","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1a7x2":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("div", [
-        _c("md-dialog", {
+    return _c('div', [
+        _c('md-dialog', {
             attrs: {
                 "md-active": _vm.showDialog
             },
@@ -341,17 +341,17 @@ var render = function() {
                 }
             }
         }, [
-            _c("md-dialog-title", [
+            _c('md-dialog-title', [
                 _vm._v("Add a simulation file")
             ]),
             _vm._v(" "),
-            _c("md-dialog-content", [
-                _c("md-field", [
-                    _c("label", [
+            _c('md-dialog-content', [
+                _c('md-field', [
+                    _c('label', [
                         _vm._v("Profil name")
                     ]),
                     _vm._v(" "),
-                    _c("md-input", {
+                    _c('md-input', {
                         model: {
                             value: _vm.profilName,
                             callback: function($$v) {
@@ -362,12 +362,12 @@ var render = function() {
                     })
                 ], 1),
                 _vm._v(" "),
-                _c("md-field", [
-                    _c("label", [
+                _c('md-field', [
+                    _c('label', [
                         _vm._v("Upload")
                     ]),
                     _vm._v(" "),
-                    _c("md-file", {
+                    _c('md-file', {
                         on: {
                             "md-change": _vm.changeFile
                         },
@@ -382,8 +382,8 @@ var render = function() {
                 ], 1)
             ], 1),
             _vm._v(" "),
-            _c("md-dialog-actions", [
-                _c("md-button", {
+            _c('md-dialog-actions', [
+                _c('md-button', {
                     staticClass: "md-primary",
                     on: {
                         "click": function($event) {
@@ -394,7 +394,7 @@ var render = function() {
                     _vm._v("Close")
                 ]),
                 _vm._v(" "),
-                _c("md-button", {
+                _c('md-button', {
                     staticClass: "md-primary",
                     on: {
                         "click": function($event) {
@@ -412,13 +412,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"5qq0Z":[function(require,module,exports) {
+},{}],"5qq0Z":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jnKHX":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jnKHX":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -429,13 +429,13 @@ let initialize = ()=>{
     script.staticRenderFns = require("40a86fc3121a5f01").staticRenderFns;
     script._scopeId = "data-v-83436c";
     require("91f29432b5e9cf4e").default(script);
-    script.__scopeId = "data-v-83436c";
+    script.__scopeId = 'data-v-83436c';
     script.__file = "createContext.vue";
 };
 initialize();
 exports.default = script;
 
-},{"a97bf41b8e4253f6":"5gSxd","40a86fc3121a5f01":"hJhdZ","91f29432b5e9cf4e":"6degV","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5gSxd":[function(require,module,exports) {
+},{"a97bf41b8e4253f6":"5gSxd","40a86fc3121a5f01":"hJhdZ","91f29432b5e9cf4e":"6degV","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5gSxd":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerGraphService = require("spinal-env-viewer-graph-service");
@@ -473,16 +473,16 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"spinal-env-viewer-graph-service":"9n7zp","3e043cff2d4ea":"d1IEa","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hJhdZ":[function(require,module,exports) {
+},{"spinal-env-viewer-graph-service":"9n7zp","3e043cff2d4ea":"d1IEa","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hJhdZ":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("div", [
-        _c("md-dialog", {
+    return _c('div', [
+        _c('md-dialog', {
             attrs: {
                 "md-active": _vm.showDialog
             },
@@ -498,17 +498,17 @@ var render = function() {
                 }
             }
         }, [
-            _c("md-dialog-title", [
+            _c('md-dialog-title', [
                 _vm._v("Add a simulation context")
             ]),
             _vm._v(" "),
-            _c("md-dialog-content", [
-                _c("md-field", [
-                    _c("label", [
+            _c('md-dialog-content', [
+                _c('md-field', [
+                    _c('label', [
                         _vm._v("Context name")
                     ]),
                     _vm._v(" "),
-                    _c("md-input", {
+                    _c('md-input', {
                         model: {
                             value: _vm.contextName,
                             callback: function($$v) {
@@ -520,8 +520,8 @@ var render = function() {
                 ], 1)
             ], 1),
             _vm._v(" "),
-            _c("md-dialog-actions", [
-                _c("md-button", {
+            _c('md-dialog-actions', [
+                _c('md-button', {
                     staticClass: "md-primary",
                     on: {
                         "click": function($event) {
@@ -532,7 +532,7 @@ var render = function() {
                     _vm._v("Close")
                 ]),
                 _vm._v(" "),
-                _c("md-button", {
+                _c('md-button', {
                     staticClass: "md-primary",
                     on: {
                         "click": function($event) {
@@ -550,13 +550,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"6degV":[function(require,module,exports) {
+},{}],"6degV":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6BPv7":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6BPv7":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -568,13 +568,13 @@ let initialize = ()=>{
     script._scopeId = "data-v-c6145a";
     script.__cssModules = require("59daea7c7c650f8").default;
     require("2f5b59990e48c80").default(script);
-    script.__scopeId = "data-v-c6145a";
+    script.__scopeId = 'data-v-c6145a';
     script.__file = "linkProfil.vue";
 };
 initialize();
 exports.default = script;
 
-},{"ea79a391dde7a358":"5Z9fz","bfbb022f9c840b47":"bAwmJ","59daea7c7c650f8":"kbIHc","2f5b59990e48c80":"2u4BS","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5Z9fz":[function(require,module,exports) {
+},{"ea79a391dde7a358":"5Z9fz","bfbb022f9c840b47":"bAwmJ","59daea7c7c650f8":"kbIHc","2f5b59990e48c80":"2u4BS","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5Z9fz":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerGraphService = require("spinal-env-viewer-graph-service");
@@ -640,10 +640,10 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"spinal-env-viewer-graph-service":"9n7zp","./linkTogroupTemplate.vue":"30sOn","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"30sOn":[function(require,module,exports) {
+},{"spinal-env-viewer-graph-service":"9n7zp","./linkTogroupTemplate.vue":"30sOn","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"30sOn":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -655,13 +655,13 @@ let initialize = ()=>{
     script._scopeId = "data-v-7667aa";
     script.__cssModules = require("a85a00fafd40db1d").default;
     require("7949e133f34b35a1").default(script);
-    script.__scopeId = "data-v-7667aa";
+    script.__scopeId = 'data-v-7667aa';
     script.__file = "linkTogroupTemplate.vue";
 };
 initialize();
 exports.default = script;
 
-},{"cd457957136940bd":"eQu2C","a4764c05d85a6960":"5kup7","a85a00fafd40db1d":"jwRJr","7949e133f34b35a1":"iRLsr","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"eQu2C":[function(require,module,exports) {
+},{"cd457957136940bd":"eQu2C","a4764c05d85a6960":"5kup7","a85a00fafd40db1d":"jwRJr","7949e133f34b35a1":"iRLsr","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"eQu2C":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var scriptExports = {
@@ -681,30 +681,30 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5kup7":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5kup7":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("div", {
+    return _c('div', {
         staticClass: "subContent"
     }, [
-        _c("div", {
+        _c('div', {
             staticClass: "title"
         }, [
-            _c("div", [
+            _c('div', [
                 _vm._v(_vm._s(_vm.title))
             ])
         ]),
         _vm._v(" "),
-        _c("md-content", {
+        _c('md-content', {
             staticClass: "container md-scrollbar"
         }, [
-            _c("md-list", _vm._l(_vm.data, function(item, index) {
-                return _c("md-list-item", {
+            _c('md-list', _vm._l(_vm.data, function(item, index) {
+                return _c('md-list-item', {
                     directives: [
                         {
                             name: "tooltip",
@@ -716,7 +716,7 @@ var render = function() {
                     key: index,
                     staticClass: "list-item",
                     class: {
-                        "selected": item.id === _vm.itemSelected
+                        'selected': item.id === _vm.itemSelected
                     },
                     on: {
                         "click": function($event) {
@@ -724,7 +724,7 @@ var render = function() {
                         }
                     }
                 }, [
-                    _c("span", {
+                    _c('span', {
                         staticClass: "md-list-item-text"
                     }, [
                         _vm._v(_vm._s(item.name))
@@ -738,19 +738,19 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"jwRJr":[function() {},{}],"iRLsr":[function(require,module,exports) {
+},{}],"jwRJr":[function() {},{}],"iRLsr":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"bAwmJ":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"bAwmJ":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("div", [
-        _c("md-dialog", {
+    return _c('div', [
+        _c('md-dialog', {
             staticClass: "dialogApp",
             attrs: {
                 "md-active": _vm.showDialog
@@ -767,19 +767,19 @@ var render = function() {
                 }
             }
         }, [
-            _c("md-dialog-title", [
+            _c('md-dialog-title', [
                 _vm._v("Link an endpoint to a profil")
             ]),
             _vm._v(" "),
-            _c("md-dialog-content", {
+            _c('md-dialog-content', {
                 staticClass: "content"
             }, [
-                _c("div", {
+                _c('div', {
                     staticClass: "section"
                 }, [
-                    _c("link-template", {
+                    _c('link-template', {
                         attrs: {
-                            "title": "Context",
+                            "title": 'Context',
                             "data": _vm.context,
                             "itemSelected": _vm.contextSelected,
                             "disableBtn": true
@@ -790,12 +790,12 @@ var render = function() {
                     })
                 ], 1),
                 _vm._v(" "),
-                _c("div", {
+                _c('div', {
                     staticClass: "section"
                 }, [
-                    _c("link-template", {
+                    _c('link-template', {
                         attrs: {
-                            "title": "Profil",
+                            "title": 'Profil',
                             "data": _vm.profils,
                             "itemSelected": _vm.profilSelected,
                             "disableBtn": true
@@ -807,8 +807,8 @@ var render = function() {
                 ], 1)
             ]),
             _vm._v(" "),
-            _c("md-dialog-actions", [
-                _c("md-button", {
+            _c('md-dialog-actions', [
+                _c('md-button', {
                     staticClass: "md-primary",
                     on: {
                         "click": function($event) {
@@ -819,7 +819,7 @@ var render = function() {
                     _vm._v("Close")
                 ]),
                 _vm._v(" "),
-                _c("md-button", {
+                _c('md-button', {
                     staticClass: "md-primary",
                     attrs: {
                         "disabled": !_vm.profilSelected
@@ -840,13 +840,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"kbIHc":[function() {},{}],"2u4BS":[function(require,module,exports) {
+},{}],"kbIHc":[function() {},{}],"2u4BS":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"8XkxC":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"8XkxC":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -858,13 +858,13 @@ let initialize = ()=>{
     script._scopeId = "data-v-eda178";
     script.__cssModules = require("1a32ba280252f396").default;
     require("4a31d3d7e3e307c9").default(script);
-    script.__scopeId = "data-v-eda178";
+    script.__scopeId = 'data-v-eda178';
     script.__file = "linkGroup.vue";
 };
 initialize();
 exports.default = script;
 
-},{"2074fe8a9069da8f":"c6dwe","55888094d9072a10":"j6RbT","1a32ba280252f396":"7objR","4a31d3d7e3e307c9":"1gmj1","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"c6dwe":[function(require,module,exports) {
+},{"2074fe8a9069da8f":"c6dwe","55888094d9072a10":"j6RbT","1a32ba280252f396":"7objR","4a31d3d7e3e307c9":"1gmj1","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"c6dwe":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerGraphService = require("spinal-env-viewer-graph-service");
@@ -989,16 +989,16 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"spinal-env-viewer-graph-service":"9n7zp","472c569495a53ee1":"d1IEa","./linkTogroupTemplate.vue":"30sOn","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"j6RbT":[function(require,module,exports) {
+},{"spinal-env-viewer-graph-service":"9n7zp","472c569495a53ee1":"d1IEa","./linkTogroupTemplate.vue":"30sOn","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"j6RbT":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("div", [
-        _c("md-dialog", {
+    return _c('div', [
+        _c('md-dialog', {
             staticClass: "dialogApp",
             attrs: {
                 "md-active": _vm.showDialog
@@ -1015,19 +1015,19 @@ var render = function() {
                 }
             }
         }, [
-            _c("md-dialog-title", [
+            _c('md-dialog-title', [
                 _vm._v("Link an endpoint to a profil")
             ]),
             _vm._v(" "),
-            _c("md-dialog-content", {
+            _c('md-dialog-content', {
                 staticClass: "content"
             }, [
-                _c("div", {
+                _c('div', {
                     staticClass: "section"
                 }, [
-                    _c("link-template", {
+                    _c('link-template', {
                         attrs: {
-                            "title": "Context",
+                            "title": 'Context',
                             "data": _vm.context,
                             "itemSelected": _vm.contextSelected,
                             "disableBtn": true
@@ -1038,12 +1038,12 @@ var render = function() {
                     })
                 ], 1),
                 _vm._v(" "),
-                _c("div", {
+                _c('div', {
                     staticClass: "section"
                 }, [
-                    _c("link-template", {
+                    _c('link-template', {
                         attrs: {
-                            "title": "Profil",
+                            "title": 'Profil',
                             "data": _vm.profils,
                             "itemSelected": _vm.profilSelected,
                             "disableBtn": true
@@ -1054,12 +1054,12 @@ var render = function() {
                     })
                 ], 1),
                 _vm._v(" "),
-                _c("div", {
+                _c('div', {
                     staticClass: "section"
                 }, [
-                    _c("link-template", {
+                    _c('link-template', {
                         attrs: {
-                            "title": "Device",
+                            "title": 'Device',
                             "data": _vm.devices,
                             "itemSelected": _vm.deviceSelected,
                             "disableBtn": true
@@ -1070,12 +1070,12 @@ var render = function() {
                     })
                 ], 1),
                 _vm._v(" "),
-                _c("div", {
+                _c('div', {
                     staticClass: "section"
                 }, [
-                    _c("link-template", {
+                    _c('link-template', {
                         attrs: {
-                            "title": "Endpoint",
+                            "title": 'Endpoint',
                             "data": _vm.endpoints,
                             "itemSelected": _vm.endpointSelected,
                             "disableBtn": true
@@ -1087,8 +1087,8 @@ var render = function() {
                 ], 1)
             ]),
             _vm._v(" "),
-            _c("md-dialog-actions", [
-                _c("md-button", {
+            _c('md-dialog-actions', [
+                _c('md-button', {
                     staticClass: "md-primary",
                     on: {
                         "click": function($event) {
@@ -1099,7 +1099,7 @@ var render = function() {
                     _vm._v("Close")
                 ]),
                 _vm._v(" "),
-                _c("md-button", {
+                _c('md-button', {
                     staticClass: "md-primary",
                     attrs: {
                         "disabled": !_vm.endpointSelected
@@ -1120,13 +1120,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"7objR":[function() {},{}],"1gmj1":[function(require,module,exports) {
+},{}],"7objR":[function() {},{}],"1gmj1":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"iXN7I":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"iXN7I":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -1137,13 +1137,13 @@ let initialize = ()=>{
     script.staticRenderFns = require("f11745a47f68a61e").staticRenderFns;
     script._scopeId = "data-v-463570";
     require("f51ae73faf45e10c").default(script);
-    script.__scopeId = "data-v-463570";
+    script.__scopeId = 'data-v-463570';
     script.__file = "selectControlEndpoint.vue";
 };
 initialize();
 exports.default = script;
 
-},{"604498ab8fadeefc":"891Uk","f11745a47f68a61e":"lzV8B","f51ae73faf45e10c":"1W3hr","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"891Uk":[function(require,module,exports) {
+},{"604498ab8fadeefc":"891Uk","f11745a47f68a61e":"lzV8B","f51ae73faf45e10c":"1W3hr","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"891Uk":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerPluginControlEndpointService = require("spinal-env-viewer-plugin-control-endpoint-service");
@@ -1191,10 +1191,10 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"spinal-env-viewer-plugin-control-endpoint-service":"5dUad","621d1d49722c25bb":"7Uw4d","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7Uw4d":[function(require,module,exports) {
+},{"spinal-env-viewer-plugin-control-endpoint-service":"5dUad","621d1d49722c25bb":"7Uw4d","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7Uw4d":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -1233,7 +1233,7 @@ module.exports = {
     }
 };
 
-},{"8b71a79dcc12420e":"h7sS1","e47c36529e942a76":"cvBJ6","cfd4c6200ba55765":"9SKSV"}],"h7sS1":[function(require,module,exports) {
+},{"8b71a79dcc12420e":"h7sS1","e47c36529e942a76":"cvBJ6","cfd4c6200ba55765":"9SKSV"}],"h7sS1":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -1313,7 +1313,7 @@ module.exports = {
 }
 module.exports = SpinalPanelManagerService;
 
-},{}],"cvBJ6":[function(require,module,exports) {
+},{}],"cvBJ6":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -1348,7 +1348,7 @@ module.exports = SpinalPanelManagerService;
 }
 module.exports = SpinalPanelApp;
 
-},{}],"9SKSV":[function(require,module,exports) {
+},{}],"9SKSV":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -1447,12 +1447,12 @@ function getDialog() {
     };
 };
 
-},{}],"lzV8B":[function(require,module,exports) {
+},{}],"lzV8B":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("md-dialog", {
+    return _c('md-dialog', {
         staticClass: "dialogApp",
         attrs: {
             "md-active": _vm.showDialog
@@ -1469,15 +1469,15 @@ var render = function() {
             }
         }
     }, [
-        _c("md-dialog-title", [
+        _c('md-dialog-title', [
             _vm._v("Link an endpoint to a profil")
         ]),
         _vm._v(" "),
-        _c("md-dialog-content", {
+        _c('md-dialog-content', {
             staticClass: "content"
         }, [
-            _c("md-field", [
-                _c("label", {
+            _c('md-field', [
+                _c('label', {
                     attrs: {
                         "for": "movie"
                     }
@@ -1485,7 +1485,7 @@ var render = function() {
                     _vm._v("Select ControlPoints")
                 ]),
                 _vm._v(" "),
-                _c("md-select", {
+                _c('md-select', {
                     attrs: {
                         "name": "controlPoints",
                         "id": "controlPoints"
@@ -1498,7 +1498,7 @@ var render = function() {
                         expression: "controlPointSelected"
                     }
                 }, _vm._l(_vm.controlPoints, function(controlPoint) {
-                    return _c("md-option", {
+                    return _c('md-option', {
                         key: controlPoint.id,
                         attrs: {
                             "value": controlPoint.id
@@ -1510,8 +1510,8 @@ var render = function() {
             ], 1)
         ], 1),
         _vm._v(" "),
-        _c("md-dialog-actions", [
-            _c("md-button", {
+        _c('md-dialog-actions', [
+            _c('md-button', {
                 staticClass: "md-primary",
                 on: {
                     "click": function($event) {
@@ -1522,7 +1522,7 @@ var render = function() {
                 _vm._v("Close")
             ]),
             _vm._v(" "),
-            _c("md-button", {
+            _c('md-button', {
                 staticClass: "md-primary",
                 attrs: {
                     "disabled": !_vm.controlPointSelected
@@ -1542,13 +1542,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"1W3hr":[function(require,module,exports) {
+},{}],"1W3hr":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"cZTta":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"cZTta":[function(require,module,exports,__globalThis) {
 const { SpinalContextApp } = require("9705d8c61219228e");
 const { spinalPanelManagerService } = require("3651b760e4ac0fb6");
 const { SpinalBmsDevice } = require("c48911397b1e6daa");
@@ -1567,12 +1567,12 @@ class UploadExcelFile extends SpinalContextApp {
         return Promise.resolve(-1);
     }
     action(option) {
-        spinalPanelManagerService.openPanel("UploadExcelDialog", option);
+        spinalPanelManagerService.openPanel('UploadExcelDialog', option);
     }
 }
 module.exports = UploadExcelFile;
 
-},{"9705d8c61219228e":"kHlxv","3651b760e4ac0fb6":"7Uw4d","c48911397b1e6daa":"gzkbg"}],"hVcEr":[function(require,module,exports) {
+},{"9705d8c61219228e":"kHlxv","3651b760e4ac0fb6":"7Uw4d","c48911397b1e6daa":"gzkbg"}],"hVcEr":[function(require,module,exports,__globalThis) {
 const { SpinalContextApp } = require("ba4e2156ebdae742");
 const { spinalPanelManagerService } = require("3142e3e0a829e3d6");
 const { SpinalBmsDevice } = require("94568f4ccecb7c77");
@@ -1591,12 +1591,12 @@ class ContextUpload extends SpinalContextApp {
         return Promise.resolve(-1);  */ return Promise.resolve(true);
     }
     action(option) {
-        spinalPanelManagerService.openPanel("ContextUploadDialog", option);
+        spinalPanelManagerService.openPanel('ContextUploadDialog', option);
     }
 }
 module.exports = ContextUpload;
 
-},{"ba4e2156ebdae742":"kHlxv","3142e3e0a829e3d6":"7Uw4d","94568f4ccecb7c77":"gzkbg"}],"etqTI":[function(require,module,exports) {
+},{"ba4e2156ebdae742":"kHlxv","3142e3e0a829e3d6":"7Uw4d","94568f4ccecb7c77":"gzkbg"}],"etqTI":[function(require,module,exports,__globalThis) {
 var _spinalEnvViewerPluginGroupManagerService = require("spinal-env-viewer-plugin-group-manager-service");
 var _constants = require("spinal-env-viewer-context-geographic-service/build/constants");
 const { SpinalContextApp } = require("451579fd3f1325af");
@@ -1634,6 +1634,6 @@ class LinkEndpointToProfil extends SpinalContextApp {
 }
 module.exports = LinkEndpointToProfil;
 
-},{"451579fd3f1325af":"kHlxv","a7bf63f8c76a7174":"7Uw4d","spinal-env-viewer-plugin-group-manager-service":"tSLpq","spinal-env-viewer-context-geographic-service/build/constants":"eV0id"}]},[], null, "parcelRequire02e5")
+},{"451579fd3f1325af":"kHlxv","a7bf63f8c76a7174":"7Uw4d","spinal-env-viewer-plugin-group-manager-service":"tSLpq","spinal-env-viewer-context-geographic-service/build/constants":"eV0id"}]},[], null, "parcelRequire94c2")
 
 //# sourceMappingURL=spinal-env-viewer-plugin-upload.569cee3c.js.map

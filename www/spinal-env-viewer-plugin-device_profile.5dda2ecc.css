@@ -320,7 +320,6 @@
 }
 
 .cm-tab {
-  -webkit-text-decoration: inherit;
   text-decoration: inherit;
   display: inline-block;
 }
@@ -855,11 +854,11 @@ li.CodeMirror-hint-active {
 }
 
 .CodeMirror-dialog input {
+  width: 20em;
   color: inherit;
   background: none;
   border: none;
   outline: none;
-  width: 20em;
   font-family: monospace;
 }
 

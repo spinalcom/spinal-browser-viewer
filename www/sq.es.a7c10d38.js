@@ -73,7 +73,7 @@
         localRequire,
         module,
         module.exports,
-        this
+        globalObject
       );
     }
 
@@ -142,7 +142,7 @@
       this[globalName] = mainExports;
     }
   }
-})({"7qHeH":[function(require,module,exports) {
+})({"7qHeH":[function(require,module,exports,__globalThis) {
 /**
   * vue-cal v3.11.0
   * (c) 2022 Antoni Andre <antoniandre.web@gmail.com>
@@ -165,15 +165,15 @@ parcelHelpers.export(exports, "weekDaysShort", ()=>e);
 parcelHelpers.export(exports, "year", ()=>s);
 parcelHelpers.export(exports, "years", ()=>r);
 const a = [
-    "E H\xebn\xeb",
-    "E Mart\xeb",
-    "E M\xebrkur\xeb",
+    "E H\xEBn\xEB",
+    "E Mart\xEB",
+    "E M\xEBrkur\xEB",
     "E Enjte",
     "E Premte",
-    "E Shtun\xeb",
+    "E Shtun\xEB",
     "E Diel"
 ], e = [
-    "H\xeb",
+    "H\xEB",
     "Ma",
     "Mr",
     "Enj",
@@ -191,9 +191,9 @@ const a = [
     "Gusht",
     "Shtator",
     "Tetor",
-    "N\xebntor",
+    "N\xEBntor",
     "Dhjetor"
-], r = "Vitet", s = "Viti", n = "Muaji", o = "Java", d = "Dita", i = "Sot", M = "Nuk ka event", h = "T\xebr\xeb dit\xebn", E = "Fshij\xeb", k = "Krijo nj\xeb event", y = "dddd D MMMM YYYY", D = {
+], r = "Vitet", s = "Viti", n = "Muaji", o = "Java", d = "Dita", i = "Sot", M = "Nuk ka event", h = "T\xEBr\xEB dit\xEBn", E = "Fshij\xEB", k = "Krijo nj\xEB event", y = "dddd D MMMM YYYY", D = {
     weekDays: a,
     weekDaysShort: e,
     months: t,
@@ -204,12 +204,12 @@ const a = [
     day: "Dita",
     today: "Sot",
     noEvent: "Nuk ka event",
-    allDay: "T\xebr\xeb dit\xebn",
-    deleteEvent: "Fshij\xeb",
-    createEvent: "Krijo nj\xeb event",
+    allDay: "T\xEBr\xEB dit\xEBn",
+    deleteEvent: "Fshij\xEB",
+    createEvent: "Krijo nj\xEB event",
     dateFormat: "dddd D MMMM YYYY"
 };
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},[], null, "parcelRequire02e5")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},[], null, "parcelRequire94c2")
 
 //# sourceMappingURL=sq.es.a7c10d38.js.map

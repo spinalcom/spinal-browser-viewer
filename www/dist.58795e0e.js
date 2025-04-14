@@ -73,7 +73,7 @@
         localRequire,
         module,
         module.exports,
-        this
+        globalObject
       );
     }
 
@@ -142,7 +142,7 @@
       this[globalName] = mainExports;
     }
   }
-})({"4IrFb":[function(require,module,exports) {
+})({"4IrFb":[function(require,module,exports,__globalThis) {
 var global = arguments[3];
 "use strict";
 /*
@@ -205,10 +205,10 @@ Object.defineProperty(exports, "SpinalEvent", {
 __exportStar(require("37da737fa6557d0a"), exports);
 __exportStar(require("bd0f8a3e7cc634b9"), exports);
 const globalRoot = typeof window === "undefined" ? global : window;
-if (typeof globalRoot.spinal === "undefined") globalRoot.spinal = {};
-if (typeof globalRoot.spinal.SpinalEventService === "undefined") globalRoot.spinal.SpinalEventService = TaskService_1.SpinalEventService;
+if (typeof globalRoot.spinal === 'undefined') globalRoot.spinal = {};
+if (typeof globalRoot.spinal.SpinalEventService === 'undefined') globalRoot.spinal.SpinalEventService = TaskService_1.SpinalEventService;
 
-},{"6f06e9eaff7c6e24":"3zSiz","aa63e3d126b86def":"69h2I","37da737fa6557d0a":"8p09c","bd0f8a3e7cc634b9":"f3R02"}],"3zSiz":[function(require,module,exports) {
+},{"6f06e9eaff7c6e24":"3zSiz","aa63e3d126b86def":"69h2I","37da737fa6557d0a":"8p09c","bd0f8a3e7cc634b9":"f3R02"}],"3zSiz":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2020 SpinalCom - www.spinalcom.com
@@ -334,8 +334,8 @@ class SpinalEventService {
         const promises = dates.map((el)=>{
             const isoEl = new Date(el).toISOString();
             const temp_obj = Object.assign(Object.assign({}, eventInfo), {
-                startDate: moment(isoEl).format("LLLL"),
-                endDate: moment(isoEl).add(diff, "milliseconds").format("LLLL"),
+                startDate: moment(isoEl).format('LLLL'),
+                endDate: moment(isoEl).add(diff, "milliseconds").format('LLLL'),
                 reference
             });
             return this.createEventNode(contextId, groupId, nodeId, temp_obj, userInfo);
@@ -435,7 +435,7 @@ class SpinalEventService {
         let tempEnd = moment(endDate);
         while(tempEnd.diff(tempBegin) >= 0){
             dates.push(tempBegin.valueOf());
-            tempBegin = tempBegin.add(interval, "ms");
+            tempBegin = tempBegin.add(interval, 'ms');
         }
         return dates;
     }
@@ -519,7 +519,7 @@ class SpinalEventService {
 }
 exports.SpinalEventService = SpinalEventService;
 
-},{"c05da74610e26652":"fRH70","eb7e7d304d558c5c":"9n7zp","5c6269aebd6c81bd":"tSLpq","be0113b4be10c44e":"69h2I","1f4da0a022a26bf2":"8p09c","8e3099526ef765be":"f3R02","35a9bce87828a955":"5rYVR","13919abdd1eb4de9":"jwcsj"}],"69h2I":[function(require,module,exports) {
+},{"c05da74610e26652":"fRH70","eb7e7d304d558c5c":"9n7zp","5c6269aebd6c81bd":"tSLpq","be0113b4be10c44e":"69h2I","1f4da0a022a26bf2":"8p09c","8e3099526ef765be":"f3R02","35a9bce87828a955":"5rYVR","13919abdd1eb4de9":"jwcsj"}],"69h2I":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2020 SpinalCom - www.spinalcom.com
@@ -563,7 +563,7 @@ exports.SpinalEvent = SpinalEvent;
 SpinalEvent.EVENT_TYPE = "SpinalEvent";
 spinal_core_connectorjs_type_1.spinalCore.register_models(SpinalEvent);
 
-},{"b406bad08e8f3bf4":"fRH70","19e568cf1fbfbe9d":"jwcsj"}],"8p09c":[function(require,module,exports) {
+},{"b406bad08e8f3bf4":"fRH70","19e568cf1fbfbe9d":"jwcsj"}],"8p09c":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2020 SpinalCom - www.spinalcom.com
@@ -599,7 +599,7 @@ exports.CONTEXT_TYPE = `${SpinalEvent_1.SpinalEvent.EVENT_TYPE}GroupContext`;
 exports.EVENT_TYPE = "SpinalEvent";
 exports.RELATION_NAME = "hasEvent";
 
-},{"16e2e0a74a768b3f":"69h2I"}],"f3R02":[function(require,module,exports) {
+},{"16e2e0a74a768b3f":"69h2I"}],"f3R02":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2020 SpinalCom - www.spinalcom.com
@@ -640,6 +640,6 @@ exports.invers_period = Object.freeze({
     31557600000: "year"
 });
 
-},{}]},[], null, "parcelRequire02e5")
+},{}]},[], null, "parcelRequire94c2")
 
 //# sourceMappingURL=dist.58795e0e.js.map

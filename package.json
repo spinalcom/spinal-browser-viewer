@@ -13,6 +13,7 @@
   },
   "dependencies": {},
   "devDependencies": {
+    "browserify-zlib": "^0.2.0",
     "@babel/core": "^7.16.7",
     "@parcel/compressor-gzip": "^2.9.3",
     "@parcel/packager-raw-url": "^2.3.2",

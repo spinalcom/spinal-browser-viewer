@@ -73,7 +73,7 @@
         localRequire,
         module,
         module.exports,
-        this
+        globalObject
       );
     }
 
@@ -142,7 +142,7 @@
       this[globalName] = mainExports;
     }
   }
-})({"6ggGr":[function(require,module,exports) {
+})({"6ggGr":[function(require,module,exports,__globalThis) {
 /**
   * vue-cal v3.11.0
   * (c) 2022 Antoni Andre <antoniandre.web@gmail.com>
@@ -184,7 +184,7 @@ const e = [
     "Pa\u017Adziernik",
     "Listopad",
     "Grudzie\u0144"
-], t = "Lata", i = "Rok", d = "Miesi\u0105c", s = "Tydzie\u0144", r = "Dzie\u0144", z = "Dzisiaj", y = "Brak wydarze\u0144", o = "Ca\u0142y dzie\u0144", n = "Usu\u0144", k = "Utw\xf3rz wydarzenie", w = "dddd, D MMMM YYYY", M = {
+], t = "Lata", i = "Rok", d = "Miesi\u0105c", s = "Tydzie\u0144", r = "Dzie\u0144", z = "Dzisiaj", y = "Brak wydarze\u0144", o = "Ca\u0142y dzie\u0144", n = "Usu\u0144", k = "Utw\xF3rz wydarzenie", w = "dddd, D MMMM YYYY", M = {
     weekDays: e,
     months: a,
     years: "Lata",
@@ -196,10 +196,10 @@ const e = [
     noEvent: "Brak wydarze\u0144",
     allDay: "Ca\u0142y dzie\u0144",
     deleteEvent: "Usu\u0144",
-    createEvent: "Utw\xf3rz wydarzenie",
+    createEvent: "Utw\xF3rz wydarzenie",
     dateFormat: "dddd, D MMMM YYYY"
 };
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},[], null, "parcelRequire02e5")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},[], null, "parcelRequire94c2")
 
 //# sourceMappingURL=pl.es.5f3ecbf7.js.map

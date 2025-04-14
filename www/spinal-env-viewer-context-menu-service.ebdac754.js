@@ -73,7 +73,7 @@
         localRequire,
         module,
         module.exports,
-        this
+        globalObject
       );
     }
 
@@ -142,7 +142,7 @@
       this[globalName] = mainExports;
     }
   }
-})({"kHlxv":[function(require,module,exports) {
+})({"kHlxv":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -181,7 +181,7 @@ module.exports = {
     }
 };
 
-},{"68897565c96c24c9":"iqJit","b2a1734f0374b803":"kAFNM","dd9afb352261d691":"gmus8"}],"iqJit":[function(require,module,exports) {
+},{"68897565c96c24c9":"iqJit","b2a1734f0374b803":"kAFNM","dd9afb352261d691":"gmus8"}],"iqJit":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -237,7 +237,7 @@ var debounce = require("381613c6219f7bf2");
    */ async hasUserRight(appProfileId) {
         this.debouncedRdy();
         await window.spinal.spinalSystem.init();
-        const path = "/etc/UserProfileDir/" + window.spinal.spinalSystem.getUser().username;
+        const path = '/etc/UserProfileDir/' + window.spinal.spinalSystem.getUser().username;
         const userProfile = await window.spinal.spinalSystem.load(path);
         let res = false;
         if (userProfile) for(let i = 0; i < userProfile.appProfiles.length && !res; i++)res = (1 << userProfile.appProfiles[i] & appProfileId) !== 0;
@@ -253,7 +253,7 @@ var debounce = require("381613c6219f7bf2");
    * @memberof SpinalContextMenuService
    */ registerApp(hookname, spinalContextApp, appProfileId) {
         this.debouncedRdy();
-        if (typeof appProfileId === "undefined") {
+        if (typeof appProfileId === 'undefined') {
             console.warn("Deprecated: The usage of this function without the third parameter appProfileId is deprecated your button is lock for admin only until you set the third parameter");
             appProfileId = 1;
         }
@@ -300,7 +300,7 @@ var debounce = require("381613c6219f7bf2");
 }
 module.exports = SpinalContextMenuService;
 
-},{"q":"6YRAJ","381613c6219f7bf2":"3JP5n"}],"kAFNM":[function(require,module,exports) {
+},{"q":"6YRAJ","381613c6219f7bf2":"3JP5n"}],"kAFNM":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -390,14 +390,14 @@ function colorHash(color) {
     return "#" + color;
 }
 
-},{}],"gmus8":[function(require,module,exports) {
+},{}],"gmus8":[function(require,module,exports,__globalThis) {
 module.exports = {
-    ADMINISTRATEUR: "ADMINISTRATEUR",
-    MAINTENEUR: "MAINTENEUR",
-    INTEGRATEUR: "INTEGRATEUR",
-    ASSET_MANAGEUR: "ASSET MANAGER"
+    ADMINISTRATEUR: 'ADMINISTRATEUR',
+    MAINTENEUR: 'MAINTENEUR',
+    INTEGRATEUR: 'INTEGRATEUR',
+    ASSET_MANAGEUR: 'ASSET MANAGER'
 };
 
-},{}]},[], null, "parcelRequire02e5")
+},{}]},[], null, "parcelRequire94c2")
 
 //# sourceMappingURL=spinal-env-viewer-context-menu-service.ebdac754.js.map

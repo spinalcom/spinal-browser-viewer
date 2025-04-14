@@ -73,7 +73,7 @@
         localRequire,
         module,
         module.exports,
-        this
+        globalObject
       );
     }
 
@@ -142,7 +142,7 @@
       this[globalName] = mainExports;
     }
   }
-})({"jfOw4":[function(require,module,exports) {
+})({"jfOw4":[function(require,module,exports,__globalThis) {
 /**
   * vue-cal v3.11.0
   * (c) 2022 Antoni Andre <antoniandre.web@gmail.com>
@@ -174,7 +174,7 @@ const e = [
 ], a = [
     "Januar",
     "Februar",
-    "M\xe4rz",
+    "M\xE4rz",
     "April",
     "Mai",
     "Juni",
@@ -184,7 +184,7 @@ const e = [
     "Oktober",
     "November",
     "Dezember"
-], t = "Jahre", n = "Jahr", s = "Monat", r = "Woche", o = "Tag", d = "Heute", M = "Keine Events", g = "Ganzt\xe4gig", h = "L\xf6schen", l = "Event erstellen", i = "dddd D MMMM YYYY", y = {
+], t = "Jahre", n = "Jahr", s = "Monat", r = "Woche", o = "Tag", d = "Heute", M = "Keine Events", g = "Ganzt\xE4gig", h = "L\xF6schen", l = "Event erstellen", i = "dddd D MMMM YYYY", y = {
     weekDays: e,
     months: a,
     years: "Jahre",
@@ -194,12 +194,12 @@ const e = [
     day: "Tag",
     today: "Heute",
     noEvent: "Keine Events",
-    allDay: "Ganzt\xe4gig",
-    deleteEvent: "L\xf6schen",
+    allDay: "Ganzt\xE4gig",
+    deleteEvent: "L\xF6schen",
     createEvent: "Event erstellen",
     dateFormat: "dddd D MMMM YYYY"
 };
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},[], null, "parcelRequire02e5")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},[], null, "parcelRequire94c2")
 
 //# sourceMappingURL=de.es.ad45982a.js.map

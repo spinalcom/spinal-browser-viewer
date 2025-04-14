@@ -73,7 +73,7 @@
         localRequire,
         module,
         module.exports,
-        this
+        globalObject
       );
     }
 
@@ -142,11 +142,11 @@
       this[globalName] = mainExports;
     }
   }
-})({"4FK6p":[function(require,module,exports) {
+})({"4FK6p":[function(require,module,exports,__globalThis) {
 var _buttons = require("./src/buttons");
 var _dialogs = require("./src/vues/dialogs");
 
-},{"./src/buttons":"btyz6","./src/vues/dialogs":"kVtLQ"}],"btyz6":[function(require,module,exports) {
+},{"./src/buttons":"btyz6","./src/vues/dialogs":"kVtLQ"}],"btyz6":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "createEntity", ()=>(0, _createEntityDefault.default));
@@ -167,7 +167,7 @@ const CIRCULAR_MENU_HOOK = "circularMenu";
     3
 ]);
 
-},{"./createEntity":"h0PRX","./createAnalytic":"b1pPQ","./modifyAnalytic":"7hfR6","./createContext":"gJ1lP","spinal-env-viewer-context-menu-service":"kHlxv","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"h0PRX":[function(require,module,exports) {
+},{"./createEntity":"h0PRX","./createAnalytic":"b1pPQ","./modifyAnalytic":"7hfR6","./createContext":"gJ1lP","spinal-env-viewer-context-menu-service":"kHlxv","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"h0PRX":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerContextMenuService = require("spinal-env-viewer-context-menu-service");
@@ -177,10 +177,10 @@ const SIDEBAR = "GraphManagerSideBar";
 class CreateEntity extends (0, _spinalEnvViewerContextMenuService.SpinalContextApp) {
     constructor(){
         super("Create Entity", "Create Entity", {
-            icon: "dashboard_customize",
-            icon_type: "in",
-            backgroundColor: "#356BAB",
-            fontColor: "#FFFFFF"
+            icon: 'dashboard_customize',
+            icon_type: 'in',
+            backgroundColor: '#356BAB',
+            fontColor: '#FFFFFF'
         });
     }
     isShown(option) {
@@ -198,7 +198,7 @@ const createEntity = new CreateEntity();
 ]);
 exports.default = createEntity;
 
-},{"spinal-env-viewer-context-menu-service":"kHlxv","97163b169113fcda":"7Uw4d","spinal-model-analysis":"apm5J","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7Uw4d":[function(require,module,exports) {
+},{"spinal-env-viewer-context-menu-service":"kHlxv","97163b169113fcda":"7Uw4d","spinal-model-analysis":"apm5J","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7Uw4d":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -237,7 +237,7 @@ module.exports = {
     }
 };
 
-},{"8b71a79dcc12420e":"h7sS1","e47c36529e942a76":"cvBJ6","cfd4c6200ba55765":"9SKSV"}],"h7sS1":[function(require,module,exports) {
+},{"8b71a79dcc12420e":"h7sS1","e47c36529e942a76":"cvBJ6","cfd4c6200ba55765":"9SKSV"}],"h7sS1":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -317,7 +317,7 @@ module.exports = {
 }
 module.exports = SpinalPanelManagerService;
 
-},{}],"cvBJ6":[function(require,module,exports) {
+},{}],"cvBJ6":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -352,7 +352,7 @@ module.exports = SpinalPanelManagerService;
 }
 module.exports = SpinalPanelApp;
 
-},{}],"9SKSV":[function(require,module,exports) {
+},{}],"9SKSV":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -451,7 +451,7 @@ function getDialog() {
     };
 };
 
-},{}],"apm5J":[function(require,module,exports) {
+},{}],"apm5J":[function(require,module,exports,__globalThis) {
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -515,7 +515,7 @@ const spinalAnalyticExecutionService = new AnalyticExecutionManagerService_1.def
 exports.spinalAnalyticExecutionService = spinalAnalyticExecutionService;
 exports.default = spinalAnalyticExecutionService;
 
-},{"bd4f04811876fe06":"9ovXf","346b732d03dffb52":"4rJ3F","75545a2a14e5f4c1":"5On9c","15091bfe302456c3":"2CVgx","b5cbb7d75b37f0f9":"a1B4H","1b7c8aae456a9e13":"lvmoz","a9537eec833b1ee7":"5w9Yd","7650e6cdfbebff7a":"3iXbQ","42b8c086105a42c":"8Is1I"}],"9ovXf":[function(require,module,exports) {
+},{"bd4f04811876fe06":"9ovXf","346b732d03dffb52":"4rJ3F","75545a2a14e5f4c1":"5On9c","15091bfe302456c3":"2CVgx","b5cbb7d75b37f0f9":"a1B4H","1b7c8aae456a9e13":"lvmoz","a9537eec833b1ee7":"5w9Yd","7650e6cdfbebff7a":"3iXbQ","42b8c086105a42c":"8Is1I"}],"9ovXf":[function(require,module,exports,__globalThis) {
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -532,7 +532,7 @@ exports.AnalyticModel = AnalyticModel;
 spinal_core_connectorjs_type_1.spinalCore.register_models(AnalyticModel);
 exports.default = AnalyticModel;
 
-},{"723f5403a3e4680c":"fRH70"}],"4rJ3F":[function(require,module,exports) {
+},{"723f5403a3e4680c":"fRH70"}],"4rJ3F":[function(require,module,exports,__globalThis) {
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -549,7 +549,7 @@ exports.TrackingMethodModel = TrackingMethodModel;
 spinal_core_connectorjs_type_1.spinalCore.register_models(TrackingMethodModel);
 exports.default = TrackingMethodModel;
 
-},{"1b149d1bd23ef12c":"fRH70"}],"5On9c":[function(require,module,exports) {
+},{"1b149d1bd23ef12c":"fRH70"}],"5On9c":[function(require,module,exports,__globalThis) {
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -569,7 +569,7 @@ function isGChatOrganCardResult(result) {
 }
 exports.isGChatOrganCardResult = isGChatOrganCardResult;
 
-},{"aa8c613daa1edeef":"2CVgx"}],"2CVgx":[function(require,module,exports) {
+},{"aa8c613daa1edeef":"2CVgx"}],"2CVgx":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2022 SpinalCom - www.spinalcom.com
@@ -598,82 +598,82 @@ exports.isGChatOrganCardResult = isGChatOrganCardResult;
 });
 exports.ATTRIBUTE_CREATE_ENDPOINT_MAX_DAYS = exports.ATTRIBUTE_CREATE_ENDPOINT_IF_NOT_EXIST = exports.ATTRIBUTE_ALARM_PRIORITY = exports.ATTRIBUTE_TICKET_PROCESS_ID = exports.ATTRIBUTE_TICKET_CONTEXT_ID = exports.ATTRIBUTE_GCHAT_MESSAGE = exports.ATTRIBUTE_GCHAT_SPACE = exports.ATTRIBUTE_PHONE_MESSAGE = exports.ATTRIBUTE_PHONE_NUMBER = exports.ATTRIBUTE_RESULT_NAME = exports.ATTRIBUTE_RESULT_TYPE = exports.ATTRIBUTE_MULTIPLE_MODELS = exports.ATTRIBUTE_AGGREGATE_EXECUTION_TIME = exports.ATTRIBUTE_TIMESERIES_VALUE_AT_START = exports.ATTRIBUTE_SEARCH_RELATIONS = exports.ATTRIBUTE_STRICT_DEPTH = exports.ATTRIBUTE_SEARCH_DEPTH = exports.ATTRIBUTE_TIMESERIES = exports.ATTRIBUTE_FILTER_VALUE = exports.ATTRIBUTE_TRACKING_METHOD = exports.ATTRIBUTE_LAST_EXECUTION_TIME = exports.ATTRIBUTE_VALUE_SEPARATOR = exports.ATTRIBUTE_SEPARATOR = exports.CATEGORY_ATTRIBUTE_ALGORITHM_INDEX_MAPPING = exports.CATEGORY_ATTRIBUTE_ANALYTIC_PARAMETERS = exports.CATEGORY_ATTRIBUTE_IO_DEPENDENCIES = exports.CATEGORY_ATTRIBUTE_TRIGGER_PARAMETERS = exports.CATEGORY_ATTRIBUTE_ENDPOINT_PARAMETERS = exports.CATEGORY_ATTRIBUTE_GCHAT_PARAMETERS = exports.CATEGORY_ATTRIBUTE_TWILIO_PARAMETERS = exports.CATEGORY_ATTRIBUTE_TRACKING_METHOD_PARAMETERS = exports.CATEGORY_ATTRIBUTE_RESULT_PARAMETERS = exports.CATEGORY_ATTRIBUTE_TICKET_LOCALIZATION_PARAMETERS = exports.CATEGORY_ATTRIBUTE_ALGORTHM_PARAMETERS = exports.TARGET_NODE_TYPES = exports.GROUP_RELATION_PREFIX = exports.ANALYTIC_INPUTS_TO_TRACKING_METHOD_RELATION = exports.ANALYTIC_INPUTS_TO_FOLLOWED_ENTITY_RELATION = exports.ANALYTIC_TO_CONFIG_RELATION = exports.ANALYTIC_TO_OUTPUTS_RELATION = exports.ANALYTIC_TO_INPUTS_RELATION = exports.ENTITY_TO_ANALYTIC_RELATION = exports.CONTEXT_TO_ENTITY_RELATION = exports.CONFIG_TYPE = exports.OUTPUTS_TYPE = exports.INPUTS_TYPE = exports.TRACKING_METHOD_TYPE = exports.ANALYTIC_TYPE = exports.ENTITY_TYPE = exports.CONTEXT_TYPE = void 0;
 exports.ENTITY_TYPES = exports.ANALYTIC_STATUS = exports.TRIGGER_TYPE = exports.TRACK_METHOD = exports.ANALYTIC_RESULT_TYPE = exports.ENDPOINT_NODE_TYPE = exports.CONTROL_ENDPOINT_RELATIONS = exports.ENDPOINT_RELATIONS = exports.ATTRIBUTE_ANALYTIC_PAST_EXECUTIONS = exports.ATTRIBUTE_TRIGGER_AT_START = exports.ATTRIBUTE_ANALYTIC_DESCRIPTION = exports.ATTRIBUTE_ANALYTIC_STATUS = exports.ATTRIBUTE_CREATE_ENDPOINT_UNIT = void 0;
-exports.CONTEXT_TYPE = "analysisContext";
-exports.ENTITY_TYPE = "entity";
-exports.ANALYTIC_TYPE = "analytic";
-exports.TRACKING_METHOD_TYPE = "trackingMethod";
-exports.INPUTS_TYPE = "analyticInputs";
-exports.OUTPUTS_TYPE = "analyticOutputs";
-exports.CONFIG_TYPE = "analyticConfig";
-exports.CONTEXT_TO_ENTITY_RELATION = "hasEntity";
-exports.ENTITY_TO_ANALYTIC_RELATION = "hasAnalytics";
-exports.ANALYTIC_TO_INPUTS_RELATION = "hasInputs";
-exports.ANALYTIC_TO_OUTPUTS_RELATION = "hasOutputs";
-exports.ANALYTIC_TO_CONFIG_RELATION = "hasConfig";
-exports.ANALYTIC_INPUTS_TO_FOLLOWED_ENTITY_RELATION = "hasEntity";
-exports.ANALYTIC_INPUTS_TO_TRACKING_METHOD_RELATION = "hasTrackingMethod";
-exports.GROUP_RELATION_PREFIX = "groupHas";
+exports.CONTEXT_TYPE = 'analysisContext';
+exports.ENTITY_TYPE = 'entity';
+exports.ANALYTIC_TYPE = 'analytic';
+exports.TRACKING_METHOD_TYPE = 'trackingMethod';
+exports.INPUTS_TYPE = 'analyticInputs';
+exports.OUTPUTS_TYPE = 'analyticOutputs';
+exports.CONFIG_TYPE = 'analyticConfig';
+exports.CONTEXT_TO_ENTITY_RELATION = 'hasEntity';
+exports.ENTITY_TO_ANALYTIC_RELATION = 'hasAnalytics';
+exports.ANALYTIC_TO_INPUTS_RELATION = 'hasInputs';
+exports.ANALYTIC_TO_OUTPUTS_RELATION = 'hasOutputs';
+exports.ANALYTIC_TO_CONFIG_RELATION = 'hasConfig';
+exports.ANALYTIC_INPUTS_TO_FOLLOWED_ENTITY_RELATION = 'hasEntity';
+exports.ANALYTIC_INPUTS_TO_TRACKING_METHOD_RELATION = 'hasTrackingMethod';
+exports.GROUP_RELATION_PREFIX = 'groupHas';
 exports.TARGET_NODE_TYPES = Object.freeze({
-    Building: "geographicBuilding",
-    Floor: "geographicFloor",
-    Room: "geographicRoom",
-    Equipment: "BIMObject",
-    "Floor Group": "geographicFloorGroup",
-    "Room Group": "geographicRoomGroup",
-    "Equipment Group": "BIMObjectGroup",
+    Building: 'geographicBuilding',
+    Floor: 'geographicFloor',
+    Room: 'geographicRoom',
+    Equipment: 'BIMObject',
+    'Floor Group': 'geographicFloorGroup',
+    'Room Group': 'geographicRoomGroup',
+    'Equipment Group': 'BIMObjectGroup',
     Other: undefined
 });
 // *** Categories ***
-exports.CATEGORY_ATTRIBUTE_ALGORTHM_PARAMETERS = "Algorithm parameters";
-exports.CATEGORY_ATTRIBUTE_TICKET_LOCALIZATION_PARAMETERS = "Ticket localization parameters";
-exports.CATEGORY_ATTRIBUTE_RESULT_PARAMETERS = "Result parameters";
-exports.CATEGORY_ATTRIBUTE_TRACKING_METHOD_PARAMETERS = "Tracking parameters";
-exports.CATEGORY_ATTRIBUTE_TWILIO_PARAMETERS = "Twilio parameters";
-exports.CATEGORY_ATTRIBUTE_GCHAT_PARAMETERS = "Google chat parameters";
-exports.CATEGORY_ATTRIBUTE_ENDPOINT_PARAMETERS = "Endpoint creation parameters";
-exports.CATEGORY_ATTRIBUTE_TRIGGER_PARAMETERS = "Trigger parameters";
-exports.CATEGORY_ATTRIBUTE_IO_DEPENDENCIES = "IO dependencies";
-exports.CATEGORY_ATTRIBUTE_ANALYTIC_PARAMETERS = "Analytic parameters";
-exports.CATEGORY_ATTRIBUTE_ALGORITHM_INDEX_MAPPING = "Algorithm index mapping";
-exports.ATTRIBUTE_SEPARATOR = "_";
-exports.ATTRIBUTE_VALUE_SEPARATOR = ",";
-exports.ATTRIBUTE_LAST_EXECUTION_TIME = "lastExecutionTime";
-exports.ATTRIBUTE_TRACKING_METHOD = "Tracking method";
-exports.ATTRIBUTE_FILTER_VALUE = "Filter value";
-exports.ATTRIBUTE_TIMESERIES = "Timeseries intervalTime";
-exports.ATTRIBUTE_SEARCH_DEPTH = "Search depth";
-exports.ATTRIBUTE_STRICT_DEPTH = "Strict depth";
-exports.ATTRIBUTE_SEARCH_RELATIONS = "Search relations";
-exports.ATTRIBUTE_TIMESERIES_VALUE_AT_START = "Get timeseries value at start";
-exports.ATTRIBUTE_AGGREGATE_EXECUTION_TIME = "Aggregate execution time";
-exports.ATTRIBUTE_MULTIPLE_MODELS = "Capture multiple models";
-exports.ATTRIBUTE_RESULT_TYPE = "Result type";
-exports.ATTRIBUTE_RESULT_NAME = "Result name";
-exports.ATTRIBUTE_PHONE_NUMBER = "Phone number";
-exports.ATTRIBUTE_PHONE_MESSAGE = "Phone message";
-exports.ATTRIBUTE_GCHAT_SPACE = "Google chat space name/id";
-exports.ATTRIBUTE_GCHAT_MESSAGE = "Google chat message";
-exports.ATTRIBUTE_TICKET_CONTEXT_ID = "Ticket context id";
-exports.ATTRIBUTE_TICKET_PROCESS_ID = "Ticket category id";
-exports.ATTRIBUTE_ALARM_PRIORITY = "Alarm priority";
-exports.ATTRIBUTE_CREATE_ENDPOINT_IF_NOT_EXIST = "Create endpoint if not exist";
-exports.ATTRIBUTE_CREATE_ENDPOINT_MAX_DAYS = "Number of days the timeseries are stored";
-exports.ATTRIBUTE_CREATE_ENDPOINT_UNIT = "Unit of the endpoint";
-exports.ATTRIBUTE_ANALYTIC_STATUS = "Status";
-exports.ATTRIBUTE_ANALYTIC_DESCRIPTION = "Description";
-exports.ATTRIBUTE_TRIGGER_AT_START = "Trigger at start";
-exports.ATTRIBUTE_ANALYTIC_PAST_EXECUTIONS = "Catch up past executions";
+exports.CATEGORY_ATTRIBUTE_ALGORTHM_PARAMETERS = 'Algorithm parameters';
+exports.CATEGORY_ATTRIBUTE_TICKET_LOCALIZATION_PARAMETERS = 'Ticket localization parameters';
+exports.CATEGORY_ATTRIBUTE_RESULT_PARAMETERS = 'Result parameters';
+exports.CATEGORY_ATTRIBUTE_TRACKING_METHOD_PARAMETERS = 'Tracking parameters';
+exports.CATEGORY_ATTRIBUTE_TWILIO_PARAMETERS = 'Twilio parameters';
+exports.CATEGORY_ATTRIBUTE_GCHAT_PARAMETERS = 'Google chat parameters';
+exports.CATEGORY_ATTRIBUTE_ENDPOINT_PARAMETERS = 'Endpoint creation parameters';
+exports.CATEGORY_ATTRIBUTE_TRIGGER_PARAMETERS = 'Trigger parameters';
+exports.CATEGORY_ATTRIBUTE_IO_DEPENDENCIES = 'IO dependencies';
+exports.CATEGORY_ATTRIBUTE_ANALYTIC_PARAMETERS = 'Analytic parameters';
+exports.CATEGORY_ATTRIBUTE_ALGORITHM_INDEX_MAPPING = 'Algorithm index mapping';
+exports.ATTRIBUTE_SEPARATOR = '_';
+exports.ATTRIBUTE_VALUE_SEPARATOR = ',';
+exports.ATTRIBUTE_LAST_EXECUTION_TIME = 'lastExecutionTime';
+exports.ATTRIBUTE_TRACKING_METHOD = 'Tracking method';
+exports.ATTRIBUTE_FILTER_VALUE = 'Filter value';
+exports.ATTRIBUTE_TIMESERIES = 'Timeseries intervalTime';
+exports.ATTRIBUTE_SEARCH_DEPTH = 'Search depth';
+exports.ATTRIBUTE_STRICT_DEPTH = 'Strict depth';
+exports.ATTRIBUTE_SEARCH_RELATIONS = 'Search relations';
+exports.ATTRIBUTE_TIMESERIES_VALUE_AT_START = 'Get timeseries value at start';
+exports.ATTRIBUTE_AGGREGATE_EXECUTION_TIME = 'Aggregate execution time';
+exports.ATTRIBUTE_MULTIPLE_MODELS = 'Capture multiple models';
+exports.ATTRIBUTE_RESULT_TYPE = 'Result type';
+exports.ATTRIBUTE_RESULT_NAME = 'Result name';
+exports.ATTRIBUTE_PHONE_NUMBER = 'Phone number';
+exports.ATTRIBUTE_PHONE_MESSAGE = 'Phone message';
+exports.ATTRIBUTE_GCHAT_SPACE = 'Google chat space name/id';
+exports.ATTRIBUTE_GCHAT_MESSAGE = 'Google chat message';
+exports.ATTRIBUTE_TICKET_CONTEXT_ID = 'Ticket context id';
+exports.ATTRIBUTE_TICKET_PROCESS_ID = 'Ticket category id';
+exports.ATTRIBUTE_ALARM_PRIORITY = 'Alarm priority';
+exports.ATTRIBUTE_CREATE_ENDPOINT_IF_NOT_EXIST = 'Create endpoint if not exist';
+exports.ATTRIBUTE_CREATE_ENDPOINT_MAX_DAYS = 'Number of days the timeseries are stored';
+exports.ATTRIBUTE_CREATE_ENDPOINT_UNIT = 'Unit of the endpoint';
+exports.ATTRIBUTE_ANALYTIC_STATUS = 'Status';
+exports.ATTRIBUTE_ANALYTIC_DESCRIPTION = 'Description';
+exports.ATTRIBUTE_TRIGGER_AT_START = 'Trigger at start';
+exports.ATTRIBUTE_ANALYTIC_PAST_EXECUTIONS = 'Catch up past executions';
 exports.ENDPOINT_RELATIONS = [
-    "hasBmsEndpoint",
-    "hasBmsDevice",
-    "hasBmsEndpointGroup",
-    "hasEndPoint"
+    'hasBmsEndpoint',
+    'hasBmsDevice',
+    'hasBmsEndpointGroup',
+    'hasEndPoint'
 ];
 exports.CONTROL_ENDPOINT_RELATIONS = [
-    "hasControlPoints",
-    "hasBmsEndpoint"
+    'hasControlPoints',
+    'hasBmsEndpoint'
 ];
-exports.ENDPOINT_NODE_TYPE = "BmsEndpoint";
+exports.ENDPOINT_NODE_TYPE = 'BmsEndpoint';
 /**
  * The different types of results that an analytic can lead to.
  *
@@ -729,7 +729,7 @@ var ENTITY_TYPES;
     ENTITY_TYPES["OTHER"] = "other";
 })(ENTITY_TYPES = exports.ENTITY_TYPES || (exports.ENTITY_TYPES = {}));
 
-},{}],"a1B4H":[function(require,module,exports) {
+},{}],"a1B4H":[function(require,module,exports,__globalThis) {
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -745,117 +745,117 @@ class Algorithm {
         this.run = run;
     }
 }
-exports.PUTVALUE = new Algorithm("PUTVALUE", "This algorithm returns the value set by the user (p1) regardless of input.", [
-    "number"
-], "number", [
+exports.PUTVALUE = new Algorithm('PUTVALUE', 'This algorithm returns the value set by the user (p1) regardless of input.', [
+    'number'
+], 'number', [
     {
-        name: "p1",
-        type: "number",
-        description: "the value to inject"
+        name: 'p1',
+        type: 'number',
+        description: 'the value to inject'
     }
 ], (input, params)=>{
-    if (!params) throw new Error("No parameters provided");
-    if (params["p1"] === undefined) throw new Error("No value provided");
-    return params["p1"];
+    if (!params) throw new Error('No parameters provided');
+    if (params['p1'] === undefined) throw new Error('No value provided');
+    return params['p1'];
 });
-exports.COPY = new Algorithm("COPY", "This algorithm returns the value of first input", [
-    "number"
-], "number", [], (input)=>{
+exports.COPY = new Algorithm('COPY', 'This algorithm returns the value of first input', [
+    'number'
+], 'number', [], (input)=>{
     return input[0];
 });
-exports.DIVIDE = new Algorithm("DIVIDE", "This algorithm returns the result of the division of the first input by the second input", [
-    "number"
-], "number", [], (input)=>{
-    if (input.length < 2) throw new Error("Not enough inputs");
-    if (input[1] === 0) throw new Error("Division by zero");
+exports.DIVIDE = new Algorithm('DIVIDE', 'This algorithm returns the result of the division of the first input by the second input', [
+    'number'
+], 'number', [], (input)=>{
+    if (input.length < 2) throw new Error('Not enough inputs');
+    if (input[1] === 0) throw new Error('Division by zero');
     return input[0] / input[1];
 });
-exports.DIVIDE_BY = new Algorithm("DIVIDE_BY", "This algorithm returns the result of the division of the first input by the value set by the user (p1)", [
-    "number"
-], "number", [
+exports.DIVIDE_BY = new Algorithm('DIVIDE_BY', 'This algorithm returns the result of the division of the first input by the value set by the user (p1)', [
+    'number'
+], 'number', [
     {
-        name: "p1",
-        type: "number",
-        description: "the value to divide by"
+        name: 'p1',
+        type: 'number',
+        description: 'the value to divide by'
     }
 ], (input, params)=>{
-    if (!params) throw new Error("No parameters provided");
-    if (params["p1"] === 0) throw new Error("Division by zero");
-    if (typeof params["p1"] !== "number") throw new Error(`Invalid parameter type. Expected number, got ${typeof params["p1"]}`);
-    return input[0] / params["p1"];
+    if (!params) throw new Error('No parameters provided');
+    if (params['p1'] === 0) throw new Error('Division by zero');
+    if (typeof params['p1'] !== 'number') throw new Error(`Invalid parameter type. Expected number, got ${typeof params['p1']}`);
+    return input[0] / params['p1'];
 });
-exports.MULTIPLY_BY = new Algorithm("MULTIPLY_BY", "This algorithm returns the result of the multiplication of the first input by the value set by the user (p1)", [
-    "number"
-], "number", [
+exports.MULTIPLY_BY = new Algorithm('MULTIPLY_BY', 'This algorithm returns the result of the multiplication of the first input by the value set by the user (p1)', [
+    'number'
+], 'number', [
     {
-        name: "p1",
-        type: "number",
-        description: "the value to multiply by"
+        name: 'p1',
+        type: 'number',
+        description: 'the value to multiply by'
     }
 ], (input, params)=>{
-    if (!params) throw new Error("No parameters provided");
-    if (typeof params["p1"] !== "number") throw new Error(`Invalid parameter type. Expected number, got ${typeof params["p1"]}`);
-    return input[0] * params["p1"];
+    if (!params) throw new Error('No parameters provided');
+    if (typeof params['p1'] !== 'number') throw new Error(`Invalid parameter type. Expected number, got ${typeof params['p1']}`);
+    return input[0] * params['p1'];
 });
-exports.MULTIPLY = new Algorithm("MULTIPLY", "This algorithm returns the result of the multiplication of the first input by the second input", [
-    "number"
-], "number", [], (input)=>{
-    if (input.length < 2) throw new Error("Not enough inputs");
+exports.MULTIPLY = new Algorithm('MULTIPLY', 'This algorithm returns the result of the multiplication of the first input by the second input', [
+    'number'
+], 'number', [], (input)=>{
+    if (input.length < 2) throw new Error('Not enough inputs');
     return input[0] * input[1];
 });
-exports.THRESHOLD_ABOVE = new Algorithm("THRESHOLD_ABOVE", "This algorithm returns true if the input is above the threshold set by the user", [
-    "number"
-], "boolean", [
+exports.THRESHOLD_ABOVE = new Algorithm('THRESHOLD_ABOVE', 'This algorithm returns true if the input is above the threshold set by the user', [
+    'number'
+], 'boolean', [
     {
-        name: "p1",
-        type: "number",
-        description: "the threshold value"
+        name: 'p1',
+        type: 'number',
+        description: 'the threshold value'
     }
 ], (input, params)=>{
-    if (!params) throw new Error("No parameters provided");
-    if (typeof params["p1"] !== "number") throw new Error(`Invalid parameter type. Expected number, got ${typeof params["p1"]}`);
-    const treshold = params["p1"];
+    if (!params) throw new Error('No parameters provided');
+    if (typeof params['p1'] !== 'number') throw new Error(`Invalid parameter type. Expected number, got ${typeof params['p1']}`);
+    const treshold = params['p1'];
     for (const n of input){
         if (n > treshold) return true;
     }
     return false;
 });
-exports.THRESHOLD_BELOW = new Algorithm("THRESHOLD_BELOW", "This algorithm returns true if the input is below the threshold set by the user", [
-    "number"
-], "boolean", [
+exports.THRESHOLD_BELOW = new Algorithm('THRESHOLD_BELOW', 'This algorithm returns true if the input is below the threshold set by the user', [
+    'number'
+], 'boolean', [
     {
-        name: "p1",
-        type: "number",
-        description: "the threshold value"
+        name: 'p1',
+        type: 'number',
+        description: 'the threshold value'
     }
 ], (input, params)=>{
-    if (!params) throw new Error("No parameters provided");
-    if (typeof params["p1"] !== "number") throw new Error(`Invalid parameter type. Expected number, got ${typeof params["p1"]}`);
-    const treshold = params["p1"];
+    if (!params) throw new Error('No parameters provided');
+    if (typeof params['p1'] !== 'number') throw new Error(`Invalid parameter type. Expected number, got ${typeof params['p1']}`);
+    const treshold = params['p1'];
     for (const n of input){
         if (n < treshold) return true;
     }
     return false;
 });
-exports.THRESHOLD_BETWEEN_IN = new Algorithm("THRESHOLD_BETWEEN_IN", "This algorithm returns true if the input is between the two thresholds set by the user", [
-    "number"
-], "boolean", [
+exports.THRESHOLD_BETWEEN_IN = new Algorithm('THRESHOLD_BETWEEN_IN', 'This algorithm returns true if the input is between the two thresholds set by the user', [
+    'number'
+], 'boolean', [
     {
-        name: "p1",
-        type: "number",
-        description: "the first threshold value"
+        name: 'p1',
+        type: 'number',
+        description: 'the first threshold value'
     },
     {
-        name: "p2",
-        type: "number",
-        description: "the second threshold value"
+        name: 'p2',
+        type: 'number',
+        description: 'the second threshold value'
     }
 ], (input, params)=>{
-    if (!params) throw new Error("No parameters provided");
-    if (typeof params["p1"] !== "number") throw new Error(`Invalid p1 parameter type. Expected number, got ${typeof params["p1"]}`);
-    if (typeof params["p2"] !== "number") throw new Error(`Invalid p2 parameter type. Expected number, got ${typeof params["p2"]}`);
-    const p1 = params["p1"];
-    const p2 = params["p2"];
+    if (!params) throw new Error('No parameters provided');
+    if (typeof params['p1'] !== 'number') throw new Error(`Invalid p1 parameter type. Expected number, got ${typeof params['p1']}`);
+    if (typeof params['p2'] !== 'number') throw new Error(`Invalid p2 parameter type. Expected number, got ${typeof params['p2']}`);
+    const p1 = params['p1'];
+    const p2 = params['p2'];
     const min = Math.min(p1, p2);
     const max = Math.max(p1, p2);
     for (const n of input){
@@ -863,25 +863,25 @@ exports.THRESHOLD_BETWEEN_IN = new Algorithm("THRESHOLD_BETWEEN_IN", "This algor
     }
     return false;
 });
-exports.THRESHOLD_BETWEEN_OUT = new Algorithm("THRESHOLD_BETWEEN_OUT", "This algorithm returns true if the input is outside the two thresholds set by the user", [
-    "number"
-], "boolean", [
+exports.THRESHOLD_BETWEEN_OUT = new Algorithm('THRESHOLD_BETWEEN_OUT', 'This algorithm returns true if the input is outside the two thresholds set by the user', [
+    'number'
+], 'boolean', [
     {
-        name: "p1",
-        type: "number",
-        description: "the first threshold value"
+        name: 'p1',
+        type: 'number',
+        description: 'the first threshold value'
     },
     {
-        name: "p2",
-        type: "number",
-        description: "the second threshold value"
+        name: 'p2',
+        type: 'number',
+        description: 'the second threshold value'
     }
 ], (input, params)=>{
-    if (!params) throw new Error("No parameters provided");
-    if (typeof params["p1"] !== "number") throw new Error(`Invalid p1 parameter type. Expected number, got ${typeof params["p1"]}`);
-    if (typeof params["p2"] !== "number") throw new Error(`Invalid p2 parameter type. Expected number, got ${typeof params["p2"]}`);
-    const p1 = params["p1"];
-    const p2 = params["p2"];
+    if (!params) throw new Error('No parameters provided');
+    if (typeof params['p1'] !== 'number') throw new Error(`Invalid p1 parameter type. Expected number, got ${typeof params['p1']}`);
+    if (typeof params['p2'] !== 'number') throw new Error(`Invalid p2 parameter type. Expected number, got ${typeof params['p2']}`);
+    const p1 = params['p1'];
+    const p2 = params['p2'];
     const min = Math.min(p1, p2);
     const max = Math.max(p1, p2);
     for (const n of input){
@@ -889,55 +889,55 @@ exports.THRESHOLD_BETWEEN_OUT = new Algorithm("THRESHOLD_BETWEEN_OUT", "This alg
     }
     return false;
 });
-exports.AVERAGE = new Algorithm("AVERAGE", "This algorithm returns the average of the inputs", [
-    "number"
-], "number", [], (input)=>{
+exports.AVERAGE = new Algorithm('AVERAGE', 'This algorithm returns the average of the inputs', [
+    'number'
+], 'number', [], (input)=>{
     return input.reduce((acc, current)=>acc + current, 0) / input.length;
 });
-exports.TIMESERIES_THRESHOLD_ZSCORE = new Algorithm("TIMESERIES_THRESHOLD_ZSCORE", `This algorithm is used to detect anomalies in a timeseries. 
+exports.TIMESERIES_THRESHOLD_ZSCORE = new Algorithm('TIMESERIES_THRESHOLD_ZSCORE', `This algorithm is used to detect anomalies in a timeseries. 
    The Z-score is a measure of how many standard deviations an element is from the mean.
    It's calculated as Z = (X - mean) / stdDev 
    where X is the value, mean is the average of the timeserie and stdDev is the standard deviation of the timeserie.
    The threshold is a number set by the user. If the Z-score of the last value of the timeserie is above the threshold,
    the algorithm returns true, otherwise it returns false.`, [
-    "Timeseries"
-], "boolean", [
+    'Timeseries'
+], 'boolean', [
     {
-        name: "p1",
-        type: "number",
-        description: "the threshold value"
+        name: 'p1',
+        type: 'number',
+        description: 'the threshold value'
     }
 ], (input, params)=>{
-    if (!params) throw new Error("No parameters provided");
-    if (typeof params["p1"] !== "number") throw new Error(`Invalid p1 parameter type. Expected number, got ${typeof params["p1"]}`);
+    if (!params) throw new Error('No parameters provided');
+    if (typeof params['p1'] !== 'number') throw new Error(`Invalid p1 parameter type. Expected number, got ${typeof params['p1']}`);
     const dataInput = input.reduce((acc, curr)=>acc.concat(...curr), []);
-    if (dataInput.length === 0) throw new Error("Timeseries is empty");
-    const threshold = params["p1"];
+    if (dataInput.length === 0) throw new Error('Timeseries is empty');
+    const threshold = params['p1'];
     const mean = dataInput.reduce((acc, current)=>acc + current.value, 0) / dataInput.length;
     const variance = dataInput.reduce((acc, current)=>acc + Math.pow(current.value - mean, 2), 0) / dataInput.length;
     const stdDev = Math.sqrt(variance);
     const zScore = (dataInput[dataInput.length - 1].value - mean) / stdDev;
     return zScore > threshold;
 });
-exports.TIMESERIES_AVERAGE = new Algorithm("TIMESERIES_AVERAGE", "This algorithm returns the average of the timeseries", [
-    "Timeseries"
-], "number", [], (input)=>{
+exports.TIMESERIES_AVERAGE = new Algorithm('TIMESERIES_AVERAGE', 'This algorithm returns the average of the timeseries', [
+    'Timeseries'
+], 'number', [], (input)=>{
     const dataInput = input.reduce((acc, curr)=>acc.concat(...curr), []);
-    if (dataInput.length === 0) throw new Error("Timeseries is empty");
+    if (dataInput.length === 0) throw new Error('Timeseries is empty');
     return dataInput.reduce((acc, current)=>acc + current.value, 0) / dataInput.length;
 });
-exports.TIMESERIES_TIME_WEIGHTED_AVERAGE = new Algorithm("TIMESERIES_TIME_WEIGHTED_AVERAGE", "This algorithm calculates the time-weighted average value of a timeseries. It takes into account the time intervals between successive data points to compute the average.", [
-    "Timeseries"
-], "number", [
+exports.TIMESERIES_TIME_WEIGHTED_AVERAGE = new Algorithm('TIMESERIES_TIME_WEIGHTED_AVERAGE', 'This algorithm calculates the time-weighted average value of a timeseries. It takes into account the time intervals between successive data points to compute the average.', [
+    'Timeseries'
+], 'number', [
     {
-        name: "p1",
-        type: "string",
+        name: 'p1',
+        type: 'string',
         description: " 'normal' (default) => No interpolation , 'linear' => linear interpolation for two successive points"
     }
 ], (input, params)=>{
-    const linearInterpolation = params && params["p1"] === "linear";
+    const linearInterpolation = params && params['p1'] === 'linear';
     const dataInput = input.reduce((acc, curr)=>acc.concat(...curr), []);
-    if (dataInput.length < 2) throw new Error("Insufficient data. At least two timeseries data points are required.");
+    if (dataInput.length < 2) throw new Error('Insufficient data. At least two timeseries data points are required.');
     dataInput.sort((a, b)=>a.date - b.date);
     let sum = 0;
     for(let i = 0; i < dataInput.length - 1; i++){
@@ -950,24 +950,24 @@ exports.TIMESERIES_TIME_WEIGHTED_AVERAGE = new Algorithm("TIMESERIES_TIME_WEIGHT
         sum += dataInput[i].value * timeInterval;
     }
     const totalTimeInterval = dataInput[dataInput.length - 1].date - dataInput[0].date;
-    if (totalTimeInterval <= 0) throw new Error("Invalid date range. Ensure data is correctly ordered and spans a positive time interval.");
+    if (totalTimeInterval <= 0) throw new Error('Invalid date range. Ensure data is correctly ordered and spans a positive time interval.');
     const average = sum / totalTimeInterval;
     return average;
 });
-exports.TIMESERIES_BOOLEAN_RATE = new Algorithm("TIMESERIES_BOOLEAN_RATE", "This algorithm calculates a rate on boolean timeseries (0 | 1).", [
-    "Timeseries"
-], "number", [
+exports.TIMESERIES_BOOLEAN_RATE = new Algorithm('TIMESERIES_BOOLEAN_RATE', 'This algorithm calculates a rate on boolean timeseries (0 | 1).', [
+    'Timeseries'
+], 'number', [
     {
-        name: "p1",
-        type: "string",
-        description: "Ratio || Percentage   (write one of the two, Ratio will be used by default)"
+        name: 'p1',
+        type: 'string',
+        description: 'Ratio || Percentage   (write one of the two, Ratio will be used by default)'
     }
 ], (input, params)=>{
-    if (!params) throw new Error("No parameters provided");
-    if (typeof params["p1"] !== "string") throw new Error(`Invalid p1 parameter type. Expected string, got ${typeof params["p1"]}`);
-    const percentageResult = params["p1"] === "Percentage";
+    if (!params) throw new Error('No parameters provided');
+    if (typeof params['p1'] !== 'string') throw new Error(`Invalid p1 parameter type. Expected string, got ${typeof params['p1']}`);
+    const percentageResult = params['p1'] === 'Percentage';
     const dataInput = input.reduce((acc, curr)=>acc.concat(...curr), []);
-    if (dataInput.length === 0) throw new Error("Timeseries is empty");
+    if (dataInput.length === 0) throw new Error('Timeseries is empty');
     // Ensure input is sorted by time
     dataInput.sort((a, b)=>a.date - b.date);
     let sum = 0;
@@ -981,172 +981,172 @@ exports.TIMESERIES_BOOLEAN_RATE = new Algorithm("TIMESERIES_BOOLEAN_RATE", "This
     if (!percentageResult) return sum / (dataInput[dataInput.length - 1].date - dataInput[0].date);
     else return sum / (dataInput[dataInput.length - 1].date - dataInput[0].date) * 100;
 });
-exports.TIMESERIES_IS_EMPTY = new Algorithm("TIMESERIES_IS_EMPTY", "This algorithm returns true if the input is an empty timeseries", [
-    "Timeseries"
-], "boolean", [], (input)=>{
+exports.TIMESERIES_IS_EMPTY = new Algorithm('TIMESERIES_IS_EMPTY', 'This algorithm returns true if the input is an empty timeseries', [
+    'Timeseries'
+], 'boolean', [], (input)=>{
     const dataInput = input.reduce((acc, curr)=>acc.concat(...curr), []);
     return dataInput.length === 0;
 });
-exports.TIMESERIES_SUM = new Algorithm("TIMESERIES_SUM", "This algorithm returns the sum of the timeseries", [
-    "Timeseries"
-], "number", [], (input)=>{
+exports.TIMESERIES_SUM = new Algorithm('TIMESERIES_SUM', 'This algorithm returns the sum of the timeseries', [
+    'Timeseries'
+], 'number', [], (input)=>{
     const dataInput = input.reduce((acc, curr)=>acc.concat(...curr), []);
-    if (dataInput.length === 0) throw new Error("Timeseries is empty");
+    if (dataInput.length === 0) throw new Error('Timeseries is empty');
     return dataInput.reduce((acc, current)=>acc + current.value, 0);
 });
-exports.TIMESERIES_EDGE_SUBSTRACT = new Algorithm("TIMESERIES_EDGE_SUBSTRACT", "This algorithm returns the difference between the last and first value of the timeseries", [
-    "Timeseries"
-], "number", [], (input)=>{
+exports.TIMESERIES_EDGE_SUBSTRACT = new Algorithm('TIMESERIES_EDGE_SUBSTRACT', 'This algorithm returns the difference between the last and first value of the timeseries', [
+    'Timeseries'
+], 'number', [], (input)=>{
     const dataInput = input.reduce((acc, curr)=>acc.concat(...curr), []);
-    if (dataInput.length < 2) throw new Error("Timeseries should contain at least two values");
+    if (dataInput.length < 2) throw new Error('Timeseries should contain at least two values');
     return dataInput[dataInput.length - 1].value - dataInput[0].value;
 });
-exports.AND = new Algorithm("AND", "This algorithm returns true if all the inputs are true", [
-    "boolean"
-], "boolean", [], (input)=>{
+exports.AND = new Algorithm('AND', 'This algorithm returns true if all the inputs are true', [
+    'boolean'
+], 'boolean', [], (input)=>{
     return !input.includes(false);
 });
-exports.OR = new Algorithm("OR", "This algorithm returns true if at least one of the inputs is true", [
-    "boolean"
-], "boolean", [], (input)=>{
+exports.OR = new Algorithm('OR', 'This algorithm returns true if at least one of the inputs is true', [
+    'boolean'
+], 'boolean', [], (input)=>{
     return input.includes(true);
 });
-exports.NOT = new Algorithm("NOT", "This algorithm returns true if all the inputs are false", [
-    "boolean"
-], "boolean", [], (input)=>{
+exports.NOT = new Algorithm('NOT', 'This algorithm returns true if all the inputs are false', [
+    'boolean'
+], 'boolean', [], (input)=>{
     return !input.includes(true);
 });
-exports.DIFFERENCE_THRESHOLD = new Algorithm("DIFFERENCE_THRESHOLD", "This algorithm returns true if the difference between the first and any other input is above the threshold set by the user", [
-    "number"
-], "boolean", [
+exports.DIFFERENCE_THRESHOLD = new Algorithm('DIFFERENCE_THRESHOLD', 'This algorithm returns true if the difference between the first and any other input is above the threshold set by the user', [
+    'number'
+], 'boolean', [
     {
-        name: "p1",
-        type: "number",
-        description: "the threshold value"
+        name: 'p1',
+        type: 'number',
+        description: 'the threshold value'
     }
 ], (input, params)=>{
-    if (!params) throw new Error("No parameters provided");
-    if (typeof params["p1"] !== "number") throw new Error(`Invalid p1 parameter type. Expected number, got ${typeof params["p1"]}`);
-    const treshold = params["p1"];
+    if (!params) throw new Error('No parameters provided');
+    if (typeof params['p1'] !== 'number') throw new Error(`Invalid p1 parameter type. Expected number, got ${typeof params['p1']}`);
+    const treshold = params['p1'];
     const first = input[0];
     for (const n of input){
         if (Math.abs(n - first) > treshold) return true;
     }
     return false;
 });
-exports.STANDARD_DEVIATION = new Algorithm("STANDARD_DEVIATION", "This algorithm returns the standard deviation of the inputs", [
-    "number"
-], "number", [], (input)=>{
+exports.STANDARD_DEVIATION = new Algorithm('STANDARD_DEVIATION', 'This algorithm returns the standard deviation of the inputs', [
+    'number'
+], 'number', [], (input)=>{
     const n = input.length;
     const mean = input.reduce((a, b)=>a + b) / n;
     return Math.sqrt(input.map((x)=>Math.pow(x - mean, 2)).reduce((a, b)=>a + b) / n);
 });
-exports.EQUAL_TO = new Algorithm("EQUAL_TO", "This algorithm returns true if all inputs are equal to the parameter", [
-    "number",
-    "string",
-    "boolean"
-], "boolean", [
+exports.EQUAL_TO = new Algorithm('EQUAL_TO', 'This algorithm returns true if all inputs are equal to the parameter', [
+    'number',
+    'string',
+    'boolean'
+], 'boolean', [
     {
-        name: "p1",
-        type: "number",
-        description: "the value to compare to"
+        name: 'p1',
+        type: 'number',
+        description: 'the value to compare to'
     }
 ], (input, params)=>{
-    if (!params) throw new Error("No parameters provided");
+    if (!params) throw new Error('No parameters provided');
     for (const i of input){
-        if (i !== params["p1"]) return false;
+        if (i !== params['p1']) return false;
     }
     return true;
 });
-exports.IS_EMPTY = new Algorithm("IS_EMPTY", "This algorithm returns true if the input is an empty list", [
-    "number",
-    "string",
-    "boolean"
-], "boolean", [], (input)=>{
+exports.IS_EMPTY = new Algorithm('IS_EMPTY', 'This algorithm returns true if the input is an empty list', [
+    'number',
+    'string',
+    'boolean'
+], 'boolean', [], (input)=>{
     return input.length === 0;
 });
-exports.CONV_BOOLEAN_TO_NUMBER = new Algorithm("CONV_BOOLEAN_TO_NUMBER", "This algorithm converts a boolean to a number. True becomes 1, false becomes 0", [
-    "boolean"
-], "number", [], (input)=>{
+exports.CONV_BOOLEAN_TO_NUMBER = new Algorithm('CONV_BOOLEAN_TO_NUMBER', 'This algorithm converts a boolean to a number. True becomes 1, false becomes 0', [
+    'boolean'
+], 'number', [], (input)=>{
     return input[0] ? 1 : 0;
 });
-exports.CONV_NUMBER_TO_BOOLEAN = new Algorithm("CONV_NUMBER_TO_BOOLEAN", "This algorithm converts a number to a boolean (0 is false, everything else is true)", [
-    "number"
-], "boolean", [], (input)=>{
+exports.CONV_NUMBER_TO_BOOLEAN = new Algorithm('CONV_NUMBER_TO_BOOLEAN', 'This algorithm converts a number to a boolean (0 is false, everything else is true)', [
+    'number'
+], 'boolean', [], (input)=>{
     return input[0] !== 0;
 });
-exports.CURRENT_EPOCH_TIME = new Algorithm("CURRENT_EPOCH_TIME", "This algorithm returns the current epoch time", [], "number", [], // eslint-disable-next-line @typescript-eslint/no-unused-vars
+exports.CURRENT_EPOCH_TIME = new Algorithm('CURRENT_EPOCH_TIME', 'This algorithm returns the current epoch time', [], 'number', [], // eslint-disable-next-line @typescript-eslint/no-unused-vars
 (input)=>{
     return Date.now();
 });
-exports.SUBTRACT = new Algorithm("SUBTRACT", "This algorithm returns the result of the subtraction of the first input by the second input", [
-    "number"
-], "number", [], (input)=>{
+exports.SUBTRACT = new Algorithm('SUBTRACT', 'This algorithm returns the result of the subtraction of the first input by the second input', [
+    'number'
+], 'number', [], (input)=>{
     return input[0] - input[1];
 });
-exports.SUM = new Algorithm("SUM", "This algorithm returns the result of the sum of the inputs", [
-    "number"
-], "number", [], (input)=>{
+exports.SUM = new Algorithm('SUM', 'This algorithm returns the result of the sum of the inputs', [
+    'number'
+], 'number', [], (input)=>{
     return input.reduce((acc, current)=>acc + current, 0);
 });
-exports.SUBTRACT_BY = new Algorithm("SUBTRACT_BY", "This algorithm returns the result of the subtraction of the first input by the value set by the user (p1)", [
-    "number"
-], "number", [
+exports.SUBTRACT_BY = new Algorithm('SUBTRACT_BY', 'This algorithm returns the result of the subtraction of the first input by the value set by the user (p1)', [
+    'number'
+], 'number', [
     {
-        name: "p1",
-        type: "number",
-        description: "the value to subtract by"
+        name: 'p1',
+        type: 'number',
+        description: 'the value to subtract by'
     }
 ], (input, params)=>{
-    if (!params) throw new Error("No parameters provided");
-    if (typeof params["p1"] !== "number") throw new Error(`Invalid p1 parameter type. Expected number, got ${typeof params["p1"]}`);
-    return input[0] - params["p1"];
+    if (!params) throw new Error('No parameters provided');
+    if (typeof params['p1'] !== 'number') throw new Error(`Invalid p1 parameter type. Expected number, got ${typeof params['p1']}`);
+    return input[0] - params['p1'];
 });
-exports.RANDOM_NUMBER = new Algorithm("RANDOM_NUMBER", "This algorithm returns a random number between the two values set by the user", [
-    "number"
-], "number", [
+exports.RANDOM_NUMBER = new Algorithm('RANDOM_NUMBER', 'This algorithm returns a random number between the two values set by the user', [
+    'number'
+], 'number', [
     {
-        name: "p1",
-        type: "number",
-        description: "the minimum value"
+        name: 'p1',
+        type: 'number',
+        description: 'the minimum value'
     },
     {
-        name: "p2",
-        type: "number",
-        description: "the maximum value"
+        name: 'p2',
+        type: 'number',
+        description: 'the maximum value'
     }
 ], (input, params)=>{
-    if (!params) throw new Error("No parameters provided");
-    if (typeof params["p1"] !== "number" || typeof params["p2"] !== "number") throw new Error(`Invalid parameter type. Expected number, got ${typeof params["p1"]} or ${typeof params["p2"]}`);
-    return Math.random() * (params["p2"] - params["p1"]) + params["p1"];
+    if (!params) throw new Error('No parameters provided');
+    if (typeof params['p1'] !== 'number' || typeof params['p2'] !== 'number') throw new Error(`Invalid parameter type. Expected number, got ${typeof params['p1']} or ${typeof params['p2']}`);
+    return Math.random() * (params['p2'] - params['p1']) + params['p1'];
 });
-exports.RANDOM_INTEGER = new Algorithm("RANDOM_INTEGER", "This algorithm returns a random integer between the two values set by the user", [
-    "number"
-], "number", [
+exports.RANDOM_INTEGER = new Algorithm('RANDOM_INTEGER', 'This algorithm returns a random integer between the two values set by the user', [
+    'number'
+], 'number', [
     {
-        name: "p1",
-        type: "number",
-        description: "the minimum value"
+        name: 'p1',
+        type: 'number',
+        description: 'the minimum value'
     },
     {
-        name: "p2",
-        type: "number",
-        description: "the maximum value"
+        name: 'p2',
+        type: 'number',
+        description: 'the maximum value'
     }
 ], (input, params)=>{
-    if (!params) throw new Error("No parameters provided");
-    if (typeof params["p1"] !== "number" || typeof params["p2"] !== "number") throw new Error(`Invalid parameter type. Expected number, got ${typeof params["p1"]} or ${typeof params["p2"]}`);
-    return Math.floor(Math.random() * (params["p2"] - params["p1"] + 1) + params["p1"]);
+    if (!params) throw new Error('No parameters provided');
+    if (typeof params['p1'] !== 'number' || typeof params['p2'] !== 'number') throw new Error(`Invalid parameter type. Expected number, got ${typeof params['p1']} or ${typeof params['p2']}`);
+    return Math.floor(Math.random() * (params['p2'] - params['p1'] + 1) + params['p1']);
 });
-exports.RANDOM_BOOLEAN_NUMBER = new Algorithm("RANDOM_BOOLEAN_NUMBER", "This algorithm returns a random boolean value 0 | 1", [], "number", [], ()=>{
+exports.RANDOM_BOOLEAN_NUMBER = new Algorithm('RANDOM_BOOLEAN_NUMBER', 'This algorithm returns a random boolean value 0 | 1', [], 'number', [], ()=>{
     return Math.round(Math.random());
 });
-exports.RANDOM_BOOLEAN = new Algorithm("RANDOM_BOOLEAN", "This algorithm returns a random boolean value true | false", [], "boolean", [], ()=>{
+exports.RANDOM_BOOLEAN = new Algorithm('RANDOM_BOOLEAN', 'This algorithm returns a random boolean value true | false', [], 'boolean', [], ()=>{
     return Math.random() < 0.5;
 });
-exports.EXIT = new Algorithm("EXIT", "This algorithm is used to stop the execution of the workflow if the first input is true", [
-    "boolean"
-], "void", [], (input)=>{
+exports.EXIT = new Algorithm('EXIT', 'This algorithm is used to stop the execution of the workflow if the first input is true', [
+    'boolean'
+], 'void', [], (input)=>{
     return input[0];
 });
 exports.ALGORITHMS = {
@@ -1188,7 +1188,7 @@ exports.ALGORITHMS = {
     EXIT: exports.EXIT
 };
 
-},{}],"lvmoz":[function(require,module,exports) {
+},{}],"lvmoz":[function(require,module,exports,__globalThis) {
 "use strict";
 var __awaiter = this && this.__awaiter || function(thisArg, _arguments, P, generator) {
     function adopt(value) {
@@ -1245,9 +1245,9 @@ const cronParser = require("1bbd3a5a09ff8fc7");
     updateLastExecutionTime(analyticId) {
         return __awaiter(this, void 0, void 0, function*() {
             const configNode = yield this.analyticNodeManagerService.getConfig(analyticId);
-            if (!configNode) throw Error("Config node not found");
+            if (!configNode) throw Error('Config node not found');
             const realNode = spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(configNode.id.get());
-            yield spinal_env_viewer_plugin_documentation_service_1.attributeService.addAttributeByCategoryName(realNode, CONSTANTS.CATEGORY_ATTRIBUTE_ANALYTIC_PARAMETERS, CONSTANTS.ATTRIBUTE_LAST_EXECUTION_TIME, Date.now().toString(), "number");
+            yield spinal_env_viewer_plugin_documentation_service_1.attributeService.addAttributeByCategoryName(realNode, CONSTANTS.CATEGORY_ATTRIBUTE_ANALYTIC_PARAMETERS, CONSTANTS.ATTRIBUTE_LAST_EXECUTION_TIME, Date.now().toString(), 'number');
         });
     }
     recExecuteAlgorithm(analyticId, entity, algoIndexName, ioDependencies, algoIndexMapping, algoParams, referenceEpochTime = Date.now()) {
@@ -1258,7 +1258,7 @@ const cronParser = require("1bbd3a5a09ff8fc7");
             for (const dependency of myDependencies){
                 if (!dependency) continue; // if the dependency is empty
                 // if dependency is an algorithm then rec call with that algorithm
-                if (dependency.startsWith("A")) {
+                if (dependency.startsWith('A')) {
                     // save the result of the algorithm in the inputs array
                     const res = yield this.recExecuteAlgorithm(analyticId, entity, dependency, ioDependencies, algoIndexMapping, algoParams);
                     inputs.push(res);
@@ -1275,7 +1275,7 @@ const cronParser = require("1bbd3a5a09ff8fc7");
             const algorithmParameters = this.analyticInputManagerService.filterAlgorithmParametersAttributesByIndex(algoParams, algoIndexName);
             const result = algorithms_1.ALGORITHMS[algorithm_name].run(inputs, algorithmParameters);
             if (result == undefined) throw new Error(`Algorithm ${algorithm_name} returned undefined`);
-            if (algorithm_name === "EXIT" && result === true) throw new Errors_1.ExitAnalyticError("EXIT algorithm triggered");
+            if (algorithm_name === 'EXIT' && result === true) throw new Errors_1.ExitAnalyticError('EXIT algorithm triggered');
             return result;
         });
     }
@@ -1287,14 +1287,14 @@ const cronParser = require("1bbd3a5a09ff8fc7");
             for (const dependency of myDependencies){
                 if (!dependency) continue; // if the dependency is empty
                 // if dependency is an algorithm then rec call with that algorithm
-                if (dependency.startsWith("A")) {
+                if (dependency.startsWith('A')) {
                     // save the result of the algorithm in the inputs array
                     const res = yield this.optExecuteAlgorithm(analyticId, entity, dependency, ioDependencies, algoIndexMapping, algoParams, referenceEpochTime, formattedData);
                     inputs.push(res);
                 } else {
                     // if dependency is an input then get the value of the input
+                    if (formattedData[dependency] == undefined || formattedData[dependency][referenceEpochTime] == undefined) throw new Error(`Input data ${dependency} could not be retrieved. Reference time : ${referenceEpochTime}`);
                     const inputData = formattedData[dependency][referenceEpochTime];
-                    if (inputData == undefined) throw new Error(`Input data ${dependency} could not be retrieved`);
                     inputs.push(inputData);
                 }
             }
@@ -1303,7 +1303,7 @@ const cronParser = require("1bbd3a5a09ff8fc7");
             const algorithmParameters = this.analyticInputManagerService.filterAlgorithmParametersAttributesByIndex(algoParams, algoIndexName);
             const result = algorithms_1.ALGORITHMS[algorithm_name].run(inputs, algorithmParameters);
             if (result == undefined) throw new Error(`Algorithm ${algorithm_name} returned undefined`);
-            if (algorithm_name === "EXIT" && result === true) throw new Errors_1.ExitAnalyticError("EXIT algorithm triggered");
+            if (algorithm_name === 'EXIT' && result === true) throw new Errors_1.ExitAnalyticError('EXIT algorithm triggered');
             return result;
         });
     }
@@ -1390,7 +1390,7 @@ const cronParser = require("1bbd3a5a09ff8fc7");
                     if (!configNode) return [
                         {
                             success: false,
-                            error: "No config node found"
+                            error: 'No config node found'
                         }
                     ];
                     configAttributes = yield this.analyticNodeManagerService.getAllCategoriesAndAttributesFromNode(configNode.id.get());
@@ -1398,7 +1398,7 @@ const cronParser = require("1bbd3a5a09ff8fc7");
                 const ioDependencies = configAttributes[CONSTANTS.CATEGORY_ATTRIBUTE_IO_DEPENDENCIES];
                 const algoIndexMapping = configAttributes[CONSTANTS.CATEGORY_ATTRIBUTE_ALGORITHM_INDEX_MAPPING];
                 const algoParams = configAttributes[CONSTANTS.CATEGORY_ATTRIBUTE_ALGORTHM_PARAMETERS];
-                const R = ioDependencies["R"];
+                const R = ioDependencies['R'];
                 // Here we need to call a function that will get all the data required for the analysis to run
                 const formattedData = yield this.analyticInputManagerService.getAllDataFromAnalyticConfiguration(analyticId, entity, ioDependencies, executionTimes);
                 const results = [];
@@ -1409,7 +1409,7 @@ const cronParser = require("1bbd3a5a09ff8fc7");
                 return results;
             } catch (error) {
                 const analyticInfo = spinal_env_viewer_graph_service_1.SpinalGraphService.getInfo(analyticId);
-                const positionString = " on " + entity.name.get() + " in analytic : " + analyticInfo.name.get() + " at " + Date.now();
+                const positionString = ' on ' + entity.name.get() + ' in analytic : ' + analyticInfo.name.get() + ' at ' + Date.now();
                 if (error instanceof Error || error instanceof Errors_1.ExitAnalyticError) return [
                     {
                         success: false,
@@ -1419,7 +1419,7 @@ const cronParser = require("1bbd3a5a09ff8fc7");
                 else return [
                     {
                         success: false,
-                        error: "An unknown error occurred" + positionString
+                        error: 'An unknown error occurred' + positionString
                     }
                 ];
             }
@@ -1431,22 +1431,24 @@ const cronParser = require("1bbd3a5a09ff8fc7");
             if (!entities) return [
                 {
                     success: false,
-                    error: "No entities found"
+                    error: 'No entities found'
                 }
             ];
             const configNode = yield this.analyticNodeManagerService.getConfig(analyticId);
             if (!configNode) return [
                 {
                     success: false,
-                    error: "No config node found"
+                    error: 'No config node found'
                 }
             ];
             const configAttributes = yield this.analyticNodeManagerService.getAllCategoriesAndAttributesFromNode(configNode.id.get());
             const lastExecutionTime = parseInt(configAttributes[CONSTANTS.CATEGORY_ATTRIBUTE_ANALYTIC_PARAMETERS][CONSTANTS.ATTRIBUTE_LAST_EXECUTION_TIME]);
             const aggregateExecutionTime = configAttributes[CONSTANTS.CATEGORY_ATTRIBUTE_ANALYTIC_PARAMETERS][CONSTANTS.ATTRIBUTE_AGGREGATE_EXECUTION_TIME] || undefined;
             if (aggregateExecutionTime && triggerObject.triggerType === CONSTANTS.TRIGGER_TYPE.CRON) {
-                const executionTimes = this.getExecutionTimestamps(aggregateExecutionTime, triggerObject.triggerValue, lastExecutionTime);
-                console.log(`executionTimes aggretegate feature : ${executionTimes}`);
+                // const executionTimes = this.getExecutionTimestamps(aggregateExecutionTime, triggerObject.triggerValue, lastExecutionTime);
+                const executionTimes = this.getCronMissingExecutionTimes(triggerObject.triggerValue, lastExecutionTime);
+                console.log(`executionTimes aggregate feature : ${executionTimes}`);
+                console.log(`Size  : ${executionTimes.length}`);
                 const analysisPromises = entities.map((entity)=>this.doAnalysisOnEntity(analyticId, entity, executionTimes, configAttributes));
                 const results = (yield Promise.all(analysisPromises)).flat();
                 return results;
@@ -1554,7 +1556,7 @@ const cronParser = require("1bbd3a5a09ff8fc7");
                 }
             }
         } catch (err) {
-            console.error("Failed to parse cron syntax:", err);
+            console.error('Failed to parse cron syntax:', err);
         }
         executionTimes.pop(); // Remove the last date (current time ) as it is
         return executionTimes;
@@ -1570,7 +1572,7 @@ const cronParser = require("1bbd3a5a09ff8fc7");
                 nextDate = new Date(nextDate.getTime() + intervalTime);
             }
         } catch (err) {
-            console.error("Failed to parse interval time:", err);
+            console.error('Failed to parse interval time:', err);
         }
         return executionTimes;
     }
@@ -1578,7 +1580,7 @@ const cronParser = require("1bbd3a5a09ff8fc7");
         // Parsing options with a current date set to the lastExecutionTime
         const options = {
             currentDate: new Date(lastExecutionTime),
-            tz: "Europe/Paris" // Set to UTC or the appropriate timezone
+            tz: 'Europe/Paris' // Set to UTC or the appropriate timezone
         };
         // Initialize the parser for the aggregate execution time
         const aggregateIterator = cronParser.parseExpression(aggregateExecutionTime, options);
@@ -1597,7 +1599,7 @@ const cronParser = require("1bbd3a5a09ff8fc7");
                 nextExecTime = executionIterator.next().toDate().getTime();
             }
         } catch (err) {
-            if (!(err instanceof Error && err.message === "Out of the timespan range")) throw err; // Re-throw unexpected errors
+            if (!(err instanceof Error && err.message === 'Out of the timespan range')) throw err; // Re-throw unexpected errors
         }
         return timestamps;
     }
@@ -1605,7 +1607,7 @@ const cronParser = require("1bbd3a5a09ff8fc7");
 exports.default = AnalyticExecutionManagerService;
 exports.AnalyticExecutionManagerService = AnalyticExecutionManagerService;
 
-},{"571e42a8c9e6324a":"9n7zp","f7d2d78aecd8bf09":"2CVgx","82cf3e40ee2bde4c":"5rYVR","22aebbcb50efab87":"a1B4H","81eb22fb3c935b57":"8QYUj","1bbd3a5a09ff8fc7":"d00sa"}],"8QYUj":[function(require,module,exports) {
+},{"571e42a8c9e6324a":"9n7zp","f7d2d78aecd8bf09":"2CVgx","82cf3e40ee2bde4c":"5rYVR","22aebbcb50efab87":"a1B4H","81eb22fb3c935b57":"8QYUj","1bbd3a5a09ff8fc7":"d00sa"}],"8QYUj":[function(require,module,exports,__globalThis) {
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -1619,8 +1621,8 @@ class ExitAnalyticError extends Error {
 }
 exports.ExitAnalyticError = ExitAnalyticError;
 
-},{}],"d00sa":[function(require,module,exports) {
-"use strict";
+},{}],"d00sa":[function(require,module,exports,__globalThis) {
+'use strict';
 var CronExpression = require("c58e2f27069c4f50");
 function CronParser() {}
 /**
@@ -1629,15 +1631,15 @@ function CronParser() {}
  * @private
  * @param {String} entry Crontab file entry/line
  */ CronParser._parseEntry = function _parseEntry(entry) {
-    var atoms = entry.split(" ");
+    var atoms = entry.split(' ');
     if (atoms.length === 6) return {
         interval: CronExpression.parse(entry)
     };
     else if (atoms.length > 6) return {
-        interval: CronExpression.parse(atoms.slice(0, 6).join(" ")),
+        interval: CronExpression.parse(atoms.slice(0, 6).join(' ')),
         command: atoms.slice(6, atoms.length)
     };
-    else throw new Error("Invalid entry: " + entry);
+    else throw new Error('Invalid entry: ' + entry);
 };
 /**
  * Wrapper for CronExpression.parser method
@@ -1666,7 +1668,7 @@ function CronParser() {}
  * @param {String} data Crontab content
  * @return {Object}
  */ CronParser.parseString = function parseString(data) {
-    var blocks = data.split("\n");
+    var blocks = data.split('\n');
     var response = {
         variables: {},
         expressions: [],
@@ -1682,7 +1684,7 @@ function CronParser() {}
             else {
                 var result = null;
                 try {
-                    result = CronParser._parseEntry("0 " + entry);
+                    result = CronParser._parseEntry('0 ' + entry);
                     response.expressions.push(result.interval);
                 } catch (err) {
                     response.errors[entry] = err;
@@ -1709,8 +1711,8 @@ function CronParser() {}
 };
 module.exports = CronParser;
 
-},{"c58e2f27069c4f50":"aYF1I","fd3dd7d6ee4db7a3":"jhUEF"}],"aYF1I":[function(require,module,exports) {
-"use strict";
+},{"c58e2f27069c4f50":"aYF1I","fd3dd7d6ee4db7a3":"jhUEF"}],"aYF1I":[function(require,module,exports,__globalThis) {
+'use strict';
 // Load Date class extensions
 var CronDate = require("49bdfafd99798f48");
 var stringifyField = require("bea502670d38e0b9");
@@ -1731,7 +1733,7 @@ var stringifyField = require("bea502670d38e0b9");
  */ function CronExpression(fields, options) {
     this._options = options;
     this._utc = options.utc || false;
-    this._tz = this._utc ? "UTC" : options.tz;
+    this._tz = this._utc ? 'UTC' : options.tz;
     this._currentDate = new CronDate(options.currentDate, this._tz);
     this._startDate = options.startDate ? new CronDate(options.startDate, this._tz) : null;
     this._endDate = options.endDate ? new CronDate(options.endDate, this._tz) : null;
@@ -1744,22 +1746,22 @@ var stringifyField = require("bea502670d38e0b9");
  * Field mappings
  * @type {Array}
  */ CronExpression.map = [
-    "second",
-    "minute",
-    "hour",
-    "dayOfMonth",
-    "month",
-    "dayOfWeek"
+    'second',
+    'minute',
+    'hour',
+    'dayOfMonth',
+    'month',
+    'dayOfWeek'
 ];
 /**
  * Prefined intervals
  * @type {Object}
  */ CronExpression.predefined = {
-    "@yearly": "0 0 1 1 *",
-    "@monthly": "0 0 1 * *",
-    "@weekly": "0 0 * * 0",
-    "@daily": "0 0 * * *",
-    "@hourly": "0 * * * *"
+    '@yearly': '0 0 1 1 *',
+    '@monthly': '0 0 1 * *',
+    '@weekly': '0 0 * * 0',
+    '@daily': '0 0 * * *',
+    '@hourly': '0 * * * *'
 };
 /**
  * Fields constraints
@@ -1784,7 +1786,7 @@ var stringifyField = require("bea502670d38e0b9");
         min: 1,
         max: 31,
         chars: [
-            "L"
+            'L'
         ]
     },
     {
@@ -1796,7 +1798,7 @@ var stringifyField = require("bea502670d38e0b9");
         min: 0,
         max: 7,
         chars: [
-            "L"
+            'L'
         ]
     }
 ];
@@ -1849,12 +1851,12 @@ var stringifyField = require("bea502670d38e0b9");
  * Field defaults
  * @type {Array}
  */ CronExpression.parseDefaults = [
-    "0",
-    "*",
-    "*",
-    "*",
-    "*",
-    "*"
+    '0',
+    '*',
+    '*',
+    '*',
+    '*',
+    '*'
 ];
 CronExpression.standardValidCharacters = /^[,*\d/-]+$/;
 CronExpression.dayOfWeekValidCharacters = /^[?,*\dL#/-]+$/;
@@ -1868,7 +1870,7 @@ CronExpression.validCharacters = {
     dayOfWeek: CronExpression.dayOfWeekValidCharacters
 };
 CronExpression._isValidConstraintChar = function _isValidConstraintChar(constraints, value) {
-    if (typeof value !== "string") return false;
+    if (typeof value !== 'string') return false;
     return constraints.chars.some(function(char) {
         return value.indexOf(char) > -1;
     });
@@ -1884,21 +1886,21 @@ CronExpression._isValidConstraintChar = function _isValidConstraintChar(constrai
  */ CronExpression._parseField = function _parseField(field, value, constraints) {
     // Replace aliases
     switch(field){
-        case "month":
-        case "dayOfWeek":
+        case 'month':
+        case 'dayOfWeek':
             var aliases = CronExpression.aliases[field];
             value = value.replace(/[a-z]{3}/gi, function(match) {
                 match = match.toLowerCase();
-                if (typeof aliases[match] !== "undefined") return aliases[match];
+                if (typeof aliases[match] !== 'undefined') return aliases[match];
                 else throw new Error('Validation error, cannot resolve alias "' + match + '"');
             });
             break;
     }
     // Check for valid characters.
-    if (!CronExpression.validCharacters[field].test(value)) throw new Error("Invalid characters, got value: " + value);
+    if (!CronExpression.validCharacters[field].test(value)) throw new Error('Invalid characters, got value: ' + value);
     // Replace '*' and '?'
-    if (value.indexOf("*") !== -1) value = value.replace(/\*/g, constraints.min + "-" + constraints.max);
-    else if (value.indexOf("?") !== -1) value = value.replace(/\?/g, constraints.min + "-" + constraints.max);
+    if (value.indexOf('*') !== -1) value = value.replace(/\*/g, constraints.min + '-' + constraints.max);
+    else if (value.indexOf('?') !== -1) value = value.replace(/\?/g, constraints.min + '-' + constraints.max);
     //
     // Inline parsing functions
     //
@@ -1922,7 +1924,7 @@ CronExpression._isValidConstraintChar = function _isValidConstraintChar(constrai
                     continue;
                 }
                 // Check constraints
-                if (typeof value !== "number" || Number.isNaN(value) || value < constraints.min || value > constraints.max) throw new Error("Constraint error, got value " + value + " expected range " + constraints.min + "-" + constraints.max);
+                if (typeof value !== 'number' || Number.isNaN(value) || value < constraints.min || value > constraints.max) throw new Error('Constraint error, got value ' + value + ' expected range ' + constraints.min + '-' + constraints.max);
                 stack.push(value);
             }
             else {
@@ -1932,15 +1934,15 @@ CronExpression._isValidConstraintChar = function _isValidConstraintChar(constrai
                 }
                 var numResult = +result;
                 // Check constraints
-                if (Number.isNaN(numResult) || numResult < constraints.min || numResult > constraints.max) throw new Error("Constraint error, got value " + result + " expected range " + constraints.min + "-" + constraints.max);
-                if (field === "dayOfWeek") numResult = numResult % 7;
+                if (Number.isNaN(numResult) || numResult < constraints.min || numResult > constraints.max) throw new Error('Constraint error, got value ' + result + ' expected range ' + constraints.min + '-' + constraints.max);
+                if (field === 'dayOfWeek') numResult = numResult % 7;
                 stack.push(numResult);
             }
         }
-        var atoms = val.split(",");
+        var atoms = val.split(',');
         if (!atoms.every(function(atom) {
             return atom.length > 0;
-        })) throw new Error("Invalid list value format");
+        })) throw new Error('Invalid list value format');
         if (atoms.length > 1) for(var i = 0, c = atoms.length; i < c; i++)handleResult(parseRepeat(atoms[i]));
         else handleResult(parseRepeat(val));
         stack.sort(CronExpression._sortCompareFn);
@@ -1953,11 +1955,11 @@ CronExpression._isValidConstraintChar = function _isValidConstraintChar(constrai
    * @return {Array}
    */ function parseRepeat(val) {
         var repeatInterval = 1;
-        var atoms = val.split("/");
-        if (atoms.length > 2) throw new Error("Invalid repeat: " + val);
+        var atoms = val.split('/');
+        if (atoms.length > 2) throw new Error('Invalid repeat: ' + val);
         if (atoms.length > 1) {
             if (atoms[0] == +atoms[0]) atoms = [
-                atoms[0] + "-" + constraints.max,
+                atoms[0] + '-' + constraints.max,
                 atoms[1]
             ];
             return parseRange(atoms[0], atoms[atoms.length - 1]);
@@ -1973,25 +1975,25 @@ CronExpression._isValidConstraintChar = function _isValidConstraintChar(constrai
    * @private
    */ function parseRange(val, repeatInterval) {
         var stack = [];
-        var atoms = val.split("-");
+        var atoms = val.split('-');
         if (atoms.length > 1) {
             // Invalid range, return value
             if (atoms.length < 2) return +val;
             if (!atoms[0].length) {
-                if (!atoms[1].length) throw new Error("Invalid range: " + val);
+                if (!atoms[1].length) throw new Error('Invalid range: ' + val);
                 return +val;
             }
             // Validate range
             var min = +atoms[0];
             var max = +atoms[1];
-            if (Number.isNaN(min) || Number.isNaN(max) || min < constraints.min || max > constraints.max) throw new Error("Constraint error, got range " + min + "-" + max + " expected range " + constraints.min + "-" + constraints.max);
-            else if (min > max) throw new Error("Invalid range: " + val);
+            if (Number.isNaN(min) || Number.isNaN(max) || min < constraints.min || max > constraints.max) throw new Error('Constraint error, got range ' + min + '-' + max + ' expected range ' + constraints.min + '-' + constraints.max);
+            else if (min > max) throw new Error('Invalid range: ' + val);
             // Create range
             var repeatIndex = +repeatInterval;
-            if (Number.isNaN(repeatIndex) || repeatIndex <= 0) throw new Error("Constraint error, cannot repeat at every " + repeatIndex + " time.");
+            if (Number.isNaN(repeatIndex) || repeatIndex <= 0) throw new Error('Constraint error, cannot repeat at every ' + repeatIndex + ' time.');
             // JS DOW is in range of 0-6 (SUN-SAT) but we also support 7 in the expression
             // Handle case when range contains 7 instead of 0 and translate this value to 0
-            if (field === "dayOfWeek" && max % 7 === 0) stack.push(0);
+            if (field === 'dayOfWeek' && max % 7 === 0) stack.push(0);
             for(var index = min, count = max; index <= count; index++){
                 var exists = stack.indexOf(index) !== -1;
                 if (!exists && repeatIndex > 0 && repeatIndex % repeatInterval === 0) {
@@ -2006,8 +2008,8 @@ CronExpression._isValidConstraintChar = function _isValidConstraintChar(constrai
     return parseSequence(value);
 };
 CronExpression._sortCompareFn = function(a, b) {
-    var aIsNumber = typeof a === "number";
-    var bIsNumber = typeof b === "number";
+    var aIsNumber = typeof a === 'number';
+    var bIsNumber = typeof b === 'number';
     if (aIsNumber && bIsNumber) return a - b;
     if (!aIsNumber && bIsNumber) return 1;
     if (aIsNumber && !bIsNumber) return -1;
@@ -2017,9 +2019,9 @@ CronExpression._handleMaxDaysInMonth = function(mappedFields) {
     // Filter out any day of month value that is larger than given month expects
     if (mappedFields.month.length === 1) {
         var daysInMonth = CronExpression.daysInMonth[mappedFields.month[0] - 1];
-        if (mappedFields.dayOfMonth[0] > daysInMonth) throw new Error("Invalid explicit day of month definition");
+        if (mappedFields.dayOfMonth[0] > daysInMonth) throw new Error('Invalid explicit day of month definition');
         return mappedFields.dayOfMonth.filter(function(dayOfMonth) {
-            return dayOfMonth === "L" ? true : dayOfMonth <= daysInMonth;
+            return dayOfMonth === 'L' ? true : dayOfMonth <= daysInMonth;
         }).sort(CronExpression._sortCompareFn);
     }
 };
@@ -2032,7 +2034,7 @@ CronExpression._freezeFields = function(fields) {
     return Object.freeze(fields);
 };
 CronExpression.prototype._applyTimezoneShift = function(currentDate, dateMathVerb, method) {
-    if (method === "Month" || method === "Day") {
+    if (method === 'Month' || method === 'Day') {
         var prevTime = currentDate.getTime();
         currentDate[dateMathVerb + method]();
         var currTime = currentDate.getTime();
@@ -2101,12 +2103,12 @@ CronExpression.prototype._applyTimezoneShift = function(currentDate, dateMathVer
    * @param {Array} expressions
    */ function isLInExpressions(expressions) {
         return expressions.length > 0 && expressions.some(function(expression) {
-            return typeof expression === "string" && expression.indexOf("L") >= 0;
+            return typeof expression === 'string' && expression.indexOf('L') >= 0;
         });
     }
     // Whether to use backwards directionality when searching
     reverse = reverse || false;
-    var dateMathVerb = reverse ? "subtract" : "add";
+    var dateMathVerb = reverse ? 'subtract' : 'add';
     var currentDate = new CronDate(this._currentDate, this._tz);
     var startDate = this._startDate;
     var endDate = this._endDate;
@@ -2122,7 +2124,7 @@ CronExpression.prototype._applyTimezoneShift = function(currentDate, dateMathVer
             ])) return false;
             // The first character represents the weekday
             var weekday = Number.parseInt(expression[0]) % 7;
-            if (Number.isNaN(weekday)) throw new Error("Invalid last weekday of the month expression: " + expression);
+            if (Number.isNaN(weekday)) throw new Error('Invalid last weekday of the month expression: ' + expression);
             return currentDate.getDay() === weekday && currentDate.isLastWeekdayOfMonth();
         });
     }
@@ -2130,9 +2132,9 @@ CronExpression.prototype._applyTimezoneShift = function(currentDate, dateMathVer
         stepCount++;
         // Validate timespan
         if (reverse) {
-            if (startDate && currentDate.getTime() - startDate.getTime() < 0) throw new Error("Out of the timespan range");
+            if (startDate && currentDate.getTime() - startDate.getTime() < 0) throw new Error('Out of the timespan range');
         } else {
-            if (endDate && endDate.getTime() - currentDate.getTime() < 0) throw new Error("Out of the timespan range");
+            if (endDate && endDate.getTime() - currentDate.getTime() < 0) throw new Error('Out of the timespan range');
         }
         // Day of month and week matching:
         //
@@ -2153,66 +2155,66 @@ CronExpression.prototype._applyTimezoneShift = function(currentDate, dateMathVer
         var currentHour = currentDate.getHours();
         // Add or subtract day if select day not match with month (according to calendar)
         if (!dayOfMonthMatch && (!dayOfWeekMatch || isDayOfWeekWildcardMatch)) {
-            this._applyTimezoneShift(currentDate, dateMathVerb, "Day");
+            this._applyTimezoneShift(currentDate, dateMathVerb, 'Day');
             continue;
         }
         // Add or subtract day if not day of month is set (and no match) and day of week is wildcard
         if (!isDayOfMonthWildcardMatch && isDayOfWeekWildcardMatch && !dayOfMonthMatch) {
-            this._applyTimezoneShift(currentDate, dateMathVerb, "Day");
+            this._applyTimezoneShift(currentDate, dateMathVerb, 'Day');
             continue;
         }
         // Add or subtract day if not day of week is set (and no match) and day of month is wildcard
         if (isDayOfMonthWildcardMatch && !isDayOfWeekWildcardMatch && !dayOfWeekMatch) {
-            this._applyTimezoneShift(currentDate, dateMathVerb, "Day");
+            this._applyTimezoneShift(currentDate, dateMathVerb, 'Day');
             continue;
         }
         // Add or subtract day if day of week & nthDayOfWeek are set (and no match)
         if (this._nthDayOfWeek > 0 && !isNthDayMatch(currentDate, this._nthDayOfWeek)) {
-            this._applyTimezoneShift(currentDate, dateMathVerb, "Day");
+            this._applyTimezoneShift(currentDate, dateMathVerb, 'Day');
             continue;
         }
         // Match month
         if (!matchSchedule(currentDate.getMonth() + 1, this.fields.month)) {
-            this._applyTimezoneShift(currentDate, dateMathVerb, "Month");
+            this._applyTimezoneShift(currentDate, dateMathVerb, 'Month');
             continue;
         }
         // Match hour
         if (!matchSchedule(currentHour, this.fields.hour)) {
             if (this._dstStart !== currentHour) {
                 this._dstStart = null;
-                this._applyTimezoneShift(currentDate, dateMathVerb, "Hour");
+                this._applyTimezoneShift(currentDate, dateMathVerb, 'Hour');
                 continue;
             } else if (!matchSchedule(currentHour - 1, this.fields.hour)) {
-                currentDate[dateMathVerb + "Hour"]();
+                currentDate[dateMathVerb + 'Hour']();
                 continue;
             }
         } else if (this._dstEnd === currentHour) {
             if (!reverse) {
                 this._dstEnd = null;
-                this._applyTimezoneShift(currentDate, "add", "Hour");
+                this._applyTimezoneShift(currentDate, 'add', 'Hour');
                 continue;
             }
         }
         // Match minute
         if (!matchSchedule(currentDate.getMinutes(), this.fields.minute)) {
-            this._applyTimezoneShift(currentDate, dateMathVerb, "Minute");
+            this._applyTimezoneShift(currentDate, dateMathVerb, 'Minute');
             continue;
         }
         // Match second
         if (!matchSchedule(currentDate.getSeconds(), this.fields.second)) {
-            this._applyTimezoneShift(currentDate, dateMathVerb, "Second");
+            this._applyTimezoneShift(currentDate, dateMathVerb, 'Second');
             continue;
         }
         // Increase a second in case in the first iteration the currentDate was not
         // modified
         if (startTimestamp === currentDate.getTime()) {
-            if (dateMathVerb === "add" || currentDate.getMilliseconds() === 0) this._applyTimezoneShift(currentDate, dateMathVerb, "Second");
+            if (dateMathVerb === 'add' || currentDate.getMilliseconds() === 0) this._applyTimezoneShift(currentDate, dateMathVerb, 'Second');
             else currentDate.setMilliseconds(0);
             continue;
         }
         break;
     }
-    if (stepCount >= LOOP_LIMIT) throw new Error("Invalid expression, loop limit exceeded");
+    if (stepCount >= LOOP_LIMIT) throw new Error('Invalid expression, loop limit exceeded');
     this._currentDate = new CronDate(currentDate, this._tz);
     this._hasIterated = true;
     return currentDate;
@@ -2330,11 +2332,11 @@ CronExpression.prototype._applyTimezoneShift = function(currentDate, dateMathVer
         var field = CronExpression.map[i];
         var value = this.fields[field];
         var constraint = CronExpression.constraints[i];
-        if (field === "dayOfMonth" && this.fields.month.length === 1) constraint = {
+        if (field === 'dayOfMonth' && this.fields.month.length === 1) constraint = {
             min: 1,
             max: CronExpression.daysInMonth[this.fields.month[0] - 1]
         };
-        else if (field === "dayOfWeek") {
+        else if (field === 'dayOfWeek') {
             // Prefer 0-6 range when serializing day of week field
             constraint = {
                 min: 0,
@@ -2344,7 +2346,7 @@ CronExpression.prototype._applyTimezoneShift = function(currentDate, dateMathVer
         }
         resultArr.push(stringifyField(value, constraint.min, constraint.max));
     }
-    return resultArr.join(" ");
+    return resultArr.join(' ');
 };
 /**
  * Parse input expression (async)
@@ -2354,16 +2356,16 @@ CronExpression.prototype._applyTimezoneShift = function(currentDate, dateMathVer
  * @param {Object} [options] Parsing options
  */ CronExpression.parse = function parse(expression, options) {
     var self = this;
-    if (typeof options === "function") options = {};
+    if (typeof options === 'function') options = {};
     function parse(expression, options) {
         if (!options) options = {};
-        if (typeof options.currentDate === "undefined") options.currentDate = new CronDate(undefined, self._tz);
+        if (typeof options.currentDate === 'undefined') options.currentDate = new CronDate(undefined, self._tz);
         // Is input expression predefined?
         if (CronExpression.predefined[expression]) expression = CronExpression.predefined[expression];
         // Split fields
         var fields = [];
-        var atoms = (expression + "").trim().split(/\s+/);
-        if (atoms.length > 6) throw new Error("Invalid cron expression");
+        var atoms = (expression + '').trim().split(/\s+/);
+        if (atoms.length > 6) throw new Error('Invalid cron expression');
         // Resolve fields
         var start = CronExpression.map.length - atoms.length;
         for(var i = 0, c = CronExpression.map.length; i < c; ++i){
@@ -2371,7 +2373,7 @@ CronExpression.prototype._applyTimezoneShift = function(currentDate, dateMathVer
             var value = atoms[atoms.length > c ? i : i - start]; // Field value
             if (i < start || !value) fields.push(CronExpression._parseField(field, CronExpression.parseDefaults[i], CronExpression.constraints[i]));
             else {
-                var val = field === "dayOfWeek" ? parseNthDay(value) : value;
+                var val = field === 'dayOfWeek' ? parseNthDay(value) : value;
                 fields.push(CronExpression._parseField(field, val, CronExpression.constraints[i]));
             }
         }
@@ -2390,13 +2392,13 @@ CronExpression.prototype._applyTimezoneShift = function(currentDate, dateMathVer
      * @return {String}
      * @private
      */ function parseNthDay(val) {
-            var atoms = val.split("#");
+            var atoms = val.split('#');
             if (atoms.length > 1) {
                 var nthValue = +atoms[atoms.length - 1];
                 if (/,/.test(val)) throw new Error("Constraint error, invalid dayOfWeek `#` and `,` special characters are incompatible");
                 if (/\//.test(val)) throw new Error("Constraint error, invalid dayOfWeek `#` and `/` special characters are incompatible");
                 if (/-/.test(val)) throw new Error("Constraint error, invalid dayOfWeek `#` and `-` special characters are incompatible");
-                if (atoms.length > 2 || Number.isNaN(nthValue) || nthValue < 1 || nthValue > 5) throw new Error("Constraint error, invalid dayOfWeek occurrence number (#)");
+                if (atoms.length > 2 || Number.isNaN(nthValue) || nthValue < 1 || nthValue > 5) throw new Error('Constraint error, invalid dayOfWeek occurrence number (#)');
                 options.nthDayOfWeek = nthValue;
                 return atoms[0];
             }
@@ -2414,13 +2416,13 @@ CronExpression.prototype._applyTimezoneShift = function(currentDate, dateMathVer
  * @return {Object}
  */ CronExpression.fieldsToExpression = function fieldsToExpression(fields, options) {
     function validateConstraints(field, values, constraints) {
-        if (!values) throw new Error("Validation error, Field " + field + " is missing");
-        if (values.length === 0) throw new Error("Validation error, Field " + field + " contains no values");
+        if (!values) throw new Error('Validation error, Field ' + field + ' is missing');
+        if (values.length === 0) throw new Error('Validation error, Field ' + field + ' contains no values');
         for(var i = 0, c = values.length; i < c; i++){
             var value = values[i];
             if (CronExpression._isValidConstraintChar(constraints, value)) continue;
             // Check constraints
-            if (typeof value !== "number" || Number.isNaN(value) || value < constraints.min || value > constraints.max) throw new Error("Constraint error, got value " + value + " expected range " + constraints.min + "-" + constraints.max);
+            if (typeof value !== 'number' || Number.isNaN(value) || value < constraints.min || value > constraints.max) throw new Error('Constraint error, got value ' + value + ' expected range ' + constraints.min + '-' + constraints.max);
         }
     }
     var mappedFields = {};
@@ -2434,7 +2436,7 @@ CronExpression.prototype._applyTimezoneShift = function(currentDate, dateMathVer
         values = copy.sort(CronExpression._sortCompareFn).filter(function(item, pos, ary) {
             return !pos || item !== ary[pos - 1];
         });
-        if (values.length !== copy.length) throw new Error("Validation error, Field " + field + " contains duplicate values");
+        if (values.length !== copy.length) throw new Error('Validation error, Field ' + field + ' contains duplicate values');
         mappedFields[field] = values;
     }
     var dayOfMonth = CronExpression._handleMaxDaysInMonth(mappedFields);
@@ -2443,8 +2445,8 @@ CronExpression.prototype._applyTimezoneShift = function(currentDate, dateMathVer
 };
 module.exports = CronExpression;
 
-},{"49bdfafd99798f48":"QKfjf","bea502670d38e0b9":"kDgau"}],"QKfjf":[function(require,module,exports) {
-"use strict";
+},{"49bdfafd99798f48":"QKfjf","bea502670d38e0b9":"kDgau"}],"QKfjf":[function(require,module,exports,__globalThis) {
+'use strict';
 var luxon = require("836e26da8123fddc");
 CronDate.prototype.addYear = function() {
     this._date = this._date.plus({
@@ -2454,18 +2456,18 @@ CronDate.prototype.addYear = function() {
 CronDate.prototype.addMonth = function() {
     this._date = this._date.plus({
         months: 1
-    }).startOf("month");
+    }).startOf('month');
 };
 CronDate.prototype.addDay = function() {
     this._date = this._date.plus({
         days: 1
-    }).startOf("day");
+    }).startOf('day');
 };
 CronDate.prototype.addHour = function() {
     var prev = this._date;
     this._date = this._date.plus({
         hours: 1
-    }).startOf("hour");
+    }).startOf('hour');
     if (this._date <= prev) this._date = this._date.plus({
         hours: 1
     });
@@ -2474,7 +2476,7 @@ CronDate.prototype.addMinute = function() {
     var prev = this._date;
     this._date = this._date.plus({
         minutes: 1
-    }).startOf("minute");
+    }).startOf('minute');
     if (this._date < prev) this._date = this._date.plus({
         hours: 1
     });
@@ -2483,7 +2485,7 @@ CronDate.prototype.addSecond = function() {
     var prev = this._date;
     this._date = this._date.plus({
         seconds: 1
-    }).startOf("second");
+    }).startOf('second');
     if (this._date < prev) this._date = this._date.plus({
         hours: 1
     });
@@ -2496,18 +2498,18 @@ CronDate.prototype.subtractYear = function() {
 CronDate.prototype.subtractMonth = function() {
     this._date = this._date.minus({
         months: 1
-    }).endOf("month").startOf("second");
+    }).endOf('month').startOf('second');
 };
 CronDate.prototype.subtractDay = function() {
     this._date = this._date.minus({
         days: 1
-    }).endOf("day").startOf("second");
+    }).endOf('day').startOf('second');
 };
 CronDate.prototype.subtractHour = function() {
     var prev = this._date;
     this._date = this._date.minus({
         hours: 1
-    }).endOf("hour").startOf("second");
+    }).endOf('hour').startOf('second');
     if (this._date >= prev) this._date = this._date.minus({
         hours: 1
     });
@@ -2516,7 +2518,7 @@ CronDate.prototype.subtractMinute = function() {
     var prev = this._date;
     this._date = this._date.minus({
         minutes: 1
-    }).endOf("minute").startOf("second");
+    }).endOf('minute').startOf('second');
     if (this._date > prev) this._date = this._date.minus({
         hours: 1
     });
@@ -2525,7 +2527,7 @@ CronDate.prototype.subtractSecond = function() {
     var prev = this._date;
     this._date = this._date.minus({
         seconds: 1
-    }).startOf("second");
+    }).startOf('second');
     if (this._date > prev) this._date = this._date.minus({
         hours: 1
     });
@@ -2639,7 +2641,7 @@ CronDate.prototype.isLastDayOfMonth = function() {
     //next day
     var newDate = this._date.plus({
         days: 1
-    }).startOf("day");
+    }).startOf('day');
     return this._date.month !== newDate.month;
 };
 /**
@@ -2650,7 +2652,7 @@ CronDate.prototype.isLastDayOfMonth = function() {
     // a different month
     var newDate = this._date.plus({
         days: 7
-    }).startOf("day");
+    }).startOf('day');
     return this._date.month !== newDate.month;
 };
 function CronDate(timestamp, tz) {
@@ -2660,22 +2662,22 @@ function CronDate(timestamp, tz) {
     if (!timestamp) this._date = luxon.DateTime.local();
     else if (timestamp instanceof CronDate) this._date = timestamp._date;
     else if (timestamp instanceof Date) this._date = luxon.DateTime.fromJSDate(timestamp, dateOpts);
-    else if (typeof timestamp === "number") this._date = luxon.DateTime.fromMillis(timestamp, dateOpts);
-    else if (typeof timestamp === "string") {
+    else if (typeof timestamp === 'number') this._date = luxon.DateTime.fromMillis(timestamp, dateOpts);
+    else if (typeof timestamp === 'string') {
         this._date = luxon.DateTime.fromISO(timestamp, dateOpts);
         this._date.isValid || (this._date = luxon.DateTime.fromRFC2822(timestamp, dateOpts));
         this._date.isValid || (this._date = luxon.DateTime.fromSQL(timestamp, dateOpts));
         // RFC2822-like format without the required timezone offset (used in tests)
-        this._date.isValid || (this._date = luxon.DateTime.fromFormat(timestamp, "EEE, d MMM yyyy HH:mm:ss", dateOpts));
+        this._date.isValid || (this._date = luxon.DateTime.fromFormat(timestamp, 'EEE, d MMM yyyy HH:mm:ss', dateOpts));
     }
-    if (!this._date || !this._date.isValid) throw new Error("CronDate: unhandled timestamp: " + JSON.stringify(timestamp));
+    if (!this._date || !this._date.isValid) throw new Error('CronDate: unhandled timestamp: ' + JSON.stringify(timestamp));
     if (tz && tz !== this._date.zoneName) this._date = this._date.setZone(tz);
 }
 module.exports = CronDate;
 
-},{"836e26da8123fddc":"cLnnU"}],"cLnnU":[function(require,module,exports) {
-"use strict";
-Object.defineProperty(exports, "__esModule", {
+},{"836e26da8123fddc":"cLnnU"}],"cLnnU":[function(require,module,exports,__globalThis) {
+'use strict';
+Object.defineProperty(exports, '__esModule', {
     value: true
 });
 function _defineProperties(target, props) {
@@ -3471,6 +3473,11 @@ function systemLocale() {
         return sysLocaleCache;
     }
 }
+var intlResolvedOptionsCache = {};
+function getCachedIntResolvedOptions(locString) {
+    if (!intlResolvedOptionsCache[locString]) intlResolvedOptionsCache[locString] = new Intl.DateTimeFormat(locString).resolvedOptions();
+    return intlResolvedOptionsCache[locString];
+}
 var weekInfoCache = {};
 function getCachedWeekInfo(locString) {
     var data = weekInfoCache[locString];
@@ -3549,7 +3556,7 @@ function listStuff(loc, length, englishFn, intlFn) {
 }
 function supportsFastNumbers(loc) {
     if (loc.numberingSystem && loc.numberingSystem !== "latn") return false;
-    else return loc.numberingSystem === "latn" || !loc.locale || loc.locale.startsWith("en") || new Intl.DateTimeFormat(loc.intl).resolvedOptions().numberingSystem === "latn";
+    else return loc.numberingSystem === "latn" || !loc.locale || loc.locale.startsWith("en") || getCachedIntResolvedOptions(loc.locale).numberingSystem === "latn";
 }
 /**
  * @private
@@ -3708,6 +3715,7 @@ var fallbackWeekSettings = {
         intlDTCache = {};
         intlNumCache = {};
         intlRelCache = {};
+        intlResolvedOptionsCache = {};
     };
     Locale.fromObject = function fromObject(_temp) {
         var _ref2 = _temp === void 0 ? {} : _temp, locale = _ref2.locale, numberingSystem = _ref2.numberingSystem, outputCalendar = _ref2.outputCalendar, weekSettings = _ref2.weekSettings;
@@ -3853,7 +3861,7 @@ var fallbackWeekSettings = {
         return getCachedLF(this.intl, opts);
     };
     _proto4.isEnglish = function isEnglish() {
-        return this.locale === "en" || this.locale.toLowerCase() === "en-us" || new Intl.DateTimeFormat(this.intl).resolvedOptions().locale.startsWith("en-us");
+        return this.locale === "en" || this.locale.toLowerCase() === "en-us" || getCachedIntResolvedOptions(this.intl).locale.startsWith("en-us");
     };
     _proto4.getWeekSettings = function getWeekSettings() {
         if (this.weekSettings) return this.weekSettings;
@@ -5911,7 +5919,7 @@ function removeZeroes(vals) {
     Duration.fromISO = function fromISO(text, opts) {
         var _parseISODuration = parseISODuration(text), parsed = _parseISODuration[0];
         if (parsed) return Duration.fromObject(parsed, opts);
-        else return Duration.invalid("unparsable", 'the input "' + text + "\" can't be parsed as ISO 8601");
+        else return Duration.invalid("unparsable", "the input \"" + text + "\" can't be parsed as ISO 8601");
     } /**
    * Create a Duration from an ISO 8601 time string.
    * @param {string} text - text to parse
@@ -5931,7 +5939,7 @@ function removeZeroes(vals) {
     Duration.fromISOTime = function fromISOTime(text, opts) {
         var _parseISOTimeOnly = parseISOTimeOnly(text), parsed = _parseISOTimeOnly[0];
         if (parsed) return Duration.fromObject(parsed, opts);
-        else return Duration.invalid("unparsable", 'the input "' + text + "\" can't be parsed as ISO 8601");
+        else return Duration.invalid("unparsable", "the input \"" + text + "\" can't be parsed as ISO 8601");
     } /**
    * Create an invalid Duration.
    * @param {string} reason - simple string of why this datetime is invalid. Should not contain parameters or anything else data-dependent
@@ -6559,7 +6567,7 @@ function validateStartEnd(start, end) {
                 if (_dur.isValid) return Interval.before(end, _dur);
             }
         }
-        return Interval.invalid("unparsable", 'the input "' + text + "\" can't be parsed as ISO 8601");
+        return Interval.invalid("unparsable", "the input \"" + text + "\" can't be parsed as ISO 8601");
     } /**
    * Check if an object is an Interval. Works across context boundaries
    * @param {object} o
@@ -6954,6 +6962,12 @@ function validateStartEnd(start, end) {
             key: "end",
             get: function get() {
                 return this.isValid ? this.e : null;
+            }
+        },
+        {
+            key: "lastDateTime",
+            get: function get() {
+                return this.isValid ? this.e ? this.e.minus(1) : null : null;
             }
         },
         {
@@ -7732,7 +7746,7 @@ function formatOptsToTokens(formatOpts, locale) {
 var INVALID = "Invalid DateTime";
 var MAX_DATE = 8.64e15;
 function unsupportedZone(zone) {
-    return new Invalid("unsupported zone", 'the zone "' + zone.name + '" is not supported');
+    return new Invalid("unsupported zone", "the zone \"" + zone.name + "\" is not supported");
 }
 // we cache week data on the DT object and this intermediates the cache
 /**
@@ -7844,7 +7858,7 @@ function parseDataToDateTime(parsed, parsedZone, opts, format, text, specificOff
             specificOffset: specificOffset
         }));
         return setZone ? inst : inst.setZone(zone);
-    } else return DateTime.invalid(new Invalid("unparsable", 'the input "' + text + "\" can't be parsed as " + format));
+    } else return DateTime.invalid(new Invalid("unparsable", "the input \"" + text + "\" can't be parsed as " + format));
 }
 // if you want to output a technical format (e.g. RFC 2822), this helper
 // helps handle the details
@@ -8014,12 +8028,17 @@ function normalizeUnitWithLocalWeeks(unit) {
 // This is safe for quickDT (used by local() and utc()) because we don't fill in
 // higher-order units from tsNow (as we do in fromObject, this requires that
 // offset is calculated from tsNow).
-function guessOffsetForZone(zone) {
-    if (!zoneOffsetGuessCache[zone]) {
-        if (zoneOffsetTs === undefined) zoneOffsetTs = Settings.now();
-        zoneOffsetGuessCache[zone] = zone.offset(zoneOffsetTs);
-    }
-    return zoneOffsetGuessCache[zone];
+/**
+ * @param {Zone} zone
+ * @return {number}
+ */ function guessOffsetForZone(zone) {
+    if (zoneOffsetTs === undefined) zoneOffsetTs = Settings.now();
+    // Do not cache anything but IANA zones, because it is not safe to do so.
+    // Guessing an offset which is not present in the zone can cause wrong results from fixOffset
+    if (zone.type !== "iana") return zone.offset(zoneOffsetTs);
+    var zoneName = zone.name;
+    if (!zoneOffsetGuessCache[zoneName]) zoneOffsetGuessCache[zoneName] = zone.offset(zoneOffsetTs);
+    return zoneOffsetGuessCache[zoneName];
 }
 // this is a dumbed down version of fromObject() that runs about 60% faster
 // but doesn't do any validation, makes a bunch of assumptions about what units
@@ -8885,7 +8904,7 @@ function lastOpts(argList) {
    * @example DateTime.now().toISO() //=> '2017-04-22T20:47:05.335-04:00'
    * @example DateTime.now().toISO({ includeOffset: false }) //=> '2017-04-22T20:47:05.335'
    * @example DateTime.now().toISO({ format: 'basic' }) //=> '20170422T204705.335-0400'
-   * @return {string}
+   * @return {string|null}
    */ ;
     _proto.toISO = function toISO(_temp4) {
         var _ref5 = _temp4 === void 0 ? {} : _temp4, _ref5$format = _ref5.format, format = _ref5$format === void 0 ? "extended" : _ref5$format, _ref5$suppressSeconds = _ref5.suppressSeconds, suppressSeconds = _ref5$suppressSeconds === void 0 ? false : _ref5$suppressSeconds, _ref5$suppressMillise = _ref5.suppressMilliseconds, suppressMilliseconds = _ref5$suppressMillise === void 0 ? false : _ref5$suppressMillise, _ref5$includeOffset = _ref5.includeOffset, includeOffset = _ref5$includeOffset === void 0 ? true : _ref5$includeOffset, _ref5$extendedZone = _ref5.extendedZone, extendedZone = _ref5$extendedZone === void 0 ? false : _ref5$extendedZone;
@@ -8901,7 +8920,7 @@ function lastOpts(argList) {
    * @param {string} [opts.format='extended'] - choose between the basic and extended format
    * @example DateTime.utc(1982, 5, 25).toISODate() //=> '1982-05-25'
    * @example DateTime.utc(1982, 5, 25).toISODate({ format: 'basic' }) //=> '19820525'
-   * @return {string}
+   * @return {string|null}
    */ ;
     _proto.toISODate = function toISODate(_temp5) {
         var _ref6 = _temp5 === void 0 ? {} : _temp5, _ref6$format = _ref6.format, format = _ref6$format === void 0 ? "extended" : _ref6$format;
@@ -8955,7 +8974,7 @@ function lastOpts(argList) {
     } /**
    * Returns a string representation of this DateTime appropriate for use in SQL Date
    * @example DateTime.utc(2014, 7, 13).toSQLDate() //=> '2014-07-13'
-   * @return {string}
+   * @return {string|null}
    */ ;
     _proto.toSQLDate = function toSQLDate() {
         if (!this.isValid) return null;
@@ -9023,7 +9042,7 @@ function lastOpts(argList) {
     _proto.toMillis = function toMillis() {
         return this.isValid ? this.ts : NaN;
     } /**
-   * Returns the epoch seconds of this DateTime.
+   * Returns the epoch seconds (including milliseconds in the fractional part) of this DateTime.
    * @return {number}
    */ ;
     _proto.toSeconds = function toSeconds() {
@@ -9109,7 +9128,7 @@ function lastOpts(argList) {
     } /**
    * Return an Interval spanning between this DateTime and another DateTime
    * @param {DateTime} otherDateTime - the other end point of the Interval
-   * @return {Interval}
+   * @return {Interval|DateTime}
    */ ;
     _proto.until = function until(otherDateTime) {
         return this.isValid ? Interval.fromDateTimes(this, otherDateTime) : this;
@@ -9691,7 +9710,7 @@ function friendlyDateTime(dateTimeish) {
     else if (dateTimeish && typeof dateTimeish === "object") return DateTime.fromObject(dateTimeish);
     else throw new InvalidArgumentError("Unknown datetime argument: " + dateTimeish + ", of type " + typeof dateTimeish);
 }
-var VERSION = "3.5.0";
+var VERSION = "3.6.0";
 exports.DateTime = DateTime;
 exports.Duration = Duration;
 exports.FixedOffsetZone = FixedOffsetZone;
@@ -9704,16 +9723,16 @@ exports.SystemZone = SystemZone;
 exports.VERSION = VERSION;
 exports.Zone = Zone;
 
-},{}],"kDgau":[function(require,module,exports) {
-"use strict";
+},{}],"kDgau":[function(require,module,exports,__globalThis) {
+'use strict';
 var compactField = require("de96d8425226f4aa");
 function stringifyField(arr, min, max) {
     var ranges = compactField(arr);
     if (ranges.length === 1) {
         var singleRange = ranges[0];
         var step = singleRange.step;
-        if (step === 1 && singleRange.start === min && singleRange.end === max) return "*";
-        if (step !== 1 && singleRange.start === min && singleRange.end === max - step + 1) return "*/" + step;
+        if (step === 1 && singleRange.start === min && singleRange.end === max) return '*';
+        if (step !== 1 && singleRange.start === min && singleRange.end === max - step + 1) return '*/' + step;
     }
     var result = [];
     for(var i = 0, l = ranges.length; i < l; ++i){
@@ -9724,7 +9743,7 @@ function stringifyField(arr, min, max) {
         }
         var step = range.step;
         if (range.step === 1) {
-            result.push(range.start + "-" + range.end);
+            result.push(range.start + '-' + range.end);
             continue;
         }
         var multiplier = range.start == 0 ? range.count - 1 : range.count;
@@ -9737,15 +9756,15 @@ function stringifyField(arr, min, max) {
         }).filter(function(value) {
             return value != null;
         }));
-        else if (range.end === max - range.step + 1) result.push(range.start + "/" + range.step);
-        else result.push(range.start + "-" + range.end + "/" + range.step);
+        else if (range.end === max - range.step + 1) result.push(range.start + '/' + range.step);
+        else result.push(range.start + '-' + range.end + '/' + range.step);
     }
-    return result.join(",");
+    return result.join(',');
 }
 module.exports = stringifyField;
 
-},{"de96d8425226f4aa":"ixXDd"}],"ixXDd":[function(require,module,exports) {
-"use strict";
+},{"de96d8425226f4aa":"ixXDd"}],"ixXDd":[function(require,module,exports,__globalThis) {
+'use strict';
 function buildRange(item) {
     return {
         start: item,
@@ -9772,7 +9791,7 @@ function compactField(arr) {
     var currentRange = undefined;
     for(var i = 0; i < arr.length; i++){
         var currentItem = arr[i];
-        if (typeof currentItem !== "number") {
+        if (typeof currentItem !== 'number') {
             // String elements can't form a range
             finalizeCurrentRange(results, currentRange, buildRange(currentItem));
             currentRange = undefined;
@@ -9802,10 +9821,10 @@ function compactField(arr) {
 }
 module.exports = compactField;
 
-},{}],"jhUEF":[function(require,module,exports) {
+},{}],"jhUEF":[function(require,module,exports,__globalThis) {
 "use strict";
 
-},{}],"5w9Yd":[function(require,module,exports) {
+},{}],"5w9Yd":[function(require,module,exports,__globalThis) {
 "use strict";
 var __awaiter = this && this.__awaiter || function(thisArg, _arguments, P, generator) {
     function adopt(value) {
@@ -10037,11 +10056,11 @@ class AnalyticNodeManagerService {
             const followedEntity = yield this.getFollowedEntity(analyticId);
             const entity = yield this.getEntityFromAnalytic(analyticId);
             const analyticNode = spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(analyticId);
-            if (!analyticNode) throw new Error("No analytic node found");
-            if (!config) throw new Error("No config node found");
-            if (!trackingMethod) throw new Error("No tracking method node found");
-            if (!followedEntity) throw new Error("No followed entity node found");
-            if (!entity) throw new Error("No entity node found");
+            if (!analyticNode) throw new Error('No analytic node found');
+            if (!config) throw new Error('No config node found');
+            if (!trackingMethod) throw new Error('No tracking method node found');
+            if (!followedEntity) throw new Error('No followed entity node found');
+            if (!entity) throw new Error('No entity node found');
             const configNode = spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(config.id.get());
             const trackingMethodNode = spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(trackingMethod.id.get());
             const configCategoryAttributes = (yield spinal_env_viewer_plugin_documentation_service_1.attributeService.getCategory(configNode)).map((el)=>{
@@ -10084,8 +10103,8 @@ class AnalyticNodeManagerService {
      */ addInputsNode(analyticId, contextId) {
         return __awaiter(this, void 0, void 0, function*() {
             const inputsInfo = {
-                name: "Inputs",
-                description: "",
+                name: 'Inputs',
+                description: '',
                 type: CONSTANTS.INPUTS_TYPE
             };
             const inputsModel = new InputsModel_1.InputsModel(inputsInfo);
@@ -10104,8 +10123,8 @@ class AnalyticNodeManagerService {
      */ addOutputsNode(analyticId, contextId) {
         return __awaiter(this, void 0, void 0, function*() {
             const outputsInfo = {
-                name: "Outputs",
-                description: "",
+                name: 'Outputs',
+                description: '',
                 type: CONSTANTS.OUTPUTS_TYPE
             };
             const outputsModel = new OutputsModel_1.OutputsModel(outputsInfo);
@@ -10169,7 +10188,7 @@ class AnalyticNodeManagerService {
      */ addConfig(configAttributes, analyticId, contextId) {
         return __awaiter(this, void 0, void 0, function*() {
             const configNodeInfo = {
-                name: "Config",
+                name: 'Config',
                 type: CONSTANTS.CONFIG_TYPE
             };
             const configModel = new ConfigModel_1.ConfigModel(configNodeInfo);
@@ -10206,7 +10225,7 @@ class AnalyticNodeManagerService {
     addInputTrackingMethod(trackingMethodAttributes, contextId, analyticId) {
         return __awaiter(this, void 0, void 0, function*() {
             const inputs = yield this.getInputsNode(analyticId);
-            if (inputs === undefined) throw Error("Inputs node not found");
+            if (inputs === undefined) throw Error('Inputs node not found');
             return this.addTrackingMethod(trackingMethodAttributes, contextId, inputs.id.get());
         });
     }
@@ -10250,7 +10269,7 @@ class AnalyticNodeManagerService {
      */ addTrackingMethod(trackingMethodAttributes, contextId, inputId) {
         return __awaiter(this, void 0, void 0, function*() {
             const trackingMethodNodeInfo = {
-                name: "TrackingMethod",
+                name: 'TrackingMethod',
                 type: CONSTANTS.TRACKING_METHOD_TYPE
             };
             const trackingMethodModel = new TrackingMethodModel_1.TrackingMethodModel(trackingMethodNodeInfo);
@@ -10284,7 +10303,7 @@ class AnalyticNodeManagerService {
      */ removeInputTrackingMethod(analyticId, trackingMethodId) {
         return __awaiter(this, void 0, void 0, function*() {
             const inputs = yield this.getInputsNode(analyticId);
-            if (inputs === undefined) throw Error("Inputs node not found");
+            if (inputs === undefined) throw Error('Inputs node not found');
             yield this.removeTrackingMethod(inputs.id.get(), trackingMethodId);
         });
     }
@@ -10314,7 +10333,7 @@ class AnalyticNodeManagerService {
      */ addInputLinkToFollowedEntity(contextId, analyticId, followedEntityId) {
         return __awaiter(this, void 0, void 0, function*() {
             const inputs = yield this.getInputsNode(analyticId);
-            if (inputs === undefined) throw Error("Inputs node not found");
+            if (inputs === undefined) throw Error('Inputs node not found');
             return this.addLinkToFollowedEntity(contextId, inputs.id.get(), followedEntityId);
         });
     }
@@ -10329,7 +10348,7 @@ class AnalyticNodeManagerService {
      */ removeLinkToFollowedEntity(analyticId, followedEntityId) {
         return __awaiter(this, void 0, void 0, function*() {
             const inputNodeRef = yield this.getInputsNode(analyticId);
-            if (inputNodeRef === undefined) throw Error("Inputs node not found");
+            if (inputNodeRef === undefined) throw Error('Inputs node not found');
             yield spinal_env_viewer_graph_service_1.SpinalGraphService.removeChild(inputNodeRef.id.get(), followedEntityId, CONSTANTS.ANALYTIC_INPUTS_TO_FOLLOWED_ENTITY_RELATION, spinal_env_viewer_graph_service_1.SPINAL_RELATION_PTR_LST_TYPE);
         });
     }
@@ -10361,7 +10380,7 @@ class AnalyticNodeManagerService {
      * @memberof AnalyticService
      */ addAttributesToNode(node, attributes) {
         return __awaiter(this, void 0, void 0, function*() {
-            for (const categoryName of Object.keys(attributes))for (const attribute of attributes[categoryName])yield spinal_env_viewer_plugin_documentation_service_1.default.addAttributeByCategoryName(node, categoryName, attribute.name, attribute.value, attribute.type, "");
+            for (const categoryName of Object.keys(attributes))for (const attribute of attributes[categoryName])yield spinal_env_viewer_plugin_documentation_service_1.default.addAttributeByCategoryName(node, categoryName, attribute.name, attribute.value, attribute.type, '');
         });
     }
     /**
@@ -10455,7 +10474,7 @@ class AnalyticNodeManagerService {
 }
 exports.default = AnalyticNodeManagerService;
 
-},{"c3a59c8970091084":"9n7zp","6c67449c51cd01":"2CVgx","d5f7a1fec079d05c":"eVs5c","94b49308811f97f8":"9ovXf","4521602391679e75":"4rJ3F","105589ec012d945b":"fR5zB","a5ef27f319369412":"h4DC9","a05d0a34f760483e":"SIBaV","bb4c818c4c0b9f78":"5rYVR"}],"eVs5c":[function(require,module,exports) {
+},{"c3a59c8970091084":"9n7zp","6c67449c51cd01":"2CVgx","d5f7a1fec079d05c":"eVs5c","94b49308811f97f8":"9ovXf","4521602391679e75":"4rJ3F","105589ec012d945b":"fR5zB","a5ef27f319369412":"h4DC9","a05d0a34f760483e":"SIBaV","bb4c818c4c0b9f78":"5rYVR"}],"eVs5c":[function(require,module,exports,__globalThis) {
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -10472,7 +10491,7 @@ exports.ConfigModel = ConfigModel;
 spinal_core_connectorjs_type_1.spinalCore.register_models(ConfigModel);
 exports.default = ConfigModel;
 
-},{"87f392c163896816":"fRH70"}],"fR5zB":[function(require,module,exports) {
+},{"87f392c163896816":"fRH70"}],"fR5zB":[function(require,module,exports,__globalThis) {
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -10489,7 +10508,7 @@ exports.EntityModel = EntityModel;
 spinal_core_connectorjs_type_1.spinalCore.register_models(EntityModel);
 exports.default = EntityModel;
 
-},{"30b6806a9befdbc5":"fRH70"}],"h4DC9":[function(require,module,exports) {
+},{"30b6806a9befdbc5":"fRH70"}],"h4DC9":[function(require,module,exports,__globalThis) {
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -10506,7 +10525,7 @@ exports.InputsModel = InputsModel;
 spinal_core_connectorjs_type_1.spinalCore.register_models(InputsModel);
 exports.default = InputsModel;
 
-},{"edba9546fee3d09e":"fRH70"}],"SIBaV":[function(require,module,exports) {
+},{"edba9546fee3d09e":"fRH70"}],"SIBaV":[function(require,module,exports,__globalThis) {
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -10523,7 +10542,7 @@ exports.OutputsModel = OutputsModel;
 spinal_core_connectorjs_type_1.spinalCore.register_models(OutputsModel);
 exports.default = OutputsModel;
 
-},{"62a6631c4392c52b":"fRH70"}],"3iXbQ":[function(require,module,exports) {
+},{"62a6631c4392c52b":"fRH70"}],"3iXbQ":[function(require,module,exports,__globalThis) {
 "use strict";
 var __awaiter = this && this.__awaiter || function(thisArg, _arguments, P, generator) {
     function adopt(value) {
@@ -10596,14 +10615,14 @@ class AnalyticInputManagerService {
                     }
                 case CONSTANTS.TRACK_METHOD.ATTRIBUTE_NAME_FILTER:
                     {
-                        const [first, second] = filterValue.split(":");
+                        const [first, second] = filterValue.split(':');
                         const foundAttribute = yield this.findAttribute(followedEntity.id.get(), first, second, depth, strictDepth, authorizedRelations);
                         if (foundAttribute == -1) return undefined;
                         return foundAttribute;
                     //}
                     }
                 default:
-                    console.log("Track method not recognized");
+                    console.log('Track method not recognized');
             }
         });
     }
@@ -10626,17 +10645,17 @@ class AnalyticInputManagerService {
                 return [
                     followedEntity
                 ];
-                if (followedEntity.type.get().includes("group") || followedEntity.type.get().includes("Group")) {
-                    console.log("Anchor entity is a group, trying to find the correct entities with the relation name: ", CONSTANTS.GROUP_RELATION_PREFIX + entityType);
+                if (followedEntity.type.get().includes('group') || followedEntity.type.get().includes('Group')) {
+                    console.log('Anchor entity is a group, trying to find the correct entities with the relation name: ', CONSTANTS.GROUP_RELATION_PREFIX + entityType);
                     return yield spinal_env_viewer_graph_service_1.SpinalGraphService.getChildren(followedEntity.id.get(), [
                         CONSTANTS.GROUP_RELATION_PREFIX + entityType
                     ]);
                 }
-                if (followedEntity.type.get().includes("context") || followedEntity.type.get().includes("Context")) {
-                    console.log("Anchor entity is a context, trying to find the correct entities");
+                if (followedEntity.type.get().includes('context') || followedEntity.type.get().includes('Context')) {
+                    console.log('Anchor entity is a context, trying to find the correct entities');
                     return yield spinal_env_viewer_graph_service_1.SpinalGraphService.findInContextByType(followedEntity.id.get(), followedEntity.id.get(), entityType);
                 }
-                console.log("Failed to deduct the correct entities from the anchor entity");
+                console.log('Failed to deduct the correct entities from the anchor entity');
                 return [];
             }
         });
@@ -10647,17 +10666,17 @@ class AnalyticInputManagerService {
             return [
                 followedEntity
             ];
-            if (followedEntity.type.get().includes("group") || followedEntity.type.get().includes("Group")) {
-                console.log("Anchor entity is a group, trying to find the correct entities with the relation name: ", CONSTANTS.GROUP_RELATION_PREFIX + entityType);
+            if (followedEntity.type.get().includes('group') || followedEntity.type.get().includes('Group')) {
+                console.log('Anchor entity is a group, trying to find the correct entities with the relation name: ', CONSTANTS.GROUP_RELATION_PREFIX + entityType);
                 return yield spinal_env_viewer_graph_service_1.SpinalGraphService.getChildren(followedEntity.id.get(), [
                     CONSTANTS.GROUP_RELATION_PREFIX + entityType
                 ]);
             }
-            if (followedEntity.type.get().includes("context") || followedEntity.type.get().includes("Context")) {
-                console.log("Anchor entity is a context, trying to find the correct entities");
+            if (followedEntity.type.get().includes('context') || followedEntity.type.get().includes('Context')) {
+                console.log('Anchor entity is a context, trying to find the correct entities');
                 return yield spinal_env_viewer_graph_service_1.SpinalGraphService.findInContextByType(followedEntity.id.get(), followedEntity.id.get(), entityType);
             }
-            console.log("Failed to deduct the correct entities from the anchor entity");
+            console.log('Failed to deduct the correct entities from the anchor entity');
             return [];
         });
     }
@@ -10705,12 +10724,12 @@ class AnalyticInputManagerService {
                     }
                 case CONSTANTS.TRACK_METHOD.ATTRIBUTE_NAME_FILTER:
                     {
-                        const [category, attribute] = filterValue.split(":");
+                        const [category, attribute] = filterValue.split(':');
                         const data = yield this.findAttributes(nodeId, category, attribute, depth, stricDepth, authorizedRelations);
                         return data;
                     }
                 default:
-                    console.log("Get available data not implemented yet for this tracking method");
+                    console.log('Get available data not implemented yet for this tracking method');
                     return [];
             }
         });
@@ -10849,7 +10868,7 @@ class AnalyticInputManagerService {
     filterAlgorithmParametersAttributesByIndex(algoParams, indexName) {
         const result = {};
         for(const key in algoParams)if (key.startsWith(indexName)) {
-            const newKey = key.replace(indexName + CONSTANTS.ATTRIBUTE_SEPARATOR, "");
+            const newKey = key.replace(indexName + CONSTANTS.ATTRIBUTE_SEPARATOR, '');
             result[newKey] = algoParams[key];
         }
         return result;
@@ -10876,7 +10895,7 @@ class AnalyticInputManagerService {
                 const assertedValue = currentValue.get();
                 return assertedValue;
             } else {
-                if (Array.isArray(entryDataModel)) throw new Error("Does not support multiple timeseries in 1 input");
+                if (Array.isArray(entryDataModel)) throw new Error('Does not support multiple timeseries in 1 input');
                 const spinalTs = yield this.spinalServiceTimeseries.getOrCreateTimeSeries(entryDataModel.id.get());
                 const end = referenceEpochTime;
                 const start = end - trackingParams[CONSTANTS.ATTRIBUTE_TIMESERIES];
@@ -10897,7 +10916,7 @@ class AnalyticInputManagerService {
             const trackingParams = yield this.analyticNodeManagerService.getAttributesFromNode(trackingMethod.id.get(), inputIndex);
             const entryDataModel = yield this.getEntryDataModelByInputIndex(analyticId, followedEntity, inputIndex, trackingParams[CONSTANTS.ATTRIBUTE_MULTIPLE_MODELS] || false);
             if (!entryDataModel) return undefined;
-            if (trackingParams[CONSTANTS.ATTRIBUTE_TIMESERIES] < 0) throw new Error("Timeseries intervalTime cannot be negative");
+            if (trackingParams[CONSTANTS.ATTRIBUTE_TIMESERIES] < 0) throw new Error('Timeseries intervalTime cannot be negative');
             if (!trackingParams[CONSTANTS.ATTRIBUTE_TIMESERIES] || trackingParams[CONSTANTS.ATTRIBUTE_TIMESERIES] == 0) {
                 //add the current value for each executionTime
                 if (Array.isArray(entryDataModel)) {
@@ -10914,7 +10933,7 @@ class AnalyticInputManagerService {
                     for (const execTime of executionTimes)inputData[execTime] = assertedValue;
                 }
             } else {
-                if (Array.isArray(entryDataModel)) throw new Error("Timeseries and multiple input capture is not compatible");
+                if (Array.isArray(entryDataModel)) throw new Error('Timeseries and multiple input capture is not compatible');
                 // add the timeseries data for each executionTime
                 const oldestTime = Math.min(...executionTimes);
                 const closestTime = Math.max(...executionTimes);
@@ -10941,7 +10960,7 @@ class AnalyticInputManagerService {
             const keys = Object.keys(ioDependencies);
             for (const key of keys){
                 const myDependencies = (_b = (_a = ioDependencies[key]) === null || _a === void 0 ? void 0 : _a.split(CONSTANTS.ATTRIBUTE_VALUE_SEPARATOR)) !== null && _b !== void 0 ? _b : [];
-                for (const dep of myDependencies)if (dep.startsWith("I") && !inputs.includes(dep)) inputs.push(dep);
+                for (const dep of myDependencies)if (dep.startsWith('I') && !inputs.includes(dep)) inputs.push(dep);
             } // end for
             for (const input of inputs){
                 const data = yield this.getFormattedInputData(analyticId, entity, input, executionTimes);
@@ -10989,7 +11008,7 @@ class AnalyticInputManagerService {
 }
 exports.default = AnalyticInputManagerService;
 
-},{"f3ee6fdb863ad814":"9n7zp","c8a76932075cb370":"5rYVR","50479a2175769208":"dcbQz","c7eca02903460257":"3VBF8","7678e0b295c94e80":"2CVgx"}],"3VBF8":[function(require,module,exports) {
+},{"f3ee6fdb863ad814":"9n7zp","c8a76932075cb370":"5rYVR","50479a2175769208":"dcbQz","c7eca02903460257":"3VBF8","7678e0b295c94e80":"2CVgx"}],"3VBF8":[function(require,module,exports,__globalThis) {
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -11007,7 +11026,7 @@ class SingletonServiceTimeseries {
 exports.SingletonServiceTimeseries = SingletonServiceTimeseries;
 SingletonServiceTimeseries.instance = new spinal_model_timeseries_1.SpinalServiceTimeseries();
 
-},{"23feab8669d4c2ca":"hIcty"}],"8Is1I":[function(require,module,exports) {
+},{"23feab8669d4c2ca":"hIcty"}],"8Is1I":[function(require,module,exports,__globalThis) {
 "use strict";
 var __awaiter = this && this.__awaiter || function(thisArg, _arguments, P, generator) {
     function adopt(value) {
@@ -11056,7 +11075,7 @@ class AnalyticOutputManagerService {
     }
     initTwilioManagerService(twilioCredentials) {
         if (!twilioCredentials || !twilioCredentials.accountSid || !twilioCredentials.authToken || !twilioCredentials.fromNumber) return;
-        console.log("Creating twilio manager service instance...");
+        console.log('Creating twilio manager service instance...');
         this.analyticTwilioManagerService = new AnalyticTwilioManagerService_1.default(twilioCredentials.accountSid, twilioCredentials.authToken, twilioCredentials.fromNumber);
     }
     /**
@@ -11076,19 +11095,19 @@ class AnalyticOutputManagerService {
         return __awaiter(this, void 0, void 0, function*() {
             if (result == false) return {
                 success: true,
-                error: "",
+                error: '',
                 resultValue: result,
                 resultType: CONSTANTS.ANALYTIC_RESULT_TYPE.TICKET
             };
             const outputNode = yield this.analyticNodeManagerService.getOutputsNode(analyticId);
             if (!outputNode) return {
                 success: false,
-                error: " Output Node not found"
+                error: ' Output Node not found'
             };
             const analyticContextId = this.analyticNodeManagerService.getContextIdOfAnalytic(analyticId);
             if (!analyticContextId) return {
                 success: false,
-                error: " Analytic context id not found"
+                error: ' Analytic context id not found'
             };
             const ticketInfo = {
                 name: `${configAttributes[CONSTANTS.CATEGORY_ATTRIBUTE_RESULT_PARAMETERS][CONSTANTS.ATTRIBUTE_RESULT_NAME]} : ${followedEntityNode.name.get()}`
@@ -11096,7 +11115,7 @@ class AnalyticOutputManagerService {
             this.addTicketAlarm(ticketInfo, configAttributes, analyticContextId, outputNode.id.get(), followedEntityNode.id.get(), ticketType);
             return {
                 success: true,
-                error: "",
+                error: '',
                 resultValue: result,
                 resultType: CONSTANTS.ANALYTIC_RESULT_TYPE.TICKET
             };
@@ -11116,18 +11135,18 @@ class AnalyticOutputManagerService {
             const controlEndpointNode = yield this.analyticInputManagerService.findEndpoint(followedEntityNode.id.get(), configAttributes[CONSTANTS.CATEGORY_ATTRIBUTE_RESULT_PARAMETERS][CONSTANTS.ATTRIBUTE_RESULT_NAME], 0, true, [], CONSTANTS.CONTROL_ENDPOINT_RELATIONS, CONSTANTS.ENDPOINT_NODE_TYPE);
             if (!controlEndpointNode) return {
                 success: false,
-                error: " Control endpoint node not found"
+                error: ' Control endpoint node not found'
             };
             const controlEndpoint = yield controlEndpointNode.element.load();
             controlEndpoint.currentValue.set(result);
             const bool = yield this.spinalServiceTimeseries.insertFromEndpoint(controlEndpointNode.id.get(), result, referenceEpochTime);
-            if (!bool) throw new Error("Failed to insert data in timeseries");
+            if (!bool) throw new Error('Failed to insert data in timeseries');
             (0, utils_1.logMessage)(`CP ${controlEndpointNode.name.get()} updated with value : ${result} on ${followedEntityNode.name.get()} at ${referenceEpochTime}`);
             //console.log(`CP ${controlEndpointNode.name.get()} updated with value : , ${result},  on , ${followedEntityNode.name.get()}`)
             return {
                 success: true,
                 resultValue: result,
-                error: "",
+                error: '',
                 resultType: CONSTANTS.ANALYTIC_RESULT_TYPE.CONTROL_ENDPOINT
             };
         });
@@ -11146,13 +11165,13 @@ class AnalyticOutputManagerService {
             let endpointNode = yield this.analyticInputManagerService.findEndpoint(followedEntityNode.id.get(), configAttributes[CONSTANTS.CATEGORY_ATTRIBUTE_RESULT_PARAMETERS][CONSTANTS.ATTRIBUTE_RESULT_NAME], 0, true, [], CONSTANTS.ENDPOINT_RELATIONS, CONSTANTS.ENDPOINT_NODE_TYPE);
             if (!endpointNode && !configAttributes[CONSTANTS.CATEGORY_ATTRIBUTE_RESULT_PARAMETERS][CONSTANTS.ATTRIBUTE_CREATE_ENDPOINT_IF_NOT_EXIST]) return {
                 success: false,
-                error: "Endpoint node not found"
+                error: 'Endpoint node not found'
             };
             if (!endpointNode) {
                 endpointNode = yield this.createEndpoint(referenceEpochTime, followedEntityNode.id.get(), configAttributes[CONSTANTS.CATEGORY_ATTRIBUTE_RESULT_PARAMETERS][CONSTANTS.ATTRIBUTE_RESULT_NAME], result, configAttributes[CONSTANTS.CATEGORY_ATTRIBUTE_ENDPOINT_PARAMETERS][CONSTANTS.ATTRIBUTE_CREATE_ENDPOINT_UNIT], configAttributes[CONSTANTS.CATEGORY_ATTRIBUTE_ENDPOINT_PARAMETERS][CONSTANTS.ATTRIBUTE_CREATE_ENDPOINT_MAX_DAYS]);
                 if (!endpointNode) return {
                     success: false,
-                    error: "Failed endpoint creation"
+                    error: 'Failed endpoint creation'
                 };
             }
             const endpoint = yield endpointNode.element.load();
@@ -11160,13 +11179,13 @@ class AnalyticOutputManagerService {
             const bool = yield this.spinalServiceTimeseries.insertFromEndpoint(endpointNode.id.get(), result, referenceEpochTime);
             if (!bool) return {
                 success: false,
-                error: "Failed to insert data in timeseries"
+                error: 'Failed to insert data in timeseries'
             };
             (0, utils_1.logMessage)(`EP ${endpointNode.name.get()} updated with value : ${result} on ${followedEntityNode.name.get()} at ${referenceEpochTime}`);
             return {
                 success: true,
                 resultValue: result,
-                error: "",
+                error: '',
                 resultType: CONSTANTS.ANALYTIC_RESULT_TYPE.ENDPOINT
             };
         });
@@ -11184,24 +11203,24 @@ class AnalyticOutputManagerService {
         return __awaiter(this, void 0, void 0, function*() {
             if (!this.analyticTwilioManagerService) return {
                 success: false,
-                error: "Twilio parameters not found"
+                error: 'Twilio parameters not found'
             };
             if (result == false) return {
                 success: true,
                 resultValue: result,
-                error: "",
+                error: '',
                 resultType: CONSTANTS.ANALYTIC_RESULT_TYPE.SMS
             };
-            console.log("SMS result");
+            console.log('SMS result');
             const twilioParams = configAttributes[CONSTANTS.CATEGORY_ATTRIBUTE_TWILIO_PARAMETERS];
             const toNumber = twilioParams[CONSTANTS.ATTRIBUTE_PHONE_NUMBER];
             let message = twilioParams[CONSTANTS.ATTRIBUTE_PHONE_MESSAGE];
             const variables = message.match(/[^{}]+(?=\})/g);
             if (variables) for (const variable of variables){
                 const value = yield this.analyticInputManagerService.getFormattedInputDataByIndex(analyticId, followedEntityNode, variable);
-                message = message.replace(`{${variable}}`, "" + value);
+                message = message.replace(`{${variable}}`, '' + value);
             }
-            const entityName = followedEntityNode.name.get().replace(/[0-9]/g, "*");
+            const entityName = followedEntityNode.name.get().replace(/[0-9]/g, '*');
             const axiosResult = yield this.analyticTwilioManagerService.sendMessage(message, toNumber, entityName);
             console.log({
                 status: axiosResult.status,
@@ -11210,18 +11229,18 @@ class AnalyticOutputManagerService {
             return {
                 success: true,
                 resultValue: result,
-                error: "",
+                error: '',
                 resultType: CONSTANTS.ANALYTIC_RESULT_TYPE.SMS
             };
         });
     }
     handleGChatMessageResult(result, analyticId, configAttributes, followedEntityNode) {
         return __awaiter(this, void 0, void 0, function*() {
-            console.log("Handling Google chat message result");
+            console.log('Handling Google chat message result');
             if (result == false) return {
                 success: true,
                 resultValue: result,
-                error: "",
+                error: '',
                 resultType: CONSTANTS.ANALYTIC_RESULT_TYPE.GCHAT_MESSAGE
             };
             const analyticParams = configAttributes[CONSTANTS.CATEGORY_ATTRIBUTE_ANALYTIC_PARAMETERS];
@@ -11232,138 +11251,216 @@ class AnalyticOutputManagerService {
             const variables = message.match(/[^{}]+(?=\})/g);
             if (variables) for (const variable of variables){
                 const value = yield this.analyticInputManagerService.getFormattedInputDataByIndex(analyticId, followedEntityNode, variable);
-                message = message.replace(`{${variable}}`, "" + value);
+                message = message.replace(`{${variable}}`, '' + value);
             }
             const resultInfo = {
                 success: true,
                 resultValue: result,
-                error: "",
+                error: '',
                 spaceName: spaceName,
-                message: "The following message has been triggered by an analytic.\n \nAnalysis on item : " + followedEntityNode.name.get() + "\nDescription : " + analyticDescription + "\nMessage : " + message,
+                message: "The following message has been triggered by an analytic.\n \nAnalysis on item : " + followedEntityNode.name.get() + '\nDescription : ' + analyticDescription + '\nMessage : ' + message,
                 resultType: CONSTANTS.ANALYTIC_RESULT_TYPE.GCHAT_MESSAGE
             };
             return resultInfo;
         });
     }
     handleGChatOrganCardResult(result, analyticId, configAttributes, followedEntityNode) {
-        var _a, _b, _c, _d, _e;
+        var _a, _b;
         return __awaiter(this, void 0, void 0, function*() {
-            console.log("Handling Google chat organ card result");
+            console.log('Handling Google chat organ message result');
             if (result == false) return {
                 success: true,
                 resultValue: result,
-                error: "",
+                error: '',
                 resultType: CONSTANTS.ANALYTIC_RESULT_TYPE.GCHAT_MESSAGE
             };
-            const analyticParams = configAttributes[CONSTANTS.CATEGORY_ATTRIBUTE_ANALYTIC_PARAMETERS];
-            const resultParams = configAttributes[CONSTANTS.CATEGORY_ATTRIBUTE_RESULT_PARAMETERS];
             const gChatParams = configAttributes[CONSTANTS.CATEGORY_ATTRIBUTE_GCHAT_PARAMETERS];
-            const title = resultParams[CONSTANTS.ATTRIBUTE_RESULT_NAME];
             const spaceName = gChatParams[CONSTANTS.ATTRIBUTE_GCHAT_SPACE];
             let message = gChatParams[CONSTANTS.ATTRIBUTE_GCHAT_MESSAGE];
             const variables = message.match(/[^{}]+(?=\})/g);
             if (variables) for (const variable of variables){
                 const value = yield this.analyticInputManagerService.getFormattedInputDataByIndex(analyticId, followedEntityNode, variable);
-                message = message.replace(`{${variable}}`, "" + value);
+                message = message.replace(`{${variable}}`, '' + value);
             }
-            const analyticDescription = analyticParams[CONSTANTS.ATTRIBUTE_ANALYTIC_DESCRIPTION];
-            const lastPing = yield this.analyticInputManagerService.findEndpoint(followedEntityNode.id.get(), "last_ping", 0, true, [], CONSTANTS.ENDPOINT_RELATIONS, CONSTANTS.ENDPOINT_NODE_TYPE);
+            const lastPing = yield this.analyticInputManagerService.findEndpoint(followedEntityNode.id.get(), 'last_ping', 0, true, [], CONSTANTS.ENDPOINT_RELATIONS, CONSTANTS.ENDPOINT_NODE_TYPE);
             if (!lastPing) return {
                 success: false,
-                error: "endpoint lastPing not found on organ node"
+                error: 'endpoint lastPing not found on organ node'
             };
+            const organ_attributes = yield this.analyticNodeManagerService.getAllCategoriesAndAttributesFromNode(followedEntityNode.id.get());
+            const ipAddress = organ_attributes['info']['ip_adress'] || "Couldn't find the ip address";
             const lastPingValue = yield this.analyticInputManagerService.getValueModelFromEntry(lastPing);
             const lastPingDate = new Date(lastPingValue.get()).toString();
-            const parents = yield spinal_env_viewer_graph_service_1.SpinalGraphService.getParents(followedEntityNode.id.get(), "HasOrgan");
-            let platformName = "Couldn't find the platform name";
-            let ipAddress = "Couldn't find the ip adress";
+            const parents = yield spinal_env_viewer_graph_service_1.SpinalGraphService.getParents(followedEntityNode.id.get(), 'HasOrgan');
+            let platformName = "";
+            let contact_email = "";
             for (const parent of parents)if (parent.id.get() == ((_a = followedEntityNode.platformId) === null || _a === void 0 ? void 0 : _a.get())) {
-                platformName = (_b = parent.name) === null || _b === void 0 ? void 0 : _b.get();
-                ipAddress = (_c = parent.ipAdress) === null || _c === void 0 ? void 0 : _c.get();
+                const platform_attributes = yield this.analyticNodeManagerService.getAllCategoriesAndAttributesFromNode(parent.id.get());
+                platformName = platform_attributes['info']['name'] || "Couldn't find the platform name";
+                contact_email = platform_attributes['info']['contact_email'] || "Couldn't find the contact email";
             }
-            const card = {
-                header: {
-                    title: title,
-                    subtitle: new Date().toLocaleDateString()
-                },
-                sections: [
-                    {
-                        header: "Analytic details",
-                        widgets: [
-                            {
-                                keyValue: {
-                                    topLabel: "Analytic description",
-                                    content: analyticDescription
-                                }
-                            },
-                            {
-                                keyValue: {
-                                    topLabel: "Message",
-                                    content: message
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        header: "Organ details",
-                        widgets: [
-                            {
-                                keyValue: {
-                                    topLabel: "Organ name",
-                                    content: followedEntityNode.name.get()
-                                }
-                            },
-                            {
-                                keyValue: {
-                                    topLabel: "Organ type",
-                                    content: (_d = followedEntityNode.organType) === null || _d === void 0 ? void 0 : _d.get()
-                                }
-                            },
-                            {
-                                keyValue: {
-                                    topLabel: "Last ping",
-                                    content: lastPingDate
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        header: "Platform details",
-                        widgets: [
-                            {
-                                keyValue: {
-                                    topLabel: "Platform name",
-                                    content: platformName
-                                }
-                            },
-                            {
-                                keyValue: {
-                                    topLabel: "Platform id",
-                                    content: (_e = followedEntityNode.platformId) === null || _e === void 0 ? void 0 : _e.get()
-                                }
-                            },
-                            {
-                                keyValue: {
-                                    topLabel: "Ip Address",
-                                    content: ipAddress
-                                }
-                            }
-                        ]
-                    }
-                ]
-            };
             const resultInfo = {
                 success: true,
                 resultValue: result,
-                error: "",
+                error: '',
                 spaceName: spaceName,
-                resultType: CONSTANTS.ANALYTIC_RESULT_TYPE.GCHAT_ORGAN_CARD,
-                card: card
+                message: "The following message has been triggered by an analytic.\n \nMessage : " + message + '\n' + '\n Platform name : ' + platformName + '\n Organ name : ' + followedEntityNode.name.get() + '\n Organ type : ' + ((_b = followedEntityNode.organType) === null || _b === void 0 ? void 0 : _b.get()) + '\n Contact email : ' + contact_email + '\n Ip Address : ' + ipAddress + '\n Last ping date : ' + lastPingDate,
+                resultType: CONSTANTS.ANALYTIC_RESULT_TYPE.GCHAT_MESSAGE
             };
             return resultInfo;
         });
     }
-    /**
+    /*public async handleGChatOrganCardResult(
+      result: any,
+      analyticId: string,
+      configAttributes: any,
+      followedEntityNode: SpinalNodeRef
+    ): Promise<IResult> {
+      console.log('Handling Google chat organ card result');
+  
+      if (result == false)
+        return {
+          success: true,
+          resultValue: result,
+          error: '',
+          resultType: CONSTANTS.ANALYTIC_RESULT_TYPE.GCHAT_MESSAGE,
+        };
+  
+      const analyticParams =
+        configAttributes[CONSTANTS.CATEGORY_ATTRIBUTE_ANALYTIC_PARAMETERS];
+      const resultParams =
+        configAttributes[CONSTANTS.CATEGORY_ATTRIBUTE_RESULT_PARAMETERS];
+      const gChatParams =
+        configAttributes[CONSTANTS.CATEGORY_ATTRIBUTE_GCHAT_PARAMETERS];
+  
+      const title = resultParams[CONSTANTS.ATTRIBUTE_RESULT_NAME];
+      const spaceName: string = gChatParams[CONSTANTS.ATTRIBUTE_GCHAT_SPACE];
+      let message: string = gChatParams[CONSTANTS.ATTRIBUTE_GCHAT_MESSAGE];
+      const variables = message.match(/[^{}]+(?=\})/g);
+      if (variables) {
+        for (const variable of variables) {
+          const value =
+            await this.analyticInputManagerService.getFormattedInputDataByIndex(
+              analyticId,
+              followedEntityNode,
+              variable
+            );
+          message = message.replace(`{${variable}}`, '' + value);
+        }
+      }
+      const analyticDescription: string =
+        analyticParams[CONSTANTS.ATTRIBUTE_ANALYTIC_DESCRIPTION];
+  
+      const lastPing = await this.analyticInputManagerService.findEndpoint(
+        followedEntityNode.id.get(),
+        'last_ping',
+        0,
+        true,
+        [],
+        CONSTANTS.ENDPOINT_RELATIONS,
+        CONSTANTS.ENDPOINT_NODE_TYPE
+      );
+      if (!lastPing)
+        return {
+          success: false,
+          error: 'endpoint lastPing not found on organ node',
+        };
+      const lastPingValue =
+        await this.analyticInputManagerService.getValueModelFromEntry(lastPing);
+      const lastPingDate = new Date(lastPingValue.get()).toString();
+      const parents = await SpinalGraphService.getParents(
+        followedEntityNode.id.get(),
+        'HasOrgan'
+      );
+      let platformName = "Couldn't find the platform name";
+      let ipAddress = "Couldn't find the ip adress";
+      for (const parent of parents) {
+        if (parent.id.get() == followedEntityNode.platformId?.get()) {
+          platformName = parent.name?.get();
+          ipAddress = parent.ipAdress?.get();
+        }
+      }
+      const card: IGChatCard = {
+        header: {
+          title: title,
+          subtitle: new Date().toLocaleDateString(),
+        },
+        sections: [
+          {
+            header: 'Analytic details',
+            widgets: [
+              {
+                keyValue: {
+                  topLabel: 'Analytic description',
+                  content: analyticDescription,
+                },
+              },
+              {
+                keyValue: {
+                  topLabel: 'Message',
+                  content: message,
+                },
+              },
+            ],
+          },
+          {
+            header: 'Organ details',
+            widgets: [
+              {
+                keyValue: {
+                  topLabel: 'Organ name',
+                  content: followedEntityNode.name.get(),
+                },
+              },
+              {
+                keyValue: {
+                  topLabel: 'Organ type',
+                  content: followedEntityNode.organType?.get(),
+                },
+              },
+              {
+                keyValue: {
+                  topLabel: 'Last ping',
+                  content: lastPingDate,
+                },
+              },
+            ],
+          },
+          {
+            header: 'Platform details',
+            widgets: [
+              {
+                keyValue: {
+                  topLabel: 'Platform name',
+                  content: platformName,
+                },
+              },
+              {
+                keyValue: {
+                  topLabel: 'Platform id',
+                  content: followedEntityNode.platformId?.get(),
+                },
+              },
+              {
+                keyValue: {
+                  topLabel: 'Ip Address',
+                  content: ipAddress,
+                },
+              },
+            ],
+          },
+        ],
+      };
+      const resultInfo: IGChatOrganCardResult = {
+        success: true,
+        resultValue: result,
+        error: '',
+        spaceName: spaceName,
+        resultType: CONSTANTS.ANALYTIC_RESULT_TYPE.GCHAT_ORGAN_CARD,
+        card: card,
+      };
+      return resultInfo;
+    }*/ /**
      * Applies the result of an algorithm.
      *
      * @param {*} result The result of the algorithm used.
@@ -11376,16 +11473,16 @@ class AnalyticOutputManagerService {
         return __awaiter(this, void 0, void 0, function*() {
             if (result === undefined) return {
                 success: false,
-                error: "Result is undefined"
+                error: 'Result is undefined'
             };
             //const params = configAttributes[CONSTANTS.CATEGORY_ATTRIBUTE_RESULT_PARAMETERS];
             switch(configAttributes[CONSTANTS.CATEGORY_ATTRIBUTE_RESULT_PARAMETERS][CONSTANTS.ATTRIBUTE_RESULT_TYPE]){
                 case CONSTANTS.ANALYTIC_RESULT_TYPE.TICKET:
-                    yield this.handleTicketResult(result, analyticId, configAttributes, followedEntityNode, "Ticket");
+                    yield this.handleTicketResult(result, analyticId, configAttributes, followedEntityNode, 'Ticket');
                     return {
                         success: true,
                         resultValue: result,
-                        error: "",
+                        error: '',
                         resultType: CONSTANTS.ANALYTIC_RESULT_TYPE.TICKET
                     };
                 case CONSTANTS.ANALYTIC_RESULT_TYPE.CONTROL_ENDPOINT:
@@ -11393,7 +11490,7 @@ class AnalyticOutputManagerService {
                     return {
                         success: true,
                         resultValue: result,
-                        error: "",
+                        error: '',
                         resultType: CONSTANTS.ANALYTIC_RESULT_TYPE.CONTROL_ENDPOINT
                     };
                 case CONSTANTS.ANALYTIC_RESULT_TYPE.ENDPOINT:
@@ -11401,11 +11498,11 @@ class AnalyticOutputManagerService {
                     return {
                         success: true,
                         resultValue: result,
-                        error: "",
+                        error: '',
                         resultType: CONSTANTS.ANALYTIC_RESULT_TYPE.ENDPOINT
                     };
                 case CONSTANTS.ANALYTIC_RESULT_TYPE.ALARM:
-                    return yield this.handleTicketResult(result, analyticId, configAttributes, followedEntityNode, "Alarm");
+                    return yield this.handleTicketResult(result, analyticId, configAttributes, followedEntityNode, 'Alarm');
                 case CONSTANTS.ANALYTIC_RESULT_TYPE.SMS:
                     return yield this.handleSMSResult(result, analyticId, configAttributes, followedEntityNode);
                 case CONSTANTS.ANALYTIC_RESULT_TYPE.LOG:
@@ -11413,7 +11510,7 @@ class AnalyticOutputManagerService {
                     return {
                         success: true,
                         resultValue: result,
-                        error: "",
+                        error: '',
                         resultType: CONSTANTS.ANALYTIC_RESULT_TYPE.LOG
                     };
                 case CONSTANTS.ANALYTIC_RESULT_TYPE.GCHAT_MESSAGE:
@@ -11423,7 +11520,7 @@ class AnalyticOutputManagerService {
                 default:
                     return {
                         success: false,
-                        error: "Result type not recognized"
+                        error: 'Result type not recognized'
                     };
             }
         });
@@ -11435,7 +11532,7 @@ class AnalyticOutputManagerService {
      * @param {string} contextId
      * @return {*}
      */ getTicketContext(contextId) {
-        const contexts = spinal_env_viewer_graph_service_1.SpinalGraphService.getContextWithType("SpinalSystemServiceTicket");
+        const contexts = spinal_env_viewer_graph_service_1.SpinalGraphService.getContextWithType('SpinalSystemServiceTicket');
         const context = contexts.find((ctx)=>{
             return ctx.info.id.get() == contextId;
         });
@@ -11485,16 +11582,16 @@ class AnalyticOutputManagerService {
             if (alreadyDeclared) {
                 //just update the ticket
                 const firstStep = yield spinal_service_ticket_1.serviceTicketPersonalized.getFirstStep(processId, contextId);
-                console.log("update ticket " + ticketInfos.name);
+                console.log('update ticket ' + ticketInfos.name);
                 const declaredTicketNode = spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(alreadyDeclared.id);
                 if (declaredTicketNode.info.stepId.get() == firstStep) {
-                    const attr = yield spinal_env_viewer_plugin_documentation_service_1.attributeService.findOneAttributeInCategory(declaredTicketNode, "default", "Occurrence number");
+                    const attr = yield spinal_env_viewer_plugin_documentation_service_1.attributeService.findOneAttributeInCategory(declaredTicketNode, 'default', 'Occurrence number');
                     if (attr != -1) {
                         // found the attribute
                         const value = attr.value.get();
                         const str = value.toString();
                         const newValueInt = parseInt(str) + 1;
-                        yield spinal_env_viewer_plugin_documentation_service_1.attributeService.updateAttribute(declaredTicketNode, "default", "Occurrence number", {
+                        yield spinal_env_viewer_plugin_documentation_service_1.attributeService.updateAttribute(declaredTicketNode, 'default', 'Occurrence number', {
                             value: newValueInt.toString()
                         });
                         yield this.updateEndpointOccurenceNumber(declaredTicketNode, newValueInt);
@@ -11502,25 +11599,25 @@ class AnalyticOutputManagerService {
                 } else {
                     // move the ticket to the first step and reset the occurrence number
                     yield spinal_service_ticket_1.serviceTicketPersonalized.moveTicket(declaredTicketNode.info.id.get(), declaredTicketNode.info.stepId.get(), firstStep, contextId);
-                    yield spinal_env_viewer_plugin_documentation_service_1.attributeService.updateAttribute(declaredTicketNode, "default", "Occurrence number", {
-                        value: "1"
+                    yield spinal_env_viewer_plugin_documentation_service_1.attributeService.updateAttribute(declaredTicketNode, 'default', 'Occurrence number', {
+                        value: '1'
                     });
                     yield this.updateEndpointOccurenceNumber(declaredTicketNode, 1);
                     console.log(`${ticketInfos.name} has been re-triggered and moved back to the first step`);
                 }
             } else {
-                console.log("create ticket " + ticketInfos.name);
+                console.log('create ticket ' + ticketInfos.name);
                 if (process) try {
                     const ticketId = yield spinal_service_ticket_1.spinalServiceTicket.addTicket(ticketInfos, process.id.get(), context.info.id.get(), entityNodeId, ticketType);
                     if (ticketId instanceof Error) return;
-                    if (ticketType == "Alarm") spinal_env_viewer_graph_service_1.SpinalGraphService.addChildInContext(outputNodeId, ticketId, analyticContextId, spinal_service_ticket_1.ALARM_RELATION_NAME, spinal_service_ticket_1.TICKET_RELATION_TYPE);
+                    if (ticketType == 'Alarm') spinal_env_viewer_graph_service_1.SpinalGraphService.addChildInContext(outputNodeId, ticketId, analyticContextId, spinal_service_ticket_1.ALARM_RELATION_NAME, spinal_service_ticket_1.TICKET_RELATION_TYPE);
                     else spinal_env_viewer_graph_service_1.SpinalGraphService.addChildInContext(outputNodeId, ticketId, analyticContextId, spinal_service_ticket_1.TICKET_RELATION_NAME, spinal_service_ticket_1.TICKET_RELATION_TYPE);
-                    if (typeof ticketId === "string") {
+                    if (typeof ticketId === 'string') {
                         const declaredTicketNode = spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(ticketId);
-                        yield spinal_env_viewer_plugin_documentation_service_1.attributeService.updateAttribute(declaredTicketNode, "default", "Occurrence number", {
-                            value: "1"
+                        yield spinal_env_viewer_plugin_documentation_service_1.attributeService.updateAttribute(declaredTicketNode, 'default', 'Occurrence number', {
+                            value: '1'
                         });
-                        const endpoint = new InputDataEndpoint_1.InputDataEndpoint("Occurence number", 1, "", spinal_model_bmsnetwork_1.InputDataEndpointDataType.Integer, spinal_model_bmsnetwork_1.InputDataEndpointType.Alarm);
+                        const endpoint = new InputDataEndpoint_1.InputDataEndpoint('Occurence number', 1, '', spinal_model_bmsnetwork_1.InputDataEndpointDataType.Integer, spinal_model_bmsnetwork_1.InputDataEndpointType.Alarm);
                         const res = new spinal_model_bmsnetwork_1.SpinalBmsEndpoint(endpoint.name, endpoint.path, endpoint.currentValue, endpoint.unit, spinal_model_bmsnetwork_1.InputDataEndpointDataType[endpoint.dataType], spinal_model_bmsnetwork_1.InputDataEndpointType[endpoint.type], endpoint.id);
                         const childId = spinal_env_viewer_graph_service_1.SpinalGraphService.createNode({
                             type: spinal_model_bmsnetwork_1.SpinalBmsEndpoint.nodeTypeName,
@@ -11531,20 +11628,20 @@ class AnalyticOutputManagerService {
                         yield this.spinalServiceTimeseries.pushFromEndpoint(childId, 1);
                     }
                 } catch (error) {
-                    console.log("Ticket creation failed");
+                    console.log('Ticket creation failed');
                 }
             }
         });
     }
     updateEndpointOccurenceNumber(ticketNode, newValue) {
         return __awaiter(this, void 0, void 0, function*() {
-            const endpoints = yield ticketNode.getChildren("hasBmsEndpoint");
+            const endpoints = yield ticketNode.getChildren('hasBmsEndpoint');
             endpoints.map((endpoint)=>__awaiter(this, void 0, void 0, function*() {
                     var _a;
                     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                     // @ts-ignore
                     spinal_env_viewer_graph_service_1.SpinalGraphService._addNode(endpoint);
-                    if (endpoint.info.name.get() == "Occurence number") {
+                    if (endpoint.info.name.get() == 'Occurence number') {
                         this.spinalServiceTimeseries.pushFromEndpoint(endpoint.info.id.get(), newValue);
                         const element = yield (_a = endpoint.element) === null || _a === void 0 ? void 0 : _a.load();
                         element.currentValue.set(newValue);
@@ -11554,7 +11651,7 @@ class AnalyticOutputManagerService {
     }
     createEndpoint(referenceEpochTime, parentId, endpointName, initialValue, unit, maxDays) {
         return __awaiter(this, void 0, void 0, function*() {
-            const endpoint = new InputDataEndpoint_1.InputDataEndpoint(endpointName, initialValue, unit !== null && unit !== void 0 ? unit : "", spinal_model_bmsnetwork_1.InputDataEndpointDataType.Integer, spinal_model_bmsnetwork_1.InputDataEndpointType.Other);
+            const endpoint = new InputDataEndpoint_1.InputDataEndpoint(endpointName, initialValue, unit !== null && unit !== void 0 ? unit : '', spinal_model_bmsnetwork_1.InputDataEndpointDataType.Integer, spinal_model_bmsnetwork_1.InputDataEndpointType.Other);
             const res = new spinal_model_bmsnetwork_1.SpinalBmsEndpoint(endpoint.name, endpoint.path, endpoint.currentValue, endpoint.unit, spinal_model_bmsnetwork_1.InputDataEndpointDataType[endpoint.dataType], spinal_model_bmsnetwork_1.InputDataEndpointType[endpoint.type], endpoint.id);
             const childId = spinal_env_viewer_graph_service_1.SpinalGraphService.createNode({
                 type: spinal_model_bmsnetwork_1.SpinalBmsEndpoint.nodeTypeName,
@@ -11564,7 +11661,7 @@ class AnalyticOutputManagerService {
             yield this.spinalServiceTimeseries.getOrCreateTimeSeries(childId);
             yield this.spinalServiceTimeseries.insertFromEndpoint(childId, initialValue, referenceEpochTime);
             const realNode = spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(childId);
-            yield spinal_env_viewer_plugin_documentation_service_1.attributeService.updateAttribute(realNode, "default", "timeSeries maxDay", {
+            yield spinal_env_viewer_plugin_documentation_service_1.attributeService.updateAttribute(realNode, 'default', 'timeSeries maxDay', {
                 value: maxDays
             });
             return spinal_env_viewer_graph_service_1.SpinalGraphService.getInfo(childId);
@@ -11573,7 +11670,7 @@ class AnalyticOutputManagerService {
 }
 exports.default = AnalyticOutputManagerService;
 
-},{"9c3790ecd89717f1":"3VBF8","867ef50e99cc3884":"lACKa","d7798a8526e25607":"5rYVR","77bfefaf799d0bfe":"l7xEW","67b5433537ce916f":"gzkbg","4814c03ba9f614ac":"9n7zp","975f1411a9144777":"3BNTc","7edecf8529f34667":"2CVgx","cc6c6389418d336f":"gi7V0"}],"lACKa":[function(require,module,exports) {
+},{"9c3790ecd89717f1":"3VBF8","867ef50e99cc3884":"lACKa","d7798a8526e25607":"5rYVR","77bfefaf799d0bfe":"l7xEW","67b5433537ce916f":"gzkbg","4814c03ba9f614ac":"9n7zp","975f1411a9144777":"3BNTc","7edecf8529f34667":"2CVgx","cc6c6389418d336f":"gi7V0"}],"lACKa":[function(require,module,exports,__globalThis) {
 "use strict";
 var __awaiter = this && this.__awaiter || function(thisArg, _arguments, P, generator) {
     function adopt(value) {
@@ -11622,9 +11719,9 @@ class TwilioManagerService {
                 To: toNumber
             };
             const config = {
-                method: "POST",
+                method: 'POST',
                 headers: {
-                    "content-type": "application/x-www-form-urlencoded"
+                    'content-type': 'application/x-www-form-urlencoded'
                 },
                 auth: {
                     username: this.twilioAccountSid,
@@ -11640,8 +11737,8 @@ class TwilioManagerService {
 }
 exports.default = TwilioManagerService;
 
-},{"64dc60951ebbbfae":"jo6P5","d5e6c8edff8e97bd":"kW4GH"}],"kW4GH":[function(require,module,exports) {
-"use strict";
+},{"64dc60951ebbbfae":"jo6P5","d5e6c8edff8e97bd":"kW4GH"}],"kW4GH":[function(require,module,exports,__globalThis) {
+'use strict';
 var stringify = require("a472ccaa2f2351e9");
 var parse = require("7ffa4249597bf32b");
 var formats = require("454df9476704f887");
@@ -11651,19 +11748,19 @@ module.exports = {
     stringify: stringify
 };
 
-},{"a472ccaa2f2351e9":"aJuQi","7ffa4249597bf32b":"fSZqi","454df9476704f887":"d7Ogf"}],"aJuQi":[function(require,module,exports) {
-"use strict";
+},{"a472ccaa2f2351e9":"aJuQi","7ffa4249597bf32b":"fSZqi","454df9476704f887":"d7Ogf"}],"aJuQi":[function(require,module,exports,__globalThis) {
+'use strict';
 var getSideChannel = require("6246bbb805756d41");
 var utils = require("44263cc7b702ebf");
 var formats = require("929f8531a94a537c");
 var has = Object.prototype.hasOwnProperty;
 var arrayPrefixGenerators = {
     brackets: function brackets(prefix) {
-        return prefix + "[]";
+        return prefix + '[]';
     },
-    comma: "comma",
+    comma: 'comma',
     indices: function indices(prefix, key) {
-        return prefix + "[" + key + "]";
+        return prefix + '[' + key + ']';
     },
     repeat: function repeat(prefix) {
         return prefix;
@@ -11677,19 +11774,21 @@ var pushToArray = function(arr, valueOrArray) {
     ]);
 };
 var toISO = Date.prototype.toISOString;
-var defaultFormat = formats["default"];
+var defaultFormat = formats['default'];
 var defaults = {
     addQueryPrefix: false,
     allowDots: false,
     allowEmptyArrays: false,
-    arrayFormat: "indices",
-    charset: "utf-8",
+    arrayFormat: 'indices',
+    charset: 'utf-8',
     charsetSentinel: false,
-    delimiter: "&",
+    commaRoundTrip: false,
+    delimiter: '&',
     encode: true,
     encodeDotInKeys: false,
     encoder: utils.encode,
     encodeValuesOnly: false,
+    filter: void 0,
     format: defaultFormat,
     formatter: formats.formatters[defaultFormat],
     // deprecated
@@ -11701,7 +11800,7 @@ var defaults = {
     strictNullHandling: false
 };
 var isNonNullishPrimitive = function isNonNullishPrimitive(v) {
-    return typeof v === "string" || typeof v === "number" || typeof v === "boolean" || typeof v === "symbol" || typeof v === "bigint";
+    return typeof v === 'string' || typeof v === 'number' || typeof v === 'boolean' || typeof v === 'symbol' || typeof v === 'bigint';
 };
 var sentinel = {};
 var stringify = function stringify(object, prefix, generateArrayPrefix, commaRoundTrip, allowEmptyArrays, strictNullHandling, skipNulls, encodeDotInKeys, encoder, filter, sort, allowDots, serializeDate, format, formatter, encodeValuesOnly, charset, sideChannel) {
@@ -11713,42 +11812,42 @@ var stringify = function stringify(object, prefix, generateArrayPrefix, commaRou
         // Where object last appeared in the ref tree
         var pos = tmpSc.get(object);
         step += 1;
-        if (typeof pos !== "undefined") {
-            if (pos === step) throw new RangeError("Cyclic object value");
+        if (typeof pos !== 'undefined') {
+            if (pos === step) throw new RangeError('Cyclic object value');
             else findFlag = true; // Break while
         }
-        if (typeof tmpSc.get(sentinel) === "undefined") step = 0;
+        if (typeof tmpSc.get(sentinel) === 'undefined') step = 0;
     }
-    if (typeof filter === "function") obj = filter(prefix, obj);
+    if (typeof filter === 'function') obj = filter(prefix, obj);
     else if (obj instanceof Date) obj = serializeDate(obj);
-    else if (generateArrayPrefix === "comma" && isArray(obj)) obj = utils.maybeMap(obj, function(value) {
+    else if (generateArrayPrefix === 'comma' && isArray(obj)) obj = utils.maybeMap(obj, function(value) {
         if (value instanceof Date) return serializeDate(value);
         return value;
     });
     if (obj === null) {
-        if (strictNullHandling) return encoder && !encodeValuesOnly ? encoder(prefix, defaults.encoder, charset, "key", format) : prefix;
-        obj = "";
+        if (strictNullHandling) return encoder && !encodeValuesOnly ? encoder(prefix, defaults.encoder, charset, 'key', format) : prefix;
+        obj = '';
     }
     if (isNonNullishPrimitive(obj) || utils.isBuffer(obj)) {
         if (encoder) {
-            var keyValue = encodeValuesOnly ? prefix : encoder(prefix, defaults.encoder, charset, "key", format);
+            var keyValue = encodeValuesOnly ? prefix : encoder(prefix, defaults.encoder, charset, 'key', format);
             return [
-                formatter(keyValue) + "=" + formatter(encoder(obj, defaults.encoder, charset, "value", format))
+                formatter(keyValue) + '=' + formatter(encoder(obj, defaults.encoder, charset, 'value', format))
             ];
         }
         return [
-            formatter(prefix) + "=" + formatter(String(obj))
+            formatter(prefix) + '=' + formatter(String(obj))
         ];
     }
     var values = [];
-    if (typeof obj === "undefined") return values;
+    if (typeof obj === 'undefined') return values;
     var objKeys;
-    if (generateArrayPrefix === "comma" && isArray(obj)) {
+    if (generateArrayPrefix === 'comma' && isArray(obj)) {
         // we need to join elements in
         if (encodeValuesOnly && encoder) obj = utils.maybeMap(obj, encoder);
         objKeys = [
             {
-                value: obj.length > 0 ? obj.join(",") || null : void 0
+                value: obj.length > 0 ? obj.join(',') || null : void 0
             }
         ];
     } else if (isArray(filter)) objKeys = filter;
@@ -11756,63 +11855,63 @@ var stringify = function stringify(object, prefix, generateArrayPrefix, commaRou
         var keys = Object.keys(obj);
         objKeys = sort ? keys.sort(sort) : keys;
     }
-    var encodedPrefix = encodeDotInKeys ? prefix.replace(/\./g, "%2E") : prefix;
-    var adjustedPrefix = commaRoundTrip && isArray(obj) && obj.length === 1 ? encodedPrefix + "[]" : encodedPrefix;
-    if (allowEmptyArrays && isArray(obj) && obj.length === 0) return adjustedPrefix + "[]";
+    var encodedPrefix = encodeDotInKeys ? String(prefix).replace(/\./g, '%2E') : String(prefix);
+    var adjustedPrefix = commaRoundTrip && isArray(obj) && obj.length === 1 ? encodedPrefix + '[]' : encodedPrefix;
+    if (allowEmptyArrays && isArray(obj) && obj.length === 0) return adjustedPrefix + '[]';
     for(var j = 0; j < objKeys.length; ++j){
         var key = objKeys[j];
-        var value = typeof key === "object" && typeof key.value !== "undefined" ? key.value : obj[key];
+        var value = typeof key === 'object' && key && typeof key.value !== 'undefined' ? key.value : obj[key];
         if (skipNulls && value === null) continue;
-        var encodedKey = allowDots && encodeDotInKeys ? key.replace(/\./g, "%2E") : key;
-        var keyPrefix = isArray(obj) ? typeof generateArrayPrefix === "function" ? generateArrayPrefix(adjustedPrefix, encodedKey) : adjustedPrefix : adjustedPrefix + (allowDots ? "." + encodedKey : "[" + encodedKey + "]");
+        var encodedKey = allowDots && encodeDotInKeys ? String(key).replace(/\./g, '%2E') : String(key);
+        var keyPrefix = isArray(obj) ? typeof generateArrayPrefix === 'function' ? generateArrayPrefix(adjustedPrefix, encodedKey) : adjustedPrefix : adjustedPrefix + (allowDots ? '.' + encodedKey : '[' + encodedKey + ']');
         sideChannel.set(object, step);
         var valueSideChannel = getSideChannel();
         valueSideChannel.set(sentinel, sideChannel);
-        pushToArray(values, stringify(value, keyPrefix, generateArrayPrefix, commaRoundTrip, allowEmptyArrays, strictNullHandling, skipNulls, encodeDotInKeys, generateArrayPrefix === "comma" && encodeValuesOnly && isArray(obj) ? null : encoder, filter, sort, allowDots, serializeDate, format, formatter, encodeValuesOnly, charset, valueSideChannel));
+        pushToArray(values, stringify(value, keyPrefix, generateArrayPrefix, commaRoundTrip, allowEmptyArrays, strictNullHandling, skipNulls, encodeDotInKeys, generateArrayPrefix === 'comma' && encodeValuesOnly && isArray(obj) ? null : encoder, filter, sort, allowDots, serializeDate, format, formatter, encodeValuesOnly, charset, valueSideChannel));
     }
     return values;
 };
 var normalizeStringifyOptions = function normalizeStringifyOptions(opts) {
     if (!opts) return defaults;
-    if (typeof opts.allowEmptyArrays !== "undefined" && typeof opts.allowEmptyArrays !== "boolean") throw new TypeError("`allowEmptyArrays` option can only be `true` or `false`, when provided");
-    if (typeof opts.encodeDotInKeys !== "undefined" && typeof opts.encodeDotInKeys !== "boolean") throw new TypeError("`encodeDotInKeys` option can only be `true` or `false`, when provided");
-    if (opts.encoder !== null && typeof opts.encoder !== "undefined" && typeof opts.encoder !== "function") throw new TypeError("Encoder has to be a function.");
+    if (typeof opts.allowEmptyArrays !== 'undefined' && typeof opts.allowEmptyArrays !== 'boolean') throw new TypeError('`allowEmptyArrays` option can only be `true` or `false`, when provided');
+    if (typeof opts.encodeDotInKeys !== 'undefined' && typeof opts.encodeDotInKeys !== 'boolean') throw new TypeError('`encodeDotInKeys` option can only be `true` or `false`, when provided');
+    if (opts.encoder !== null && typeof opts.encoder !== 'undefined' && typeof opts.encoder !== 'function') throw new TypeError('Encoder has to be a function.');
     var charset = opts.charset || defaults.charset;
-    if (typeof opts.charset !== "undefined" && opts.charset !== "utf-8" && opts.charset !== "iso-8859-1") throw new TypeError("The charset option must be either utf-8, iso-8859-1, or undefined");
-    var format = formats["default"];
-    if (typeof opts.format !== "undefined") {
-        if (!has.call(formats.formatters, opts.format)) throw new TypeError("Unknown format option provided.");
+    if (typeof opts.charset !== 'undefined' && opts.charset !== 'utf-8' && opts.charset !== 'iso-8859-1') throw new TypeError('The charset option must be either utf-8, iso-8859-1, or undefined');
+    var format = formats['default'];
+    if (typeof opts.format !== 'undefined') {
+        if (!has.call(formats.formatters, opts.format)) throw new TypeError('Unknown format option provided.');
         format = opts.format;
     }
     var formatter = formats.formatters[format];
     var filter = defaults.filter;
-    if (typeof opts.filter === "function" || isArray(opts.filter)) filter = opts.filter;
+    if (typeof opts.filter === 'function' || isArray(opts.filter)) filter = opts.filter;
     var arrayFormat;
     if (opts.arrayFormat in arrayPrefixGenerators) arrayFormat = opts.arrayFormat;
-    else if ("indices" in opts) arrayFormat = opts.indices ? "indices" : "repeat";
+    else if ('indices' in opts) arrayFormat = opts.indices ? 'indices' : 'repeat';
     else arrayFormat = defaults.arrayFormat;
-    if ("commaRoundTrip" in opts && typeof opts.commaRoundTrip !== "boolean") throw new TypeError("`commaRoundTrip` must be a boolean, or absent");
-    var allowDots = typeof opts.allowDots === "undefined" ? opts.encodeDotInKeys === true ? true : defaults.allowDots : !!opts.allowDots;
+    if ('commaRoundTrip' in opts && typeof opts.commaRoundTrip !== 'boolean') throw new TypeError('`commaRoundTrip` must be a boolean, or absent');
+    var allowDots = typeof opts.allowDots === 'undefined' ? opts.encodeDotInKeys === true ? true : defaults.allowDots : !!opts.allowDots;
     return {
-        addQueryPrefix: typeof opts.addQueryPrefix === "boolean" ? opts.addQueryPrefix : defaults.addQueryPrefix,
+        addQueryPrefix: typeof opts.addQueryPrefix === 'boolean' ? opts.addQueryPrefix : defaults.addQueryPrefix,
         allowDots: allowDots,
-        allowEmptyArrays: typeof opts.allowEmptyArrays === "boolean" ? !!opts.allowEmptyArrays : defaults.allowEmptyArrays,
+        allowEmptyArrays: typeof opts.allowEmptyArrays === 'boolean' ? !!opts.allowEmptyArrays : defaults.allowEmptyArrays,
         arrayFormat: arrayFormat,
         charset: charset,
-        charsetSentinel: typeof opts.charsetSentinel === "boolean" ? opts.charsetSentinel : defaults.charsetSentinel,
-        commaRoundTrip: opts.commaRoundTrip,
-        delimiter: typeof opts.delimiter === "undefined" ? defaults.delimiter : opts.delimiter,
-        encode: typeof opts.encode === "boolean" ? opts.encode : defaults.encode,
-        encodeDotInKeys: typeof opts.encodeDotInKeys === "boolean" ? opts.encodeDotInKeys : defaults.encodeDotInKeys,
-        encoder: typeof opts.encoder === "function" ? opts.encoder : defaults.encoder,
-        encodeValuesOnly: typeof opts.encodeValuesOnly === "boolean" ? opts.encodeValuesOnly : defaults.encodeValuesOnly,
+        charsetSentinel: typeof opts.charsetSentinel === 'boolean' ? opts.charsetSentinel : defaults.charsetSentinel,
+        commaRoundTrip: !!opts.commaRoundTrip,
+        delimiter: typeof opts.delimiter === 'undefined' ? defaults.delimiter : opts.delimiter,
+        encode: typeof opts.encode === 'boolean' ? opts.encode : defaults.encode,
+        encodeDotInKeys: typeof opts.encodeDotInKeys === 'boolean' ? opts.encodeDotInKeys : defaults.encodeDotInKeys,
+        encoder: typeof opts.encoder === 'function' ? opts.encoder : defaults.encoder,
+        encodeValuesOnly: typeof opts.encodeValuesOnly === 'boolean' ? opts.encodeValuesOnly : defaults.encodeValuesOnly,
         filter: filter,
         format: format,
         formatter: formatter,
-        serializeDate: typeof opts.serializeDate === "function" ? opts.serializeDate : defaults.serializeDate,
-        skipNulls: typeof opts.skipNulls === "boolean" ? opts.skipNulls : defaults.skipNulls,
-        sort: typeof opts.sort === "function" ? opts.sort : null,
-        strictNullHandling: typeof opts.strictNullHandling === "boolean" ? opts.strictNullHandling : defaults.strictNullHandling
+        serializeDate: typeof opts.serializeDate === 'function' ? opts.serializeDate : defaults.serializeDate,
+        skipNulls: typeof opts.skipNulls === 'boolean' ? opts.skipNulls : defaults.skipNulls,
+        sort: typeof opts.sort === 'function' ? opts.sort : null,
+        strictNullHandling: typeof opts.strictNullHandling === 'boolean' ? opts.strictNullHandling : defaults.strictNullHandling
     };
 };
 module.exports = function(object, opts) {
@@ -11820,878 +11919,84 @@ module.exports = function(object, opts) {
     var options = normalizeStringifyOptions(opts);
     var objKeys;
     var filter;
-    if (typeof options.filter === "function") {
+    if (typeof options.filter === 'function') {
         filter = options.filter;
-        obj = filter("", obj);
+        obj = filter('', obj);
     } else if (isArray(options.filter)) {
         filter = options.filter;
         objKeys = filter;
     }
     var keys = [];
-    if (typeof obj !== "object" || obj === null) return "";
+    if (typeof obj !== 'object' || obj === null) return '';
     var generateArrayPrefix = arrayPrefixGenerators[options.arrayFormat];
-    var commaRoundTrip = generateArrayPrefix === "comma" && options.commaRoundTrip;
+    var commaRoundTrip = generateArrayPrefix === 'comma' && options.commaRoundTrip;
     if (!objKeys) objKeys = Object.keys(obj);
     if (options.sort) objKeys.sort(options.sort);
     var sideChannel = getSideChannel();
     for(var i = 0; i < objKeys.length; ++i){
         var key = objKeys[i];
-        if (options.skipNulls && obj[key] === null) continue;
-        pushToArray(keys, stringify(obj[key], key, generateArrayPrefix, commaRoundTrip, options.allowEmptyArrays, options.strictNullHandling, options.skipNulls, options.encodeDotInKeys, options.encode ? options.encoder : null, options.filter, options.sort, options.allowDots, options.serializeDate, options.format, options.formatter, options.encodeValuesOnly, options.charset, sideChannel));
+        var value = obj[key];
+        if (options.skipNulls && value === null) continue;
+        pushToArray(keys, stringify(value, key, generateArrayPrefix, commaRoundTrip, options.allowEmptyArrays, options.strictNullHandling, options.skipNulls, options.encodeDotInKeys, options.encode ? options.encoder : null, options.filter, options.sort, options.allowDots, options.serializeDate, options.format, options.formatter, options.encodeValuesOnly, options.charset, sideChannel));
     }
     var joined = keys.join(options.delimiter);
-    var prefix = options.addQueryPrefix === true ? "?" : "";
+    var prefix = options.addQueryPrefix === true ? '?' : '';
     if (options.charsetSentinel) {
-        if (options.charset === "iso-8859-1") // encodeURIComponent('&#10003;'), the "numeric entity" representation of a checkmark
-        prefix += "utf8=%26%2310003%3B&";
+        if (options.charset === 'iso-8859-1') // encodeURIComponent('&#10003;'), the "numeric entity" representation of a checkmark
+        prefix += 'utf8=%26%2310003%3B&';
         else // encodeURIComponent('✓')
-        prefix += "utf8=%E2%9C%93&";
+        prefix += 'utf8=%E2%9C%93&';
     }
-    return joined.length > 0 ? prefix + joined : "";
+    return joined.length > 0 ? prefix + joined : '';
 };
 
-},{"6246bbb805756d41":"1zs9d","44263cc7b702ebf":"chmkc","929f8531a94a537c":"d7Ogf"}],"1zs9d":[function(require,module,exports) {
-"use strict";
-var GetIntrinsic = require("7911ec51a2dc9f3e");
-var callBound = require("125062ab9035288f");
-var inspect = require("9f4f5a92d8c6543");
+},{"6246bbb805756d41":"1zs9d","44263cc7b702ebf":"chmkc","929f8531a94a537c":"d7Ogf"}],"1zs9d":[function(require,module,exports,__globalThis) {
+'use strict';
 var $TypeError = require("1d3f7a3f029b095e");
-var $WeakMap = GetIntrinsic("%WeakMap%", true);
-var $Map = GetIntrinsic("%Map%", true);
-var $weakMapGet = callBound("WeakMap.prototype.get", true);
-var $weakMapSet = callBound("WeakMap.prototype.set", true);
-var $weakMapHas = callBound("WeakMap.prototype.has", true);
-var $mapGet = callBound("Map.prototype.get", true);
-var $mapSet = callBound("Map.prototype.set", true);
-var $mapHas = callBound("Map.prototype.has", true);
-/*
-* This function traverses the list returning the node corresponding to the given key.
-*
-* That node is also moved to the head of the list, so that if it's accessed again we don't need to traverse the whole list. By doing so, all the recently used nodes can be accessed relatively quickly.
-*/ /** @type {import('.').listGetNode} */ var listGetNode = function(list, key) {
-    /** @type {typeof list | NonNullable<(typeof list)['next']>} */ var prev = list;
-    /** @type {(typeof list)['next']} */ var curr;
-    for(; (curr = prev.next) !== null; prev = curr)if (curr.key === key) {
-        prev.next = curr.next;
-        // eslint-disable-next-line no-extra-parens
-        curr.next = /** @type {NonNullable<typeof list.next>} */ list.next;
-        list.next = curr; // eslint-disable-line no-param-reassign
-        return curr;
-    }
-};
-/** @type {import('.').listGet} */ var listGet = function(objects, key) {
-    var node = listGetNode(objects, key);
-    return node && node.value;
-};
-/** @type {import('.').listSet} */ var listSet = function(objects, key, value) {
-    var node = listGetNode(objects, key);
-    if (node) node.value = value;
-    else // Prepend the new node to the beginning of the list
-    objects.next = /** @type {import('.').ListNode<typeof value>} */ {
-        key: key,
-        next: objects.next,
-        value: value
-    };
-};
-/** @type {import('.').listHas} */ var listHas = function(objects, key) {
-    return !!listGetNode(objects, key);
-};
+var inspect = require("9f4f5a92d8c6543");
+var getSideChannelList = require("5a169a7b609983a5");
+var getSideChannelMap = require("e26eec6007592cd");
+var getSideChannelWeakMap = require("a282926cb8532787");
+var makeChannel = getSideChannelWeakMap || getSideChannelMap || getSideChannelList;
 /** @type {import('.')} */ module.exports = function getSideChannel() {
-    /** @type {WeakMap<object, unknown>} */ var $wm;
-    /** @type {Map<object, unknown>} */ var $m;
-    /** @type {import('.').RootNode<unknown>} */ var $o;
-    /** @type {import('.').Channel} */ var channel = {
+    /** @typedef {ReturnType<typeof getSideChannel>} Channel */ /** @type {Channel | undefined} */ var $channelData;
+    /** @type {Channel} */ var channel = {
         assert: function(key) {
-            if (!channel.has(key)) throw new $TypeError("Side channel does not contain " + inspect(key));
+            if (!channel.has(key)) throw new $TypeError('Side channel does not contain ' + inspect(key));
+        },
+        'delete': function(key) {
+            return !!$channelData && $channelData['delete'](key);
         },
         get: function(key) {
-            if ($WeakMap && key && (typeof key === "object" || typeof key === "function")) {
-                if ($wm) return $weakMapGet($wm, key);
-            } else if ($Map) {
-                if ($m) return $mapGet($m, key);
-            } else {
-                if ($o) return listGet($o, key);
-            }
+            return $channelData && $channelData.get(key);
         },
         has: function(key) {
-            if ($WeakMap && key && (typeof key === "object" || typeof key === "function")) {
-                if ($wm) return $weakMapHas($wm, key);
-            } else if ($Map) {
-                if ($m) return $mapHas($m, key);
-            } else {
-                if ($o) return listHas($o, key);
-            }
-            return false;
+            return !!$channelData && $channelData.has(key);
         },
         set: function(key, value) {
-            if ($WeakMap && key && (typeof key === "object" || typeof key === "function")) {
-                if (!$wm) $wm = new $WeakMap();
-                $weakMapSet($wm, key, value);
-            } else if ($Map) {
-                if (!$m) $m = new $Map();
-                $mapSet($m, key, value);
-            } else {
-                if (!$o) // Initialize the linked list as an empty node, so that we don't have to special-case handling of the first node: we can always refer to it as (previous node).next, instead of something like (list).head
-                $o = {
-                    key: {},
-                    next: null
-                };
-                listSet($o, key, value);
-            }
+            if (!$channelData) $channelData = makeChannel();
+            $channelData.set(key, value);
         }
     };
+    // @ts-expect-error TODO: figure out why this is erroring
     return channel;
 };
 
-},{"7911ec51a2dc9f3e":"dZb05","125062ab9035288f":"5yYiF","9f4f5a92d8c6543":"kS3SE","1d3f7a3f029b095e":"6oWLR"}],"dZb05":[function(require,module,exports) {
-"use strict";
-var undefined1;
-var $Error = require("ff34c740859aa28e");
-var $EvalError = require("349515b7ea9b6cef");
-var $RangeError = require("9da01653b2dd9abf");
-var $ReferenceError = require("68586abd6b0136da");
-var $SyntaxError = require("662263fdbc077fc8");
-var $TypeError = require("abdfc34e5f6bb86");
-var $URIError = require("daca1f932429e03e");
-var $Function = Function;
-// eslint-disable-next-line consistent-return
-var getEvalledConstructor = function(expressionSyntax) {
-    try {
-        return $Function('"use strict"; return (' + expressionSyntax + ").constructor;")();
-    } catch (e) {}
-};
-var $gOPD = Object.getOwnPropertyDescriptor;
-if ($gOPD) try {
-    $gOPD({}, "");
-} catch (e) {
-    $gOPD = null; // this is IE 8, which has a broken gOPD
-}
-var throwTypeError = function() {
-    throw new $TypeError();
-};
-var ThrowTypeError = $gOPD ? function() {
-    try {
-        // eslint-disable-next-line no-unused-expressions, no-caller, no-restricted-properties
-        arguments.callee; // IE 8 does not throw here
-        return throwTypeError;
-    } catch (calleeThrows) {
-        try {
-            // IE 8 throws on Object.getOwnPropertyDescriptor(arguments, '')
-            return $gOPD(arguments, "callee").get;
-        } catch (gOPDthrows) {
-            return throwTypeError;
-        }
-    }
-}() : throwTypeError;
-var hasSymbols = require("1f00f712d594ccf")();
-var hasProto = require("23730654306aa64c")();
-var getProto = Object.getPrototypeOf || (hasProto ? function(x) {
-    return x.__proto__;
-} // eslint-disable-line no-proto
- : null);
-var needsEval = {};
-var TypedArray = typeof Uint8Array === "undefined" || !getProto ? undefined : getProto(Uint8Array);
-var INTRINSICS = {
-    __proto__: null,
-    "%AggregateError%": typeof AggregateError === "undefined" ? undefined : AggregateError,
-    "%Array%": Array,
-    "%ArrayBuffer%": typeof ArrayBuffer === "undefined" ? undefined : ArrayBuffer,
-    "%ArrayIteratorPrototype%": hasSymbols && getProto ? getProto([][Symbol.iterator]()) : undefined,
-    "%AsyncFromSyncIteratorPrototype%": undefined,
-    "%AsyncFunction%": needsEval,
-    "%AsyncGenerator%": needsEval,
-    "%AsyncGeneratorFunction%": needsEval,
-    "%AsyncIteratorPrototype%": needsEval,
-    "%Atomics%": typeof Atomics === "undefined" ? undefined : Atomics,
-    "%BigInt%": typeof BigInt === "undefined" ? undefined : BigInt,
-    "%BigInt64Array%": typeof BigInt64Array === "undefined" ? undefined : BigInt64Array,
-    "%BigUint64Array%": typeof BigUint64Array === "undefined" ? undefined : BigUint64Array,
-    "%Boolean%": Boolean,
-    "%DataView%": typeof DataView === "undefined" ? undefined : DataView,
-    "%Date%": Date,
-    "%decodeURI%": decodeURI,
-    "%decodeURIComponent%": decodeURIComponent,
-    "%encodeURI%": encodeURI,
-    "%encodeURIComponent%": encodeURIComponent,
-    "%Error%": $Error,
-    "%eval%": eval,
-    "%EvalError%": $EvalError,
-    "%Float32Array%": typeof Float32Array === "undefined" ? undefined : Float32Array,
-    "%Float64Array%": typeof Float64Array === "undefined" ? undefined : Float64Array,
-    "%FinalizationRegistry%": typeof FinalizationRegistry === "undefined" ? undefined : FinalizationRegistry,
-    "%Function%": $Function,
-    "%GeneratorFunction%": needsEval,
-    "%Int8Array%": typeof Int8Array === "undefined" ? undefined : Int8Array,
-    "%Int16Array%": typeof Int16Array === "undefined" ? undefined : Int16Array,
-    "%Int32Array%": typeof Int32Array === "undefined" ? undefined : Int32Array,
-    "%isFinite%": isFinite,
-    "%isNaN%": isNaN,
-    "%IteratorPrototype%": hasSymbols && getProto ? getProto(getProto([][Symbol.iterator]())) : undefined,
-    "%JSON%": typeof JSON === "object" ? JSON : undefined,
-    "%Map%": typeof Map === "undefined" ? undefined : Map,
-    "%MapIteratorPrototype%": typeof Map === "undefined" || !hasSymbols || !getProto ? undefined : getProto(new Map()[Symbol.iterator]()),
-    "%Math%": Math,
-    "%Number%": Number,
-    "%Object%": Object,
-    "%parseFloat%": parseFloat,
-    "%parseInt%": parseInt,
-    "%Promise%": typeof Promise === "undefined" ? undefined : Promise,
-    "%Proxy%": typeof Proxy === "undefined" ? undefined : Proxy,
-    "%RangeError%": $RangeError,
-    "%ReferenceError%": $ReferenceError,
-    "%Reflect%": typeof Reflect === "undefined" ? undefined : Reflect,
-    "%RegExp%": RegExp,
-    "%Set%": typeof Set === "undefined" ? undefined : Set,
-    "%SetIteratorPrototype%": typeof Set === "undefined" || !hasSymbols || !getProto ? undefined : getProto(new Set()[Symbol.iterator]()),
-    "%SharedArrayBuffer%": typeof SharedArrayBuffer === "undefined" ? undefined : SharedArrayBuffer,
-    "%String%": String,
-    "%StringIteratorPrototype%": hasSymbols && getProto ? getProto(""[Symbol.iterator]()) : undefined,
-    "%Symbol%": hasSymbols ? Symbol : undefined,
-    "%SyntaxError%": $SyntaxError,
-    "%ThrowTypeError%": ThrowTypeError,
-    "%TypedArray%": TypedArray,
-    "%TypeError%": $TypeError,
-    "%Uint8Array%": typeof Uint8Array === "undefined" ? undefined : Uint8Array,
-    "%Uint8ClampedArray%": typeof Uint8ClampedArray === "undefined" ? undefined : Uint8ClampedArray,
-    "%Uint16Array%": typeof Uint16Array === "undefined" ? undefined : Uint16Array,
-    "%Uint32Array%": typeof Uint32Array === "undefined" ? undefined : Uint32Array,
-    "%URIError%": $URIError,
-    "%WeakMap%": typeof WeakMap === "undefined" ? undefined : WeakMap,
-    "%WeakRef%": typeof WeakRef === "undefined" ? undefined : WeakRef,
-    "%WeakSet%": typeof WeakSet === "undefined" ? undefined : WeakSet
-};
-if (getProto) try {
-    null.error; // eslint-disable-line no-unused-expressions
-} catch (e) {
-    // https://github.com/tc39/proposal-shadowrealm/pull/384#issuecomment-1364264229
-    var errorProto = getProto(getProto(e));
-    INTRINSICS["%Error.prototype%"] = errorProto;
-}
-var doEval = function doEval(name) {
-    var value;
-    if (name === "%AsyncFunction%") value = getEvalledConstructor("async function () {}");
-    else if (name === "%GeneratorFunction%") value = getEvalledConstructor("function* () {}");
-    else if (name === "%AsyncGeneratorFunction%") value = getEvalledConstructor("async function* () {}");
-    else if (name === "%AsyncGenerator%") {
-        var fn = doEval("%AsyncGeneratorFunction%");
-        if (fn) value = fn.prototype;
-    } else if (name === "%AsyncIteratorPrototype%") {
-        var gen = doEval("%AsyncGenerator%");
-        if (gen && getProto) value = getProto(gen.prototype);
-    }
-    INTRINSICS[name] = value;
-    return value;
-};
-var LEGACY_ALIASES = {
-    __proto__: null,
-    "%ArrayBufferPrototype%": [
-        "ArrayBuffer",
-        "prototype"
-    ],
-    "%ArrayPrototype%": [
-        "Array",
-        "prototype"
-    ],
-    "%ArrayProto_entries%": [
-        "Array",
-        "prototype",
-        "entries"
-    ],
-    "%ArrayProto_forEach%": [
-        "Array",
-        "prototype",
-        "forEach"
-    ],
-    "%ArrayProto_keys%": [
-        "Array",
-        "prototype",
-        "keys"
-    ],
-    "%ArrayProto_values%": [
-        "Array",
-        "prototype",
-        "values"
-    ],
-    "%AsyncFunctionPrototype%": [
-        "AsyncFunction",
-        "prototype"
-    ],
-    "%AsyncGenerator%": [
-        "AsyncGeneratorFunction",
-        "prototype"
-    ],
-    "%AsyncGeneratorPrototype%": [
-        "AsyncGeneratorFunction",
-        "prototype",
-        "prototype"
-    ],
-    "%BooleanPrototype%": [
-        "Boolean",
-        "prototype"
-    ],
-    "%DataViewPrototype%": [
-        "DataView",
-        "prototype"
-    ],
-    "%DatePrototype%": [
-        "Date",
-        "prototype"
-    ],
-    "%ErrorPrototype%": [
-        "Error",
-        "prototype"
-    ],
-    "%EvalErrorPrototype%": [
-        "EvalError",
-        "prototype"
-    ],
-    "%Float32ArrayPrototype%": [
-        "Float32Array",
-        "prototype"
-    ],
-    "%Float64ArrayPrototype%": [
-        "Float64Array",
-        "prototype"
-    ],
-    "%FunctionPrototype%": [
-        "Function",
-        "prototype"
-    ],
-    "%Generator%": [
-        "GeneratorFunction",
-        "prototype"
-    ],
-    "%GeneratorPrototype%": [
-        "GeneratorFunction",
-        "prototype",
-        "prototype"
-    ],
-    "%Int8ArrayPrototype%": [
-        "Int8Array",
-        "prototype"
-    ],
-    "%Int16ArrayPrototype%": [
-        "Int16Array",
-        "prototype"
-    ],
-    "%Int32ArrayPrototype%": [
-        "Int32Array",
-        "prototype"
-    ],
-    "%JSONParse%": [
-        "JSON",
-        "parse"
-    ],
-    "%JSONStringify%": [
-        "JSON",
-        "stringify"
-    ],
-    "%MapPrototype%": [
-        "Map",
-        "prototype"
-    ],
-    "%NumberPrototype%": [
-        "Number",
-        "prototype"
-    ],
-    "%ObjectPrototype%": [
-        "Object",
-        "prototype"
-    ],
-    "%ObjProto_toString%": [
-        "Object",
-        "prototype",
-        "toString"
-    ],
-    "%ObjProto_valueOf%": [
-        "Object",
-        "prototype",
-        "valueOf"
-    ],
-    "%PromisePrototype%": [
-        "Promise",
-        "prototype"
-    ],
-    "%PromiseProto_then%": [
-        "Promise",
-        "prototype",
-        "then"
-    ],
-    "%Promise_all%": [
-        "Promise",
-        "all"
-    ],
-    "%Promise_reject%": [
-        "Promise",
-        "reject"
-    ],
-    "%Promise_resolve%": [
-        "Promise",
-        "resolve"
-    ],
-    "%RangeErrorPrototype%": [
-        "RangeError",
-        "prototype"
-    ],
-    "%ReferenceErrorPrototype%": [
-        "ReferenceError",
-        "prototype"
-    ],
-    "%RegExpPrototype%": [
-        "RegExp",
-        "prototype"
-    ],
-    "%SetPrototype%": [
-        "Set",
-        "prototype"
-    ],
-    "%SharedArrayBufferPrototype%": [
-        "SharedArrayBuffer",
-        "prototype"
-    ],
-    "%StringPrototype%": [
-        "String",
-        "prototype"
-    ],
-    "%SymbolPrototype%": [
-        "Symbol",
-        "prototype"
-    ],
-    "%SyntaxErrorPrototype%": [
-        "SyntaxError",
-        "prototype"
-    ],
-    "%TypedArrayPrototype%": [
-        "TypedArray",
-        "prototype"
-    ],
-    "%TypeErrorPrototype%": [
-        "TypeError",
-        "prototype"
-    ],
-    "%Uint8ArrayPrototype%": [
-        "Uint8Array",
-        "prototype"
-    ],
-    "%Uint8ClampedArrayPrototype%": [
-        "Uint8ClampedArray",
-        "prototype"
-    ],
-    "%Uint16ArrayPrototype%": [
-        "Uint16Array",
-        "prototype"
-    ],
-    "%Uint32ArrayPrototype%": [
-        "Uint32Array",
-        "prototype"
-    ],
-    "%URIErrorPrototype%": [
-        "URIError",
-        "prototype"
-    ],
-    "%WeakMapPrototype%": [
-        "WeakMap",
-        "prototype"
-    ],
-    "%WeakSetPrototype%": [
-        "WeakSet",
-        "prototype"
-    ]
-};
-var bind = require("7c5e688e48cd07b0");
-var hasOwn = require("af36d49b4b8c6c7c");
-var $concat = bind.call(Function.call, Array.prototype.concat);
-var $spliceApply = bind.call(Function.apply, Array.prototype.splice);
-var $replace = bind.call(Function.call, String.prototype.replace);
-var $strSlice = bind.call(Function.call, String.prototype.slice);
-var $exec = bind.call(Function.call, RegExp.prototype.exec);
-/* adapted from https://github.com/lodash/lodash/blob/4.17.15/dist/lodash.js#L6735-L6744 */ var rePropName = /[^%.[\]]+|\[(?:(-?\d+(?:\.\d+)?)|(["'])((?:(?!\2)[^\\]|\\.)*?)\2)\]|(?=(?:\.|\[\])(?:\.|\[\]|%$))/g;
-var reEscapeChar = /\\(\\)?/g; /** Used to match backslashes in property paths. */ 
-var stringToPath = function stringToPath(string) {
-    var first = $strSlice(string, 0, 1);
-    var last = $strSlice(string, -1);
-    if (first === "%" && last !== "%") throw new $SyntaxError("invalid intrinsic syntax, expected closing `%`");
-    else if (last === "%" && first !== "%") throw new $SyntaxError("invalid intrinsic syntax, expected opening `%`");
-    var result = [];
-    $replace(string, rePropName, function(match, number, quote, subString) {
-        result[result.length] = quote ? $replace(subString, reEscapeChar, "$1") : number || match;
-    });
-    return result;
-};
-/* end adaptation */ var getBaseIntrinsic = function getBaseIntrinsic(name, allowMissing) {
-    var intrinsicName = name;
-    var alias;
-    if (hasOwn(LEGACY_ALIASES, intrinsicName)) {
-        alias = LEGACY_ALIASES[intrinsicName];
-        intrinsicName = "%" + alias[0] + "%";
-    }
-    if (hasOwn(INTRINSICS, intrinsicName)) {
-        var value = INTRINSICS[intrinsicName];
-        if (value === needsEval) value = doEval(intrinsicName);
-        if (typeof value === "undefined" && !allowMissing) throw new $TypeError("intrinsic " + name + " exists, but is not available. Please file an issue!");
-        return {
-            alias: alias,
-            name: intrinsicName,
-            value: value
-        };
-    }
-    throw new $SyntaxError("intrinsic " + name + " does not exist!");
-};
-module.exports = function GetIntrinsic(name, allowMissing) {
-    if (typeof name !== "string" || name.length === 0) throw new $TypeError("intrinsic name must be a non-empty string");
-    if (arguments.length > 1 && typeof allowMissing !== "boolean") throw new $TypeError('"allowMissing" argument must be a boolean');
-    if ($exec(/^%?[^%]*%?$/, name) === null) throw new $SyntaxError("`%` may not be present anywhere but at the beginning and end of the intrinsic name");
-    var parts = stringToPath(name);
-    var intrinsicBaseName = parts.length > 0 ? parts[0] : "";
-    var intrinsic = getBaseIntrinsic("%" + intrinsicBaseName + "%", allowMissing);
-    var intrinsicRealName = intrinsic.name;
-    var value = intrinsic.value;
-    var skipFurtherCaching = false;
-    var alias = intrinsic.alias;
-    if (alias) {
-        intrinsicBaseName = alias[0];
-        $spliceApply(parts, $concat([
-            0,
-            1
-        ], alias));
-    }
-    for(var i = 1, isOwn = true; i < parts.length; i += 1){
-        var part = parts[i];
-        var first = $strSlice(part, 0, 1);
-        var last = $strSlice(part, -1);
-        if ((first === '"' || first === "'" || first === "`" || last === '"' || last === "'" || last === "`") && first !== last) throw new $SyntaxError("property names with quotes must have matching quotes");
-        if (part === "constructor" || !isOwn) skipFurtherCaching = true;
-        intrinsicBaseName += "." + part;
-        intrinsicRealName = "%" + intrinsicBaseName + "%";
-        if (hasOwn(INTRINSICS, intrinsicRealName)) value = INTRINSICS[intrinsicRealName];
-        else if (value != null) {
-            if (!(part in value)) {
-                if (!allowMissing) throw new $TypeError("base intrinsic for " + name + " exists, but the property is not available.");
-                return void 0;
-            }
-            if ($gOPD && i + 1 >= parts.length) {
-                var desc = $gOPD(value, part);
-                isOwn = !!desc;
-                // By convention, when a data property is converted to an accessor
-                // property to emulate a data property that does not suffer from
-                // the override mistake, that accessor's getter is marked with
-                // an `originalValue` property. Here, when we detect this, we
-                // uphold the illusion by pretending to see that original data
-                // property, i.e., returning the value rather than the getter
-                // itself.
-                if (isOwn && "get" in desc && !("originalValue" in desc.get)) value = desc.get;
-                else value = value[part];
-            } else {
-                isOwn = hasOwn(value, part);
-                value = value[part];
-            }
-            if (isOwn && !skipFurtherCaching) INTRINSICS[intrinsicRealName] = value;
-        }
-    }
-    return value;
-};
-
-},{"ff34c740859aa28e":"eDsor","349515b7ea9b6cef":"hIiFU","9da01653b2dd9abf":"11MNe","68586abd6b0136da":"2YV8d","662263fdbc077fc8":"8jeeH","abdfc34e5f6bb86":"6oWLR","daca1f932429e03e":"a04Um","1f00f712d594ccf":"3dK91","23730654306aa64c":"6eZiF","7c5e688e48cd07b0":"6J4ob","af36d49b4b8c6c7c":"9Wb6f"}],"eDsor":[function(require,module,exports) {
-"use strict";
-/** @type {import('.')} */ module.exports = Error;
-
-},{}],"hIiFU":[function(require,module,exports) {
-"use strict";
-/** @type {import('./eval')} */ module.exports = EvalError;
-
-},{}],"11MNe":[function(require,module,exports) {
-"use strict";
-/** @type {import('./range')} */ module.exports = RangeError;
-
-},{}],"2YV8d":[function(require,module,exports) {
-"use strict";
-/** @type {import('./ref')} */ module.exports = ReferenceError;
-
-},{}],"8jeeH":[function(require,module,exports) {
-"use strict";
-/** @type {import('./syntax')} */ module.exports = SyntaxError;
-
-},{}],"6oWLR":[function(require,module,exports) {
-"use strict";
-/** @type {import('./type')} */ module.exports = TypeError;
-
-},{}],"a04Um":[function(require,module,exports) {
-"use strict";
-/** @type {import('./uri')} */ module.exports = URIError;
-
-},{}],"3dK91":[function(require,module,exports) {
-"use strict";
-var origSymbol = typeof Symbol !== "undefined" && Symbol;
-var hasSymbolSham = require("3fb25678c62d2fce");
-module.exports = function hasNativeSymbols() {
-    if (typeof origSymbol !== "function") return false;
-    if (typeof Symbol !== "function") return false;
-    if (typeof origSymbol("foo") !== "symbol") return false;
-    if (typeof Symbol("bar") !== "symbol") return false;
-    return hasSymbolSham();
-};
-
-},{"3fb25678c62d2fce":"euYk7"}],"euYk7":[function(require,module,exports) {
-"use strict";
-/* eslint complexity: [2, 18], max-statements: [2, 33] */ module.exports = function hasSymbols() {
-    if (typeof Symbol !== "function" || typeof Object.getOwnPropertySymbols !== "function") return false;
-    if (typeof Symbol.iterator === "symbol") return true;
-    var obj = {};
-    var sym = Symbol("test");
-    var symObj = Object(sym);
-    if (typeof sym === "string") return false;
-    if (Object.prototype.toString.call(sym) !== "[object Symbol]") return false;
-    if (Object.prototype.toString.call(symObj) !== "[object Symbol]") return false;
-    // temp disabled per https://github.com/ljharb/object.assign/issues/17
-    // if (sym instanceof Symbol) { return false; }
-    // temp disabled per https://github.com/WebReflection/get-own-property-symbols/issues/4
-    // if (!(symObj instanceof Symbol)) { return false; }
-    // if (typeof Symbol.prototype.toString !== 'function') { return false; }
-    // if (String(sym) !== Symbol.prototype.toString.call(sym)) { return false; }
-    var symVal = 42;
-    obj[sym] = symVal;
-    for(sym in obj)return false;
-     // eslint-disable-line no-restricted-syntax, no-unreachable-loop
-    if (typeof Object.keys === "function" && Object.keys(obj).length !== 0) return false;
-    if (typeof Object.getOwnPropertyNames === "function" && Object.getOwnPropertyNames(obj).length !== 0) return false;
-    var syms = Object.getOwnPropertySymbols(obj);
-    if (syms.length !== 1 || syms[0] !== sym) return false;
-    if (!Object.prototype.propertyIsEnumerable.call(obj, sym)) return false;
-    if (typeof Object.getOwnPropertyDescriptor === "function") {
-        var descriptor = Object.getOwnPropertyDescriptor(obj, sym);
-        if (descriptor.value !== symVal || descriptor.enumerable !== true) return false;
-    }
-    return true;
-};
-
-},{}],"6eZiF":[function(require,module,exports) {
-"use strict";
-var test = {
-    __proto__: null,
-    foo: {}
-};
-var $Object = Object;
-/** @type {import('.')} */ module.exports = function hasProto() {
-    // @ts-expect-error: TS errors on an inherited property for some reason
-    return ({
-        __proto__: test
-    }).foo === test.foo && !(test instanceof $Object);
-};
-
-},{}],"6J4ob":[function(require,module,exports) {
-"use strict";
-var implementation = require("12e173b4dbaee960");
-module.exports = Function.prototype.bind || implementation;
-
-},{"12e173b4dbaee960":"jwaxQ"}],"jwaxQ":[function(require,module,exports) {
-"use strict";
-/* eslint no-invalid-this: 1 */ var ERROR_MESSAGE = "Function.prototype.bind called on incompatible ";
-var toStr = Object.prototype.toString;
-var max = Math.max;
-var funcType = "[object Function]";
-var concatty = function concatty(a, b) {
-    var arr = [];
-    for(var i = 0; i < a.length; i += 1)arr[i] = a[i];
-    for(var j = 0; j < b.length; j += 1)arr[j + a.length] = b[j];
-    return arr;
-};
-var slicy = function slicy(arrLike, offset) {
-    var arr = [];
-    for(var i = offset || 0, j = 0; i < arrLike.length; i += 1, j += 1)arr[j] = arrLike[i];
-    return arr;
-};
-var joiny = function(arr, joiner) {
-    var str = "";
-    for(var i = 0; i < arr.length; i += 1){
-        str += arr[i];
-        if (i + 1 < arr.length) str += joiner;
-    }
-    return str;
-};
-module.exports = function bind(that) {
-    var target = this;
-    if (typeof target !== "function" || toStr.apply(target) !== funcType) throw new TypeError(ERROR_MESSAGE + target);
-    var args = slicy(arguments, 1);
-    var bound;
-    var binder = function() {
-        if (this instanceof bound) {
-            var result = target.apply(this, concatty(args, arguments));
-            if (Object(result) === result) return result;
-            return this;
-        }
-        return target.apply(that, concatty(args, arguments));
-    };
-    var boundLength = max(0, target.length - args.length);
-    var boundArgs = [];
-    for(var i = 0; i < boundLength; i++)boundArgs[i] = "$" + i;
-    bound = Function("binder", "return function (" + joiny(boundArgs, ",") + "){ return binder.apply(this,arguments); }")(binder);
-    if (target.prototype) {
-        var Empty = function Empty() {};
-        Empty.prototype = target.prototype;
-        bound.prototype = new Empty();
-        Empty.prototype = null;
-    }
-    return bound;
-};
-
-},{}],"9Wb6f":[function(require,module,exports) {
-"use strict";
-var call = Function.prototype.call;
-var $hasOwn = Object.prototype.hasOwnProperty;
-var bind = require("126cb75e62f8e17b");
-/** @type {import('.')} */ module.exports = bind.call(call, $hasOwn);
-
-},{"126cb75e62f8e17b":"6J4ob"}],"5yYiF":[function(require,module,exports) {
-"use strict";
-var GetIntrinsic = require("8b08ecb81cf4de17");
-var callBind = require("266fc50410cfc4a");
-var $indexOf = callBind(GetIntrinsic("String.prototype.indexOf"));
-module.exports = function callBoundIntrinsic(name, allowMissing) {
-    var intrinsic = GetIntrinsic(name, !!allowMissing);
-    if (typeof intrinsic === "function" && $indexOf(name, ".prototype.") > -1) return callBind(intrinsic);
-    return intrinsic;
-};
-
-},{"8b08ecb81cf4de17":"dZb05","266fc50410cfc4a":"bfo8D"}],"bfo8D":[function(require,module,exports) {
-"use strict";
-var bind = require("4f9d84d5de4909bc");
-var GetIntrinsic = require("68d2ad3775278f43");
-var setFunctionLength = require("f4b53071c102d4e");
-var $TypeError = require("761613670c43be80");
-var $apply = GetIntrinsic("%Function.prototype.apply%");
-var $call = GetIntrinsic("%Function.prototype.call%");
-var $reflectApply = GetIntrinsic("%Reflect.apply%", true) || bind.call($call, $apply);
-var $defineProperty = require("3426ee59b177cf96");
-var $max = GetIntrinsic("%Math.max%");
-module.exports = function callBind(originalFunction) {
-    if (typeof originalFunction !== "function") throw new $TypeError("a function is required");
-    var func = $reflectApply(bind, $call, arguments);
-    return setFunctionLength(func, 1 + $max(0, originalFunction.length - (arguments.length - 1)), true);
-};
-var applyBind = function applyBind() {
-    return $reflectApply(bind, $apply, arguments);
-};
-if ($defineProperty) $defineProperty(module.exports, "apply", {
-    value: applyBind
-});
-else module.exports.apply = applyBind;
-
-},{"4f9d84d5de4909bc":"6J4ob","68d2ad3775278f43":"dZb05","f4b53071c102d4e":"9IKoX","761613670c43be80":"6oWLR","3426ee59b177cf96":"5SmXK"}],"9IKoX":[function(require,module,exports) {
-"use strict";
-var GetIntrinsic = require("8b1c9107ef1524f2");
-var define = require("37dd1486f0f556ef");
-var hasDescriptors = require("6a9d2b46085df706")();
-var gOPD = require("2d412b0f532d1834");
-var $TypeError = require("4352c534d27fe477");
-var $floor = GetIntrinsic("%Math.floor%");
-/** @type {import('.')} */ module.exports = function setFunctionLength(fn, length) {
-    if (typeof fn !== "function") throw new $TypeError("`fn` is not a function");
-    if (typeof length !== "number" || length < 0 || length > 0xFFFFFFFF || $floor(length) !== length) throw new $TypeError("`length` must be a positive 32-bit integer");
-    var loose = arguments.length > 2 && !!arguments[2];
-    var functionLengthIsConfigurable = true;
-    var functionLengthIsWritable = true;
-    if ("length" in fn && gOPD) {
-        var desc = gOPD(fn, "length");
-        if (desc && !desc.configurable) functionLengthIsConfigurable = false;
-        if (desc && !desc.writable) functionLengthIsWritable = false;
-    }
-    if (functionLengthIsConfigurable || functionLengthIsWritable || !loose) {
-        if (hasDescriptors) define(/** @type {Parameters<define>[0]} */ fn, "length", length, true, true);
-        else define(/** @type {Parameters<define>[0]} */ fn, "length", length);
-    }
-    return fn;
-};
-
-},{"8b1c9107ef1524f2":"dZb05","37dd1486f0f556ef":"6cEff","6a9d2b46085df706":"esBLZ","2d412b0f532d1834":"eOTQB","4352c534d27fe477":"6oWLR"}],"6cEff":[function(require,module,exports) {
-"use strict";
-var $defineProperty = require("f17fd23367965521");
-var $SyntaxError = require("50f12088ee0f6bb");
-var $TypeError = require("45c79de2b2f9c949");
-var gopd = require("3f9bd39335781ec7");
-/** @type {import('.')} */ module.exports = function defineDataProperty(obj, property, value) {
-    if (!obj || typeof obj !== "object" && typeof obj !== "function") throw new $TypeError("`obj` must be an object or a function`");
-    if (typeof property !== "string" && typeof property !== "symbol") throw new $TypeError("`property` must be a string or a symbol`");
-    if (arguments.length > 3 && typeof arguments[3] !== "boolean" && arguments[3] !== null) throw new $TypeError("`nonEnumerable`, if provided, must be a boolean or null");
-    if (arguments.length > 4 && typeof arguments[4] !== "boolean" && arguments[4] !== null) throw new $TypeError("`nonWritable`, if provided, must be a boolean or null");
-    if (arguments.length > 5 && typeof arguments[5] !== "boolean" && arguments[5] !== null) throw new $TypeError("`nonConfigurable`, if provided, must be a boolean or null");
-    if (arguments.length > 6 && typeof arguments[6] !== "boolean") throw new $TypeError("`loose`, if provided, must be a boolean");
-    var nonEnumerable = arguments.length > 3 ? arguments[3] : null;
-    var nonWritable = arguments.length > 4 ? arguments[4] : null;
-    var nonConfigurable = arguments.length > 5 ? arguments[5] : null;
-    var loose = arguments.length > 6 ? arguments[6] : false;
-    /* @type {false | TypedPropertyDescriptor<unknown>} */ var desc = !!gopd && gopd(obj, property);
-    if ($defineProperty) $defineProperty(obj, property, {
-        configurable: nonConfigurable === null && desc ? desc.configurable : !nonConfigurable,
-        enumerable: nonEnumerable === null && desc ? desc.enumerable : !nonEnumerable,
-        value: value,
-        writable: nonWritable === null && desc ? desc.writable : !nonWritable
-    });
-    else if (loose || !nonEnumerable && !nonWritable && !nonConfigurable) // must fall back to [[Set]], and was not explicitly asked to make non-enumerable, non-writable, or non-configurable
-    obj[property] = value; // eslint-disable-line no-param-reassign
-    else throw new $SyntaxError("This environment does not support defining a property as non-configurable, non-writable, or non-enumerable.");
-};
-
-},{"f17fd23367965521":"5SmXK","50f12088ee0f6bb":"8jeeH","45c79de2b2f9c949":"6oWLR","3f9bd39335781ec7":"eOTQB"}],"5SmXK":[function(require,module,exports) {
-"use strict";
-var GetIntrinsic = require("8e0b8e4026aaf38a");
-/** @type {import('.')} */ var $defineProperty = GetIntrinsic("%Object.defineProperty%", true) || false;
-if ($defineProperty) try {
-    $defineProperty({}, "a", {
-        value: 1
-    });
-} catch (e) {
-    // IE 8 has a broken defineProperty
-    $defineProperty = false;
-}
-module.exports = $defineProperty;
-
-},{"8e0b8e4026aaf38a":"dZb05"}],"eOTQB":[function(require,module,exports) {
-"use strict";
-var GetIntrinsic = require("693e651525841e04");
-var $gOPD = GetIntrinsic("%Object.getOwnPropertyDescriptor%", true);
-if ($gOPD) try {
-    $gOPD([], "length");
-} catch (e) {
-    // IE 8 has a broken gOPD
-    $gOPD = null;
-}
-module.exports = $gOPD;
-
-},{"693e651525841e04":"dZb05"}],"esBLZ":[function(require,module,exports) {
-"use strict";
-var $defineProperty = require("1c3b0ce871129f60");
-var hasPropertyDescriptors = function hasPropertyDescriptors() {
-    return !!$defineProperty;
-};
-hasPropertyDescriptors.hasArrayLengthDefineBug = function hasArrayLengthDefineBug() {
-    // node v0.6 has a bug where array lengths can be Set but not Defined
-    if (!$defineProperty) return null;
-    try {
-        return $defineProperty([], "length", {
-            value: 1
-        }).length !== 1;
-    } catch (e) {
-        // In Firefox 4-22, defining length on an array throws an exception.
-        return true;
-    }
-};
-module.exports = hasPropertyDescriptors;
-
-},{"1c3b0ce871129f60":"5SmXK"}],"kS3SE":[function(require,module,exports) {
+},{"1d3f7a3f029b095e":"6oWLR","9f4f5a92d8c6543":"kS3SE","5a169a7b609983a5":"1QabC","e26eec6007592cd":"fJI6C","a282926cb8532787":"nfsLc"}],"kS3SE":[function(require,module,exports,__globalThis) {
 var global = arguments[3];
-var hasMap = typeof Map === "function" && Map.prototype;
-var mapSizeDescriptor = Object.getOwnPropertyDescriptor && hasMap ? Object.getOwnPropertyDescriptor(Map.prototype, "size") : null;
-var mapSize = hasMap && mapSizeDescriptor && typeof mapSizeDescriptor.get === "function" ? mapSizeDescriptor.get : null;
+var hasMap = typeof Map === 'function' && Map.prototype;
+var mapSizeDescriptor = Object.getOwnPropertyDescriptor && hasMap ? Object.getOwnPropertyDescriptor(Map.prototype, 'size') : null;
+var mapSize = hasMap && mapSizeDescriptor && typeof mapSizeDescriptor.get === 'function' ? mapSizeDescriptor.get : null;
 var mapForEach = hasMap && Map.prototype.forEach;
-var hasSet = typeof Set === "function" && Set.prototype;
-var setSizeDescriptor = Object.getOwnPropertyDescriptor && hasSet ? Object.getOwnPropertyDescriptor(Set.prototype, "size") : null;
-var setSize = hasSet && setSizeDescriptor && typeof setSizeDescriptor.get === "function" ? setSizeDescriptor.get : null;
+var hasSet = typeof Set === 'function' && Set.prototype;
+var setSizeDescriptor = Object.getOwnPropertyDescriptor && hasSet ? Object.getOwnPropertyDescriptor(Set.prototype, 'size') : null;
+var setSize = hasSet && setSizeDescriptor && typeof setSizeDescriptor.get === 'function' ? setSizeDescriptor.get : null;
 var setForEach = hasSet && Set.prototype.forEach;
-var hasWeakMap = typeof WeakMap === "function" && WeakMap.prototype;
+var hasWeakMap = typeof WeakMap === 'function' && WeakMap.prototype;
 var weakMapHas = hasWeakMap ? WeakMap.prototype.has : null;
-var hasWeakSet = typeof WeakSet === "function" && WeakSet.prototype;
+var hasWeakSet = typeof WeakSet === 'function' && WeakSet.prototype;
 var weakSetHas = hasWeakSet ? WeakSet.prototype.has : null;
-var hasWeakRef = typeof WeakRef === "function" && WeakRef.prototype;
+var hasWeakRef = typeof WeakRef === 'function' && WeakRef.prototype;
 var weakRefDeref = hasWeakRef ? WeakRef.prototype.deref : null;
 var booleanValueOf = Boolean.prototype.valueOf;
 var objectToString = Object.prototype.toString;
@@ -12706,61 +12011,71 @@ var $concat = Array.prototype.concat;
 var $join = Array.prototype.join;
 var $arrSlice = Array.prototype.slice;
 var $floor = Math.floor;
-var bigIntValueOf = typeof BigInt === "function" ? BigInt.prototype.valueOf : null;
+var bigIntValueOf = typeof BigInt === 'function' ? BigInt.prototype.valueOf : null;
 var gOPS = Object.getOwnPropertySymbols;
-var symToString = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? Symbol.prototype.toString : null;
-var hasShammedSymbols = typeof Symbol === "function" && typeof Symbol.iterator === "object";
+var symToString = typeof Symbol === 'function' && typeof Symbol.iterator === 'symbol' ? Symbol.prototype.toString : null;
+var hasShammedSymbols = typeof Symbol === 'function' && typeof Symbol.iterator === 'object';
 // ie, `has-tostringtag/shams
-var toStringTag = typeof Symbol === "function" && Symbol.toStringTag && (typeof Symbol.toStringTag === hasShammedSymbols ? "object" : "symbol") ? Symbol.toStringTag : null;
+var toStringTag = typeof Symbol === 'function' && Symbol.toStringTag && (typeof Symbol.toStringTag === hasShammedSymbols ? 'object' : 'symbol') ? Symbol.toStringTag : null;
 var isEnumerable = Object.prototype.propertyIsEnumerable;
-var gPO = (typeof Reflect === "function" ? Reflect.getPrototypeOf : Object.getPrototypeOf) || ([].__proto__ === Array.prototype // eslint-disable-line no-proto
+var gPO = (typeof Reflect === 'function' ? Reflect.getPrototypeOf : Object.getPrototypeOf) || ([].__proto__ === Array.prototype // eslint-disable-line no-proto
  ? function(O) {
     return O.__proto__; // eslint-disable-line no-proto
 } : null);
 function addNumericSeparator(num, str) {
     if (num === Infinity || num === -Infinity || num !== num || num && num > -1000 && num < 1000 || $test.call(/e/, str)) return str;
     var sepRegex = /[0-9](?=(?:[0-9]{3})+(?![0-9]))/g;
-    if (typeof num === "number") {
+    if (typeof num === 'number') {
         var int = num < 0 ? -$floor(-num) : $floor(num); // trunc(num)
         if (int !== num) {
             var intStr = String(int);
             var dec = $slice.call(str, intStr.length + 1);
-            return $replace.call(intStr, sepRegex, "$&_") + "." + $replace.call($replace.call(dec, /([0-9]{3})/g, "$&_"), /_$/, "");
+            return $replace.call(intStr, sepRegex, '$&_') + '.' + $replace.call($replace.call(dec, /([0-9]{3})/g, '$&_'), /_$/, '');
         }
     }
-    return $replace.call(str, sepRegex, "$&_");
+    return $replace.call(str, sepRegex, '$&_');
 }
 var utilInspect = require("faefcb1694f2ad90");
 var inspectCustom = utilInspect.custom;
 var inspectSymbol = isSymbol(inspectCustom) ? inspectCustom : null;
+var quotes = {
+    __proto__: null,
+    'double': '"',
+    single: "'"
+};
+var quoteREs = {
+    __proto__: null,
+    'double': /(["\\])/g,
+    single: /(['\\])/g
+};
 module.exports = function inspect_(obj, options, depth, seen) {
     var opts = options || {};
-    if (has(opts, "quoteStyle") && opts.quoteStyle !== "single" && opts.quoteStyle !== "double") throw new TypeError('option "quoteStyle" must be "single" or "double"');
-    if (has(opts, "maxStringLength") && (typeof opts.maxStringLength === "number" ? opts.maxStringLength < 0 && opts.maxStringLength !== Infinity : opts.maxStringLength !== null)) throw new TypeError('option "maxStringLength", if provided, must be a positive integer, Infinity, or `null`');
-    var customInspect = has(opts, "customInspect") ? opts.customInspect : true;
-    if (typeof customInspect !== "boolean" && customInspect !== "symbol") throw new TypeError("option \"customInspect\", if provided, must be `true`, `false`, or `'symbol'`");
-    if (has(opts, "indent") && opts.indent !== null && opts.indent !== "	" && !(parseInt(opts.indent, 10) === opts.indent && opts.indent > 0)) throw new TypeError('option "indent" must be "\\t", an integer > 0, or `null`');
-    if (has(opts, "numericSeparator") && typeof opts.numericSeparator !== "boolean") throw new TypeError('option "numericSeparator", if provided, must be `true` or `false`');
+    if (has(opts, 'quoteStyle') && !has(quotes, opts.quoteStyle)) throw new TypeError('option "quoteStyle" must be "single" or "double"');
+    if (has(opts, 'maxStringLength') && (typeof opts.maxStringLength === 'number' ? opts.maxStringLength < 0 && opts.maxStringLength !== Infinity : opts.maxStringLength !== null)) throw new TypeError('option "maxStringLength", if provided, must be a positive integer, Infinity, or `null`');
+    var customInspect = has(opts, 'customInspect') ? opts.customInspect : true;
+    if (typeof customInspect !== 'boolean' && customInspect !== 'symbol') throw new TypeError('option "customInspect", if provided, must be `true`, `false`, or `\'symbol\'`');
+    if (has(opts, 'indent') && opts.indent !== null && opts.indent !== '\t' && !(parseInt(opts.indent, 10) === opts.indent && opts.indent > 0)) throw new TypeError('option "indent" must be "\\t", an integer > 0, or `null`');
+    if (has(opts, 'numericSeparator') && typeof opts.numericSeparator !== 'boolean') throw new TypeError('option "numericSeparator", if provided, must be `true` or `false`');
     var numericSeparator = opts.numericSeparator;
-    if (typeof obj === "undefined") return "undefined";
-    if (obj === null) return "null";
-    if (typeof obj === "boolean") return obj ? "true" : "false";
-    if (typeof obj === "string") return inspectString(obj, opts);
-    if (typeof obj === "number") {
-        if (obj === 0) return Infinity / obj > 0 ? "0" : "-0";
+    if (typeof obj === 'undefined') return 'undefined';
+    if (obj === null) return 'null';
+    if (typeof obj === 'boolean') return obj ? 'true' : 'false';
+    if (typeof obj === 'string') return inspectString(obj, opts);
+    if (typeof obj === 'number') {
+        if (obj === 0) return Infinity / obj > 0 ? '0' : '-0';
         var str = String(obj);
         return numericSeparator ? addNumericSeparator(obj, str) : str;
     }
-    if (typeof obj === "bigint") {
-        var bigIntStr = String(obj) + "n";
+    if (typeof obj === 'bigint') {
+        var bigIntStr = String(obj) + 'n';
         return numericSeparator ? addNumericSeparator(obj, bigIntStr) : bigIntStr;
     }
-    var maxDepth = typeof opts.depth === "undefined" ? 5 : opts.depth;
-    if (typeof depth === "undefined") depth = 0;
-    if (depth >= maxDepth && maxDepth > 0 && typeof obj === "object") return isArray(obj) ? "[Array]" : "[Object]";
+    var maxDepth = typeof opts.depth === 'undefined' ? 5 : opts.depth;
+    if (typeof depth === 'undefined') depth = 0;
+    if (depth >= maxDepth && maxDepth > 0 && typeof obj === 'object') return isArray(obj) ? '[Array]' : '[Object]';
     var indent = getIndent(opts, depth);
-    if (typeof seen === "undefined") seen = [];
-    else if (indexOf(seen, obj) >= 0) return "[Circular]";
+    if (typeof seen === 'undefined') seen = [];
+    else if (indexOf(seen, obj) >= 0) return '[Circular]';
     function inspect(value, from, noIndent) {
         if (from) {
             seen = $arrSlice.call(seen);
@@ -12770,117 +12085,121 @@ module.exports = function inspect_(obj, options, depth, seen) {
             var newOpts = {
                 depth: opts.depth
             };
-            if (has(opts, "quoteStyle")) newOpts.quoteStyle = opts.quoteStyle;
+            if (has(opts, 'quoteStyle')) newOpts.quoteStyle = opts.quoteStyle;
             return inspect_(value, newOpts, depth + 1, seen);
         }
         return inspect_(value, opts, depth + 1, seen);
     }
-    if (typeof obj === "function" && !isRegExp(obj)) {
+    if (typeof obj === 'function' && !isRegExp(obj)) {
         var name = nameOf(obj);
         var keys = arrObjKeys(obj, inspect);
-        return "[Function" + (name ? ": " + name : " (anonymous)") + "]" + (keys.length > 0 ? " { " + $join.call(keys, ", ") + " }" : "");
+        return '[Function' + (name ? ': ' + name : ' (anonymous)') + ']' + (keys.length > 0 ? ' { ' + $join.call(keys, ', ') + ' }' : '');
     }
     if (isSymbol(obj)) {
-        var symString = hasShammedSymbols ? $replace.call(String(obj), /^(Symbol\(.*\))_[^)]*$/, "$1") : symToString.call(obj);
-        return typeof obj === "object" && !hasShammedSymbols ? markBoxed(symString) : symString;
+        var symString = hasShammedSymbols ? $replace.call(String(obj), /^(Symbol\(.*\))_[^)]*$/, '$1') : symToString.call(obj);
+        return typeof obj === 'object' && !hasShammedSymbols ? markBoxed(symString) : symString;
     }
     if (isElement(obj)) {
-        var s = "<" + $toLowerCase.call(String(obj.nodeName));
+        var s = '<' + $toLowerCase.call(String(obj.nodeName));
         var attrs = obj.attributes || [];
-        for(var i = 0; i < attrs.length; i++)s += " " + attrs[i].name + "=" + wrapQuotes(quote(attrs[i].value), "double", opts);
-        s += ">";
-        if (obj.childNodes && obj.childNodes.length) s += "...";
-        s += "</" + $toLowerCase.call(String(obj.nodeName)) + ">";
+        for(var i = 0; i < attrs.length; i++)s += ' ' + attrs[i].name + '=' + wrapQuotes(quote(attrs[i].value), 'double', opts);
+        s += '>';
+        if (obj.childNodes && obj.childNodes.length) s += '...';
+        s += '</' + $toLowerCase.call(String(obj.nodeName)) + '>';
         return s;
     }
     if (isArray(obj)) {
-        if (obj.length === 0) return "[]";
+        if (obj.length === 0) return '[]';
         var xs = arrObjKeys(obj, inspect);
-        if (indent && !singleLineValues(xs)) return "[" + indentedJoin(xs, indent) + "]";
-        return "[ " + $join.call(xs, ", ") + " ]";
+        if (indent && !singleLineValues(xs)) return '[' + indentedJoin(xs, indent) + ']';
+        return '[ ' + $join.call(xs, ', ') + ' ]';
     }
     if (isError(obj)) {
         var parts = arrObjKeys(obj, inspect);
-        if (!("cause" in Error.prototype) && "cause" in obj && !isEnumerable.call(obj, "cause")) return "{ [" + String(obj) + "] " + $join.call($concat.call("[cause]: " + inspect(obj.cause), parts), ", ") + " }";
-        if (parts.length === 0) return "[" + String(obj) + "]";
-        return "{ [" + String(obj) + "] " + $join.call(parts, ", ") + " }";
+        if (!('cause' in Error.prototype) && 'cause' in obj && !isEnumerable.call(obj, 'cause')) return '{ [' + String(obj) + '] ' + $join.call($concat.call('[cause]: ' + inspect(obj.cause), parts), ', ') + ' }';
+        if (parts.length === 0) return '[' + String(obj) + ']';
+        return '{ [' + String(obj) + '] ' + $join.call(parts, ', ') + ' }';
     }
-    if (typeof obj === "object" && customInspect) {
-        if (inspectSymbol && typeof obj[inspectSymbol] === "function" && utilInspect) return utilInspect(obj, {
+    if (typeof obj === 'object' && customInspect) {
+        if (inspectSymbol && typeof obj[inspectSymbol] === 'function' && utilInspect) return utilInspect(obj, {
             depth: maxDepth - depth
         });
-        else if (customInspect !== "symbol" && typeof obj.inspect === "function") return obj.inspect();
+        else if (customInspect !== 'symbol' && typeof obj.inspect === 'function') return obj.inspect();
     }
     if (isMap(obj)) {
         var mapParts = [];
         if (mapForEach) mapForEach.call(obj, function(value, key) {
-            mapParts.push(inspect(key, obj, true) + " => " + inspect(value, obj));
+            mapParts.push(inspect(key, obj, true) + ' => ' + inspect(value, obj));
         });
-        return collectionOf("Map", mapSize.call(obj), mapParts, indent);
+        return collectionOf('Map', mapSize.call(obj), mapParts, indent);
     }
     if (isSet(obj)) {
         var setParts = [];
         if (setForEach) setForEach.call(obj, function(value) {
             setParts.push(inspect(value, obj));
         });
-        return collectionOf("Set", setSize.call(obj), setParts, indent);
+        return collectionOf('Set', setSize.call(obj), setParts, indent);
     }
-    if (isWeakMap(obj)) return weakCollectionOf("WeakMap");
-    if (isWeakSet(obj)) return weakCollectionOf("WeakSet");
-    if (isWeakRef(obj)) return weakCollectionOf("WeakRef");
+    if (isWeakMap(obj)) return weakCollectionOf('WeakMap');
+    if (isWeakSet(obj)) return weakCollectionOf('WeakSet');
+    if (isWeakRef(obj)) return weakCollectionOf('WeakRef');
     if (isNumber(obj)) return markBoxed(inspect(Number(obj)));
     if (isBigInt(obj)) return markBoxed(inspect(bigIntValueOf.call(obj)));
     if (isBoolean(obj)) return markBoxed(booleanValueOf.call(obj));
     if (isString(obj)) return markBoxed(inspect(String(obj)));
     // note: in IE 8, sometimes `global !== window` but both are the prototypes of each other
-    /* eslint-env browser */ if (typeof window !== "undefined" && obj === window) return "{ [object Window] }";
-    if (typeof globalThis !== "undefined" && obj === globalThis || typeof global !== "undefined" && obj === global) return "{ [object globalThis] }";
+    /* eslint-env browser */ if (typeof window !== 'undefined' && obj === window) return '{ [object Window] }';
+    if (typeof globalThis !== 'undefined' && obj === globalThis || typeof global !== 'undefined' && obj === global) return '{ [object globalThis] }';
     if (!isDate(obj) && !isRegExp(obj)) {
         var ys = arrObjKeys(obj, inspect);
         var isPlainObject = gPO ? gPO(obj) === Object.prototype : obj instanceof Object || obj.constructor === Object;
-        var protoTag = obj instanceof Object ? "" : "null prototype";
-        var stringTag = !isPlainObject && toStringTag && Object(obj) === obj && toStringTag in obj ? $slice.call(toStr(obj), 8, -1) : protoTag ? "Object" : "";
-        var constructorTag = isPlainObject || typeof obj.constructor !== "function" ? "" : obj.constructor.name ? obj.constructor.name + " " : "";
-        var tag = constructorTag + (stringTag || protoTag ? "[" + $join.call($concat.call([], stringTag || [], protoTag || []), ": ") + "] " : "");
-        if (ys.length === 0) return tag + "{}";
-        if (indent) return tag + "{" + indentedJoin(ys, indent) + "}";
-        return tag + "{ " + $join.call(ys, ", ") + " }";
+        var protoTag = obj instanceof Object ? '' : 'null prototype';
+        var stringTag = !isPlainObject && toStringTag && Object(obj) === obj && toStringTag in obj ? $slice.call(toStr(obj), 8, -1) : protoTag ? 'Object' : '';
+        var constructorTag = isPlainObject || typeof obj.constructor !== 'function' ? '' : obj.constructor.name ? obj.constructor.name + ' ' : '';
+        var tag = constructorTag + (stringTag || protoTag ? '[' + $join.call($concat.call([], stringTag || [], protoTag || []), ': ') + '] ' : '');
+        if (ys.length === 0) return tag + '{}';
+        if (indent) return tag + '{' + indentedJoin(ys, indent) + '}';
+        return tag + '{ ' + $join.call(ys, ', ') + ' }';
     }
     return String(obj);
 };
 function wrapQuotes(s, defaultStyle, opts) {
-    var quoteChar = (opts.quoteStyle || defaultStyle) === "double" ? '"' : "'";
+    var style = opts.quoteStyle || defaultStyle;
+    var quoteChar = quotes[style];
     return quoteChar + s + quoteChar;
 }
 function quote(s) {
-    return $replace.call(String(s), /"/g, "&quot;");
+    return $replace.call(String(s), /"/g, '&quot;');
+}
+function canTrustToString(obj) {
+    return !toStringTag || !(typeof obj === 'object' && (toStringTag in obj || typeof obj[toStringTag] !== 'undefined'));
 }
 function isArray(obj) {
-    return toStr(obj) === "[object Array]" && (!toStringTag || !(typeof obj === "object" && toStringTag in obj));
+    return toStr(obj) === '[object Array]' && canTrustToString(obj);
 }
 function isDate(obj) {
-    return toStr(obj) === "[object Date]" && (!toStringTag || !(typeof obj === "object" && toStringTag in obj));
+    return toStr(obj) === '[object Date]' && canTrustToString(obj);
 }
 function isRegExp(obj) {
-    return toStr(obj) === "[object RegExp]" && (!toStringTag || !(typeof obj === "object" && toStringTag in obj));
+    return toStr(obj) === '[object RegExp]' && canTrustToString(obj);
 }
 function isError(obj) {
-    return toStr(obj) === "[object Error]" && (!toStringTag || !(typeof obj === "object" && toStringTag in obj));
+    return toStr(obj) === '[object Error]' && canTrustToString(obj);
 }
 function isString(obj) {
-    return toStr(obj) === "[object String]" && (!toStringTag || !(typeof obj === "object" && toStringTag in obj));
+    return toStr(obj) === '[object String]' && canTrustToString(obj);
 }
 function isNumber(obj) {
-    return toStr(obj) === "[object Number]" && (!toStringTag || !(typeof obj === "object" && toStringTag in obj));
+    return toStr(obj) === '[object Number]' && canTrustToString(obj);
 }
 function isBoolean(obj) {
-    return toStr(obj) === "[object Boolean]" && (!toStringTag || !(typeof obj === "object" && toStringTag in obj));
+    return toStr(obj) === '[object Boolean]' && canTrustToString(obj);
 }
 // Symbol and BigInt do have Symbol.toStringTag by spec, so that can't be used to eliminate false positives
 function isSymbol(obj) {
-    if (hasShammedSymbols) return obj && typeof obj === "object" && obj instanceof Symbol;
-    if (typeof obj === "symbol") return true;
-    if (!obj || typeof obj !== "object" || !symToString) return false;
+    if (hasShammedSymbols) return obj && typeof obj === 'object' && obj instanceof Symbol;
+    if (typeof obj === 'symbol') return true;
+    if (!obj || typeof obj !== 'object' || !symToString) return false;
     try {
         symToString.call(obj);
         return true;
@@ -12888,7 +12207,7 @@ function isSymbol(obj) {
     return false;
 }
 function isBigInt(obj) {
-    if (!obj || typeof obj !== "object" || !bigIntValueOf) return false;
+    if (!obj || typeof obj !== 'object' || !bigIntValueOf) return false;
     try {
         bigIntValueOf.call(obj);
         return true;
@@ -12918,7 +12237,7 @@ function indexOf(xs, x) {
     return -1;
 }
 function isMap(x) {
-    if (!mapSize || !x || typeof x !== "object") return false;
+    if (!mapSize || !x || typeof x !== 'object') return false;
     try {
         mapSize.call(x);
         try {
@@ -12931,7 +12250,7 @@ function isMap(x) {
     return false;
 }
 function isWeakMap(x) {
-    if (!weakMapHas || !x || typeof x !== "object") return false;
+    if (!weakMapHas || !x || typeof x !== 'object') return false;
     try {
         weakMapHas.call(x, weakMapHas);
         try {
@@ -12944,7 +12263,7 @@ function isWeakMap(x) {
     return false;
 }
 function isWeakRef(x) {
-    if (!weakRefDeref || !x || typeof x !== "object") return false;
+    if (!weakRefDeref || !x || typeof x !== 'object') return false;
     try {
         weakRefDeref.call(x);
         return true;
@@ -12952,7 +12271,7 @@ function isWeakRef(x) {
     return false;
 }
 function isSet(x) {
-    if (!setSize || !x || typeof x !== "object") return false;
+    if (!setSize || !x || typeof x !== 'object') return false;
     try {
         setSize.call(x);
         try {
@@ -12965,7 +12284,7 @@ function isSet(x) {
     return false;
 }
 function isWeakSet(x) {
-    if (!weakSetHas || !x || typeof x !== "object") return false;
+    if (!weakSetHas || !x || typeof x !== 'object') return false;
     try {
         weakSetHas.call(x, weakSetHas);
         try {
@@ -12978,52 +12297,54 @@ function isWeakSet(x) {
     return false;
 }
 function isElement(x) {
-    if (!x || typeof x !== "object") return false;
-    if (typeof HTMLElement !== "undefined" && x instanceof HTMLElement) return true;
-    return typeof x.nodeName === "string" && typeof x.getAttribute === "function";
+    if (!x || typeof x !== 'object') return false;
+    if (typeof HTMLElement !== 'undefined' && x instanceof HTMLElement) return true;
+    return typeof x.nodeName === 'string' && typeof x.getAttribute === 'function';
 }
 function inspectString(str, opts) {
     if (str.length > opts.maxStringLength) {
         var remaining = str.length - opts.maxStringLength;
-        var trailer = "... " + remaining + " more character" + (remaining > 1 ? "s" : "");
+        var trailer = '... ' + remaining + ' more character' + (remaining > 1 ? 's' : '');
         return inspectString($slice.call(str, 0, opts.maxStringLength), opts) + trailer;
     }
+    var quoteRE = quoteREs[opts.quoteStyle || 'single'];
+    quoteRE.lastIndex = 0;
     // eslint-disable-next-line no-control-regex
-    var s = $replace.call($replace.call(str, /(['\\])/g, "\\$1"), /[\x00-\x1f]/g, lowbyte);
-    return wrapQuotes(s, "single", opts);
+    var s = $replace.call($replace.call(str, quoteRE, '\\$1'), /[\x00-\x1f]/g, lowbyte);
+    return wrapQuotes(s, 'single', opts);
 }
 function lowbyte(c) {
     var n = c.charCodeAt(0);
     var x = {
-        8: "b",
-        9: "t",
-        10: "n",
-        12: "f",
-        13: "r"
+        8: 'b',
+        9: 't',
+        10: 'n',
+        12: 'f',
+        13: 'r'
     }[n];
-    if (x) return "\\" + x;
-    return "\\x" + (n < 0x10 ? "0" : "") + $toUpperCase.call(n.toString(16));
+    if (x) return '\\' + x;
+    return '\\x' + (n < 0x10 ? '0' : '') + $toUpperCase.call(n.toString(16));
 }
 function markBoxed(str) {
-    return "Object(" + str + ")";
+    return 'Object(' + str + ')';
 }
 function weakCollectionOf(type) {
-    return type + " { ? }";
+    return type + ' { ? }';
 }
 function collectionOf(type, size, entries, indent) {
-    var joinedEntries = indent ? indentedJoin(entries, indent) : $join.call(entries, ", ");
-    return type + " (" + size + ") {" + joinedEntries + "}";
+    var joinedEntries = indent ? indentedJoin(entries, indent) : $join.call(entries, ', ');
+    return type + ' (' + size + ') {' + joinedEntries + '}';
 }
 function singleLineValues(xs) {
     for(var i = 0; i < xs.length; i++){
-        if (indexOf(xs[i], "\n") >= 0) return false;
+        if (indexOf(xs[i], '\n') >= 0) return false;
     }
     return true;
 }
 function getIndent(opts, depth) {
     var baseIndent;
-    if (opts.indent === "	") baseIndent = "	";
-    else if (typeof opts.indent === "number" && opts.indent > 0) baseIndent = $join.call(Array(opts.indent + 1), " ");
+    if (opts.indent === '\t') baseIndent = '\t';
+    else if (typeof opts.indent === 'number' && opts.indent > 0) baseIndent = $join.call(Array(opts.indent + 1), ' ');
     else return null;
     return {
         base: baseIndent,
@@ -13031,46 +12352,221 @@ function getIndent(opts, depth) {
     };
 }
 function indentedJoin(xs, indent) {
-    if (xs.length === 0) return "";
-    var lineJoiner = "\n" + indent.prev + indent.base;
-    return lineJoiner + $join.call(xs, "," + lineJoiner) + "\n" + indent.prev;
+    if (xs.length === 0) return '';
+    var lineJoiner = '\n' + indent.prev + indent.base;
+    return lineJoiner + $join.call(xs, ',' + lineJoiner) + '\n' + indent.prev;
 }
 function arrObjKeys(obj, inspect) {
     var isArr = isArray(obj);
     var xs = [];
     if (isArr) {
         xs.length = obj.length;
-        for(var i = 0; i < obj.length; i++)xs[i] = has(obj, i) ? inspect(obj[i], obj) : "";
+        for(var i = 0; i < obj.length; i++)xs[i] = has(obj, i) ? inspect(obj[i], obj) : '';
     }
-    var syms = typeof gOPS === "function" ? gOPS(obj) : [];
+    var syms = typeof gOPS === 'function' ? gOPS(obj) : [];
     var symMap;
     if (hasShammedSymbols) {
         symMap = {};
-        for(var k = 0; k < syms.length; k++)symMap["$" + syms[k]] = syms[k];
+        for(var k = 0; k < syms.length; k++)symMap['$' + syms[k]] = syms[k];
     }
     for(var key in obj){
         if (!has(obj, key)) continue;
          // eslint-disable-line no-restricted-syntax, no-continue
         if (isArr && String(Number(key)) === key && key < obj.length) continue;
          // eslint-disable-line no-restricted-syntax, no-continue
-        if (hasShammedSymbols && symMap["$" + key] instanceof Symbol) continue; // eslint-disable-line no-restricted-syntax, no-continue
-        else if ($test.call(/[^\w$]/, key)) xs.push(inspect(key, obj) + ": " + inspect(obj[key], obj));
-        else xs.push(key + ": " + inspect(obj[key], obj));
+        if (hasShammedSymbols && symMap['$' + key] instanceof Symbol) continue; // eslint-disable-line no-restricted-syntax, no-continue
+        else if ($test.call(/[^\w$]/, key)) xs.push(inspect(key, obj) + ': ' + inspect(obj[key], obj));
+        else xs.push(key + ': ' + inspect(obj[key], obj));
     }
-    if (typeof gOPS === "function") {
-        for(var j = 0; j < syms.length; j++)if (isEnumerable.call(obj, syms[j])) xs.push("[" + inspect(syms[j]) + "]: " + inspect(obj[syms[j]], obj));
+    if (typeof gOPS === 'function') {
+        for(var j = 0; j < syms.length; j++)if (isEnumerable.call(obj, syms[j])) xs.push('[' + inspect(syms[j]) + ']: ' + inspect(obj[syms[j]], obj));
     }
     return xs;
 }
 
-},{"faefcb1694f2ad90":"jhUEF"}],"chmkc":[function(require,module,exports) {
-"use strict";
+},{"faefcb1694f2ad90":"jhUEF"}],"1QabC":[function(require,module,exports,__globalThis) {
+'use strict';
+var inspect = require("c82a24db877dbdb5");
+var $TypeError = require("7492c0a54ac02a69");
+/*
+* This function traverses the list returning the node corresponding to the given key.
+*
+* That node is also moved to the head of the list, so that if it's accessed again we don't need to traverse the whole list.
+* By doing so, all the recently used nodes can be accessed relatively quickly.
+*/ /** @type {import('./list.d.ts').listGetNode} */ // eslint-disable-next-line consistent-return
+var listGetNode = function(list, key, isDelete) {
+    /** @type {typeof list | NonNullable<(typeof list)['next']>} */ var prev = list;
+    /** @type {(typeof list)['next']} */ var curr;
+    // eslint-disable-next-line eqeqeq
+    for(; (curr = prev.next) != null; prev = curr)if (curr.key === key) {
+        prev.next = curr.next;
+        if (!isDelete) {
+            // eslint-disable-next-line no-extra-parens
+            curr.next = /** @type {NonNullable<typeof list.next>} */ list.next;
+            list.next = curr; // eslint-disable-line no-param-reassign
+        }
+        return curr;
+    }
+};
+/** @type {import('./list.d.ts').listGet} */ var listGet = function(objects, key) {
+    if (!objects) return void 0;
+    var node = listGetNode(objects, key);
+    return node && node.value;
+};
+/** @type {import('./list.d.ts').listSet} */ var listSet = function(objects, key, value) {
+    var node = listGetNode(objects, key);
+    if (node) node.value = value;
+    else // Prepend the new node to the beginning of the list
+    objects.next = /** @type {import('./list.d.ts').ListNode<typeof value, typeof key>} */ {
+        key: key,
+        next: objects.next,
+        value: value
+    };
+};
+/** @type {import('./list.d.ts').listHas} */ var listHas = function(objects, key) {
+    if (!objects) return false;
+    return !!listGetNode(objects, key);
+};
+/** @type {import('./list.d.ts').listDelete} */ // eslint-disable-next-line consistent-return
+var listDelete = function(objects, key) {
+    if (objects) return listGetNode(objects, key, true);
+};
+/** @type {import('.')} */ module.exports = function getSideChannelList() {
+    /** @typedef {ReturnType<typeof getSideChannelList>} Channel */ /** @typedef {Parameters<Channel['get']>[0]} K */ /** @typedef {Parameters<Channel['set']>[1]} V */ /** @type {import('./list.d.ts').RootNode<V, K> | undefined} */ var $o;
+    /** @type {Channel} */ var channel = {
+        assert: function(key) {
+            if (!channel.has(key)) throw new $TypeError('Side channel does not contain ' + inspect(key));
+        },
+        'delete': function(key) {
+            var root = $o && $o.next;
+            var deletedNode = listDelete($o, key);
+            if (deletedNode && root && root === deletedNode) $o = void 0;
+            return !!deletedNode;
+        },
+        get: function(key) {
+            return listGet($o, key);
+        },
+        has: function(key) {
+            return listHas($o, key);
+        },
+        set: function(key, value) {
+            if (!$o) // Initialize the linked list as an empty node, so that we don't have to special-case handling of the first node: we can always refer to it as (previous node).next, instead of something like (list).head
+            $o = {
+                next: void 0
+            };
+            // eslint-disable-next-line no-extra-parens
+            listSet(/** @type {NonNullable<typeof $o>} */ $o, key, value);
+        }
+    };
+    // @ts-expect-error TODO: figure out why this is erroring
+    return channel;
+};
+
+},{"c82a24db877dbdb5":"kS3SE","7492c0a54ac02a69":"6oWLR"}],"fJI6C":[function(require,module,exports,__globalThis) {
+'use strict';
+var GetIntrinsic = require("a1eef823705394c3");
+var callBound = require("5e33adfb500d5ba2");
+var inspect = require("2202d24f09ef0ac8");
+var $TypeError = require("2772cd2df080356f");
+var $Map = GetIntrinsic('%Map%', true);
+/** @type {<K, V>(thisArg: Map<K, V>, key: K) => V} */ var $mapGet = callBound('Map.prototype.get', true);
+/** @type {<K, V>(thisArg: Map<K, V>, key: K, value: V) => void} */ var $mapSet = callBound('Map.prototype.set', true);
+/** @type {<K, V>(thisArg: Map<K, V>, key: K) => boolean} */ var $mapHas = callBound('Map.prototype.has', true);
+/** @type {<K, V>(thisArg: Map<K, V>, key: K) => boolean} */ var $mapDelete = callBound('Map.prototype.delete', true);
+/** @type {<K, V>(thisArg: Map<K, V>) => number} */ var $mapSize = callBound('Map.prototype.size', true);
+/** @type {import('.')} */ module.exports = !!$Map && /** @type {Exclude<import('.'), false>} */ function getSideChannelMap() {
+    /** @typedef {ReturnType<typeof getSideChannelMap>} Channel */ /** @typedef {Parameters<Channel['get']>[0]} K */ /** @typedef {Parameters<Channel['set']>[1]} V */ /** @type {Map<K, V> | undefined} */ var $m;
+    /** @type {Channel} */ var channel = {
+        assert: function(key) {
+            if (!channel.has(key)) throw new $TypeError('Side channel does not contain ' + inspect(key));
+        },
+        'delete': function(key) {
+            if ($m) {
+                var result = $mapDelete($m, key);
+                if ($mapSize($m) === 0) $m = void 0;
+                return result;
+            }
+            return false;
+        },
+        get: function(key) {
+            if ($m) return $mapGet($m, key);
+        },
+        has: function(key) {
+            if ($m) return $mapHas($m, key);
+            return false;
+        },
+        set: function(key, value) {
+            if (!$m) // @ts-expect-error TS can't handle narrowing a variable inside a closure
+            $m = new $Map();
+            $mapSet($m, key, value);
+        }
+    };
+    // @ts-expect-error TODO: figure out why TS is erroring here
+    return channel;
+};
+
+},{"a1eef823705394c3":"dZb05","5e33adfb500d5ba2":"lAcs1","2202d24f09ef0ac8":"kS3SE","2772cd2df080356f":"6oWLR"}],"nfsLc":[function(require,module,exports,__globalThis) {
+'use strict';
+var GetIntrinsic = require("13f8b3ed6c08f802");
+var callBound = require("fcc2ce3a04e4916a");
+var inspect = require("92adfc822fa342a4");
+var getSideChannelMap = require("1290b6babf3b47b6");
+var $TypeError = require("2293e69a0f659b70");
+var $WeakMap = GetIntrinsic('%WeakMap%', true);
+/** @type {<K extends object, V>(thisArg: WeakMap<K, V>, key: K) => V} */ var $weakMapGet = callBound('WeakMap.prototype.get', true);
+/** @type {<K extends object, V>(thisArg: WeakMap<K, V>, key: K, value: V) => void} */ var $weakMapSet = callBound('WeakMap.prototype.set', true);
+/** @type {<K extends object, V>(thisArg: WeakMap<K, V>, key: K) => boolean} */ var $weakMapHas = callBound('WeakMap.prototype.has', true);
+/** @type {<K extends object, V>(thisArg: WeakMap<K, V>, key: K) => boolean} */ var $weakMapDelete = callBound('WeakMap.prototype.delete', true);
+/** @type {import('.')} */ module.exports = $WeakMap ? /** @type {Exclude<import('.'), false>} */ function getSideChannelWeakMap() {
+    /** @typedef {ReturnType<typeof getSideChannelWeakMap>} Channel */ /** @typedef {Parameters<Channel['get']>[0]} K */ /** @typedef {Parameters<Channel['set']>[1]} V */ /** @type {WeakMap<K & object, V> | undefined} */ var $wm;
+    /** @type {Channel | undefined} */ var $m;
+    /** @type {Channel} */ var channel = {
+        assert: function(key) {
+            if (!channel.has(key)) throw new $TypeError('Side channel does not contain ' + inspect(key));
+        },
+        'delete': function(key) {
+            if ($WeakMap && key && (typeof key === 'object' || typeof key === 'function')) {
+                if ($wm) return $weakMapDelete($wm, key);
+            } else if (getSideChannelMap) {
+                if ($m) return $m['delete'](key);
+            }
+            return false;
+        },
+        get: function(key) {
+            if ($WeakMap && key && (typeof key === 'object' || typeof key === 'function')) {
+                if ($wm) return $weakMapGet($wm, key);
+            }
+            return $m && $m.get(key);
+        },
+        has: function(key) {
+            if ($WeakMap && key && (typeof key === 'object' || typeof key === 'function')) {
+                if ($wm) return $weakMapHas($wm, key);
+            }
+            return !!$m && $m.has(key);
+        },
+        set: function(key, value) {
+            if ($WeakMap && key && (typeof key === 'object' || typeof key === 'function')) {
+                if (!$wm) $wm = new $WeakMap();
+                $weakMapSet($wm, key, value);
+            } else if (getSideChannelMap) {
+                if (!$m) $m = getSideChannelMap();
+                // eslint-disable-next-line no-extra-parens
+                /** @type {NonNullable<typeof $m>} */ $m.set(key, value);
+            }
+        }
+    };
+    // @ts-expect-error TODO: figure out why this is erroring
+    return channel;
+} : getSideChannelMap;
+
+},{"13f8b3ed6c08f802":"dZb05","fcc2ce3a04e4916a":"lAcs1","92adfc822fa342a4":"kS3SE","1290b6babf3b47b6":"fJI6C","2293e69a0f659b70":"6oWLR"}],"chmkc":[function(require,module,exports,__globalThis) {
+'use strict';
 var formats = require("7adf3674f81a2c87");
 var has = Object.prototype.hasOwnProperty;
 var isArray = Array.isArray;
 var hexTable = function() {
     var array = [];
-    for(var i = 0; i < 256; ++i)array.push("%" + ((i < 16 ? "0" : "") + i.toString(16)).toUpperCase());
+    for(var i = 0; i < 256; ++i)array.push('%' + ((i < 16 ? '0' : '') + i.toString(16)).toUpperCase());
     return array;
 }();
 var compactQueue = function compactQueue(queue) {
@@ -13079,21 +12575,23 @@ var compactQueue = function compactQueue(queue) {
         var obj = item.obj[item.prop];
         if (isArray(obj)) {
             var compacted = [];
-            for(var j = 0; j < obj.length; ++j)if (typeof obj[j] !== "undefined") compacted.push(obj[j]);
+            for(var j = 0; j < obj.length; ++j)if (typeof obj[j] !== 'undefined') compacted.push(obj[j]);
             item.obj[item.prop] = compacted;
         }
     }
 };
 var arrayToObject = function arrayToObject(source, options) {
-    var obj = options && options.plainObjects ? Object.create(null) : {};
-    for(var i = 0; i < source.length; ++i)if (typeof source[i] !== "undefined") obj[i] = source[i];
+    var obj = options && options.plainObjects ? {
+        __proto__: null
+    } : {};
+    for(var i = 0; i < source.length; ++i)if (typeof source[i] !== 'undefined') obj[i] = source[i];
     return obj;
 };
 var merge = function merge(target, source, options) {
     /* eslint no-param-reassign: 0 */ if (!source) return target;
-    if (typeof source !== "object") {
+    if (typeof source !== 'object' && typeof source !== 'function') {
         if (isArray(target)) target.push(source);
-        else if (target && typeof target === "object") {
+        else if (target && typeof target === 'object') {
             if (options && (options.plainObjects || options.allowPrototypes) || !has.call(Object.prototype, source)) target[source] = true;
         } else return [
             target,
@@ -13101,7 +12599,7 @@ var merge = function merge(target, source, options) {
         ];
         return target;
     }
-    if (!target || typeof target !== "object") return [
+    if (!target || typeof target !== 'object') return [
         target
     ].concat(source);
     var mergeTarget = target;
@@ -13110,7 +12608,7 @@ var merge = function merge(target, source, options) {
         source.forEach(function(item, i) {
             if (has.call(target, i)) {
                 var targetItem = target[i];
-                if (targetItem && typeof targetItem === "object" && item && typeof item === "object") target[i] = merge(targetItem, item, options);
+                if (targetItem && typeof targetItem === 'object' && item && typeof item === 'object') target[i] = merge(targetItem, item, options);
                 else target.push(item);
             } else target[i] = item;
         });
@@ -13129,9 +12627,9 @@ var assign = function assignSingleSource(target, source) {
         return acc;
     }, target);
 };
-var decode = function(str, decoder, charset) {
-    var strWithoutPlus = str.replace(/\+/g, " ");
-    if (charset === "iso-8859-1") // unescape never throws, no try...catch needed:
+var decode = function(str, defaultDecoder, charset) {
+    var strWithoutPlus = str.replace(/\+/g, ' ');
+    if (charset === 'iso-8859-1') // unescape never throws, no try...catch needed:
     return strWithoutPlus.replace(/%[0-9a-f]{2}/gi, unescape);
     // utf-8
     try {
@@ -13146,12 +12644,12 @@ var limit = 1024;
     // It has been adapted here for stricter adherence to RFC 3986
     if (str.length === 0) return str;
     var string = str;
-    if (typeof str === "symbol") string = Symbol.prototype.toString.call(str);
-    else if (typeof str !== "string") string = String(str);
-    if (charset === "iso-8859-1") return escape(string).replace(/%u[0-9a-f]{4}/gi, function($0) {
-        return "%26%23" + parseInt($0.slice(2), 16) + "%3B";
+    if (typeof str === 'symbol') string = Symbol.prototype.toString.call(str);
+    else if (typeof str !== 'string') string = String(str);
+    if (charset === 'iso-8859-1') return escape(string).replace(/%u[0-9a-f]{4}/gi, function($0) {
+        return '%26%23' + parseInt($0.slice(2), 16) + '%3B';
     });
-    var out = "";
+    var out = '';
     for(var j = 0; j < string.length; j += limit){
         var segment = string.length >= limit ? string.slice(j, j + limit) : string;
         var arr = [];
@@ -13185,7 +12683,7 @@ var limit = 1024;
             c = 0x10000 + ((c & 0x3FF) << 10 | segment.charCodeAt(i) & 0x3FF);
             arr[arr.length] = hexTable[0xF0 | c >> 18] + hexTable[0x80 | c >> 12 & 0x3F] + hexTable[0x80 | c >> 6 & 0x3F] + hexTable[0x80 | c & 0x3F];
         }
-        out += arr.join("");
+        out += arr.join('');
     }
     return out;
 };
@@ -13195,7 +12693,7 @@ var compact = function compact(value) {
             obj: {
                 o: value
             },
-            prop: "o"
+            prop: 'o'
         }
     ];
     var refs = [];
@@ -13206,7 +12704,7 @@ var compact = function compact(value) {
         for(var j = 0; j < keys.length; ++j){
             var key = keys[j];
             var val = obj[key];
-            if (typeof val === "object" && val !== null && refs.indexOf(val) === -1) {
+            if (typeof val === 'object' && val !== null && refs.indexOf(val) === -1) {
                 queue.push({
                     obj: obj,
                     prop: key
@@ -13219,10 +12717,10 @@ var compact = function compact(value) {
     return value;
 };
 var isRegExp = function isRegExp(obj) {
-    return Object.prototype.toString.call(obj) === "[object RegExp]";
+    return Object.prototype.toString.call(obj) === '[object RegExp]';
 };
 var isBuffer = function isBuffer(obj) {
-    if (!obj || typeof obj !== "object") return false;
+    if (!obj || typeof obj !== 'object') return false;
     return !!(obj.constructor && obj.constructor.isBuffer && obj.constructor.isBuffer(obj));
 };
 var combine = function combine(a, b) {
@@ -13249,19 +12747,19 @@ module.exports = {
     merge: merge
 };
 
-},{"7adf3674f81a2c87":"d7Ogf"}],"d7Ogf":[function(require,module,exports) {
-"use strict";
+},{"7adf3674f81a2c87":"d7Ogf"}],"d7Ogf":[function(require,module,exports,__globalThis) {
+'use strict';
 var replace = String.prototype.replace;
 var percentTwenties = /%20/g;
 var Format = {
-    RFC1738: "RFC1738",
-    RFC3986: "RFC3986"
+    RFC1738: 'RFC1738',
+    RFC3986: 'RFC3986'
 };
 module.exports = {
-    "default": Format.RFC3986,
+    'default': Format.RFC3986,
     formatters: {
         RFC1738: function(value) {
-            return replace.call(value, percentTwenties, "+");
+            return replace.call(value, percentTwenties, '+');
         },
         RFC3986: function(value) {
             return String(value);
@@ -13271,8 +12769,8 @@ module.exports = {
     RFC3986: Format.RFC3986
 };
 
-},{}],"fSZqi":[function(require,module,exports) {
-"use strict";
+},{}],"fSZqi":[function(require,module,exports,__globalThis) {
+'use strict';
 var utils = require("e76649c95dd0e736");
 var has = Object.prototype.hasOwnProperty;
 var isArray = Array.isArray;
@@ -13282,29 +12780,31 @@ var defaults = {
     allowPrototypes: false,
     allowSparse: false,
     arrayLimit: 20,
-    charset: "utf-8",
+    charset: 'utf-8',
     charsetSentinel: false,
     comma: false,
     decodeDotInKeys: false,
     decoder: utils.decode,
-    delimiter: "&",
+    delimiter: '&',
     depth: 5,
-    duplicates: "combine",
+    duplicates: 'combine',
     ignoreQueryPrefix: false,
     interpretNumericEntities: false,
     parameterLimit: 1000,
     parseArrays: true,
     plainObjects: false,
     strictDepth: false,
-    strictNullHandling: false
+    strictNullHandling: false,
+    throwOnLimitExceeded: false
 };
 var interpretNumericEntities = function(str) {
     return str.replace(/&#(\d+);/g, function($0, numberStr) {
         return String.fromCharCode(parseInt(numberStr, 10));
     });
 };
-var parseArrayValue = function(val, options) {
-    if (val && typeof val === "string" && options.comma && val.indexOf(",") > -1) return val.split(",");
+var parseArrayValue = function(val, options, currentArrayLength) {
+    if (val && typeof val === 'string' && options.comma && val.indexOf(',') > -1) return val.split(',');
+    if (options.throwOnLimitExceeded && currentArrayLength >= options.arrayLimit) throw new RangeError('Array limit exceeded. Only ' + options.arrayLimit + ' element' + (options.arrayLimit === 1 ? '' : 's') + ' allowed in an array.');
     return val;
 };
 // This is what browsers will submit when the ✓ character occurs in an
@@ -13312,24 +12812,25 @@ var parseArrayValue = function(val, options) {
 // the form is iso-8859-1, or when the submitted form has an accept-charset
 // attribute of iso-8859-1. Presumably also with other charsets that do not contain
 // the ✓ character, such as us-ascii.
-var isoSentinel = "utf8=%26%2310003%3B"; // encodeURIComponent('&#10003;')
+var isoSentinel = 'utf8=%26%2310003%3B'; // encodeURIComponent('&#10003;')
 // These are the percent-encoded utf-8 octets representing a checkmark, indicating that the request actually is utf-8 encoded.
-var charsetSentinel = "utf8=%E2%9C%93"; // encodeURIComponent('✓')
+var charsetSentinel = 'utf8=%E2%9C%93'; // encodeURIComponent('✓')
 var parseValues = function parseQueryStringValues(str, options) {
     var obj = {
         __proto__: null
     };
-    var cleanStr = options.ignoreQueryPrefix ? str.replace(/^\?/, "") : str;
-    cleanStr = cleanStr.replace(/%5B/gi, "[").replace(/%5D/gi, "]");
+    var cleanStr = options.ignoreQueryPrefix ? str.replace(/^\?/, '') : str;
+    cleanStr = cleanStr.replace(/%5B/gi, '[').replace(/%5D/gi, ']');
     var limit = options.parameterLimit === Infinity ? undefined : options.parameterLimit;
-    var parts = cleanStr.split(options.delimiter, limit);
+    var parts = cleanStr.split(options.delimiter, options.throwOnLimitExceeded ? limit + 1 : limit);
+    if (options.throwOnLimitExceeded && parts.length > limit) throw new RangeError('Parameter limit exceeded. Only ' + limit + ' parameter' + (limit === 1 ? '' : 's') + ' allowed.');
     var skipIndex = -1; // Keep track of where the utf8 sentinel was found
     var i;
     var charset = options.charset;
     if (options.charsetSentinel) {
-        for(i = 0; i < parts.length; ++i)if (parts[i].indexOf("utf8=") === 0) {
-            if (parts[i] === charsetSentinel) charset = "utf-8";
-            else if (parts[i] === isoSentinel) charset = "iso-8859-1";
+        for(i = 0; i < parts.length; ++i)if (parts[i].indexOf('utf8=') === 0) {
+            if (parts[i] === charsetSentinel) charset = 'utf-8';
+            else if (parts[i] === isoSentinel) charset = 'iso-8859-1';
             skipIndex = i;
             i = parts.length; // The eslint settings do not allow break;
         }
@@ -13337,46 +12838,54 @@ var parseValues = function parseQueryStringValues(str, options) {
     for(i = 0; i < parts.length; ++i){
         if (i === skipIndex) continue;
         var part = parts[i];
-        var bracketEqualsPos = part.indexOf("]=");
-        var pos = bracketEqualsPos === -1 ? part.indexOf("=") : bracketEqualsPos + 1;
-        var key, val;
+        var bracketEqualsPos = part.indexOf(']=');
+        var pos = bracketEqualsPos === -1 ? part.indexOf('=') : bracketEqualsPos + 1;
+        var key;
+        var val;
         if (pos === -1) {
-            key = options.decoder(part, defaults.decoder, charset, "key");
-            val = options.strictNullHandling ? null : "";
+            key = options.decoder(part, defaults.decoder, charset, 'key');
+            val = options.strictNullHandling ? null : '';
         } else {
-            key = options.decoder(part.slice(0, pos), defaults.decoder, charset, "key");
-            val = utils.maybeMap(parseArrayValue(part.slice(pos + 1), options), function(encodedVal) {
-                return options.decoder(encodedVal, defaults.decoder, charset, "value");
+            key = options.decoder(part.slice(0, pos), defaults.decoder, charset, 'key');
+            val = utils.maybeMap(parseArrayValue(part.slice(pos + 1), options, isArray(obj[key]) ? obj[key].length : 0), function(encodedVal) {
+                return options.decoder(encodedVal, defaults.decoder, charset, 'value');
             });
         }
-        if (val && options.interpretNumericEntities && charset === "iso-8859-1") val = interpretNumericEntities(val);
-        if (part.indexOf("[]=") > -1) val = isArray(val) ? [
+        if (val && options.interpretNumericEntities && charset === 'iso-8859-1') val = interpretNumericEntities(String(val));
+        if (part.indexOf('[]=') > -1) val = isArray(val) ? [
             val
         ] : val;
         var existing = has.call(obj, key);
-        if (existing && options.duplicates === "combine") obj[key] = utils.combine(obj[key], val);
-        else if (!existing || options.duplicates === "last") obj[key] = val;
+        if (existing && options.duplicates === 'combine') obj[key] = utils.combine(obj[key], val);
+        else if (!existing || options.duplicates === 'last') obj[key] = val;
     }
     return obj;
 };
 var parseObject = function(chain, val, options, valuesParsed) {
-    var leaf = valuesParsed ? val : parseArrayValue(val, options);
+    var currentArrayLength = 0;
+    if (chain.length > 0 && chain[chain.length - 1] === '[]') {
+        var parentKey = chain.slice(0, -1).join('');
+        currentArrayLength = Array.isArray(val) && val[parentKey] ? val[parentKey].length : 0;
+    }
+    var leaf = valuesParsed ? val : parseArrayValue(val, options, currentArrayLength);
     for(var i = chain.length - 1; i >= 0; --i){
         var obj;
         var root = chain[i];
-        if (root === "[]" && options.parseArrays) obj = options.allowEmptyArrays && (leaf === "" || options.strictNullHandling && leaf === null) ? [] : [].concat(leaf);
+        if (root === '[]' && options.parseArrays) obj = options.allowEmptyArrays && (leaf === '' || options.strictNullHandling && leaf === null) ? [] : utils.combine([], leaf);
         else {
-            obj = options.plainObjects ? Object.create(null) : {};
-            var cleanRoot = root.charAt(0) === "[" && root.charAt(root.length - 1) === "]" ? root.slice(1, -1) : root;
-            var decodedRoot = options.decodeDotInKeys ? cleanRoot.replace(/%2E/g, ".") : cleanRoot;
+            obj = options.plainObjects ? {
+                __proto__: null
+            } : {};
+            var cleanRoot = root.charAt(0) === '[' && root.charAt(root.length - 1) === ']' ? root.slice(1, -1) : root;
+            var decodedRoot = options.decodeDotInKeys ? cleanRoot.replace(/%2E/g, '.') : cleanRoot;
             var index = parseInt(decodedRoot, 10);
-            if (!options.parseArrays && decodedRoot === "") obj = {
+            if (!options.parseArrays && decodedRoot === '') obj = {
                 0: leaf
             };
             else if (!isNaN(index) && root !== decodedRoot && String(index) === decodedRoot && index >= 0 && options.parseArrays && index <= options.arrayLimit) {
                 obj = [];
                 obj[index] = leaf;
-            } else if (decodedRoot !== "__proto__") obj[decodedRoot] = leaf;
+            } else if (decodedRoot !== '__proto__') obj[decodedRoot] = leaf;
         }
         leaf = obj;
     }
@@ -13385,7 +12894,7 @@ var parseObject = function(chain, val, options, valuesParsed) {
 var parseKeys = function parseQueryStringKeys(givenKey, val, options, valuesParsed) {
     if (!givenKey) return;
     // Transform dot notation to bracket notation
-    var key = options.allowDots ? givenKey.replace(/\.([^.[]+)/g, "[$1]") : givenKey;
+    var key = options.allowDots ? givenKey.replace(/\.([^.[]+)/g, '[$1]') : givenKey;
     // The regex chunks
     var brackets = /(\[[^[\]]*])/;
     var child = /(\[[^[\]]*])/g;
@@ -13412,62 +12921,68 @@ var parseKeys = function parseQueryStringKeys(givenKey, val, options, valuesPars
     }
     // If there's a remainder, check strictDepth option for throw, else just add whatever is left
     if (segment) {
-        if (options.strictDepth === true) throw new RangeError("Input depth exceeded depth option of " + options.depth + " and strictDepth is true");
-        keys.push("[" + key.slice(segment.index) + "]");
+        if (options.strictDepth === true) throw new RangeError('Input depth exceeded depth option of ' + options.depth + ' and strictDepth is true');
+        keys.push('[' + key.slice(segment.index) + ']');
     }
     return parseObject(keys, val, options, valuesParsed);
 };
 var normalizeParseOptions = function normalizeParseOptions(opts) {
     if (!opts) return defaults;
-    if (typeof opts.allowEmptyArrays !== "undefined" && typeof opts.allowEmptyArrays !== "boolean") throw new TypeError("`allowEmptyArrays` option can only be `true` or `false`, when provided");
-    if (typeof opts.decodeDotInKeys !== "undefined" && typeof opts.decodeDotInKeys !== "boolean") throw new TypeError("`decodeDotInKeys` option can only be `true` or `false`, when provided");
-    if (opts.decoder !== null && typeof opts.decoder !== "undefined" && typeof opts.decoder !== "function") throw new TypeError("Decoder has to be a function.");
-    if (typeof opts.charset !== "undefined" && opts.charset !== "utf-8" && opts.charset !== "iso-8859-1") throw new TypeError("The charset option must be either utf-8, iso-8859-1, or undefined");
-    var charset = typeof opts.charset === "undefined" ? defaults.charset : opts.charset;
-    var duplicates = typeof opts.duplicates === "undefined" ? defaults.duplicates : opts.duplicates;
-    if (duplicates !== "combine" && duplicates !== "first" && duplicates !== "last") throw new TypeError("The duplicates option must be either combine, first, or last");
-    var allowDots = typeof opts.allowDots === "undefined" ? opts.decodeDotInKeys === true ? true : defaults.allowDots : !!opts.allowDots;
+    if (typeof opts.allowEmptyArrays !== 'undefined' && typeof opts.allowEmptyArrays !== 'boolean') throw new TypeError('`allowEmptyArrays` option can only be `true` or `false`, when provided');
+    if (typeof opts.decodeDotInKeys !== 'undefined' && typeof opts.decodeDotInKeys !== 'boolean') throw new TypeError('`decodeDotInKeys` option can only be `true` or `false`, when provided');
+    if (opts.decoder !== null && typeof opts.decoder !== 'undefined' && typeof opts.decoder !== 'function') throw new TypeError('Decoder has to be a function.');
+    if (typeof opts.charset !== 'undefined' && opts.charset !== 'utf-8' && opts.charset !== 'iso-8859-1') throw new TypeError('The charset option must be either utf-8, iso-8859-1, or undefined');
+    if (typeof opts.throwOnLimitExceeded !== 'undefined' && typeof opts.throwOnLimitExceeded !== 'boolean') throw new TypeError('`throwOnLimitExceeded` option must be a boolean');
+    var charset = typeof opts.charset === 'undefined' ? defaults.charset : opts.charset;
+    var duplicates = typeof opts.duplicates === 'undefined' ? defaults.duplicates : opts.duplicates;
+    if (duplicates !== 'combine' && duplicates !== 'first' && duplicates !== 'last') throw new TypeError('The duplicates option must be either combine, first, or last');
+    var allowDots = typeof opts.allowDots === 'undefined' ? opts.decodeDotInKeys === true ? true : defaults.allowDots : !!opts.allowDots;
     return {
         allowDots: allowDots,
-        allowEmptyArrays: typeof opts.allowEmptyArrays === "boolean" ? !!opts.allowEmptyArrays : defaults.allowEmptyArrays,
-        allowPrototypes: typeof opts.allowPrototypes === "boolean" ? opts.allowPrototypes : defaults.allowPrototypes,
-        allowSparse: typeof opts.allowSparse === "boolean" ? opts.allowSparse : defaults.allowSparse,
-        arrayLimit: typeof opts.arrayLimit === "number" ? opts.arrayLimit : defaults.arrayLimit,
+        allowEmptyArrays: typeof opts.allowEmptyArrays === 'boolean' ? !!opts.allowEmptyArrays : defaults.allowEmptyArrays,
+        allowPrototypes: typeof opts.allowPrototypes === 'boolean' ? opts.allowPrototypes : defaults.allowPrototypes,
+        allowSparse: typeof opts.allowSparse === 'boolean' ? opts.allowSparse : defaults.allowSparse,
+        arrayLimit: typeof opts.arrayLimit === 'number' ? opts.arrayLimit : defaults.arrayLimit,
         charset: charset,
-        charsetSentinel: typeof opts.charsetSentinel === "boolean" ? opts.charsetSentinel : defaults.charsetSentinel,
-        comma: typeof opts.comma === "boolean" ? opts.comma : defaults.comma,
-        decodeDotInKeys: typeof opts.decodeDotInKeys === "boolean" ? opts.decodeDotInKeys : defaults.decodeDotInKeys,
-        decoder: typeof opts.decoder === "function" ? opts.decoder : defaults.decoder,
-        delimiter: typeof opts.delimiter === "string" || utils.isRegExp(opts.delimiter) ? opts.delimiter : defaults.delimiter,
+        charsetSentinel: typeof opts.charsetSentinel === 'boolean' ? opts.charsetSentinel : defaults.charsetSentinel,
+        comma: typeof opts.comma === 'boolean' ? opts.comma : defaults.comma,
+        decodeDotInKeys: typeof opts.decodeDotInKeys === 'boolean' ? opts.decodeDotInKeys : defaults.decodeDotInKeys,
+        decoder: typeof opts.decoder === 'function' ? opts.decoder : defaults.decoder,
+        delimiter: typeof opts.delimiter === 'string' || utils.isRegExp(opts.delimiter) ? opts.delimiter : defaults.delimiter,
         // eslint-disable-next-line no-implicit-coercion, no-extra-parens
-        depth: typeof opts.depth === "number" || opts.depth === false ? +opts.depth : defaults.depth,
+        depth: typeof opts.depth === 'number' || opts.depth === false ? +opts.depth : defaults.depth,
         duplicates: duplicates,
         ignoreQueryPrefix: opts.ignoreQueryPrefix === true,
-        interpretNumericEntities: typeof opts.interpretNumericEntities === "boolean" ? opts.interpretNumericEntities : defaults.interpretNumericEntities,
-        parameterLimit: typeof opts.parameterLimit === "number" ? opts.parameterLimit : defaults.parameterLimit,
+        interpretNumericEntities: typeof opts.interpretNumericEntities === 'boolean' ? opts.interpretNumericEntities : defaults.interpretNumericEntities,
+        parameterLimit: typeof opts.parameterLimit === 'number' ? opts.parameterLimit : defaults.parameterLimit,
         parseArrays: opts.parseArrays !== false,
-        plainObjects: typeof opts.plainObjects === "boolean" ? opts.plainObjects : defaults.plainObjects,
-        strictDepth: typeof opts.strictDepth === "boolean" ? !!opts.strictDepth : defaults.strictDepth,
-        strictNullHandling: typeof opts.strictNullHandling === "boolean" ? opts.strictNullHandling : defaults.strictNullHandling
+        plainObjects: typeof opts.plainObjects === 'boolean' ? opts.plainObjects : defaults.plainObjects,
+        strictDepth: typeof opts.strictDepth === 'boolean' ? !!opts.strictDepth : defaults.strictDepth,
+        strictNullHandling: typeof opts.strictNullHandling === 'boolean' ? opts.strictNullHandling : defaults.strictNullHandling,
+        throwOnLimitExceeded: typeof opts.throwOnLimitExceeded === 'boolean' ? opts.throwOnLimitExceeded : false
     };
 };
 module.exports = function(str, opts) {
     var options = normalizeParseOptions(opts);
-    if (str === "" || str === null || typeof str === "undefined") return options.plainObjects ? Object.create(null) : {};
-    var tempObj = typeof str === "string" ? parseValues(str, options) : str;
-    var obj = options.plainObjects ? Object.create(null) : {};
+    if (str === '' || str === null || typeof str === 'undefined') return options.plainObjects ? {
+        __proto__: null
+    } : {};
+    var tempObj = typeof str === 'string' ? parseValues(str, options) : str;
+    var obj = options.plainObjects ? {
+        __proto__: null
+    } : {};
     // Iterate over the keys and setup the new object
     var keys = Object.keys(tempObj);
     for(var i = 0; i < keys.length; ++i){
         var key = keys[i];
-        var newObj = parseKeys(key, tempObj[key], options, typeof str === "string");
+        var newObj = parseKeys(key, tempObj[key], options, typeof str === 'string');
         obj = utils.merge(obj, newObj, options);
     }
     if (options.allowSparse === true) return obj;
     return utils.compact(obj);
 };
 
-},{"e76649c95dd0e736":"chmkc"}],"l7xEW":[function(require,module,exports) {
+},{"e76649c95dd0e736":"chmkc"}],"l7xEW":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
@@ -13536,7 +13051,7 @@ const genUID_1 = require("8354bb2eeff008e1");
 }
 exports.InputDataEndpoint = InputDataEndpoint;
 
-},{"e04a7e576c664fcd":"gzkbg","8354bb2eeff008e1":"jWwjU"}],"jWwjU":[function(require,module,exports) {
+},{"e04a7e576c664fcd":"gzkbg","8354bb2eeff008e1":"jWwjU"}],"jWwjU":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
@@ -13573,7 +13088,7 @@ function genUID(constructor) {
 }
 exports.genUID = genUID;
 
-},{}],"3BNTc":[function(require,module,exports) {
+},{}],"3BNTc":[function(require,module,exports,__globalThis) {
 "use strict";
 /* eslint-disable @typescript-eslint/no-explicit-any */ /*
  * Copyright 2022 SpinalCom - www.spinalcom.com
@@ -13605,7 +13120,7 @@ exports.logMessage = void 0;
 function logMessage(message) {}
 exports.logMessage = logMessage;
 
-},{}],"b1pPQ":[function(require,module,exports) {
+},{}],"b1pPQ":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerContextMenuService = require("spinal-env-viewer-context-menu-service");
@@ -13615,10 +13130,10 @@ const SIDEBAR = "GraphManagerSideBar";
 class CreateAnalytic extends (0, _spinalEnvViewerContextMenuService.SpinalContextApp) {
     constructor(){
         super("Create Analytic", "Create Analytic", {
-            icon: "dashboard_customize",
-            icon_type: "in",
-            backgroundColor: "#356BAB",
-            fontColor: "#FFFFFF"
+            icon: 'dashboard_customize',
+            icon_type: 'in',
+            backgroundColor: '#356BAB',
+            fontColor: '#FFFFFF'
         });
     }
     isShown(option) {
@@ -13636,7 +13151,7 @@ const createAnalytic = new CreateAnalytic();
 ]);
 exports.default = createAnalytic;
 
-},{"spinal-env-viewer-context-menu-service":"kHlxv","5239440612714194":"7Uw4d","spinal-model-analysis":"apm5J","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7hfR6":[function(require,module,exports) {
+},{"spinal-env-viewer-context-menu-service":"kHlxv","5239440612714194":"7Uw4d","spinal-model-analysis":"apm5J","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7hfR6":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerContextMenuService = require("spinal-env-viewer-context-menu-service");
@@ -13646,10 +13161,10 @@ const SIDEBAR = "GraphManagerSideBar";
 class ModifyAnalytic extends (0, _spinalEnvViewerContextMenuService.SpinalContextApp) {
     constructor(){
         super("Modify Analytic", "Modify Analytic", {
-            icon: "settings",
-            icon_type: "in",
-            backgroundColor: "#356BAB",
-            fontColor: "#FFFFFF"
+            icon: 'settings',
+            icon_type: 'in',
+            backgroundColor: '#356BAB',
+            fontColor: '#FFFFFF'
         });
     }
     isShown(option) {
@@ -13667,7 +13182,7 @@ const modifyAnalytic = new ModifyAnalytic();
 ]);
 exports.default = modifyAnalytic;
 
-},{"spinal-env-viewer-context-menu-service":"kHlxv","d7efd706ce54208c":"7Uw4d","spinal-model-analysis":"apm5J","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gJ1lP":[function(require,module,exports) {
+},{"spinal-env-viewer-context-menu-service":"kHlxv","d7efd706ce54208c":"7Uw4d","spinal-model-analysis":"apm5J","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gJ1lP":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "CreateContextButton", ()=>CreateContextButton);
@@ -13675,11 +13190,11 @@ var _spinalEnvViewerContextMenuService = require("spinal-env-viewer-context-menu
 var _spinalEnvViewerPanelManagerService = require("spinal-env-viewer-panel-manager-service");
 class CreateContextButton extends (0, _spinalEnvViewerContextMenuService.SpinalContextApp) {
     constructor(){
-        super("Create Analytic context", "This button allows you to create an analytic context", {
+        super('Create Analytic context', 'This button allows you to create an analytic context', {
             icon: "category",
-            icon_type: "in",
+            icon_type: 'in',
             backgroundColor: "#356BAB",
-            fontColor: "#ffffff"
+            fontColor: '#ffffff'
         });
     }
     isShown(option) {
@@ -13690,7 +13205,7 @@ class CreateContextButton extends (0, _spinalEnvViewerContextMenuService.SpinalC
     }
 }
 
-},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-panel-manager-service":"7Uw4d","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"kVtLQ":[function(require,module,exports) {
+},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-panel-manager-service":"7Uw4d","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"kVtLQ":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _vue = require("vue");
 var _vueDefault = parcelHelpers.interopDefault(_vue);
@@ -13727,7 +13242,7 @@ const dialogs = [
 ];
 for(let index = 0; index < dialogs.length; index++)SpinalMountExtention.mount(dialogs[index]);
 
-},{"vue":"gt5MM","4143e387a66dac86":"7Uw4d","./createContextDialog.vue":"lV5qO","./createEntityDialog.vue":"13njj","./createAnalyticDialog.vue":"1nIgB","./modifyAnalyticDialog.vue":"lV3UG","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"lV5qO":[function(require,module,exports) {
+},{"vue":"gt5MM","4143e387a66dac86":"7Uw4d","./createContextDialog.vue":"lV5qO","./createEntityDialog.vue":"13njj","./createAnalyticDialog.vue":"1nIgB","./modifyAnalyticDialog.vue":"lV3UG","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"lV5qO":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -13739,13 +13254,13 @@ let initialize = ()=>{
     script._scopeId = "data-v-f50035";
     script.__cssModules = require("c9d76c18c5788e98").default;
     require("4764d454bdec37fa").default(script);
-    script.__scopeId = "data-v-f50035";
+    script.__scopeId = 'data-v-f50035';
     script.__file = "createContextDialog.vue";
 };
 initialize();
 exports.default = script;
 
-},{"9b0925667027556":"aliId","79603633ea371214":"eBydd","c9d76c18c5788e98":"1Ln0H","4764d454bdec37fa":"8nBXb","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"aliId":[function(require,module,exports) {
+},{"9b0925667027556":"aliId","79603633ea371214":"eBydd","c9d76c18c5788e98":"1Ln0H","4764d454bdec37fa":"8nBXb","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"aliId":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalModelAnalysis = require("spinal-model-analysis");
@@ -13899,10 +13414,10 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"spinal-model-analysis":"apm5J","./components/sortable-list.vue":"iNFXp","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"iNFXp":[function(require,module,exports) {
+},{"spinal-model-analysis":"apm5J","./components/sortable-list.vue":"iNFXp","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"iNFXp":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -13914,13 +13429,13 @@ let initialize = ()=>{
     script._scopeId = "data-v-1da401";
     script.__cssModules = require("18d6b8a71ffa0673").default;
     require("765c69e92bfcf808").default(script);
-    script.__scopeId = "data-v-1da401";
+    script.__scopeId = 'data-v-1da401';
     script.__file = "sortable-list.vue";
 };
 initialize();
 exports.default = script;
 
-},{"6a940d29eeade0f0":"9Agfy","148f7f85916fa99f":"lcjgt","18d6b8a71ffa0673":"hcFup","765c69e92bfcf808":"kVS6A","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9Agfy":[function(require,module,exports) {
+},{"6a940d29eeade0f0":"9Agfy","148f7f85916fa99f":"lcjgt","18d6b8a71ffa0673":"hcFup","765c69e92bfcf808":"kVS6A","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9Agfy":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _vuedraggable = require("vuedraggable");
@@ -13964,10 +13479,10 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"vuedraggable":"1J17x","./addItemsPopover.vue":"dcWpf","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dcWpf":[function(require,module,exports) {
+},{"vuedraggable":"1J17x","./addItemsPopover.vue":"dcWpf","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dcWpf":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -13979,13 +13494,13 @@ let initialize = ()=>{
     script._scopeId = "data-v-99ff4b";
     script.__cssModules = require("b5151400238568ba").default;
     require("dc4f3bfb5f2f9a3e").default(script);
-    script.__scopeId = "data-v-99ff4b";
+    script.__scopeId = 'data-v-99ff4b';
     script.__file = "addItemsPopover.vue";
 };
 initialize();
 exports.default = script;
 
-},{"409847b3b6cd83d5":"e2jti","43addf22ab5ff52b":"eNnuT","b5151400238568ba":"itTGF","dc4f3bfb5f2f9a3e":"apHz4","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"e2jti":[function(require,module,exports) {
+},{"409847b3b6cd83d5":"e2jti","43addf22ab5ff52b":"eNnuT","b5151400238568ba":"itTGF","dc4f3bfb5f2f9a3e":"apHz4","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"e2jti":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalModelAnalysis = require("spinal-model-analysis");
@@ -14020,44 +13535,44 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"spinal-model-analysis":"apm5J","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"eNnuT":[function(require,module,exports) {
+},{"spinal-model-analysis":"apm5J","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"eNnuT":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("v-popover", {
+    return _c('v-popover', {
         attrs: {
             "offset": "16",
             "auto-hide": false,
             "open": _vm.show
         }
     }, [
-        _c("md-button", {
+        _c('md-button', {
             staticClass: "tooltip-target md-fab md-mini md-primary"
         }, [
-            _c("md-icon", [
+            _c('md-icon', [
                 _vm._v("add")
             ])
         ], 1),
         _vm._v(" "),
-        _c("template", {
+        _c('template', {
             slot: "popover"
         }, [
-            _c("div", {
+            _c('div', {
                 staticClass: "popoverContainer"
             }, [
-                _c("div", {
+                _c('div', {
                     staticClass: "_popoverContent"
                 }, [
-                    _c("md-field", [
-                        _c("label", [
+                    _c('md-field', [
+                        _c('label', [
                             _vm._v("Entity name")
                         ]),
                         _vm._v(" "),
-                        _c("md-input", {
+                        _c('md-input', {
                             model: {
                                 value: _vm.name,
                                 callback: function($$v) {
@@ -14068,12 +13583,12 @@ var render = function() {
                         })
                     ], 1),
                     _vm._v(" "),
-                    _c("md-field", [
-                        _c("label", [
+                    _c('md-field', [
+                        _c('label', [
                             _vm._v("Entity standard name e.g : Room , Floor etc ...")
                         ]),
                         _vm._v(" "),
-                        _c("md-input", {
+                        _c('md-input', {
                             model: {
                                 value: _vm.standard_name,
                                 callback: function($$v) {
@@ -14084,12 +13599,12 @@ var render = function() {
                         })
                     ], 1),
                     _vm._v(" "),
-                    _c("md-field", [
-                        _c("label", [
+                    _c('md-field', [
+                        _c('label', [
                             _vm._v("Entity type")
                         ]),
                         _vm._v(" "),
-                        _c("md-select", {
+                        _c('md-select', {
                             model: {
                                 value: _vm.entityType,
                                 callback: function($$v) {
@@ -14098,7 +13613,7 @@ var render = function() {
                                 expression: "entityType"
                             }
                         }, _vm._l(Object.keys(_vm.ENTITY_TYPES), function(type) {
-                            return _c("md-option", {
+                            return _c('md-option', {
                                 key: type,
                                 attrs: {
                                     "value": type
@@ -14110,10 +13625,10 @@ var render = function() {
                     ], 1)
                 ], 1),
                 _vm._v(" "),
-                _c("div", {
+                _c('div', {
                     staticClass: "_popoverBtn"
                 }, [
-                    _c("md-button", {
+                    _c('md-button', {
                         directives: [
                             {
                                 name: "close-popover",
@@ -14125,7 +13640,7 @@ var render = function() {
                         _vm._v("Close")
                     ]),
                     _vm._v(" "),
-                    _c("md-button", {
+                    _c('md-button', {
                         directives: [
                             {
                                 name: "close-popover",
@@ -14151,21 +13666,21 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"itTGF":[function() {},{}],"apHz4":[function(require,module,exports) {
+},{}],"itTGF":[function() {},{}],"apHz4":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"lcjgt":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"lcjgt":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("md-content", {
+    return _c('md-content', {
         staticClass: "myContainer md-scrollbar"
     }, [
-        _c("md-button", {
+        _c('md-button', {
             staticClass: "md-dense md-primary",
             on: {
                 "click": function($event) {
@@ -14176,17 +13691,17 @@ var render = function() {
             _vm._v("\n              Add all standard entities\n  ")
         ]),
         _vm._v(" "),
-        _c("div", {
+        _c('div', {
             staticClass: "myFabs"
         }, [
-            _c("addItemsPopover", {
+            _c('addItemsPopover', {
                 on: {
                     "addEntity": _vm.addEntity
                 }
             })
         ], 1),
         _vm._v(" "),
-        _vm.itemsSorted.length > 0 ? _c("draggable", {
+        _vm.itemsSorted.length > 0 ? _c('draggable', {
             attrs: {
                 "group": "entities"
             },
@@ -14206,24 +13721,24 @@ var render = function() {
                 expression: "itemsSorted"
             }
         }, _vm._l(_vm.itemsSorted, function(element) {
-            return _c("div", {
+            return _c('div', {
                 key: element.order,
                 staticClass: "listeItemDraggable"
             }, [
-                _c("div", {
+                _c('div', {
                     staticClass: "left"
                 }, [
-                    _c("div", {
+                    _c('div', {
                         staticClass: "name"
                     }, [
                         _vm._v("\n          " + _vm._s(element.name) + "\n        ")
                     ])
                 ]),
                 _vm._v(" "),
-                _c("div", {
+                _c('div', {
                     staticClass: "right"
                 }, [
-                    _c("md-button", {
+                    _c('md-button', {
                         staticClass: "md-icon-button md-dense md-accent",
                         on: {
                             "click": function($event) {
@@ -14231,13 +13746,13 @@ var render = function() {
                             }
                         }
                     }, [
-                        _c("md-icon", [
+                        _c('md-icon', [
                             _vm._v("delete_forever")
                         ])
                     ], 1)
                 ], 1)
             ]);
-        }), 0) : _c("div", {
+        }), 0) : _c('div', {
             staticClass: "empty"
         }, [
             _vm._v("\n    No entities created\n  ")
@@ -14248,18 +13763,18 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"hcFup":[function() {},{}],"kVS6A":[function(require,module,exports) {
+},{}],"hcFup":[function() {},{}],"kVS6A":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"eBydd":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"eBydd":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("md-dialog", {
+    return _c('md-dialog', {
         staticClass: "mdDialog",
         attrs: {
             "md-active": _vm.showDialog
@@ -14276,16 +13791,16 @@ var render = function() {
             }
         }
     }, [
-        _c("md-dialog-title", {
+        _c('md-dialog-title', {
             staticClass: "mdDialogTitle"
         }, [
             _vm._v("Create Analytic context\n  ")
         ]),
         _vm._v(" "),
-        _c("md-dialog-content", {
+        _c('md-dialog-content', {
             staticClass: "mdDialogContainer"
         }, [
-            _c("md-steppers", {
+            _c('md-steppers', {
                 staticClass: "mySteppers",
                 attrs: {
                     "md-active-step": _vm.stepper.active,
@@ -14301,7 +13816,7 @@ var render = function() {
                     "md-changed": _vm.changeStep
                 }
             }, [
-                _c("md-step", {
+                _c('md-step', {
                     staticClass: "mdStep",
                     attrs: {
                         "id": _vm.STEPPERS_DATA.context,
@@ -14317,15 +13832,15 @@ var render = function() {
                         }
                     }
                 }, [
-                    _c("md-content", {
+                    _c('md-content', {
                         staticClass: "contents"
                     }, [
-                        _c("md-field", [
-                            _c("label", [
+                        _c('md-field', [
+                            _c('label', [
                                 _vm._v("Context name")
                             ]),
                             _vm._v(" "),
-                            _c("md-input", {
+                            _c('md-input', {
                                 ref: "nameTextField",
                                 model: {
                                     value: _vm.inputValue,
@@ -14339,7 +13854,7 @@ var render = function() {
                     ], 1)
                 ], 1),
                 _vm._v(" "),
-                _c("md-step", {
+                _c('md-step', {
                     staticClass: "mdStep",
                     attrs: {
                         "id": _vm.STEPPERS_DATA.entities,
@@ -14355,7 +13870,7 @@ var render = function() {
                         }
                     }
                 }, [
-                    _c("sortable-list", {
+                    _c('sortable-list', {
                         ref: "draggableComponent",
                         attrs: {
                             "items": _vm.entities
@@ -14370,8 +13885,8 @@ var render = function() {
             ], 1)
         ], 1),
         _vm._v(" "),
-        _c("md-dialog-actions", [
-            _c("md-button", {
+        _c('md-dialog-actions', [
+            _c('md-button', {
                 staticClass: "md-primary",
                 on: {
                     "click": function($event) {
@@ -14382,7 +13897,7 @@ var render = function() {
                 _vm._v("Close")
             ]),
             _vm._v(" "),
-            _vm.stepper.active === this.STEPPERS_DATA.context ? _c("md-button", {
+            _vm.stepper.active === this.STEPPERS_DATA.context ? _c('md-button', {
                 staticClass: "md-primary",
                 attrs: {
                     "disabled": !(_vm.inputValue.trim().length > 0)
@@ -14394,7 +13909,7 @@ var render = function() {
                 _vm._v("Next")
             ]) : _vm._e(),
             _vm._v(" "),
-            _vm.stepper.active === this.STEPPERS_DATA.entities ? _c("md-button", {
+            _vm.stepper.active === this.STEPPERS_DATA.entities ? _c('md-button', {
                 staticClass: "md-primary",
                 attrs: {
                     "disabled": _vm.disabledButton()
@@ -14414,13 +13929,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"1Ln0H":[function() {},{}],"8nBXb":[function(require,module,exports) {
+},{}],"1Ln0H":[function() {},{}],"8nBXb":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"13njj":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"13njj":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -14432,13 +13947,13 @@ let initialize = ()=>{
     script._scopeId = "data-v-216d9a";
     script.__cssModules = require("f4102860c351f73e").default;
     require("e6f886d3ba47a944").default(script);
-    script.__scopeId = "data-v-216d9a";
+    script.__scopeId = 'data-v-216d9a';
     script.__file = "createEntityDialog.vue";
 };
 initialize();
 exports.default = script;
 
-},{"758e6f5f274777a8":"jXEln","d65a7c438c4cbc2b":"6mvyQ","f4102860c351f73e":"7wgmM","e6f886d3ba47a944":"jTQPJ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jXEln":[function(require,module,exports) {
+},{"758e6f5f274777a8":"jXEln","d65a7c438c4cbc2b":"6mvyQ","f4102860c351f73e":"7wgmM","e6f886d3ba47a944":"jTQPJ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jXEln":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalModelAnalysis = require("spinal-model-analysis");
@@ -14487,15 +14002,15 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"spinal-model-analysis":"apm5J","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6mvyQ":[function(require,module,exports) {
+},{"spinal-model-analysis":"apm5J","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6mvyQ":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("md-dialog", {
+    return _c('md-dialog', {
         staticClass: "mdDialogContainer",
         attrs: {
             "md-active": _vm.showDialog
@@ -14512,21 +14027,21 @@ var render = function() {
             }
         }
     }, [
-        _c("md-dialog-title", {
+        _c('md-dialog-title', {
             staticClass: "dialogTitle"
         }, [
             _vm._v("Create Entity ")
         ]),
         _vm._v(" "),
-        _c("md-dialog-content", {
+        _c('md-dialog-content', {
             staticClass: "content"
         }, [
-            _c("md-field", [
-                _c("label", [
+            _c('md-field', [
+                _c('label', [
                     _vm._v("Name")
                 ]),
                 _vm._v(" "),
-                _c("md-input", {
+                _c('md-input', {
                     model: {
                         value: _vm.entity.name,
                         callback: function($$v) {
@@ -14537,12 +14052,12 @@ var render = function() {
                 })
             ], 1),
             _vm._v(" "),
-            _c("md-field", [
-                _c("label", [
+            _c('md-field', [
+                _c('label', [
                     _vm._v("Standard name")
                 ]),
                 _vm._v(" "),
-                _c("md-input", {
+                _c('md-input', {
                     model: {
                         value: _vm.entity.standard_name,
                         callback: function($$v) {
@@ -14553,8 +14068,8 @@ var render = function() {
                 })
             ], 1),
             _vm._v(" "),
-            _c("md-field", [
-                _c("label", {
+            _c('md-field', [
+                _c('label', {
                     attrs: {
                         "for": "entityType"
                     }
@@ -14562,7 +14077,7 @@ var render = function() {
                     _vm._v("Entity type")
                 ]),
                 _vm._v(" "),
-                _c("md-select", {
+                _c('md-select', {
                     attrs: {
                         "name": "entityType",
                         "id": "entityType"
@@ -14575,7 +14090,7 @@ var render = function() {
                         expression: "entity.entityType"
                     }
                 }, _vm._l(Object.keys(_vm.types), function(data) {
-                    return _c("md-option", {
+                    return _c('md-option', {
                         key: data,
                         attrs: {
                             "value": data
@@ -14587,8 +14102,8 @@ var render = function() {
             ], 1)
         ], 1),
         _vm._v(" "),
-        _c("md-dialog-actions", [
-            _c("md-button", {
+        _c('md-dialog-actions', [
+            _c('md-button', {
                 staticClass: "md-primary",
                 on: {
                     "click": function($event) {
@@ -14599,7 +14114,7 @@ var render = function() {
                 _vm._v("Close")
             ]),
             _vm._v(" "),
-            _c("md-button", {
+            _c('md-button', {
                 staticClass: "md-primary",
                 attrs: {
                     "disabled": _vm.disabled()
@@ -14619,13 +14134,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"7wgmM":[function() {},{}],"jTQPJ":[function(require,module,exports) {
+},{}],"7wgmM":[function() {},{}],"jTQPJ":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1nIgB":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1nIgB":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -14637,13 +14152,13 @@ let initialize = ()=>{
     script._scopeId = "data-v-2ec450";
     script.__cssModules = require("cc43dd29276c16a3").default;
     require("8a421bcfa6ff918c").default(script);
-    script.__scopeId = "data-v-2ec450";
+    script.__scopeId = 'data-v-2ec450';
     script.__file = "createAnalyticDialog.vue";
 };
 initialize();
 exports.default = script;
 
-},{"65160a6b476efb54":"bCWrY","627298b955099f43":"k875b","cc43dd29276c16a3":"jpbbC","8a421bcfa6ff918c":"3zKUm","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"bCWrY":[function(require,module,exports) {
+},{"65160a6b476efb54":"bCWrY","627298b955099f43":"k875b","cc43dd29276c16a3":"jpbbC","8a421bcfa6ff918c":"3zKUm","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"bCWrY":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalModelAnalysis = require("spinal-model-analysis");
@@ -14666,41 +14181,41 @@ var _configurationVueDefault = parcelHelpers.interopDefault(_configurationVue);
 var _summaryVue = require("./components/analyticSteps/summary.vue");
 var _summaryVueDefault = parcelHelpers.interopDefault(_summaryVue);
 var scriptExports = {
-    name: "createAnalyticDialog",
+    name: 'createAnalyticDialog',
     props: [
-        "onFinised"
+        'onFinised'
     ],
     components: {
-        "analytic-name": (0, _analyticNameVueDefault.default),
-        "followed-entity": (0, _followedEntityVueDefault.default),
-        "input-configuration": (0, _inputConfigurationVueDefault.default),
-        "trigger-configuration": (0, _triggerConfigurationVueDefault.default),
-        "algorithm-configuration": (0, _algorithmConfigurationVueDefault.default),
-        "result-configuration": (0, _resultConfigurationVueDefault.default),
-        "io-dependencies": (0, _iodependenciesVueDefault.default),
+        'analytic-name': (0, _analyticNameVueDefault.default),
+        'followed-entity': (0, _followedEntityVueDefault.default),
+        'input-configuration': (0, _inputConfigurationVueDefault.default),
+        'trigger-configuration': (0, _triggerConfigurationVueDefault.default),
+        'algorithm-configuration': (0, _algorithmConfigurationVueDefault.default),
+        'result-configuration': (0, _resultConfigurationVueDefault.default),
+        'io-dependencies': (0, _iodependenciesVueDefault.default),
         configuration: (0, _configurationVueDefault.default),
-        "summary-analytic": (0, _summaryVueDefault.default)
+        'summary-analytic': (0, _summaryVueDefault.default)
     },
     data () {
         this.STEPPERS_DATA = {
-            analytic: "first",
-            followedEntity: "second",
-            inputConfiguration: "third",
-            triggerConfiguration: "fourth",
-            algorithmConfiguration: "fifth",
-            resultConfiguration: "sixth",
-            IODependencies: "seventh",
-            summary: "eighth"
+            analytic: 'first',
+            followedEntity: 'second',
+            inputConfiguration: 'third',
+            triggerConfiguration: 'fourth',
+            algorithmConfiguration: 'fifth',
+            resultConfiguration: 'sixth',
+            IODependencies: 'seventh',
+            summary: 'eighth'
         };
         return {
             showDialog: true,
             showPreviewDialog: false,
             // Analytic attributes data
-            analyticName: "",
-            analyticDescription: "",
+            analyticName: '',
+            analyticDescription: '',
             analyticShouldTriggerAtStart: false,
             analyticShouldCatchUpPastExecutions: false,
-            analyticAggregateExecution: "",
+            analyticAggregateExecution: '',
             analyticStatus: false,
             // Inputs -> Followed Entity -> attribute data
             followedEntity: undefined,
@@ -14712,21 +14227,21 @@ var scriptExports = {
             algorithms: {},
             // Config -> I/O Dependencies attribute data
             ioDependencies: {
-                R: ""
+                R: ''
             },
             // Config -> Result attribute data
-            resultType: "",
-            resultName: "",
+            resultType: '',
+            resultName: '',
             shouldCreateEndpointIfNotExist: false,
-            endpointCreationUnit: "",
+            endpointCreationUnit: '',
             endpointCreationMaxDays: null,
-            ticketContextId: "",
-            ticketProcessId: "",
-            phoneNumber: "",
-            phoneMessage: "",
+            ticketContextId: '',
+            ticketProcessId: '',
+            phoneNumber: '',
+            phoneMessage: '',
             alarmPriority: null,
-            gChatMessage: "",
-            gChatSpaceName: "",
+            gChatMessage: '',
+            gChatSpaceName: '',
             selectedNode: undefined,
             entityType: undefined,
             stepper: {
@@ -14757,12 +14272,12 @@ var scriptExports = {
                 //create analytic Node
                 const IAnalytic = {
                     name: this.analyticName,
-                    description: ""
+                    description: ''
                 };
                 const analyticInfo = await (0, _spinalModelAnalysis.spinalAnalyticNodeManagerService).addAnalytic(IAnalytic, contextId, this.selectedNode.id.get());
                 //create trackingMethod Node
                 const trackingMethodAttributes = this.getTrackingMethodAttributes();
-                console.log("trackingMethodAttributes :", trackingMethodAttributes);
+                console.log('trackingMethodAttributes :', trackingMethodAttributes);
                 const trackingMethodInfo = await (0, _spinalModelAnalysis.spinalAnalyticNodeManagerService).addInputTrackingMethod(trackingMethodAttributes, contextId, analyticInfo.id.get());
                 //create followedEntity Node
                 const followedEntityInfo = await (0, _spinalModelAnalysis.spinalAnalyticNodeManagerService).addInputLinkToFollowedEntity(contextId, analyticInfo.id.get(), this.followedEntity);
@@ -14800,28 +14315,28 @@ var scriptExports = {
                     const endpointCreationAttributes = this.getEndpointCreationAttributes();
                     configAttributes[(0, _spinalModelAnalysis.CONSTANTS).CATEGORY_ATTRIBUTE_ENDPOINT_PARAMETERS] = endpointCreationAttributes;
                 }
-                console.log("configAttributes :", configAttributes);
+                console.log('configAttributes :', configAttributes);
                 const configInfo = await (0, _spinalModelAnalysis.spinalAnalyticNodeManagerService).addConfig(configAttributes, analyticInfo.id.get(), contextId);
             }
             this.showDialog = false;
         },
         closeDialog (closeResult) {
-            if (typeof this.onFinised === "function") this.onFinised({
+            if (typeof this.onFinised === 'function') this.onFinised({
                 closeResult,
                 analyticName: this.analyticName
             });
         },
         addInput () {
             let length = Object.keys(this.inputs).length;
-            console.log("adding input");
+            console.log('adding input');
             this.inputs = {
                 ...this.inputs,
                 [`I${length}`]: {
-                    trackingMethod: "",
-                    filterValue: "",
+                    trackingMethod: '',
+                    filterValue: '',
                     searchDepth: 0,
                     strictDepth: false,
-                    searchRelations: "",
+                    searchRelations: '',
                     timeseriesIntervalTime: 0,
                     timeseriesValueAtStart: false,
                     captureAllModels: false
@@ -14842,16 +14357,16 @@ var scriptExports = {
             this.inputs = {
                 ...this.inputs
             };
-            console.log("deleted input : ", inputName);
+            console.log('deleted input : ', inputName);
         },
         addTrigger () {
             let length = Object.keys(this.triggers).length;
-            console.log("adding input");
+            console.log('adding input');
             this.triggers = {
                 ...this.triggers,
                 [`T${length}`]: {
-                    triggerType: "",
-                    triggerValue: "",
+                    triggerType: '',
+                    triggerValue: '',
                     changeOfValueThreshold: 0
                 }
             };
@@ -14870,15 +14385,15 @@ var scriptExports = {
             this.triggers = {
                 ...this.triggers
             };
-            console.log("deleted trigger : ", triggerName);
+            console.log('deleted trigger : ', triggerName);
         },
         addAlgorithm () {
             let length = Object.keys(this.algorithms).length;
-            console.log("adding algorithm");
+            console.log('adding algorithm');
             this.algorithms = {
                 ...this.algorithms,
                 [`A${length}`]: {
-                    name: "",
+                    name: '',
                     params: []
                 }
             };
@@ -14897,7 +14412,7 @@ var scriptExports = {
             this.algorithms = {
                 ...this.algorithms
             };
-            console.log("deleted algorithm : ", algorithmIndexName);
+            console.log('deleted algorithm : ', algorithmIndexName);
         },
         changeStep (stepId) {
             this.stepper.active = stepId;
@@ -14939,7 +14454,7 @@ var scriptExports = {
             }
         },
         isSaveButtonDisabled () {
-            return this.analyticName === "" || this.algorithm === "" || this.resultType === "" || this.resultName === "" || this.intervalTime === null || !this.followedEntity;
+            return this.analyticName === '' || this.algorithm === '' || this.resultType === '' || this.resultName === '' || this.intervalTime === null || !this.followedEntity;
         },
         getTrackingMethodAttributes () {
             const trackingMethodAttributes = {};
@@ -14947,27 +14462,27 @@ var scriptExports = {
                 trackingMethodAttributes[inputKey] = [];
                 trackingMethodAttributes[inputKey].push({
                     name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_TRACKING_METHOD}`,
-                    type: "string",
+                    type: 'string',
                     value: this.inputs[inputKey].trackingMethod
                 });
                 trackingMethodAttributes[inputKey].push({
                     name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_FILTER_VALUE}`,
-                    type: "string",
+                    type: 'string',
                     value: this.inputs[inputKey].filterValue
                 });
                 trackingMethodAttributes[inputKey].push({
                     name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_SEARCH_DEPTH}`,
-                    type: "number",
+                    type: 'number',
                     value: this.inputs[inputKey].searchDepth
                 });
                 trackingMethodAttributes[inputKey].push({
                     name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_STRICT_DEPTH}`,
-                    type: "boolean",
+                    type: 'boolean',
                     value: this.inputs[inputKey].strictDepth
                 });
                 trackingMethodAttributes[inputKey].push({
                     name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_SEARCH_RELATIONS}`,
-                    type: "string",
+                    type: 'string',
                     value: this.inputs[inputKey].searchRelations
                 });
                 if ([
@@ -14976,17 +14491,17 @@ var scriptExports = {
                 ].includes(this.inputs[inputKey].trackingMethod)) {
                     trackingMethodAttributes[inputKey].push({
                         name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_TIMESERIES}`,
-                        type: "number",
+                        type: 'number',
                         value: this.inputs[inputKey].timeseriesIntervalTime
                     });
                     trackingMethodAttributes[inputKey].push({
                         name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_TIMESERIES_VALUE_AT_START}`,
-                        type: "boolean",
+                        type: 'boolean',
                         value: this.inputs[inputKey].timeseriesValueAtStart
                     });
                     trackingMethodAttributes[inputKey].push({
                         name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_MULTIPLE_MODELS}`,
-                        type: "boolean",
+                        type: 'boolean',
                         value: this.inputs[inputKey].captureAllModels
                     });
                 }
@@ -14997,28 +14512,28 @@ var scriptExports = {
             const analyticAttributes = [];
             analyticAttributes.push({
                 name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_ANALYTIC_DESCRIPTION}`,
-                type: "string",
+                type: 'string',
                 value: this.analyticDescription
             });
             analyticAttributes.push({
                 name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_ANALYTIC_STATUS}`,
-                type: "string",
+                type: 'string',
                 value: this.analyticStatus ? (0, _spinalModelAnalysis.CONSTANTS).ANALYTIC_STATUS.ACTIVE : (0, _spinalModelAnalysis.CONSTANTS).ANALYTIC_STATUS.INACTIVE
             });
             analyticAttributes.push({
                 name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_TRIGGER_AT_START}`,
-                type: "boolean",
+                type: 'boolean',
                 value: this.analyticShouldTriggerAtStart
             });
             if (this.analyticAggregateExecution) analyticAttributes.push({
                 name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_AGGREGATE_EXECUTION_TIME}`,
-                type: "string",
+                type: 'string',
                 value: this.analyticAggregateExecution
             });
             const tmp = Date.now();
             analyticAttributes.push({
                 name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_LAST_EXECUTION_TIME}`,
-                type: "number",
+                type: 'number',
                 value: tmp
             });
             return analyticAttributes;
@@ -15027,17 +14542,17 @@ var scriptExports = {
             const resultAttributes = [];
             resultAttributes.push({
                 name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_RESULT_TYPE}`,
-                type: "string",
+                type: 'string',
                 value: this.resultType
             });
             resultAttributes.push({
                 name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_RESULT_NAME}`,
-                type: "string",
+                type: 'string',
                 value: this.resultName
             });
             if (this.resultType === (0, _spinalModelAnalysis.CONSTANTS).ANALYTIC_RESULT_TYPE.ENDPOINT) resultAttributes.push({
                 name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_CREATE_ENDPOINT_IF_NOT_EXIST}`,
-                type: "boolean",
+                type: 'boolean',
                 value: this.shouldCreateEndpointIfNotExist
             });
             return resultAttributes;
@@ -15049,7 +14564,7 @@ var scriptExports = {
                 const doc = (0, _spinalModelAnalysis.ALGORITHMS)[algoName].requiredParams;
                 for(let i = 0; i < this.algorithms[algorithmIndexName].params.length; i++)algorithmParametersAttributes.push({
                     name: `${algorithmIndexName}${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_SEPARATOR}${doc[i].name}`,
-                    value: doc[i].type === "number" ? +this.algorithms[algorithmIndexName].params[i] : this.algorithms[algorithmIndexName].params[i],
+                    value: doc[i].type === 'number' ? +this.algorithms[algorithmIndexName].params[i] : this.algorithms[algorithmIndexName].params[i],
                     type: doc[i].type
                 });
             }
@@ -15059,7 +14574,7 @@ var scriptExports = {
             const algorithmMappingAttributes = [];
             for (const algorithmIndexName of Object.keys(this.algorithms))algorithmMappingAttributes.push({
                 name: `${algorithmIndexName}`,
-                type: "string",
+                type: 'string',
                 value: this.algorithms[algorithmIndexName].name
             });
             return algorithmMappingAttributes;
@@ -15068,18 +14583,18 @@ var scriptExports = {
             const ticketAttributes = [];
             ticketAttributes.push({
                 name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_TICKET_CONTEXT_ID}`,
-                type: "string",
+                type: 'string',
                 value: this.ticketContextId
             });
             ticketAttributes.push({
                 name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_TICKET_PROCESS_ID}`,
-                type: "string",
+                type: 'string',
                 value: this.ticketProcessId
             });
             if (this.alarmPriority) ticketAttributes.push({
                 name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_ALARM_PRIORITY}`,
                 value: this.alarmPriority,
-                type: "number"
+                type: 'number'
             });
             return ticketAttributes;
         },
@@ -15087,12 +14602,12 @@ var scriptExports = {
             const endpointCreationAttributes = [];
             endpointCreationAttributes.push({
                 name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_CREATE_ENDPOINT_UNIT}`,
-                type: "string",
+                type: 'string',
                 value: this.endpointCreationUnit
             });
             endpointCreationAttributes.push({
                 name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_CREATE_ENDPOINT_MAX_DAYS}`,
-                type: "number",
+                type: 'number',
                 value: this.endpointCreationMaxDays
             });
             return endpointCreationAttributes;
@@ -15101,12 +14616,12 @@ var scriptExports = {
             const smsAttributes = [];
             smsAttributes.push({
                 name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_PHONE_NUMBER}`,
-                type: "string",
+                type: 'string',
                 value: this.phoneNumber
             });
             smsAttributes.push({
                 name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_PHONE_MESSAGE}`,
-                type: "string",
+                type: 'string',
                 value: this.phoneMessage
             });
             return smsAttributes;
@@ -15115,12 +14630,12 @@ var scriptExports = {
             const gChatAttributes = [];
             gChatAttributes.push({
                 name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_GCHAT_MESSAGE}`,
-                type: "string",
+                type: 'string',
                 value: this.gChatMessage
             });
             gChatAttributes.push({
                 name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_GCHAT_SPACE}`,
-                type: "string",
+                type: 'string',
                 value: this.gChatSpaceName
             });
             return gChatAttributes;
@@ -15128,12 +14643,12 @@ var scriptExports = {
         getIOAttributes () {
             const ioAttributes = [];
             for (const ioDependencyName of Object.keys(this.ioDependencies)){
-                let str = "";
+                let str = '';
                 for (const ioDependency of this.ioDependencies[ioDependencyName])str += `${ioDependency}${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_VALUE_SEPARATOR}`;
                 str = str.slice(0, -1);
                 ioAttributes.push({
                     name: `${ioDependencyName}`,
-                    type: "string",
+                    type: 'string',
                     value: str
                 });
             }
@@ -15146,7 +14661,7 @@ var scriptExports = {
                 if (this.triggers[triggerIndex].changeOfValueThreshold !== null) str += `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_VALUE_SEPARATOR}${this.triggers[triggerIndex].changeOfValueThreshold}`;
                 triggerAttributes.push({
                     name: `${triggerIndex}`,
-                    type: "string",
+                    type: 'string',
                     value: str
                 });
             }
@@ -15154,10 +14669,10 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"spinal-model-analysis":"apm5J","./components/analyticSteps/analyticName.vue":"fV2jv","./components/analyticSteps/followedEntity.vue":"kT4TN","./components/analyticSteps/inputConfiguration.vue":"iVYnP","./components/analyticSteps/triggerConfiguration.vue":"iND1t","./components/analyticSteps/algorithmConfiguration.vue":"8wAUD","./components/analyticSteps/resultConfiguration.vue":"eI82n","./components/analyticSteps/IODependencies.vue":"1wJ5n","./components/analyticSteps/configuration.vue":"3SuJC","./components/analyticSteps/summary.vue":"5IrTN","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fV2jv":[function(require,module,exports) {
+},{"spinal-model-analysis":"apm5J","./components/analyticSteps/analyticName.vue":"fV2jv","./components/analyticSteps/followedEntity.vue":"kT4TN","./components/analyticSteps/inputConfiguration.vue":"iVYnP","./components/analyticSteps/triggerConfiguration.vue":"iND1t","./components/analyticSteps/algorithmConfiguration.vue":"8wAUD","./components/analyticSteps/resultConfiguration.vue":"eI82n","./components/analyticSteps/IODependencies.vue":"1wJ5n","./components/analyticSteps/configuration.vue":"3SuJC","./components/analyticSteps/summary.vue":"5IrTN","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fV2jv":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -15168,27 +14683,27 @@ let initialize = ()=>{
     script.staticRenderFns = require("a2886d4834b780f6").staticRenderFns;
     script._scopeId = "data-v-cc0acf";
     require("2e65fd3ada512a11").default(script);
-    script.__scopeId = "data-v-cc0acf";
+    script.__scopeId = 'data-v-cc0acf';
     script.__file = "analyticName.vue";
 };
 initialize();
 exports.default = script;
 
-},{"f42749112db0e168":"lAQJ6","a2886d4834b780f6":"5MKAT","2e65fd3ada512a11":"1CTes","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"lAQJ6":[function(require,module,exports) {
+},{"f42749112db0e168":"lAQJ6","a2886d4834b780f6":"5MKAT","2e65fd3ada512a11":"1CTes","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"lAQJ6":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalModelAnalysis = require("spinal-model-analysis");
 var scriptExports = {
     props: [
-        "STEPPERS_DATA",
-        "stepper",
-        "analyticName",
-        "analyticDescription",
-        "analyticShouldTriggerAtStart",
+        'STEPPERS_DATA',
+        'stepper',
+        'analyticName',
+        'analyticDescription',
+        'analyticShouldTriggerAtStart',
         //'analyticShouldCatchUpPastExecutions',
-        "analyticAggregateExecution",
-        "analyticStatus",
-        "editable"
+        'analyticAggregateExecution',
+        'analyticStatus',
+        'editable'
     ],
     data () {
         return {
@@ -15214,7 +14729,7 @@ var scriptExports = {
     },
     methods: {
         update (key, value) {
-            console.log("update ", key, value);
+            console.log('update ', key, value);
             this.$emit(`update:${key}`, value);
         }
     },
@@ -15239,15 +14754,15 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"spinal-model-analysis":"apm5J","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5MKAT":[function(require,module,exports) {
+},{"spinal-model-analysis":"apm5J","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5MKAT":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("md-step", {
+    return _c('md-step', {
         staticClass: "mdStep",
         attrs: {
             "id": _vm.STEPPERS_DATA.analytic,
@@ -15263,23 +14778,23 @@ var render = function() {
             }
         }
     }, [
-        _c("md-content", {
+        _c('md-content', {
             staticClass: "contents"
         }, [
-            _c("md-field", {
+            _c('md-field', {
                 staticClass: "fixed-size-field"
             }, [
-                _c("label", [
+                _c('label', [
                     _vm._v("Analytic name")
                 ]),
                 _vm._v(" "),
-                _c("md-input", {
+                _c('md-input', {
                     attrs: {
                         "disabled": !_vm.editable
                     },
                     on: {
                         "change": function($event) {
-                            return _vm.update("analyticName", _vm.localAnalyticName);
+                            return _vm.update('analyticName', _vm.localAnalyticName);
                         }
                     },
                     model: {
@@ -15292,17 +14807,17 @@ var render = function() {
                 })
             ], 1),
             _vm._v(" "),
-            _c("md-field", {
+            _c('md-field', {
                 staticClass: "fixed-size-field"
             }, [
-                _c("label", [
+                _c('label', [
                     _vm._v("Analytic Description")
                 ]),
                 _vm._v(" "),
-                _c("md-input", {
+                _c('md-input', {
                     on: {
                         "change": function($event) {
-                            return _vm.update("analyticDescription", _vm.localAnalyticDescription);
+                            return _vm.update('analyticDescription', _vm.localAnalyticDescription);
                         }
                     },
                     model: {
@@ -15315,10 +14830,10 @@ var render = function() {
                 })
             ], 1),
             _vm._v(" "),
-            _c("md-switch", {
+            _c('md-switch', {
                 on: {
                     "change": function($event) {
-                        return _vm.update("analyticShouldTriggerAtStart", _vm.localAnalyticShouldTriggerAtStart);
+                        return _vm.update('analyticShouldTriggerAtStart', _vm.localAnalyticShouldTriggerAtStart);
                     }
                 },
                 model: {
@@ -15330,15 +14845,15 @@ var render = function() {
                 }
             }, [
                 _vm._v("Should force trigger at start : "),
-                _c("b", [
-                    _vm._v(_vm._s(_vm.localAnalyticShouldTriggerAtStart ? "Yes" : "No") + " ")
+                _c('b', [
+                    _vm._v(_vm._s(_vm.localAnalyticShouldTriggerAtStart ? 'Yes' : 'No') + " ")
                 ])
             ]),
             _vm._v(" "),
-            _c("md-switch", {
+            _c('md-switch', {
                 on: {
                     "change": function($event) {
-                        return _vm.update("analyticStatus", _vm.localAnalyticStatus);
+                        return _vm.update('analyticStatus', _vm.localAnalyticStatus);
                     }
                 },
                 model: {
@@ -15350,22 +14865,22 @@ var render = function() {
                 }
             }, [
                 _vm._v("Analytic Status : "),
-                _c("b", [
-                    _vm._v(" " + _vm._s(_vm.localAnalyticStatus ? "Active" : "Inactive") + " ")
+                _c('b', [
+                    _vm._v(" " + _vm._s(_vm.localAnalyticStatus ? 'Active' : 'Inactive') + " ")
                 ])
             ]),
             _vm._v(" "),
-            _c("md-field", {
+            _c('md-field', {
                 staticClass: "fixed-size-field"
             }, [
-                _c("label", [
+                _c('label', [
                     _vm._v(" Cron syntax ")
                 ]),
                 _vm._v(" "),
-                _c("md-input", {
+                _c('md-input', {
                     on: {
                         "change": function($event) {
-                            return _vm.update("analyticAggregateExecution", _vm.localAnalyticAggregateExecution);
+                            return _vm.update('analyticAggregateExecution', _vm.localAnalyticAggregateExecution);
                         }
                     },
                     model: {
@@ -15378,7 +14893,7 @@ var render = function() {
                 })
             ], 1),
             _vm._v(" "),
-            _c("p", [
+            _c('p', [
                 _vm._v("\n        Aggregate Execution to a specific time : (leave empty to disable this feature)\n      ")
             ])
         ], 1)
@@ -15388,13 +14903,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"1CTes":[function(require,module,exports) {
+},{}],"1CTes":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"kT4TN":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"kT4TN":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -15405,13 +14920,13 @@ let initialize = ()=>{
     script.staticRenderFns = require("df91edfc020a44ec").staticRenderFns;
     script._scopeId = "data-v-8cd933";
     require("a9d15aa6691f2297").default(script);
-    script.__scopeId = "data-v-8cd933";
+    script.__scopeId = 'data-v-8cd933';
     script.__file = "followedEntity.vue";
 };
 initialize();
 exports.default = script;
 
-},{"72a29b3f76f1becb":"eMfgU","df91edfc020a44ec":"5M6DE","a9d15aa6691f2297":"eieWv","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"eMfgU":[function(require,module,exports) {
+},{"72a29b3f76f1becb":"eMfgU","df91edfc020a44ec":"5M6DE","a9d15aa6691f2297":"eieWv","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"eMfgU":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _linkToEntityVue = require("../linkToEntity.vue");
@@ -15423,15 +14938,15 @@ var _linkToContextVueDefault = parcelHelpers.interopDefault(_linkToContextVue);
 var _spinalEnvViewerGraphService = require("spinal-env-viewer-graph-service");
 var scriptExports = {
     props: [
-        "STEPPERS_DATA",
-        "stepper",
-        "entityType",
-        "followedEntity"
+        'STEPPERS_DATA',
+        'stepper',
+        'entityType',
+        'followedEntity'
     ],
     components: {
-        "link-to-entity": (0, _linkToEntityVueDefault.default),
-        "link-to-spatial-entity": (0, _linkToSpatialEntityVueDefault.default),
-        "link-to-context": (0, _linkToContextVueDefault.default)
+        'link-to-entity': (0, _linkToEntityVueDefault.default),
+        'link-to-spatial-entity': (0, _linkToSpatialEntityVueDefault.default),
+        'link-to-context': (0, _linkToContextVueDefault.default)
     },
     data () {
         return {
@@ -15443,38 +14958,38 @@ var scriptExports = {
     },
     methods: {
         closeSelectSpatialEntityDialog (selectedEntity) {
-            console.log("selected Entity :", selectedEntity);
-            this.$emit("update:followedEntity", selectedEntity);
+            console.log('selected Entity :', selectedEntity);
+            this.$emit('update:followedEntity', selectedEntity);
             this.showSelectSpatialEntityDialog = false;
         },
         closeSelectGroupEntityDialog (selectedGroup) {
-            console.log("selected Entity :", selectedGroup);
-            this.$emit("update:followedEntity", selectedGroup);
+            console.log('selected Entity :', selectedGroup);
+            this.$emit('update:followedEntity', selectedGroup);
             this.showSelectGroupEntityDialog = false;
         },
         closeSelectContextEntityDialog (selectedEntity) {
-            console.log("selected Entity :", selectedEntity);
-            this.$emit("update:followedEntity", selectedEntity);
+            console.log('selected Entity :', selectedEntity);
+            this.$emit('update:followedEntity', selectedEntity);
             this.showSelectContextEntityDialog = false;
         }
     },
     computed: {
         showSpatialSelector () {
             if (!this.entityType) return false;
-            return !this.entityType.includes("Group") && this.entityType !== "BIMObject";
+            return !this.entityType.includes('Group') && this.entityType !== 'BIMObject';
         },
         followedEntityName () {
-            if (!this.followedEntity) return "";
+            if (!this.followedEntity) return '';
             const info = (0, _spinalEnvViewerGraphService.SpinalGraphService).getInfo(this.followedEntity);
             console.log(info);
             return `${info.name.get()} | Type : ${info.type.get()} | Node id : ${info.id.get()}`;
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"../linkToEntity.vue":"gAJxJ","../linkToSpatialEntity.vue":"1cxu7","../linkToContext.vue":"1CoaN","spinal-env-viewer-graph-service":"9n7zp","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gAJxJ":[function(require,module,exports) {
+},{"../linkToEntity.vue":"gAJxJ","../linkToSpatialEntity.vue":"1cxu7","../linkToContext.vue":"1CoaN","spinal-env-viewer-graph-service":"9n7zp","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gAJxJ":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -15486,13 +15001,13 @@ let initialize = ()=>{
     script._scopeId = "data-v-8a87fc";
     script.__cssModules = require("aec4895752613f80").default;
     require("ebf5fd019ba261a1").default(script);
-    script.__scopeId = "data-v-8a87fc";
+    script.__scopeId = 'data-v-8a87fc';
     script.__file = "linkToEntity.vue";
 };
 initialize();
 exports.default = script;
 
-},{"495626d92ed0f67d":"gszHD","fc571b523ea36ce0":"7jcFJ","aec4895752613f80":"8utnu","ebf5fd019ba261a1":"itJoY","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gszHD":[function(require,module,exports) {
+},{"495626d92ed0f67d":"gszHD","fc571b523ea36ce0":"7jcFJ","aec4895752613f80":"8utnu","ebf5fd019ba261a1":"itJoY","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gszHD":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _index = require("../../../services/index");
@@ -15598,10 +15113,10 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"../../../services/index":"bhC5I","spinal-env-viewer-panel-manager-service":"7Uw4d","spinal-env-viewer-graph-service":"9n7zp","./linkerTemplate.vue":"5st7N","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"bhC5I":[function(require,module,exports) {
+},{"../../../services/index":"bhC5I","spinal-env-viewer-panel-manager-service":"7Uw4d","spinal-env-viewer-graph-service":"9n7zp","./linkerTemplate.vue":"5st7N","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"bhC5I":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "spinalAttributeService", ()=>spinalAttributeService);
@@ -15614,7 +15129,7 @@ const spinalAttributeService = new (0, _spinalAttributeServiceDefault.default)()
 const spinalConfigurationService = new (0, _spinalConfigurationServiceDefault.default)();
 exports.default = spinalAttributeService;
 
-},{"./classes/spinalAttributeService":"l6W5C","./classes/spinalConfigurationService":"48ZTh","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"l6W5C":[function(require,module,exports) {
+},{"./classes/spinalAttributeService":"l6W5C","./classes/spinalConfigurationService":"48ZTh","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"l6W5C":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerGraphService = require("spinal-env-viewer-graph-service");
@@ -15768,7 +15283,7 @@ class SpinalAttributeService {
 }
 exports.default = SpinalAttributeService;
 
-},{"spinal-env-viewer-graph-service":"9n7zp","spinal-env-viewer-plugin-documentation-service":"5rYVR","spinal-env-viewer-plugin-forge/dist/Constants":"f3Ny6","spinal-env-viewer-bim-manager-service":"9Nkbe","spinal-env-viewer-plugin-group-manager-service":"tSLpq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"f3Ny6":[function(require,module,exports) {
+},{"spinal-env-viewer-graph-service":"9n7zp","spinal-env-viewer-plugin-documentation-service":"5rYVR","spinal-env-viewer-plugin-forge/dist/Constants":"f3Ny6","spinal-env-viewer-bim-manager-service":"9Nkbe","spinal-env-viewer-plugin-group-manager-service":"tSLpq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"f3Ny6":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2020 SpinalCom - www.spinalcom.com
@@ -15796,9 +15311,9 @@ exports.default = SpinalAttributeService;
 exports.REFERENCE_OBJECT_RELATION_TYPE = exports.BIM_OBJECT_RELATION_TYPE = exports.BIM_NODE_RELATION_TYPE = exports.BIM_OBJECT_VERSION_RELATION_TYPE = exports.REFERENCE_OBJECT_RELATION_NAME = exports.BIM_OBJECT_VERSION_RELATION_NAME = exports.BIM_OBJECT_RELATION_NAME = exports.BIM_NODE_RELATION_NAME = exports.BIM_CONTEXT_RELATION_TYPE = exports.BIM_CONTEXT_RELATION_NAME = exports.BIM_OBJECT_TYPE = exports.PART_RELATION_TYPE = exports.SCENE_RELATION_TYPE = exports.PART_RELATION_NAME = exports.SCENE_TYPE = exports.SCENE_RELATION_NAME = void 0;
 var spinal_env_viewer_graph_service_1 = require("44f946b368e03b14");
 var constants_js_1 = require("3c0117970d993dce");
-exports.SCENE_RELATION_NAME = "hasScene";
+exports.SCENE_RELATION_NAME = 'hasScene';
 exports.SCENE_TYPE = "scene";
-exports.PART_RELATION_NAME = "hasParts";
+exports.PART_RELATION_NAME = 'hasParts';
 exports.SCENE_RELATION_TYPE = spinal_env_viewer_graph_service_1.SPINAL_RELATION_PTR_LST_TYPE;
 exports.PART_RELATION_TYPE = spinal_env_viewer_graph_service_1.SPINAL_RELATION_PTR_LST_TYPE;
 exports.BIM_OBJECT_TYPE = constants_js_1.EQUIPMENT_TYPE;
@@ -15813,7 +15328,7 @@ exports.BIM_NODE_RELATION_TYPE = spinal_env_viewer_graph_service_1.SPINAL_RELATI
 exports.BIM_OBJECT_RELATION_TYPE = spinal_env_viewer_graph_service_1.SPINAL_RELATION_PTR_LST_TYPE;
 exports.REFERENCE_OBJECT_RELATION_TYPE = spinal_env_viewer_graph_service_1.SPINAL_RELATION_PTR_LST_TYPE;
 
-},{"44f946b368e03b14":"9n7zp","3c0117970d993dce":"eV0id"}],"9Nkbe":[function(require,module,exports) {
+},{"44f946b368e03b14":"9n7zp","3c0117970d993dce":"eV0id"}],"9Nkbe":[function(require,module,exports,__globalThis) {
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -15821,7 +15336,7 @@ Object.defineProperty(exports, "__esModule", {
 const bimService_1 = require("edfb101c687f070e");
 exports.bimObjectManagerService = bimService_1.default;
 
-},{"edfb101c687f070e":"cXqcc"}],"cXqcc":[function(require,module,exports) {
+},{"edfb101c687f070e":"cXqcc"}],"cXqcc":[function(require,module,exports,__globalThis) {
 "use strict";
 var __awaiter = this && this.__awaiter || function(thisArg, _arguments, P, generator) {
     return new (P || (P = Promise))(function(resolve, reject) {
@@ -15996,7 +15511,7 @@ class BimObjectManagerService {
 }
 exports.default = new BimObjectManagerService();
 
-},{}],"48ZTh":[function(require,module,exports) {
+},{}],"48ZTh":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerPluginGroupManagerService = require("spinal-env-viewer-plugin-group-manager-service");
@@ -16131,7 +15646,7 @@ class SpinalConfigurationService {
 }
 exports.default = SpinalConfigurationService;
 
-},{"spinal-env-viewer-plugin-group-manager-service":"tSLpq","spinal-env-viewer-graph-service":"9n7zp","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5st7N":[function(require,module,exports) {
+},{"spinal-env-viewer-plugin-group-manager-service":"tSLpq","spinal-env-viewer-graph-service":"9n7zp","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5st7N":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -16143,13 +15658,13 @@ let initialize = ()=>{
     script._scopeId = "data-v-99f33a";
     script.__cssModules = require("935875a4c72e9f38").default;
     require("30fc33d99f7ca241").default(script);
-    script.__scopeId = "data-v-99f33a";
+    script.__scopeId = 'data-v-99f33a';
     script.__file = "linkerTemplate.vue";
 };
 initialize();
 exports.default = script;
 
-},{"29151dbcf655ab0f":"9b48p","5966b8a4206d51fe":"lWgln","935875a4c72e9f38":"3s5pk","30fc33d99f7ca241":"9wucV","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9b48p":[function(require,module,exports) {
+},{"29151dbcf655ab0f":"9b48p","5966b8a4206d51fe":"lWgln","935875a4c72e9f38":"3s5pk","30fc33d99f7ca241":"9wucV","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9b48p":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var scriptExports = {
@@ -16170,45 +15685,45 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"lWgln":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"lWgln":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("div", {
+    return _c('div', {
         staticClass: "subContent"
     }, [
-        _c("md-list", {
+        _c('md-list', {
             staticClass: "title"
         }, [
-            _c("md-list-item", [
-                _c("span", {
+            _c('md-list-item', [
+                _c('span', {
                     staticClass: "md-list-item-text"
                 }, [
                     _vm._v(_vm._s(_vm.title))
                 ]),
                 _vm._v(" "),
-                _vm.showBtn ? _c("md-button", {
+                _vm.showBtn ? _c('md-button', {
                     staticClass: "md-icon-button",
                     on: {
                         "click": _vm.createEvent
                     }
                 }, [
-                    _c("md-icon", [
+                    _c('md-icon', [
                         _vm._v("control_point")
                     ])
                 ], 1) : _vm._e()
             ], 1)
         ], 1),
         _vm._v(" "),
-        _c("md-content", {
+        _c('md-content', {
             staticClass: "container md-scrollbar"
         }, [
-            _c("md-list", _vm._l(_vm.data, function(item, index) {
-                return _c("md-list-item", {
+            _c('md-list', _vm._l(_vm.data, function(item, index) {
+                return _c('md-list-item', {
                     directives: [
                         {
                             name: "tooltip",
@@ -16220,7 +15735,7 @@ var render = function() {
                     key: index,
                     staticClass: "list-item",
                     class: {
-                        "selected": item.id === _vm.itemSelected
+                        'selected': item.id === _vm.itemSelected
                     },
                     on: {
                         "click": function($event) {
@@ -16228,7 +15743,7 @@ var render = function() {
                         }
                     }
                 }, [
-                    _c("span", {
+                    _c('span', {
                         staticClass: "md-list-item-text"
                     }, [
                         _vm._v(_vm._s(item.name))
@@ -16242,18 +15757,18 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"3s5pk":[function() {},{}],"9wucV":[function(require,module,exports) {
+},{}],"3s5pk":[function() {},{}],"9wucV":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7jcFJ":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7jcFJ":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("md-dialog", {
+    return _c('md-dialog', {
         staticClass: "mdDialogContainer",
         attrs: {
             "md-active": _vm.visible
@@ -16267,21 +15782,21 @@ var render = function() {
             }
         }
     }, [
-        _c("md-dialog-title", {
+        _c('md-dialog-title', {
             staticClass: "dialogTitle"
         }, [
             _vm._v("Link to Group")
         ]),
         _vm._v(" "),
-        _c("md-dialog-content", {
+        _c('md-dialog-content', {
             staticClass: "content"
         }, [
-            _c("div", {
+            _c('div', {
                 staticClass: "section"
             }, [
-                _c("link-template", {
+                _c('link-template', {
                     attrs: {
-                        "title": "Contexts",
+                        "title": 'Contexts',
                         "data": _vm.data,
                         "itemSelected": _vm.contextSelected
                     },
@@ -16291,12 +15806,12 @@ var render = function() {
                 })
             ], 1),
             _vm._v(" "),
-            _c("div", {
+            _c('div', {
                 staticClass: "section"
             }, [
-                _c("link-template", {
+                _c('link-template', {
                     attrs: {
-                        "title": "Categories",
+                        "title": 'Categories',
                         "data": _vm.categories,
                         "itemSelected": _vm.categorySelected,
                         "disableBtn": !_vm.contextSelected
@@ -16307,12 +15822,12 @@ var render = function() {
                 })
             ], 1),
             _vm._v(" "),
-            _c("div", {
+            _c('div', {
                 staticClass: "section"
             }, [
-                _c("link-template", {
+                _c('link-template', {
                     attrs: {
-                        "title": "Groups",
+                        "title": 'Groups',
                         "data": _vm.groups,
                         "itemSelected": _vm.groupSelected,
                         "disableBtn": !_vm.categorySelected
@@ -16324,8 +15839,8 @@ var render = function() {
             ], 1)
         ]),
         _vm._v(" "),
-        _c("md-dialog-actions", [
-            _c("md-button", {
+        _c('md-dialog-actions', [
+            _c('md-button', {
                 staticClass: "md-primary",
                 on: {
                     "click": function($event) {
@@ -16336,7 +15851,7 @@ var render = function() {
                 _vm._v("Close")
             ]),
             _vm._v(" "),
-            _c("md-button", {
+            _c('md-button', {
                 staticClass: "md-primary",
                 attrs: {
                     "disabled": _vm.disabled()
@@ -16356,13 +15871,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"8utnu":[function() {},{}],"itJoY":[function(require,module,exports) {
+},{}],"8utnu":[function() {},{}],"itJoY":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1cxu7":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1cxu7":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -16374,13 +15889,13 @@ let initialize = ()=>{
     script._scopeId = "data-v-f24325";
     script.__cssModules = require("2c27762d2d96d6b4").default;
     require("79d30b5f3442688a").default(script);
-    script.__scopeId = "data-v-f24325";
+    script.__scopeId = 'data-v-f24325';
     script.__file = "linkToSpatialEntity.vue";
 };
 initialize();
 exports.default = script;
 
-},{"2d583198d2e8fd96":"9xwQj","c11d4a91a08d9ceb":"eLcpk","2c27762d2d96d6b4":"yTPFJ","79d30b5f3442688a":"2FUbY","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9xwQj":[function(require,module,exports) {
+},{"2d583198d2e8fd96":"9xwQj","c11d4a91a08d9ceb":"eLcpk","2c27762d2d96d6b4":"yTPFJ","79d30b5f3442688a":"2FUbY","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9xwQj":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _index = require("../../../services/index");
@@ -16390,13 +15905,13 @@ var _spinalEnvViewerGraphService = require("spinal-env-viewer-graph-service");
 var _linkerTemplateVue = require("./linkerTemplate.vue");
 var _linkerTemplateVueDefault = parcelHelpers.interopDefault(_linkerTemplateVue);
 var scriptExports = {
-    name: "spatialSelectComponent",
+    name: 'spatialSelectComponent',
     components: {
-        "link-template": (0, _linkerTemplateVueDefault.default)
+        'link-template': (0, _linkerTemplateVueDefault.default)
     },
     props: [
-        "visible",
-        "entityType"
+        'visible',
+        'entityType'
     ],
     data () {
         return {
@@ -16413,22 +15928,22 @@ var scriptExports = {
     },
     mounted () {
         this.getAllData();
-        this.spatialContextId = (0, _spinalEnvViewerGraphService.SpinalGraphService).getContext("spatial").info.id.get();
+        this.spatialContextId = (0, _spinalEnvViewerGraphService.SpinalGraphService).getContext('spatial').info.id.get();
     },
     methods: {
         closeDialog (closeResult) {
-            if (!closeResult) this.$emit("closeSelection", undefined);
+            if (!closeResult) this.$emit('closeSelection', undefined);
             else {
                 if (this.roomSelected) {
-                    this.$emit("closeSelection", this.roomSelected);
+                    this.$emit('closeSelection', this.roomSelected);
                     return;
                 }
                 if (this.floorSelected) {
-                    this.$emit("closeSelection", this.floorSelected);
+                    this.$emit('closeSelection', this.floorSelected);
                     return;
                 }
                 if (this.buildingSelected) {
-                    this.$emit("closeSelection", this.buildingSelected);
+                    this.$emit('closeSelection', this.buildingSelected);
                     return;
                 }
             }
@@ -16443,30 +15958,30 @@ var scriptExports = {
         updateCategory () {
             // this.floorSelected = undefined;
             this.floors = [];
-            if (this.buildingSelected) (0, _spinalEnvViewerGraphService.SpinalGraphService).findInContextByType(this.buildingSelected, this.spatialContextId, "geographicFloor").then((res)=>{
+            if (this.buildingSelected) (0, _spinalEnvViewerGraphService.SpinalGraphService).findInContextByType(this.buildingSelected, this.spatialContextId, 'geographicFloor').then((res)=>{
                 this.floors = res;
             });
         },
         updateGroups () {
             // this.roomSelected = undefined;
             this.rooms = [];
-            if (this.floorSelected) (0, _spinalEnvViewerGraphService.SpinalGraphService).findInContextByType(this.floorSelected, this.spatialContextId, "geographicRoom").then((res)=>{
+            if (this.floorSelected) (0, _spinalEnvViewerGraphService.SpinalGraphService).findInContextByType(this.floorSelected, this.spatialContextId, 'geographicRoom').then((res)=>{
                 this.rooms = res;
             });
         },
         selectBuilding (id) {
-            console.log("select building ", id);
+            console.log('select building ', id);
             this.buildingSelected = id;
             this.floorSelected = undefined;
             this.roomSelected = undefined;
         },
         selectFloor (id) {
-            console.log("select floor ", id);
+            console.log('select floor ', id);
             this.floorSelected = id;
             this.roomSelected = undefined;
         },
         selectRoom (id) {
-            console.log("select room ", id);
+            console.log('select room ', id);
             this.roomSelected = id;
         }
     },
@@ -16483,15 +15998,15 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"../../../services/index":"bhC5I","spinal-env-viewer-panel-manager-service":"7Uw4d","spinal-env-viewer-graph-service":"9n7zp","./linkerTemplate.vue":"5st7N","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"eLcpk":[function(require,module,exports) {
+},{"../../../services/index":"bhC5I","spinal-env-viewer-panel-manager-service":"7Uw4d","spinal-env-viewer-graph-service":"9n7zp","./linkerTemplate.vue":"5st7N","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"eLcpk":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("md-dialog", {
+    return _c('md-dialog', {
         staticClass: "mdDialogContainer",
         attrs: {
             "md-active": _vm.visible
@@ -16505,21 +16020,21 @@ var render = function() {
             }
         }
     }, [
-        _c("md-dialog-title", {
+        _c('md-dialog-title', {
             staticClass: "dialogTitle"
         }, [
             _vm._v("Link to " + _vm._s(this.entityType))
         ]),
         _vm._v(" "),
-        _c("md-dialog-content", {
+        _c('md-dialog-content', {
             staticClass: "content"
         }, [
-            _c("div", {
+            _c('div', {
                 staticClass: "section"
             }, [
-                _c("link-template", {
+                _c('link-template', {
                     attrs: {
-                        "title": "Buildings",
+                        "title": 'Buildings',
                         "data": _vm.data,
                         "itemSelected": _vm.buildingSelected
                     },
@@ -16529,12 +16044,12 @@ var render = function() {
                 })
             ], 1),
             _vm._v(" "),
-            this.entityType != "geographicBuilding" ? _c("div", {
+            this.entityType != 'geographicBuilding' ? _c('div', {
                 staticClass: "section"
             }, [
-                _c("link-template", {
+                _c('link-template', {
                     attrs: {
-                        "title": "Floors",
+                        "title": 'Floors',
                         "data": _vm.floors,
                         "itemSelected": _vm.floorSelected,
                         "disableBtn": !_vm.buildingSelected
@@ -16545,12 +16060,12 @@ var render = function() {
                 })
             ], 1) : _vm._e(),
             _vm._v(" "),
-            this.entityType == "geographicRoom" ? _c("div", {
+            this.entityType == 'geographicRoom' ? _c('div', {
                 staticClass: "section"
             }, [
-                _c("link-template", {
+                _c('link-template', {
                     attrs: {
-                        "title": "Rooms",
+                        "title": 'Rooms',
                         "data": _vm.rooms,
                         "itemSelected": _vm.roomSelected,
                         "disableBtn": !_vm.floorSelected
@@ -16562,8 +16077,8 @@ var render = function() {
             ], 1) : _vm._e()
         ]),
         _vm._v(" "),
-        _c("md-dialog-actions", [
-            _c("md-button", {
+        _c('md-dialog-actions', [
+            _c('md-button', {
                 staticClass: "md-primary",
                 on: {
                     "click": function($event) {
@@ -16574,7 +16089,7 @@ var render = function() {
                 _vm._v("Close")
             ]),
             _vm._v(" "),
-            _c("md-button", {
+            _c('md-button', {
                 staticClass: "md-primary",
                 attrs: {
                     "disabled": !_vm.buildingSelected
@@ -16594,13 +16109,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"yTPFJ":[function() {},{}],"2FUbY":[function(require,module,exports) {
+},{}],"yTPFJ":[function() {},{}],"2FUbY":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1CoaN":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1CoaN":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -16612,13 +16127,13 @@ let initialize = ()=>{
     script._scopeId = "data-v-142b1a";
     script.__cssModules = require("6adae82734d05a29").default;
     require("328ff90a8667f2ff").default(script);
-    script.__scopeId = "data-v-142b1a";
+    script.__scopeId = 'data-v-142b1a';
     script.__file = "linkToContext.vue";
 };
 initialize();
 exports.default = script;
 
-},{"fc4bc2f79935eaee":"25Y1A","ebd8d57fe5144b69":"cQMar","6adae82734d05a29":"70QAU","328ff90a8667f2ff":"f6cox","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"25Y1A":[function(require,module,exports) {
+},{"fc4bc2f79935eaee":"25Y1A","ebd8d57fe5144b69":"cQMar","6adae82734d05a29":"70QAU","328ff90a8667f2ff":"f6cox","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"25Y1A":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _index = require("../../../services/index");
@@ -16626,13 +16141,13 @@ var _indexDefault = parcelHelpers.interopDefault(_index);
 var _linkerTemplateVue = require("./linkerTemplate.vue");
 var _linkerTemplateVueDefault = parcelHelpers.interopDefault(_linkerTemplateVue);
 var scriptExports = {
-    name: "spatialSelectComponent",
+    name: 'spatialSelectComponent',
     components: {
-        "link-template": (0, _linkerTemplateVueDefault.default)
+        'link-template': (0, _linkerTemplateVueDefault.default)
     },
     props: [
-        "visible",
-        "entityType"
+        'visible',
+        'entityType'
     ],
     data () {
         return {
@@ -16647,8 +16162,8 @@ var scriptExports = {
     },
     methods: {
         closeDialog (closeResult) {
-            if (!closeResult) this.$emit("closeSelection", undefined);
-            else this.$emit("closeSelection", this.contextSelected);
+            if (!closeResult) this.$emit('closeSelection', undefined);
+            else this.$emit('closeSelection', this.contextSelected);
         },
         getAllData () {
             (0, _indexDefault.default).getAllContexts().then((res)=>{
@@ -16658,22 +16173,22 @@ var scriptExports = {
         ////////////////////////////////////////////////////////////////    // Modify
         ////////////////////////////////////////////////////////////////
         selectContext (id) {
-            console.log("select context ", id);
+            console.log('select context ', id);
             this.contextSelected = id;
         }
     },
     watch: {
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"../../../services/index":"bhC5I","./linkerTemplate.vue":"5st7N","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"cQMar":[function(require,module,exports) {
+},{"../../../services/index":"bhC5I","./linkerTemplate.vue":"5st7N","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"cQMar":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("md-dialog", {
+    return _c('md-dialog', {
         staticClass: "mdDialogContainer",
         attrs: {
             "md-active": _vm.visible
@@ -16687,21 +16202,21 @@ var render = function() {
             }
         }
     }, [
-        _c("md-dialog-title", {
+        _c('md-dialog-title', {
             staticClass: "dialogTitle"
         }, [
             _vm._v("Link to context")
         ]),
         _vm._v(" "),
-        _c("md-dialog-content", {
+        _c('md-dialog-content', {
             staticClass: "content"
         }, [
-            _c("div", {
+            _c('div', {
                 staticClass: "section"
             }, [
-                _c("link-template", {
+                _c('link-template', {
                     attrs: {
-                        "title": "Contexts",
+                        "title": 'Contexts',
                         "data": _vm.data,
                         "itemSelected": _vm.contextSelected
                     },
@@ -16712,8 +16227,8 @@ var render = function() {
             ], 1)
         ]),
         _vm._v(" "),
-        _c("md-dialog-actions", [
-            _c("md-button", {
+        _c('md-dialog-actions', [
+            _c('md-button', {
                 staticClass: "md-primary",
                 on: {
                     "click": function($event) {
@@ -16724,7 +16239,7 @@ var render = function() {
                 _vm._v("Close")
             ]),
             _vm._v(" "),
-            _c("md-button", {
+            _c('md-button', {
                 staticClass: "md-primary",
                 attrs: {
                     "disabled": !_vm.contextSelected
@@ -16744,18 +16259,18 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"70QAU":[function() {},{}],"f6cox":[function(require,module,exports) {
+},{}],"70QAU":[function() {},{}],"f6cox":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5M6DE":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5M6DE":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("md-step", {
+    return _c('md-step', {
         staticClass: "mdStep",
         attrs: {
             "id": _vm.STEPPERS_DATA.followedEntity,
@@ -16771,30 +16286,30 @@ var render = function() {
             }
         }
     }, [
-        _c("md-content", {
+        _c('md-content', {
             staticClass: "contents md-scrollbar"
         }, [
-            _c("div", [
-                _c("p", [
+            _c('div', [
+                _c('p', [
                     _vm._v(" The followed entity (Anchor) is the source that is providing the inputs.")
                 ]),
                 _vm._v(" "),
-                _c("p", [
+                _c('p', [
                     _vm._v("\n        For exemple, if the target entity type is Room and the followed entity\n        is a room, the analytic will be applied to that specific room.")
                 ]),
                 _vm._v(" "),
-                _c("p", [
+                _c('p', [
                     _vm._v("\n        If the target entity type is Room and the followed entity is a group\n        of rooms, the analytic will be applied to all the rooms of the\n        group.")
                 ]),
                 _vm._v(" "),
-                _c("p", [
-                    _c("strong", [
+                _c('p', [
+                    _c('strong', [
                         _vm._v(" Currently selected node ")
                     ]),
-                    _vm._v(":\n        " + _vm._s(!_vm.followedEntity ? "None" : _vm.followedEntityName) + "\n      ")
+                    _vm._v(":\n        " + _vm._s(!_vm.followedEntity ? 'None' : _vm.followedEntityName) + "\n      ")
                 ]),
                 _vm._v(" "),
-                _c("md-button", {
+                _c('md-button', {
                     on: {
                         "click": function($event) {
                             _vm.showSelectGroupEntityDialog = true;
@@ -16804,7 +16319,7 @@ var render = function() {
                     _vm._v("\n        Follow group entity\n      ")
                 ]),
                 _vm._v(" "),
-                _vm.showSpatialSelector ? _c("md-button", {
+                _vm.showSpatialSelector ? _c('md-button', {
                     on: {
                         "click": function($event) {
                             _vm.showSelectSpatialEntityDialog = true;
@@ -16814,7 +16329,7 @@ var render = function() {
                     _vm._v("\n        Follow spatial entity\n      ")
                 ]) : _vm._e(),
                 _vm._v(" "),
-                _c("md-button", {
+                _c('md-button', {
                     on: {
                         "click": function($event) {
                             _vm.showSelectContextEntityDialog = true;
@@ -16825,7 +16340,7 @@ var render = function() {
                 ])
             ], 1),
             _vm._v(" "),
-            _vm.entityType ? _c("link-to-context", {
+            _vm.entityType ? _c('link-to-context', {
                 attrs: {
                     "visible": _vm.showSelectContextEntityDialog,
                     "entityType": _vm.entityType
@@ -16835,17 +16350,17 @@ var render = function() {
                 }
             }) : _vm._e(),
             _vm._v(" "),
-            _vm.entityType && _vm.entityType != "MonitoringServiceOrgan" ? _c("link-to-entity", {
+            _vm.entityType && _vm.entityType != 'MonitoringServiceOrgan' ? _c('link-to-entity', {
                 attrs: {
                     "visible": _vm.showSelectGroupEntityDialog,
-                    "entityType": _vm.entityType.includes("Group") ? _vm.entityType : _vm.entityType + "Group"
+                    "entityType": _vm.entityType.includes('Group') ? _vm.entityType : _vm.entityType + 'Group'
                 },
                 on: {
                     "closeSelection": _vm.closeSelectGroupEntityDialog
                 }
             }) : _vm._e(),
             _vm._v(" "),
-            _vm.entityType && _vm.entityType != "MonitoringServiceOrgan" ? _c("link-to-spatial-entity", {
+            _vm.entityType && _vm.entityType != 'MonitoringServiceOrgan' ? _c('link-to-spatial-entity', {
                 attrs: {
                     "visible": _vm.showSelectSpatialEntityDialog,
                     "entityType": _vm.entityType
@@ -16861,13 +16376,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"eieWv":[function(require,module,exports) {
+},{}],"eieWv":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"iVYnP":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"iVYnP":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -16879,13 +16394,13 @@ let initialize = ()=>{
     script._scopeId = "data-v-e40a92";
     script.__cssModules = require("f37bf822f7eef2d8").default;
     require("d131062c24ad9ae5").default(script);
-    script.__scopeId = "data-v-e40a92";
+    script.__scopeId = 'data-v-e40a92';
     script.__file = "inputConfiguration.vue";
 };
 initialize();
 exports.default = script;
 
-},{"a957d350dd1f4537":"fyhXn","fb86fb1561a4eb5b":"8ZE2u","f37bf822f7eef2d8":"cIt5N","d131062c24ad9ae5":"8gEax","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fyhXn":[function(require,module,exports) {
+},{"a957d350dd1f4537":"fyhXn","fb86fb1561a4eb5b":"8ZE2u","f37bf822f7eef2d8":"cIt5N","d131062c24ad9ae5":"8gEax","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fyhXn":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalModelAnalysis = require("spinal-model-analysis");
@@ -16894,21 +16409,21 @@ var _previewDialogVue = require("../previewDialog.vue");
 var _previewDialogVueDefault = parcelHelpers.interopDefault(_previewDialogVue);
 var scriptExports = {
     props: [
-        "STEPPERS_DATA",
-        "stepper",
-        "entityType",
-        "followedEntity",
-        "inputs"
+        'STEPPERS_DATA',
+        'stepper',
+        'entityType',
+        'followedEntity',
+        'inputs'
     ],
     components: {
-        "preview-dialog": (0, _previewDialogVueDefault.default)
+        'preview-dialog': (0, _previewDialogVueDefault.default)
     },
     data () {
         return {
             localInputs: this.inputs,
             showPreviewDialog: false,
-            previewData: "",
-            scannedRelations: ""
+            previewData: '',
+            scannedRelations: ''
         };
     },
     created () {
@@ -16916,17 +16431,17 @@ var scriptExports = {
     },
     methods: {
         addInput () {
-            console.log("clicked on button add input");
-            this.$emit("addInput");
+            console.log('clicked on button add input');
+            this.$emit('addInput');
         },
         removeInput (index) {
-            this.$emit("removeInput", index);
+            this.$emit('removeInput', index);
         },
         async getCapturedInputs (tracking, entity) {
-            console.log("Calling getCapturedInputs tracking:", tracking);
+            console.log('Calling getCapturedInputs tracking:', tracking);
             const capturedInput = await (0, _spinalModelAnalysis.spinalAnalyticInputManagerService).applyTrackingMethodWithParams(entity, tracking.trackingMethod, tracking.filterValue, tracking.searchDepth, tracking.strictDepth, tracking.searchRelations.split((0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_VALUE_SEPARATOR), tracking.captureAllModels);
             if (!capturedInput) return "!! Not found !!";
-            console.log("capturedInput :", capturedInput);
+            console.log('capturedInput :', capturedInput);
             if (tracking.trackingMethod === this.TRACK_METHOD.ATTRIBUTE_NAME_FILTER) {
                 if (Array.isArray(capturedInput)) return capturedInput;
                 return capturedInput.label.get();
@@ -16936,8 +16451,8 @@ var scriptExports = {
         },
         async scanRelations (tracking) {
             this.showPreviewDialog = true;
-            this.previewData = "";
-            console.log("Calling scanRelations");
+            this.previewData = '';
+            console.log('Calling scanRelations');
             const followedEntityInfo = (0, _spinalEnvViewerGraphService.SpinalGraphService).getInfo(this.followedEntity);
             const previewData = {};
             const entities = await (0, _spinalModelAnalysis.spinalAnalyticInputManagerService).getWorkingFollowedEntitiesWithParam(followedEntityInfo, this.entityType);
@@ -16951,8 +16466,8 @@ var scriptExports = {
         },
         async getPreviewAvailableData (tracking) {
             this.showPreviewDialog = true;
-            this.previewData = "";
-            console.log("Calling getPreviewAvailableData");
+            this.previewData = '';
+            console.log('Calling getPreviewAvailableData');
             const followedEntityInfo = (0, _spinalEnvViewerGraphService.SpinalGraphService).getInfo(this.followedEntity);
             const entities = await (0, _spinalModelAnalysis.spinalAnalyticInputManagerService).getWorkingFollowedEntitiesWithParam(followedEntityInfo, this.entityType);
             const previewData = {};
@@ -16966,8 +16481,8 @@ var scriptExports = {
         },
         async getPreviewData (tracking) {
             this.showPreviewDialog = true;
-            this.previewData = "";
-            console.log("Calling getPreviewData");
+            this.previewData = '';
+            console.log('Calling getPreviewData');
             const followedEntityInfo = (0, _spinalEnvViewerGraphService.SpinalGraphService).getInfo(this.followedEntity);
             const entities = await (0, _spinalModelAnalysis.spinalAnalyticInputManagerService).getWorkingFollowedEntitiesWithParam(followedEntityInfo, this.entityType);
             const previewData = {};
@@ -16984,10 +16499,10 @@ var scriptExports = {
             this.showPreviewDialog = false;
         },
         isPreviewDisabled (tracking) {
-            return !this.followedEntity || tracking.trackingMethod === "" || tracking.filterValue === "";
+            return !this.followedEntity || tracking.trackingMethod === '' || tracking.filterValue === '';
         },
         isShowAvailableDataDisabled (tracking) {
-            return !this.followedEntity || tracking.trackingMethod === "";
+            return !this.followedEntity || tracking.trackingMethod === '';
         },
         showTimeSeriesField (tracking) {
             return tracking.trackingMethod === this.TRACK_METHOD.ENDPOINT_NAME_FILTER || tracking.trackingMethod === this.TRACK_METHOD.CONTROL_ENDPOINT_NAME_FILTER;
@@ -17001,7 +16516,7 @@ var scriptExports = {
             return true;
         },
         followedEntityName () {
-            if (!this.followedEntity) return "";
+            if (!this.followedEntity) return '';
             const info = (0, _spinalEnvViewerGraphService.SpinalGraphService).getInfo(this.followedEntity);
             console.log(info);
             return `${info.name.get()} | Type : ${info.type.get()} | Node id : ${info.id.get()}`;
@@ -17012,15 +16527,15 @@ var scriptExports = {
     },
     watch: {
         inputs () {
-            console.log("parent inputs changed");
+            console.log('parent inputs changed');
             this.localInputs = this.inputs;
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"spinal-model-analysis":"apm5J","spinal-env-viewer-graph-service":"9n7zp","../previewDialog.vue":"aDYQj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"aDYQj":[function(require,module,exports) {
+},{"spinal-model-analysis":"apm5J","spinal-env-viewer-graph-service":"9n7zp","../previewDialog.vue":"aDYQj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"aDYQj":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -17032,17 +16547,17 @@ let initialize = ()=>{
     script._scopeId = "data-v-ef1b06";
     script.__cssModules = require("1288094a95e27ca4").default;
     require("7368bf4ac5988e14").default(script);
-    script.__scopeId = "data-v-ef1b06";
+    script.__scopeId = 'data-v-ef1b06';
     script.__file = "previewDialog.vue";
 };
 initialize();
 exports.default = script;
 
-},{"1d984236ef469248":"5B233","174e7b05869e11a9":"8ghF3","1288094a95e27ca4":"fF0T6","7368bf4ac5988e14":"ev11C","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5B233":[function(require,module,exports) {
+},{"1d984236ef469248":"5B233","174e7b05869e11a9":"8ghF3","1288094a95e27ca4":"fF0T6","7368bf4ac5988e14":"ev11C","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5B233":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var scriptExports = {
-    name: "previewDialog",
+    name: 'previewDialog',
     props: {
         visible: {
             type: Boolean,
@@ -17056,20 +16571,20 @@ var scriptExports = {
     data: ()=>({}),
     methods: {
         close () {
-            this.$emit("closeDialog");
+            this.$emit('closeDialog');
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"8ghF3":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"8ghF3":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("div", [
-        _c("md-dialog", {
+    return _c('div', [
+        _c('md-dialog', {
             staticClass: "mdDialog",
             attrs: {
                 "md-click-outside-to-close": false,
@@ -17085,24 +16600,24 @@ var render = function() {
                 }
             }
         }, [
-            _c("md-dialog-title", [
+            _c('md-dialog-title', [
                 _vm._v("Preview captured data")
             ]),
             _vm._v(" "),
-            _c("md-content", {
+            _c('md-content', {
                 staticClass: "content md-scrollbar"
             }, [
-                _c("div", {
+                _c('div', {
                     staticClass: "json-preview"
                 }, [
-                    _c("pre", [
+                    _c('pre', [
                         _vm._v(_vm._s(_vm.data))
                     ])
                 ])
             ]),
             _vm._v(" "),
-            _c("md-dialog-actions", [
-                _c("md-button", {
+            _c('md-dialog-actions', [
+                _c('md-button', {
                     staticClass: "md-primary",
                     on: {
                         "click": _vm.close
@@ -17118,18 +16633,18 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"fF0T6":[function() {},{}],"ev11C":[function(require,module,exports) {
+},{}],"fF0T6":[function() {},{}],"ev11C":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"8ZE2u":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"8ZE2u":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("md-step", {
+    return _c('md-step', {
         staticClass: "mdStep",
         attrs: {
             "id": _vm.STEPPERS_DATA.inputConfiguration,
@@ -17145,60 +16660,60 @@ var render = function() {
             }
         }
     }, [
-        _c("md-content", {
+        _c('md-content', {
             staticClass: "contents md-scrollbar"
         }, [
-            _c("p", [
+            _c('p', [
                 _vm._v("Each tracking method is an input for an algorithm")
             ]),
             _vm._v(" "),
-            _c("p", [
+            _c('p', [
                 _vm._v("\n      The "),
-                _c("b", [
+                _c('b', [
                     _vm._v("search depth")
                 ]),
                 _vm._v(" is how deep the program should search for the tracked item. If 0, only the infered followed entities of\n      the anchor will be considered.\n    ")
             ]),
             _vm._v(" "),
-            _c("p", [
+            _c('p', [
                 _vm._v("\n      If the "),
-                _c("b", [
+                _c('b', [
                     _vm._v("strict depth")
                 ]),
                 _vm._v(" is true, the program will only consider the items found at exactly the given depth.\n    ")
             ]),
             _vm._v(" "),
-            _c("p", [
+            _c('p', [
                 _vm._v("\n      The "),
-                _c("b", [
+                _c('b', [
                     _vm._v("search relations")
                 ]),
                 _vm._v(" are the relations that the program is allowed to use to find the tracked item.\n    ")
             ]),
             _vm._v(" "),
-            _c("p", [
+            _c('p', [
                 _vm._v("\n      Timeseries interval time is how far in the past should the analytic gather data. Must be positive or null. If\n      null (equal 0), only the currentValue will be picked, otherwise, the\n      data will be picked from the current time at which the analytic will be\n      run to (currentTime - intervalTime). Beware, if the interval time > 0,\n      make sure the control-endpoint/ endpoint has timeseries.\n    ")
             ]),
             _vm._v(" "),
             _vm._l(Object.entries(_vm.localInputs), function(ref) {
                 var inputName = ref[0];
                 var value = ref[1];
-                return _c("div", {
+                return _c('div', {
                     key: inputName,
                     staticClass: "trackingMethodBlock"
                 }, [
-                    _c("b", [
+                    _c('b', [
                         _vm._v("Input " + _vm._s(inputName))
                     ]),
                     _vm._v(" "),
-                    _c("md-field", {
+                    _c('md-field', {
                         staticClass: "fixed-size-field"
                     }, [
-                        _c("label", [
+                        _c('label', [
                             _vm._v("Tracking Method")
                         ]),
                         _vm._v(" "),
-                        _c("md-select", {
+                        _c('md-select', {
                             model: {
                                 value: value.trackingMethod,
                                 callback: function($$v) {
@@ -17207,7 +16722,7 @@ var render = function() {
                                 expression: "value.trackingMethod"
                             }
                         }, _vm._l(_vm.TRACK_METHOD, function(data) {
-                            return _c("md-option", {
+                            return _c('md-option', {
                                 key: data,
                                 attrs: {
                                     "value": data
@@ -17218,14 +16733,14 @@ var render = function() {
                         }), 1)
                     ], 1),
                     _vm._v(" "),
-                    value.trackingMethod != "" ? _c("md-field", {
+                    value.trackingMethod != '' ? _c('md-field', {
                         staticClass: "fixed-size-field"
                     }, [
-                        _c("label", [
+                        _c('label', [
                             _vm._v(" Search Depth ")
                         ]),
                         _vm._v(" "),
-                        _c("md-input", {
+                        _c('md-input', {
                             attrs: {
                                 "type": "number",
                                 "min": "0"
@@ -17240,7 +16755,7 @@ var render = function() {
                         })
                     ], 1) : _vm._e(),
                     _vm._v(" "),
-                    _c("md-button", {
+                    _c('md-button', {
                         staticClass: "md-primary",
                         attrs: {
                             "disabled": _vm.isShowAvailableDataDisabled(value)
@@ -17254,7 +16769,7 @@ var render = function() {
                         _vm._v("\n        Scan relations\n      ")
                     ]),
                     _vm._v(" "),
-                    _c("md-button", {
+                    _c('md-button', {
                         staticClass: "md-primary",
                         attrs: {
                             "disabled": _vm.isShowAvailableDataDisabled(value)
@@ -17268,14 +16783,14 @@ var render = function() {
                         _vm._v("\n        Show available data\n      ")
                     ]),
                     _vm._v(" "),
-                    value.trackingMethod != "" && value.searchDepth > 0 ? _c("md-field", {
+                    value.trackingMethod != '' && value.searchDepth > 0 ? _c('md-field', {
                         staticClass: "fixed-size-field"
                     }, [
-                        _c("label", [
+                        _c('label', [
                             _vm._v("\n          Search Relations separated by comma (example: hasBimObject,relation2,... )\n        ")
                         ]),
                         _vm._v(" "),
-                        _c("md-input", {
+                        _c('md-input', {
                             model: {
                                 value: value.searchRelations,
                                 callback: function($$v) {
@@ -17286,14 +16801,14 @@ var render = function() {
                         })
                     ], 1) : _vm._e(),
                     _vm._v(" "),
-                    value.trackingMethod != "" ? _c("md-field", {
+                    value.trackingMethod != '' ? _c('md-field', {
                         staticClass: "fixed-size-field"
                     }, [
-                        _c("label", [
+                        _c('label', [
                             _vm._v(" Filter Value ( Case sensitive )")
                         ]),
                         _vm._v(" "),
-                        _c("md-input", {
+                        _c('md-input', {
                             model: {
                                 value: value.filterValue,
                                 callback: function($$v) {
@@ -17307,7 +16822,7 @@ var render = function() {
                     [
                         _vm.TRACK_METHOD.ENDPOINT_NAME_FILTER,
                         _vm.TRACK_METHOD.CONTROL_ENDPOINT_NAME_FILTER
-                    ].includes(value.trackingMethod) && value.timeseriesIntervalTime == 0 ? _c("md-switch", {
+                    ].includes(value.trackingMethod) && value.timeseriesIntervalTime == 0 ? _c('md-switch', {
                         model: {
                             value: value.captureAllModels,
                             callback: function($$v) {
@@ -17317,12 +16832,12 @@ var render = function() {
                         }
                     }, [
                         _vm._v("Should capture all models sharing the same name : "),
-                        _c("b", [
-                            _vm._v(_vm._s(value.captureAllModels ? "Yes" : "No") + " ")
+                        _c('b', [
+                            _vm._v(_vm._s(value.captureAllModels ? 'Yes' : 'No') + " ")
                         ])
                     ]) : _vm._e(),
                     _vm._v(" "),
-                    value.trackingMethod != "" && value.searchDepth > 0 ? _c("md-switch", {
+                    value.trackingMethod != '' && value.searchDepth > 0 ? _c('md-switch', {
                         model: {
                             value: value.strictDepth,
                             callback: function($$v) {
@@ -17332,19 +16847,19 @@ var render = function() {
                         }
                     }, [
                         _vm._v("Data must be found at exactly depth " + _vm._s(value.searchDepth) + " : "),
-                        _c("b", [
-                            _vm._v(" " + _vm._s(value.strictDepth ? "Yes" : "No") + " ")
+                        _c('b', [
+                            _vm._v(" " + _vm._s(value.strictDepth ? 'Yes' : 'No') + " ")
                         ])
                     ]) : _vm._e(),
                     _vm._v(" "),
-                    _vm.showTimeSeriesField(value) ? _c("md-field", {
+                    _vm.showTimeSeriesField(value) ? _c('md-field', {
                         staticClass: "fixed-size-field"
                     }, [
-                        _c("label", [
+                        _c('label', [
                             _vm._v(" Timeseries interval time ( 0 to only take current value )")
                         ]),
                         _vm._v(" "),
-                        _c("md-input", {
+                        _c('md-input', {
                             attrs: {
                                 "type": "number",
                                 "min": "0"
@@ -17359,7 +16874,7 @@ var render = function() {
                         })
                     ], 1) : _vm._e(),
                     _vm._v(" "),
-                    _vm.showLastTimeseriesSwitch(value) ? _c("md-switch", {
+                    _vm.showLastTimeseriesSwitch(value) ? _c('md-switch', {
                         model: {
                             value: value.timeseriesValueAtStart,
                             callback: function($$v) {
@@ -17369,12 +16884,12 @@ var render = function() {
                         }
                     }, [
                         _vm._v(" Should inject last timeseries value at start of interval time : "),
-                        _c("b", [
-                            _vm._v(_vm._s(value.timeseriesValueAtStart ? "Yes" : "No") + " ")
+                        _c('b', [
+                            _vm._v(_vm._s(value.timeseriesValueAtStart ? 'Yes' : 'No') + " ")
                         ])
                     ]) : _vm._e(),
                     _vm._v(" "),
-                    _c("md-button", {
+                    _c('md-button', {
                         staticClass: "md-primary",
                         attrs: {
                             "disabled": _vm.isPreviewDisabled(value)
@@ -17388,7 +16903,7 @@ var render = function() {
                         _vm._v("\n        Preview input\n      ")
                     ]),
                     _vm._v(" "),
-                    _c("md-button", {
+                    _c('md-button', {
                         staticClass: "md-accent",
                         on: {
                             "click": function($event) {
@@ -17401,7 +16916,7 @@ var render = function() {
                 ], 1);
             }),
             _vm._v(" "),
-            _c("md-button", {
+            _c('md-button', {
                 staticClass: "md-primary",
                 on: {
                     "click": _vm.addInput
@@ -17411,7 +16926,7 @@ var render = function() {
             ])
         ], 2),
         _vm._v(" "),
-        _c("preview-dialog", {
+        _c('preview-dialog', {
             attrs: {
                 "visible": _vm.showPreviewDialog,
                 "data": _vm.prettyData
@@ -17426,13 +16941,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"cIt5N":[function() {},{}],"8gEax":[function(require,module,exports) {
+},{}],"cIt5N":[function() {},{}],"8gEax":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"iND1t":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"iND1t":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -17444,13 +16959,13 @@ let initialize = ()=>{
     script._scopeId = "data-v-554f4d";
     script.__cssModules = require("b39680976e629309").default;
     require("c3be97543a3ed817").default(script);
-    script.__scopeId = "data-v-554f4d";
+    script.__scopeId = 'data-v-554f4d';
     script.__file = "triggerConfiguration.vue";
 };
 initialize();
 exports.default = script;
 
-},{"e091034604a40aee":"ayora","49da852768d78444":"6iUlG","b39680976e629309":"9w4Gs","c3be97543a3ed817":"kL2LO","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ayora":[function(require,module,exports) {
+},{"e091034604a40aee":"ayora","49da852768d78444":"6iUlG","b39680976e629309":"9w4Gs","c3be97543a3ed817":"kL2LO","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ayora":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalModelAnalysis = require("spinal-model-analysis");
@@ -17458,20 +16973,20 @@ var _cronHelpDialogVue = require("../cronHelpDialog.vue");
 var _cronHelpDialogVueDefault = parcelHelpers.interopDefault(_cronHelpDialogVue);
 var scriptExports = {
     props: [
-        "STEPPERS_DATA",
-        "stepper",
-        "inputs",
-        "triggers"
+        'STEPPERS_DATA',
+        'stepper',
+        'inputs',
+        'triggers'
     ],
     components: {
-        "cron-help-dialog": (0, _cronHelpDialogVueDefault.default)
+        'cron-help-dialog': (0, _cronHelpDialogVueDefault.default)
     },
     data () {
         return {
             localTriggers: this.triggers,
             showPreviewDialog: false,
             showCronHelpModal: false,
-            previewData: ""
+            previewData: ''
         };
     },
     created () {
@@ -17479,11 +16994,11 @@ var scriptExports = {
     },
     methods: {
         addTrigger () {
-            console.log("clicked on button add Trigger");
-            this.$emit("addTrigger");
+            console.log('clicked on button add Trigger');
+            this.$emit('addTrigger');
         },
         removeTrigger (triggerName) {
-            this.$emit("removeTrigger", triggerName);
+            this.$emit('removeTrigger', triggerName);
         },
         showInputSelection (triggerType) {
             return [
@@ -17493,26 +17008,26 @@ var scriptExports = {
         },
         showCronHelper () {
             this.showCronHelpModal = true;
-            console.log("showCronHelper : ", this.showCronHelpModal);
+            console.log('showCronHelper : ', this.showCronHelpModal);
         },
         resetInfo (triggerInfo) {
-            console.log("reset info");
+            console.log('reset info');
             triggerInfo.changeOfValueThreshold = null;
-            triggerInfo.triggerValue = "";
+            triggerInfo.triggerValue = '';
         }
     },
     computed: {},
     watch: {
         triggers () {
-            console.log("parent triggers changed");
+            console.log('parent triggers changed');
             this.localTriggers = this.triggers;
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"spinal-model-analysis":"apm5J","../cronHelpDialog.vue":"Amw1x","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"Amw1x":[function(require,module,exports) {
+},{"spinal-model-analysis":"apm5J","../cronHelpDialog.vue":"Amw1x","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"Amw1x":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -17524,37 +17039,37 @@ let initialize = ()=>{
     script._scopeId = "data-v-1aee9f";
     script.__cssModules = require("1bb6326be9835e1").default;
     require("634f54cafa2b3756").default(script);
-    script.__scopeId = "data-v-1aee9f";
+    script.__scopeId = 'data-v-1aee9f';
     script.__file = "cronHelpDialog.vue";
 };
 initialize();
 exports.default = script;
 
-},{"3b92f30040eca814":"gP19K","c4b4fddc6076f5c":"eLaQa","1bb6326be9835e1":"cB8lo","634f54cafa2b3756":"hMJFx","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gP19K":[function(require,module,exports) {
+},{"3b92f30040eca814":"gP19K","c4b4fddc6076f5c":"eLaQa","1bb6326be9835e1":"cB8lo","634f54cafa2b3756":"hMJFx","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gP19K":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var scriptExports = {
     props: [
-        "showCronHelpModal"
+        'showCronHelpModal'
     ],
     data () {
         return {};
     },
     methods: {
         closeDialog () {
-            this.$emit("closeCronHelpDialog");
+            this.$emit('closeCronHelpDialog');
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"eLaQa":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"eLaQa":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("md-dialog", {
+    return _c('md-dialog', {
         staticClass: "mdDialog",
         attrs: {
             "md-click-outside-to-close": false,
@@ -17570,85 +17085,85 @@ var render = function() {
             }
         }
     }, [
-        _c("md-dialog-title", [
+        _c('md-dialog-title', [
             _vm._v("Cron Pattern Guide")
         ]),
         _vm._v(" "),
-        _c("md-dialog-content", [
-            _c("p", [
+        _c('md-dialog-content', [
+            _c('p', [
                 _vm._v("This guide will help you understand how to create cron patterns for\n      scheduling tasks. A cron pattern is composed of five fields separated by a blank space: (minute) (hour) (day of the month) (month) (day of the week)")
             ]),
             _vm._v(" "),
-            _c("ul", [
-                _c("li", [
-                    _c("strong", [
+            _c('ul', [
+                _c('li', [
+                    _c('strong', [
                         _vm._v("Minute")
                     ]),
                     _vm._v(" (0 - 59)")
                 ]),
                 _vm._v(" "),
-                _c("li", [
-                    _c("strong", [
+                _c('li', [
+                    _c('strong', [
                         _vm._v("Hour")
                     ]),
                     _vm._v(" (0 - 23)")
                 ]),
                 _vm._v(" "),
-                _c("li", [
-                    _c("strong", [
+                _c('li', [
+                    _c('strong', [
                         _vm._v("Day of the Month")
                     ]),
                     _vm._v(" (1 - 31)")
                 ]),
                 _vm._v(" "),
-                _c("li", [
-                    _c("strong", [
+                _c('li', [
+                    _c('strong', [
                         _vm._v("Month")
                     ]),
                     _vm._v(" (1 - 12 or JAN - DEC)")
                 ]),
                 _vm._v(" "),
-                _c("li", [
-                    _c("strong", [
+                _c('li', [
+                    _c('strong', [
                         _vm._v("Day of the Week")
                     ]),
                     _vm._v(" (0 - 7, where 0 or 7 is Sunday, or\n        SUN - SAT)")
                 ])
             ]),
             _vm._v(" "),
-            _c("p", [
+            _c('p', [
                 _vm._v("A field may be an asterisk (*), which always stands for first-last")
             ]),
             _vm._v(" "),
-            _c("p", [
+            _c('p', [
                 _vm._v("Ranges of numbers are allowed. Ranges are two numbers separated with a\n      hyphen. The specified range is inclusive. For example, 8-11 for an\n      ''hour'' entry specifies execution at hours 8, 9, 10 and 11.")
             ]),
             _vm._v(" "),
-            _c("p", [
+            _c('p', [
                 _vm._v("Lists are allowed.  A list is a set of numbers (or ranges)\n           separated by commas.  Examples: ``1,2,5,9'', ``0-4,8-12''.")
             ]),
             _vm._v(" "),
-            _c("p", [
+            _c('p', [
                 _vm._v("Here are some common examples:")
             ]),
             _vm._v(" "),
-            _c("ul", [
-                _c("li", [
-                    _c("code", [
+            _c('ul', [
+                _c('li', [
+                    _c('code', [
                         _vm._v("0 * * * *")
                     ]),
                     _vm._v(" - Every hour at the start of the hour.")
                 ]),
                 _vm._v(" "),
-                _c("li", [
-                    _c("code", [
+                _c('li', [
+                    _c('code', [
                         _vm._v("30 9 * * 1")
                     ]),
                     _vm._v(" - Every Monday at 9:30 AM.")
                 ]),
                 _vm._v(" "),
-                _c("li", [
-                    _c("code", [
+                _c('li', [
+                    _c('code', [
                         _vm._v("0 0 1 * *")
                     ]),
                     _vm._v(" - The first day of every month at\n        midnight.")
@@ -17656,8 +17171,8 @@ var render = function() {
             ])
         ]),
         _vm._v(" "),
-        _c("md-dialog-actions", [
-            _c("md-button", {
+        _c('md-dialog-actions', [
+            _c('md-button', {
                 staticClass: "md-primary",
                 on: {
                     "click": function($event) {
@@ -17674,18 +17189,18 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"cB8lo":[function() {},{}],"hMJFx":[function(require,module,exports) {
+},{}],"cB8lo":[function() {},{}],"hMJFx":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6iUlG":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6iUlG":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("md-step", {
+    return _c('md-step', {
         staticClass: "mdStep",
         attrs: {
             "id": _vm.STEPPERS_DATA.triggerConfiguration,
@@ -17701,32 +17216,32 @@ var render = function() {
             }
         }
     }, [
-        _c("md-content", {
+        _c('md-content', {
             staticClass: "contents md-scrollbar"
         }, [
-            _c("p", [
+            _c('p', [
                 _vm._v("\n      A trigger is a condition that must be met for the analytic to be\n      executed. For exemple you can bind on one of the inputs to execute the\n      analytic when the value of the input is changed. Or you can add a time\n      based trigger that will make the analytic execute every 20000 ms ( 20s\n      ).\n    ")
             ]),
             _vm._v(" "),
             _vm._l(Object.entries(_vm.localTriggers), function(ref) {
                 var triggerName = ref[0];
                 var value = ref[1];
-                return _c("div", {
+                return _c('div', {
                     key: triggerName,
                     staticClass: "block"
                 }, [
-                    _c("b", [
+                    _c('b', [
                         _vm._v("Trigger " + _vm._s(triggerName))
                     ]),
                     _vm._v(" "),
-                    _c("md-field", {
+                    _c('md-field', {
                         staticClass: "fixed-size-field"
                     }, [
-                        _c("label", [
+                        _c('label', [
                             _vm._v("Trigger type")
                         ]),
                         _vm._v(" "),
-                        _c("md-select", {
+                        _c('md-select', {
                             on: {
                                 "md-selected": function($event) {
                                     return _vm.resetInfo(value);
@@ -17740,7 +17255,7 @@ var render = function() {
                                 expression: "value.triggerType"
                             }
                         }, _vm._l(_vm.TRIGGER_TYPE, function(data) {
-                            return _c("md-option", {
+                            return _c('md-option', {
                                 key: data,
                                 attrs: {
                                     "value": data
@@ -17751,14 +17266,14 @@ var render = function() {
                         }), 1)
                     ], 1),
                     _vm._v(" "),
-                    value.triggerType == _vm.TRIGGER_TYPE.INTERVAL_TIME ? _c("md-field", {
+                    value.triggerType == _vm.TRIGGER_TYPE.INTERVAL_TIME ? _c('md-field', {
                         staticClass: "fixed-size-field"
                     }, [
-                        _c("label", [
+                        _c('label', [
                             _vm._v(" Interval time value (ms) ")
                         ]),
                         _vm._v(" "),
-                        _c("md-input", {
+                        _c('md-input', {
                             attrs: {
                                 "type": "number",
                                 "min": "0"
@@ -17773,14 +17288,14 @@ var render = function() {
                         })
                     ], 1) : _vm._e(),
                     _vm._v(" "),
-                    _vm.showInputSelection(value.triggerType) ? _c("md-field", {
+                    _vm.showInputSelection(value.triggerType) ? _c('md-field', {
                         staticClass: "fixed-size-field"
                     }, [
-                        _c("label", [
+                        _c('label', [
                             _vm._v("Input selection (which input do you want to use for change of value\n          tracking)")
                         ]),
                         _vm._v(" "),
-                        _c("md-select", {
+                        _c('md-select', {
                             model: {
                                 value: value.triggerValue,
                                 callback: function($$v) {
@@ -17789,7 +17304,7 @@ var render = function() {
                                 expression: "value.triggerValue"
                             }
                         }, _vm._l(Object.keys(_vm.inputs), function(data) {
-                            return _c("md-option", {
+                            return _c('md-option', {
                                 key: data,
                                 attrs: {
                                     "value": data
@@ -17800,14 +17315,14 @@ var render = function() {
                         }), 1)
                     ], 1) : _vm._e(),
                     _vm._v(" "),
-                    value.triggerType == _vm.TRIGGER_TYPE.CHANGE_OF_VALUE_WITH_THRESHOLD ? _c("md-field", {
+                    value.triggerType == _vm.TRIGGER_TYPE.CHANGE_OF_VALUE_WITH_THRESHOLD ? _c('md-field', {
                         staticClass: "fixed-size-field"
                     }, [
-                        _c("label", [
+                        _c('label', [
                             _vm._v("\n          Threshold value (any change greater than treshold value will trigger\n          analytic)\n        ")
                         ]),
                         _vm._v(" "),
-                        _c("md-input", {
+                        _c('md-input', {
                             attrs: {
                                 "type": "number",
                                 "min": "0"
@@ -17822,15 +17337,15 @@ var render = function() {
                         })
                     ], 1) : _vm._e(),
                     _vm._v(" "),
-                    value.triggerType == _vm.TRIGGER_TYPE.CRON ? _c("div", [
-                        _c("md-button", {
+                    value.triggerType == _vm.TRIGGER_TYPE.CRON ? _c('div', [
+                        _c('md-button', {
                             staticClass: "md-primary",
                             on: {
                                 "click": _vm.showCronHelper
                             }
                         }, [
                             _vm._v(" Need help ?\n          "),
-                            _c("md-icon", {
+                            _c('md-icon', {
                                 staticClass: "help-icon",
                                 on: {
                                     "click": _vm.showCronHelper
@@ -17840,14 +17355,14 @@ var render = function() {
                             ])
                         ], 1),
                         _vm._v(" "),
-                        _c("md-field", {
+                        _c('md-field', {
                             staticClass: "fixed-size-field"
                         }, [
-                            _c("label", [
+                            _c('label', [
                                 _vm._v(" Cron pattern ")
                             ]),
                             _vm._v(" "),
-                            _c("md-input", {
+                            _c('md-input', {
                                 attrs: {
                                     "placeholder": "* * * * *"
                                 },
@@ -17862,7 +17377,7 @@ var render = function() {
                         ], 1)
                     ], 1) : _vm._e(),
                     _vm._v(" "),
-                    _c("md-button", {
+                    _c('md-button', {
                         staticClass: "md-accent",
                         on: {
                             "click": function($event) {
@@ -17875,7 +17390,7 @@ var render = function() {
                 ], 1);
             }),
             _vm._v(" "),
-            _c("md-button", {
+            _c('md-button', {
                 staticClass: "md-primary",
                 on: {
                     "click": _vm.addTrigger
@@ -17884,7 +17399,7 @@ var render = function() {
                 _vm._v("\n      Add Trigger\n    ")
             ]),
             _vm._v(" "),
-            _c("cron-help-dialog", {
+            _c('cron-help-dialog', {
                 attrs: {
                     "showCronHelpModal": _vm.showCronHelpModal
                 },
@@ -17901,13 +17416,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"9w4Gs":[function() {},{}],"kL2LO":[function(require,module,exports) {
+},{}],"9w4Gs":[function() {},{}],"kL2LO":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"8wAUD":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"8wAUD":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -17919,25 +17434,25 @@ let initialize = ()=>{
     script._scopeId = "data-v-605333";
     script.__cssModules = require("ee766329a47d2e89").default;
     require("615b599c90b8c4dd").default(script);
-    script.__scopeId = "data-v-605333";
+    script.__scopeId = 'data-v-605333';
     script.__file = "algorithmConfiguration.vue";
 };
 initialize();
 exports.default = script;
 
-},{"f21078e45b332751":"l2b12","ac88efc713ea1b8e":"5FKOA","ee766329a47d2e89":"4FDPi","615b599c90b8c4dd":"6RbWQ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"l2b12":[function(require,module,exports) {
+},{"f21078e45b332751":"l2b12","ac88efc713ea1b8e":"5FKOA","ee766329a47d2e89":"4FDPi","615b599c90b8c4dd":"6RbWQ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"l2b12":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalModelAnalysis = require("spinal-model-analysis");
 var scriptExports = {
     props: [
-        "STEPPERS_DATA",
-        "stepper",
-        "entityType",
-        "followedEntity",
-        "inputs",
-        "algorithms",
-        "algorithms_parameters"
+        'STEPPERS_DATA',
+        'stepper',
+        'entityType',
+        'followedEntity',
+        'inputs',
+        'algorithms',
+        'algorithms_parameters'
     ],
     components: {},
     data () {
@@ -17950,11 +17465,11 @@ var scriptExports = {
     },
     methods: {
         addAlgorithm () {
-            console.log("clicked on button add Algorithm");
-            this.$emit("addAlgorithm");
+            console.log('clicked on button add Algorithm');
+            this.$emit('addAlgorithm');
         },
         removeAlgorithm (algoIndexName) {
-            this.$emit("removeAlgorithm", algoIndexName);
+            this.$emit('removeAlgorithm', algoIndexName);
         },
         resetParams (algoIndexName) {
             this.algorithms[algoIndexName].params = [];
@@ -17967,20 +17482,20 @@ var scriptExports = {
     },
     watch: {
         algorithms () {
-            console.log("parent algorithms changed");
+            console.log('parent algorithms changed');
             this.localAlgorithms = this.algorithms;
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"spinal-model-analysis":"apm5J","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5FKOA":[function(require,module,exports) {
+},{"spinal-model-analysis":"apm5J","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5FKOA":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("md-step", {
+    return _c('md-step', {
         staticClass: "mdStep",
         attrs: {
             "id": _vm.STEPPERS_DATA.algorithmConfiguration,
@@ -17996,30 +17511,30 @@ var render = function() {
             }
         }
     }, [
-        _c("md-content", {
+        _c('md-content', {
             staticClass: "contents md-scrollbar"
         }, [
-            _c("p", [
+            _c('p', [
                 _vm._v("\n      An algorithm is a function that the analytic uses to get the work done.\n      ")
             ]),
             _vm._v(" "),
             _vm._l(Object.keys(_vm.localAlgorithms), function(algorithmIndexName, index) {
-                return _c("div", {
+                return _c('div', {
                     key: index,
                     staticClass: "block"
                 }, [
-                    _c("b", [
+                    _c('b', [
                         _vm._v("Algorithm " + _vm._s(algorithmIndexName))
                     ]),
                     _vm._v(" "),
-                    _c("md-field", {
+                    _c('md-field', {
                         staticClass: "fixed-size-field"
                     }, [
-                        _c("label", [
+                        _c('label', [
                             _vm._v("Algorithm")
                         ]),
                         _vm._v(" "),
-                        _c("md-select", {
+                        _c('md-select', {
                             on: {
                                 "md-selected": function($event) {
                                     return _vm.resetParams(algorithmIndexName);
@@ -18033,7 +17548,7 @@ var render = function() {
                                 expression: "algorithms[algorithmIndexName].name"
                             }
                         }, _vm._l(_vm.algo_names, function(data) {
-                            return _c("md-option", {
+                            return _c('md-option', {
                                 key: data.name,
                                 attrs: {
                                     "value": data.name
@@ -18044,25 +17559,25 @@ var render = function() {
                         }), 1)
                     ], 1),
                     _vm._v(" "),
-                    _vm.algorithms[algorithmIndexName].name != "" ? _c("div", [
-                        _c("p", [
-                            _c("strong", [
+                    _vm.algorithms[algorithmIndexName].name != '' ? _c('div', [
+                        _c('p', [
+                            _c('strong', [
                                 _vm._v(" Description : ")
                             ]),
                             _vm._v("\n        " + _vm._s(_vm.ALGORITHMS[_vm.algorithms[algorithmIndexName].name].description))
                         ])
                     ]) : _vm._e(),
                     _vm._v(" "),
-                    _vm.algorithms[algorithmIndexName].name != "" ? _c("div", _vm._l(_vm.ALGORITHMS[_vm.algorithms[algorithmIndexName].name].requiredParams, function(item, index) {
-                        return _c("md-field", {
+                    _vm.algorithms[algorithmIndexName].name != '' ? _c('div', _vm._l(_vm.ALGORITHMS[_vm.algorithms[algorithmIndexName].name].requiredParams, function(item, index) {
+                        return _c('md-field', {
                             key: index,
                             staticClass: "fixed-size-field"
                         }, [
-                            _c("label", [
+                            _c('label', [
                                 _vm._v(_vm._s(item.name) + ", " + _vm._s(item.description))
                             ]),
                             _vm._v(" "),
-                            _c("md-input", {
+                            _c('md-input', {
                                 attrs: {
                                     "type": item.type
                                 },
@@ -18077,7 +17592,7 @@ var render = function() {
                         ], 1);
                     }), 1) : _vm._e(),
                     _vm._v(" "),
-                    _c("md-button", {
+                    _c('md-button', {
                         staticClass: "md-accent",
                         on: {
                             "click": function($event) {
@@ -18090,7 +17605,7 @@ var render = function() {
                 ], 1);
             }),
             _vm._v(" "),
-            _c("md-button", {
+            _c('md-button', {
                 staticClass: "md-primary",
                 on: {
                     "click": _vm.addAlgorithm
@@ -18105,13 +17620,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"4FDPi":[function() {},{}],"6RbWQ":[function(require,module,exports) {
+},{}],"4FDPi":[function() {},{}],"6RbWQ":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"eI82n":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"eI82n":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -18122,33 +17637,33 @@ let initialize = ()=>{
     script.staticRenderFns = require("dd38818ea3b69c13").staticRenderFns;
     script._scopeId = "data-v-0e819e";
     require("a00646bce0539e1e").default(script);
-    script.__scopeId = "data-v-0e819e";
+    script.__scopeId = 'data-v-0e819e';
     script.__file = "resultConfiguration.vue";
 };
 initialize();
 exports.default = script;
 
-},{"730f134da395dcd":"FcHzg","dd38818ea3b69c13":"3UaWm","a00646bce0539e1e":"g3zai","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"FcHzg":[function(require,module,exports) {
+},{"730f134da395dcd":"FcHzg","dd38818ea3b69c13":"3UaWm","a00646bce0539e1e":"g3zai","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"FcHzg":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalModelAnalysis = require("spinal-model-analysis");
 var _spinalServiceTicket = require("spinal-service-ticket");
 var scriptExports = {
     props: [
-        "STEPPERS_DATA",
-        "stepper",
-        "resultName",
-        "resultType",
-        "shouldCreateEndpointIfNotExist",
-        "endpointCreationUnit",
-        "endpointCreationMaxDays",
-        "ticketContextId",
-        "ticketProcessId",
-        "alarmPriority",
-        "phoneNumber",
-        "phoneMessage",
-        "gChatMessage",
-        "gChatSpaceName"
+        'STEPPERS_DATA',
+        'stepper',
+        'resultName',
+        'resultType',
+        'shouldCreateEndpointIfNotExist',
+        'endpointCreationUnit',
+        'endpointCreationMaxDays',
+        'ticketContextId',
+        'ticketProcessId',
+        'alarmPriority',
+        'phoneNumber',
+        'phoneMessage',
+        'gChatMessage',
+        'gChatSpaceName'
     ],
     components: {},
     data () {
@@ -18174,7 +17689,7 @@ var scriptExports = {
     },
     methods: {
         update (key, value) {
-            console.log("update ", key, value);
+            console.log('update ', key, value);
             this.$emit(`update:${key}`, value);
         },
         async refreshContextProcesses () {
@@ -18248,15 +17763,15 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"spinal-model-analysis":"apm5J","spinal-service-ticket":"gi7V0","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3UaWm":[function(require,module,exports) {
+},{"spinal-model-analysis":"apm5J","spinal-service-ticket":"gi7V0","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3UaWm":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("md-step", {
+    return _c('md-step', {
         staticClass: "mdStep",
         attrs: {
             "id": _vm.STEPPERS_DATA.resultConfiguration,
@@ -18272,24 +17787,24 @@ var render = function() {
             }
         }
     }, [
-        _c("md-content", {
+        _c('md-content', {
             staticClass: "contents md-scrollbar"
         }, [
-            _c("p", [
+            _c('p', [
                 _vm._v("\n      The result is the output of the analytic. It can be something that will\n      be created, like a ticket, an alarm, or something that must be modified,\n      like a control endpoint.\n    ")
             ]),
             _vm._v(" "),
-            _c("md-field", {
+            _c('md-field', {
                 staticClass: "fixed-size-field"
             }, [
-                _c("label", [
+                _c('label', [
                     _vm._v("Result name")
                 ]),
                 _vm._v(" "),
-                _c("md-input", {
+                _c('md-input', {
                     on: {
                         "change": function($event) {
-                            return _vm.update("resultName", _vm.localResultName);
+                            return _vm.update('resultName', _vm.localResultName);
                         }
                     },
                     model: {
@@ -18302,17 +17817,17 @@ var render = function() {
                 })
             ], 1),
             _vm._v(" "),
-            _c("md-field", {
+            _c('md-field', {
                 staticClass: "fixed-size-field"
             }, [
-                _c("label", [
+                _c('label', [
                     _vm._v("Result type")
                 ]),
                 _vm._v(" "),
-                _c("md-select", {
+                _c('md-select', {
                     on: {
                         "md-selected": function($event) {
-                            return _vm.update("resultType", _vm.localResultType);
+                            return _vm.update('resultType', _vm.localResultType);
                         }
                     },
                     model: {
@@ -18323,7 +17838,7 @@ var render = function() {
                         expression: "localResultType"
                     }
                 }, _vm._l(_vm.CONST_ANALYTIC_RESULT_TYPE, function(data) {
-                    return _c("md-option", {
+                    return _c('md-option', {
                         key: data,
                         attrs: {
                             "value": data
@@ -18334,15 +17849,15 @@ var render = function() {
                 }), 1)
             ], 1),
             _vm._v(" "),
-            _c("p", [
+            _c('p', [
                 _vm._v("\n      For ticket/alarm, result name will be used as part of the ticket/alarm\n      name. For control endpoints, result name will be used to find the\n      control endpoint to update. In some cases result name is not used at\n      all.\n    ")
             ]),
             _vm._v(" "),
-            _vm.requireEndpointCreationInformation ? _c("div", [
-                _c("md-switch", {
+            _vm.requireEndpointCreationInformation ? _c('div', [
+                _c('md-switch', {
                     on: {
                         "change": function($event) {
-                            return _vm.update("shouldCreateEndpointIfNotExist", _vm.localShouldCreateEndpointIfNotExist);
+                            return _vm.update('shouldCreateEndpointIfNotExist', _vm.localShouldCreateEndpointIfNotExist);
                         }
                     },
                     model: {
@@ -18354,23 +17869,23 @@ var render = function() {
                     }
                 }, [
                     _vm._v("Should create endpoint if not exist : "),
-                    _c("b", [
-                        _vm._v(_vm._s(_vm.localShouldCreateEndpointIfNotExist ? "Yes" : "No") + " ")
+                    _c('b', [
+                        _vm._v(_vm._s(_vm.localShouldCreateEndpointIfNotExist ? 'Yes' : 'No') + " ")
                     ])
                 ]),
                 _vm._v(" "),
-                _vm.shouldCreateEndpointIfNotExist == true ? _c("div", [
-                    _c("md-field", {
+                _vm.shouldCreateEndpointIfNotExist == true ? _c('div', [
+                    _c('md-field', {
                         staticClass: "fixed-size-field"
                     }, [
-                        _c("label", [
+                        _c('label', [
                             _vm._v("Endpoint unit")
                         ]),
                         _vm._v(" "),
-                        _c("md-input", {
+                        _c('md-input', {
                             on: {
                                 "change": function($event) {
-                                    return _vm.update("endpointCreationUnit", _vm.localEndpointCreationUnit);
+                                    return _vm.update('endpointCreationUnit', _vm.localEndpointCreationUnit);
                                 }
                             },
                             model: {
@@ -18383,20 +17898,20 @@ var render = function() {
                         })
                     ], 1),
                     _vm._v(" "),
-                    _c("md-field", {
+                    _c('md-field', {
                         staticClass: "fixed-size-field"
                     }, [
-                        _c("label", [
+                        _c('label', [
                             _vm._v("Timeseries storage max days")
                         ]),
                         _vm._v(" "),
-                        _c("md-input", {
+                        _c('md-input', {
                             attrs: {
                                 "type": "number"
                             },
                             on: {
                                 "change": function($event) {
-                                    return _vm.update("endpointCreationMaxDays", _vm.localEndpointCreationMaxDays);
+                                    return _vm.update('endpointCreationMaxDays', _vm.localEndpointCreationMaxDays);
                                 }
                             },
                             model: {
@@ -18411,18 +17926,18 @@ var render = function() {
                 ], 1) : _vm._e()
             ], 1) : _vm._e(),
             _vm._v(" "),
-            _vm.requireTicketLocalization ? _c("div", [
-                _c("md-field", {
+            _vm.requireTicketLocalization ? _c('div', [
+                _c('md-field', {
                     staticClass: "fixed-size-field"
                 }, [
-                    _c("label", [
+                    _c('label', [
                         _vm._v(" Ticket/Alarm context ")
                     ]),
                     _vm._v(" "),
-                    _c("md-select", {
+                    _c('md-select', {
                         on: {
                             "md-selected": function($event) {
-                                return _vm.update("ticketContextId", _vm.localTicketContextId);
+                                return _vm.update('ticketContextId', _vm.localTicketContextId);
                             }
                         },
                         model: {
@@ -18433,7 +17948,7 @@ var render = function() {
                             expression: "localTicketContextId"
                         }
                     }, _vm._l(_vm.alarmContexts, function(data) {
-                        return _c("md-option", {
+                        return _c('md-option', {
                             key: data.id,
                             attrs: {
                                 "value": data.id
@@ -18444,17 +17959,17 @@ var render = function() {
                     }), 1)
                 ], 1),
                 _vm._v(" "),
-                _c("md-field", {
+                _c('md-field', {
                     staticClass: "fixed-size-field"
                 }, [
-                    _c("label", [
+                    _c('label', [
                         _vm._v("Ticket/Alarm process id ")
                     ]),
                     _vm._v(" "),
-                    _c("md-select", {
+                    _c('md-select', {
                         on: {
                             "md-selected": function($event) {
-                                return _vm.update("ticketProcessId", _vm.localTicketProcessId);
+                                return _vm.update('ticketProcessId', _vm.localTicketProcessId);
                             }
                         },
                         model: {
@@ -18465,7 +17980,7 @@ var render = function() {
                             expression: "localTicketProcessId"
                         }
                     }, _vm._l(_vm.ticketProcesses, function(data) {
-                        return _c("md-option", {
+                        return _c('md-option', {
                             key: data.id,
                             attrs: {
                                 "value": data.id
@@ -18476,20 +17991,20 @@ var render = function() {
                     }), 1)
                 ], 1),
                 _vm._v(" "),
-                _c("md-field", {
+                _c('md-field', {
                     staticClass: "fixed-size-field"
                 }, [
-                    _c("label", [
+                    _c('label', [
                         _vm._v(" Alarm priority ")
                     ]),
                     _vm._v(" "),
-                    _c("md-input", {
+                    _c('md-input', {
                         attrs: {
                             "type": "number"
                         },
                         on: {
                             "change": function($event) {
-                                return _vm.update("alarmPriority", _vm.localAlarmPriority);
+                                return _vm.update('alarmPriority', _vm.localAlarmPriority);
                             }
                         },
                         model: {
@@ -18503,18 +18018,18 @@ var render = function() {
                 ], 1)
             ], 1) : _vm._e(),
             _vm._v(" "),
-            _vm.requirePhoneInformation ? _c("div", [
-                _c("md-field", {
+            _vm.requirePhoneInformation ? _c('div', [
+                _c('md-field', {
                     staticClass: "fixed-size-field"
                 }, [
-                    _c("label", [
+                    _c('label', [
                         _vm._v("Phone number")
                     ]),
                     _vm._v(" "),
-                    _c("md-input", {
+                    _c('md-input', {
                         on: {
                             "change": function($event) {
-                                return _vm.update("phoneNumber", _vm.localPhoneNumber);
+                                return _vm.update('phoneNumber', _vm.localPhoneNumber);
                             }
                         },
                         model: {
@@ -18527,20 +18042,20 @@ var render = function() {
                     })
                 ], 1),
                 _vm._v(" "),
-                _c("md-field", {
+                _c('md-field', {
                     staticClass: "fixed-size-field"
                 }, [
-                    _c("label", [
+                    _c('label', [
                         _vm._v("Message")
                     ]),
                     _vm._v(" "),
-                    _c("md-input", {
+                    _c('md-input', {
                         attrs: {
                             "type": "text"
                         },
                         on: {
                             "change": function($event) {
-                                return _vm.update("phoneMessage", _vm.localPhoneMessage);
+                                return _vm.update('phoneMessage', _vm.localPhoneMessage);
                             }
                         },
                         model: {
@@ -18554,18 +18069,18 @@ var render = function() {
                 ], 1)
             ], 1) : _vm._e(),
             _vm._v(" "),
-            _vm.requireGChatInformation ? _c("div", [
-                _c("md-field", {
+            _vm.requireGChatInformation ? _c('div', [
+                _c('md-field', {
                     staticClass: "fixed-size-field"
                 }, [
-                    _c("label", [
+                    _c('label', [
                         _vm._v("Google chat space name")
                     ]),
                     _vm._v(" "),
-                    _c("md-input", {
+                    _c('md-input', {
                         on: {
                             "change": function($event) {
-                                return _vm.update("gChatSpaceName", _vm.localGChatSpaceName);
+                                return _vm.update('gChatSpaceName', _vm.localGChatSpaceName);
                             }
                         },
                         model: {
@@ -18578,20 +18093,20 @@ var render = function() {
                     })
                 ], 1),
                 _vm._v(" "),
-                _c("md-field", {
+                _c('md-field', {
                     staticClass: "fixed-size-field"
                 }, [
-                    _c("label", [
+                    _c('label', [
                         _vm._v("Google chat message")
                     ]),
                     _vm._v(" "),
-                    _c("md-input", {
+                    _c('md-input', {
                         attrs: {
                             "type": "text"
                         },
                         on: {
                             "change": function($event) {
-                                return _vm.update("gChatMessage", _vm.localGChatMessage);
+                                return _vm.update('gChatMessage', _vm.localGChatMessage);
                             }
                         },
                         model: {
@@ -18611,13 +18126,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"g3zai":[function(require,module,exports) {
+},{}],"g3zai":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1wJ5n":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1wJ5n":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -18629,13 +18144,13 @@ let initialize = ()=>{
     script._scopeId = "data-v-bbdec2";
     script.__cssModules = require("a117151e03e8bca0").default;
     require("52ee573fb9bbe7f9").default(script);
-    script.__scopeId = "data-v-bbdec2";
+    script.__scopeId = 'data-v-bbdec2';
     script.__file = "IODependencies.vue";
 };
 initialize();
 exports.default = script;
 
-},{"c7e8766049755e6":"8nGA5","7c58b3461bf9c840":"amNig","a117151e03e8bca0":"8UBeU","52ee573fb9bbe7f9":"kEocn","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"8nGA5":[function(require,module,exports) {
+},{"c7e8766049755e6":"8nGA5","7c58b3461bf9c840":"amNig","a117151e03e8bca0":"8UBeU","52ee573fb9bbe7f9":"kEocn","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"8nGA5":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _inputSelectionTableVue = require("./inputSelectionTable.vue");
@@ -18644,20 +18159,20 @@ var _vuedraggable = require("vuedraggable");
 var _vuedraggableDefault = parcelHelpers.interopDefault(_vuedraggable);
 var scriptExports = {
     props: [
-        "STEPPERS_DATA",
-        "stepper",
-        "algorithms",
-        "inputs",
-        "ioDependencies"
+        'STEPPERS_DATA',
+        'stepper',
+        'algorithms',
+        'inputs',
+        'ioDependencies'
     ],
     components: {
         draggable: (0, _vuedraggableDefault.default),
-        "input-selection-table": (0, _inputSelectionTableVueDefault.default)
+        'input-selection-table': (0, _inputSelectionTableVueDefault.default)
     },
     data () {
         return {
             showSelectionDialog: false,
-            selectedAlgorithm: ""
+            selectedAlgorithm: ''
         };
     },
     created () {},
@@ -18684,10 +18199,10 @@ var scriptExports = {
     computed: {},
     watch: {}
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"./inputSelectionTable.vue":"bzqdG","vuedraggable":"1J17x","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"bzqdG":[function(require,module,exports) {
+},{"./inputSelectionTable.vue":"bzqdG","vuedraggable":"1J17x","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"bzqdG":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -18699,21 +18214,21 @@ let initialize = ()=>{
     script._scopeId = "data-v-ceecef";
     script.__cssModules = require("cc903ab60d3a7548").default;
     require("c950a0cfb7a97d39").default(script);
-    script.__scopeId = "data-v-ceecef";
+    script.__scopeId = 'data-v-ceecef';
     script.__file = "inputSelectionTable.vue";
 };
 initialize();
 exports.default = script;
 
-},{"cd457242a4aebf43":"3KWVw","3f4905037d909310":"dbEjt","cc903ab60d3a7548":"9a5zF","c950a0cfb7a97d39":"kY21n","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3KWVw":[function(require,module,exports) {
+},{"cd457242a4aebf43":"3KWVw","3f4905037d909310":"dbEjt","cc903ab60d3a7548":"9a5zF","c950a0cfb7a97d39":"kY21n","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3KWVw":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var scriptExports = {
     props: [
-        "selectedAlgorithm",
-        "algorithms",
-        "inputs",
-        "showSelectionDialog"
+        'selectedAlgorithm',
+        'algorithms',
+        'inputs',
+        'showSelectionDialog'
     ],
     components: {},
     data () {
@@ -18737,7 +18252,7 @@ var scriptExports = {
             this.$emit("closeSelectionDialog");
         },
         sendSelected () {
-            this.$emit("sendSelectedInputs", this.selectedInputs.concat(this.selectedAlgorithms));
+            this.$emit('sendSelectedInputs', this.selectedInputs.concat(this.selectedAlgorithms));
             this.$emit("closeSelectionDialog");
             this.selectedAlgorithms = [];
             this.selectedInputs = [];
@@ -18752,8 +18267,8 @@ var scriptExports = {
             this.selectedAlgorithms = items;
         },
         getAlternateLabel (count) {
-            let plural = "";
-            if (count > 1) plural = "s";
+            let plural = '';
+            if (count > 1) plural = 's';
             return `${count} Item${plural} selected`;
         },
         flattenObject (obj) {
@@ -18785,20 +18300,20 @@ var scriptExports = {
             set (newValue) {}
         },
         isResultSelection () {
-            return this.selectedAlgorithm == "R";
+            return this.selectedAlgorithm == 'R';
         }
     },
     watch: {}
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dbEjt":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dbEjt":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("md-dialog", {
+    return _c('md-dialog', {
         staticClass: "mdDialog",
         attrs: {
             "md-click-outside-to-close": false,
@@ -18814,7 +18329,7 @@ var render = function() {
             }
         }
     }, [
-        _c("md-table", {
+        _c('md-table', {
             staticClass: "table",
             attrs: {
                 "md-card": "",
@@ -18834,23 +18349,23 @@ var render = function() {
                     key: "md-table-alternate-header",
                     fn: function(ref) {
                         var count = ref.count;
-                        return _c("md-table-toolbar", {}, [
-                            _c("div", {
+                        return _c('md-table-toolbar', {}, [
+                            _c('div', {
                                 staticClass: "md-toolbar-section-start"
                             }, [
                                 _vm._v(_vm._s(_vm.getAlternateLabel(count)))
                             ]),
                             _vm._v(" "),
-                            _c("div", {
+                            _c('div', {
                                 staticClass: "md-toolbar-section-end"
                             }, [
-                                _c("md-button", {
+                                _c('md-button', {
                                     staticClass: "md-icon-button delete-button",
                                     on: {
                                         "click": _vm.deleteAllInputSelection
                                     }
                                 }, [
-                                    _c("md-icon", [
+                                    _c('md-icon', [
                                         _vm._v("delete")
                                     ])
                                 ], 1)
@@ -18862,9 +18377,9 @@ var render = function() {
                     key: "md-table-row",
                     fn: function(ref) {
                         var item = ref.item;
-                        return _c("md-table-row", {
+                        return _c('md-table-row', {
                             class: {
-                                "disabled-row": _vm.isResultSelection
+                                'disabled-row': _vm.isResultSelection
                             },
                             attrs: {
                                 "md-selectable": "multiple",
@@ -18872,7 +18387,7 @@ var render = function() {
                                 "md-disabled": _vm.isResultSelection
                             }
                         }, [
-                            _c("md-table-cell", {
+                            _c('md-table-cell', {
                                 attrs: {
                                     "md-label": "Index Name"
                                 }
@@ -18880,7 +18395,7 @@ var render = function() {
                                 _vm._v(" " + _vm._s(item.indexName) + " ")
                             ]),
                             _vm._v(" "),
-                            _c("md-table-cell", {
+                            _c('md-table-cell', {
                                 attrs: {
                                     "md-label": "Tracking Method"
                                 }
@@ -18888,7 +18403,7 @@ var render = function() {
                                 _vm._v(" " + _vm._s(item.trackingMethod) + " ")
                             ]),
                             _vm._v(" "),
-                            _c("md-table-cell", {
+                            _c('md-table-cell', {
                                 attrs: {
                                     "md-label": "Filter value"
                                 }
@@ -18896,7 +18411,7 @@ var render = function() {
                                 _vm._v(" " + _vm._s(item.filterValue) + " ")
                             ]),
                             _vm._v(" "),
-                            _c("md-table-cell", {
+                            _c('md-table-cell', {
                                 attrs: {
                                     "md-numeric": "",
                                     "md-label": "Timeseries"
@@ -18916,8 +18431,8 @@ var render = function() {
                 expression: "inputListComputed"
             }
         }, [
-            _c("md-table-toolbar", [
-                _c("h1", {
+            _c('md-table-toolbar', [
+                _c('h1', {
                     staticClass: "md-title table-title"
                 }, [
                     _vm._v("Inputs")
@@ -18925,7 +18440,7 @@ var render = function() {
             ])
         ], 1),
         _vm._v(" "),
-        _c("md-table", {
+        _c('md-table', {
             staticClass: "table",
             attrs: {
                 "md-card": "",
@@ -18945,23 +18460,23 @@ var render = function() {
                     key: "md-table-alternate-header",
                     fn: function(ref) {
                         var count = ref.count;
-                        return _c("md-table-toolbar", {}, [
-                            _c("div", {
+                        return _c('md-table-toolbar', {}, [
+                            _c('div', {
                                 staticClass: "md-toolbar-section-start"
                             }, [
                                 _vm._v(_vm._s(_vm.getAlternateLabel(count)))
                             ]),
                             _vm._v(" "),
-                            _c("div", {
+                            _c('div', {
                                 staticClass: "md-toolbar-section-end"
                             }, [
-                                _c("md-button", {
+                                _c('md-button', {
                                     staticClass: "md-icon-button",
                                     on: {
                                         "click": _vm.deleteAllAlgoSelection
                                     }
                                 }, [
-                                    _c("md-icon", [
+                                    _c('md-icon', [
                                         _vm._v("delete")
                                     ])
                                 ], 1)
@@ -18973,17 +18488,17 @@ var render = function() {
                     key: "md-table-row",
                     fn: function(ref) {
                         var item = ref.item;
-                        return _c("md-table-row", {
+                        return _c('md-table-row', {
                             class: {
-                                "disabled-row": _vm.disableSameAlgorithmSelection(item.indexName)
+                                'disabled-row': _vm.disableSameAlgorithmSelection(item.indexName)
                             },
                             attrs: {
-                                "md-selectable": _vm.isResultSelection ? "single" : "multiple",
+                                "md-selectable": _vm.isResultSelection ? 'single' : 'multiple',
                                 "md-auto-select": "",
                                 "md-disabled": _vm.disableSameAlgorithmSelection(item.indexName)
                             }
                         }, [
-                            _c("md-table-cell", {
+                            _c('md-table-cell', {
                                 attrs: {
                                     "md-label": "Index Name"
                                 }
@@ -18991,7 +18506,7 @@ var render = function() {
                                 _vm._v(" " + _vm._s(item.indexName) + " ")
                             ]),
                             _vm._v(" "),
-                            _c("md-table-cell", {
+                            _c('md-table-cell', {
                                 attrs: {
                                     "md-label": "Algorithm name"
                                 }
@@ -18999,7 +18514,7 @@ var render = function() {
                                 _vm._v(" " + _vm._s(item.name) + " ")
                             ]),
                             _vm._v(" "),
-                            _c("md-table-cell", {
+                            _c('md-table-cell', {
                                 attrs: {
                                     "md-label": "Parameters"
                                 }
@@ -19018,8 +18533,8 @@ var render = function() {
                 expression: "algorithmListComputed"
             }
         }, [
-            _c("md-table-toolbar", [
-                _c("h1", {
+            _c('md-table-toolbar', [
+                _c('h1', {
                     staticClass: "md-title table-title"
                 }, [
                     _vm._v("Algorithms")
@@ -19027,10 +18542,10 @@ var render = function() {
             ])
         ], 1),
         _vm._v(" "),
-        _c("md-dialog-actions", {
+        _c('md-dialog-actions', {
             staticClass: "dialog-actions"
         }, [
-            _c("md-button", {
+            _c('md-button', {
                 staticClass: "md-accent action-button",
                 on: {
                     "click": _vm.closeDialog
@@ -19039,7 +18554,7 @@ var render = function() {
                 _vm._v("Close")
             ]),
             _vm._v(" "),
-            _c("md-button", {
+            _c('md-button', {
                 staticClass: "md-primary action-button",
                 on: {
                     "click": _vm.sendSelected
@@ -19054,18 +18569,18 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"9a5zF":[function() {},{}],"kY21n":[function(require,module,exports) {
+},{}],"9a5zF":[function() {},{}],"kY21n":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"amNig":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"amNig":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("md-step", {
+    return _c('md-step', {
         staticClass: "mdStep",
         attrs: {
             "id": _vm.STEPPERS_DATA.IODependencies,
@@ -19081,36 +18596,36 @@ var render = function() {
             }
         }
     }, [
-        _c("md-content", {
+        _c('md-content', {
             staticClass: "contents md-scrollbar"
         }, [
-            Object.keys(_vm.algorithms).length == 0 ? _c("div", [
-                _c("p", [
-                    _c("b", [
+            Object.keys(_vm.algorithms).length == 0 ? _c('div', [
+                _c('p', [
+                    _c('b', [
                         _vm._v("Warning")
                     ]),
                     _vm._v("\n        An analytic must have a minimum of 1 algorithm. Please add an\n        algorithm first\n      ")
                 ])
-            ]) : _c("div", [
-                _c("p", [
+            ]) : _c('div', [
+                _c('p', [
                     _vm._v("\n        Dependencies :\n      ")
                 ]),
                 _vm._v(" "),
-                _c("md-list", [
-                    _c("md-list-item", {
+                _c('md-list', [
+                    _c('md-list-item', {
                         staticClass: "pretty-list-item"
                     }, [
                         _vm._v("\n          R (Result) : \n            "),
-                        _c("div", {
+                        _c('div', {
                             staticClass: "draggable-item"
                         }, [
-                            _vm._v("\n              Final Result : " + _vm._s(_vm.ioDependencies["R"][0]) + "\n            ")
+                            _vm._v("\n              Final Result : " + _vm._s(_vm.ioDependencies['R'][0]) + "\n            ")
                         ]),
                         _vm._v(" "),
-                        _c("md-button", {
+                        _c('md-button', {
                             on: {
                                 "click": function($event) {
-                                    return _vm.showSelection("R");
+                                    return _vm.showSelection('R');
                                 }
                             }
                         }, [
@@ -19119,12 +18634,12 @@ var render = function() {
                     ], 1),
                     _vm._v(" "),
                     _vm._l(Object.keys(_vm.algorithms), function(algorithmIndexName, index) {
-                        return _c("md-list-item", {
+                        return _c('md-list-item', {
                             key: index,
                             staticClass: "pretty-list-item"
                         }, [
                             _vm._v("\n          " + _vm._s(algorithmIndexName) + " : \n        \n      "),
-                            _c("draggable", {
+                            _c('draggable', {
                                 on: {
                                     "end": function($event) {
                                         return _vm.updateDependenciesOrder(algorithmIndexName);
@@ -19138,7 +18653,7 @@ var render = function() {
                                     expression: "ioDependencies[algorithmIndexName]"
                                 }
                             }, _vm._l(_vm.ioDependencies[algorithmIndexName], function(dep, indexDep) {
-                                return _c("div", {
+                                return _c('div', {
                                     key: dep,
                                     staticClass: "draggable-item"
                                 }, [
@@ -19146,7 +18661,7 @@ var render = function() {
                                 ]);
                             }), 0),
                             _vm._v(" "),
-                            _c("md-button", {
+                            _c('md-button', {
                                 on: {
                                     "click": function($event) {
                                         return _vm.showSelection(algorithmIndexName);
@@ -19160,7 +18675,7 @@ var render = function() {
                 ], 2)
             ], 1),
             _vm._v(" "),
-            _c("input-selection-table", {
+            _c('input-selection-table', {
                 attrs: {
                     "algorithms": _vm.algorithms,
                     "inputs": _vm.inputs,
@@ -19180,13 +18695,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"8UBeU":[function() {},{}],"kEocn":[function(require,module,exports) {
+},{}],"8UBeU":[function() {},{}],"kEocn":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3SuJC":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3SuJC":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -19197,32 +18712,32 @@ let initialize = ()=>{
     script.staticRenderFns = require("c82c8a04709c5c39").staticRenderFns;
     script._scopeId = "data-v-ba85a8";
     require("7bdb5b575d989e53").default(script);
-    script.__scopeId = "data-v-ba85a8";
+    script.__scopeId = 'data-v-ba85a8';
     script.__file = "configuration.vue";
 };
 initialize();
 exports.default = script;
 
-},{"a7d48d01c2900944":"1oVcP","c82c8a04709c5c39":"44yBB","7bdb5b575d989e53":"1nnW1","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1oVcP":[function(require,module,exports) {
+},{"a7d48d01c2900944":"1oVcP","c82c8a04709c5c39":"44yBB","7bdb5b575d989e53":"1nnW1","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1oVcP":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalModelAnalysis = require("spinal-model-analysis");
 var scriptExports = {
     props: [
-        "STEPPERS_DATA",
-        "stepper",
-        "inputs",
-        "algorithm",
-        "algorithmParameters",
-        "resultName",
-        "resultType",
-        "intervalTime",
-        "ticketContextId",
-        "ticketProcessId",
-        "alarmPriority",
-        "triggerAtStart",
-        "phoneNumber",
-        "phoneMessage"
+        'STEPPERS_DATA',
+        'stepper',
+        'inputs',
+        'algorithm',
+        'algorithmParameters',
+        'resultName',
+        'resultType',
+        'intervalTime',
+        'ticketContextId',
+        'ticketProcessId',
+        'alarmPriority',
+        'triggerAtStart',
+        'phoneNumber',
+        'phoneMessage'
     ],
     components: {},
     data () {
@@ -19246,7 +18761,7 @@ var scriptExports = {
     methods: {
         update (key, value) {
             console.log("update ", key, value);
-            if (key == "algorithm" && this.algorithm != value) this.update("algorithmParameters", []);
+            if (key == 'algorithm' && this.algorithm != value) this.update('algorithmParameters', []);
             this.$emit(`update:${key}`, value);
         }
     },
@@ -19300,15 +18815,15 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"spinal-model-analysis":"apm5J","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"44yBB":[function(require,module,exports) {
+},{"spinal-model-analysis":"apm5J","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"44yBB":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("md-step", {
+    return _c('md-step', {
         staticClass: "mdStep",
         attrs: {
             "id": _vm.STEPPERS_DATA.config,
@@ -19324,20 +18839,20 @@ var render = function() {
             }
         }
     }, [
-        _c("md-content", {
+        _c('md-content', {
             staticClass: "contents md-scrollbar"
         }, [
-            _c("md-field", {
+            _c('md-field', {
                 staticClass: "fixed-size-field"
             }, [
-                _c("label", [
+                _c('label', [
                     _vm._v("Algorithm")
                 ]),
                 _vm._v(" "),
-                _c("md-select", {
+                _c('md-select', {
                     on: {
                         "md-selected": function($event) {
-                            return _vm.update("algorithm", _vm.localAlgorithm);
+                            return _vm.update('algorithm', _vm.localAlgorithm);
                         }
                     },
                     model: {
@@ -19348,7 +18863,7 @@ var render = function() {
                         expression: "localAlgorithm"
                     }
                 }, _vm._l(_vm.algo_names, function(data) {
-                    return _c("md-option", {
+                    return _c('md-option', {
                         key: data.name,
                         attrs: {
                             "value": data.name
@@ -19359,26 +18874,26 @@ var render = function() {
                 }), 1)
             ], 1),
             _vm._v(" "),
-            _vm.algorithm != "" ? _c("div", [
-                _c("p", [
-                    _c("strong", [
+            _vm.algorithm != '' ? _c('div', [
+                _c('p', [
+                    _c('strong', [
                         _vm._v(" Description : ")
                     ]),
                     _vm._v("\n        " + _vm._s(_vm.ALGORITHMS[_vm.algorithm].description))
                 ])
             ]) : _vm._e(),
             _vm._v(" "),
-            _vm.algorithm != "" ? _c("div", [
-                _vm.ALGORITHMS[_vm.algorithm].requiredParams == "boolean" ? _c("div", _vm._l(_vm.inputs, function(item, index) {
-                    return _c("div", {
+            _vm.algorithm != '' ? _c('div', [
+                _vm.ALGORITHMS[_vm.algorithm].requiredParams == 'boolean' ? _c('div', _vm._l(_vm.inputs, function(item, index) {
+                    return _c('div', {
                         key: index,
                         staticClass: "fixed-size-field"
                     }, [
-                        _c("label", [
+                        _c('label', [
                             _vm._v(" " + _vm._s(index) + " ")
                         ]),
                         _vm._v(" "),
-                        _c("md-radio", {
+                        _c('md-radio', {
                             attrs: {
                                 "value": "false"
                             }
@@ -19386,7 +18901,7 @@ var render = function() {
                             _vm._v("\n          False\n        ")
                         ]),
                         _vm._v(" "),
-                        _c("md-radio", {
+                        _c('md-radio', {
                             attrs: {
                                 "value": "true"
                             }
@@ -19394,22 +18909,22 @@ var render = function() {
                             _vm._v("\n          True\n        ")
                         ])
                     ], 1);
-                }), 0) : _vm.ALGORITHMS[_vm.algorithm].requiredParams == "number" ? _c("div", _vm._l(_vm.inputs, function(item, index) {
-                    return _c("md-field", {
+                }), 0) : _vm.ALGORITHMS[_vm.algorithm].requiredParams == 'number' ? _c('div', _vm._l(_vm.inputs, function(item, index) {
+                    return _c('md-field', {
                         key: index,
                         staticClass: "fixed-size-field"
                     }, [
-                        _c("label", [
+                        _c('label', [
                             _vm._v(" " + _vm._s(index) + " ")
                         ]),
                         _vm._v(" "),
-                        _c("md-input", {
+                        _c('md-input', {
                             attrs: {
                                 "type": "number"
                             },
                             on: {
                                 "change": function($event) {
-                                    return _vm.update("algorithmParameters", _vm.localAlgorithmParameters);
+                                    return _vm.update('algorithmParameters', _vm.localAlgorithmParameters);
                                 }
                             },
                             model: {
@@ -19421,19 +18936,19 @@ var render = function() {
                             }
                         })
                     ], 1);
-                }), 1) : _vm.ALGORITHMS[_vm.algorithm].requiredParams == "string" ? _c("div", _vm._l(_vm.inputs, function(item, index) {
-                    return _c("md-field", {
+                }), 1) : _vm.ALGORITHMS[_vm.algorithm].requiredParams == 'string' ? _c('div', _vm._l(_vm.inputs, function(item, index) {
+                    return _c('md-field', {
                         key: index,
                         staticClass: "fixed-size-field"
                     }, [
-                        _c("label", [
+                        _c('label', [
                             _vm._v(" " + _vm._s(index) + " ")
                         ]),
                         _vm._v(" "),
-                        _c("md-input", {
+                        _c('md-input', {
                             on: {
                                 "change": function($event) {
-                                    return _vm.update("algorithmParameters", _vm.localAlgorithmParameters);
+                                    return _vm.update('algorithmParameters', _vm.localAlgorithmParameters);
                                 }
                             },
                             model: {
@@ -19445,22 +18960,22 @@ var render = function() {
                             }
                         })
                     ], 1);
-                }), 1) : _c("div", _vm._l(_vm.ALGORITHMS[_vm.algorithm].requiredParams, function(item, index) {
-                    return _c("md-field", {
+                }), 1) : _c('div', _vm._l(_vm.ALGORITHMS[_vm.algorithm].requiredParams, function(item, index) {
+                    return _c('md-field', {
                         key: index,
                         staticClass: "fixed-size-field"
                     }, [
-                        _c("label", [
+                        _c('label', [
                             _vm._v(_vm._s(item.name) + ", " + _vm._s(item.description))
                         ]),
                         _vm._v(" "),
-                        _c("md-input", {
+                        _c('md-input', {
                             attrs: {
                                 "type": item.type
                             },
                             on: {
                                 "change": function($event) {
-                                    return _vm.update("algorithmParameters", _vm.localAlgorithmParameters);
+                                    return _vm.update('algorithmParameters', _vm.localAlgorithmParameters);
                                 }
                             },
                             model: {
@@ -19475,17 +18990,17 @@ var render = function() {
                 }), 1)
             ]) : _vm._e(),
             _vm._v(" "),
-            _c("md-field", {
+            _c('md-field', {
                 staticClass: "fixed-size-field"
             }, [
-                _c("label", [
+                _c('label', [
                     _vm._v("Result name")
                 ]),
                 _vm._v(" "),
-                _c("md-input", {
+                _c('md-input', {
                     on: {
                         "change": function($event) {
-                            return _vm.update("resultName", _vm.localResultName);
+                            return _vm.update('resultName', _vm.localResultName);
                         }
                     },
                     model: {
@@ -19498,17 +19013,17 @@ var render = function() {
                 })
             ], 1),
             _vm._v(" "),
-            _c("md-field", {
+            _c('md-field', {
                 staticClass: "fixed-size-field"
             }, [
-                _c("label", [
+                _c('label', [
                     _vm._v("Result type")
                 ]),
                 _vm._v(" "),
-                _c("md-select", {
+                _c('md-select', {
                     on: {
                         "md-selected": function($event) {
-                            return _vm.update("resultType", _vm.localResultType);
+                            return _vm.update('resultType', _vm.localResultType);
                         }
                     },
                     model: {
@@ -19519,7 +19034,7 @@ var render = function() {
                         expression: "localResultType"
                     }
                 }, _vm._l(_vm.CONST_ANALYTIC_RESULT_TYPE, function(data) {
-                    return _c("md-option", {
+                    return _c('md-option', {
                         key: data,
                         attrs: {
                             "value": data
@@ -19530,18 +19045,18 @@ var render = function() {
                 }), 1)
             ], 1),
             _vm._v(" "),
-            _vm.requireTicketLocalization ? _c("div", [
-                _c("md-field", {
+            _vm.requireTicketLocalization ? _c('div', [
+                _c('md-field', {
                     staticClass: "fixed-size-field"
                 }, [
-                    _c("label", [
+                    _c('label', [
                         _vm._v("Ticket/Alarm context id")
                     ]),
                     _vm._v(" "),
-                    _c("md-input", {
+                    _c('md-input', {
                         on: {
                             "change": function($event) {
-                                return _vm.update("ticketContextId", _vm.localTicketContextId);
+                                return _vm.update('ticketContextId', _vm.localTicketContextId);
                             }
                         },
                         model: {
@@ -19554,17 +19069,17 @@ var render = function() {
                     })
                 ], 1),
                 _vm._v(" "),
-                _c("md-field", {
+                _c('md-field', {
                     staticClass: "fixed-size-field"
                 }, [
-                    _c("label", [
+                    _c('label', [
                         _vm._v("Ticket/Alarm process id ")
                     ]),
                     _vm._v(" "),
-                    _c("md-input", {
+                    _c('md-input', {
                         on: {
                             "change": function($event) {
-                                return _vm.update("ticketProcessId", _vm.localTicketProcessId);
+                                return _vm.update('ticketProcessId', _vm.localTicketProcessId);
                             }
                         },
                         model: {
@@ -19577,20 +19092,20 @@ var render = function() {
                     })
                 ], 1),
                 _vm._v(" "),
-                _c("md-field", {
+                _c('md-field', {
                     staticClass: "fixed-size-field"
                 }, [
-                    _c("label", [
+                    _c('label', [
                         _vm._v(" Alarm priority ")
                     ]),
                     _vm._v(" "),
-                    _c("md-input", {
+                    _c('md-input', {
                         attrs: {
                             "type": "number"
                         },
                         on: {
                             "change": function($event) {
-                                return _vm.update("alarmPriority", _vm.localAlarmPriority);
+                                return _vm.update('alarmPriority', _vm.localAlarmPriority);
                             }
                         },
                         model: {
@@ -19604,18 +19119,18 @@ var render = function() {
                 ], 1)
             ], 1) : _vm._e(),
             _vm._v(" "),
-            _vm.requirePhoneInformation ? _c("div", [
-                _c("md-field", {
+            _vm.requirePhoneInformation ? _c('div', [
+                _c('md-field', {
                     staticClass: "fixed-size-field"
                 }, [
-                    _c("label", [
+                    _c('label', [
                         _vm._v("Phone number")
                     ]),
                     _vm._v(" "),
-                    _c("md-input", {
+                    _c('md-input', {
                         on: {
                             "change": function($event) {
-                                return _vm.update("phoneNumber", _vm.localPhoneNumber);
+                                return _vm.update('phoneNumber', _vm.localPhoneNumber);
                             }
                         },
                         model: {
@@ -19628,20 +19143,20 @@ var render = function() {
                     })
                 ], 1),
                 _vm._v(" "),
-                _c("md-field", {
+                _c('md-field', {
                     staticClass: "fixed-size-field"
                 }, [
-                    _c("label", [
+                    _c('label', [
                         _vm._v("Message")
                     ]),
                     _vm._v(" "),
-                    _c("md-input", {
+                    _c('md-input', {
                         attrs: {
                             "type": "text"
                         },
                         on: {
                             "change": function($event) {
-                                return _vm.update("phoneMessage", _vm.localPhoneMessage);
+                                return _vm.update('phoneMessage', _vm.localPhoneMessage);
                             }
                         },
                         model: {
@@ -19655,20 +19170,20 @@ var render = function() {
                 ], 1)
             ], 1) : _vm._e(),
             _vm._v(" "),
-            _c("md-field", {
+            _c('md-field', {
                 staticClass: "fixed-size-field"
             }, [
-                _c("label", [
+                _c('label', [
                     _vm._v("Interval time (ms), 0 will make the analytic behave in COV\n        mode")
                 ]),
                 _vm._v(" "),
-                _c("md-input", {
+                _c('md-input', {
                     attrs: {
                         "type": "number"
                     },
                     on: {
                         "change": function($event) {
-                            return _vm.update("intervalTime", _vm.localIntervalTime);
+                            return _vm.update('intervalTime', _vm.localIntervalTime);
                         }
                     },
                     model: {
@@ -19681,10 +19196,10 @@ var render = function() {
                 })
             ], 1),
             _vm._v(" "),
-            _c("md-switch", {
+            _c('md-switch', {
                 on: {
                     "change": function($event) {
-                        return _vm.update("triggerAtStart", _vm.localTriggerAtStart);
+                        return _vm.update('triggerAtStart', _vm.localTriggerAtStart);
                     }
                 },
                 model: {
@@ -19704,13 +19219,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"1nnW1":[function(require,module,exports) {
+},{}],"1nnW1":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5IrTN":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5IrTN":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -19722,27 +19237,27 @@ let initialize = ()=>{
     script._scopeId = "data-v-dbe495";
     script.__cssModules = require("f78316d3492726cb").default;
     require("c88d640afaf2a223").default(script);
-    script.__scopeId = "data-v-dbe495";
+    script.__scopeId = 'data-v-dbe495';
     script.__file = "summary.vue";
 };
 initialize();
 exports.default = script;
 
-},{"5aba7bdd1790b848":"6MkYI","b92ecc6f89af854c":"aTIBH","f78316d3492726cb":"aCRXR","c88d640afaf2a223":"6slOB","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6MkYI":[function(require,module,exports) {
+},{"5aba7bdd1790b848":"6MkYI","b92ecc6f89af854c":"aTIBH","f78316d3492726cb":"aCRXR","c88d640afaf2a223":"6slOB","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6MkYI":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var scriptExports = {
     props: [
-        "STEPPERS_DATA",
-        "stepper",
-        "analyticName",
-        "trackingMethods",
-        "followedEntity",
-        "algorithm",
-        "algorithmParameters",
-        "resultName",
-        "resultType",
-        "intervalTime"
+        'STEPPERS_DATA',
+        'stepper',
+        'analyticName',
+        'trackingMethods',
+        'followedEntity',
+        'algorithm',
+        'algorithmParameters',
+        'resultName',
+        'resultType',
+        'intervalTime'
     ],
     data () {
         return {};
@@ -19752,50 +19267,50 @@ var scriptExports = {
         summaryList () {
             return [
                 {
-                    label: "Analytic Name",
+                    label: 'Analytic Name',
                     value: this.analyticName
                 },
                 {
-                    label: "Tracking Methods",
+                    label: 'Tracking Methods',
                     value: JSON.stringify(this.trackingMethods)
                 },
                 {
-                    label: "Followed Entity",
+                    label: 'Followed Entity',
                     value: this.followedEntity
                 },
                 {
-                    label: "Algorithm",
+                    label: 'Algorithm',
                     value: this.algorithm
                 },
                 {
-                    label: "Algorithm Parameters",
+                    label: 'Algorithm Parameters',
                     value: JSON.stringify(this.algorithmParameters)
                 },
                 {
-                    label: "Result Name",
+                    label: 'Result Name',
                     value: this.resultName
                 },
                 {
-                    label: "Result Type",
+                    label: 'Result Type',
                     value: this.resultType
                 },
                 {
-                    label: "Interval Time (ms)",
+                    label: 'Interval Time (ms)',
                     value: this.intervalTime
                 }
             ];
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"aTIBH":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"aTIBH":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("md-step", {
+    return _c('md-step', {
         staticClass: "mdStep",
         attrs: {
             "id": _vm.STEPPERS_DATA.summary,
@@ -19811,22 +19326,22 @@ var render = function() {
             }
         }
     }, [
-        _c("md-content", {
+        _c('md-content', {
             staticClass: "contents md-scrollbar"
         }, [
-            _c("p", [
+            _c('p', [
                 _vm._v("\n      Please check that all the information are correct before saving the\n      analytic.\n    ")
             ]),
             _vm._v(" "),
             _vm._l(_vm.summaryList, function(field, index) {
-                return _c("div", {
+                return _c('div', {
                     key: index,
                     staticClass: "summary-item"
                 }, [
-                    _c("strong", [
+                    _c('strong', [
                         _vm._v(_vm._s(field.label) + ":")
                     ]),
-                    _vm._v("\n      " + _vm._s(field.value === "" ? "Missing !" : field.value) + "\n    ")
+                    _vm._v("\n      " + _vm._s(field.value === '' ? 'Missing !' : field.value) + "\n    ")
                 ]);
             })
         ], 2)
@@ -19836,18 +19351,18 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"aCRXR":[function() {},{}],"6slOB":[function(require,module,exports) {
+},{}],"aCRXR":[function() {},{}],"6slOB":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"k875b":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"k875b":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("md-dialog", {
+    return _c('md-dialog', {
         staticClass: "mdDialog",
         attrs: {
             "md-active": _vm.showDialog,
@@ -19865,16 +19380,16 @@ var render = function() {
             }
         }
     }, [
-        _c("md-dialog-title", {
+        _c('md-dialog-title', {
             staticClass: "mdDialogTitle"
         }, [
             _vm._v(" Create Analytic ")
         ]),
         _vm._v(" "),
-        _c("md-dialog-content", {
+        _c('md-dialog-content', {
             staticClass: "mdDialogContainer"
         }, [
-            _c("md-steppers", {
+            _c('md-steppers', {
                 attrs: {
                     "md-active-step": _vm.stepper.active,
                     "md-linear": ""
@@ -19889,7 +19404,7 @@ var render = function() {
                     "md-changed": _vm.changeStep
                 }
             }, [
-                _c("analytic-name", {
+                _c('analytic-name', {
                     attrs: {
                         "STEPPERS_DATA": _vm.STEPPERS_DATA,
                         "stepper": _vm.stepper,
@@ -19934,7 +19449,7 @@ var render = function() {
                     }
                 }),
                 _vm._v(" "),
-                _c("followed-entity", {
+                _c('followed-entity', {
                     attrs: {
                         "STEPPERS_DATA": _vm.STEPPERS_DATA,
                         "stepper": _vm.stepper,
@@ -19951,7 +19466,7 @@ var render = function() {
                     }
                 }),
                 _vm._v(" "),
-                _c("input-configuration", {
+                _c('input-configuration', {
                     attrs: {
                         "STEPPERS_DATA": _vm.STEPPERS_DATA,
                         "stepper": _vm.stepper,
@@ -19968,7 +19483,7 @@ var render = function() {
                     }
                 }),
                 _vm._v(" "),
-                _c("trigger-configuration", {
+                _c('trigger-configuration', {
                     attrs: {
                         "STEPPERS_DATA": _vm.STEPPERS_DATA,
                         "stepper": _vm.stepper,
@@ -19984,7 +19499,7 @@ var render = function() {
                     }
                 }),
                 _vm._v(" "),
-                _c("algorithm-configuration", {
+                _c('algorithm-configuration', {
                     attrs: {
                         "STEPPERS_DATA": _vm.STEPPERS_DATA,
                         "stepper": _vm.stepper,
@@ -19999,7 +19514,7 @@ var render = function() {
                     }
                 }),
                 _vm._v(" "),
-                _c("result-configuration", {
+                _c('result-configuration', {
                     attrs: {
                         "STEPPERS_DATA": _vm.STEPPERS_DATA,
                         "stepper": _vm.stepper,
@@ -20100,7 +19615,7 @@ var render = function() {
                     }
                 }),
                 _vm._v(" "),
-                _c("io-dependencies", {
+                _c('io-dependencies', {
                     attrs: {
                         "STEPPERS_DATA": _vm.STEPPERS_DATA,
                         "stepper": _vm.stepper,
@@ -20118,7 +19633,7 @@ var render = function() {
                     }
                 }),
                 _vm._v(" "),
-                _c("summary-analytic", {
+                _c('summary-analytic', {
                     attrs: {
                         "STEPPERS_DATA": _vm.STEPPERS_DATA,
                         "stepper": _vm.stepper,
@@ -20135,8 +19650,8 @@ var render = function() {
             ], 1)
         ], 1),
         _vm._v(" "),
-        _c("md-dialog-actions", [
-            _c("md-button", {
+        _c('md-dialog-actions', [
+            _c('md-button', {
                 staticClass: "md-primary",
                 on: {
                     "click": function($event) {
@@ -20147,7 +19662,7 @@ var render = function() {
                 _vm._v("Close")
             ]),
             _vm._v(" "),
-            _vm.stepper.active !== this.STEPPERS_DATA.summary ? _c("md-button", {
+            _vm.stepper.active !== this.STEPPERS_DATA.summary ? _c('md-button', {
                 staticClass: "md-primary",
                 on: {
                     "click": _vm.PassToNextStep
@@ -20156,7 +19671,7 @@ var render = function() {
                 _vm._v("Next\n    ")
             ]) : _vm._e(),
             _vm._v(" "),
-            _vm.stepper.active === this.STEPPERS_DATA.summary ? _c("md-button", {
+            _vm.stepper.active === this.STEPPERS_DATA.summary ? _c('md-button', {
                 staticClass: "md-primary",
                 attrs: {
                     "disabled": _vm.isSaveButtonDisabled()
@@ -20176,13 +19691,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"jpbbC":[function() {},{}],"3zKUm":[function(require,module,exports) {
+},{}],"jpbbC":[function() {},{}],"3zKUm":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"lV3UG":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"lV3UG":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -20194,13 +19709,13 @@ let initialize = ()=>{
     script._scopeId = "data-v-19c5d7";
     script.__cssModules = require("f93af72822295694").default;
     require("217d35c413f75cf6").default(script);
-    script.__scopeId = "data-v-19c5d7";
+    script.__scopeId = 'data-v-19c5d7';
     script.__file = "modifyAnalyticDialog.vue";
 };
 initialize();
 exports.default = script;
 
-},{"7ba0fb5e5f113da6":"5IIbY","3fdf391e9c73cd5":"3SplZ","f93af72822295694":"7JQQW","217d35c413f75cf6":"2LSbk","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5IIbY":[function(require,module,exports) {
+},{"7ba0fb5e5f113da6":"5IIbY","3fdf391e9c73cd5":"3SplZ","f93af72822295694":"7JQQW","217d35c413f75cf6":"2LSbk","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5IIbY":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalModelAnalysis = require("spinal-model-analysis");
@@ -20226,38 +19741,38 @@ var _spinalEnvViewerGraphService = require("spinal-env-viewer-graph-service");
 var _spinalEnvViewerPluginDocumentationService = require("spinal-env-viewer-plugin-documentation-service");
 var _spinalEnvViewerPluginDocumentationServiceDefault = parcelHelpers.interopDefault(_spinalEnvViewerPluginDocumentationService);
 var scriptExports = {
-    name: "modifyAnalyticDialog",
+    name: 'modifyAnalyticDialog',
     props: [
-        "onFinised"
+        'onFinised'
     ],
     components: {
-        "analytic-name": (0, _analyticNameVueDefault.default),
-        "followed-entity": (0, _followedEntityVueDefault.default),
-        "input-configuration": (0, _inputConfigurationVueDefault.default),
-        "trigger-configuration": (0, _triggerConfigurationVueDefault.default),
-        "algorithm-configuration": (0, _algorithmConfigurationVueDefault.default),
-        "result-configuration": (0, _resultConfigurationVueDefault.default),
-        "io-dependencies": (0, _iodependenciesVueDefault.default),
+        'analytic-name': (0, _analyticNameVueDefault.default),
+        'followed-entity': (0, _followedEntityVueDefault.default),
+        'input-configuration': (0, _inputConfigurationVueDefault.default),
+        'trigger-configuration': (0, _triggerConfigurationVueDefault.default),
+        'algorithm-configuration': (0, _algorithmConfigurationVueDefault.default),
+        'result-configuration': (0, _resultConfigurationVueDefault.default),
+        'io-dependencies': (0, _iodependenciesVueDefault.default),
         configuration: (0, _configurationVueDefault.default),
-        "summary-analytic": (0, _summaryVueDefault.default)
+        'summary-analytic': (0, _summaryVueDefault.default)
     },
     data () {
         this.STEPPERS_DATA = {
-            analytic: "first",
-            followedEntity: "second",
-            inputConfiguration: "third",
-            triggerConfiguration: "fourth",
-            algorithmConfiguration: "fifth",
-            resultConfiguration: "sixth",
-            IODependencies: "seventh",
-            summary: "eighth"
+            analytic: 'first',
+            followedEntity: 'second',
+            inputConfiguration: 'third',
+            triggerConfiguration: 'fourth',
+            algorithmConfiguration: 'fifth',
+            resultConfiguration: 'sixth',
+            IODependencies: 'seventh',
+            summary: 'eighth'
         };
         return {
             showDialog: true,
             showPreviewDialog: false,
             // Analytic attributes data
-            analyticName: "",
-            analyticDescription: "",
+            analyticName: '',
+            analyticDescription: '',
             analyticShouldTriggerAtStart: undefined,
             //analyticShouldCatchUpPastExecutions: undefined,
             analyticAggregateExecution: undefined,
@@ -20273,21 +19788,21 @@ var scriptExports = {
             algorithms: {},
             // Config -> I/O Dependencies attribute data
             ioDependencies: {
-                R: ""
+                R: ''
             },
             // Config -> Result attribute data
-            resultType: "",
-            resultName: "",
+            resultType: '',
+            resultName: '',
             shouldCreateEndpointIfNotExist: false,
-            endpointCreationUnit: "",
+            endpointCreationUnit: '',
             endpointCreationMaxDays: null,
-            ticketContextId: "",
-            ticketProcessId: "",
-            phoneNumber: "",
-            phoneMessage: "",
+            ticketContextId: '',
+            ticketProcessId: '',
+            phoneNumber: '',
+            phoneMessage: '',
             alarmPriority: null,
-            gChatMessage: "",
-            gChatSpaceName: "",
+            gChatMessage: '',
+            gChatSpaceName: '',
             selectedNode: undefined,
             entityType: undefined,
             stepper: {
@@ -20332,7 +19847,7 @@ var scriptExports = {
             console.log(this.inputs);
             const configNode = await (0, _spinalModelAnalysis.spinalAnalyticNodeManagerService).getConfig(selectedNodeId);
             const analyticAttributes = await (0, _spinalModelAnalysis.spinalAnalyticNodeManagerService).getAttributesFromNode(configNode.id.get(), (0, _spinalModelAnalysis.CONSTANTS).CATEGORY_ATTRIBUTE_ANALYTIC_PARAMETERS);
-            console.log("analyticAttributes :", analyticAttributes);
+            console.log('analyticAttributes :', analyticAttributes);
             this.analyticDescription = analyticAttributes[(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_ANALYTIC_DESCRIPTION];
             this.analyticStatus = analyticAttributes[(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_ANALYTIC_STATUS] === (0, _spinalModelAnalysis.CONSTANTS).ANALYTIC_STATUS.ACTIVE;
             this.analyticShouldTriggerAtStart = analyticAttributes[(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_TRIGGER_AT_START];
@@ -20413,13 +19928,13 @@ var scriptExports = {
                 const contextId = Object.keys(this.selectedNode.contextIds.get())[0];
                 const followedEntityNodeRef = await (0, _spinalModelAnalysis.spinalAnalyticNodeManagerService).getFollowedEntity(this.selectedNode.id.get());
                 if (followedEntityNodeRef && followedEntityNodeRef.id.get() !== this.followedEntity) {
-                    console.log("change followed entity");
+                    console.log('change followed entity');
                     await (0, _spinalModelAnalysis.spinalAnalyticNodeManagerService).removeLinkToFollowedEntity(this.selectedNode.id.get(), followedEntityNodeRef.id.get());
                     await (0, _spinalModelAnalysis.spinalAnalyticNodeManagerService).addInputLinkToFollowedEntity(contextId, this.selectedNode.id.get(), this.followedEntity);
                 }
                 if (!followedEntityNodeRef) await (0, _spinalModelAnalysis.spinalAnalyticNodeManagerService).addInputLinkToFollowedEntity(contextId, this.selectedNode.id.get(), this.followedEntity);
                 const trackingMethodAttributes = this.getTrackingMethodAttributes();
-                console.log("trackingMethodAttributes :", trackingMethodAttributes);
+                console.log('trackingMethodAttributes :', trackingMethodAttributes);
                 const trackingMethodNodeRef = await (0, _spinalModelAnalysis.spinalAnalyticNodeManagerService).getTrackingMethod(this.selectedNode.id.get());
                 const trackingMethodNode = (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(trackingMethodNodeRef.id.get());
                 await (0, _spinalModelAnalysis.spinalAnalyticNodeManagerService).addAttributesToNode(trackingMethodNode, trackingMethodAttributes);
@@ -20456,7 +19971,7 @@ var scriptExports = {
                 const triggerAttributes = this.getTriggerAttributes();
                 configAttributes[(0, _spinalModelAnalysis.CONSTANTS).CATEGORY_ATTRIBUTE_TRIGGER_PARAMETERS] = triggerAttributes;
                 await (0, _spinalModelAnalysis.spinalAnalyticNodeManagerService).deleteConfigNode(this.selectedNode.id.get());
-                console.log("configAttributes :", configAttributes);
+                console.log('configAttributes :', configAttributes);
                 const configInfo = await (0, _spinalModelAnalysis.spinalAnalyticNodeManagerService).addConfig(configAttributes, this.selectedNode.id.get(), contextId);
             /*const configNodeRef = await spinalAnalyticNodeManagerService.getConfig(
           this.selectedNode.id.get()
@@ -20471,7 +19986,7 @@ var scriptExports = {
             this.showDialog = false;
         },
         closeDialog (closeResult) {
-            if (typeof this.onFinised === "function") this.onFinised({
+            if (typeof this.onFinised === 'function') this.onFinised({
                 closeResult,
                 analyticName: this.analyticName
             });
@@ -20486,15 +20001,15 @@ var scriptExports = {
         },
         addInput () {
             let length = Object.keys(this.inputs).length;
-            console.log("adding input");
+            console.log('adding input');
             this.inputs = {
                 ...this.inputs,
                 [`I${length}`]: {
-                    trackingMethod: "",
-                    filterValue: "",
+                    trackingMethod: '',
+                    filterValue: '',
                     searchDepth: 0,
                     strictDepth: false,
-                    searchRelations: "",
+                    searchRelations: '',
                     timeseriesIntervalTime: 0,
                     timeseriesValueAtStart: false,
                     captureAllModels: false
@@ -20515,16 +20030,16 @@ var scriptExports = {
             this.inputs = {
                 ...this.inputs
             };
-            console.log("deleted input : ", inputName);
+            console.log('deleted input : ', inputName);
         },
         addTrigger () {
             let length = Object.keys(this.triggers).length;
-            console.log("adding input");
+            console.log('adding input');
             this.triggers = {
                 ...this.triggers,
                 [`T${length}`]: {
-                    triggerType: "",
-                    triggerValue: "",
+                    triggerType: '',
+                    triggerValue: '',
                     changeOfValueThreshold: 0
                 }
             };
@@ -20543,15 +20058,15 @@ var scriptExports = {
             this.triggers = {
                 ...this.triggers
             };
-            console.log("deleted trigger : ", triggerName);
+            console.log('deleted trigger : ', triggerName);
         },
         addAlgorithm () {
             let length = Object.keys(this.algorithms).length;
-            console.log("adding algorithm");
+            console.log('adding algorithm');
             this.algorithms = {
                 ...this.algorithms,
                 [`A${length}`]: {
-                    name: "",
+                    name: '',
                     params: []
                 }
             };
@@ -20570,7 +20085,7 @@ var scriptExports = {
             this.algorithms = {
                 ...this.algorithms
             };
-            console.log("deleted algorithm : ", algorithmIndexName);
+            console.log('deleted algorithm : ', algorithmIndexName);
         },
         changeStep (stepId) {
             this.stepper.active = stepId;
@@ -20612,7 +20127,7 @@ var scriptExports = {
             }
         },
         isSaveButtonDisabled () {
-            return this.analyticName === "" || this.algorithm === "" || this.resultType === "" || this.resultName === "" || this.intervalTime === null || !this.followedEntity;
+            return this.analyticName === '' || this.algorithm === '' || this.resultType === '' || this.resultName === '' || this.intervalTime === null || !this.followedEntity;
         },
         getTrackingMethodAttributes () {
             const trackingMethodAttributes = {};
@@ -20620,27 +20135,27 @@ var scriptExports = {
                 trackingMethodAttributes[inputKey] = [];
                 trackingMethodAttributes[inputKey].push({
                     name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_TRACKING_METHOD}`,
-                    type: "string",
+                    type: 'string',
                     value: this.inputs[inputKey].trackingMethod
                 });
                 trackingMethodAttributes[inputKey].push({
                     name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_FILTER_VALUE}`,
-                    type: "string",
+                    type: 'string',
                     value: this.inputs[inputKey].filterValue
                 });
                 trackingMethodAttributes[inputKey].push({
                     name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_SEARCH_DEPTH}`,
-                    type: "number",
+                    type: 'number',
                     value: this.inputs[inputKey].searchDepth
                 });
                 trackingMethodAttributes[inputKey].push({
                     name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_STRICT_DEPTH}`,
-                    type: "boolean",
+                    type: 'boolean',
                     value: this.inputs[inputKey].strictDepth
                 });
                 trackingMethodAttributes[inputKey].push({
                     name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_SEARCH_RELATIONS}`,
-                    type: "string",
+                    type: 'string',
                     value: this.inputs[inputKey].searchRelations
                 });
                 if ([
@@ -20649,17 +20164,17 @@ var scriptExports = {
                 ].includes(this.inputs[inputKey].trackingMethod)) {
                     trackingMethodAttributes[inputKey].push({
                         name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_TIMESERIES}`,
-                        type: "number",
+                        type: 'number',
                         value: this.inputs[inputKey].timeseriesIntervalTime
                     });
                     trackingMethodAttributes[inputKey].push({
                         name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_TIMESERIES_VALUE_AT_START}`,
-                        type: "boolean",
+                        type: 'boolean',
                         value: this.inputs[inputKey].timeseriesValueAtStart
                     });
                     trackingMethodAttributes[inputKey].push({
                         name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_MULTIPLE_MODELS}`,
-                        type: "boolean",
+                        type: 'boolean',
                         value: this.inputs[inputKey].captureAllModels
                     });
                 }
@@ -20670,27 +20185,27 @@ var scriptExports = {
             const analyticAttributes = [];
             analyticAttributes.push({
                 name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_ANALYTIC_DESCRIPTION}`,
-                type: "string",
+                type: 'string',
                 value: this.analyticDescription
             });
             analyticAttributes.push({
                 name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_ANALYTIC_STATUS}`,
-                type: "string",
+                type: 'string',
                 value: this.analyticStatus ? (0, _spinalModelAnalysis.CONSTANTS).ANALYTIC_STATUS.ACTIVE : (0, _spinalModelAnalysis.CONSTANTS).ANALYTIC_STATUS.INACTIVE
             });
             analyticAttributes.push({
                 name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_TRIGGER_AT_START}`,
-                type: "boolean",
+                type: 'boolean',
                 value: this.analyticShouldTriggerAtStart
             });
             analyticAttributes.push({
                 name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_AGGREGATE_EXECUTION_TIME}`,
-                type: "string",
+                type: 'string',
                 value: this.analyticAggregateExecution
             });
             analyticAttributes.push({
                 name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_LAST_EXECUTION_TIME}`,
-                type: "number",
+                type: 'number',
                 value: this.analyticLastExecutionTime
             });
             return analyticAttributes;
@@ -20699,17 +20214,17 @@ var scriptExports = {
             const resultAttributes = [];
             resultAttributes.push({
                 name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_RESULT_TYPE}`,
-                type: "string",
+                type: 'string',
                 value: this.resultType
             });
             resultAttributes.push({
                 name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_RESULT_NAME}`,
-                type: "string",
+                type: 'string',
                 value: this.resultName
             });
             if (this.resultType === (0, _spinalModelAnalysis.CONSTANTS).ANALYTIC_RESULT_TYPE.ENDPOINT) resultAttributes.push({
                 name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_CREATE_ENDPOINT_IF_NOT_EXIST}`,
-                type: "boolean",
+                type: 'boolean',
                 value: this.shouldCreateEndpointIfNotExist
             });
             return resultAttributes;
@@ -20721,7 +20236,7 @@ var scriptExports = {
                 const doc = (0, _spinalModelAnalysis.ALGORITHMS)[algoName].requiredParams;
                 for(let i = 0; i < this.algorithms[algorithmIndexName].params.length; i++)algorithmParametersAttributes.push({
                     name: `${algorithmIndexName}${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_SEPARATOR}${doc[i].name}`,
-                    value: doc[i].type === "number" ? +this.algorithms[algorithmIndexName].params[i] : this.algorithms[algorithmIndexName].params[i],
+                    value: doc[i].type === 'number' ? +this.algorithms[algorithmIndexName].params[i] : this.algorithms[algorithmIndexName].params[i],
                     type: doc[i].type
                 });
             }
@@ -20731,7 +20246,7 @@ var scriptExports = {
             const algorithmMappingAttributes = [];
             for (const algorithmIndexName of Object.keys(this.algorithms))algorithmMappingAttributes.push({
                 name: `${algorithmIndexName}`,
-                type: "string",
+                type: 'string',
                 value: this.algorithms[algorithmIndexName].name
             });
             return algorithmMappingAttributes;
@@ -20740,18 +20255,18 @@ var scriptExports = {
             const ticketAttributes = [];
             ticketAttributes.push({
                 name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_TICKET_CONTEXT_ID}`,
-                type: "string",
+                type: 'string',
                 value: this.ticketContextId
             });
             ticketAttributes.push({
                 name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_TICKET_PROCESS_ID}`,
-                type: "string",
+                type: 'string',
                 value: this.ticketProcessId
             });
             if (this.alarmPriority) ticketAttributes.push({
                 name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_ALARM_PRIORITY}`,
                 value: this.alarmPriority,
-                type: "number"
+                type: 'number'
             });
             return ticketAttributes;
         },
@@ -20759,12 +20274,12 @@ var scriptExports = {
             const endpointCreationAttributes = [];
             endpointCreationAttributes.push({
                 name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_CREATE_ENDPOINT_UNIT}`,
-                type: "string",
+                type: 'string',
                 value: this.endpointCreationUnit
             });
             endpointCreationAttributes.push({
                 name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_CREATE_ENDPOINT_MAX_DAYS}`,
-                type: "number",
+                type: 'number',
                 value: this.endpointCreationMaxDays
             });
             return endpointCreationAttributes;
@@ -20773,12 +20288,12 @@ var scriptExports = {
             const smsAttributes = [];
             smsAttributes.push({
                 name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_PHONE_NUMBER}`,
-                type: "string",
+                type: 'string',
                 value: this.phoneNumber
             });
             smsAttributes.push({
                 name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_PHONE_MESSAGE}`,
-                type: "string",
+                type: 'string',
                 value: this.phoneMessage
             });
             return smsAttributes;
@@ -20787,12 +20302,12 @@ var scriptExports = {
             const gChatAttributes = [];
             gChatAttributes.push({
                 name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_GCHAT_MESSAGE}`,
-                type: "string",
+                type: 'string',
                 value: this.gChatMessage
             });
             gChatAttributes.push({
                 name: `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_GCHAT_SPACE}`,
-                type: "string",
+                type: 'string',
                 value: this.gChatSpaceName
             });
             return gChatAttributes;
@@ -20800,12 +20315,12 @@ var scriptExports = {
         getIOAttributes () {
             const ioAttributes = [];
             for (const ioDependencyName of Object.keys(this.ioDependencies)){
-                let str = "";
+                let str = '';
                 for (const ioDependency of this.ioDependencies[ioDependencyName])str += `${ioDependency}${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_VALUE_SEPARATOR}`;
                 str = str.slice(0, -1);
                 ioAttributes.push({
                     name: `${ioDependencyName}`,
-                    type: "string",
+                    type: 'string',
                     value: str
                 });
             }
@@ -20818,7 +20333,7 @@ var scriptExports = {
                 if (this.triggers[triggerIndex].changeOfValueThreshold !== null) str += `${(0, _spinalModelAnalysis.CONSTANTS).ATTRIBUTE_VALUE_SEPARATOR}${this.triggers[triggerIndex].changeOfValueThreshold}`;
                 triggerAttributes.push({
                     name: `${triggerIndex}`,
-                    type: "string",
+                    type: 'string',
                     value: str
                 });
             }
@@ -20826,15 +20341,15 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"spinal-model-analysis":"apm5J","./components/analyticSteps/analyticName.vue":"fV2jv","./components/analyticSteps/followedEntity.vue":"kT4TN","./components/analyticSteps/inputConfiguration.vue":"iVYnP","./components/analyticSteps/triggerConfiguration.vue":"iND1t","./components/analyticSteps/algorithmConfiguration.vue":"8wAUD","./components/analyticSteps/resultConfiguration.vue":"eI82n","./components/analyticSteps/IODependencies.vue":"1wJ5n","./components/analyticSteps/configuration.vue":"3SuJC","./components/analyticSteps/summary.vue":"5IrTN","spinal-env-viewer-graph-service":"9n7zp","spinal-env-viewer-plugin-documentation-service":"5rYVR","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3SplZ":[function(require,module,exports) {
+},{"spinal-model-analysis":"apm5J","./components/analyticSteps/analyticName.vue":"fV2jv","./components/analyticSteps/followedEntity.vue":"kT4TN","./components/analyticSteps/inputConfiguration.vue":"iVYnP","./components/analyticSteps/triggerConfiguration.vue":"iND1t","./components/analyticSteps/algorithmConfiguration.vue":"8wAUD","./components/analyticSteps/resultConfiguration.vue":"eI82n","./components/analyticSteps/IODependencies.vue":"1wJ5n","./components/analyticSteps/configuration.vue":"3SuJC","./components/analyticSteps/summary.vue":"5IrTN","spinal-env-viewer-graph-service":"9n7zp","spinal-env-viewer-plugin-documentation-service":"5rYVR","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3SplZ":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("md-dialog", {
+    return _c('md-dialog', {
         staticClass: "mdDialog",
         attrs: {
             "md-active": _vm.showDialog,
@@ -20852,16 +20367,16 @@ var render = function() {
             }
         }
     }, [
-        _c("md-dialog-title", {
+        _c('md-dialog-title', {
             staticClass: "mdDialogTitle"
         }, [
             _vm._v(" Modify Analytic ")
         ]),
         _vm._v(" "),
-        _c("md-dialog-content", {
+        _c('md-dialog-content', {
             staticClass: "mdDialogContainer"
         }, [
-            _c("md-steppers", {
+            _c('md-steppers', {
                 attrs: {
                     "md-active-step": _vm.stepper.active,
                     "md-linear": ""
@@ -20876,7 +20391,7 @@ var render = function() {
                     "md-changed": _vm.changeStep
                 }
             }, [
-                _c("analytic-name", {
+                _c('analytic-name', {
                     attrs: {
                         "STEPPERS_DATA": _vm.STEPPERS_DATA,
                         "stepper": _vm.stepper,
@@ -20921,7 +20436,7 @@ var render = function() {
                     }
                 }),
                 _vm._v(" "),
-                _c("followed-entity", {
+                _c('followed-entity', {
                     attrs: {
                         "STEPPERS_DATA": _vm.STEPPERS_DATA,
                         "stepper": _vm.stepper,
@@ -20938,7 +20453,7 @@ var render = function() {
                     }
                 }),
                 _vm._v(" "),
-                _c("input-configuration", {
+                _c('input-configuration', {
                     attrs: {
                         "STEPPERS_DATA": _vm.STEPPERS_DATA,
                         "stepper": _vm.stepper,
@@ -20955,7 +20470,7 @@ var render = function() {
                     }
                 }),
                 _vm._v(" "),
-                _c("trigger-configuration", {
+                _c('trigger-configuration', {
                     attrs: {
                         "STEPPERS_DATA": _vm.STEPPERS_DATA,
                         "stepper": _vm.stepper,
@@ -20971,7 +20486,7 @@ var render = function() {
                     }
                 }),
                 _vm._v(" "),
-                _c("algorithm-configuration", {
+                _c('algorithm-configuration', {
                     attrs: {
                         "STEPPERS_DATA": _vm.STEPPERS_DATA,
                         "stepper": _vm.stepper,
@@ -20986,7 +20501,7 @@ var render = function() {
                     }
                 }),
                 _vm._v(" "),
-                _c("result-configuration", {
+                _c('result-configuration', {
                     attrs: {
                         "STEPPERS_DATA": _vm.STEPPERS_DATA,
                         "stepper": _vm.stepper,
@@ -21080,7 +20595,7 @@ var render = function() {
                     }
                 }),
                 _vm._v(" "),
-                _c("io-dependencies", {
+                _c('io-dependencies', {
                     attrs: {
                         "STEPPERS_DATA": _vm.STEPPERS_DATA,
                         "stepper": _vm.stepper,
@@ -21098,7 +20613,7 @@ var render = function() {
                     }
                 }),
                 _vm._v(" "),
-                _c("summary-analytic", {
+                _c('summary-analytic', {
                     attrs: {
                         "STEPPERS_DATA": _vm.STEPPERS_DATA,
                         "stepper": _vm.stepper,
@@ -21115,8 +20630,8 @@ var render = function() {
             ], 1)
         ], 1),
         _vm._v(" "),
-        _c("md-dialog-actions", [
-            _c("md-button", {
+        _c('md-dialog-actions', [
+            _c('md-button', {
                 staticClass: "md-accent",
                 on: {
                     "click": _vm.deleteAnalytic
@@ -21125,7 +20640,7 @@ var render = function() {
                 _vm._v("Delete Analytic")
             ]),
             _vm._v(" "),
-            _c("md-button", {
+            _c('md-button', {
                 staticClass: "md-primary",
                 on: {
                     "click": _vm.updateLastExecutionTime
@@ -21134,8 +20649,8 @@ var render = function() {
                 _vm._v("\n      Force update last execution time\n    ")
             ]),
             _vm._v(" "),
-            _c("div", [
-                _c("md-button", {
+            _c('div', [
+                _c('md-button', {
                     staticClass: "md-primary",
                     on: {
                         "click": function($event) {
@@ -21146,7 +20661,7 @@ var render = function() {
                     _vm._v("Close")
                 ]),
                 _vm._v(" "),
-                _vm.stepper.active !== this.STEPPERS_DATA.summary ? _c("md-button", {
+                _vm.stepper.active !== this.STEPPERS_DATA.summary ? _c('md-button', {
                     staticClass: "md-primary",
                     on: {
                         "click": _vm.PassToNextStep
@@ -21155,7 +20670,7 @@ var render = function() {
                     _vm._v("Next\n      ")
                 ]) : _vm._e(),
                 _vm._v(" "),
-                _vm.stepper.active === this.STEPPERS_DATA.summary ? _c("md-button", {
+                _vm.stepper.active === this.STEPPERS_DATA.summary ? _c('md-button', {
                     staticClass: "md-primary",
                     attrs: {
                         "disabled": _vm.isSaveButtonDisabled()
@@ -21176,13 +20691,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"7JQQW":[function() {},{}],"2LSbk":[function(require,module,exports) {
+},{}],"7JQQW":[function() {},{}],"2LSbk":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"i0rBD":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"i0rBD":[function(require,module,exports,__globalThis) {
 "use strict";
 var __createBinding = this && this.__createBinding || (Object.create ? function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
@@ -21239,16 +20754,16 @@ Object.defineProperty(exports, "GEO_TYPES", {
 });
 exports.TICKET_CONTEXT_TYPE = OLD_CONSTANTS.SERVICE_TYPE;
 exports.TICKET_CONTEXT_SUBTYPE_LIST = [
-    "Ticket",
-    "Alarm"
+    'Ticket',
+    'Alarm'
 ];
 /////////////////////////////////////////
 /////////////// TICKET ///////////////////
 exports.TICKET_RELATION_TYPE = OLD_CONSTANTS.SPINAL_TICKET_SERVICE_TICKET_RELATION_TYPE; // STEP_TO_TICKET_RELATION_TYPE
 exports.TICKET_RELATION_NAME = OLD_CONSTANTS.SPINAL_TICKET_SERVICE_TICKET_RELATION_NAME; // STEP_TO_TICKET_RELATION_NAME
 exports.TIKET_TYPE = OLD_CONSTANTS.SPINAL_TICKET_SERVICE_TICKET_TYPE;
-exports.TICKET_ATTRIBUTE_OCCURENCE_NAME = "Occurrence number";
-exports.ALARM_RELATION_NAME = "hasAlarm";
+exports.TICKET_ATTRIBUTE_OCCURENCE_NAME = 'Occurrence number';
+exports.ALARM_RELATION_NAME = 'hasAlarm';
 /////////////////////////////////////////
 /////////////// PROCESS /////////////////
 exports.PROCESS_RELATION_TYPE = OLD_CONSTANTS.SPINAL_TICKET_SERVICE_PROCESS_RELATION_TYPE; // CONTEXT_TO_PROCESS_RELATION_TYPE
@@ -21279,22 +20794,22 @@ exports.LOGS_EVENTS_STEPS = OLD_CONSTANTS.LOGS_EVENTS;
 exports._TICKET_PRIORITIES = OLD_CONSTANTS.TICKET_PRIORITIES;
 /////////////////////////////////////////
 /////////////// ARCHIVE ////////////////
-exports.PROCESS_ARCHIVE_TICKET_RELATION = "ProcessHasArchiveTicket";
-exports.PROCESS_ARCHIVE_TICKET_TYPE = "ProcessArchiveTicket";
-exports.SPATIAL_ARCHIVE_TICKET_RELATION = "SpatialHasArchiveTicket";
-exports.SPATIAL_ARCHIVE_TICKET_TYPE = "SpatialArchiveTicket";
-exports.ARCHIVE_TICKET_PART_RELATION = "ArchiveTicketHasPart";
-exports.ARCHIVE_TICKET_PART_TYPE = "ArchiveTicketPart";
-exports.ARCHIVE_TICKET_PART_TICKET_RELATION = "ArchiveTicketPartHasTicket";
+exports.PROCESS_ARCHIVE_TICKET_RELATION = 'ProcessHasArchiveTicket';
+exports.PROCESS_ARCHIVE_TICKET_TYPE = 'ProcessArchiveTicket';
+exports.SPATIAL_ARCHIVE_TICKET_RELATION = 'SpatialHasArchiveTicket';
+exports.SPATIAL_ARCHIVE_TICKET_TYPE = 'SpatialArchiveTicket';
+exports.ARCHIVE_TICKET_PART_RELATION = 'ArchiveTicketHasPart';
+exports.ARCHIVE_TICKET_PART_TYPE = 'ArchiveTicketPart';
+exports.ARCHIVE_TICKET_PART_TICKET_RELATION = 'ArchiveTicketPartHasTicket';
 exports.ARCHIVE_TICKET_RELATION_TYPE = spinal_model_graph_1.SPINAL_RELATION_PTR_LST_TYPE;
-exports.ARCHIVE_TICKET_TIMESTAMP_ATTR_PROCESS = "ProcessArchiveTimestamp";
-exports.ARCHIVE_TICKET_TIMESTAMP_ATTR_SPATIAL = "SpatialArchiveTimestamp";
+exports.ARCHIVE_TICKET_TIMESTAMP_ATTR_PROCESS = 'ProcessArchiveTimestamp';
+exports.ARCHIVE_TICKET_TIMESTAMP_ATTR_SPATIAL = 'SpatialArchiveTimestamp';
 exports.ARCHIVE_TICKET_RELATIONS = [
     exports.SPATIAL_ARCHIVE_TICKET_RELATION,
     exports.ARCHIVE_TICKET_PART_RELATION
 ];
 
-},{"5f2287b5524fd3a7":"79Wiu","2f0e2599fe3a3648":"fkEXw","c6294f08f8af564d":"5QjJf"}],"79Wiu":[function(require,module,exports) {
+},{"5f2287b5524fd3a7":"79Wiu","2f0e2599fe3a3648":"fkEXw","c6294f08f8af564d":"5QjJf"}],"79Wiu":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2019 SpinalCom - www.spinalcom.com
@@ -21323,14 +20838,14 @@ exports.ARCHIVE_TICKET_RELATIONS = [
 });
 exports.TICKET_PRIORITIES = exports.LOGS_EVENTS_STRING = exports.LOGS_EVENTS_STEPS = exports.LOG_TYPE = exports.LOG_RELATION_NAME = exports.LOG_RELATION_TYPE = exports.EVENTS_TO_LOG = exports.LOGS_EVENTS = exports.SERVICE_LOG_TYPE = exports.SPINAL_TICKET_SERVICE_LOG_RELATION_NAME = exports.SPINAL_TICKET_SERVICE_LOG_RELATION_TYPE = exports.DEFAULT_INCIDENTS_NAME = exports.SPINAL_TICKET_SERVICE_INCIDENT_TYPE = exports.SPINAL_TICKET_SERVICE_INCIDENT_SECTION_RELATION_NAME = exports.SPINAL_TICKET_SERVICE_INCIDENT_RELATION_NAME = exports.SPINAL_TICKET_SERVICE_INCIDENT_SECTION_TYPE = exports.SPINAL_TICKET_SERVICE_INCIDENT_RELATION_TYPE = exports.SPINAL_TICKET_SERVICE_INCIDENT_SECTION_RELATION_TYPE = exports.DEFAULT_STEPS = exports.ARCHIVED_STEP = exports.SPINAL_TICKET_SERVICE_STEP_RELATION_NAME = exports.SPINAL_TICKET_SERVICE_STEP_TYPE = exports.SPINAL_TICKET_SERVICE_STEP_RELATION_TYPE = exports.PROCESS_TYPE = exports.SPINAL_TICKET_SERVICE_PROCESS_RELATION_NAME = exports.SPINAL_TICKET_SERVICE_PROCESS_RELATION_TYPE = exports.SPINAL_TICKET_SERVICE_TICKET_TYPE = exports.SPINAL_TICKET_SERVICE_TICKET_RELATION_NAME = exports.SPINAL_TICKET_SERVICE_TICKET_RELATION_TYPE = exports.SERVICE_TYPE = exports.SERVICE_NAME = void 0;
 const spinal_env_viewer_graph_service_1 = require("5f14db0a1cfd319d");
-exports.SERVICE_NAME = "Ticket Service";
-exports.SERVICE_TYPE = "SpinalSystemServiceTicket";
+exports.SERVICE_NAME = 'Ticket Service';
+exports.SERVICE_TYPE = 'SpinalSystemServiceTicket';
 /////////////////////////////////////////
 /////////////// TICKET ///////////////////
 // export const SPINAL_TICKET_SERVICE_TICKET_SECTION_RELATION_TYPE: string = SPINAL_RELATION_PTR_LST_TYPE;
 exports.SPINAL_TICKET_SERVICE_TICKET_RELATION_TYPE = spinal_env_viewer_graph_service_1.SPINAL_RELATION_PTR_LST_TYPE;
-exports.SPINAL_TICKET_SERVICE_TICKET_RELATION_NAME = "SpinalSystemServiceTicketHasTicket";
-exports.SPINAL_TICKET_SERVICE_TICKET_TYPE = "SpinalSystemServiceTicketTypeTicket";
+exports.SPINAL_TICKET_SERVICE_TICKET_RELATION_NAME = 'SpinalSystemServiceTicketHasTicket';
+exports.SPINAL_TICKET_SERVICE_TICKET_TYPE = 'SpinalSystemServiceTicketTypeTicket';
 // export const SPINAL_TICKET_SERVICE_TICKET_ARCHIVE_RELATION_TYPE: string = SPINAL_RELATION_PTR_LST_TYPE;
 // export const SPINAL_TICKET_SERVICE_TICKET_SECTION: string = 'SpinalSystemServiceHasTicket';
 // export const SPINAL_TICKET_SERVICE_TICKET_SECTION_NAME: string = 'Tickets';
@@ -21345,8 +20860,8 @@ exports.SPINAL_TICKET_SERVICE_TICKET_TYPE = "SpinalSystemServiceTicketTypeTicket
 /////////////////////////////////////////
 /////////////// PROCESS /////////////////
 exports.SPINAL_TICKET_SERVICE_PROCESS_RELATION_TYPE = spinal_env_viewer_graph_service_1.SPINAL_RELATION_PTR_LST_TYPE;
-exports.SPINAL_TICKET_SERVICE_PROCESS_RELATION_NAME = "SpinalSystemServiceTicketHasProcess";
-exports.PROCESS_TYPE = "SpinalServiceTicketProcess";
+exports.SPINAL_TICKET_SERVICE_PROCESS_RELATION_NAME = 'SpinalSystemServiceTicketHasProcess';
+exports.PROCESS_TYPE = 'SpinalServiceTicketProcess';
 // export const SPINAL_TICKET_SERVICE_PROCESS_ARCHIVE_RELATION_TYPE: string = SPINAL_RELATION_PTR_LST_TYPE;
 // export const SPINAL_TICKET_SERVICE_PROCESS_ARCHIVE_NAME: string = 'Spinal_Service_Ticket_Archive_Archive_Process';
 // export const SPINAL_TICKET_SERVICE_PROCESS_ARCHIVE_RELATION_NAME: string = 'SpinalSystemServiceArchiveHasProcess';
@@ -21361,8 +20876,8 @@ exports.PROCESS_TYPE = "SpinalServiceTicketProcess";
 //////////////////////////////////////
 /////////////// STEP /////////////////
 exports.SPINAL_TICKET_SERVICE_STEP_RELATION_TYPE = spinal_env_viewer_graph_service_1.SPINAL_RELATION_PTR_LST_TYPE;
-exports.SPINAL_TICKET_SERVICE_STEP_TYPE = "SpinalSystemServiceTicketTypeStep";
-exports.SPINAL_TICKET_SERVICE_STEP_RELATION_NAME = "SpinalSystemServiceTicketHasStep";
+exports.SPINAL_TICKET_SERVICE_STEP_TYPE = 'SpinalSystemServiceTicketTypeStep';
+exports.SPINAL_TICKET_SERVICE_STEP_RELATION_NAME = 'SpinalSystemServiceTicketHasStep';
 // export const SPINAL_TICKET_SERVICE_STEP_ARCHIVE_RELATION_TYPE: string = SPINAL_RELATION_PTR_LST_TYPE;
 // export const SPINAL_TICKET_SERVICE_ARCHIVE_RELATION_TYPE: string = SPINAL_RELATION_PTR_LST_TYPE;
 // export const SPINAL_TICKET_SERVICE_STEP_ARCHIVE_RELATION_NAME: string = 'SpinalSystemServiceArchiveHasStep';
@@ -21380,17 +20895,17 @@ exports.ARCHIVED_STEP = {
 exports.DEFAULT_STEPS = [
     {
         name: "D\xe9clar\xe9",
-        color: "#ff0019",
+        color: '#ff0019',
         order: 0
     },
     {
-        name: "Ouvert",
-        color: "#fff112",
+        name: 'Ouvert',
+        color: '#fff112',
         order: 1
     },
     {
         name: "R\xe9solu",
-        color: "#10ff1d",
+        color: '#10ff1d',
         order: 2
     },
     exports.ARCHIVED_STEP
@@ -21399,11 +20914,11 @@ exports.DEFAULT_STEPS = [
 /////////////// CATEGORY ////////////////
 exports.SPINAL_TICKET_SERVICE_INCIDENT_SECTION_RELATION_TYPE = spinal_env_viewer_graph_service_1.SPINAL_RELATION_PTR_LST_TYPE;
 exports.SPINAL_TICKET_SERVICE_INCIDENT_RELATION_TYPE = spinal_env_viewer_graph_service_1.SPINAL_RELATION_PTR_LST_TYPE;
-exports.SPINAL_TICKET_SERVICE_INCIDENT_SECTION_TYPE = "DEFAULT_INCIDENT_TYPE";
-exports.SPINAL_TICKET_SERVICE_INCIDENT_RELATION_NAME = "Spinal_Service_Ticket_Process_has_category";
-exports.SPINAL_TICKET_SERVICE_INCIDENT_SECTION_RELATION_NAME = "Spinal_Service_Ticket_Process_has_categories_section";
-exports.SPINAL_TICKET_SERVICE_INCIDENT_TYPE = "INCIDENT_TYPE";
-exports.DEFAULT_INCIDENTS_NAME = "Incidents commun";
+exports.SPINAL_TICKET_SERVICE_INCIDENT_SECTION_TYPE = 'DEFAULT_INCIDENT_TYPE';
+exports.SPINAL_TICKET_SERVICE_INCIDENT_RELATION_NAME = 'Spinal_Service_Ticket_Process_has_category';
+exports.SPINAL_TICKET_SERVICE_INCIDENT_SECTION_RELATION_NAME = 'Spinal_Service_Ticket_Process_has_categories_section';
+exports.SPINAL_TICKET_SERVICE_INCIDENT_TYPE = 'INCIDENT_TYPE';
+exports.DEFAULT_INCIDENTS_NAME = 'Incidents commun';
 // export const SPINAL_TICKET_SERVICE_INCIDENT_SUB_SECTION_RELATION_TYPE: string = SPINAL_RELATION_PTR_LST_TYPE;
 // export const SPINAL_TICKET_SERVICE_INCIDENT_SUB_SECTION_RELATION_NAME: string = 'Spinal_Service_Ticket_Process_has_sub_category';
 // export const DEFAULT_INCIDENT_TYPE: string = SPINAL_TICKET_SERVICE_INCIDENT_SECTION_TYPE;
@@ -21418,8 +20933,8 @@ exports.DEFAULT_INCIDENTS_NAME = "Incidents commun";
 /////////////////////////////////////////
 /////////////// LOG /////////////////
 exports.SPINAL_TICKET_SERVICE_LOG_RELATION_TYPE = spinal_env_viewer_graph_service_1.SPINAL_RELATION_PTR_LST_TYPE;
-exports.SPINAL_TICKET_SERVICE_LOG_RELATION_NAME = "SpinalSystemServiceTicketHasLog";
-exports.SERVICE_LOG_TYPE = "SpinalSystemServiceTicketLog";
+exports.SPINAL_TICKET_SERVICE_LOG_RELATION_NAME = 'SpinalSystemServiceTicketHasLog';
+exports.SERVICE_LOG_TYPE = 'SpinalSystemServiceTicketLog';
 var LOGS_EVENTS;
 (function(LOGS_EVENTS) {
     LOGS_EVENTS[LOGS_EVENTS["creation"] = 1] = "creation";
@@ -21467,6 +20982,6 @@ exports.TICKET_PRIORITIES = {
     urgent: 2
 };
 
-},{"5f14db0a1cfd319d":"9n7zp"}]},[], null, "parcelRequire02e5")
+},{"5f14db0a1cfd319d":"9n7zp"}]},[], null, "parcelRequire94c2")
 
 //# sourceMappingURL=spinal-env-viewer-plugin-analysis.622520c8.js.map

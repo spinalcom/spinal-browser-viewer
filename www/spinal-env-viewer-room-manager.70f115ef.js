@@ -73,7 +73,7 @@
         localRequire,
         module,
         module.exports,
-        this
+        globalObject
       );
     }
 
@@ -142,7 +142,7 @@
       this[globalName] = mainExports;
     }
   }
-})({"gsEHQ":[function(require,module,exports) {
+})({"gsEHQ":[function(require,module,exports,__globalThis) {
 var _dialogs = require("./vue/dialogs");
 var _panel = require("./vue/panel");
 var _event = require("./js/event");
@@ -179,7 +179,7 @@ var _buttons = require("./buttons"); // import ContextGroupBtn from "./buttons/c
  //   }
  // }
 
-},{"./vue/dialogs":"hDaa5","./vue/panel":"5MhZG","./js/event":"bnFtF","./buttons":"gaoUc"}],"hDaa5":[function(require,module,exports) {
+},{"./vue/dialogs":"hDaa5","./vue/panel":"5MhZG","./js/event":"bnFtF","./buttons":"gaoUc"}],"hDaa5":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _vue = require("vue");
 var _vueDefault = parcelHelpers.interopDefault(_vue);
@@ -237,7 +237,7 @@ const dialogs = [
 ];
 for(let index = 0; index < dialogs.length; index++)SpinalMountExtention.mount(dialogs[index]);
 
-},{"vue":"gt5MM","2aefec3a7efcfe09":"7Uw4d","./create/createContext.vue":"kxIDi","./create/createCategory.vue":"9cPRY","./create/createGroup.vue":"gxEDY","./color/colorDialog.vue":"1tcfQ","./linkToGroup/linkToGroup.vue":"2PgRe","./selectTypeDialog.vue":"3TBbI","./linkToGroup/linkBimObjectToGroup.vue":"3YAIO","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7Uw4d":[function(require,module,exports) {
+},{"vue":"gt5MM","2aefec3a7efcfe09":"7Uw4d","./create/createContext.vue":"kxIDi","./create/createCategory.vue":"9cPRY","./create/createGroup.vue":"gxEDY","./color/colorDialog.vue":"1tcfQ","./linkToGroup/linkToGroup.vue":"2PgRe","./selectTypeDialog.vue":"3TBbI","./linkToGroup/linkBimObjectToGroup.vue":"3YAIO","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7Uw4d":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -276,7 +276,7 @@ module.exports = {
     }
 };
 
-},{"8b71a79dcc12420e":"h7sS1","e47c36529e942a76":"cvBJ6","cfd4c6200ba55765":"9SKSV"}],"h7sS1":[function(require,module,exports) {
+},{"8b71a79dcc12420e":"h7sS1","e47c36529e942a76":"cvBJ6","cfd4c6200ba55765":"9SKSV"}],"h7sS1":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -356,7 +356,7 @@ module.exports = {
 }
 module.exports = SpinalPanelManagerService;
 
-},{}],"cvBJ6":[function(require,module,exports) {
+},{}],"cvBJ6":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -391,7 +391,7 @@ module.exports = SpinalPanelManagerService;
 }
 module.exports = SpinalPanelApp;
 
-},{}],"9SKSV":[function(require,module,exports) {
+},{}],"9SKSV":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -490,7 +490,7 @@ function getDialog() {
     };
 };
 
-},{}],"kxIDi":[function(require,module,exports) {
+},{}],"kxIDi":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -502,13 +502,13 @@ let initialize = ()=>{
     script._scopeId = "data-v-4c8161";
     script.__cssModules = require("10daee165ae01077").default;
     require("af8ebc840a21556").default(script);
-    script.__scopeId = "data-v-4c8161";
+    script.__scopeId = 'data-v-4c8161';
     script.__file = "createContext.vue";
 };
 initialize();
 exports.default = script;
 
-},{"ed8bab4a4a83ac47":"esCJK","ec9e9d020d7f4bcb":"b6a3K","10daee165ae01077":"l6Uwc","af8ebc840a21556":"eKdlZ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"esCJK":[function(require,module,exports) {
+},{"ed8bab4a4a83ac47":"esCJK","ec9e9d020d7f4bcb":"b6a3K","10daee165ae01077":"l6Uwc","af8ebc840a21556":"eKdlZ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"esCJK":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _eventJs = require("../../../js/event.js");
@@ -576,39 +576,261 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"../../../js/event.js":"bnFtF","../../../js/types.js":"b1uFH","spinal-env-viewer-context-geographic-service":"5QjJf","spinal-env-viewer-plugin-group-manager-service":"tSLpq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"b1uFH":[function(require,module,exports) {
-/*
- * Copyright 2024 SpinalCom - www.spinalcom.com
- * 
- * This file is part of SpinalCore.
- * 
- * Please read all of the following terms and conditions
- * of the Software license Agreement ("Agreement")
- * carefully.
- * 
- * This Agreement is a legally binding contract between
- * the Licensee (as defined below) and SpinalCom that
- * sets forth the terms and conditions that govern your
- * use of the Program. By installing and/or using the
- * Program, you agree to abide by all the terms and
- * conditions stated or referenced herein.
- * 
- * If you do not agree to abide by these terms and
- * conditions, do not demonstrate your acceptance and do
- * not install or use the Program.
- * You should have received a copy of the license along
- * with this file. If not, see
- * <http://resources.spinalcom.com/licenses.pdf>.
- */ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+},{"../../../js/event.js":"bnFtF","../../../js/types.js":"b1uFH","spinal-env-viewer-context-geographic-service":"5QjJf","spinal-env-viewer-plugin-group-manager-service":"tSLpq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"bnFtF":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _vue = require("vue");
+var _vueDefault = parcelHelpers.interopDefault(_vue);
+var _utilities = require("./utilities");
+var _utilitiesDefault = parcelHelpers.interopDefault(_utilities);
+const EventBus = new (0, _vueDefault.default)();
+EventBus.$on("mouseover", (item)=>{
+    (0, _utilitiesDefault.default).getBimObjects(item.id).then((res)=>{
+        let selections = [];
+        res.forEach((el)=>{
+            let info = el.get();
+            let model = window.spinal.BimObjectService.getModelByBimfile(info.bimFileId);
+            let selected = selections.find((el2)=>{
+                return el2.model.id === model.id;
+            });
+            if (selected) selected.ids.push(el.dbid);
+            else selections.push({
+                model: model,
+                ids: [
+                    info.dbid
+                ]
+            });
+        });
+        window.spinal.ForgeViewer.viewer.impl.selector.setAggregateSelection(selections);
+    });
+});
+EventBus.$on("mouseleave", ()=>{
+    window.spinal.ForgeViewer.viewer.select();
+});
+exports.default = EventBus;
+
+},{"vue":"gt5MM","./utilities":"cYKMv","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"cYKMv":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _spinalEnvViewerGraphService = require("spinal-env-viewer-graph-service");
+var _spinalEnvViewerContextGeographicService = require("spinal-env-viewer-context-geographic-service");
+var _spinalEnvViewerContextGeographicServiceDefault = parcelHelpers.interopDefault(_spinalEnvViewerContextGeographicService);
+var _spinalEnvViewerPluginGroupManagerService = require("spinal-env-viewer-plugin-group-manager-service");
+let ItemColoredMap = new Map();
+let BimElementsColor = new Map();
+const ROOMS_RELATIONS = [
+    (0, _spinalEnvViewerPluginGroupManagerService.groupManagerService).constants.CATEGORY_TO_GROUP_RELATION,
+    (0, _spinalEnvViewerPluginGroupManagerService.groupManagerService).constants.CONTEXT_TO_CATEGORY_RELATION,
+    (0, _spinalEnvViewerPluginGroupManagerService.groupManagerService).constants.OLD_RELATIONS_TYPES.GROUP_TO_ROOMS_RELATION,
+    `groupHas${(0, _spinalEnvViewerContextGeographicServiceDefault.default).constants.ROOM_TYPE}`,
+    (0, _spinalEnvViewerContextGeographicServiceDefault.default).constants.REFERENCE_RELATION,
+    (0, _spinalEnvViewerContextGeographicServiceDefault.default).constants.EQUIPMENT_RELATION
+];
+const EQUIPMENTS_RELATIONS = [
+    (0, _spinalEnvViewerPluginGroupManagerService.groupManagerService).constants.CATEGORY_TO_GROUP_RELATION,
+    (0, _spinalEnvViewerPluginGroupManagerService.groupManagerService).constants.CONTEXT_TO_CATEGORY_RELATION,
+    (0, _spinalEnvViewerPluginGroupManagerService.groupManagerService).constants.OLD_RELATIONS_TYPES.GROUP_TO_EQUIPMENTS_RELATION,
+    `groupHas${(0, _spinalEnvViewerContextGeographicServiceDefault.default).constants.EQUIPMENT_TYPE}`,
+    (0, _spinalEnvViewerContextGeographicServiceDefault.default).constants.REFERENCE_RELATION,
+    (0, _spinalEnvViewerContextGeographicServiceDefault.default).constants.EQUIPMENT_RELATION,
+    `${(0, _spinalEnvViewerContextGeographicServiceDefault.default).constants.REFERENCE_RELATION}.ROOM`
+];
+// const ROOMS_TYPES = [
+//   groupManagerService.constants.OLD_CONTEXTS_TYPES.ROOMS_GROUP_CONTEXT,
+//   groupManagerService.constants.CATEGORY_TYPE,
+//   groupManagerService.constants.OLD_GROUPS_TYPES.ROOMS_GROUP,
+//   `${geographicService.constants.ROOM_TYPE}GroupContext`,
+//   `${geographicService.constants.ROOM_TYPE}Group`,
+// ];
+// // eslint-disable-next-line no-unused-vars
+// const EQUIPMENTS_TYPES = [
+//   groupManagerService.constants.OLD_CONTEXTS_TYPES.EQUIPMENTS_GROUP_CONTEXT,
+//   groupManagerService.constants.CATEGORY_TYPE,
+//   groupManagerService.constants.OLD_GROUPS_TYPES.EQUIPMENTS_GROUP,
+//   `${geographicService.constants.EQUIPMENT_TYPE}GroupContext`,
+//   `${geographicService.constants.EQUIPMENT_TYPE}Group`,
+// ];
+let utilities = {
+    getIcon (selectedNode) {
+        return this._isColored(selectedNode).then((isColored)=>{
+            return isColored;
+        });
+    },
+    async getGroupBimObjects (groupId) {
+        const groupInfo = (0, _spinalEnvViewerGraphService.SpinalGraphService).getInfo(groupId);
+        if ((0, _spinalEnvViewerPluginGroupManagerService.groupManagerService).isRoomsGroup(groupInfo.type.get())) {
+            const rooms = await (0, _spinalEnvViewerGraphService.SpinalGraphService).getChildren(groupId, ROOMS_RELATIONS);
+            const promises = rooms.map((el)=>(0, _spinalEnvViewerGraphService.SpinalGraphService).getChildren(el.id.get(), EQUIPMENTS_RELATIONS));
+            return Promise.all(promises).then((res)=>{
+                console.log("res equip", res);
+                return res.flat();
+            });
+        }
+        if ((0, _spinalEnvViewerPluginGroupManagerService.groupManagerService).isEquipmentsGroup(groupInfo.type.get())) return (0, _spinalEnvViewerGraphService.SpinalGraphService).getChildren(groupId, EQUIPMENTS_RELATIONS);
+        return [];
+    // let nodeInfo = SpinalGraphService.getInfo(nodeId);
+    // let type = nodeInfo.type.get();
+    // if (type === BIM_OBJECT_TYPE) return Promise.resolve([nodeInfo]);
+    // if (type === geographicService.constants.ROOM_TYPE) {
+    //   const { REFERENCE_RELATION, EQUIPMENT_RELATION } = geographicService.constants;
+    //   const relations = [REFERENCE_RELATION, EQUIPMENT_RELATION];
+    //   return SpinalGraphService.getChildren(nodeId, relations);
+    // }
+    // let relations = ROOMS_TYPES.includes(type) ? ROOMS_RELATIONS : EQUIPMENTS_RELATIONS;
+    // const predicate = (node) => node.getType().get() === BIM_OBJECT_TYPE;
+    // const node = SpinalGraphService.getRealNode(nodeId);
+    // const found = [];
+    // return SpinalGraphService.findNodes(nodeId, relations, (node) => {
+    //   return node.getType().get() === BIM_OBJECT_TYPE;
+    // }).then((res) => {
+    //   return res.map((el) => {
+    //     SpinalGraphService._addNode(el);
+    //     return el.info;
+    //   });
+    // });
+    },
+    getGroups (selectedNode) {
+        try {
+            return (0, _spinalEnvViewerPluginGroupManagerService.groupManagerService).getGroups(selectedNode.id.get());
+        } catch (error) {
+            console.error("getGroups error");
+            console.error(error);
+        }
+    // let type = selectedNode.type.get();
+    // let nodeId = selectedNode.id.get();
+    // if (groupManagerService.isGroup(type)) {
+    //   return Promise.resolve([selectedNode]);
+    // }
+    // if (groupManagerService.isCategory(type)) groupManagerService.getGroups(nodeId);
+    // let relations = [];
+    // return SpinalGraphService.findNodes(nodeId, relations, (node) => {
+    //   let argType = node.getType().get();
+    //   return groupManagerService.isGroup(argType);
+    // }).then((res) => {
+    //   return res.map((el) => {
+    //     SpinalGraphService._addNode(el);
+    //     return el.info;
+    //   });
+    // });
+    },
+    colorItem (selectedNode) {
+        this.getGroups(selectedNode).then((res)=>{
+            res.forEach((el)=>{
+                let id = el.id.get();
+                let color = el.color ? el.color.get() : undefined;
+                this.colorGroup(id, color);
+            });
+        });
+    },
+    restoreItem (selectedNode) {
+        this.getGroups(selectedNode).then((res)=>{
+            res.forEach((el)=>{
+                let id = el.id.get();
+                this.restoreGroup(id);
+            });
+        });
+    },
+    colorGroup (groupId, argColor) {
+        this.getGroupBimObjects(groupId).then((res)=>{
+            console.log("res", res);
+            let color = argColor ? this._convertHexColorToRGB(argColor) : this._convertHexColorToRGB("#000000");
+            ItemColoredMap.set(groupId, groupId);
+            for (const child of res){
+                const dbId = child.dbid.get();
+                let BimColors = BimElementsColor.get(dbId) || [];
+                BimColors.push({
+                    id: groupId,
+                    color: color
+                });
+                BimElementsColor.set(dbId, BimColors);
+                let model = window.spinal.BimObjectService.getModelByBimfile(child.bimFileId.get());
+                console.log(model);
+                if (model) model.setThemingColor(dbId, new THREE.Vector4(color.r / 255, color.g / 255, color.b / 255, 0.7, true));
+            }
+        });
+    },
+    restoreGroup (groupId) {
+        this.getGroupBimObjects(groupId).then((res)=>{
+            ItemColoredMap.delete(groupId);
+            for (const child of res){
+                const dbId = child.dbid.get();
+                let model = window.spinal.BimObjectService.getModelByBimfile(child.bimFileId.get());
+                model.setThemingColor(dbId, new THREE.Vector4(0, 0, 0, 0), true);
+                let allColors = BimElementsColor.get(dbId);
+                if (!allColors) continue;
+                allColors = allColors.filter((el)=>el.id !== groupId);
+                BimElementsColor.set(dbId, allColors);
+                if (allColors.length > 0) {
+                    let color = allColors[0].color;
+                    model.setThemingColor(dbId, new THREE.Vector4(color.r / 255, color.g / 255, color.b / 255, 0.7), true);
+                }
+            }
+        });
+    },
+    async consumeBatch (promises, batchSize = 2) {
+        let index = 0;
+        const result = {
+            successed: [],
+            failed: []
+        };
+        while(index < promises.length){
+            let endIndex = index + batchSize;
+            if (promises.length <= endIndex) endIndex = promises.length;
+            const slice = promises.slice(index, endIndex);
+            const { successed, failed } = await this.getPromiseResult(slice.map((e)=>e()));
+            result.successed.push(...successed);
+            result.failed.push(...failed);
+            index = endIndex;
+        }
+        return result;
+    },
+    getPromiseResult (liste) {
+        return Promise.allSettled(liste).then((result)=>{
+            const obj = {
+                successed: [],
+                failed: []
+            };
+            for (const { status, value } of result)if (status === "fulfilled") obj.successed.push(value);
+            else obj.failed.push(value);
+            return obj;
+        });
+    },
+    //////////////////////////////////////////////////////////////////////////////////////////////////
+    //                                                    Private                                   //
+    //////////////////////////////////////////////////////////////////////////////////////////////////
+    _isColored (selectedNode) {
+        return this.getGroups(selectedNode).then((res)=>{
+            if (res.length === 0) return false;
+            for(let index = 0; index < res.length; index++){
+                const id = res[index].id.get();
+                if (typeof ItemColoredMap.get(id) === "undefined") return false;
+            }
+            return true;
+        });
+    },
+    _convertHexColorToRGB (hex) {
+        var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+        return result ? {
+            r: parseInt(result[1], 16),
+            g: parseInt(result[2], 16),
+            b: parseInt(result[3], 16)
+        } : null;
+    }
+};
+exports.default = utilities;
+
+},{"spinal-env-viewer-graph-service":"9n7zp","spinal-env-viewer-context-geographic-service":"5QjJf","spinal-env-viewer-plugin-group-manager-service":"tSLpq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"b1uFH":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _constants = require("spinal-env-viewer-context-geographic-service/build/constants");
 var _spinalModelBmsnetwork = require("spinal-model-bmsnetwork");
 var _constants1 = require("spinal-env-viewer-plugin-documentation-service/dist/Models/constants");
 var _spinalEnvViewerTaskService = require("spinal-env-viewer-task-service");
 var _spinalEnvViewerPluginControlEndpointService = require("spinal-env-viewer-plugin-control-endpoint-service");
+// import { spinalAnalyticService } from "spinal-env-viewer-plugin-analytics-service";
 exports.default = [
     {
         name: "Geographic Context Group",
@@ -665,15 +887,19 @@ exports.default = [
     {
         name: "Control Points group",
         type: (0, _spinalEnvViewerPluginControlEndpointService.spinalControlPointService).CONTROL_POINT_TYPE
+    },
+    {
+        name: "Analytics group",
+        type: "Analytic" // spinalAnalyticService.nodeType
     }
 ];
 
-},{"spinal-env-viewer-context-geographic-service/build/constants":"eV0id","spinal-model-bmsnetwork":"gzkbg","spinal-env-viewer-plugin-documentation-service/dist/Models/constants":"igGim","spinal-env-viewer-task-service":"4IrFb","spinal-env-viewer-plugin-control-endpoint-service":"5dUad","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"b6a3K":[function(require,module,exports) {
+},{"spinal-env-viewer-context-geographic-service/build/constants":"eV0id","spinal-model-bmsnetwork":"gzkbg","spinal-env-viewer-plugin-documentation-service/dist/Models/constants":"igGim","spinal-env-viewer-task-service":"4IrFb","spinal-env-viewer-plugin-control-endpoint-service":"5dUad","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"b6a3K":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("md-dialog", {
+    return _c('md-dialog', {
         attrs: {
             "md-active": _vm.showDialog
         },
@@ -689,20 +915,20 @@ var render = function() {
             }
         }
     }, [
-        _c("md-dialog-title", [
+        _c('md-dialog-title', [
             _vm._v(_vm._s(_vm._f("toUpperCase")(_vm.title)))
         ]),
         _vm._v(" "),
-        _c("md-dialog-content", {
+        _c('md-dialog-content', {
             staticClass: "dialogContainer"
         }, [
-            _c("div", [
-                _c("md-field", [
-                    _c("label", [
+            _c('div', [
+                _c('md-field', [
+                    _c('label', [
                         _vm._v("Name")
                     ]),
                     _vm._v(" "),
-                    _c("md-input", {
+                    _c('md-input', {
                         model: {
                             value: _vm.inputValue,
                             callback: function($$v) {
@@ -713,15 +939,15 @@ var render = function() {
                     })
                 ], 1),
                 _vm._v(" "),
-                !_vm.pre.selected ? _c("div", [
-                    _c("span", {
+                !_vm.pre.selected ? _c('div', [
+                    _c('span', {
                         staticClass: "md-title"
                     }, [
                         _vm._v("Choose :")
                     ]),
                     _vm._v(" "),
                     _vm._l(_vm.GroupTypes, function(t, index) {
-                        return _c("md-radio", {
+                        return _c('md-radio', {
                             key: index,
                             staticClass: "md-primary",
                             attrs: {
@@ -738,14 +964,14 @@ var render = function() {
                             _vm._v(_vm._s(t.name))
                         ]);
                     })
-                ], 2) : _c("div", [
+                ], 2) : _c('div', [
                     _vm._v("type selected : " + _vm._s(_vm.pre.type))
                 ])
             ], 1)
         ]),
         _vm._v(" "),
-        _c("md-dialog-actions", [
-            _c("md-button", {
+        _c('md-dialog-actions', [
+            _c('md-button', {
                 staticClass: "md-primary",
                 on: {
                     "click": function($event) {
@@ -756,7 +982,7 @@ var render = function() {
                 _vm._v("Close")
             ]),
             _vm._v(" "),
-            _c("md-button", {
+            _c('md-button', {
                 staticClass: "md-primary",
                 attrs: {
                     "disabled": _vm.isDisabled()
@@ -776,13 +1002,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"l6Uwc":[function() {},{}],"eKdlZ":[function(require,module,exports) {
+},{}],"l6Uwc":[function() {},{}],"eKdlZ":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9cPRY":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9cPRY":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -793,13 +1019,13 @@ let initialize = ()=>{
     script.staticRenderFns = require("c24a548c376729f2").staticRenderFns;
     script._scopeId = "data-v-723a9b";
     require("566b53e63bcecc4").default(script);
-    script.__scopeId = "data-v-723a9b";
+    script.__scopeId = 'data-v-723a9b';
     script.__file = "createCategory.vue";
 };
 initialize();
 exports.default = script;
 
-},{"61bacb5dacde0e75":"jOOhi","c24a548c376729f2":"5IqJu","566b53e63bcecc4":"h6zUn","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jOOhi":[function(require,module,exports) {
+},{"61bacb5dacde0e75":"jOOhi","c24a548c376729f2":"5IqJu","566b53e63bcecc4":"h6zUn","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jOOhi":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _iconsComponentsVue = require("./iconsComponents.vue");
@@ -873,10 +1099,10 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"./iconsComponents.vue":"kV8c6","../../../js/event.js":"bnFtF","spinal-env-viewer-plugin-group-manager-service":"tSLpq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"kV8c6":[function(require,module,exports) {
+},{"./iconsComponents.vue":"kV8c6","../../../js/event.js":"bnFtF","spinal-env-viewer-plugin-group-manager-service":"tSLpq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"kV8c6":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -888,13 +1114,13 @@ let initialize = ()=>{
     script._scopeId = "data-v-8bf9bc";
     script.__cssModules = require("22ba047d630f6c4c").default;
     require("a39638afa74bb65a").default(script);
-    script.__scopeId = "data-v-8bf9bc";
+    script.__scopeId = 'data-v-8bf9bc';
     script.__file = "iconsComponents.vue";
 };
 initialize();
 exports.default = script;
 
-},{"fcbb8d61af5c7c07":"eY7M5","2c5c5bcba6efac90":"cfo9v","22ba047d630f6c4c":"fyJFa","a39638afa74bb65a":"dCWoi","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"eY7M5":[function(require,module,exports) {
+},{"fcbb8d61af5c7c07":"eY7M5","2c5c5bcba6efac90":"cfo9v","22ba047d630f6c4c":"fyJFa","a39638afa74bb65a":"dCWoi","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"eY7M5":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _iconsJson = require("../../../js/icons.json");
@@ -972,19 +1198,19 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"../../../js/icons.json":"2gm3r","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2gm3r":[function(require,module,exports) {
-module.exports = JSON.parse('[{"icons":[{"id":"3d_rotation"},{"id":"accessibility"},{"id":"accessibility_new"},{"id":"accessible"},{"id":"accessible_forward"},{"id":"account_balance"},{"id":"account_balance_wallet"},{"id":"account_box"},{"id":"account_circle"},{"id":"add_shopping_cart"},{"id":"alarm"},{"id":"alarm_add"},{"id":"alarm_off"},{"id":"alarm_on"},{"id":"all_inbox"},{"id":"all_out"},{"id":"android"},{"id":"announcement"},{"id":"arrow_right_alt"},{"id":"aspect_ratio"},{"id":"assessment"},{"id":"assignment"},{"id":"assignment_ind"},{"id":"assignment_late"},{"id":"assignment_return"},{"id":"assignment_returned"},{"id":"assignment_turned_in"},{"id":"autorenew"},{"id":"backup"},{"id":"book"},{"id":"bookmark"},{"id":"bookmark_border"},{"id":"bookmarks"},{"id":"bug_report"},{"id":"build"},{"id":"cached"},{"id":"calendar_today"},{"id":"calendar_view_day"},{"id":"camera_enhance"},{"id":"card_giftcard"},{"id":"card_membership"},{"id":"card_travel"},{"id":"change_history"},{"id":"check_circle"},{"id":"check_circle_outline"},{"id":"chrome_reader_mode"},{"id":"class"},{"id":"code"},{"id":"commute"},{"id":"compare_arrows"},{"id":"contact_support"},{"id":"copyright"},{"id":"credit_card"},{"id":"dashboard"},{"id":"date_range"},{"id":"delete"},{"id":"delete_forever"},{"id":"delete_outline"},{"id":"description"},{"id":"dns"},{"id":"done"},{"id":"done_all"},{"id":"done_outline"},{"id":"donut_large"},{"id":"donut_small"},{"id":"drag_indicator"},{"id":"eject"},{"id":"euro_symbol"},{"id":"event"},{"id":"event_seat"},{"id":"exit_to_app"},{"id":"explore"},{"id":"explore_off"},{"id":"extension"},{"id":"face"},{"id":"favorite"},{"id":"favorite_border"},{"id":"feedback"},{"id":"find_in_page"},{"id":"find_replace"},{"id":"fingerprint"},{"id":"flight_land"},{"id":"flight_takeoff"},{"id":"flip_to_back"},{"id":"flip_to_front"},{"id":"g_translate"},{"id":"gavel"},{"id":"get_app"},{"id":"gif"},{"id":"grade"},{"id":"group_work"},{"id":"help"},{"id":"help_outline"},{"id":"highlight_off"},{"id":"history"},{"id":"home"},{"id":"horizontal_split"},{"id":"hourglass_empty"},{"id":"hourglass_full"},{"id":"http"},{"id":"https"},{"id":"important_devices"},{"id":"info"},{"id":"input"},{"id":"invert_colors"},{"id":"label"},{"id":"label_important"},{"id":"label_off"},{"id":"language"},{"id":"launch"},{"id":"line_style"},{"id":"line_weight"},{"id":"list"},{"id":"lock"},{"id":"lock_open"},{"id":"loyalty"},{"id":"markunread_mailbox"},{"id":"maximize"},{"id":"minimize"},{"id":"motorcycle"},{"id":"note_add"},{"id":"offline_bolt"},{"id":"offline_pin"},{"id":"opacity"},{"id":"open_in_browser"},{"id":"open_in_new"},{"id":"open_with"},{"id":"pageview"},{"id":"pan_tool"},{"id":"payment"},{"id":"perm_camera_mic"},{"id":"perm_contact_calendar"},{"id":"perm_data_setting"},{"id":"perm_device_information"},{"id":"perm_identity"},{"id":"perm_media"},{"id":"perm_phone_msg"},{"id":"perm_scan_wifi"},{"id":"pets"},{"id":"picture_in_picture"},{"id":"picture_in_picture_alt"},{"id":"play_for_work"},{"id":"polymer"},{"id":"power_settings_new"},{"id":"pregnant_woman"},{"id":"print"},{"id":"query_builder"},{"id":"question_answer"},{"id":"receipt"},{"id":"record_voice_over"},{"id":"redeem"},{"id":"remove_shopping_cart"},{"id":"reorder"},{"id":"report_problem"},{"id":"restore"},{"id":"restore_from_trash"},{"id":"restore_page"},{"id":"room"},{"id":"rounded_corner"},{"id":"rowing"},{"id":"schedule"},{"id":"search"},{"imageUrls":{"twotone":"twotone-settings-24px.svg","sharp":"sharp-settings-24px.svg","outline":"outline-settings-24px.svg","round":"round-settings-24px.svg","baseline":"baseline-settings-20px.svg"},"id":"settings"},{"id":"settings_applications"},{"id":"settings_backup_restore"},{"id":"settings_bluetooth"},{"id":"settings_brightness"},{"id":"settings_cell"},{"id":"settings_ethernet"},{"id":"settings_input_antenna"},{"id":"settings_input_component"},{"id":"settings_input_composite"},{"id":"settings_input_hdmi"},{"id":"settings_input_svideo"},{"id":"settings_overscan"},{"id":"settings_phone"},{"id":"settings_power"},{"id":"settings_remote"},{"id":"settings_voice"},{"id":"shop"},{"id":"shop_two"},{"id":"shopping_basket"},{"id":"shopping_cart"},{"id":"speaker_notes"},{"id":"speaker_notes_off"},{"id":"spellcheck"},{"imageUrls":{"twotone":"twotone-star_rate-18px.svg","sharp":"sharp-star_rate-18px.svg","outline":"outline-star_rate-18px.svg","round":"round-star_rate-18px.svg","baseline":"baseline-star_rate-18px.svg"},"id":"star_rate"},{"id":"stars"},{"id":"store"},{"id":"subject"},{"id":"supervised_user_circle"},{"id":"supervisor_account"},{"id":"swap_horiz"},{"id":"swap_horizontal_circle"},{"id":"swap_vert"},{"id":"swap_vertical_circle"},{"id":"tab"},{"id":"tab_unselected"},{"id":"text_rotate_up"},{"id":"text_rotate_vertical"},{"id":"text_rotation_down"},{"id":"text_rotation_none"},{"id":"theaters"},{"id":"thumb_down"},{"id":"thumb_up"},{"id":"thumbs_up_down"},{"id":"timeline"},{"id":"toc"},{"id":"today"},{"id":"toll"},{"id":"touch_app"},{"id":"track_changes"},{"id":"translate"},{"id":"trending_down"},{"id":"trending_flat"},{"id":"trending_up"},{"id":"turned_in"},{"id":"turned_in_not"},{"id":"update"},{"id":"verified_user"},{"id":"vertical_split"},{"id":"view_agenda"},{"id":"view_array"},{"id":"view_carousel"},{"id":"view_column"},{"id":"view_day"},{"id":"view_headline"},{"id":"view_list"},{"id":"view_module"},{"id":"view_quilt"},{"id":"view_stream"},{"id":"view_week"},{"id":"visibility"},{"id":"visibility_off"},{"id":"voice_over_off"},{"id":"watch_later"},{"id":"work"},{"id":"work_off"},{"id":"work_outline"},{"id":"youtube_searched_for"},{"id":"zoom_in"},{"id":"zoom_out"}],"name":"action"},{"icons":[{"id":"add_alert"},{"id":"error"},{"id":"error_outline"},{"id":"notification_important"},{"id":"warning"}],"name":"alert"},{"icons":[{"id":"4k"},{"id":"add_to_queue"},{"id":"airplay"},{"id":"album"},{"id":"art_track"},{"id":"av_timer"},{"id":"branding_watermark"},{"id":"call_to_action"},{"id":"closed_caption"},{"id":"control_camera"},{"id":"equalizer"},{"id":"explicit"},{"id":"fast_forward"},{"id":"fast_rewind"},{"id":"featured_play_list"},{"id":"featured_video"},{"id":"fiber_dvr"},{"id":"fiber_manual_record"},{"id":"fiber_new"},{"id":"fiber_pin"},{"id":"fiber_smart_record"},{"id":"forward_10"},{"id":"forward_30"},{"id":"forward_5"},{"id":"games"},{"id":"hd"},{"id":"hearing"},{"id":"high_quality"},{"id":"library_add"},{"id":"library_books"},{"id":"library_music"},{"id":"loop"},{"id":"mic"},{"id":"mic_none"},{"id":"mic_off"},{"id":"missed_video_call"},{"id":"movie"},{"id":"music_video"},{"id":"new_releases"},{"id":"not_interested"},{"id":"note"},{"id":"pause"},{"id":"pause_circle_filled"},{"id":"pause_circle_outline"},{"id":"play_arrow"},{"id":"play_circle_filled"},{"imageUrls":{"twotone":"twotone-play_circle_filled_white-24px.svg","sharp":"sharp-play_circle_filled_white-24px.svg","outline":"outline-play_circle_filled_white-24px.svg","round":"round-play_circle_filled_white-24px.svg","baseline":"baseline-play_circle_filled_white-48px.svg"},"id":"play_circle_filled_white"},{"id":"play_circle_outline"},{"id":"playlist_add"},{"id":"playlist_add_check"},{"id":"playlist_play"},{"id":"queue"},{"id":"queue_music"},{"id":"queue_play_next"},{"id":"radio"},{"id":"recent_actors"},{"id":"remove_from_queue"},{"id":"repeat"},{"id":"repeat_one"},{"id":"replay"},{"id":"replay_10"},{"id":"replay_30"},{"id":"replay_5"},{"id":"shuffle"},{"id":"skip_next"},{"id":"skip_previous"},{"id":"slow_motion_video"},{"id":"snooze"},{"id":"sort_by_alpha"},{"id":"stop"},{"id":"subscriptions"},{"id":"subtitles"},{"id":"surround_sound"},{"id":"video_call"},{"id":"video_label"},{"id":"video_library"},{"id":"videocam"},{"id":"videocam_off"},{"id":"volume_down"},{"id":"volume_mute"},{"id":"volume_off"},{"id":"volume_up"},{"id":"web"},{"id":"web_asset"}],"name":"av"},{"icons":[{"id":"alternate_email"},{"id":"business"},{"id":"call"},{"id":"call_end"},{"id":"call_made"},{"id":"call_merge"},{"id":"call_missed"},{"id":"call_missed_outgoing"},{"id":"call_received"},{"id":"call_split"},{"id":"cancel_presentation"},{"id":"cell_wifi"},{"id":"chat"},{"id":"chat_bubble"},{"id":"chat_bubble_outline"},{"id":"clear_all"},{"id":"comment"},{"id":"contact_mail"},{"id":"contact_phone"},{"id":"contacts"},{"id":"desktop_access_disabled"},{"id":"dialer_sip"},{"id":"dialpad"},{"id":"domain_disabled"},{"id":"duo"},{"id":"email"},{"id":"forum"},{"id":"import_contacts"},{"id":"import_export"},{"id":"invert_colors_off"},{"id":"list_alt"},{"id":"live_help"},{"id":"location_off"},{"id":"location_on"},{"id":"mail_outline"},{"id":"message"},{"id":"mobile_screen_share"},{"id":"no_sim"},{"id":"pause_presentation"},{"id":"person_add_disabled"},{"id":"phone"},{"id":"phonelink_erase"},{"id":"phonelink_lock"},{"id":"phonelink_ring"},{"id":"phonelink_setup"},{"id":"portable_wifi_off"},{"id":"present_to_all"},{"id":"print_disabled"},{"id":"ring_volume"},{"id":"rss_feed"},{"id":"screen_share"},{"id":"sentiment_satisfied_alt"},{"id":"speaker_phone"},{"id":"stay_current_landscape"},{"id":"stay_current_portrait"},{"id":"stay_primary_landscape"},{"id":"stay_primary_portrait"},{"id":"stop_screen_share"},{"id":"swap_calls"},{"id":"textsms"},{"id":"unsubscribe"},{"id":"voicemail"},{"id":"vpn_key"}],"name":"communication"},{"icons":[{"id":"add"},{"id":"add_box"},{"id":"add_circle"},{"id":"add_circle_outline"},{"id":"archive"},{"id":"backspace"},{"id":"ballot"},{"id":"block"},{"id":"clear"},{"id":"create"},{"id":"delete_sweep"},{"id":"drafts"},{"id":"file_copy"},{"id":"filter_list"},{"id":"flag"},{"id":"font_download"},{"id":"forward"},{"id":"gesture"},{"id":"how_to_reg"},{"id":"how_to_vote"},{"id":"inbox"},{"id":"link"},{"id":"link_off"},{"id":"low_priority"},{"id":"mail"},{"id":"markunread"},{"id":"move_to_inbox"},{"id":"next_week"},{"id":"outlined_flag"},{"id":"redo"},{"id":"remove"},{"id":"remove_circle"},{"id":"remove_circle_outline"},{"id":"reply"},{"id":"reply_all"},{"id":"report"},{"id":"report_off"},{"id":"save"},{"id":"save_alt"},{"id":"select_all"},{"id":"send"},{"id":"sort"},{"id":"text_format"},{"id":"unarchive"},{"id":"undo"},{"id":"waves"},{"imageUrls":{"twotone":"twotone-weekend-24px.svg","sharp":"sharp-weekend-24px.svg","outline":"outline-weekend-24px.svg","round":"round-weekend-24px.svg","baseline":"baseline-weekend-48px.svg"},"id":"weekend"},{"id":"where_to_vote"}],"name":"content"},{"icons":[{"id":"access_alarm"},{"id":"access_alarms"},{"id":"access_time"},{"id":"add_alarm"},{"id":"add_to_home_screen"},{"id":"airplanemode_active"},{"id":"airplanemode_inactive"},{"id":"battery_20"},{"id":"battery_30"},{"id":"battery_50"},{"id":"battery_60"},{"id":"battery_80"},{"id":"battery_90"},{"id":"battery_alert"},{"id":"battery_charging_20"},{"id":"battery_charging_30"},{"id":"battery_charging_50"},{"id":"battery_charging_60"},{"id":"battery_charging_80"},{"id":"battery_charging_90"},{"id":"battery_charging_full"},{"id":"battery_full"},{"id":"battery_std"},{"id":"battery_unknown"},{"id":"bluetooth"},{"id":"bluetooth_connected"},{"id":"bluetooth_disabled"},{"id":"bluetooth_searching"},{"id":"brightness_auto"},{"id":"brightness_high"},{"id":"brightness_low"},{"id":"brightness_medium"},{"id":"data_usage"},{"id":"developer_mode"},{"id":"devices"},{"id":"dvr"},{"id":"gps_fixed"},{"id":"gps_not_fixed"},{"id":"gps_off"},{"id":"graphic_eq"},{"id":"location_disabled"},{"id":"location_searching"},{"id":"mobile_friendly"},{"id":"mobile_off"},{"id":"network_cell"},{"id":"network_wifi"},{"id":"nfc"},{"id":"screen_lock_landscape"},{"id":"screen_lock_portrait"},{"id":"screen_lock_rotation"},{"id":"screen_rotation"},{"id":"sd_storage"},{"id":"settings_system_daydream"},{"id":"signal_cellular_0_bar"},{"id":"signal_cellular_1_bar"},{"id":"signal_cellular_2_bar"},{"id":"signal_cellular_3_bar"},{"id":"signal_cellular_4_bar"},{"id":"signal_cellular_alt"},{"id":"signal_cellular_connected_no_internet_0_bar"},{"id":"signal_cellular_connected_no_internet_1_bar"},{"id":"signal_cellular_connected_no_internet_2_bar"},{"id":"signal_cellular_connected_no_internet_3_bar"},{"id":"signal_cellular_connected_no_internet_4_bar"},{"id":"signal_cellular_no_sim"},{"id":"signal_cellular_null"},{"id":"signal_cellular_off"},{"id":"signal_wifi_0_bar"},{"id":"signal_wifi_1_bar"},{"id":"signal_wifi_1_bar_lock"},{"id":"signal_wifi_2_bar"},{"id":"signal_wifi_2_bar_lock"},{"id":"signal_wifi_3_bar"},{"id":"signal_wifi_3_bar_lock"},{"id":"signal_wifi_4_bar"},{"id":"signal_wifi_4_bar_lock"},{"id":"signal_wifi_off"},{"id":"storage"},{"id":"usb"},{"id":"wallpaper"},{"id":"widgets"},{"id":"wifi_lock"},{"id":"wifi_tethering"}],"name":"device"},{"icons":[{"id":"add_comment"},{"id":"attach_file"},{"id":"attach_money"},{"id":"bar_chart"},{"id":"border_all"},{"id":"border_bottom"},{"id":"border_clear"},{"id":"border_color"},{"id":"border_horizontal"},{"id":"border_inner"},{"id":"border_left"},{"id":"border_outer"},{"id":"border_right"},{"id":"border_style"},{"id":"border_top"},{"id":"border_vertical"},{"id":"bubble_chart"},{"id":"drag_handle"},{"id":"format_align_center"},{"id":"format_align_justify"},{"id":"format_align_left"},{"id":"format_align_right"},{"id":"format_bold"},{"id":"format_clear"},{"id":"format_color_fill"},{"id":"format_color_reset"},{"id":"format_color_text"},{"id":"format_indent_decrease"},{"id":"format_indent_increase"},{"id":"format_italic"},{"id":"format_line_spacing"},{"id":"format_list_bulleted"},{"id":"format_list_numbered"},{"id":"format_list_numbered_rtl"},{"id":"format_paint"},{"id":"format_quote"},{"id":"format_shapes"},{"id":"format_size"},{"id":"format_strikethrough"},{"id":"format_textdirection_l_to_r"},{"id":"format_textdirection_r_to_l"},{"id":"format_underlined"},{"id":"functions"},{"id":"highlight"},{"id":"insert_chart"},{"id":"insert_chart_outlined"},{"id":"insert_comment"},{"id":"insert_drive_file"},{"id":"insert_emoticon"},{"id":"insert_invitation"},{"id":"insert_link"},{"id":"insert_photo"},{"id":"linear_scale"},{"id":"merge_type"},{"id":"mode_comment"},{"id":"monetization_on"},{"id":"money_off"},{"id":"multiline_chart"},{"id":"notes"},{"id":"pie_chart"},{"id":"publish"},{"id":"scatter_plot"},{"id":"score"},{"id":"short_text"},{"id":"show_chart"},{"id":"space_bar"},{"id":"strikethrough_s"},{"id":"table_chart"},{"id":"text_fields"},{"id":"title"},{"id":"vertical_align_bottom"},{"id":"vertical_align_center"},{"id":"vertical_align_top"},{"id":"wrap_text"}],"name":"editor"},{"icons":[{"id":"attachment"},{"id":"cloud"},{"id":"cloud_circle"},{"id":"cloud_done"},{"id":"cloud_download"},{"id":"cloud_off"},{"id":"cloud_queue"},{"id":"cloud_upload"},{"id":"create_new_folder"},{"id":"folder"},{"id":"folder_open"},{"id":"folder_shared"}],"name":"file"},{"icons":[{"id":"cast"},{"id":"cast_connected"},{"imageUrls":{"twotone":"twotone-cast_for_education-24px.svg","sharp":"sharp-cast_for_education-24px.svg","outline":"outline-cast_for_education-24px.svg","round":"round-cast_for_education-24px.svg","baseline":"baseline-cast_for_education-48px.svg"},"id":"cast_for_education"},{"id":"computer"},{"id":"desktop_mac"},{"id":"desktop_windows"},{"id":"developer_board"},{"id":"device_hub"},{"id":"device_unknown"},{"id":"devices_other"},{"id":"dock"},{"id":"gamepad"},{"id":"headset"},{"id":"headset_mic"},{"id":"keyboard"},{"id":"keyboard_arrow_down"},{"id":"keyboard_arrow_left"},{"id":"keyboard_arrow_right"},{"id":"keyboard_arrow_up"},{"id":"keyboard_backspace"},{"id":"keyboard_capslock"},{"id":"keyboard_hide"},{"id":"keyboard_return"},{"id":"keyboard_tab"},{"id":"keyboard_voice"},{"id":"laptop"},{"id":"laptop_chromebook"},{"id":"laptop_mac"},{"id":"laptop_windows"},{"id":"memory"},{"id":"mouse"},{"id":"phone_android"},{"id":"phone_iphone"},{"id":"phonelink"},{"id":"phonelink_off"},{"id":"power_input"},{"id":"router"},{"id":"scanner"},{"id":"security"},{"id":"sim_card"},{"id":"smartphone"},{"id":"speaker"},{"id":"speaker_group"},{"id":"tablet"},{"id":"tablet_android"},{"id":"tablet_mac"},{"id":"toys"},{"id":"tv"},{"id":"videogame_asset"},{"id":"watch"}],"name":"hardware"},{"icons":[{"id":"add_a_photo"},{"id":"add_photo_alternate"},{"id":"add_to_photos"},{"id":"adjust"},{"id":"assistant"},{"id":"assistant_photo"},{"id":"audiotrack"},{"id":"blur_circular"},{"id":"blur_linear"},{"id":"blur_off"},{"id":"blur_on"},{"id":"brightness_1"},{"id":"brightness_2"},{"id":"brightness_3"},{"id":"brightness_4"},{"id":"brightness_5"},{"id":"brightness_6"},{"id":"brightness_7"},{"id":"broken_image"},{"id":"brush"},{"id":"burst_mode"},{"id":"camera"},{"id":"camera_alt"},{"id":"camera_front"},{"id":"camera_rear"},{"id":"camera_roll"},{"id":"center_focus_strong"},{"id":"center_focus_weak"},{"id":"collections"},{"id":"collections_bookmark"},{"id":"color_lens"},{"id":"colorize"},{"id":"compare"},{"id":"control_point"},{"id":"control_point_duplicate"},{"id":"crop"},{"id":"crop_16_9"},{"id":"crop_3_2"},{"id":"crop_5_4"},{"id":"crop_7_5"},{"id":"crop_din"},{"id":"crop_free"},{"id":"crop_landscape"},{"id":"crop_original"},{"id":"crop_portrait"},{"id":"crop_rotate"},{"id":"crop_square"},{"id":"dehaze"},{"id":"details"},{"id":"edit"},{"id":"exposure"},{"id":"exposure_neg_1"},{"id":"exposure_neg_2"},{"id":"exposure_plus_1"},{"id":"exposure_plus_2"},{"id":"exposure_zero"},{"id":"filter"},{"id":"filter_1"},{"id":"filter_2"},{"id":"filter_3"},{"id":"filter_4"},{"id":"filter_5"},{"id":"filter_6"},{"id":"filter_7"},{"id":"filter_8"},{"id":"filter_9"},{"id":"filter_9_plus"},{"id":"filter_b_and_w"},{"id":"filter_center_focus"},{"id":"filter_drama"},{"id":"filter_frames"},{"id":"filter_hdr"},{"id":"filter_none"},{"id":"filter_tilt_shift"},{"id":"filter_vintage"},{"id":"flare"},{"id":"flash_auto"},{"id":"flash_off"},{"id":"flash_on"},{"id":"flip"},{"id":"gradient"},{"id":"grain"},{"id":"grid_off"},{"id":"grid_on"},{"id":"hdr_off"},{"id":"hdr_on"},{"id":"hdr_strong"},{"id":"hdr_weak"},{"id":"healing"},{"id":"image"},{"id":"image_aspect_ratio"},{"id":"image_search"},{"id":"iso"},{"id":"landscape"},{"id":"leak_add"},{"id":"leak_remove"},{"id":"lens"},{"id":"linked_camera"},{"id":"looks"},{"id":"looks_3"},{"id":"looks_4"},{"id":"looks_5"},{"id":"looks_6"},{"id":"looks_one"},{"id":"looks_two"},{"id":"loupe"},{"id":"monochrome_photos"},{"id":"movie_creation"},{"id":"movie_filter"},{"id":"music_note"},{"id":"music_off"},{"id":"nature"},{"id":"nature_people"},{"id":"navigate_before"},{"id":"navigate_next"},{"id":"palette"},{"id":"panorama"},{"id":"panorama_fish_eye"},{"id":"panorama_horizontal"},{"id":"panorama_vertical"},{"id":"panorama_wide_angle"},{"id":"photo"},{"id":"photo_album"},{"id":"photo_camera"},{"id":"photo_filter"},{"id":"photo_library"},{"id":"photo_size_select_actual"},{"id":"photo_size_select_large"},{"id":"photo_size_select_small"},{"id":"picture_as_pdf"},{"id":"portrait"},{"id":"remove_red_eye"},{"id":"rotate_90_degrees_ccw"},{"id":"rotate_left"},{"id":"rotate_right"},{"id":"shutter_speed"},{"id":"slideshow"},{"id":"straighten"},{"id":"style"},{"id":"switch_camera"},{"id":"switch_video"},{"id":"tag_faces"},{"id":"texture"},{"id":"timelapse"},{"id":"timer"},{"id":"timer_10"},{"id":"timer_3"},{"id":"timer_off"},{"id":"tonality"},{"id":"transform"},{"id":"tune"},{"id":"view_comfy"},{"id":"view_compact"},{"id":"vignette"},{"id":"wb_auto"},{"id":"wb_cloudy"},{"id":"wb_incandescent"},{"id":"wb_iridescent"},{"id":"wb_sunny"}],"name":"image"},{"icons":[{"id":"360"},{"id":"add_location"},{"id":"atm"},{"id":"beenhere"},{"id":"category"},{"id":"compass_calibration"},{"id":"departure_board"},{"id":"directions"},{"id":"directions_bike"},{"id":"directions_boat"},{"id":"directions_bus"},{"id":"directions_car"},{"id":"directions_railway"},{"id":"directions_run"},{"id":"directions_subway"},{"id":"directions_transit"},{"id":"directions_walk"},{"id":"edit_attributes"},{"id":"edit_location"},{"id":"ev_station"},{"id":"fastfood"},{"id":"flight"},{"id":"hotel"},{"id":"layers"},{"id":"layers_clear"},{"id":"local_activity"},{"id":"local_airport"},{"id":"local_atm"},{"id":"local_bar"},{"id":"local_cafe"},{"id":"local_car_wash"},{"id":"local_convenience_store"},{"id":"local_dining"},{"id":"local_drink"},{"id":"local_florist"},{"id":"local_gas_station"},{"id":"local_grocery_store"},{"id":"local_hospital"},{"id":"local_hotel"},{"id":"local_laundry_service"},{"id":"local_library"},{"id":"local_mall"},{"id":"local_movies"},{"id":"local_offer"},{"id":"local_parking"},{"id":"local_pharmacy"},{"id":"local_phone"},{"id":"local_pizza"},{"id":"local_play"},{"id":"local_post_office"},{"id":"local_printshop"},{"id":"local_see"},{"id":"local_shipping"},{"id":"local_taxi"},{"id":"map"},{"id":"money"},{"id":"my_location"},{"id":"navigation"},{"id":"near_me"},{"id":"not_listed_location"},{"id":"person_pin"},{"id":"person_pin_circle"},{"id":"pin_drop"},{"id":"place"},{"id":"rate_review"},{"id":"restaurant"},{"id":"restaurant_menu"},{"id":"satellite"},{"id":"store_mall_directory"},{"id":"streetview"},{"id":"subway"},{"id":"terrain"},{"id":"traffic"},{"id":"train"},{"id":"tram"},{"id":"transfer_within_a_station"},{"id":"transit_enterexit"},{"id":"trip_origin"},{"id":"zoom_out_map"}],"name":"maps"},{"icons":[{"id":"apps"},{"id":"arrow_back"},{"id":"arrow_back_ios"},{"id":"arrow_downward"},{"id":"arrow_drop_down"},{"id":"arrow_drop_down_circle"},{"id":"arrow_drop_up"},{"id":"arrow_forward"},{"id":"arrow_forward_ios"},{"id":"arrow_left"},{"id":"arrow_right"},{"id":"arrow_upward"},{"id":"cancel"},{"id":"check"},{"id":"chevron_left"},{"id":"chevron_right"},{"id":"close"},{"id":"expand_less"},{"id":"expand_more"},{"id":"first_page"},{"id":"fullscreen"},{"id":"fullscreen_exit"},{"id":"last_page"},{"id":"menu"},{"id":"more_horiz"},{"id":"more_vert"},{"id":"refresh"},{"id":"subdirectory_arrow_left"},{"id":"subdirectory_arrow_right"},{"id":"unfold_less"},{"id":"unfold_more"}],"name":"navigation"},{"icons":[{"id":"adb"},{"id":"airline_seat_flat"},{"id":"airline_seat_flat_angled"},{"id":"airline_seat_individual_suite"},{"id":"airline_seat_legroom_extra"},{"id":"airline_seat_legroom_normal"},{"id":"airline_seat_legroom_reduced"},{"id":"airline_seat_recline_extra"},{"id":"airline_seat_recline_normal"},{"id":"bluetooth_audio"},{"id":"confirmation_number"},{"id":"disc_full"},{"id":"drive_eta"},{"id":"enhanced_encryption"},{"id":"event_available"},{"id":"event_busy"},{"id":"event_note"},{"id":"folder_special"},{"id":"live_tv"},{"id":"mms"},{"id":"more"},{"id":"network_check"},{"id":"network_locked"},{"id":"no_encryption"},{"id":"ondemand_video"},{"id":"personal_video"},{"id":"phone_bluetooth_speaker"},{"id":"phone_callback"},{"id":"phone_forwarded"},{"id":"phone_in_talk"},{"id":"phone_locked"},{"id":"phone_missed"},{"id":"phone_paused"},{"id":"power"},{"id":"power_off"},{"id":"priority_high"},{"id":"sd_card"},{"id":"sms"},{"id":"sms_failed"},{"id":"sync"},{"id":"sync_disabled"},{"id":"sync_problem"},{"id":"system_update"},{"id":"tap_and_play"},{"id":"time_to_leave"},{"id":"tv_off"},{"id":"vibration"},{"id":"voice_chat"},{"id":"vpn_lock"},{"id":"wc"},{"id":"wifi"},{"id":"wifi_off"}],"name":"notification"},{"icons":[{"id":"ac_unit"},{"id":"airport_shuttle"},{"id":"all_inclusive"},{"id":"beach_access"},{"id":"business_center"},{"id":"casino"},{"id":"child_care"},{"id":"child_friendly"},{"id":"fitness_center"},{"id":"free_breakfast"},{"id":"golf_course"},{"id":"hot_tub"},{"id":"kitchen"},{"id":"meeting_room"},{"id":"no_meeting_room"},{"id":"pool"},{"id":"room_service"},{"id":"rv_hookup"},{"id":"smoke_free"},{"id":"smoking_rooms"},{"id":"spa"}],"name":"places"},{"icons":[{"id":"cake"},{"imageUrls":{"twotone":"twotone-domain-24px.svg","sharp":"sharp-domain-24px.svg","outline":"outline-domain-24px.svg","round":"round-domain-24px.svg","baseline":"baseline-domain-48px.svg"},"id":"domain"},{"id":"group"},{"id":"group_add"},{"id":"location_city"},{"id":"mood"},{"id":"mood_bad"},{"id":"notifications"},{"id":"notifications_active"},{"id":"notifications_none"},{"id":"notifications_off"},{"id":"notifications_paused"},{"id":"pages"},{"id":"party_mode"},{"id":"people"},{"id":"people_outline"},{"id":"person"},{"id":"person_add"},{"id":"person_outline"},{"id":"plus_one"},{"id":"poll"},{"id":"public"},{"id":"school"},{"id":"sentiment_dissatisfied"},{"id":"sentiment_satisfied"},{"id":"sentiment_very_dissatisfied"},{"id":"sentiment_very_satisfied"},{"id":"share"},{"id":"thumb_down_alt"},{"id":"thumb_up_alt"},{"id":"whatshot"}],"name":"social"},{"icons":[{"id":"check_box"},{"id":"check_box_outline_blank"},{"id":"indeterminate_check_box"},{"id":"radio_button_checked"},{"id":"radio_button_unchecked"},{"id":"star"},{"id":"star_border"},{"id":"star_half"},{"id":"toggle_off"},{"id":"toggle_on"}],"name":"toggle"}]');
+},{"../../../js/icons.json":"2gm3r","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2gm3r":[function(require,module,exports,__globalThis) {
+module.exports = JSON.parse("[{\"icons\":[{\"id\":\"3d_rotation\"},{\"id\":\"accessibility\"},{\"id\":\"accessibility_new\"},{\"id\":\"accessible\"},{\"id\":\"accessible_forward\"},{\"id\":\"account_balance\"},{\"id\":\"account_balance_wallet\"},{\"id\":\"account_box\"},{\"id\":\"account_circle\"},{\"id\":\"add_shopping_cart\"},{\"id\":\"alarm\"},{\"id\":\"alarm_add\"},{\"id\":\"alarm_off\"},{\"id\":\"alarm_on\"},{\"id\":\"all_inbox\"},{\"id\":\"all_out\"},{\"id\":\"android\"},{\"id\":\"announcement\"},{\"id\":\"arrow_right_alt\"},{\"id\":\"aspect_ratio\"},{\"id\":\"assessment\"},{\"id\":\"assignment\"},{\"id\":\"assignment_ind\"},{\"id\":\"assignment_late\"},{\"id\":\"assignment_return\"},{\"id\":\"assignment_returned\"},{\"id\":\"assignment_turned_in\"},{\"id\":\"autorenew\"},{\"id\":\"backup\"},{\"id\":\"book\"},{\"id\":\"bookmark\"},{\"id\":\"bookmark_border\"},{\"id\":\"bookmarks\"},{\"id\":\"bug_report\"},{\"id\":\"build\"},{\"id\":\"cached\"},{\"id\":\"calendar_today\"},{\"id\":\"calendar_view_day\"},{\"id\":\"camera_enhance\"},{\"id\":\"card_giftcard\"},{\"id\":\"card_membership\"},{\"id\":\"card_travel\"},{\"id\":\"change_history\"},{\"id\":\"check_circle\"},{\"id\":\"check_circle_outline\"},{\"id\":\"chrome_reader_mode\"},{\"id\":\"class\"},{\"id\":\"code\"},{\"id\":\"commute\"},{\"id\":\"compare_arrows\"},{\"id\":\"contact_support\"},{\"id\":\"copyright\"},{\"id\":\"credit_card\"},{\"id\":\"dashboard\"},{\"id\":\"date_range\"},{\"id\":\"delete\"},{\"id\":\"delete_forever\"},{\"id\":\"delete_outline\"},{\"id\":\"description\"},{\"id\":\"dns\"},{\"id\":\"done\"},{\"id\":\"done_all\"},{\"id\":\"done_outline\"},{\"id\":\"donut_large\"},{\"id\":\"donut_small\"},{\"id\":\"drag_indicator\"},{\"id\":\"eject\"},{\"id\":\"euro_symbol\"},{\"id\":\"event\"},{\"id\":\"event_seat\"},{\"id\":\"exit_to_app\"},{\"id\":\"explore\"},{\"id\":\"explore_off\"},{\"id\":\"extension\"},{\"id\":\"face\"},{\"id\":\"favorite\"},{\"id\":\"favorite_border\"},{\"id\":\"feedback\"},{\"id\":\"find_in_page\"},{\"id\":\"find_replace\"},{\"id\":\"fingerprint\"},{\"id\":\"flight_land\"},{\"id\":\"flight_takeoff\"},{\"id\":\"flip_to_back\"},{\"id\":\"flip_to_front\"},{\"id\":\"g_translate\"},{\"id\":\"gavel\"},{\"id\":\"get_app\"},{\"id\":\"gif\"},{\"id\":\"grade\"},{\"id\":\"group_work\"},{\"id\":\"help\"},{\"id\":\"help_outline\"},{\"id\":\"highlight_off\"},{\"id\":\"history\"},{\"id\":\"home\"},{\"id\":\"horizontal_split\"},{\"id\":\"hourglass_empty\"},{\"id\":\"hourglass_full\"},{\"id\":\"http\"},{\"id\":\"https\"},{\"id\":\"important_devices\"},{\"id\":\"info\"},{\"id\":\"input\"},{\"id\":\"invert_colors\"},{\"id\":\"label\"},{\"id\":\"label_important\"},{\"id\":\"label_off\"},{\"id\":\"language\"},{\"id\":\"launch\"},{\"id\":\"line_style\"},{\"id\":\"line_weight\"},{\"id\":\"list\"},{\"id\":\"lock\"},{\"id\":\"lock_open\"},{\"id\":\"loyalty\"},{\"id\":\"markunread_mailbox\"},{\"id\":\"maximize\"},{\"id\":\"minimize\"},{\"id\":\"motorcycle\"},{\"id\":\"note_add\"},{\"id\":\"offline_bolt\"},{\"id\":\"offline_pin\"},{\"id\":\"opacity\"},{\"id\":\"open_in_browser\"},{\"id\":\"open_in_new\"},{\"id\":\"open_with\"},{\"id\":\"pageview\"},{\"id\":\"pan_tool\"},{\"id\":\"payment\"},{\"id\":\"perm_camera_mic\"},{\"id\":\"perm_contact_calendar\"},{\"id\":\"perm_data_setting\"},{\"id\":\"perm_device_information\"},{\"id\":\"perm_identity\"},{\"id\":\"perm_media\"},{\"id\":\"perm_phone_msg\"},{\"id\":\"perm_scan_wifi\"},{\"id\":\"pets\"},{\"id\":\"picture_in_picture\"},{\"id\":\"picture_in_picture_alt\"},{\"id\":\"play_for_work\"},{\"id\":\"polymer\"},{\"id\":\"power_settings_new\"},{\"id\":\"pregnant_woman\"},{\"id\":\"print\"},{\"id\":\"query_builder\"},{\"id\":\"question_answer\"},{\"id\":\"receipt\"},{\"id\":\"record_voice_over\"},{\"id\":\"redeem\"},{\"id\":\"remove_shopping_cart\"},{\"id\":\"reorder\"},{\"id\":\"report_problem\"},{\"id\":\"restore\"},{\"id\":\"restore_from_trash\"},{\"id\":\"restore_page\"},{\"id\":\"room\"},{\"id\":\"rounded_corner\"},{\"id\":\"rowing\"},{\"id\":\"schedule\"},{\"id\":\"search\"},{\"imageUrls\":{\"twotone\":\"twotone-settings-24px.svg\",\"sharp\":\"sharp-settings-24px.svg\",\"outline\":\"outline-settings-24px.svg\",\"round\":\"round-settings-24px.svg\",\"baseline\":\"baseline-settings-20px.svg\"},\"id\":\"settings\"},{\"id\":\"settings_applications\"},{\"id\":\"settings_backup_restore\"},{\"id\":\"settings_bluetooth\"},{\"id\":\"settings_brightness\"},{\"id\":\"settings_cell\"},{\"id\":\"settings_ethernet\"},{\"id\":\"settings_input_antenna\"},{\"id\":\"settings_input_component\"},{\"id\":\"settings_input_composite\"},{\"id\":\"settings_input_hdmi\"},{\"id\":\"settings_input_svideo\"},{\"id\":\"settings_overscan\"},{\"id\":\"settings_phone\"},{\"id\":\"settings_power\"},{\"id\":\"settings_remote\"},{\"id\":\"settings_voice\"},{\"id\":\"shop\"},{\"id\":\"shop_two\"},{\"id\":\"shopping_basket\"},{\"id\":\"shopping_cart\"},{\"id\":\"speaker_notes\"},{\"id\":\"speaker_notes_off\"},{\"id\":\"spellcheck\"},{\"imageUrls\":{\"twotone\":\"twotone-star_rate-18px.svg\",\"sharp\":\"sharp-star_rate-18px.svg\",\"outline\":\"outline-star_rate-18px.svg\",\"round\":\"round-star_rate-18px.svg\",\"baseline\":\"baseline-star_rate-18px.svg\"},\"id\":\"star_rate\"},{\"id\":\"stars\"},{\"id\":\"store\"},{\"id\":\"subject\"},{\"id\":\"supervised_user_circle\"},{\"id\":\"supervisor_account\"},{\"id\":\"swap_horiz\"},{\"id\":\"swap_horizontal_circle\"},{\"id\":\"swap_vert\"},{\"id\":\"swap_vertical_circle\"},{\"id\":\"tab\"},{\"id\":\"tab_unselected\"},{\"id\":\"text_rotate_up\"},{\"id\":\"text_rotate_vertical\"},{\"id\":\"text_rotation_down\"},{\"id\":\"text_rotation_none\"},{\"id\":\"theaters\"},{\"id\":\"thumb_down\"},{\"id\":\"thumb_up\"},{\"id\":\"thumbs_up_down\"},{\"id\":\"timeline\"},{\"id\":\"toc\"},{\"id\":\"today\"},{\"id\":\"toll\"},{\"id\":\"touch_app\"},{\"id\":\"track_changes\"},{\"id\":\"translate\"},{\"id\":\"trending_down\"},{\"id\":\"trending_flat\"},{\"id\":\"trending_up\"},{\"id\":\"turned_in\"},{\"id\":\"turned_in_not\"},{\"id\":\"update\"},{\"id\":\"verified_user\"},{\"id\":\"vertical_split\"},{\"id\":\"view_agenda\"},{\"id\":\"view_array\"},{\"id\":\"view_carousel\"},{\"id\":\"view_column\"},{\"id\":\"view_day\"},{\"id\":\"view_headline\"},{\"id\":\"view_list\"},{\"id\":\"view_module\"},{\"id\":\"view_quilt\"},{\"id\":\"view_stream\"},{\"id\":\"view_week\"},{\"id\":\"visibility\"},{\"id\":\"visibility_off\"},{\"id\":\"voice_over_off\"},{\"id\":\"watch_later\"},{\"id\":\"work\"},{\"id\":\"work_off\"},{\"id\":\"work_outline\"},{\"id\":\"youtube_searched_for\"},{\"id\":\"zoom_in\"},{\"id\":\"zoom_out\"}],\"name\":\"action\"},{\"icons\":[{\"id\":\"add_alert\"},{\"id\":\"error\"},{\"id\":\"error_outline\"},{\"id\":\"notification_important\"},{\"id\":\"warning\"}],\"name\":\"alert\"},{\"icons\":[{\"id\":\"4k\"},{\"id\":\"add_to_queue\"},{\"id\":\"airplay\"},{\"id\":\"album\"},{\"id\":\"art_track\"},{\"id\":\"av_timer\"},{\"id\":\"branding_watermark\"},{\"id\":\"call_to_action\"},{\"id\":\"closed_caption\"},{\"id\":\"control_camera\"},{\"id\":\"equalizer\"},{\"id\":\"explicit\"},{\"id\":\"fast_forward\"},{\"id\":\"fast_rewind\"},{\"id\":\"featured_play_list\"},{\"id\":\"featured_video\"},{\"id\":\"fiber_dvr\"},{\"id\":\"fiber_manual_record\"},{\"id\":\"fiber_new\"},{\"id\":\"fiber_pin\"},{\"id\":\"fiber_smart_record\"},{\"id\":\"forward_10\"},{\"id\":\"forward_30\"},{\"id\":\"forward_5\"},{\"id\":\"games\"},{\"id\":\"hd\"},{\"id\":\"hearing\"},{\"id\":\"high_quality\"},{\"id\":\"library_add\"},{\"id\":\"library_books\"},{\"id\":\"library_music\"},{\"id\":\"loop\"},{\"id\":\"mic\"},{\"id\":\"mic_none\"},{\"id\":\"mic_off\"},{\"id\":\"missed_video_call\"},{\"id\":\"movie\"},{\"id\":\"music_video\"},{\"id\":\"new_releases\"},{\"id\":\"not_interested\"},{\"id\":\"note\"},{\"id\":\"pause\"},{\"id\":\"pause_circle_filled\"},{\"id\":\"pause_circle_outline\"},{\"id\":\"play_arrow\"},{\"id\":\"play_circle_filled\"},{\"imageUrls\":{\"twotone\":\"twotone-play_circle_filled_white-24px.svg\",\"sharp\":\"sharp-play_circle_filled_white-24px.svg\",\"outline\":\"outline-play_circle_filled_white-24px.svg\",\"round\":\"round-play_circle_filled_white-24px.svg\",\"baseline\":\"baseline-play_circle_filled_white-48px.svg\"},\"id\":\"play_circle_filled_white\"},{\"id\":\"play_circle_outline\"},{\"id\":\"playlist_add\"},{\"id\":\"playlist_add_check\"},{\"id\":\"playlist_play\"},{\"id\":\"queue\"},{\"id\":\"queue_music\"},{\"id\":\"queue_play_next\"},{\"id\":\"radio\"},{\"id\":\"recent_actors\"},{\"id\":\"remove_from_queue\"},{\"id\":\"repeat\"},{\"id\":\"repeat_one\"},{\"id\":\"replay\"},{\"id\":\"replay_10\"},{\"id\":\"replay_30\"},{\"id\":\"replay_5\"},{\"id\":\"shuffle\"},{\"id\":\"skip_next\"},{\"id\":\"skip_previous\"},{\"id\":\"slow_motion_video\"},{\"id\":\"snooze\"},{\"id\":\"sort_by_alpha\"},{\"id\":\"stop\"},{\"id\":\"subscriptions\"},{\"id\":\"subtitles\"},{\"id\":\"surround_sound\"},{\"id\":\"video_call\"},{\"id\":\"video_label\"},{\"id\":\"video_library\"},{\"id\":\"videocam\"},{\"id\":\"videocam_off\"},{\"id\":\"volume_down\"},{\"id\":\"volume_mute\"},{\"id\":\"volume_off\"},{\"id\":\"volume_up\"},{\"id\":\"web\"},{\"id\":\"web_asset\"}],\"name\":\"av\"},{\"icons\":[{\"id\":\"alternate_email\"},{\"id\":\"business\"},{\"id\":\"call\"},{\"id\":\"call_end\"},{\"id\":\"call_made\"},{\"id\":\"call_merge\"},{\"id\":\"call_missed\"},{\"id\":\"call_missed_outgoing\"},{\"id\":\"call_received\"},{\"id\":\"call_split\"},{\"id\":\"cancel_presentation\"},{\"id\":\"cell_wifi\"},{\"id\":\"chat\"},{\"id\":\"chat_bubble\"},{\"id\":\"chat_bubble_outline\"},{\"id\":\"clear_all\"},{\"id\":\"comment\"},{\"id\":\"contact_mail\"},{\"id\":\"contact_phone\"},{\"id\":\"contacts\"},{\"id\":\"desktop_access_disabled\"},{\"id\":\"dialer_sip\"},{\"id\":\"dialpad\"},{\"id\":\"domain_disabled\"},{\"id\":\"duo\"},{\"id\":\"email\"},{\"id\":\"forum\"},{\"id\":\"import_contacts\"},{\"id\":\"import_export\"},{\"id\":\"invert_colors_off\"},{\"id\":\"list_alt\"},{\"id\":\"live_help\"},{\"id\":\"location_off\"},{\"id\":\"location_on\"},{\"id\":\"mail_outline\"},{\"id\":\"message\"},{\"id\":\"mobile_screen_share\"},{\"id\":\"no_sim\"},{\"id\":\"pause_presentation\"},{\"id\":\"person_add_disabled\"},{\"id\":\"phone\"},{\"id\":\"phonelink_erase\"},{\"id\":\"phonelink_lock\"},{\"id\":\"phonelink_ring\"},{\"id\":\"phonelink_setup\"},{\"id\":\"portable_wifi_off\"},{\"id\":\"present_to_all\"},{\"id\":\"print_disabled\"},{\"id\":\"ring_volume\"},{\"id\":\"rss_feed\"},{\"id\":\"screen_share\"},{\"id\":\"sentiment_satisfied_alt\"},{\"id\":\"speaker_phone\"},{\"id\":\"stay_current_landscape\"},{\"id\":\"stay_current_portrait\"},{\"id\":\"stay_primary_landscape\"},{\"id\":\"stay_primary_portrait\"},{\"id\":\"stop_screen_share\"},{\"id\":\"swap_calls\"},{\"id\":\"textsms\"},{\"id\":\"unsubscribe\"},{\"id\":\"voicemail\"},{\"id\":\"vpn_key\"}],\"name\":\"communication\"},{\"icons\":[{\"id\":\"add\"},{\"id\":\"add_box\"},{\"id\":\"add_circle\"},{\"id\":\"add_circle_outline\"},{\"id\":\"archive\"},{\"id\":\"backspace\"},{\"id\":\"ballot\"},{\"id\":\"block\"},{\"id\":\"clear\"},{\"id\":\"create\"},{\"id\":\"delete_sweep\"},{\"id\":\"drafts\"},{\"id\":\"file_copy\"},{\"id\":\"filter_list\"},{\"id\":\"flag\"},{\"id\":\"font_download\"},{\"id\":\"forward\"},{\"id\":\"gesture\"},{\"id\":\"how_to_reg\"},{\"id\":\"how_to_vote\"},{\"id\":\"inbox\"},{\"id\":\"link\"},{\"id\":\"link_off\"},{\"id\":\"low_priority\"},{\"id\":\"mail\"},{\"id\":\"markunread\"},{\"id\":\"move_to_inbox\"},{\"id\":\"next_week\"},{\"id\":\"outlined_flag\"},{\"id\":\"redo\"},{\"id\":\"remove\"},{\"id\":\"remove_circle\"},{\"id\":\"remove_circle_outline\"},{\"id\":\"reply\"},{\"id\":\"reply_all\"},{\"id\":\"report\"},{\"id\":\"report_off\"},{\"id\":\"save\"},{\"id\":\"save_alt\"},{\"id\":\"select_all\"},{\"id\":\"send\"},{\"id\":\"sort\"},{\"id\":\"text_format\"},{\"id\":\"unarchive\"},{\"id\":\"undo\"},{\"id\":\"waves\"},{\"imageUrls\":{\"twotone\":\"twotone-weekend-24px.svg\",\"sharp\":\"sharp-weekend-24px.svg\",\"outline\":\"outline-weekend-24px.svg\",\"round\":\"round-weekend-24px.svg\",\"baseline\":\"baseline-weekend-48px.svg\"},\"id\":\"weekend\"},{\"id\":\"where_to_vote\"}],\"name\":\"content\"},{\"icons\":[{\"id\":\"access_alarm\"},{\"id\":\"access_alarms\"},{\"id\":\"access_time\"},{\"id\":\"add_alarm\"},{\"id\":\"add_to_home_screen\"},{\"id\":\"airplanemode_active\"},{\"id\":\"airplanemode_inactive\"},{\"id\":\"battery_20\"},{\"id\":\"battery_30\"},{\"id\":\"battery_50\"},{\"id\":\"battery_60\"},{\"id\":\"battery_80\"},{\"id\":\"battery_90\"},{\"id\":\"battery_alert\"},{\"id\":\"battery_charging_20\"},{\"id\":\"battery_charging_30\"},{\"id\":\"battery_charging_50\"},{\"id\":\"battery_charging_60\"},{\"id\":\"battery_charging_80\"},{\"id\":\"battery_charging_90\"},{\"id\":\"battery_charging_full\"},{\"id\":\"battery_full\"},{\"id\":\"battery_std\"},{\"id\":\"battery_unknown\"},{\"id\":\"bluetooth\"},{\"id\":\"bluetooth_connected\"},{\"id\":\"bluetooth_disabled\"},{\"id\":\"bluetooth_searching\"},{\"id\":\"brightness_auto\"},{\"id\":\"brightness_high\"},{\"id\":\"brightness_low\"},{\"id\":\"brightness_medium\"},{\"id\":\"data_usage\"},{\"id\":\"developer_mode\"},{\"id\":\"devices\"},{\"id\":\"dvr\"},{\"id\":\"gps_fixed\"},{\"id\":\"gps_not_fixed\"},{\"id\":\"gps_off\"},{\"id\":\"graphic_eq\"},{\"id\":\"location_disabled\"},{\"id\":\"location_searching\"},{\"id\":\"mobile_friendly\"},{\"id\":\"mobile_off\"},{\"id\":\"network_cell\"},{\"id\":\"network_wifi\"},{\"id\":\"nfc\"},{\"id\":\"screen_lock_landscape\"},{\"id\":\"screen_lock_portrait\"},{\"id\":\"screen_lock_rotation\"},{\"id\":\"screen_rotation\"},{\"id\":\"sd_storage\"},{\"id\":\"settings_system_daydream\"},{\"id\":\"signal_cellular_0_bar\"},{\"id\":\"signal_cellular_1_bar\"},{\"id\":\"signal_cellular_2_bar\"},{\"id\":\"signal_cellular_3_bar\"},{\"id\":\"signal_cellular_4_bar\"},{\"id\":\"signal_cellular_alt\"},{\"id\":\"signal_cellular_connected_no_internet_0_bar\"},{\"id\":\"signal_cellular_connected_no_internet_1_bar\"},{\"id\":\"signal_cellular_connected_no_internet_2_bar\"},{\"id\":\"signal_cellular_connected_no_internet_3_bar\"},{\"id\":\"signal_cellular_connected_no_internet_4_bar\"},{\"id\":\"signal_cellular_no_sim\"},{\"id\":\"signal_cellular_null\"},{\"id\":\"signal_cellular_off\"},{\"id\":\"signal_wifi_0_bar\"},{\"id\":\"signal_wifi_1_bar\"},{\"id\":\"signal_wifi_1_bar_lock\"},{\"id\":\"signal_wifi_2_bar\"},{\"id\":\"signal_wifi_2_bar_lock\"},{\"id\":\"signal_wifi_3_bar\"},{\"id\":\"signal_wifi_3_bar_lock\"},{\"id\":\"signal_wifi_4_bar\"},{\"id\":\"signal_wifi_4_bar_lock\"},{\"id\":\"signal_wifi_off\"},{\"id\":\"storage\"},{\"id\":\"usb\"},{\"id\":\"wallpaper\"},{\"id\":\"widgets\"},{\"id\":\"wifi_lock\"},{\"id\":\"wifi_tethering\"}],\"name\":\"device\"},{\"icons\":[{\"id\":\"add_comment\"},{\"id\":\"attach_file\"},{\"id\":\"attach_money\"},{\"id\":\"bar_chart\"},{\"id\":\"border_all\"},{\"id\":\"border_bottom\"},{\"id\":\"border_clear\"},{\"id\":\"border_color\"},{\"id\":\"border_horizontal\"},{\"id\":\"border_inner\"},{\"id\":\"border_left\"},{\"id\":\"border_outer\"},{\"id\":\"border_right\"},{\"id\":\"border_style\"},{\"id\":\"border_top\"},{\"id\":\"border_vertical\"},{\"id\":\"bubble_chart\"},{\"id\":\"drag_handle\"},{\"id\":\"format_align_center\"},{\"id\":\"format_align_justify\"},{\"id\":\"format_align_left\"},{\"id\":\"format_align_right\"},{\"id\":\"format_bold\"},{\"id\":\"format_clear\"},{\"id\":\"format_color_fill\"},{\"id\":\"format_color_reset\"},{\"id\":\"format_color_text\"},{\"id\":\"format_indent_decrease\"},{\"id\":\"format_indent_increase\"},{\"id\":\"format_italic\"},{\"id\":\"format_line_spacing\"},{\"id\":\"format_list_bulleted\"},{\"id\":\"format_list_numbered\"},{\"id\":\"format_list_numbered_rtl\"},{\"id\":\"format_paint\"},{\"id\":\"format_quote\"},{\"id\":\"format_shapes\"},{\"id\":\"format_size\"},{\"id\":\"format_strikethrough\"},{\"id\":\"format_textdirection_l_to_r\"},{\"id\":\"format_textdirection_r_to_l\"},{\"id\":\"format_underlined\"},{\"id\":\"functions\"},{\"id\":\"highlight\"},{\"id\":\"insert_chart\"},{\"id\":\"insert_chart_outlined\"},{\"id\":\"insert_comment\"},{\"id\":\"insert_drive_file\"},{\"id\":\"insert_emoticon\"},{\"id\":\"insert_invitation\"},{\"id\":\"insert_link\"},{\"id\":\"insert_photo\"},{\"id\":\"linear_scale\"},{\"id\":\"merge_type\"},{\"id\":\"mode_comment\"},{\"id\":\"monetization_on\"},{\"id\":\"money_off\"},{\"id\":\"multiline_chart\"},{\"id\":\"notes\"},{\"id\":\"pie_chart\"},{\"id\":\"publish\"},{\"id\":\"scatter_plot\"},{\"id\":\"score\"},{\"id\":\"short_text\"},{\"id\":\"show_chart\"},{\"id\":\"space_bar\"},{\"id\":\"strikethrough_s\"},{\"id\":\"table_chart\"},{\"id\":\"text_fields\"},{\"id\":\"title\"},{\"id\":\"vertical_align_bottom\"},{\"id\":\"vertical_align_center\"},{\"id\":\"vertical_align_top\"},{\"id\":\"wrap_text\"}],\"name\":\"editor\"},{\"icons\":[{\"id\":\"attachment\"},{\"id\":\"cloud\"},{\"id\":\"cloud_circle\"},{\"id\":\"cloud_done\"},{\"id\":\"cloud_download\"},{\"id\":\"cloud_off\"},{\"id\":\"cloud_queue\"},{\"id\":\"cloud_upload\"},{\"id\":\"create_new_folder\"},{\"id\":\"folder\"},{\"id\":\"folder_open\"},{\"id\":\"folder_shared\"}],\"name\":\"file\"},{\"icons\":[{\"id\":\"cast\"},{\"id\":\"cast_connected\"},{\"imageUrls\":{\"twotone\":\"twotone-cast_for_education-24px.svg\",\"sharp\":\"sharp-cast_for_education-24px.svg\",\"outline\":\"outline-cast_for_education-24px.svg\",\"round\":\"round-cast_for_education-24px.svg\",\"baseline\":\"baseline-cast_for_education-48px.svg\"},\"id\":\"cast_for_education\"},{\"id\":\"computer\"},{\"id\":\"desktop_mac\"},{\"id\":\"desktop_windows\"},{\"id\":\"developer_board\"},{\"id\":\"device_hub\"},{\"id\":\"device_unknown\"},{\"id\":\"devices_other\"},{\"id\":\"dock\"},{\"id\":\"gamepad\"},{\"id\":\"headset\"},{\"id\":\"headset_mic\"},{\"id\":\"keyboard\"},{\"id\":\"keyboard_arrow_down\"},{\"id\":\"keyboard_arrow_left\"},{\"id\":\"keyboard_arrow_right\"},{\"id\":\"keyboard_arrow_up\"},{\"id\":\"keyboard_backspace\"},{\"id\":\"keyboard_capslock\"},{\"id\":\"keyboard_hide\"},{\"id\":\"keyboard_return\"},{\"id\":\"keyboard_tab\"},{\"id\":\"keyboard_voice\"},{\"id\":\"laptop\"},{\"id\":\"laptop_chromebook\"},{\"id\":\"laptop_mac\"},{\"id\":\"laptop_windows\"},{\"id\":\"memory\"},{\"id\":\"mouse\"},{\"id\":\"phone_android\"},{\"id\":\"phone_iphone\"},{\"id\":\"phonelink\"},{\"id\":\"phonelink_off\"},{\"id\":\"power_input\"},{\"id\":\"router\"},{\"id\":\"scanner\"},{\"id\":\"security\"},{\"id\":\"sim_card\"},{\"id\":\"smartphone\"},{\"id\":\"speaker\"},{\"id\":\"speaker_group\"},{\"id\":\"tablet\"},{\"id\":\"tablet_android\"},{\"id\":\"tablet_mac\"},{\"id\":\"toys\"},{\"id\":\"tv\"},{\"id\":\"videogame_asset\"},{\"id\":\"watch\"}],\"name\":\"hardware\"},{\"icons\":[{\"id\":\"add_a_photo\"},{\"id\":\"add_photo_alternate\"},{\"id\":\"add_to_photos\"},{\"id\":\"adjust\"},{\"id\":\"assistant\"},{\"id\":\"assistant_photo\"},{\"id\":\"audiotrack\"},{\"id\":\"blur_circular\"},{\"id\":\"blur_linear\"},{\"id\":\"blur_off\"},{\"id\":\"blur_on\"},{\"id\":\"brightness_1\"},{\"id\":\"brightness_2\"},{\"id\":\"brightness_3\"},{\"id\":\"brightness_4\"},{\"id\":\"brightness_5\"},{\"id\":\"brightness_6\"},{\"id\":\"brightness_7\"},{\"id\":\"broken_image\"},{\"id\":\"brush\"},{\"id\":\"burst_mode\"},{\"id\":\"camera\"},{\"id\":\"camera_alt\"},{\"id\":\"camera_front\"},{\"id\":\"camera_rear\"},{\"id\":\"camera_roll\"},{\"id\":\"center_focus_strong\"},{\"id\":\"center_focus_weak\"},{\"id\":\"collections\"},{\"id\":\"collections_bookmark\"},{\"id\":\"color_lens\"},{\"id\":\"colorize\"},{\"id\":\"compare\"},{\"id\":\"control_point\"},{\"id\":\"control_point_duplicate\"},{\"id\":\"crop\"},{\"id\":\"crop_16_9\"},{\"id\":\"crop_3_2\"},{\"id\":\"crop_5_4\"},{\"id\":\"crop_7_5\"},{\"id\":\"crop_din\"},{\"id\":\"crop_free\"},{\"id\":\"crop_landscape\"},{\"id\":\"crop_original\"},{\"id\":\"crop_portrait\"},{\"id\":\"crop_rotate\"},{\"id\":\"crop_square\"},{\"id\":\"dehaze\"},{\"id\":\"details\"},{\"id\":\"edit\"},{\"id\":\"exposure\"},{\"id\":\"exposure_neg_1\"},{\"id\":\"exposure_neg_2\"},{\"id\":\"exposure_plus_1\"},{\"id\":\"exposure_plus_2\"},{\"id\":\"exposure_zero\"},{\"id\":\"filter\"},{\"id\":\"filter_1\"},{\"id\":\"filter_2\"},{\"id\":\"filter_3\"},{\"id\":\"filter_4\"},{\"id\":\"filter_5\"},{\"id\":\"filter_6\"},{\"id\":\"filter_7\"},{\"id\":\"filter_8\"},{\"id\":\"filter_9\"},{\"id\":\"filter_9_plus\"},{\"id\":\"filter_b_and_w\"},{\"id\":\"filter_center_focus\"},{\"id\":\"filter_drama\"},{\"id\":\"filter_frames\"},{\"id\":\"filter_hdr\"},{\"id\":\"filter_none\"},{\"id\":\"filter_tilt_shift\"},{\"id\":\"filter_vintage\"},{\"id\":\"flare\"},{\"id\":\"flash_auto\"},{\"id\":\"flash_off\"},{\"id\":\"flash_on\"},{\"id\":\"flip\"},{\"id\":\"gradient\"},{\"id\":\"grain\"},{\"id\":\"grid_off\"},{\"id\":\"grid_on\"},{\"id\":\"hdr_off\"},{\"id\":\"hdr_on\"},{\"id\":\"hdr_strong\"},{\"id\":\"hdr_weak\"},{\"id\":\"healing\"},{\"id\":\"image\"},{\"id\":\"image_aspect_ratio\"},{\"id\":\"image_search\"},{\"id\":\"iso\"},{\"id\":\"landscape\"},{\"id\":\"leak_add\"},{\"id\":\"leak_remove\"},{\"id\":\"lens\"},{\"id\":\"linked_camera\"},{\"id\":\"looks\"},{\"id\":\"looks_3\"},{\"id\":\"looks_4\"},{\"id\":\"looks_5\"},{\"id\":\"looks_6\"},{\"id\":\"looks_one\"},{\"id\":\"looks_two\"},{\"id\":\"loupe\"},{\"id\":\"monochrome_photos\"},{\"id\":\"movie_creation\"},{\"id\":\"movie_filter\"},{\"id\":\"music_note\"},{\"id\":\"music_off\"},{\"id\":\"nature\"},{\"id\":\"nature_people\"},{\"id\":\"navigate_before\"},{\"id\":\"navigate_next\"},{\"id\":\"palette\"},{\"id\":\"panorama\"},{\"id\":\"panorama_fish_eye\"},{\"id\":\"panorama_horizontal\"},{\"id\":\"panorama_vertical\"},{\"id\":\"panorama_wide_angle\"},{\"id\":\"photo\"},{\"id\":\"photo_album\"},{\"id\":\"photo_camera\"},{\"id\":\"photo_filter\"},{\"id\":\"photo_library\"},{\"id\":\"photo_size_select_actual\"},{\"id\":\"photo_size_select_large\"},{\"id\":\"photo_size_select_small\"},{\"id\":\"picture_as_pdf\"},{\"id\":\"portrait\"},{\"id\":\"remove_red_eye\"},{\"id\":\"rotate_90_degrees_ccw\"},{\"id\":\"rotate_left\"},{\"id\":\"rotate_right\"},{\"id\":\"shutter_speed\"},{\"id\":\"slideshow\"},{\"id\":\"straighten\"},{\"id\":\"style\"},{\"id\":\"switch_camera\"},{\"id\":\"switch_video\"},{\"id\":\"tag_faces\"},{\"id\":\"texture\"},{\"id\":\"timelapse\"},{\"id\":\"timer\"},{\"id\":\"timer_10\"},{\"id\":\"timer_3\"},{\"id\":\"timer_off\"},{\"id\":\"tonality\"},{\"id\":\"transform\"},{\"id\":\"tune\"},{\"id\":\"view_comfy\"},{\"id\":\"view_compact\"},{\"id\":\"vignette\"},{\"id\":\"wb_auto\"},{\"id\":\"wb_cloudy\"},{\"id\":\"wb_incandescent\"},{\"id\":\"wb_iridescent\"},{\"id\":\"wb_sunny\"}],\"name\":\"image\"},{\"icons\":[{\"id\":\"360\"},{\"id\":\"add_location\"},{\"id\":\"atm\"},{\"id\":\"beenhere\"},{\"id\":\"category\"},{\"id\":\"compass_calibration\"},{\"id\":\"departure_board\"},{\"id\":\"directions\"},{\"id\":\"directions_bike\"},{\"id\":\"directions_boat\"},{\"id\":\"directions_bus\"},{\"id\":\"directions_car\"},{\"id\":\"directions_railway\"},{\"id\":\"directions_run\"},{\"id\":\"directions_subway\"},{\"id\":\"directions_transit\"},{\"id\":\"directions_walk\"},{\"id\":\"edit_attributes\"},{\"id\":\"edit_location\"},{\"id\":\"ev_station\"},{\"id\":\"fastfood\"},{\"id\":\"flight\"},{\"id\":\"hotel\"},{\"id\":\"layers\"},{\"id\":\"layers_clear\"},{\"id\":\"local_activity\"},{\"id\":\"local_airport\"},{\"id\":\"local_atm\"},{\"id\":\"local_bar\"},{\"id\":\"local_cafe\"},{\"id\":\"local_car_wash\"},{\"id\":\"local_convenience_store\"},{\"id\":\"local_dining\"},{\"id\":\"local_drink\"},{\"id\":\"local_florist\"},{\"id\":\"local_gas_station\"},{\"id\":\"local_grocery_store\"},{\"id\":\"local_hospital\"},{\"id\":\"local_hotel\"},{\"id\":\"local_laundry_service\"},{\"id\":\"local_library\"},{\"id\":\"local_mall\"},{\"id\":\"local_movies\"},{\"id\":\"local_offer\"},{\"id\":\"local_parking\"},{\"id\":\"local_pharmacy\"},{\"id\":\"local_phone\"},{\"id\":\"local_pizza\"},{\"id\":\"local_play\"},{\"id\":\"local_post_office\"},{\"id\":\"local_printshop\"},{\"id\":\"local_see\"},{\"id\":\"local_shipping\"},{\"id\":\"local_taxi\"},{\"id\":\"map\"},{\"id\":\"money\"},{\"id\":\"my_location\"},{\"id\":\"navigation\"},{\"id\":\"near_me\"},{\"id\":\"not_listed_location\"},{\"id\":\"person_pin\"},{\"id\":\"person_pin_circle\"},{\"id\":\"pin_drop\"},{\"id\":\"place\"},{\"id\":\"rate_review\"},{\"id\":\"restaurant\"},{\"id\":\"restaurant_menu\"},{\"id\":\"satellite\"},{\"id\":\"store_mall_directory\"},{\"id\":\"streetview\"},{\"id\":\"subway\"},{\"id\":\"terrain\"},{\"id\":\"traffic\"},{\"id\":\"train\"},{\"id\":\"tram\"},{\"id\":\"transfer_within_a_station\"},{\"id\":\"transit_enterexit\"},{\"id\":\"trip_origin\"},{\"id\":\"zoom_out_map\"}],\"name\":\"maps\"},{\"icons\":[{\"id\":\"apps\"},{\"id\":\"arrow_back\"},{\"id\":\"arrow_back_ios\"},{\"id\":\"arrow_downward\"},{\"id\":\"arrow_drop_down\"},{\"id\":\"arrow_drop_down_circle\"},{\"id\":\"arrow_drop_up\"},{\"id\":\"arrow_forward\"},{\"id\":\"arrow_forward_ios\"},{\"id\":\"arrow_left\"},{\"id\":\"arrow_right\"},{\"id\":\"arrow_upward\"},{\"id\":\"cancel\"},{\"id\":\"check\"},{\"id\":\"chevron_left\"},{\"id\":\"chevron_right\"},{\"id\":\"close\"},{\"id\":\"expand_less\"},{\"id\":\"expand_more\"},{\"id\":\"first_page\"},{\"id\":\"fullscreen\"},{\"id\":\"fullscreen_exit\"},{\"id\":\"last_page\"},{\"id\":\"menu\"},{\"id\":\"more_horiz\"},{\"id\":\"more_vert\"},{\"id\":\"refresh\"},{\"id\":\"subdirectory_arrow_left\"},{\"id\":\"subdirectory_arrow_right\"},{\"id\":\"unfold_less\"},{\"id\":\"unfold_more\"}],\"name\":\"navigation\"},{\"icons\":[{\"id\":\"adb\"},{\"id\":\"airline_seat_flat\"},{\"id\":\"airline_seat_flat_angled\"},{\"id\":\"airline_seat_individual_suite\"},{\"id\":\"airline_seat_legroom_extra\"},{\"id\":\"airline_seat_legroom_normal\"},{\"id\":\"airline_seat_legroom_reduced\"},{\"id\":\"airline_seat_recline_extra\"},{\"id\":\"airline_seat_recline_normal\"},{\"id\":\"bluetooth_audio\"},{\"id\":\"confirmation_number\"},{\"id\":\"disc_full\"},{\"id\":\"drive_eta\"},{\"id\":\"enhanced_encryption\"},{\"id\":\"event_available\"},{\"id\":\"event_busy\"},{\"id\":\"event_note\"},{\"id\":\"folder_special\"},{\"id\":\"live_tv\"},{\"id\":\"mms\"},{\"id\":\"more\"},{\"id\":\"network_check\"},{\"id\":\"network_locked\"},{\"id\":\"no_encryption\"},{\"id\":\"ondemand_video\"},{\"id\":\"personal_video\"},{\"id\":\"phone_bluetooth_speaker\"},{\"id\":\"phone_callback\"},{\"id\":\"phone_forwarded\"},{\"id\":\"phone_in_talk\"},{\"id\":\"phone_locked\"},{\"id\":\"phone_missed\"},{\"id\":\"phone_paused\"},{\"id\":\"power\"},{\"id\":\"power_off\"},{\"id\":\"priority_high\"},{\"id\":\"sd_card\"},{\"id\":\"sms\"},{\"id\":\"sms_failed\"},{\"id\":\"sync\"},{\"id\":\"sync_disabled\"},{\"id\":\"sync_problem\"},{\"id\":\"system_update\"},{\"id\":\"tap_and_play\"},{\"id\":\"time_to_leave\"},{\"id\":\"tv_off\"},{\"id\":\"vibration\"},{\"id\":\"voice_chat\"},{\"id\":\"vpn_lock\"},{\"id\":\"wc\"},{\"id\":\"wifi\"},{\"id\":\"wifi_off\"}],\"name\":\"notification\"},{\"icons\":[{\"id\":\"ac_unit\"},{\"id\":\"airport_shuttle\"},{\"id\":\"all_inclusive\"},{\"id\":\"beach_access\"},{\"id\":\"business_center\"},{\"id\":\"casino\"},{\"id\":\"child_care\"},{\"id\":\"child_friendly\"},{\"id\":\"fitness_center\"},{\"id\":\"free_breakfast\"},{\"id\":\"golf_course\"},{\"id\":\"hot_tub\"},{\"id\":\"kitchen\"},{\"id\":\"meeting_room\"},{\"id\":\"no_meeting_room\"},{\"id\":\"pool\"},{\"id\":\"room_service\"},{\"id\":\"rv_hookup\"},{\"id\":\"smoke_free\"},{\"id\":\"smoking_rooms\"},{\"id\":\"spa\"}],\"name\":\"places\"},{\"icons\":[{\"id\":\"cake\"},{\"imageUrls\":{\"twotone\":\"twotone-domain-24px.svg\",\"sharp\":\"sharp-domain-24px.svg\",\"outline\":\"outline-domain-24px.svg\",\"round\":\"round-domain-24px.svg\",\"baseline\":\"baseline-domain-48px.svg\"},\"id\":\"domain\"},{\"id\":\"group\"},{\"id\":\"group_add\"},{\"id\":\"location_city\"},{\"id\":\"mood\"},{\"id\":\"mood_bad\"},{\"id\":\"notifications\"},{\"id\":\"notifications_active\"},{\"id\":\"notifications_none\"},{\"id\":\"notifications_off\"},{\"id\":\"notifications_paused\"},{\"id\":\"pages\"},{\"id\":\"party_mode\"},{\"id\":\"people\"},{\"id\":\"people_outline\"},{\"id\":\"person\"},{\"id\":\"person_add\"},{\"id\":\"person_outline\"},{\"id\":\"plus_one\"},{\"id\":\"poll\"},{\"id\":\"public\"},{\"id\":\"school\"},{\"id\":\"sentiment_dissatisfied\"},{\"id\":\"sentiment_satisfied\"},{\"id\":\"sentiment_very_dissatisfied\"},{\"id\":\"sentiment_very_satisfied\"},{\"id\":\"share\"},{\"id\":\"thumb_down_alt\"},{\"id\":\"thumb_up_alt\"},{\"id\":\"whatshot\"}],\"name\":\"social\"},{\"icons\":[{\"id\":\"check_box\"},{\"id\":\"check_box_outline_blank\"},{\"id\":\"indeterminate_check_box\"},{\"id\":\"radio_button_checked\"},{\"id\":\"radio_button_unchecked\"},{\"id\":\"star\"},{\"id\":\"star_border\"},{\"id\":\"star_half\"},{\"id\":\"toggle_off\"},{\"id\":\"toggle_on\"}],\"name\":\"toggle\"}]");
 
-},{}],"cfo9v":[function(require,module,exports) {
+},{}],"cfo9v":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("div", [
-        _c("md-autocomplete", {
+    return _c('div', [
+        _c('md-autocomplete', {
             attrs: {
                 "md-options": _vm.icons
             },
@@ -998,8 +1224,8 @@ var render = function() {
                     fn: function(ref) {
                         var item = ref.item;
                         return [
-                            _c("div", [
-                                _c("md-icon", [
+                            _c('div', [
+                                _c('md-icon', [
                                     _vm._v(_vm._s(item))
                                 ]),
                                 _vm._v("\n        \xa0 \xa0\n        " + _vm._s(item) + "\n      ")
@@ -1016,7 +1242,7 @@ var render = function() {
                 expression: "iconSelected"
             }
         }, [
-            _c("label", [
+            _c('label', [
                 _vm._v("Icon")
             ])
         ])
@@ -1026,18 +1252,18 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"fyJFa":[function() {},{}],"dCWoi":[function(require,module,exports) {
+},{}],"fyJFa":[function() {},{}],"dCWoi":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5IqJu":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5IqJu":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("md-dialog", {
+    return _c('md-dialog', {
         attrs: {
             "md-active": _vm.showDialog
         },
@@ -1053,20 +1279,20 @@ var render = function() {
             }
         }
     }, [
-        _c("md-dialog-title", [
+        _c('md-dialog-title', [
             _vm._v(_vm._s(_vm._f("toUpperCase")(_vm.title)))
         ]),
         _vm._v(" "),
-        _c("md-dialog-content", {
+        _c('md-dialog-content', {
             staticClass: "dialogContainer"
         }, [
-            _c("div", [
-                _c("md-field", [
-                    _c("label", [
+            _c('div', [
+                _c('md-field', [
+                    _c('label', [
                         _vm._v("Name")
                     ]),
                     _vm._v(" "),
-                    _c("md-input", {
+                    _c('md-input', {
                         model: {
                             value: _vm.inputValue,
                             callback: function($$v) {
@@ -1077,7 +1303,7 @@ var render = function() {
                     })
                 ], 1),
                 _vm._v(" "),
-                _c("icon-component", {
+                _c('icon-component', {
                     attrs: {
                         "selected": _vm.iconSelected
                     },
@@ -1088,8 +1314,8 @@ var render = function() {
             ], 1)
         ]),
         _vm._v(" "),
-        _c("md-dialog-actions", [
-            _c("md-button", {
+        _c('md-dialog-actions', [
+            _c('md-button', {
                 staticClass: "md-primary",
                 on: {
                     "click": function($event) {
@@ -1100,7 +1326,7 @@ var render = function() {
                 _vm._v("Close")
             ]),
             _vm._v(" "),
-            _c("md-button", {
+            _c('md-button', {
                 staticClass: "md-primary",
                 attrs: {
                     "disabled": _vm.isDisabled()
@@ -1120,13 +1346,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"h6zUn":[function(require,module,exports) {
+},{}],"h6zUn":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gxEDY":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gxEDY":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -1138,13 +1364,13 @@ let initialize = ()=>{
     script._scopeId = "data-v-dbad64";
     script.__cssModules = require("dfec2539a3c6a60d").default;
     require("4fcc7787d455ff8c").default(script);
-    script.__scopeId = "data-v-dbad64";
+    script.__scopeId = 'data-v-dbad64';
     script.__file = "createGroup.vue";
 };
 initialize();
 exports.default = script;
 
-},{"3a16213858db1d4e":"5K5qP","565b25f65fb50be1":"fGEsn","dfec2539a3c6a60d":"iKn4u","4fcc7787d455ff8c":"dxPmj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5K5qP":[function(require,module,exports) {
+},{"3a16213858db1d4e":"5K5qP","565b25f65fb50be1":"fGEsn","dfec2539a3c6a60d":"iKn4u","4fcc7787d455ff8c":"dxPmj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5K5qP":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _iconsComponentsVue = require("./iconsComponents.vue");
@@ -1227,15 +1453,15 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"./iconsComponents.vue":"kV8c6","vue-color":"bOuNP","spinal-env-viewer-plugin-group-manager-service":"tSLpq","../../../js/event.js":"bnFtF","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fGEsn":[function(require,module,exports) {
+},{"./iconsComponents.vue":"kV8c6","vue-color":"bOuNP","spinal-env-viewer-plugin-group-manager-service":"tSLpq","../../../js/event.js":"bnFtF","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fGEsn":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("md-dialog", {
+    return _c('md-dialog', {
         attrs: {
             "md-active": _vm.showDialog
         },
@@ -1251,19 +1477,19 @@ var render = function() {
             }
         }
     }, [
-        _c("md-dialog-title", [
+        _c('md-dialog-title', [
             _vm._v(_vm._s(_vm._f("toUpperCase")(_vm.title)))
         ]),
         _vm._v(" "),
-        _c("md-dialog-content", {
+        _c('md-dialog-content', {
             staticClass: "dialogContainer"
         }, [
-            _c("md-field", [
-                _c("label", [
+            _c('md-field', [
+                _c('label', [
                     _vm._v("Group name")
                 ]),
                 _vm._v(" "),
-                _c("md-input", {
+                _c('md-input', {
                     model: {
                         value: _vm.inputValue,
                         callback: function($$v) {
@@ -1274,10 +1500,10 @@ var render = function() {
                 })
             ], 1),
             _vm._v(" "),
-            _c("div", {
+            _c('div', {
                 staticClass: "iconComponent"
             }, [
-                _c("icon-component", {
+                _c('icon-component', {
                     attrs: {
                         "selected": _vm.iconSelected
                     },
@@ -1287,10 +1513,10 @@ var render = function() {
                 })
             ], 1),
             _vm._v(" "),
-            _c("div", {
+            _c('div', {
                 staticClass: "colorDiv"
             }, [
-                _c("chrome-picker", {
+                _c('chrome-picker', {
                     model: {
                         value: _vm.color,
                         callback: function($$v) {
@@ -1302,8 +1528,8 @@ var render = function() {
             ], 1)
         ], 1),
         _vm._v(" "),
-        _c("md-dialog-actions", [
-            _c("md-button", {
+        _c('md-dialog-actions', [
+            _c('md-button', {
                 staticClass: "md-primary",
                 on: {
                     "click": function($event) {
@@ -1314,7 +1540,7 @@ var render = function() {
                 _vm._v("Close")
             ]),
             _vm._v(" "),
-            _c("md-button", {
+            _c('md-button', {
                 staticClass: "md-primary",
                 attrs: {
                     "disabled": _vm.isDisabled()
@@ -1334,13 +1560,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"iKn4u":[function() {},{}],"dxPmj":[function(require,module,exports) {
+},{}],"iKn4u":[function() {},{}],"dxPmj":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1tcfQ":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1tcfQ":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -1351,13 +1577,13 @@ let initialize = ()=>{
     script.staticRenderFns = require("edb82ec5d75c9aea").staticRenderFns;
     script._scopeId = "data-v-b71f9f";
     require("18cf439fff259c3d").default(script);
-    script.__scopeId = "data-v-b71f9f";
+    script.__scopeId = 'data-v-b71f9f';
     script.__file = "colorDialog.vue";
 };
 initialize();
 exports.default = script;
 
-},{"d781d1405ae55cef":"2GbZG","edb82ec5d75c9aea":"z9OaT","18cf439fff259c3d":"27zNA","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2GbZG":[function(require,module,exports) {
+},{"d781d1405ae55cef":"2GbZG","edb82ec5d75c9aea":"z9OaT","18cf439fff259c3d":"27zNA","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2GbZG":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _vueColor = require("vue-color");
@@ -1400,15 +1626,15 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"vue-color":"bOuNP","spinal-env-viewer-graph-service":"9n7zp","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"z9OaT":[function(require,module,exports) {
+},{"vue-color":"bOuNP","spinal-env-viewer-graph-service":"9n7zp","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"z9OaT":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("md-dialog", {
+    return _c('md-dialog', {
         attrs: {
             "md-active": _vm.showDialog
         },
@@ -1424,17 +1650,17 @@ var render = function() {
             }
         }
     }, [
-        _c("md-dialog-title", [
+        _c('md-dialog-title', [
             _vm._v(_vm._s(_vm.title))
         ]),
         _vm._v(" "),
-        _c("md-dialog-content", [
-            _c("md-field", [
-                _c("label", [
+        _c('md-dialog-content', [
+            _c('md-field', [
+                _c('label', [
                     _vm._v("Name")
                 ]),
                 _vm._v(" "),
-                _c("md-input", {
+                _c('md-input', {
                     model: {
                         value: _vm.inputValue,
                         callback: function($$v) {
@@ -1445,7 +1671,7 @@ var render = function() {
                 })
             ], 1),
             _vm._v(" "),
-            _c("chrome-picker", {
+            _c('chrome-picker', {
                 model: {
                     value: _vm.color,
                     callback: function($$v) {
@@ -1456,8 +1682,8 @@ var render = function() {
             })
         ], 1),
         _vm._v(" "),
-        _c("md-dialog-actions", [
-            _c("md-button", {
+        _c('md-dialog-actions', [
+            _c('md-button', {
                 staticClass: "md-primary",
                 on: {
                     "click": function($event) {
@@ -1468,7 +1694,7 @@ var render = function() {
                 _vm._v("Close")
             ]),
             _vm._v(" "),
-            _c("md-button", {
+            _c('md-button', {
                 staticClass: "md-primary",
                 attrs: {
                     "disabled": _vm.inputValue.trim().length === 0
@@ -1488,13 +1714,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"27zNA":[function(require,module,exports) {
+},{}],"27zNA":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2PgRe":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2PgRe":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -1506,13 +1732,13 @@ let initialize = ()=>{
     script._scopeId = "data-v-1bc108";
     script.__cssModules = require("f5d381085ce37970").default;
     require("bb38bc8fb4edb5f1").default(script);
-    script.__scopeId = "data-v-1bc108";
+    script.__scopeId = 'data-v-1bc108';
     script.__file = "linkToGroup.vue";
 };
 initialize();
 exports.default = script;
 
-},{"db32e4ba827e3f30":"iOrbP","1ffc53427c81334f":"hnxQL","f5d381085ce37970":"70HZ4","bb38bc8fb4edb5f1":"cEpwL","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"iOrbP":[function(require,module,exports) {
+},{"db32e4ba827e3f30":"iOrbP","1ffc53427c81334f":"hnxQL","f5d381085ce37970":"70HZ4","bb38bc8fb4edb5f1":"cEpwL","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"iOrbP":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _index = require("spinal-env-viewer-plugin-attribute-manager/src/services/index");
@@ -1724,10 +1950,10 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"spinal-env-viewer-plugin-attribute-manager/src/services/index":"R5DpR","spinal-env-viewer-panel-manager-service":"7Uw4d","spinal-env-viewer-graph-service":"9n7zp","./linkToGroupTemplate.vue":"hGXFH","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"R5DpR":[function(require,module,exports) {
+},{"spinal-env-viewer-plugin-attribute-manager/src/services/index":"R5DpR","spinal-env-viewer-panel-manager-service":"7Uw4d","spinal-env-viewer-graph-service":"9n7zp","./linkToGroupTemplate.vue":"hGXFH","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"R5DpR":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "spinalAttributeService", ()=>spinalAttributeService);
@@ -1740,7 +1966,7 @@ const spinalAttributeService = new (0, _spinalAttributeServiceDefault.default)()
 const spinalConfigurationService = new (0, _spinalConfigurationServiceDefault.default)();
 exports.default = spinalAttributeService;
 
-},{"./classes/spinalAttributeService":"3zGxM","./classes/spinalConfigurationService":"e8hB8","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3zGxM":[function(require,module,exports) {
+},{"./classes/spinalAttributeService":"3zGxM","./classes/spinalConfigurationService":"e8hB8","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3zGxM":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
  *
@@ -1772,29 +1998,21 @@ var _spinalEnvViewerBimManagerService = require("spinal-env-viewer-bim-manager-s
 var _spinalEnvViewerPluginGroupManagerService = require("spinal-env-viewer-plugin-group-manager-service");
 class SpinalAttributeService {
     constructor(){}
-    getAllAttributes(nodeId, liste) {
+    async getAllAttributes(nodeId, liste) {
         let realNode = (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(nodeId);
-        if (realNode) // return serviceDocumentation.getAllAttributes(realNode).then(
-        //   argAttributes => {
-        //     return argAttributes.map(el => {
-        //       let info = el.get();
-        //       if (liste && liste.indexOf(info.label) === -1) liste.push(info
-        //         .label);
-        //       return info;
-        //     })
-        //   });
-        return (0, _spinalEnvViewerPluginDocumentationService.serviceDocumentation).getCategory(realNode).then((res)=>{
-            return res.map((el)=>{
-                let attrs = el.element.get();
-                return attrs.map((attr)=>{
-                    if (liste && liste.indexOf(attr.label) === -1) liste.push(attr.label);
-                    attr["category"] = el.nameCat;
-                    return attr;
-                });
-            }).flat();
-        });
-        else return Promise.resolve([]);
+        if (!realNode) return Promise.resolve([]);
+        const categories = await (0, _spinalEnvViewerPluginDocumentationService.serviceDocumentation).getCategory(realNode);
+        return categories.reduce((l, el)=>{
+            let attrs = el.element.get();
+            for (const attr of attrs){
+                if (liste && !liste.includes(attr.label)) liste.push(attr.label);
+                attr.category = el.nameCat;
+                l.push(attr);
+            }
+            return l;
+        }, []);
     }
+    // get All Nodes and their attributes
     async getAllData(contextId, nodeId) {
         let context = (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(contextId);
         let realNode = (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(nodeId);
@@ -1803,142 +2021,137 @@ class SpinalAttributeService {
             attributes: [],
             data: {}
         };
-        if (context && realNode) await realNode.findInContext(context, async (node)=>{
+        if (!context || !realNode) return res;
+        await realNode.findInContext(context, async (node)=>{
             (0, _spinalEnvViewerGraphService.SpinalGraphService)._addNode(node);
-            let type = node.getType().get();
-            let info = node.info.get();
-            if (res.types.indexOf(type) === -1) res.types.push(type);
-            if (typeof res.data[type] === "undefined") res.data[type] = [];
-            info["attributes"] = await this.getAllAttributes(info.id, res.attributes);
-            res.data[type].push(info);
+            await this._formatNodeAndItToList(node, res);
         });
         return res;
     }
-    getBimObjectAttribute(bimObjectInfo, attributeName) {
-        let value = attributeName.toLowerCase();
-        let model = window.spinal.BimObjectService.getModelByBimfile(bimObjectInfo.bimFileId) || window.NOP_VIEWER.model;
-        const dbId = bimObjectInfo.dbid || bimObjectInfo.dbId;
-        if (model) return (0, _spinalEnvViewerBimManagerService.bimObjectManagerService).getBimObjectProperties({
-            model: model,
-            selection: [
-                dbId
-            ]
-        }).then((res)=>{
-            let properties = res[0].properties[0].properties;
-            let found = properties.find((el)=>{
-                let attrName = el.attributeName.toLowerCase();
-                let displayName = el.displayName.toLowerCase();
-                return attrName === value || displayName === value;
-            });
-            if (found) return found.displayValue;
-            else return "-";
-        }).catch((err)=>{
-            console.error(err);
-        });
-        else return "-";
+    async _formatNodeAndItToList(node, res) {
+        const info = node.info.get();
+        const type = info.type;
+        if (!res.types.includes(type)) res.types.push(type);
+        if (!res.data[type]) res.data[type] = [];
+        info.dynamicId = node._server_id;
+        info.attributes = await this.getAllAttributes(info.id, res.attributes);
+        res.data[type].push(info);
+        return info;
     }
-    async createAttribute(nodeId, categoryName, attributeName) {
+    async getBimObjectAttribute(bimObjectInfo, attributeName) {
+        try {
+            let value = attributeName.toLowerCase();
+            const modelByBimFile = window.spinal.BimObjectService.getModelByBimfile(bimObjectInfo.bimFileId);
+            let model = modelByBimFile || window.NOP_VIEWER.model;
+            if (!model) return '-';
+            const dbId = bimObjectInfo.dbid || bimObjectInfo.dbId;
+            let properties = await this.getBimObjectProperties(model, [
+                dbId
+            ]);
+            let found = properties.find(({ attributeName, displayName })=>[
+                    attributeName.toLowerCase(),
+                    displayName.toLowerCase()
+                ].includes(value.toLowerCase()));
+            if (found) return found.displayValue;
+            return '-';
+        } catch (error) {
+            console.error(error);
+            return "-";
+        }
+    }
+    async createAttribute(nodeId, categoryName, attributeName, attributeValue) {
         let realNode = (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(nodeId);
-        let category;
-        category = await (0, _spinalEnvViewerPluginDocumentationService.serviceDocumentation).getCategoryByName(realNode, categoryName);
-        if (typeof category === "undefined") category = await (0, _spinalEnvViewerPluginDocumentationService.serviceDocumentation).addCategoryAttribute(realNode, categoryName);
+        let category = await this.getOrCreateCategory(realNode, categoryName);
+        const value = (attributeValue && attributeValue.toString()).length > 0 ? attributeValue : "-";
         let attr = {
             label: attributeName,
-            value: "-"
+            value
         };
-        if (realNode.getType().get() === (0, _constants.BIM_OBJECT_TYPE)) attr.value = await this.getBimObjectAttribute(realNode.info.get(), attributeName);
+        if (realNode.getType().get() === (0, _constants.BIM_OBJECT_TYPE) && value === "-") attr.value = await this.getBimObjectAttribute(realNode.info.get(), attributeName);
         await (0, _spinalEnvViewerPluginDocumentationService.serviceDocumentation).addAttributeByCategory(realNode, category, attr.label, attr.value);
     }
+    async updateSeveralAttributes(nodeId, categoryName, attributes) {
+        const realNode = (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(nodeId);
+        if (!realNode) return;
+        const category = await this.getOrCreateCategory(realNode, categoryName);
+        const attributesList = await (0, _spinalEnvViewerPluginDocumentationService.serviceDocumentation).getAttributesByCategory(realNode, category);
+        const obj = this._convertLstToObj(attributesList);
+        for (const attr of attributes)if (obj[attr.label]) obj[attr.label].mod_attr("value", attr.value);
+        else await this.updateAttributeValue(nodeId, category, attr.label, attr.value);
+    }
     async updateAttributeValue(nodeId, categoryName, attributeName, attributeValue) {
-        let attr = await this.getOrCreateAttribute(nodeId, categoryName, attributeName);
-        if (attr && attr.value) attr.value.set(attributeValue);
+        let attr = await this.getOrCreateAttribute(nodeId, categoryName, attributeName, attributeValue);
+        if (attr && typeof attr.value != "undefined") attr.mod_attr("value", attributeValue);
     }
     getBimObjects(nodeId) {
     // console.log(SpinalGraphService.getInfo(nodeId));
     // return SpinalGraphService.findNodes(nodeId,)
     }
-    async getOrCreateAttribute(nodeId, categoryName, attributeName) {
+    async getOrCreateAttribute(nodeId, categoryName, attributeName, attributeValue) {
         let realNode = (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(nodeId);
-        if (realNode) {
-            let category = await (0, _spinalEnvViewerPluginDocumentationService.serviceDocumentation).getCategoryByName(realNode, categoryName);
-            if (typeof category === "undefined") category = await (0, _spinalEnvViewerPluginDocumentationService.serviceDocumentation).addCategoryAttribute(realNode, categoryName);
-            let attributes = await (0, _spinalEnvViewerPluginDocumentationService.serviceDocumentation).getAttributesByCategory(realNode, categoryName);
-            let attr = attributes.find((el)=>{
-                return el.label.get() === attributeName;
-            });
-            if (attr) return attr;
-            await (0, _spinalEnvViewerPluginDocumentationService.serviceDocumentation).addAttributeByCategory(realNode, category, attributeName, "-");
-            attributes = await (0, _spinalEnvViewerPluginDocumentationService.serviceDocumentation).getAttributesByCategory(realNode, categoryName);
-            return attributes.find((el)=>{
-                return el.label.get() === attributeName;
-            });
+        if (!realNode) return;
+        let category = await this.getOrCreateCategory(realNode, categoryName);
+        let attr = await this.findAttributeInCategory(realNode, category, attributeName);
+        if (attr) return attr;
+        return this.createAttribute(nodeId, category, attributeName, attributeValue);
+    }
+    async findAttributeInCategory(realNode, category, attributeName) {
+        const attributes = await (0, _spinalEnvViewerPluginDocumentationService.serviceDocumentation).getAttributesByCategory(realNode, category);
+        for(let i = 0; i < attributes.length; i++){
+            const el = attributes[i];
+            if (el.label.get() === attributeName) return el;
         }
     }
-    getAllGroupContext(type) {
-        // return Promise.all([SpinalGraphService.getContextWithType(
-        //     groupService.constants.ROOMS_GROUP_CONTEXT),
-        //   SpinalGraphService.getContextWithType(
-        //     groupService.constants.EQUIPMENTS_GROUP_CONTEXT),
-        //   SpinalGraphService.getContextWithType(
-        //     groupService.constants.ENDPOINTS_GROUP_CONTEXT)
-        // ]).then(values => {
-        //   let contexts = values.flat();
-        //   let promises = contexts.map(async context => {
-        //     let res = context.info.get();
-        //     res["category"] = await this.getCategory(res.id, res
-        //       .type);
-        //     return res;
-        //   })
-        //   return Promise.all(promises);
-        // })
-        // console.log("service type", type);
-        return (0, _spinalEnvViewerPluginGroupManagerService.groupManagerService).getGroupContexts(type).then((contexts)=>{
-            const promises = contexts.map(async (context)=>{
-                context["category"] = await this.getCategory(context.id);
-                return context;
-            });
-            return Promise.all(promises);
+    async getAllGroupContext(type) {
+        const contexts = await (0, _spinalEnvViewerPluginGroupManagerService.groupManagerService).getGroupContexts(type);
+        const promises = contexts.map(async (context)=>{
+            context.category = await this.getCategory(context.id);
+            return context;
         });
+        return Promise.all(promises);
     }
     async getCategory(contextId) {
-        // let relationName = groupService.constants
-        //   .CONTEXT_TO_CATEGORY_RELATION;
-        // return SpinalGraphService.getChildren(contextId, [relationName]).then(
-        //   children => {
-        //     let promises = children.map(async child => {
-        //       let info = child.get();
-        //       info["groups"] = await this.getGroup(child.id, child
-        //         .type);
-        //       return info;
-        //     })
-        //     return Promise.all(promises);
-        //   })
         const categories = await (0, _spinalEnvViewerPluginGroupManagerService.groupManagerService).getCategories(contextId);
         const promises = categories.map(async (category)=>{
             let info = category.get();
-            info["groups"] = await this.getGroup(category.id);
+            info.groups = await this.getGroup(category.id);
             return info;
         });
         return Promise.all(promises);
     }
     async getGroup(categoryId) {
-        // let relationName = groupService.constants.CATEGORY_TO_GROUP_RELATION;
-        // return SpinalGraphService.getChildren(categoryId, [relationName])
-        //   .then(
-        //     children => {
-        //       return children.map(el => el.get());
-        //     })
         const groups = await (0, _spinalEnvViewerPluginGroupManagerService.groupManagerService).getGroups(categoryId);
         return groups.map((el)=>el.get());
     }
     linkItem(contextId, parentId, itemId) {
-        // groupService.linkElementToGroup(parentId, itemId, contextId)
         return (0, _spinalEnvViewerPluginGroupManagerService.groupManagerService).linkElementToGroup(contextId, parentId, itemId);
+    }
+    async getOrCreateCategory(realNode, categoryName) {
+        if (typeof categoryName === "object") return categoryName;
+        realNode = realNode instanceof (0, _spinalEnvViewerGraphService.SpinalNode) ? realNode : (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(realNode);
+        let category = await (0, _spinalEnvViewerPluginDocumentationService.serviceDocumentation).getCategoryByName(realNode, categoryName);
+        if (!category) category = await (0, _spinalEnvViewerPluginDocumentationService.serviceDocumentation).addCategoryAttribute(realNode, categoryName);
+        return category;
+    }
+    async getBimObjectProperties(model, dbIds) {
+        const res = await (0, _spinalEnvViewerBimManagerService.bimObjectManagerService).getBimObjectProperties({
+            model: model,
+            selection: dbIds
+        });
+        return res[0].properties[0].properties;
+    }
+    _convertLstToObj(lst) {
+        const obj = {};
+        for(let i = 0; i < lst.length; i++){
+            let el = lst[i];
+            obj[el.label.get()] = el;
+        }
+        return obj;
     }
 }
 exports.default = SpinalAttributeService;
 
-},{"spinal-env-viewer-graph-service":"9n7zp","spinal-env-viewer-plugin-documentation-service":"5rYVR","spinal-env-viewer-plugin-forge/dist/Constants":"f3Ny6","spinal-env-viewer-bim-manager-service":"9Nkbe","spinal-env-viewer-plugin-group-manager-service":"tSLpq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"f3Ny6":[function(require,module,exports) {
+},{"spinal-env-viewer-graph-service":"9n7zp","spinal-env-viewer-plugin-documentation-service":"5rYVR","spinal-env-viewer-plugin-forge/dist/Constants":"f3Ny6","spinal-env-viewer-bim-manager-service":"9Nkbe","spinal-env-viewer-plugin-group-manager-service":"tSLpq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"f3Ny6":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2020 SpinalCom - www.spinalcom.com
@@ -1966,9 +2179,9 @@ exports.default = SpinalAttributeService;
 exports.REFERENCE_OBJECT_RELATION_TYPE = exports.BIM_OBJECT_RELATION_TYPE = exports.BIM_NODE_RELATION_TYPE = exports.BIM_OBJECT_VERSION_RELATION_TYPE = exports.REFERENCE_OBJECT_RELATION_NAME = exports.BIM_OBJECT_VERSION_RELATION_NAME = exports.BIM_OBJECT_RELATION_NAME = exports.BIM_NODE_RELATION_NAME = exports.BIM_CONTEXT_RELATION_TYPE = exports.BIM_CONTEXT_RELATION_NAME = exports.BIM_OBJECT_TYPE = exports.PART_RELATION_TYPE = exports.SCENE_RELATION_TYPE = exports.PART_RELATION_NAME = exports.SCENE_TYPE = exports.SCENE_RELATION_NAME = void 0;
 var spinal_env_viewer_graph_service_1 = require("44f946b368e03b14");
 var constants_js_1 = require("3c0117970d993dce");
-exports.SCENE_RELATION_NAME = "hasScene";
+exports.SCENE_RELATION_NAME = 'hasScene';
 exports.SCENE_TYPE = "scene";
-exports.PART_RELATION_NAME = "hasParts";
+exports.PART_RELATION_NAME = 'hasParts';
 exports.SCENE_RELATION_TYPE = spinal_env_viewer_graph_service_1.SPINAL_RELATION_PTR_LST_TYPE;
 exports.PART_RELATION_TYPE = spinal_env_viewer_graph_service_1.SPINAL_RELATION_PTR_LST_TYPE;
 exports.BIM_OBJECT_TYPE = constants_js_1.EQUIPMENT_TYPE;
@@ -1983,7 +2196,7 @@ exports.BIM_NODE_RELATION_TYPE = spinal_env_viewer_graph_service_1.SPINAL_RELATI
 exports.BIM_OBJECT_RELATION_TYPE = spinal_env_viewer_graph_service_1.SPINAL_RELATION_PTR_LST_TYPE;
 exports.REFERENCE_OBJECT_RELATION_TYPE = spinal_env_viewer_graph_service_1.SPINAL_RELATION_PTR_LST_TYPE;
 
-},{"44f946b368e03b14":"9n7zp","3c0117970d993dce":"eV0id"}],"9Nkbe":[function(require,module,exports) {
+},{"44f946b368e03b14":"9n7zp","3c0117970d993dce":"eV0id"}],"9Nkbe":[function(require,module,exports,__globalThis) {
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -1991,7 +2204,7 @@ Object.defineProperty(exports, "__esModule", {
 const bimService_1 = require("edfb101c687f070e");
 exports.bimObjectManagerService = bimService_1.default;
 
-},{"edfb101c687f070e":"cXqcc"}],"cXqcc":[function(require,module,exports) {
+},{"edfb101c687f070e":"cXqcc"}],"cXqcc":[function(require,module,exports,__globalThis) {
 "use strict";
 var __awaiter = this && this.__awaiter || function(thisArg, _arguments, P, generator) {
     return new (P || (P = Promise))(function(resolve, reject) {
@@ -2166,7 +2379,7 @@ class BimObjectManagerService {
 }
 exports.default = new BimObjectManagerService();
 
-},{}],"e8hB8":[function(require,module,exports) {
+},{}],"e8hB8":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerPluginGroupManagerService = require("spinal-env-viewer-plugin-group-manager-service");
@@ -2178,8 +2391,7 @@ class SpinalConfigurationService {
         this.ATTRIBUTE_TYPE = "configurationAttribute";
     }
     async createOrGetContext() {
-        const context = await (0, _spinalEnvViewerPluginGroupManagerService.groupManagerService).createGroupContext(this.CONTEXT_NAME, this.CONFIGURATION_PROFIL_TYPE);
-        return context;
+        return (0, _spinalEnvViewerPluginGroupManagerService.groupManagerService).createGroupContext(this.CONTEXT_NAME, this.CONFIGURATION_PROFIL_TYPE);
     }
     async createCategory(categoryName, iconName) {
         const context = await this.createOrGetContext();
@@ -2194,65 +2406,61 @@ class SpinalConfigurationService {
     async createConfiguration(groupId, configurationName, configurationCategories = []) {
         const context = await this.createOrGetContext();
         const contextId = context ? context.info.id.get() : undefined;
+        const element = new Model({
+            name: configurationName,
+            categories: configurationCategories
+        });
         const configurationNodeId = (0, _spinalEnvViewerGraphService.SpinalGraphService).createNode({
             name: configurationName,
             type: this.CONFIGURATION_PROFIL_TYPE
-        }, new Model({
-            name: configurationName,
-            categories: configurationCategories
-        }));
+        }, element);
         await (0, _spinalEnvViewerPluginGroupManagerService.groupManagerService).linkElementToGroup(contextId, groupId, configurationNodeId);
         return (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(configurationNodeId);
     }
-    setAsCurrentConfiguration(nodeId) {
-        this.createOrGetContext().then((context)=>{
-            let realNode = (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(nodeId);
-            if (realNode) {
-                if (context.info.currentConfiguration) context.info.rem_attr("currentConfiguration");
-                context.info.add_attr({
-                    currentConfiguration: new Ptr(realNode)
-                });
-            }
+    async setAsCurrentConfiguration(nodeId) {
+        const context = await this.createOrGetContext();
+        let realNode = (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(nodeId);
+        if (!realNode) return;
+        if (context.info.currentConfiguration) context.info.rem_attr("currentConfiguration");
+        context.info.add_attr({
+            currentConfiguration: new Ptr(realNode)
         });
     }
     async deleteCurrentConf() {
         const context = await this.createOrGetContext();
         if (context && context.info.currentConfiguration) context.info.rem_attr("currentConfiguration");
     }
-    getCurrentConfiguration() {
-        return this.createOrGetContext().then((context)=>{
-            let confPtr = context.info.currentConfiguration;
-            if (typeof confPtr !== "undefined") return new Promise((resolve)=>{
-                confPtr.load((realNode)=>{
-                    (0, _spinalEnvViewerGraphService.SpinalGraphService)._addNode(realNode);
-                    return realNode.getElement().then((el)=>{
-                        let element = el.get();
-                        element["id"] = realNode.info.id.get();
-                        resolve(element);
-                    });
-                });
+    async getCurrentConfiguration() {
+        const context = await this.createOrGetContext();
+        let confPtr = context.info.currentConfiguration;
+        if (!confPtr) return {
+            name: "",
+            categories: []
+        };
+        return new Promise((resolve)=>{
+            confPtr.load(async (realNode)=>{
+                (0, _spinalEnvViewerGraphService.SpinalGraphService)._addNode(realNode);
+                const el = await realNode.getElement();
+                let element = el.get();
+                element.id = realNode.getId().get();
+                resolve(element);
             });
-            return {
-                name: "",
-                categories: []
-            };
         });
     }
-    editConfiguration(configurationId, configurationElement) {
+    async editConfiguration(configurationId, configurationElement) {
         let realNode = (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(configurationId);
-        if (realNode) realNode.getElement().then((element)=>{
-            element.set(configurationElement);
-        });
+        if (!realNode) return;
+        const element = await realNode.getElement();
+        element.set(configurationElement);
     }
     async getConfigurationById(configId) {
         const realNode = (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(configId);
-        if (realNode) {
-            const elementModel = await realNode.getElement();
-            if (elementModel) {
-                let element = elementModel.get();
-                element["id"] = configId;
-                return element;
-            }
+        if (!realNode) return;
+        const elementModel = await realNode.getElement();
+        if (elementModel) {
+            let element = elementModel.get();
+            element.id = configId;
+            return element;
         }
     }
     async getCategories() {
@@ -2260,7 +2468,6 @@ class SpinalConfigurationService {
         return (0, _spinalEnvViewerPluginGroupManagerService.groupManagerService).getCategories(context.info.id.get());
     }
     getGroups(nodeId) {
-        // const context = await this.createOrGetContext();
         return (0, _spinalEnvViewerPluginGroupManagerService.groupManagerService).getGroups(nodeId);
     }
     getConfigurations(groupId) {
@@ -2277,31 +2484,34 @@ class SpinalConfigurationService {
         return parents[0];
     }
     async getTree(info) {
-        const obj = {
-            categoryId: undefined,
-            groupId: undefined,
-            configId: undefined
+        if (this.isCategory(info.type)) return this.getTreeUntilCategory(info.id);
+        if (this.isGroup(info.type)) return this.getTreeUntilGroup(info.id);
+        if (info.type === this.CONFIGURATION_PROFIL_TYPE) return this.getTreeUntilProfile(info.id);
+        return {};
+    }
+    getTreeUntilCategory(id) {
+        return {
+            categoryId: id
         };
-        if (this.isCategory(info.type)) obj.categoryId = info.id;
-        else if (this.isGroup(info.type)) {
-            const category = await (0, _spinalEnvViewerPluginGroupManagerService.groupManagerService).getGroupCategory(info.id);
-            if (category) obj.categoryId = category.id.get();
-            obj.groupId = info.id;
-        } else if (info.type === this.CONFIGURATION_PROFIL_TYPE) {
-            obj.configId = info.id;
-            const group = await this.getElementGroup(info.id);
-            if (group) {
-                obj.groupId = group.id.get();
-                const category = await (0, _spinalEnvViewerPluginGroupManagerService.groupManagerService).getGroupCategory(group.id.get());
-                if (category) obj.categoryId = category.id.get();
-            }
-        }
+    }
+    async getTreeUntilGroup(id) {
+        const category = await (0, _spinalEnvViewerPluginGroupManagerService.groupManagerService).getGroupCategory(id);
+        return {
+            categoryId: category.id.get(),
+            groupId: id
+        };
+    }
+    async getTreeUntilProfile(id) {
+        const group = await this.getElementGroup(id);
+        if (!group) return {};
+        const obj = await this.getTreeUntilGroup(group.id.get());
+        obj.configId = id;
         return obj;
     }
 }
 exports.default = SpinalConfigurationService;
 
-},{"spinal-env-viewer-plugin-group-manager-service":"tSLpq","spinal-env-viewer-graph-service":"9n7zp","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hGXFH":[function(require,module,exports) {
+},{"spinal-env-viewer-plugin-group-manager-service":"tSLpq","spinal-env-viewer-graph-service":"9n7zp","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hGXFH":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -2313,13 +2523,13 @@ let initialize = ()=>{
     script._scopeId = "data-v-41b24f";
     script.__cssModules = require("bbad7ba8c9eb4c4e").default;
     require("7f9fb0dbfa4624e0").default(script);
-    script.__scopeId = "data-v-41b24f";
+    script.__scopeId = 'data-v-41b24f';
     script.__file = "linkToGroupTemplate.vue";
 };
 initialize();
 exports.default = script;
 
-},{"1424ee12d47bff6e":"d1aBF","d3e3bb1a42a53864":"21bQN","bbad7ba8c9eb4c4e":"k8WAM","7f9fb0dbfa4624e0":"aQXld","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"d1aBF":[function(require,module,exports) {
+},{"1424ee12d47bff6e":"d1aBF","d3e3bb1a42a53864":"21bQN","bbad7ba8c9eb4c4e":"k8WAM","7f9fb0dbfa4624e0":"aQXld","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"d1aBF":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var scriptExports = {
@@ -2339,28 +2549,28 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"21bQN":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"21bQN":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("div", {
+    return _c('div', {
         staticClass: "subContent"
     }, [
-        _c("div", {
+        _c('div', {
             staticClass: "title"
         }, [
-            _c("div", [
+            _c('div', [
                 _vm._v(_vm._s(_vm.title))
             ]),
             _vm._v(" "),
-            _c("div", {
+            _c('div', {
                 staticClass: "md-layout-item md-size-10 mdIcon"
             }, [
-                _c("md-button", {
+                _c('md-button', {
                     staticClass: "md-icon-button",
                     attrs: {
                         "disabled": _vm.disableBtn
@@ -2369,18 +2579,18 @@ var render = function() {
                         "click": _vm.createEvent
                     }
                 }, [
-                    _c("md-icon", [
+                    _c('md-icon', [
                         _vm._v("control_point")
                     ])
                 ], 1)
             ], 1)
         ]),
         _vm._v(" "),
-        _c("md-content", {
+        _c('md-content', {
             staticClass: "container md-scrollbar"
         }, [
-            _c("md-list", _vm._l(_vm.data, function(item, index) {
-                return _c("md-list-item", {
+            _c('md-list', _vm._l(_vm.data, function(item, index) {
+                return _c('md-list-item', {
                     directives: [
                         {
                             name: "tooltip",
@@ -2392,7 +2602,7 @@ var render = function() {
                     key: index,
                     staticClass: "list-item",
                     class: {
-                        "selected": item.id === _vm.itemSelected
+                        'selected': item.id === _vm.itemSelected
                     },
                     on: {
                         "click": function($event) {
@@ -2400,7 +2610,7 @@ var render = function() {
                         }
                     }
                 }, [
-                    _c("span", {
+                    _c('span', {
                         staticClass: "md-list-item-text"
                     }, [
                         _vm._v(_vm._s(item.name))
@@ -2414,18 +2624,18 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"k8WAM":[function() {},{}],"aQXld":[function(require,module,exports) {
+},{}],"k8WAM":[function() {},{}],"aQXld":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hnxQL":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hnxQL":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("md-dialog", {
+    return _c('md-dialog', {
         staticClass: "mdDialogContainer",
         attrs: {
             "md-active": _vm.showDialog
@@ -2442,21 +2652,21 @@ var render = function() {
             }
         }
     }, [
-        _c("md-dialog-title", {
+        _c('md-dialog-title', {
             staticClass: "dialogTitle"
         }, [
             _vm._v("Manage " + _vm._s(_vm.type) + " Group")
         ]),
         _vm._v(" "),
-        _c("md-dialog-content", {
+        _c('md-dialog-content', {
             staticClass: "content"
         }, [
-            _c("div", {
+            _c('div', {
                 staticClass: "section"
             }, [
-                _c("link-template", {
+                _c('link-template', {
                     attrs: {
-                        "title": "Contexts",
+                        "title": 'Contexts',
                         "data": _vm.data,
                         "itemSelected": _vm.contextSelected
                     },
@@ -2467,12 +2677,12 @@ var render = function() {
                 })
             ], 1),
             _vm._v(" "),
-            _c("div", {
+            _c('div', {
                 staticClass: "section"
             }, [
-                _c("link-template", {
+                _c('link-template', {
                     attrs: {
-                        "title": "Categories",
+                        "title": 'Categories',
                         "data": _vm.categories,
                         "itemSelected": _vm.categorySelected,
                         "disableBtn": !_vm.contextSelected
@@ -2484,12 +2694,12 @@ var render = function() {
                 })
             ], 1),
             _vm._v(" "),
-            _c("div", {
+            _c('div', {
                 staticClass: "section"
             }, [
-                _c("link-template", {
+                _c('link-template', {
                     attrs: {
-                        "title": "Groups",
+                        "title": 'Groups',
                         "data": _vm.groups,
                         "itemSelected": _vm.groupSelected,
                         "disableBtn": !_vm.categorySelected
@@ -2502,8 +2712,8 @@ var render = function() {
             ], 1)
         ]),
         _vm._v(" "),
-        _c("md-dialog-actions", [
-            _c("md-button", {
+        _c('md-dialog-actions', [
+            _c('md-button', {
                 staticClass: "md-primary",
                 on: {
                     "click": function($event) {
@@ -2514,7 +2724,7 @@ var render = function() {
                 _vm._v("Close")
             ]),
             _vm._v(" "),
-            _c("md-button", {
+            _c('md-button', {
                 staticClass: "md-primary",
                 attrs: {
                     "disabled": _vm.disabled()
@@ -2534,13 +2744,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"70HZ4":[function() {},{}],"cEpwL":[function(require,module,exports) {
+},{}],"70HZ4":[function() {},{}],"cEpwL":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3TBbI":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3TBbI":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -2551,13 +2761,13 @@ let initialize = ()=>{
     script.staticRenderFns = require("dc271c33c0bf3514").staticRenderFns;
     script._scopeId = "data-v-7ab04c";
     require("b7c5eb87c99319e2").default(script);
-    script.__scopeId = "data-v-7ab04c";
+    script.__scopeId = 'data-v-7ab04c';
     script.__file = "selectTypeDialog.vue";
 };
 initialize();
 exports.default = script;
 
-},{"edde6a8a9ccfcf51":"3QXJx","dc271c33c0bf3514":"acLJ7","b7c5eb87c99319e2":"6MWdl","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3QXJx":[function(require,module,exports) {
+},{"edde6a8a9ccfcf51":"3QXJx","dc271c33c0bf3514":"acLJ7","b7c5eb87c99319e2":"6MWdl","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3QXJx":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerPanelManagerService = require("spinal-env-viewer-panel-manager-service");
@@ -2592,15 +2802,15 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"spinal-env-viewer-panel-manager-service":"7Uw4d","../../js/types":"b1uFH","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"acLJ7":[function(require,module,exports) {
+},{"spinal-env-viewer-panel-manager-service":"7Uw4d","../../js/types":"b1uFH","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"acLJ7":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("md-dialog", {
+    return _c('md-dialog', {
         attrs: {
             "md-active": _vm.showDialog
         },
@@ -2616,16 +2826,16 @@ var render = function() {
             }
         }
     }, [
-        _c("md-dialog-title", [
+        _c('md-dialog-title', [
             _vm._v(_vm._s("Select type".toUpperCase()))
         ]),
         _vm._v(" "),
-        _c("md-dialog-content", {
+        _c('md-dialog-content', {
             staticClass: "dialogContainer"
         }, [
-            _c("div", [
-                _c("md-field", [
-                    _c("label", {
+            _c('div', [
+                _c('md-field', [
+                    _c('label', {
                         attrs: {
                             "for": "movie"
                         }
@@ -2633,7 +2843,7 @@ var render = function() {
                         _vm._v("Select Group")
                     ]),
                     _vm._v(" "),
-                    _c("md-select", {
+                    _c('md-select', {
                         attrs: {
                             "name": "groupType",
                             "id": "groupType"
@@ -2646,7 +2856,7 @@ var render = function() {
                             expression: "typeSelected"
                         }
                     }, _vm._l(_vm.types, function(type, index) {
-                        return _c("md-option", {
+                        return _c('md-option', {
                             key: index,
                             attrs: {
                                 "value": type.type
@@ -2659,8 +2869,8 @@ var render = function() {
             ], 1)
         ]),
         _vm._v(" "),
-        _c("md-dialog-actions", [
-            _c("md-button", {
+        _c('md-dialog-actions', [
+            _c('md-button', {
                 staticClass: "md-primary",
                 on: {
                     "click": function($event) {
@@ -2671,7 +2881,7 @@ var render = function() {
                 _vm._v("Close")
             ]),
             _vm._v(" "),
-            _c("md-button", {
+            _c('md-button', {
                 staticClass: "md-primary",
                 attrs: {
                     "disabled": _vm.isDisabled()
@@ -2691,13 +2901,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"6MWdl":[function(require,module,exports) {
+},{}],"6MWdl":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3YAIO":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3YAIO":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -2709,13 +2919,13 @@ let initialize = ()=>{
     script._scopeId = "data-v-f6298b";
     script.__cssModules = require("70cf4367fed8ec93").default;
     require("614b327400410b36").default(script);
-    script.__scopeId = "data-v-f6298b";
+    script.__scopeId = 'data-v-f6298b';
     script.__file = "linkBimObjectToGroup.vue";
 };
 initialize();
 exports.default = script;
 
-},{"f4369c959946c7a1":"iQiot","ef1a3b5139486e9f":"1kwDg","70cf4367fed8ec93":"5ycdF","614b327400410b36":"kMYlo","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"iQiot":[function(require,module,exports) {
+},{"f4369c959946c7a1":"iQiot","ef1a3b5139486e9f":"1kwDg","70cf4367fed8ec93":"5ycdF","614b327400410b36":"kMYlo","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"iQiot":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerBimManagerService = require("spinal-env-viewer-bim-manager-service");
@@ -2874,15 +3084,15 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"spinal-env-viewer-bim-manager-service":"9Nkbe","../../../js/utilities":"cYKMv","spinal-env-viewer-plugin-group-manager-service":"tSLpq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1kwDg":[function(require,module,exports) {
+},{"spinal-env-viewer-bim-manager-service":"9Nkbe","../../../js/utilities":"cYKMv","spinal-env-viewer-plugin-group-manager-service":"tSLpq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1kwDg":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("md-dialog", {
+    return _c('md-dialog', {
         staticClass: "mdDialogContainer",
         attrs: {
             "md-active": _vm.showDialog
@@ -2899,16 +3109,16 @@ var render = function() {
             }
         }
     }, [
-        _c("md-dialog-title", {
+        _c('md-dialog-title', {
             staticClass: "dialogTitle"
         }, [
             _vm._v("Add bimObject(s) selected to\n    group")
         ]),
         _vm._v(" "),
-        _c("md-dialog-content", {
+        _c('md-dialog-content', {
             staticClass: "content"
         }, [
-            _c("div", {
+            _c('div', {
                 directives: [
                     {
                         name: "show",
@@ -2921,7 +3131,7 @@ var render = function() {
                 _vm._v("\n      Do you really want to link " + _vm._s(_vm._f("length")(_vm.selections)) + " bimObject(s) to the\n      group ?\n    ")
             ]),
             _vm._v(" "),
-            _c("div", {
+            _c('div', {
                 directives: [
                     {
                         name: "show",
@@ -2931,14 +3141,14 @@ var render = function() {
                     }
                 ]
             }, [
-                _c("md-progress-spinner", {
+                _c('md-progress-spinner', {
                     attrs: {
                         "md-mode": "indeterminate"
                     }
                 })
             ], 1),
             _vm._v(" "),
-            _c("div", {
+            _c('div', {
                 directives: [
                     {
                         name: "show",
@@ -2949,18 +3159,18 @@ var render = function() {
                 ],
                 staticClass: "result"
             }, [
-                _c("div", [
+                _c('div', [
                     _vm._v("linked with success: "),
-                    _c("span", {
+                    _c('span', {
                         staticClass: "success"
                     }, [
                         _vm._v(" " + _vm._s(_vm.linked))
                     ])
                 ]),
                 _vm._v(" "),
-                _c("div", [
+                _c('div', [
                     _vm._v("link failed : "),
-                    _c("span", {
+                    _c('span', {
                         staticClass: "error"
                     }, [
                         _vm._v(_vm._s(_vm.notLinked))
@@ -2969,8 +3179,8 @@ var render = function() {
             ])
         ]),
         _vm._v(" "),
-        _c("md-dialog-actions", [
-            _c("md-button", {
+        _c('md-dialog-actions', [
+            _c('md-button', {
                 staticClass: "md-primary",
                 attrs: {
                     "disabled": _vm.cancelDisabled()
@@ -2984,7 +3194,7 @@ var render = function() {
                 _vm._v("Close")
             ]),
             _vm._v(" "),
-            _c("md-button", {
+            _c('md-button', {
                 staticClass: "md-primary",
                 attrs: {
                     "disabled": _vm.yesDisabled()
@@ -3002,13 +3212,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"5ycdF":[function() {},{}],"kMYlo":[function(require,module,exports) {
+},{}],"5ycdF":[function() {},{}],"kMYlo":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5MhZG":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5MhZG":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _vue = require("vue");
 var _vueDefault = parcelHelpers.interopDefault(_vue);
@@ -3049,7 +3259,7 @@ for(let index = 0; index < panels.length; index++){
     SpinalForgeExtention.registerExtention(element.name, panelExtension);
 }
 
-},{"vue":"gt5MM","db18746d8bc7d6f7":"1mGHd","./linkerDialog.vue":"hRu5o","./globalLinkerPanel.vue":"28YMQ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1mGHd":[function(require,module,exports) {
+},{"vue":"gt5MM","db18746d8bc7d6f7":"1mGHd","./linkerDialog.vue":"hRu5o","./globalLinkerPanel.vue":"28YMQ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1mGHd":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -3078,7 +3288,7 @@ module.exports = {
     SpinalForgeExtention
 };
 
-},{"bf7edd8450503e22":"7Uw4d","64bd1569b4ded066":"gsEky"}],"gsEky":[function(require,module,exports) {
+},{"bf7edd8450503e22":"7Uw4d","64bd1569b4ded066":"gsEky"}],"gsEky":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
  * 
@@ -3313,7 +3523,7 @@ function getPanel() {
     };
 };
 
-},{}],"hRu5o":[function(require,module,exports) {
+},{}],"hRu5o":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -3325,13 +3535,13 @@ let initialize = ()=>{
     script._scopeId = "data-v-44b74a";
     script.__cssModules = require("6bf14fe62dd069af").default;
     require("804cc20effe081a0").default(script);
-    script.__scopeId = "data-v-44b74a";
+    script.__scopeId = 'data-v-44b74a';
     script.__file = "linkerDialog.vue";
 };
 initialize();
 exports.default = script;
 
-},{"2cb1462bda72c769":"fKRfe","88141901a7166c42":"8uqWl","6bf14fe62dd069af":"emdco","804cc20effe081a0":"2rM0o","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fKRfe":[function(require,module,exports) {
+},{"2cb1462bda72c769":"fKRfe","88141901a7166c42":"8uqWl","6bf14fe62dd069af":"emdco","804cc20effe081a0":"2rM0o","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fKRfe":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _vue = require("vue");
@@ -3502,10 +3712,10 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"vue":"gt5MM","spinal-env-viewer-graph-service":"9n7zp","spinal-env-viewer-plugin-group-manager-service":"tSLpq","68c869922bdba932":"7Uw4d","vue-virtual-scroller":"kl5Fe","../../js/event":"bnFtF","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"kl5Fe":[function(require,module,exports) {
+},{"vue":"gt5MM","spinal-env-viewer-graph-service":"9n7zp","spinal-env-viewer-plugin-group-manager-service":"tSLpq","68c869922bdba932":"7Uw4d","vue-virtual-scroller":"kl5Fe","../../js/event":"bnFtF","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"kl5Fe":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "DynamicScroller", ()=>__vue_component__$1);
@@ -3530,44 +3740,44 @@ const props = {
     },
     keyField: {
         type: String,
-        default: "id"
+        default: 'id'
     },
     direction: {
         type: String,
-        default: "vertical",
+        default: 'vertical',
         validator: (value)=>[
-                "vertical",
-                "horizontal"
+                'vertical',
+                'horizontal'
             ].includes(value)
     },
     listTag: {
         type: String,
-        default: "div"
+        default: 'div'
     },
     itemTag: {
         type: String,
-        default: "div"
+        default: 'div'
     }
 };
 function simpleArray() {
-    return this.items.length && typeof this.items[0] !== "object";
+    return this.items.length && typeof this.items[0] !== 'object';
 }
 let supportsPassive = false;
-if (typeof window !== "undefined") {
+if (typeof window !== 'undefined') {
     supportsPassive = false;
     try {
-        var opts = Object.defineProperty({}, "passive", {
+        var opts = Object.defineProperty({}, 'passive', {
             get () {
                 supportsPassive = true;
             }
         });
-        window.addEventListener("test", null, opts);
+        window.addEventListener('test', null, opts);
     } catch (e) {}
 }
 //
 let uid = 0;
 var script$2 = {
-    name: "RecycleScroller",
+    name: 'RecycleScroller',
     components: {
         ResizeObserver: (0, _vueResize.ResizeObserver)
     },
@@ -3597,11 +3807,11 @@ var script$2 = {
         },
         sizeField: {
             type: String,
-            default: "size"
+            default: 'size'
         },
         typeField: {
             type: String,
-            default: "type"
+            default: 'type'
         },
         buffer: {
             type: Number,
@@ -3625,11 +3835,11 @@ var script$2 = {
         },
         listTag: {
             type: String,
-            default: "div"
+            default: 'div'
         },
         itemTag: {
             type: String,
-            default: "div"
+            default: 'div'
         },
         listClass: {
             type: [
@@ -3637,7 +3847,7 @@ var script$2 = {
                 Object,
                 Array
             ],
-            default: ""
+            default: ''
         },
         itemClass: {
             type: [
@@ -3645,7 +3855,7 @@ var script$2 = {
                 Object,
                 Array
             ],
-            default: ""
+            default: ''
         }
     },
     data () {
@@ -3660,7 +3870,7 @@ var script$2 = {
         sizes () {
             if (this.itemSize === null) {
                 const sizes = {
-                    "-1": {
+                    '-1': {
                         accumulator: 0
                     }
                 };
@@ -3721,7 +3931,7 @@ var script$2 = {
             this.$_prerender = true;
             this.updateVisibleItems(false);
         }
-        if (this.gridItems && !this.itemSize) console.error("[vue-recycle-scroller] You must provide an itemSize when using gridItems");
+        if (this.gridItems && !this.itemSize) console.error('[vue-recycle-scroller] You must provide an itemSize when using gridItems');
     },
     mounted () {
         this.applyPageMode();
@@ -3734,7 +3944,7 @@ var script$2 = {
     },
     activated () {
         const lastPosition = this.$_lastUpdateScrollPosition;
-        if (typeof lastPosition === "number") this.$nextTick(()=>{
+        if (typeof lastPosition === 'number') this.$nextTick(()=>{
             this.scrollToPosition(lastPosition);
         });
     },
@@ -3754,7 +3964,7 @@ var script$2 = {
                 key,
                 type
             };
-            Object.defineProperty(view, "nr", {
+            Object.defineProperty(view, 'nr', {
                 configurable: false,
                 value: nonReactive
             });
@@ -3777,7 +3987,7 @@ var script$2 = {
             }
         },
         handleResize () {
-            this.$emit("resize");
+            this.$emit('resize');
             if (this.ready) this.updateVisibleItems(false);
         },
         handleScroll (event) {
@@ -3798,11 +4008,11 @@ var script$2 = {
         handleVisibilityChange (isVisible, entry) {
             if (this.ready) {
                 if (isVisible || entry.boundingClientRect.width !== 0 || entry.boundingClientRect.height !== 0) {
-                    this.$emit("visible");
+                    this.$emit('visible');
                     requestAnimationFrame(()=>{
                         this.updateVisibleItems(false);
                     });
-                } else this.$emit("hidden");
+                } else this.$emit('hidden');
             }
         },
         updateVisibleItems (checkItem, checkPositionDiff = false) {
@@ -3935,8 +4145,8 @@ var script$2 = {
                 }
                 // No view assigned to item
                 if (!view) {
-                    if (i === items.length - 1) this.$emit("scroll-end");
-                    if (i === 0) this.$emit("scroll-start");
+                    if (i === items.length - 1) this.$emit('scroll-end');
+                    if (i === 0) this.$emit('scroll-start');
                     type = item[typeField];
                     unusedPool = unusedViews.get(type);
                     if (continuous) {
@@ -3984,7 +4194,7 @@ var script$2 = {
             }
             this.$_startIndex = startIndex;
             this.$_endIndex = endIndex;
-            if (this.emitUpdate) this.$emit("update", startIndex, endIndex, visibleStartIndex, visibleEndIndex);
+            if (this.emitUpdate) this.$emit('update', startIndex, endIndex, visibleStartIndex, visibleEndIndex);
             // After the user has finished scrolling
             // Sort views so text selection is correct
             clearTimeout(this.$_sortTimer);
@@ -4001,7 +4211,7 @@ var script$2 = {
         },
         getScroll () {
             const { $el: el, direction } = this;
-            const isVertical = direction === "vertical";
+            const isVertical = direction === 'vertical';
             let scrollState;
             if (this.pageMode) {
                 const bounds = el.getBoundingClientRect();
@@ -4033,15 +4243,15 @@ var script$2 = {
         },
         addListeners () {
             this.listenerTarget = this.getListenerTarget();
-            this.listenerTarget.addEventListener("scroll", this.handleScroll, supportsPassive ? {
+            this.listenerTarget.addEventListener('scroll', this.handleScroll, supportsPassive ? {
                 passive: true
             } : false);
-            this.listenerTarget.addEventListener("resize", this.handleResize);
+            this.listenerTarget.addEventListener('resize', this.handleResize);
         },
         removeListeners () {
             if (!this.listenerTarget) return;
-            this.listenerTarget.removeEventListener("scroll", this.handleScroll);
-            this.listenerTarget.removeEventListener("resize", this.handleResize);
+            this.listenerTarget.removeEventListener('scroll', this.handleScroll);
+            this.listenerTarget.removeEventListener('resize', this.handleResize);
             this.listenerTarget = null;
         },
         scrollToItem (index) {
@@ -4051,12 +4261,12 @@ var script$2 = {
             this.scrollToPosition(scroll);
         },
         scrollToPosition (position) {
-            const direction = this.direction === "vertical" ? {
-                scroll: "scrollTop",
-                start: "top"
+            const direction = this.direction === 'vertical' ? {
+                scroll: 'scrollTop',
+                start: 'top'
             } : {
-                scroll: "scrollLeft",
-                start: "left"
+                scroll: 'scrollLeft',
+                start: 'left'
             };
             let viewport;
             let scrollDirection;
@@ -4064,7 +4274,7 @@ var script$2 = {
             if (this.pageMode) {
                 const viewportEl = (0, _scrollparentDefault.default)(this.$el);
                 // HTML doesn't overflow like other elements
-                const scrollTop = viewportEl.tagName === "HTML" ? 0 : viewportEl[direction.scroll];
+                const scrollTop = viewportEl.tagName === 'HTML' ? 0 : viewportEl[direction.scroll];
                 const bounds = viewportEl.getBoundingClientRect();
                 const scroller = this.$el.getBoundingClientRect();
                 const scrollerPosition = scroller[direction.start] - bounds[direction.start];
@@ -4080,10 +4290,10 @@ var script$2 = {
         },
         itemsLimitError () {
             setTimeout(()=>{
-                console.log("It seems the scroller element isn't scrolling, so it tries to render all the items at once.", "Scroller:", this.$el);
-                console.log("Make sure the scroller has a fixed height (or width) and 'overflow-y' (or 'overflow-x') set to 'auto' so it can scroll correctly and only render the items visible in the scroll viewport.");
+                console.log('It seems the scroller element isn\'t scrolling, so it tries to render all the items at once.', 'Scroller:', this.$el);
+                console.log('Make sure the scroller has a fixed height (or width) and \'overflow-y\' (or \'overflow-x\') set to \'auto\' so it can scroll correctly and only render the items visible in the scroll viewport.');
             });
-            throw new Error("Rendered items limit reached");
+            throw new Error('Rendered items limit reached');
         },
         sortViews () {
             this.pool.sort((viewA, viewB)=>viewA.nr.index - viewB.nr.index);
@@ -4091,13 +4301,13 @@ var script$2 = {
     }
 };
 function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier /* server only */ , shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
-    if (typeof shadowMode !== "boolean") {
+    if (typeof shadowMode !== 'boolean') {
         createInjectorSSR = createInjector;
         createInjector = shadowMode;
         shadowMode = false;
     }
     // Vue.extend constructor export interop.
-    const options = typeof script === "function" ? script.options : script;
+    const options = typeof script === 'function' ? script.options : script;
     // render functions
     if (template && template.render) {
         options.render = template.render;
@@ -4117,7 +4327,7 @@ function normalizeComponent(template, style, script, scopeId, isFunctionalTempla
             this.$vnode && this.$vnode.ssrContext || // stateful
             this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext; // functional
             // 2.2 with runInNewContext: true
-            if (!context && typeof __VUE_SSR_CONTEXT__ !== "undefined") context = __VUE_SSR_CONTEXT__;
+            if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') context = __VUE_SSR_CONTEXT__;
             // inject component styles
             if (style) style.call(this, createInjectorSSR(context));
             // register component module identifier for async chunk inference
@@ -4250,16 +4460,16 @@ __vue_render__$1._withStripped = true;
 }, __vue_inject_styles__$2, __vue_script__$2, __vue_scope_id__$2, __vue_is_functional_template__$2, __vue_module_identifier__$2, false, undefined, undefined, undefined);
 //
 var script$1 = {
-    name: "DynamicScroller",
+    name: 'DynamicScroller',
     components: {
         RecycleScroller: __vue_component__$2
     },
     provide () {
-        if (typeof ResizeObserver !== "undefined") this.$_resizeObserver = new ResizeObserver((entries)=>{
+        if (typeof ResizeObserver !== 'undefined') this.$_resizeObserver = new ResizeObserver((entries)=>{
             requestAnimationFrame(()=>{
                 if (!Array.isArray(entries)) return;
                 for (const entry of entries)if (entry.target) {
-                    const event = new CustomEvent("resize", {
+                    const event = new CustomEvent('resize', {
                         detail: {
                             contentRect: entry.contentRect
                         }
@@ -4307,7 +4517,7 @@ var script$1 = {
                 const item = items[i];
                 const id = simpleArray ? i : item[keyField];
                 let size = sizes[id];
-                if (typeof size === "undefined" && !this.$_undefinedMap[id]) size = 0;
+                if (typeof size === 'undefined' && !this.$_undefinedMap[id]) size = 0;
                 result.push({
                     item,
                     id,
@@ -4318,7 +4528,7 @@ var script$1 = {
         },
         listeners () {
             const listeners = {};
-            for(const key in this.$listeners)if (key !== "resize" && key !== "visible") listeners[key] = this.$listeners[key];
+            for(const key in this.$listeners)if (key !== 'resize' && key !== 'visible') listeners[key] = this.$listeners[key];
             return listeners;
         }
     },
@@ -4368,17 +4578,17 @@ var script$1 = {
         onScrollerResize () {
             const scroller = this.$refs.scroller;
             if (scroller) this.forceUpdate();
-            this.$emit("resize");
+            this.$emit('resize');
         },
         onScrollerVisible () {
-            this.$emit("vscroll:update", {
+            this.$emit('vscroll:update', {
                 force: false
             });
-            this.$emit("visible");
+            this.$emit('visible');
         },
         forceUpdate (clear = true) {
             if (clear || this.simpleArray) this.vscrollData.validSizes = {};
-            this.$emit("vscroll:update", {
+            this.$emit('vscroll:update', {
                 force: true
             });
         },
@@ -4480,11 +4690,11 @@ __vue_render__._withStripped = true;
     staticRenderFns: __vue_staticRenderFns__
 }, __vue_inject_styles__$1, __vue_script__$1, __vue_scope_id__$1, __vue_is_functional_template__$1, __vue_module_identifier__$1, false, undefined, undefined, undefined);
 var script = {
-    name: "DynamicScrollerItem",
+    name: 'DynamicScrollerItem',
     inject: [
-        "vscrollData",
-        "vscrollParent",
-        "vscrollResizeObserver"
+        'vscrollData',
+        'vscrollParent',
+        'vscrollResizeObserver'
     ],
     props: {
         // eslint-disable-next-line vue/require-prop-types
@@ -4518,7 +4728,7 @@ var script = {
         },
         tag: {
             type: String,
-            default: "div"
+            default: 'div'
         }
     },
     computed: {
@@ -4536,7 +4746,7 @@ var script = {
         }
     },
     watch: {
-        watchData: "updateWatchData",
+        watchData: 'updateWatchData',
         id () {
             if (!this.size) this.onDataUpdate();
         },
@@ -4564,8 +4774,8 @@ var script = {
         this.updateWatchData();
         if (!this.vscrollResizeObserver) {
             for(const k in this.sizeDependencies)this.$watch(()=>this.sizeDependencies[k], this.onDataUpdate);
-            this.vscrollParent.$on("vscroll:update", this.onVscrollUpdate);
-            this.vscrollParent.$on("vscroll:update-size", this.onVscrollUpdateSize);
+            this.vscrollParent.$on('vscroll:update', this.onVscrollUpdate);
+            this.vscrollParent.$on('vscroll:update-size', this.onVscrollUpdateSize);
         }
     },
     mounted () {
@@ -4575,8 +4785,8 @@ var script = {
         }
     },
     beforeDestroy () {
-        this.vscrollParent.$off("vscroll:update", this.onVscrollUpdate);
-        this.vscrollParent.$off("vscroll:update-size", this.onVscrollUpdateSize);
+        this.vscrollParent.$off('vscroll:update', this.onVscrollUpdate);
+        this.vscrollParent.$off('vscroll:update-size', this.onVscrollUpdateSize);
         this.unobserveSize();
     },
     methods: {
@@ -4591,7 +4801,7 @@ var script = {
             } else this.$_forceNextVScrollUpdate = this.id;
         },
         updateWatchData () {
-            if (this.watchData && !this.vscrollResizeObserver) this.$_watchData = this.$watch("item", ()=>{
+            if (this.watchData && !this.vscrollResizeObserver) this.$_watchData = this.$watch('item', ()=>{
                 this.onDataUpdate();
             }, {
                 deep: true
@@ -4620,7 +4830,7 @@ var script = {
             });
         },
         applySize (width, height) {
-            const size = ~~(this.vscrollParent.direction === "vertical" ? height : width);
+            const size = ~~(this.vscrollParent.direction === 'vertical' ? height : width);
             if (size && this.size !== size) {
                 if (this.vscrollParent.$_undefinedMap[this.id]) {
                     this.vscrollParent.$_undefinedSizes--;
@@ -4628,18 +4838,18 @@ var script = {
                 }
                 this.$set(this.vscrollData.sizes, this.id, size);
                 this.$set(this.vscrollData.validSizes, this.id, true);
-                if (this.emitResize) this.$emit("resize", this.id);
+                if (this.emitResize) this.$emit('resize', this.id);
             }
         },
         observeSize () {
             if (!this.vscrollResizeObserver || !this.$el.parentNode) return;
             this.vscrollResizeObserver.observe(this.$el.parentNode);
-            this.$el.parentNode.addEventListener("resize", this.onResize);
+            this.$el.parentNode.addEventListener('resize', this.onResize);
         },
         unobserveSize () {
             if (!this.vscrollResizeObserver) return;
             this.vscrollResizeObserver.unobserve(this.$el.parentNode);
-            this.$el.parentNode.removeEventListener("resize", this.onResize);
+            this.$el.parentNode.removeEventListener('resize', this.onResize);
         },
         onResize (event) {
             const { width, height } = event.detail.contentRect;
@@ -4674,7 +4884,7 @@ function IdState({ idProp = (vm)=>vm.item.id } = {}) {
         },
         created () {
             this.$_id = null;
-            if (typeof idProp === "function") this.$_getId = ()=>idProp.call(this, this);
+            if (typeof idProp === 'function') this.$_getId = ()=>idProp.call(this, this);
             else this.$_getId = ()=>this[idProp];
             this.$watch(this.$_getId, {
                 handler (value) {
@@ -4695,12 +4905,12 @@ function IdState({ idProp = (vm)=>vm.item.id } = {}) {
        * @param {number|string} id Unique id for the data
        */ $_idStateInit (id) {
                 const factory = this.$options.idState;
-                if (typeof factory === "function") {
+                if (typeof factory === 'function') {
                     const data = factory.call(this, this);
                     vm.$set(store, id, data);
                     this.$_id = id;
                     return data;
-                } else throw new Error("[mixin IdState] Missing `idState` function on component definition.");
+                } else throw new Error('[mixin IdState] Missing `idState` function on component definition.');
             },
             /**
        * Ensure idState is created and up-to-date
@@ -4729,19 +4939,19 @@ const plugin = {
     install (Vue, options) {
         const finalOptions = Object.assign({}, {
             installComponents: true,
-            componentsPrefix: ""
+            componentsPrefix: ''
         }, options);
-        for(const key in finalOptions)if (typeof finalOptions[key] !== "undefined") config[key] = finalOptions[key];
+        for(const key in finalOptions)if (typeof finalOptions[key] !== 'undefined') config[key] = finalOptions[key];
         if (finalOptions.installComponents) registerComponents(Vue, finalOptions.componentsPrefix);
     }
 };
 // Auto-install
 let GlobalVue = null;
-if (typeof window !== "undefined") GlobalVue = window.Vue;
-else if (typeof global !== "undefined") GlobalVue = global.Vue;
+if (typeof window !== 'undefined') GlobalVue = window.Vue;
+else if (typeof global !== 'undefined') GlobalVue = global.Vue;
 if (GlobalVue) GlobalVue.use(plugin);
 
-},{"vue-resize":"IBgkp","vue-observe-visibility":"d20rA","scrollparent":"9CNUl","vue":"gt5MM","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"IBgkp":[function(require,module,exports) {
+},{"vue-resize":"IBgkp","vue-observe-visibility":"d20rA","scrollparent":"9CNUl","vue":"gt5MM","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"IBgkp":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "install", ()=>install);
@@ -4749,18 +4959,18 @@ parcelHelpers.export(exports, "ResizeObserver", ()=>ResizeObserver);
 var global = arguments[3];
 function getInternetExplorerVersion() {
     var ua = window.navigator.userAgent;
-    var msie = ua.indexOf("MSIE ");
+    var msie = ua.indexOf('MSIE ');
     if (msie > 0) // IE 10 or older => return version number
-    return parseInt(ua.substring(msie + 5, ua.indexOf(".", msie)), 10);
-    var trident = ua.indexOf("Trident/");
+    return parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
+    var trident = ua.indexOf('Trident/');
     if (trident > 0) {
         // IE 11 => return version number
-        var rv = ua.indexOf("rv:");
-        return parseInt(ua.substring(rv + 3, ua.indexOf(".", rv)), 10);
+        var rv = ua.indexOf('rv:');
+        return parseInt(ua.substring(rv + 3, ua.indexOf('.', rv)), 10);
     }
-    var edge = ua.indexOf("Edge/");
+    var edge = ua.indexOf('Edge/');
     if (edge > 0) // Edge (IE 12+) => return version number
-    return parseInt(ua.substring(edge + 5, ua.indexOf(".", edge)), 10);
+    return parseInt(ua.substring(edge + 5, ua.indexOf('.', edge)), 10);
     // other browser
     return -1;
 }
@@ -4776,7 +4986,7 @@ var ResizeObserver = {
         var _vm = this;
         var _h = _vm.$createElement;
         var _c = _vm._self._c || _h;
-        return _c("div", {
+        return _c('div', {
             staticClass: "resize-observer",
             attrs: {
                 "tabindex": "-1"
@@ -4784,23 +4994,23 @@ var ResizeObserver = {
         });
     },
     staticRenderFns: [],
-    _scopeId: "data-v-b329ee4c",
-    name: "resize-observer",
+    _scopeId: 'data-v-b329ee4c',
+    name: 'resize-observer',
     methods: {
         compareAndNotify: function compareAndNotify() {
             if (this._w !== this.$el.offsetWidth || this._h !== this.$el.offsetHeight) {
                 this._w = this.$el.offsetWidth;
                 this._h = this.$el.offsetHeight;
-                this.$emit("notify");
+                this.$emit('notify');
             }
         },
         addResizeHandlers: function addResizeHandlers() {
-            this._resizeObject.contentDocument.defaultView.addEventListener("resize", this.compareAndNotify);
+            this._resizeObject.contentDocument.defaultView.addEventListener('resize', this.compareAndNotify);
             this.compareAndNotify();
         },
         removeResizeHandlers: function removeResizeHandlers() {
             if (this._resizeObject && this._resizeObject.onload) {
-                if (!isIE && this._resizeObject.contentDocument) this._resizeObject.contentDocument.defaultView.removeEventListener("resize", this.compareAndNotify);
+                if (!isIE && this._resizeObject.contentDocument) this._resizeObject.contentDocument.defaultView.removeEventListener('resize', this.compareAndNotify);
                 delete this._resizeObject.onload;
             }
         }
@@ -4812,14 +5022,14 @@ var ResizeObserver = {
             _this._w = _this.$el.offsetWidth;
             _this._h = _this.$el.offsetHeight;
         });
-        var object = document.createElement("object");
+        var object = document.createElement('object');
         this._resizeObject = object;
-        object.setAttribute("aria-hidden", "true");
-        object.setAttribute("tabindex", -1);
+        object.setAttribute('aria-hidden', 'true');
+        object.setAttribute('tabindex', -1);
         object.onload = this.addResizeHandlers;
-        object.type = "text/html";
+        object.type = 'text/html';
         if (isIE) this.$el.appendChild(object);
-        object.data = "about:blank";
+        object.data = 'about:blank';
         if (!isIE) this.$el.appendChild(object);
     },
     beforeDestroy: function beforeDestroy() {
@@ -4828,8 +5038,8 @@ var ResizeObserver = {
 };
 // Install the components
 function install(Vue) {
-    Vue.component("resize-observer", ResizeObserver);
-    Vue.component("ResizeObserver", ResizeObserver);
+    Vue.component('resize-observer', ResizeObserver);
+    Vue.component('ResizeObserver', ResizeObserver);
 }
 // Plugin
 var plugin = {
@@ -4839,12 +5049,12 @@ var plugin = {
 };
 // Auto-install
 var GlobalVue = null;
-if (typeof window !== "undefined") GlobalVue = window.Vue;
-else if (typeof global !== "undefined") GlobalVue = global.Vue;
+if (typeof window !== 'undefined') GlobalVue = window.Vue;
+else if (typeof global !== 'undefined') GlobalVue = global.Vue;
 if (GlobalVue) GlobalVue.use(plugin);
 exports.default = plugin;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"d20rA":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"d20rA":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "ObserveVisibility", ()=>ObserveVisibility);
@@ -4893,7 +5103,7 @@ function _nonIterableSpread() {
 }
 function processOptions(value) {
     var options;
-    if (typeof value === "function") // Simple options (callback-only)
+    if (typeof value === 'function') // Simple options (callback-only)
     options = {
         callback: value
     };
@@ -4911,7 +5121,7 @@ function throttle(callback, delay) {
         currentArgs = args;
         if (timeout && state === lastState) return;
         var leading = options.leading;
-        if (typeof leading === "function") leading = leading(state, lastState);
+        if (typeof leading === 'function') leading = leading(state, lastState);
         if ((!timeout || state !== lastState) && leading) callback.apply(void 0, [
             state
         ].concat(_toConsumableArray(currentArgs)));
@@ -4932,7 +5142,7 @@ function throttle(callback, delay) {
 }
 function deepEqual(val1, val2) {
     if (val1 === val2) return true;
-    if (_typeof(val1) === "object") {
+    if (_typeof(val1) === 'object') {
         for(var key in val1){
             if (!deepEqual(val1[key], val2[key])) return false;
         }
@@ -4967,7 +5177,7 @@ var VisibilityState = /*#__PURE__*/ function() {
                     var _ref = this.options.throttleOptions || {}, _leading = _ref.leading;
                     this.callback = throttle(this.callback, this.options.throttle, {
                         leading: function leading(state) {
-                            return _leading === "both" || _leading === "visible" && state || _leading === "hidden" && !state;
+                            return _leading === 'both' || _leading === 'visible' && state || _leading === 'hidden' && !state;
                         }
                     });
                 }
@@ -5018,7 +5228,7 @@ var VisibilityState = /*#__PURE__*/ function() {
 function bind(el, _ref2, vnode) {
     var value = _ref2.value;
     if (!value) return;
-    if (typeof IntersectionObserver === "undefined") console.warn("[vue-observe-visibility] IntersectionObserver API is not available in your browser. Please install this polyfill: https://github.com/w3c/IntersectionObserver/tree/master/polyfill");
+    if (typeof IntersectionObserver === 'undefined') console.warn('[vue-observe-visibility] IntersectionObserver API is not available in your browser. Please install this polyfill: https://github.com/w3c/IntersectionObserver/tree/master/polyfill');
     else {
         var state = new VisibilityState(el, value, vnode);
         el._vue_visibilityState = state;
@@ -5050,7 +5260,7 @@ var ObserveVisibility = {
     unbind: unbind
 };
 function install(Vue) {
-    Vue.directive("observe-visibility", ObserveVisibility);
+    Vue.directive('observe-visibility', ObserveVisibility);
 /* -- Add more components here -- */ }
 /* -- Plugin definition & Auto-install -- */ /* You shouldn't have to modify the code below */ // Plugin
 var plugin = {
@@ -5059,12 +5269,12 @@ var plugin = {
     install: install
 };
 var GlobalVue = null;
-if (typeof window !== "undefined") GlobalVue = window.Vue;
-else if (typeof global !== "undefined") GlobalVue = global.Vue;
+if (typeof window !== 'undefined') GlobalVue = window.Vue;
+else if (typeof global !== 'undefined') GlobalVue = global.Vue;
 if (GlobalVue) GlobalVue.use(plugin);
 exports.default = plugin;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9CNUl":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9CNUl":[function(require,module,exports,__globalThis) {
 (function(root, factory) {
     if (typeof define === "function" && define.amd) define([], factory);
     else if (0, module.exports) module.exports = factory();
@@ -5086,24 +5296,24 @@ exports.default = plugin;
     return scrollParent;
 });
 
-},{}],"8uqWl":[function(require,module,exports) {
+},{}],"8uqWl":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("md-content", {
+    return _c('md-content', {
         staticClass: "mdContent"
     }, [
-        _c("div", {
+        _c('div', {
             staticClass: "header"
         }, [
-            _c("div", {
+            _c('div', {
                 staticClass: "buscar-caja",
                 class: {
                     isOpened: _vm.isOpened
                 }
             }, [
-                _c("input", {
+                _c('input', {
                     directives: [
                         {
                             name: "model",
@@ -5132,26 +5342,26 @@ var render = function() {
                     }
                 }),
                 _vm._v(" "),
-                _c("a", {
+                _c('a', {
                     staticClass: "md-icon-button buscar-btn",
                     on: {
                         "click": _vm.openSearchBar
                     }
                 }, [
-                    _c("md-icon", [
+                    _c('md-icon', [
                         _vm._v("search")
                     ])
                 ], 1)
             ])
         ]),
         _vm._v(" "),
-        _vm.tempList.length > 0 && _vm.appState === _vm.STATES.normal ? _c("div", {
+        _vm.tempList.length > 0 && _vm.appState === _vm.STATES.normal ? _c('div', {
             staticClass: "_container"
         }, [
-            _c("md-content", {
+            _c('md-content', {
                 staticClass: "listItem md-scrollbar"
             }, [
-                _c("RecycleScroller", {
+                _c('RecycleScroller', {
                     attrs: {
                         "items": _vm.tempList,
                         "item-size": 60,
@@ -5163,34 +5373,34 @@ var render = function() {
                             fn: function(ref) {
                                 var item = ref.item;
                                 return [
-                                    _c("div", {
+                                    _c('div', {
                                         staticClass: "listContainer",
                                         on: {
                                             "mouseover": function($event) {
-                                                return _vm.eventMethod("mouseover", item);
+                                                return _vm.eventMethod('mouseover', item);
                                             },
                                             "mouseleave": function($event) {
-                                                return _vm.eventMethod("mouseleave", item);
+                                                return _vm.eventMethod('mouseleave', item);
                                             }
                                         }
                                     }, [
-                                        _c("span", {
+                                        _c('span', {
                                             staticClass: "md-list-item-text"
                                         }, [
                                             _vm._v(_vm._s(item.name))
                                         ]),
                                         _vm._v(" "),
-                                        _vm.elementExistInCategory(item) ? _c("div", {
+                                        _vm.elementExistInCategory(item) ? _c('div', {
                                             staticClass: "groupColor",
                                             style: {
                                                 backgroundColor: item.groupColor
                                             },
                                             attrs: {
-                                                "title": "Linked to " + item.groupName
+                                                "title": 'Linked to ' + item.groupName
                                             }
                                         }) : _vm._e(),
                                         _vm._v(" "),
-                                        _c("md-button", {
+                                        _c('md-button', {
                                             staticClass: "md-icon-button panel_link_button",
                                             on: {
                                                 "click": function($event) {
@@ -5198,7 +5408,7 @@ var render = function() {
                                                 }
                                             }
                                         }, [
-                                            _c("md-icon", [
+                                            _c('md-icon', [
                                                 _vm._v(_vm._s(_vm.getIcon(item)))
                                             ])
                                         ], 1)
@@ -5211,16 +5421,16 @@ var render = function() {
             ], 1)
         ], 1) : _vm._e(),
         _vm._v(" "),
-        _vm.tempList.length === 0 && _vm.appState === _vm.STATES.normal ? _c("div", {
+        _vm.tempList.length === 0 && _vm.appState === _vm.STATES.normal ? _c('div', {
             staticClass: "_container empty"
         }, [
-            _vm._v("\n			No Data found !\n		")
+            _vm._v("\n\t\t\tNo Data found !\n\t\t")
         ]) : _vm._e(),
         _vm._v(" "),
-        _vm.appState === _vm.STATES.loading ? _c("div", {
+        _vm.appState === _vm.STATES.loading ? _c('div', {
             staticClass: "_container empty"
         }, [
-            _c("md-progress-spinner", {
+            _c('md-progress-spinner', {
                 staticClass: "spiner",
                 attrs: {
                     "md-mode": "indeterminate"
@@ -5228,10 +5438,10 @@ var render = function() {
             })
         ], 1) : _vm._e(),
         _vm._v(" "),
-        _vm.appState === _vm.STATES.error ? _c("div", {
+        _vm.appState === _vm.STATES.error ? _c('div', {
             staticClass: "_container empty"
         }, [
-            _vm._v("\n			Sorry, Something was wrong. Please retry !!\n		")
+            _vm._v("\n\t\t\tSorry, Something was wrong. Please retry !!\n\t\t")
         ]) : _vm._e()
     ]);
 };
@@ -5239,13 +5449,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"emdco":[function() {},{}],"2rM0o":[function(require,module,exports) {
+},{}],"emdco":[function() {},{}],"2rM0o":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"28YMQ":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"28YMQ":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -5257,13 +5467,13 @@ let initialize = ()=>{
     script._scopeId = "data-v-1938f5";
     script.__cssModules = require("2d5e0ae9625d8820").default;
     require("47789b8c34c4f055").default(script);
-    script.__scopeId = "data-v-1938f5";
+    script.__scopeId = 'data-v-1938f5';
     script.__file = "globalLinkerPanel.vue";
 };
 initialize();
 exports.default = script;
 
-},{"d824f09aae892243":"3ZGAI","a55057304c009daf":"jyy3j","2d5e0ae9625d8820":"zzEXT","47789b8c34c4f055":"g89OY","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3ZGAI":[function(require,module,exports) {
+},{"d824f09aae892243":"3ZGAI","a55057304c009daf":"jyy3j","2d5e0ae9625d8820":"zzEXT","47789b8c34c4f055":"g89OY","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3ZGAI":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _service = require("../../services/service");
@@ -5386,10 +5596,207 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"../../services/service":"19gQQ","../others/tableComponent.vue":"52B2t","spinal-core-connectorjs_type":"fRH70","spinal-env-viewer-graph-service":"9n7zp","spinal-env-viewer-context-geographic-service":"5QjJf","spinal-env-viewer-plugin-bimobjectservice":"ji3fq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"52B2t":[function(require,module,exports) {
+},{"../../services/service":"19gQQ","../others/tableComponent.vue":"52B2t","spinal-core-connectorjs_type":"fRH70","spinal-env-viewer-graph-service":"9n7zp","spinal-env-viewer-context-geographic-service":"5QjJf","spinal-env-viewer-plugin-bimobjectservice":"ji3fq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"19gQQ":[function(require,module,exports,__globalThis) {
+const { SPINAL_RELATION_PTR_LST_TYPE, SpinalGraphService } = require("bae9fe1938ea9bca");
+const { Model } = require("e509c984e0dbbabc");
+const constants = require("bd6e938e9e366621");
+const { default: groupManagerService } = require("8ccff7ee81184cc0");
+const { default: utilities } = require("9d5fcd89d492a04c");
+let groupService = {
+    constants: constants,
+    createGroupContext (name, type) {
+        return groupManagerService.createGroupContext(name, type);
+    },
+    addElement (contextId, elementId, elementType, elementName, iconName, color) {
+        let contextInfo = SpinalGraphService.getInfo(contextId);
+        let contextType = contextInfo && contextInfo.type ? contextInfo.type.get() : undefined;
+        let typeAndRelation = this.getTypeAndRelation(elementType, contextType);
+        let type = typeAndRelation.type;
+        let relationName = typeAndRelation.relation;
+        if (type && relationName) {
+            let info = {
+                name: elementName,
+                type: type,
+                icon: iconName,
+                color: color
+            };
+            let childId = SpinalGraphService.createNode(info, new Model({
+                name: elementName
+            }));
+            return SpinalGraphService.addChildInContext(elementId, childId, contextId, relationName, SPINAL_RELATION_PTR_LST_TYPE);
+        }
+    },
+    elementIsLinkedToGroup (groupId, elementId) {
+        return groupManagerService.elementIsLinkedToGroup(groupId, elementId);
+    },
+    linkElementToGroup (groupId, elementId, contextId) {
+        return groupManagerService.linkElementToGroup(contextId, groupId, elementId);
+    },
+    removeLink (groupId, elementId) {
+        return groupManagerService.removeLink(groupId, elementId);
+    },
+    getTypeAndRelation (elementType, contextType) {
+        switch(elementType){
+            case contextType:
+                return {
+                    type: constants.CATEGORY_TYPE,
+                    relation: constants.CONTEXT_TO_CATEGORY_RELATION
+                };
+            case constants.CATEGORY_TYPE:
+                let type = constants.CONTEXT_GROUP_ASSOCIATION.get(contextType);
+                return {
+                    type: type,
+                    relation: constants.CATEGORY_TO_GROUP_RELATION
+                };
+            default:
+                return {};
+        }
+    },
+    getElementsLinked (groupId) {
+        return groupManagerService.getElementsLinked(groupId);
+    },
+    getGroups (selectedNode) {
+        let type = selectedNode.type.get();
+        let nodeId = selectedNode.id.get();
+        if (constants.GROUP_RELATION_ASSOCIATION.get(type)) return Promise.resolve([
+            selectedNode
+        ]);
+        return utilities.getGroups(nodeId);
+    },
+    getCategorie (selectedNode) {
+        return groupManagerService.getCategories(selectedNode.id.get());
+    },
+    elementIsInCategorie (categoryId, elementId) {
+        return groupManagerService.elementIsInCategorie(categoryId, elementId);
+    }
+};
+module.exports = {
+    groupService
+};
+
+},{"bae9fe1938ea9bca":"9n7zp","e509c984e0dbbabc":"fRH70","bd6e938e9e366621":"gby48","8ccff7ee81184cc0":"tSLpq","9d5fcd89d492a04c":"cYKMv"}],"gby48":[function(require,module,exports,__globalThis) {
+// ////////////////////////////////////////////////////
+// // ROOMS
+// ////////////////////////////////////////////////////
+// const ROOMS_GROUP_CONTEXT = "RoomsGroupContext";
+// const ROOMS_GROUP = "RoomsGroup";
+// const ROOMS_GROUP_RELATION = "hasRoomsGroup";
+// const ROOMS_TO_ELEMENT_RELATION = "groupHasRooms";
+// const ROOMS_CATEGORY = "Rooms_category";
+// const ROOMS_CATEGORY_RELATION = "hasRoomsCategory";
+// ///////////////////////////////////////////////////////
+// // BimObject
+// ///////////////////////////////////////////////////////
+// const EQUIPMENTS_GROUP_CONTEXT = "EquipmentGroupContext";
+// const EQUIPMENTS_GROUP = "EquipmentGroup";
+// const EQUIPMENTS_GROUP_RELATION = "hasEquipmentsGroup";
+// const EQUIPMENTS_TO_ELEMENT_RELATION = "groupHasEquipments";
+// const EQUIPMENTS_CATEGORY = "Equipment_category";
+// const EQUIPMENTS_CATEGORY_RELATION = "hasEquipmentsCategory";
+// const typeLst = [
+//   ROOMS_GROUP_CONTEXT,
+//   ROOMS_GROUP,
+//   ROOMS_CATEGORY,
+//   EQUIPMENTS_GROUP_CONTEXT,
+//   EQUIPMENTS_GROUP,
+//   EQUIPMENTS_CATEGORY
+// ]
+// const TYPE_AND_RELATION = new Map();
+// TYPE_AND_RELATION.set(ROOMS_GROUP_CONTEXT, ROOMS_CATEGORY_RELATION)
+// TYPE_AND_RELATION.set(ROOMS_GROUP, ROOMS_TO_ELEMENT_RELATION)
+// TYPE_AND_RELATION.set(ROOMS_CATEGORY, ROOMS_GROUP_RELATION)
+// TYPE_AND_RELATION.set(EQUIPMENTS_GROUP_CONTEXT, EQUIPMENTS_CATEGORY_RELATION)
+// TYPE_AND_RELATION.set(EQUIPMENTS_GROUP, EQUIPMENTS_TO_ELEMENT_RELATION)
+// TYPE_AND_RELATION.set(EQUIPMENTS_CATEGORY, EQUIPMENTS_GROUP_RELATION)
+// const CONTEXT_TYPE = "groupingContext";
+// const CATEGORY_TYPE = "groupingCategory";
+// ///////////////////////////////////////////
+// //            Groups Types               //
+// ///////////////////////////////////////////
+// const ROOMS_GROUP = "roomsGroup";
+// const EQUIPMENTS_GROUP = "equipmentGroup";
+// const ENDPOINT_GROUP = "endpointGroup"
+// ///////////////////////////////////////////
+// //            Relations                  //
+// ///////////////////////////////////////////
+// const CONTEXT_TO_CATEGORY_RELATION = "hasCategory";
+// const CATEGORY_TO_GROUP_RELATION = "hasGroup";
+// const GROUP_TO_ROOMS_RELATION = "groupHasRooms";
+// const GROUP_TO_EQUIPMENTS_RELATION = "groupHasEquipments";
+// const GROUP_TO_ENDPOINT_RELATION = "groupHasEndpoints";
+class GroupServiceConstants {
+    constructor(){
+        ///////////////////////////////////////
+        // CONTEXT
+        ///////////////////////////////////////
+        this.ROOMS_GROUP_CONTEXT = "RoomsGroupContext";
+        this.EQUIPMENTS_GROUP_CONTEXT = "EquipmentGroupContext";
+        this.ENDPOINTS_GROUP_CONTEXT = "EndpointGroupContext";
+        this.CONTEXTS_TYPES = [
+            this.ROOMS_GROUP_CONTEXT,
+            this.EQUIPMENTS_GROUP_CONTEXT,
+            this.ENDPOINTS_GROUP_CONTEXT
+        ];
+        //Category
+        this.CATEGORY_TYPE = "groupingCategory";
+        ///////////////////////////////////////////
+        //            Groups Types               //
+        ///////////////////////////////////////////
+        this.ROOMS_GROUP = "roomsGroup";
+        this.EQUIPMENTS_GROUP = "equipmentGroup";
+        this.ENDPOINT_GROUP = "endpointGroup";
+        this.GROUPS_TYPES = [
+            this.ROOMS_GROUP,
+            this.EQUIPMENTS_GROUP,
+            this.ENDPOINT_GROUP
+        ];
+        ///////////////////////////////////////////
+        //            Relations                  //
+        ///////////////////////////////////////////
+        this.CONTEXT_TO_CATEGORY_RELATION = "hasCategory";
+        this.CATEGORY_TO_GROUP_RELATION = "hasGroup";
+        this.GROUP_TO_ROOMS_RELATION = "groupHasRooms";
+        this.GROUP_TO_EQUIPMENTS_RELATION = "groupHasEquipments";
+        this.GROUP_TO_ENDPOINT_RELATION = "groupHasEndpoints";
+        ////////////////////////////////////////////
+        // Maps
+        ////////////////////////////////////////////
+        this.CONTEXT_GROUP_ASSOCIATION = new Map([
+            [
+                this.ROOMS_GROUP_CONTEXT,
+                this.ROOMS_GROUP
+            ],
+            [
+                this.EQUIPMENTS_GROUP_CONTEXT,
+                this.EQUIPMENTS_GROUP
+            ],
+            [
+                this.ENDPOINTS_GROUP_CONTEXT,
+                this.ENDPOINT_GROUP
+            ]
+        ]);
+        this.GROUP_RELATION_ASSOCIATION = new Map([
+            [
+                this.ROOMS_GROUP,
+                this.GROUP_TO_ROOMS_RELATION
+            ],
+            [
+                this.EQUIPMENTS_GROUP,
+                this.GROUP_TO_EQUIPMENTS_RELATION
+            ],
+            [
+                this.ENDPOINT_GROUP,
+                this.GROUP_TO_ENDPOINT_RELATION
+            ]
+        ]);
+    }
+}
+module.exports = new GroupServiceConstants();
+
+},{}],"52B2t":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -5400,13 +5807,13 @@ let initialize = ()=>{
     script.staticRenderFns = require("2ddff52a76ece8f1").staticRenderFns;
     script._scopeId = "data-v-81dc41";
     require("211e7debea324207").default(script);
-    script.__scopeId = "data-v-81dc41";
+    script.__scopeId = 'data-v-81dc41';
     script.__file = "tableComponent.vue";
 };
 initialize();
 exports.default = script;
 
-},{"8d8aaaf51d58079b":"ioM1m","2ddff52a76ece8f1":"6rUzI","211e7debea324207":"cD7NJ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ioM1m":[function(require,module,exports) {
+},{"8d8aaaf51d58079b":"ioM1m","2ddff52a76ece8f1":"6rUzI","211e7debea324207":"cD7NJ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ioM1m":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _checkBoxComponentVue = require("./checkBoxComponent.vue");
@@ -5453,10 +5860,10 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"./checkBoxComponent.vue":"iMnEZ","spinal-env-viewer-context-geographic-service":"5QjJf","spinal-env-viewer-graph-service":"9n7zp","spinal-core-connectorjs_type":"fRH70","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"iMnEZ":[function(require,module,exports) {
+},{"./checkBoxComponent.vue":"iMnEZ","spinal-env-viewer-context-geographic-service":"5QjJf","spinal-env-viewer-graph-service":"9n7zp","spinal-core-connectorjs_type":"fRH70","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"iMnEZ":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -5467,13 +5874,13 @@ let initialize = ()=>{
     script.staticRenderFns = require("2a29d62e4ae31698").staticRenderFns;
     script._scopeId = "data-v-8f7d79";
     require("bcc156f3ffc00546").default(script);
-    script.__scopeId = "data-v-8f7d79";
+    script.__scopeId = 'data-v-8f7d79';
     script.__file = "checkBoxComponent.vue";
 };
 initialize();
 exports.default = script;
 
-},{"660bec80777c999b":"7SZ3Y","2a29d62e4ae31698":"fzzaw","bcc156f3ffc00546":"jnMkC","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7SZ3Y":[function(require,module,exports) {
+},{"660bec80777c999b":"7SZ3Y","2a29d62e4ae31698":"fzzaw","bcc156f3ffc00546":"jnMkC","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7SZ3Y":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _service = require("../../services/service");
@@ -5504,15 +5911,15 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"../../services/service":"19gQQ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fzzaw":[function(require,module,exports) {
+},{"../../services/service":"19gQQ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fzzaw":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("md-checkbox", {
+    return _c('md-checkbox', {
         staticClass: "md-primary",
         on: {
             "change": _vm.linkElement
@@ -5530,18 +5937,18 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"jnMkC":[function(require,module,exports) {
+},{}],"jnMkC":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6rUzI":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6rUzI":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("md-table", {
+    return _c('md-table', {
         staticClass: "table",
         attrs: {
             "md-sort": "name",
@@ -5553,8 +5960,8 @@ var render = function() {
                 key: "md-table-row",
                 fn: function(ref) {
                     var item = ref.item;
-                    return _c("md-table-row", {}, [
-                        _c("md-table-cell", {
+                    return _c('md-table-row', {}, [
+                        _c('md-table-cell', {
                             attrs: {
                                 "md-label": "Name",
                                 "md-sort-by": "name"
@@ -5564,13 +5971,13 @@ var render = function() {
                         ]),
                         _vm._v(" "),
                         _vm._l(_vm.groups, function(group) {
-                            return _c("md-table-cell", {
+                            return _c('md-table-cell', {
                                 key: group.id,
                                 attrs: {
                                     "md-label": group.name
                                 }
                             }, [
-                                _c("checkbox-component", {
+                                _c('checkbox-component', {
                                     attrs: {
                                         "groupId": group.id,
                                         "elementId": item.id,
@@ -5591,14 +5998,14 @@ var render = function() {
             expression: "searched"
         }
     }, [
-        _c("md-table-toolbar", {
+        _c('md-table-toolbar', {
             staticClass: "md-layout md-gutter"
         }, [
-            _c("div", {
+            _c('div', {
                 staticClass: "md-layout-item md-size-50"
             }, [
-                _c("md-field", [
-                    _c("label", {
+                _c('md-field', [
+                    _c('label', {
                         attrs: {
                             "for": "floors"
                         }
@@ -5606,7 +6013,7 @@ var render = function() {
                         _vm._v("Filter By Floor")
                     ]),
                     _vm._v(" "),
-                    _c("md-select", {
+                    _c('md-select', {
                         attrs: {
                             "name": "floors",
                             "id": "floors",
@@ -5623,7 +6030,7 @@ var render = function() {
                             expression: "filterParams.floorsSelected"
                         }
                     }, _vm._l(_vm.allFloors, function(floor) {
-                        return _c("md-option", {
+                        return _c('md-option', {
                             key: floor.id,
                             attrs: {
                                 "value": floor.id
@@ -5635,15 +6042,15 @@ var render = function() {
                 ], 1)
             ], 1),
             _vm._v(" "),
-            _c("div", {
+            _c('div', {
                 staticClass: "md-layout-item md-size-50"
             }, [
-                _c("md-field", {
+                _c('md-field', {
                     attrs: {
                         "md-clearable": ""
                     }
                 }, [
-                    _c("md-input", {
+                    _c('md-input', {
                         attrs: {
                             "placeholder": "Search by name..."
                         },
@@ -5662,7 +6069,7 @@ var render = function() {
             ], 1)
         ]),
         _vm._v(" "),
-        _c("md-table-empty-state", {
+        _c('md-table-empty-state', {
             attrs: {
                 "md-label": "No Items found"
             }
@@ -5673,13 +6080,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"cD7NJ":[function(require,module,exports) {
+},{}],"cD7NJ":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ji3fq":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ji3fq":[function(require,module,exports,__globalThis) {
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -5839,7 +6246,7 @@ bimObjectService.constants = {
 };
 exports.default = bimObjectService;
 
-},{"8f95959f039a5af0":"fkEXw","bef1fdfaa932d2b5":"3Ibtq"}],"3Ibtq":[function(require,module,exports) {
+},{"8f95959f039a5af0":"fkEXw","bef1fdfaa932d2b5":"3Ibtq"}],"3Ibtq":[function(require,module,exports,__globalThis) {
 var global = arguments[3];
 "use strict";
 Object.defineProperty(exports, "__esModule", {
@@ -5861,12 +6268,12 @@ spinalCore.register_models([
     SpinalBIMObject
 ]);
 
-},{"e30868c801f59ada":"2uyD7"}],"jyy3j":[function(require,module,exports) {
+},{"e30868c801f59ada":"2uyD7"}],"jyy3j":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("table-component", {
+    return _c('table-component', {
         attrs: {
             "searched": _vm.searched,
             "groups": _vm.groups,
@@ -5881,56 +6288,49 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"zzEXT":[function() {},{}],"g89OY":[function(require,module,exports) {
+},{}],"zzEXT":[function() {},{}],"g89OY":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gaoUc":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gaoUc":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "addBimObjectToGroup", ()=>(0, _addBimObjectToGroupDefault.default));
-parcelHelpers.export(exports, "addBimRoomToGroup", ()=>(0, _addBimRoomToGroupDefault.default));
-parcelHelpers.export(exports, "createContextGroup", ()=>(0, _createContextGroupDefault.default));
-parcelHelpers.export(exports, "createElement", ()=>(0, _createElementDefault.default));
-parcelHelpers.export(exports, "editBtn", ()=>(0, _editDefault.default));
-parcelHelpers.export(exports, "findBimObject", ()=>(0, _findBimObjectDefault.default));
-parcelHelpers.export(exports, "findBimRoom", ()=>(0, _findBimRoomDefault.default));
-parcelHelpers.export(exports, "linkRooms", ()=>(0, _linkRoomsDefault.default));
-parcelHelpers.export(exports, "viewBtn", ()=>(0, _viewBtnDefault.default));
 var _addBimObjectToGroup = require("./addBimObjectToGroup");
-var _addBimObjectToGroupDefault = parcelHelpers.interopDefault(_addBimObjectToGroup);
+parcelHelpers.exportAll(_addBimObjectToGroup, exports);
 var _addBimRoomToGroup = require("./addBimRoomToGroup");
-var _addBimRoomToGroupDefault = parcelHelpers.interopDefault(_addBimRoomToGroup);
+parcelHelpers.exportAll(_addBimRoomToGroup, exports);
 var _createContextGroup = require("./createContextGroup");
-var _createContextGroupDefault = parcelHelpers.interopDefault(_createContextGroup);
+parcelHelpers.exportAll(_createContextGroup, exports);
 var _createElement = require("./createElement");
-var _createElementDefault = parcelHelpers.interopDefault(_createElement);
+parcelHelpers.exportAll(_createElement, exports);
 var _edit = require("./edit");
-var _editDefault = parcelHelpers.interopDefault(_edit);
+parcelHelpers.exportAll(_edit, exports);
 var _findBimObject = require("./findBimObject");
-var _findBimObjectDefault = parcelHelpers.interopDefault(_findBimObject);
+parcelHelpers.exportAll(_findBimObject, exports);
 var _findBimRoom = require("./findBimRoom");
-var _findBimRoomDefault = parcelHelpers.interopDefault(_findBimRoom);
+parcelHelpers.exportAll(_findBimRoom, exports);
 var _linkRooms = require("./linkRooms");
-var _linkRoomsDefault = parcelHelpers.interopDefault(_linkRooms);
-var _viewBtn = require("./viewBtn");
-var _viewBtnDefault = parcelHelpers.interopDefault(_viewBtn);
+parcelHelpers.exportAll(_linkRooms, exports);
+var _restoreGroupItemColor = require("./restoreGroupItemColor");
+parcelHelpers.exportAll(_restoreGroupItemColor, exports);
+var _colorGroupItems = require("./colorGroupItems"); // export *  "./viewBtn";
+parcelHelpers.exportAll(_colorGroupItems, exports);
 
-},{"./addBimObjectToGroup":"8vYsV","./addBimRoomToGroup":"44AcE","./createContextGroup":"3sQgR","./createElement":"kjRUK","./edit":"5U89R","./findBimObject":"aWmpW","./findBimRoom":"fU0op","./linkRooms":"9dgTS","./viewBtn":"e2tvj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"8vYsV":[function(require,module,exports) {
+},{"./addBimObjectToGroup":"8vYsV","./addBimRoomToGroup":"44AcE","./createContextGroup":"3sQgR","./createElement":"kjRUK","./edit":"5U89R","./findBimObject":"aWmpW","./findBimRoom":"fU0op","./linkRooms":"9dgTS","./restoreGroupItemColor":"eRNqK","./colorGroupItems":"7c2zs","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"8vYsV":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerContextMenuService = require("spinal-env-viewer-context-menu-service");
 const { spinalPanelManagerService } = require("62eb59d75cca9bfa");
-const CIRCULARMENU = "circularMenu";
+const CIRCULARMENU = 'circularMenu';
 class AddBimObjectToGroup extends (0, _spinalEnvViewerContextMenuService.SpinalContextApp) {
     constructor(){
         super("add bim object to group", "add bim object to group", {
-            icon: "add_location",
-            icon_type: "in",
-            backgroundColor: "#356BAB",
-            fontColor: "#FFFFFF"
+            icon: 'add_location',
+            icon_type: 'in',
+            backgroundColor: '#356BAB',
+            fontColor: '#FFFFFF'
         });
     }
     isShown(option) {
@@ -5952,21 +6352,21 @@ const addBimObjectToGroup = new AddBimObjectToGroup();
 ]);
 exports.default = addBimObjectToGroup;
 
-},{"spinal-env-viewer-context-menu-service":"kHlxv","62eb59d75cca9bfa":"7Uw4d","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"44AcE":[function(require,module,exports) {
+},{"spinal-env-viewer-context-menu-service":"kHlxv","62eb59d75cca9bfa":"7Uw4d","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"44AcE":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerContextMenuService = require("spinal-env-viewer-context-menu-service");
 var _spinalEnvViewerGraphService = require("spinal-env-viewer-graph-service");
 var _constants = require("spinal-env-viewer-context-geographic-service/build/constants");
 const { spinalPanelManagerService } = require("9052221f8f96ceb2");
-const CIRCULARMENU = "circularMenu";
+const CIRCULARMENU = 'circularMenu';
 class AddRoomToGroup extends (0, _spinalEnvViewerContextMenuService.SpinalContextApp) {
     constructor(){
         super("add room to group", "add room which linked to this object to group", {
-            icon: "playlist_add",
-            icon_type: "in",
-            backgroundColor: "#356BAB",
-            fontColor: "#FFFFFF"
+            icon: 'playlist_add',
+            icon_type: 'in',
+            backgroundColor: '#356BAB',
+            fontColor: '#FFFFFF'
         });
     }
     async isShown(option) {
@@ -6010,7 +6410,7 @@ const addRoomToGroup = new AddRoomToGroup();
 ]);
 exports.default = addRoomToGroup;
 
-},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-graph-service":"9n7zp","spinal-env-viewer-context-geographic-service/build/constants":"eV0id","9052221f8f96ceb2":"7Uw4d","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3sQgR":[function(require,module,exports) {
+},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-graph-service":"9n7zp","spinal-env-viewer-context-geographic-service/build/constants":"eV0id","9052221f8f96ceb2":"7Uw4d","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3sQgR":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerContextMenuService = require("spinal-env-viewer-context-menu-service");
@@ -6038,7 +6438,7 @@ const contextGroupBtn = new ContextGroupBtn();
 ]);
 exports.default = contextGroupBtn;
 
-},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-panel-manager-service":"7Uw4d","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"kjRUK":[function(require,module,exports) {
+},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-panel-manager-service":"7Uw4d","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"kjRUK":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerContextMenuService = require("spinal-env-viewer-context-menu-service");
@@ -6134,7 +6534,7 @@ const createElement = new CreateElement();
 ]);
 exports.default = createElement;
 
-},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-panel-manager-service":"7Uw4d","spinal-env-viewer-plugin-group-manager-service":"tSLpq","spinal-env-viewer-bim-manager-service":"9Nkbe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5U89R":[function(require,module,exports) {
+},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-panel-manager-service":"7Uw4d","spinal-env-viewer-plugin-group-manager-service":"tSLpq","spinal-env-viewer-bim-manager-service":"9Nkbe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5U89R":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerContextMenuService = require("spinal-env-viewer-context-menu-service");
@@ -6182,20 +6582,20 @@ const edit = new Edit();
 ]);
 exports.default = edit;
 
-},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-plugin-group-manager-service":"tSLpq","spinal-env-viewer-panel-manager-service":"7Uw4d","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"aWmpW":[function(require,module,exports) {
+},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-plugin-group-manager-service":"tSLpq","spinal-env-viewer-panel-manager-service":"7Uw4d","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"aWmpW":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerContextMenuService = require("spinal-env-viewer-context-menu-service");
 var _store = require("spinal-env-viewer-plugin-graph-manager/src/vue/store");
 var _storeDefault = parcelHelpers.interopDefault(_store);
-const CIRCULARMENU = "circularMenu";
+const CIRCULARMENU = 'circularMenu';
 class FindBimObject extends (0, _spinalEnvViewerContextMenuService.SpinalContextApp) {
     constructor(){
         super("find Object in graph manager", "find object in graph manager", {
-            icon: "location_on",
-            icon_type: "in",
-            backgroundColor: "#356BAB",
-            fontColor: "#FFFFFF"
+            icon: 'location_on',
+            icon_type: 'in',
+            backgroundColor: '#356BAB',
+            fontColor: '#FFFFFF'
         });
     }
     isShown(option) {
@@ -6212,7 +6612,7 @@ const findBimObject = new FindBimObject();
 ]);
 exports.default = findBimObject;
 
-},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-plugin-graph-manager/src/vue/store":"lNoWE","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fU0op":[function(require,module,exports) {
+},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-plugin-graph-manager/src/vue/store":"lNoWE","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fU0op":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerContextMenuService = require("spinal-env-viewer-context-menu-service");
@@ -6220,14 +6620,14 @@ var _spinalEnvViewerGraphService = require("spinal-env-viewer-graph-service");
 var _constants = require("spinal-env-viewer-context-geographic-service/build/constants");
 var _store = require("spinal-env-viewer-plugin-graph-manager/src/vue/store");
 var _storeDefault = parcelHelpers.interopDefault(_store);
-const CIRCULARMENU = "circularMenu";
+const CIRCULARMENU = 'circularMenu';
 class FindBimRoom extends (0, _spinalEnvViewerContextMenuService.SpinalContextApp) {
     constructor(){
         super("find room", "find room which linked to this object", {
-            icon: "store",
-            icon_type: "in",
-            backgroundColor: "#356BAB",
-            fontColor: "#FFFFFF"
+            icon: 'store',
+            icon_type: 'in',
+            backgroundColor: '#356BAB',
+            fontColor: '#FFFFFF'
         });
     }
     async isShown(option) {
@@ -6266,7 +6666,7 @@ const findBimRoom = new FindBimRoom();
 ]);
 exports.default = findBimRoom;
 
-},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-graph-service":"9n7zp","spinal-env-viewer-context-geographic-service/build/constants":"eV0id","spinal-env-viewer-plugin-graph-manager/src/vue/store":"lNoWE","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9dgTS":[function(require,module,exports) {
+},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-graph-service":"9n7zp","spinal-env-viewer-context-geographic-service/build/constants":"eV0id","spinal-env-viewer-plugin-graph-manager/src/vue/store":"lNoWE","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9dgTS":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerContextMenuService = require("spinal-env-viewer-context-menu-service");
@@ -6277,7 +6677,7 @@ var _spinalEnvViewerContextGeographicServiceDefault = parcelHelpers.interopDefau
 const SIDEBAR = "GraphManagerSideBar";
 class LinkRooms extends (0, _spinalEnvViewerContextMenuService.SpinalContextApp) {
     constructor(){
-        super("link Rooms", "This button allows to link rooms to space", {
+        super("link Rooms", "This button allows to link rooms to Group", {
             icon: "settings_input_component",
             icon_type: "in",
             backgroundColor: "#FF0000",
@@ -6310,7 +6710,7 @@ const linkRooms = new LinkRooms();
 ]);
 exports.default = linkRooms;
 
-},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-panel-manager-service":"7Uw4d","spinal-env-viewer-plugin-group-manager-service":"tSLpq","spinal-env-viewer-context-geographic-service":"5QjJf","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"e2tvj":[function(require,module,exports) {
+},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-panel-manager-service":"7Uw4d","spinal-env-viewer-plugin-group-manager-service":"tSLpq","spinal-env-viewer-context-geographic-service":"5QjJf","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"eRNqK":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerContextMenuService = require("spinal-env-viewer-context-menu-service");
@@ -6320,44 +6720,100 @@ var _spinalEnvViewerContextGeographicService = require("spinal-env-viewer-contex
 var _spinalEnvViewerContextGeographicServiceDefault = parcelHelpers.interopDefault(_spinalEnvViewerContextGeographicService);
 var _spinalEnvViewerPluginGroupManagerService = require("spinal-env-viewer-plugin-group-manager-service");
 const SIDEBAR = "GraphManagerSideBar";
-class ViewChildren extends (0, _spinalEnvViewerContextMenuService.SpinalContextApp) {
+class RestoreGroupItems extends (0, _spinalEnvViewerContextMenuService.SpinalContextApp) {
+    constructor(){
+        super("restore children color", "color all bimobjects inside ", {
+            icon_type: "in",
+            backgroundColor: "#FF0000",
+            fontColor: "#FFFFFF",
+            icon: "visibility_off"
+        });
+    }
+    isShown(option) {
+        const nodeType = option.selectedNode.type.get();
+        const contextType = option.context.type.get();
+        const isRoomGroup = (0, _spinalEnvViewerPluginGroupManagerService.groupManagerService).isRoomGroupContext(contextType);
+        const isEquipmentGroup = (0, _spinalEnvViewerPluginGroupManagerService.groupManagerService).isEquipmentGroupContext(contextType);
+        if (!(isRoomGroup || isEquipmentGroup)) return Promise.resolve(-1);
+        const isEquipement = nodeType === (0, _spinalEnvViewerContextGeographicServiceDefault.default).constants.EQUIPMENT_TYPE;
+        if (isEquipement) return Promise.resolve(-1);
+        const isRoom = nodeType === (0, _spinalEnvViewerContextGeographicServiceDefault.default).constants.ROOM_TYPE;
+        if (isRoom) return Promise.resolve(-1);
+        return Promise.resolve(true);
+    // if (!isRoomOrEquipmentGroupContext || nodeType === geographicService
+    //   .constants.EQUIPMENT_TYPE) {
+    //   return Promise.resolve(-1);
+    // }
+    // return utilities.getIcon(option.selectedNode, option.context).then(
+    //   (isColored) => {
+    //     this.buttonCfg["isColored"] = isColored;
+    //     this.buttonCfg.icon = isColored ? "visibility_off" : "visibility";
+    //     return true;
+    //   })
+    }
+    async action(option) {
+        await (0, _utilitiesDefault.default).restoreItem(option.selectedNode);
+        window.NOP_VIEWER.impl.invalidate(0, 1, 0);
+    }
+}
+const restoreGroupItems = new RestoreGroupItems();
+(0, _spinalEnvViewerContextMenuService.spinalContextMenuService).registerApp(SIDEBAR, restoreGroupItems, [
+    3
+]);
+exports.default = restoreGroupItems;
+
+},{"spinal-env-viewer-context-menu-service":"kHlxv","../js/utilities":"cYKMv","spinal-env-viewer-context-geographic-service":"5QjJf","spinal-env-viewer-plugin-group-manager-service":"tSLpq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7c2zs":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _spinalEnvViewerContextMenuService = require("spinal-env-viewer-context-menu-service");
+var _utilities = require("../js/utilities");
+var _utilitiesDefault = parcelHelpers.interopDefault(_utilities);
+var _spinalEnvViewerContextGeographicService = require("spinal-env-viewer-context-geographic-service");
+var _spinalEnvViewerContextGeographicServiceDefault = parcelHelpers.interopDefault(_spinalEnvViewerContextGeographicService);
+var _spinalEnvViewerPluginGroupManagerService = require("spinal-env-viewer-plugin-group-manager-service");
+const SIDEBAR = "GraphManagerSideBar";
+class ColorGroupItems extends (0, _spinalEnvViewerContextMenuService.SpinalContextApp) {
     constructor(){
         super("color children", "color all bimobjects inside ", {
             icon_type: "in",
             backgroundColor: "#FF0000",
-            fontColor: "#FFFFFF"
+            fontColor: "#FFFFFF",
+            icon: "visibility"
         });
     }
     isShown(option) {
-        const contextType = option.context.type.get();
         const nodeType = option.selectedNode.type.get();
-        const isRoomOrEquipmentGroupContext = (0, _spinalEnvViewerPluginGroupManagerService.groupManagerService).isRoomGroupContext(contextType) || (0, _spinalEnvViewerPluginGroupManagerService.groupManagerService).isEquipmentGroupContext(contextType);
-        if (!isRoomOrEquipmentGroupContext || nodeType === (0, _spinalEnvViewerContextGeographicServiceDefault.default).constants.EQUIPMENT_TYPE) return Promise.resolve(-1);
-        return (0, _utilitiesDefault.default).getIcon(option.selectedNode, option.context).then((isColored)=>{
-            this.buttonCfg["isColored"] = isColored;
-            this.buttonCfg.icon = isColored ? "visibility_off" : "visibility";
-            return true;
-        });
+        const contextType = option.context.type.get();
+        const isRoomGroup = (0, _spinalEnvViewerPluginGroupManagerService.groupManagerService).isRoomGroupContext(contextType);
+        const isEquipmentGroup = (0, _spinalEnvViewerPluginGroupManagerService.groupManagerService).isEquipmentGroupContext(contextType);
+        if (!(isRoomGroup || isEquipmentGroup)) return Promise.resolve(-1);
+        const isEquipement = nodeType === (0, _spinalEnvViewerContextGeographicServiceDefault.default).constants.EQUIPMENT_TYPE;
+        if (isEquipement) return Promise.resolve(-1);
+        const isRoom = nodeType === (0, _spinalEnvViewerContextGeographicServiceDefault.default).constants.ROOM_TYPE;
+        if (isRoom) return Promise.resolve(-1);
+        return Promise.resolve(true);
+    // if (!isRoomOrEquipmentGroupContext || nodeType === geographicService
+    //   .constants.EQUIPMENT_TYPE) {
+    //   return Promise.resolve(-1);
+    // }
+    // return utilities.getIcon(option.selectedNode, option.context).then(
+    //   (isColored) => {
+    //     this.buttonCfg["isColored"] = isColored;
+    //     this.buttonCfg.icon = isColored ? "visibility_off" : "visibility";
+    //     return true;
+    //   })
     }
-    action(option) {
-        if (this.isColored) {
-            this.icon = "visibility";
-            this.isColored = false;
-            (0, _utilitiesDefault.default).restoreItem(option.selectedNode);
-        } else {
-            this.icon = "visibility_off";
-            this.isColored = true;
-            (0, _utilitiesDefault.default).colorItem(option.selectedNode);
-        }
+    async action(option) {
+        await (0, _utilitiesDefault.default).colorItem(option.selectedNode);
         window.NOP_VIEWER.impl.invalidate(0, 1, 0);
     }
 }
-const viewChildren = new ViewChildren();
-(0, _spinalEnvViewerContextMenuService.spinalContextMenuService).registerApp(SIDEBAR, viewChildren, [
+const colorGroupItems = new ColorGroupItems();
+(0, _spinalEnvViewerContextMenuService.spinalContextMenuService).registerApp(SIDEBAR, colorGroupItems, [
     3
 ]);
-exports.default = viewChildren;
+exports.default = colorGroupItems;
 
-},{"spinal-env-viewer-context-menu-service":"kHlxv","../js/utilities":"cYKMv","spinal-env-viewer-context-geographic-service":"5QjJf","spinal-env-viewer-plugin-group-manager-service":"tSLpq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},[], null, "parcelRequire02e5")
+},{"spinal-env-viewer-context-menu-service":"kHlxv","../js/utilities":"cYKMv","spinal-env-viewer-context-geographic-service":"5QjJf","spinal-env-viewer-plugin-group-manager-service":"tSLpq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},[], null, "parcelRequire94c2")
 
 //# sourceMappingURL=spinal-env-viewer-room-manager.70f115ef.js.map

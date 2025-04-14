@@ -73,7 +73,7 @@
         localRequire,
         module,
         module.exports,
-        this
+        globalObject
       );
     }
 
@@ -142,7 +142,7 @@
       this[globalName] = mainExports;
     }
   }
-})({"avADC":[function(require,module,exports) {
+})({"avADC":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -213,7 +213,7 @@ exports.default = {
     SpatialManager: SpatialManager_1.SpatialManager
 };
 
-},{"b23bcd66c8ff2a7b":"dBRHy","a95ea86ceb0a918":"ezRLD","428d9de8fa9cd40a":"b3pAR","f91826c020998ffd":"d1eUi"}],"dBRHy":[function(require,module,exports) {
+},{"b23bcd66c8ff2a7b":"dBRHy","a95ea86ceb0a918":"ezRLD","428d9de8fa9cd40a":"b3pAR","f91826c020998ffd":"d1eUi"}],"dBRHy":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2020 SpinalCom - www.spinalcom.com
@@ -313,7 +313,7 @@ class SpatialManager {
         this.initialized = new Promise((resolve, reject)=>__awaiter(this, void 0, void 0, function*() {
                 yield spinal_env_viewer_graph_service_1.SpinalGraphService.waitForInitialization();
                 this.spatialConfig = yield this.getSpatialConfig();
-                if (typeof this.spatialConfig === "undefined") reject("SpatialConfiguration undefined");
+                if (typeof this.spatialConfig === 'undefined') reject('SpatialConfiguration undefined');
                 // let contextName = "spatial";
                 // if (typeof this.spatialConfig.contextName !== "undefined") {
                 //   // @ts-ignore
@@ -335,16 +335,16 @@ class SpatialManager {
                 yield this.init();
                 this.modelArchi = yield this.getArchiModel(model, configName);
                 const config = this.spatialConfig.getConfig(configName);
-                config.mod_attr("archi", this.modelArchi);
+                config.mod_attr('archi', this.modelArchi);
                 let building = yield this.getBuilding(config);
-                if (typeof building !== "undefined" && building.hasOwnProperty("id")) building = spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(building.id.get());
+                if (typeof building !== 'undefined' && building.hasOwnProperty('id')) building = spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(building.id.get());
                 const context = yield this.getContextFromConfig(config);
                 const contextId = context.getId().get();
-                if (typeof building === "undefined") building = yield spinal_env_viewer_context_geographic_service_1.default.addBuilding(contextId, contextId, config.basic.buildingName.get());
+                if (typeof building === 'undefined') building = yield spinal_env_viewer_context_geographic_service_1.default.addBuilding(contextId, contextId, config.basic.buildingName.get());
                 const prom = [];
                 for(const key in this.modelArchi)if (this.modelArchi.hasOwnProperty(key) && Object.entries(this.modelArchi[key].children).length !== 0 && this.modelArchi[key].constructor === Object) {
                     const level = this.modelArchi[key];
-                    const buildingName = this.floorManager.getPropertyValueByName(level.properties.properties, "name");
+                    const buildingName = this.floorManager.getPropertyValueByName(level.properties.properties, 'name');
                     // prom.push(
                     yield this.createFloor(contextId, building.info.id.get(), buildingName, level, model);
                 // )
@@ -353,23 +353,23 @@ class SpatialManager {
             } catch (e) {
                 console.error(e);
             }
-            console.log("generateContext DONE");
+            console.log('generateContext DONE');
         });
     }
     addRoomValueParam(target, other) {
-        const area = this.roomManager.getPropertyValueByName(other.properties.properties, "Area");
-        const perimeter = this.roomManager.getPropertyValueByName(other.properties.properties, "Perimeter");
-        const volume = this.roomManager.getPropertyValueByName(other.properties.properties, "Volume");
+        const area = this.roomManager.getPropertyValueByName(other.properties.properties, 'Area');
+        const perimeter = this.roomManager.getPropertyValueByName(other.properties.properties, 'Perimeter');
+        const volume = this.roomManager.getPropertyValueByName(other.properties.properties, 'Volume');
         for (const targetParam of target){
-            if (targetParam.name === "Area") targetParam.value = round(targetParam.value + area);
-            if (targetParam.name === "Perimeter") targetParam.value = round(targetParam.value + perimeter);
-            if (targetParam.name === "Volume") targetParam.value = round(targetParam.value + volume);
+            if (targetParam.name === 'Area') targetParam.value = round(targetParam.value + area);
+            if (targetParam.name === 'Perimeter') targetParam.value = round(targetParam.value + perimeter);
+            if (targetParam.name === 'Volume') targetParam.value = round(targetParam.value + volume);
         }
     }
     addIfExist(array, room) {
-        const roomNuber = this.roomManager.getPropertyValueByName(room.properties.properties, "Number");
+        const roomNuber = this.roomManager.getPropertyValueByName(room.properties.properties, 'Number');
         const target = array.find((e)=>{
-            return this.roomManager.getPropertyValueByName(e.properties.properties, "Number") === roomNuber;
+            return this.roomManager.getPropertyValueByName(e.properties.properties, 'Number') === roomNuber;
         });
         if (target) {
             this.addRoomValueParam(target.properties.properties, room);
@@ -378,15 +378,15 @@ class SpatialManager {
         return true;
     }
     getRoomName(room) {
-        const roomNbr = this.roomManager.getPropertyValueByName(room.properties.properties, "Number");
-        const roomName = this.roomManager.getPropertyValueByName(room.properties.properties, "name");
+        const roomNbr = this.roomManager.getPropertyValueByName(room.properties.properties, 'Number');
+        const roomName = this.roomManager.getPropertyValueByName(room.properties.properties, 'name');
         return `${roomNbr}-${roomName}`;
     }
     createRooms(rooms, contextId, floorId, model) {
         return __awaiter(this, void 0, void 0, function*() {
             const nodeAttrNames = [
-                "dbId",
-                "externalId"
+                'dbId',
+                'externalId'
             ];
             const tmpRoom = [];
             for(const key in rooms){
@@ -412,18 +412,18 @@ class SpatialManager {
                 const room = tmpRoom.find((r)=>{
                     return this.getRoomName(r) === roomName;
                 });
-                if (typeof room !== "undefined" && typeof room.children !== "undefined") {
+                if (typeof room !== 'undefined' && typeof room.children !== 'undefined') {
                     const prom = [
                         this.roomManager.addAttribute(resolveBatch[i], room.properties.properties)
                     ];
                     for (const child of room.children){
-                        const objName = this.roomManager.getPropertyValueByName(child.properties, "name");
+                        const objName = this.roomManager.getPropertyValueByName(child.properties, 'name');
                         prom.push(this.addReferenceObject(child.dbId, objName, model, resolveBatch[i], Constant_1.GEO_REFERENCE_ROOM_RELATION).catch((e)=>e));
                     }
                     yield Promise.all(prom);
                     // add or set attribut to  dbId & externalId
                     for (const nodeAttrName of nodeAttrNames){
-                        if (typeof resolveBatch[i].info[nodeAttrName] === "undefined") resolveBatch[i].info.add_attr(nodeAttrName, room.properties[nodeAttrName]);
+                        if (typeof resolveBatch[i].info[nodeAttrName] === 'undefined') resolveBatch[i].info.add_attr(nodeAttrName, room.properties[nodeAttrName]);
                         else if (resolveBatch[i].info[nodeAttrName].get() !== room.properties[nodeAttrName]) resolveBatch[i].info[nodeAttrName].set(room.properties[nodeAttrName]);
                     }
                 }
@@ -455,9 +455,9 @@ class SpatialManager {
         return __awaiter(this, arguments, void 0, function*(dbId, name, model, targetNode, relationName = Constant_1.GEO_REFERENCE_RELATION) {
             // @ts-ignore
             let bimObj = yield window.spinal.BimObjectService.getBIMObject(dbId, model);
-            if (typeof bimObj === "undefined") // @ts-ignore
+            if (typeof bimObj === 'undefined') // @ts-ignore
             bimObj = yield window.spinal.BimObjectService.createBIMObject(dbId, name, model);
-            if (typeof bimObj.id !== "undefined") // @ts-ignore
+            if (typeof bimObj.id !== 'undefined') // @ts-ignore
             bimObj = window.spinal.spinalGraphService.nodes[bimObj.id.get()];
             const childrenIds = targetNode.getChildrenIds();
             const idx = childrenIds.indexOf(bimObj.info.id.get());
@@ -473,7 +473,7 @@ class SpatialManager {
             };
             try {
                 for(const key in structures)if (structures.hasOwnProperty(key)) {
-                    const objName = this.roomManager.getPropertyValueByName(structures[key].properties.properties, "name");
+                    const objName = this.roomManager.getPropertyValueByName(structures[key].properties.properties, 'name');
                     prom.push(fct.bind(this, structures[key].properties.dbId, objName, model, // @ts-ignore
                     spinal.spinalGraphService.nodes[levelId]));
                 }
@@ -493,7 +493,7 @@ class SpatialManager {
                 for (const structure of structures){
                     let props;
                     let strucdbId;
-                    if (typeof structure.properties.properties === "undefined") {
+                    if (typeof structure.properties.properties === 'undefined') {
                         props = structure.properties;
                         // @ts-ignore
                         strucdbId = structure.dbId;
@@ -501,7 +501,7 @@ class SpatialManager {
                         props = structure.properties.properties;
                         strucdbId = structure.properties.dbId;
                     }
-                    const objName = this.roomManager.getPropertyValueByName(props, "name");
+                    const objName = this.roomManager.getPropertyValueByName(props, 'name');
                     prom.push(fct.bind(this, strucdbId, objName, model, // @ts-ignore
                     spinal.spinalGraphService.nodes[levelId]));
                 }
@@ -538,7 +538,7 @@ class SpatialManager {
                 const config = this.spatialConfig.getConfig(configName);
                 const oldArchi = config.archi.get();
                 let building = yield this.getBuilding(config);
-                if (typeof building !== "undefined" && building.hasOwnProperty("id")) building = spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(building.id.get());
+                if (typeof building !== 'undefined' && building.hasOwnProperty('id')) building = spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(building.id.get());
                 const cmpObject = this.compareArchi(oldArchi, this.modelArchi);
                 const context = yield this.getContextFromConfig(config);
                 const contextId = context.getId().get();
@@ -569,32 +569,32 @@ class SpatialManager {
                     const roomRef = yield this.findRoom(building, levelId, room.properties.externalId);
                     yield this.removeRoom(levelRef, roomRef);
                 }
-                config.mod_attr("archi", this.modelArchi);
+                config.mod_attr('archi', this.modelArchi);
             } catch (e) {
                 console.error(e);
             }
-            console.log("generateContext DONE");
+            console.log('generateContext DONE');
         });
     }
     updateContextCreateRoom(contextId, room, level, model) {
         return __awaiter(this, void 0, void 0, function*() {
             const nodeAttrNames = [
-                "dbId",
-                "externalId"
+                'dbId',
+                'externalId'
             ];
-            const roomRealNode = yield spinal_env_viewer_context_geographic_service_1.default.addRoom(contextId, level.id.get(), this.roomManager.getPropertyValueByName(room.properties.properties, "name"));
-            if (typeof room !== "undefined" && typeof room.children !== "undefined") {
+            const roomRealNode = yield spinal_env_viewer_context_geographic_service_1.default.addRoom(contextId, level.id.get(), this.roomManager.getPropertyValueByName(room.properties.properties, 'name'));
+            if (typeof room !== 'undefined' && typeof room.children !== 'undefined') {
                 const prom = [
                     this.roomManager.addAttribute(roomRealNode, room.properties.properties)
                 ];
                 for (const child of room.children){
-                    const objName = this.roomManager.getPropertyValueByName(child.properties, "name");
+                    const objName = this.roomManager.getPropertyValueByName(child.properties, 'name');
                     prom.push(this.addReferenceObject(child.dbId, objName, model, roomRealNode, Constant_1.GEO_REFERENCE_ROOM_RELATION).catch((e)=>e));
                 }
                 yield Promise.all(prom);
                 // add or set attribut to  dbId & externalId
                 for (const nodeAttrName of nodeAttrNames){
-                    if (typeof roomRealNode.info[nodeAttrName] === "undefined") roomRealNode.info.add_attr(nodeAttrName, room.properties[nodeAttrName]);
+                    if (typeof roomRealNode.info[nodeAttrName] === 'undefined') roomRealNode.info.add_attr(nodeAttrName, room.properties[nodeAttrName]);
                     else if (roomRealNode.info[nodeAttrName].get() !== room.properties[nodeAttrName]) roomRealNode.info[nodeAttrName].set(room.properties[nodeAttrName]);
                 }
             }
@@ -616,9 +616,9 @@ class SpatialManager {
     }
     addToInvalidContext(id) {
         return __awaiter(this, void 0, void 0, function*() {
-            let context = spinal_env_viewer_graph_service_1.SpinalGraphService.getContext(".invalid");
-            if (typeof context === "undefined") context = yield spinal_env_viewer_graph_service_1.SpinalGraphService.addContext(".invalid", "invalid");
-            return spinal_env_viewer_graph_service_1.SpinalGraphService.addChild(context.info.id.get(), id, "Invalid", spinal_env_viewer_graph_service_1.SPINAL_RELATION_PTR_LST_TYPE);
+            let context = spinal_env_viewer_graph_service_1.SpinalGraphService.getContext('.invalid');
+            if (typeof context === 'undefined') context = yield spinal_env_viewer_graph_service_1.SpinalGraphService.addContext('.invalid', 'invalid');
+            return spinal_env_viewer_graph_service_1.SpinalGraphService.addChild(context.info.id.get(), id, 'Invalid', spinal_env_viewer_graph_service_1.SPINAL_RELATION_PTR_LST_TYPE);
         });
     }
     getFloorFromRoom(room) {
@@ -651,8 +651,8 @@ class SpatialManager {
             const roomId = roomNodeRef.id.get();
             const roomRealNode = spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(roomId);
             yield this.roomManager.addAttribute(roomRealNode, room.properties.properties);
-            if (typeof roomRealNode.info.dbId !== "undefined") roomRealNode.info.dbId.set(room.properties.dbId);
-            else roomRealNode.info.add_attr("dbId", room.properties.dbId);
+            if (typeof roomRealNode.info.dbId !== 'undefined') roomRealNode.info.dbId.set(room.properties.dbId);
+            else roomRealNode.info.add_attr('dbId', room.properties.dbId);
             // missing check refObject
             yield this.addRefStructureToRoom(roomId, room.children, model);
         });
@@ -695,7 +695,7 @@ class SpatialManager {
             if (newArchi.hasOwnProperty(levelId)) {
                 // level exist in old and new => level update
                 const newArchiLvl = newArchi[levelId];
-                for(const roomExternId in oldLevel.children)if (oldLevel.children.hasOwnProperty(roomExternId) && typeof oldLevel.children[roomExternId].children !== "undefined") {
+                for(const roomExternId in oldLevel.children)if (oldLevel.children.hasOwnProperty(roomExternId) && typeof oldLevel.children[roomExternId].children !== 'undefined') {
                     // exist in old and have children
                     cmpObj.updated.levels[levelId] = newArchiLvl;
                     const levelExternalId = newArchiLvl.properties.externalId;
@@ -717,18 +717,18 @@ class SpatialManager {
             const newLevel = newArchi[levelId];
             if (oldArchi.hasOwnProperty(levelId)) {
                 //level already exist
-                for(const roomExternal in newLevel.children)if (newLevel.children.hasOwnProperty(roomExternal) && typeof newLevel.children[roomExternal].children !== "undefined" && (!oldArchi[levelId].children.hasOwnProperty(roomExternal) || typeof oldArchi[levelId].children[roomExternal].children === "undefined")) {
+                for(const roomExternal in newLevel.children)if (newLevel.children.hasOwnProperty(roomExternal) && typeof newLevel.children[roomExternal].children !== 'undefined' && (!oldArchi[levelId].children.hasOwnProperty(roomExternal) || typeof oldArchi[levelId].children[roomExternal].children === 'undefined')) {
                     const lvlExternId = newLevel.properties.externalId;
-                    if (typeof cmpObj.new.rooms[lvlExternId] === "undefined") cmpObj.new.rooms[lvlExternId] = [];
+                    if (typeof cmpObj.new.rooms[lvlExternId] === 'undefined') cmpObj.new.rooms[lvlExternId] = [];
                     cmpObj.new.rooms[lvlExternId].push(newLevel.children[roomExternal]);
                 }
             } else {
                 //add level and rooms to new
                 cmpObj.new.levels[levelId] = newLevel;
-                for(const roomExternal in newLevel.children)if (newLevel.children.hasOwnProperty(roomExternal) && typeof newLevel.children[levelId].children !== "undefined") {
+                for(const roomExternal in newLevel.children)if (newLevel.children.hasOwnProperty(roomExternal) && typeof newLevel.children[levelId].children !== 'undefined') {
                     //add room if it has a floor
                     const lvlExternId = newLevel.properties.externalId;
-                    if (typeof cmpObj.new.rooms[lvlExternId] === "undefined") cmpObj.new.rooms[lvlExternId] = [];
+                    if (typeof cmpObj.new.rooms[lvlExternId] === 'undefined') cmpObj.new.rooms[lvlExternId] = [];
                     cmpObj.new.rooms[lvlExternId].push(newLevel.children[roomExternal]);
                 }
             }
@@ -738,28 +738,28 @@ class SpatialManager {
     static getContext(contextName) {
         return __awaiter(this, void 0, void 0, function*() {
             let context = spinal_env_viewer_graph_service_1.SpinalGraphService.getContext(contextName);
-            if (typeof context === "undefined" || context === null) context = yield spinal_env_viewer_context_geographic_service_1.default.createContext(contextName);
+            if (typeof context === 'undefined' || context === null) context = yield spinal_env_viewer_context_geographic_service_1.default.createContext(contextName);
             return context;
         });
     }
     getSpatialConfig() {
         return __awaiter(this, void 0, void 0, function*() {
-            let context = spinal_env_viewer_graph_service_1.SpinalGraphService.getContext(".config");
-            if (typeof context === "undefined") context = yield spinal_env_viewer_graph_service_1.SpinalGraphService.addContext(".config", "system configuration", undefined);
+            let context = spinal_env_viewer_graph_service_1.SpinalGraphService.getContext('.config');
+            if (typeof context === 'undefined') context = yield spinal_env_viewer_graph_service_1.SpinalGraphService.addContext('.config', 'system configuration', undefined);
             return spinal_env_viewer_graph_service_1.SpinalGraphService.getChildren(context.info.id.get(), [
-                "hasConfig"
+                'hasConfig'
             ]).then((children)=>__awaiter(this, void 0, void 0, function*() {
                     let config;
-                    if (typeof children !== "undefined") {
-                        for(let i = 0; i < children.length; i++)if (children[i].type.get() === "SpatialConfig") config = children[i];
+                    if (typeof children !== 'undefined') {
+                        for(let i = 0; i < children.length; i++)if (children[i].type.get() === 'SpatialConfig') config = children[i];
                     }
-                    if (typeof config === "undefined") {
+                    if (typeof config === 'undefined') {
                         // create default config
                         config = spinal_env_viewer_graph_service_1.SpinalGraphService.createNode({
-                            name: "spatial config",
-                            type: "SpatialConfig"
+                            name: 'spatial config',
+                            type: 'SpatialConfig'
                         }, new SpatialConfig_1.SpatialConfig());
-                        yield spinal_env_viewer_graph_service_1.SpinalGraphService.addChild(context.info.id.get(), config, "hasConfig", spinal_env_viewer_graph_service_1.SPINAL_RELATION_PTR_LST_TYPE);
+                        yield spinal_env_viewer_graph_service_1.SpinalGraphService.addChild(context.info.id.get(), config, 'hasConfig', spinal_env_viewer_graph_service_1.SPINAL_RELATION_PTR_LST_TYPE);
                         config = spinal_env_viewer_graph_service_1.SpinalGraphService.getNode(config);
                     }
                     return config.element.load();
@@ -781,11 +781,11 @@ class SpatialManager {
             // let objectProperties = this.spatialConfig.objectProperties.get();
             // let floorAttrn = this.spatialConfig.revitAttribute.floors.attrName.get();
             const config = this.spatialConfig.getConfig(configName);
-            if (!config) throw new Error("No Config Name found");
+            if (!config) throw new Error('No Config Name found');
             const fct = (0, createFctGetArchi_1.default)(config.get());
             const modelArchi = yield model.getPropertyDb()// @ts-ignore
             .executeUserFunction(fct);
-            console.log("modelArchi", modelArchi);
+            console.log('modelArchi', modelArchi);
             this.modelArchiLib.set(model, modelArchi);
             return modelArchi;
         });
@@ -802,8 +802,8 @@ class SpatialManager {
     getContextFromConfig(config) {
         return __awaiter(this, void 0, void 0, function*() {
             let context = spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(config.contextId.get());
-            if (typeof context === "undefined" || context === null) context = spinal_env_viewer_graph_service_1.SpinalGraphService.getContext(config.contextName.get());
-            if (typeof context === "undefined" || context === null) context = yield spinal_env_viewer_context_geographic_service_1.default.createContext(config.contextName.get());
+            if (typeof context === 'undefined' || context === null) context = spinal_env_viewer_graph_service_1.SpinalGraphService.getContext(config.contextName.get());
+            if (typeof context === 'undefined' || context === null) context = yield spinal_env_viewer_context_geographic_service_1.default.createContext(config.contextName.get());
             config.contextId.set(context.info.id.get());
             return context;
         });
@@ -814,7 +814,7 @@ class SpatialManager {
             return spinal_env_viewer_graph_service_1.SpinalGraphService.getChildren(context.info.id.get(), [
                 Constant_1.GEO_BUILDING_RELATION
             ]).then((children)=>{
-                if (typeof children === "undefined") return undefined;
+                if (typeof children === 'undefined') return undefined;
                 for(let i = 0; i < children.length; i++){
                     const building = children[i];
                     if (building.name.get() === config.basic.buildingName.get()) return building;
@@ -830,7 +830,7 @@ class SpatialManager {
             for(const key in this.modelArchi)if (this.modelArchi.hasOwnProperty(key)) {
                 for(const roomId in this.modelArchi[key].children)if (this.modelArchi[key].children.hasOwnProperty(roomId)) {
                     const room = this.modelArchi[key].children[roomId];
-                    if (typeof room.children !== "undefined") floorFinish.push(...room.children);
+                    if (typeof room.children !== 'undefined') floorFinish.push(...room.children);
                 }
             }
             return floorFinish;
@@ -851,7 +851,7 @@ class SpatialManager {
         for(const key in this.modelArchi)if (this.modelArchi.hasOwnProperty(key)) {
             for(const roomId in this.modelArchi[key].children)if (this.modelArchi[key].children.hasOwnProperty(roomId)) {
                 const room = this.modelArchi[key].children[roomId];
-                if (typeof room.children !== "undefined") for (const roomChild of room.children){
+                if (typeof room.children !== 'undefined') for (const roomChild of room.children){
                     if (roomChild.properties.dbId === floorId) return room.properties.externalId;
                 }
             }
@@ -869,7 +869,7 @@ function round(x, digits = 2) {
     return parseFloat(x.toFixed(digits));
 }
 
-},{"eafe8c7d66f19d04":"5QjJf","150cd393dde38b13":"aI5bI","ce2a8362be834f83":"ezRLD","bfd096ddc6ba811c":"b3pAR","444ebe1b6bd75114":"9n7zp","f1551a988ea6f69d":"kJVYs","747befa79bfec559":"6Ox22","4131e00ccd1d2692":"2e3b8","2f474b4b4499d0f7":"fjV97","cb0aeb6023ce4444":"2wzJt","315a0029b7aaa9a3":"1ialy"}],"aI5bI":[function(require,module,exports) {
+},{"eafe8c7d66f19d04":"5QjJf","150cd393dde38b13":"aI5bI","ce2a8362be834f83":"ezRLD","bfd096ddc6ba811c":"b3pAR","444ebe1b6bd75114":"9n7zp","f1551a988ea6f69d":"kJVYs","747befa79bfec559":"6Ox22","4131e00ccd1d2692":"2e3b8","2f474b4b4499d0f7":"fjV97","cb0aeb6023ce4444":"2wzJt","315a0029b7aaa9a3":"1ialy"}],"aI5bI":[function(require,module,exports,__globalThis) {
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -900,39 +900,39 @@ Object.defineProperty(exports, "__esModule", {
 // }
 // interface AttrItem { id: number, attrDef: any, d: ArchiSelectUser }
 function getArchiSelectStr(archiSelect) {
-    if (!archiSelect) return "[]";
+    if (!archiSelect) return '[]';
     const data = [
-        "["
+        '['
     ];
     for (const d of archiSelect){
-        let isCatStr = "";
+        let isCatStr = '';
         if (d.isCat === true) isCatStr = `, isCat: true`;
         const str = `{ key: ${d.key.toString()}, value: ${d.value.toString()}${isCatStr}},`;
         data.push(str);
     }
-    data.push("]");
-    return data.join("");
+    data.push(']');
+    return data.join('');
 }
 function createFctGetArchi(config) {
     const levelStr = getArchiSelectStr(config.levelSelect);
     const roomStr = getArchiSelectStr(config.roomSelect);
     const structureStr = getArchiSelectStr(config.structureSelect);
     const floorStr = getArchiSelectStr(config.floorSelect);
-    let FLOOR_ROOM_NUMBER_ATTR_NAME = "Number";
-    let FLOOR_ROOM_NAME_ATTR_NAME = "";
-    let FLOOR_LEVEL_NAME_ATTR_NAME = "";
+    let FLOOR_ROOM_NUMBER_ATTR_NAME = 'Number';
+    let FLOOR_ROOM_NAME_ATTR_NAME = '';
+    let FLOOR_LEVEL_NAME_ATTR_NAME = '';
     if (config.floorRoomNbr) FLOOR_ROOM_NUMBER_ATTR_NAME = config.floorRoomNbr; // 'Number
     if (config.floorRoomName) FLOOR_ROOM_NAME_ATTR_NAME = config.floorRoomName; // 'Local'
     if (config.floorLevelName) FLOOR_LEVEL_NAME_ATTR_NAME = config.floorLevelName; // 'Etage'
     const propsToGet = [
-        "name",
-        "elevation",
-        "area",
-        "volume",
-        "perimeter",
-        "stype",
-        "roomid",
-        "number"
+        'name',
+        'elevation',
+        'area',
+        'volume',
+        'perimeter',
+        'stype',
+        'roomid',
+        'number'
     ];
     if (FLOOR_ROOM_NUMBER_ATTR_NAME) propsToGet.push(FLOOR_ROOM_NUMBER_ATTR_NAME.toLowerCase());
     if (FLOOR_ROOM_NAME_ATTR_NAME) propsToGet.push(FLOOR_ROOM_NAME_ATTR_NAME.toLowerCase());
@@ -1421,7 +1421,7 @@ exports.default = createFctGetArchi; // (<any>window).testCreateFctGetArchi = as
  //   console.log(modelArchi);
  // }
 
-},{}],"ezRLD":[function(require,module,exports) {
+},{}],"ezRLD":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2020 SpinalCom - www.spinalcom.com
@@ -1451,51 +1451,51 @@ exports.default = createFctGetArchi; // (<any>window).testCreateFctGetArchi = as
 exports.config = void 0;
 exports.config = {
     batchSize: 50,
-    contextName: "spatial",
-    buildingName: "building",
+    contextName: 'spatial',
+    buildingName: 'building',
     attrs: {
         // Attributs recherché dans les props du batiment
         room: {
             // Piece du batiment
-            attrName: "category",
+            attrName: 'category',
             attrVal: "Revit Pi\xe8ces"
         },
         level: {
             // Etage du batiment
-            attrName: "category",
-            attrVal: "Revit Level"
+            attrName: 'category',
+            attrVal: 'Revit Level'
         },
         floors: {
             // sol des rooms
-            attrName: "Stype",
-            attrVal: "Floor_finish"
+            attrName: 'Stype',
+            attrVal: 'Floor_finish'
         }
     },
-    roomNiveau: "Etage",
+    roomNiveau: 'Etage',
     props: {
         // Proprieté a recuperer pour chaque type d'objet
         room: [
-            "area",
-            "volume",
-            "perimeter",
-            "local",
-            "etage",
-            "stype",
-            "roomid",
-            "number"
+            'area',
+            'volume',
+            'perimeter',
+            'local',
+            'etage',
+            'stype',
+            'roomid',
+            'number'
         ],
         level: {
             components: {
-                type: "Array"
+                type: 'Array'
             }
         },
         floors: [
-            "roomid"
+            'roomid'
         ]
     }
 };
 
-},{}],"b3pAR":[function(require,module,exports) {
+},{}],"b3pAR":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2020 SpinalCom - www.spinalcom.com
@@ -1615,7 +1615,7 @@ Object.defineProperty(exports, "BIMOBJECT_TYPE", {
     }
 });
 
-},{"ea3d9818ddd526f5":"5QjJf"}],"kJVYs":[function(require,module,exports) {
+},{"ea3d9818ddd526f5":"5QjJf"}],"kJVYs":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2020 SpinalCom - www.spinalcom.com
@@ -1675,8 +1675,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.SpatialConfig = void 0;
 const spinal_core_connectorjs_type_1 = __importStar(require("780a097c40ae43dd"));
-const CONTEXT_NAME = "spatial";
-const DEFAULT_CONFIG_NAME = "default";
+const CONTEXT_NAME = 'spatial';
+const DEFAULT_CONFIG_NAME = 'default';
 class SpatialConfig extends spinal_core_connectorjs_type_1.Model {
     constructor(){
         super();
@@ -1685,73 +1685,73 @@ class SpatialConfig extends spinal_core_connectorjs_type_1.Model {
                 {
                     configName: DEFAULT_CONFIG_NAME,
                     contextName: CONTEXT_NAME,
-                    contextId: "",
+                    contextId: '',
                     basic: {
                         addLevel: false,
-                        buildingName: "Building",
-                        selectedModel: ""
+                        buildingName: 'Building',
+                        selectedModel: ''
                     },
                     levelSelect: [
                         {
-                            key: "/^Category$/",
-                            value: "/^Revit Level$/",
+                            key: '/^Category$/',
+                            value: '/^Revit Level$/',
                             isCat: true
                         }
                     ],
                     roomSelect: [
                         {
-                            key: "/^Category$/",
+                            key: '/^Category$/',
                             value: "/^Revit Pi\xe8ces$/",
                             isCat: true
                         }
                     ],
                     structureSelect: [
                         {
-                            key: "/^Category$/",
-                            value: "/^Revit Murs$/",
+                            key: '/^Category$/',
+                            value: '/^Revit Murs$/',
                             isCat: true
                         },
                         {
-                            key: "/^Category$/",
-                            value: "/^Revit Portes$/",
+                            key: '/^Category$/',
+                            value: '/^Revit Portes$/',
                             isCat: true
                         },
                         {
-                            key: "/^Category$/",
-                            value: "/^Revit Garde-corps$/",
+                            key: '/^Category$/',
+                            value: '/^Revit Garde-corps$/',
                             isCat: true
                         },
                         {
-                            key: "/^Category$/",
+                            key: '/^Category$/',
                             value: "/^Revit Fen\xeatres$/",
                             isCat: true
                         },
                         {
-                            key: "/^Category$/",
-                            value: "/^Revit Walls$/",
+                            key: '/^Category$/',
+                            value: '/^Revit Walls$/',
                             isCat: true
                         },
                         {
-                            key: "/^Category$/",
-                            value: "/^Revit Doors$/",
+                            key: '/^Category$/',
+                            value: '/^Revit Doors$/',
                             isCat: true
                         },
                         {
-                            key: "/^Category$/",
-                            value: "/^Revit Railings$/",
+                            key: '/^Category$/',
+                            value: '/^Revit Railings$/',
                             isCat: true
                         },
                         {
-                            key: "/^Category$/",
-                            value: "/^Revit Windows$/",
+                            key: '/^Category$/',
+                            value: '/^Revit Windows$/',
                             isCat: true
                         }
                     ],
-                    floorRoomNbr: "Number",
+                    floorRoomNbr: 'Number',
                     floorSelect: [
                         {
-                            key: "/^Nom du type$/",
-                            value: "/^Finition de sol$/"
+                            key: '/^Nom du type$/',
+                            value: '/^Finition de sol$/'
                         }
                     ]
                 }
@@ -1766,9 +1766,9 @@ class SpatialConfig extends spinal_core_connectorjs_type_1.Model {
                 const contextName = item.contextName;
                 const archi = item.archi;
                 item.set(config);
-                if (contextId) item.mod_attr("contextId", contextId);
-                if (contextName) item.mod_attr("contextName", contextName);
-                if (archi) item.mod_attr("archi", archi);
+                if (contextId) item.mod_attr('contextId', contextId);
+                if (contextName) item.mod_attr('contextName', contextName);
+                if (archi) item.mod_attr('archi', archi);
             }
         }
     }
@@ -1788,7 +1788,7 @@ class SpatialConfig extends spinal_core_connectorjs_type_1.Model {
 exports.SpatialConfig = SpatialConfig;
 spinal_core_connectorjs_type_1.default.register_models(SpatialConfig);
 
-},{"780a097c40ae43dd":"fRH70"}],"6Ox22":[function(require,module,exports) {
+},{"780a097c40ae43dd":"fRH70"}],"6Ox22":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2020 SpinalCom - www.spinalcom.com
@@ -1881,7 +1881,7 @@ class BuildingManager extends AbstractEntityManager_1.AbstractEntityManager {
 }
 exports.BuildingManager = BuildingManager;
 
-},{"47ea20c57d4c529e":"fUcjT","94f66fdfe91266c1":"9n7zp","9c9dd464e51dc6":"5QjJf","15a8d4aa0f9a688e":"jsnTF"}],"fUcjT":[function(require,module,exports) {
+},{"47ea20c57d4c529e":"fUcjT","94f66fdfe91266c1":"9n7zp","9c9dd464e51dc6":"5QjJf","15a8d4aa0f9a688e":"jsnTF"}],"fUcjT":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2020 SpinalCom - www.spinalcom.com
@@ -1962,7 +1962,7 @@ class AbstractEntityManager {
             const parentChild = yield spinal_env_viewer_graph_service_1.SpinalGraphService.getChildren(parentId, [
                 relationName
             ]);
-            if (typeof parentChild !== "undefined") for(let i = 0; i < parentChild.length; i++){
+            if (typeof parentChild !== 'undefined') for(let i = 0; i < parentChild.length; i++){
                 const brother = parentChild[i];
                 if (brother.id.get() === childId) return brother;
             }
@@ -1977,7 +1977,7 @@ class AbstractEntityManager {
         return __awaiter(this, void 0, void 0, function*() {
             const roomNode = yield spinal_env_viewer_graph_service_1.SpinalGraphService.getNodeAsync(entityId);
             const parent = yield this.getParents(roomNode);
-            if (typeof parent === "undefined") return false;
+            if (typeof parent === 'undefined') return false;
             const removed = yield spinal_env_viewer_graph_service_1.SpinalGraphService.removeChild(parent.info.id.get(), entityId, spinal_env_viewer_context_geographic_service_1.default.constants.ROOM_RELATION, spinal_env_viewer_graph_service_1.SPINAL_RELATION_TYPE);
             yield this.invalidObjectManager.addObject(entityId);
             return removed;
@@ -1999,8 +1999,8 @@ class AbstractEntityManager {
      */ addAttribute(node, attributes) {
         return __awaiter(this, void 0, void 0, function*() {
             let proms = [];
-            let category = yield spinal_env_viewer_plugin_documentation_service_1.serviceDocumentation.getCategoryByName(node, "Spatial");
-            if (typeof category === "undefined") category = yield spinal_env_viewer_plugin_documentation_service_1.serviceDocumentation.addCategoryAttribute(node, "Spatial");
+            let category = yield spinal_env_viewer_plugin_documentation_service_1.serviceDocumentation.getCategoryByName(node, 'Spatial');
+            if (typeof category === 'undefined') category = yield spinal_env_viewer_plugin_documentation_service_1.serviceDocumentation.addCategoryAttribute(node, 'Spatial');
             for(let i = 0; i < attributes.length; i++){
                 const prop = attributes[i];
                 proms.push(spinal_env_viewer_plugin_documentation_service_1.serviceDocumentation.addAttributeByCategory(node, category, prop.name, prop.value));
@@ -2025,9 +2025,9 @@ class AbstractEntityManager {
         return spinal_env_viewer_graph_service_1.SpinalGraphService.getChildren(parentId, [
             relationName
         ]).then((children)=>{
-            if (typeof children === "undefined") return undefined;
+            if (typeof children === 'undefined') return undefined;
             for(let i = 0; i < children.length; i++){
-                if (children[i].hasOwnProperty("externalId") && children[i].externalId.get() === externalId) return children[i];
+                if (children[i].hasOwnProperty('externalId') && children[i].externalId.get() === externalId) return children[i];
             }
             return undefined;
         });
@@ -2035,7 +2035,7 @@ class AbstractEntityManager {
 }
 exports.AbstractEntityManager = AbstractEntityManager;
 
-},{"b9d697383ec6e103":"9n7zp","ab580050e1f19f52":"2jJnD","c492b771977663e1":"5rYVR","164fc42be9a6c03f":"5QjJf"}],"2jJnD":[function(require,module,exports) {
+},{"b9d697383ec6e103":"9n7zp","ab580050e1f19f52":"2jJnD","c492b771977663e1":"5rYVR","164fc42be9a6c03f":"5QjJf"}],"2jJnD":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2020 SpinalCom - www.spinalcom.com
@@ -2091,9 +2091,9 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.InvalidObjectManager = exports.SPATIAL_START_NODE_NAME = exports.SPATIAL_RELATION_NAME = exports.SPATIAL_START_NODE_RELATION_NAME = exports.CONTEXT_NAME = void 0;
 const spinal_env_viewer_graph_service_1 = require("5ce7bbbf13e342f3");
-exports.CONTEXT_NAME = "Invalid";
-exports.SPATIAL_START_NODE_RELATION_NAME = "hasSpatialInvalidStartNode";
-exports.SPATIAL_RELATION_NAME = "hasSpatialInvalidNode";
+exports.CONTEXT_NAME = 'Invalid';
+exports.SPATIAL_START_NODE_RELATION_NAME = 'hasSpatialInvalidStartNode';
+exports.SPATIAL_RELATION_NAME = 'hasSpatialInvalidNode';
 exports.SPATIAL_START_NODE_NAME = "Object invalid du context Spatial";
 class InvalidObjectManager {
     constructor(){
@@ -2144,13 +2144,13 @@ class InvalidObjectManager {
     }
     static createContext() {
         return __awaiter(this, void 0, void 0, function*() {
-            return yield spinal_env_viewer_graph_service_1.SpinalGraphService.addContext(exports.CONTEXT_NAME, "SpinalSystem", undefined);
+            return yield spinal_env_viewer_graph_service_1.SpinalGraphService.addContext(exports.CONTEXT_NAME, 'SpinalSystem', undefined);
         });
     }
 }
 exports.InvalidObjectManager = InvalidObjectManager;
 
-},{"5ce7bbbf13e342f3":"9n7zp"}],"2e3b8":[function(require,module,exports) {
+},{"5ce7bbbf13e342f3":"9n7zp"}],"2e3b8":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2020 SpinalCom - www.spinalcom.com
@@ -2243,7 +2243,7 @@ class FloorManager extends AbstractEntityManager_1.AbstractEntityManager {
 }
 exports.FloorManager = FloorManager;
 
-},{"fee29900a4063ddd":"fUcjT","c5d5b8d128bda390":"9n7zp","b0ec856ecada7c37":"5QjJf","f3228f07eaffa8d4":"jsnTF"}],"fjV97":[function(require,module,exports) {
+},{"fee29900a4063ddd":"fUcjT","c5d5b8d128bda390":"9n7zp","b0ec856ecada7c37":"5QjJf","f3228f07eaffa8d4":"jsnTF"}],"fjV97":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2020 SpinalCom - www.spinalcom.com
@@ -2336,7 +2336,7 @@ class RoomManager extends AbstractEntityManager_1.AbstractEntityManager {
 }
 exports.RoomManager = RoomManager;
 
-},{"4f86ef64b5778db8":"fUcjT","7faf05311bb35ba5":"9n7zp","d2daa0d6ceeffe64":"jsnTF","6f37fb18ceb031b7":"5QjJf"}],"2wzJt":[function(require,module,exports) {
+},{"4f86ef64b5778db8":"fUcjT","7faf05311bb35ba5":"9n7zp","d2daa0d6ceeffe64":"jsnTF","6f37fb18ceb031b7":"5QjJf"}],"2wzJt":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -2409,7 +2409,7 @@ function consumeBatch(promises_1) {
 }
 exports.consumeBatch = consumeBatch;
 
-},{}],"1ialy":[function(require,module,exports) {
+},{}],"1ialy":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -2437,7 +2437,7 @@ exports.consumeBatch = consumeBatch;
     value: true
 });
 
-},{}],"d1eUi":[function(require,module,exports) {
+},{}],"d1eUi":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -2490,7 +2490,7 @@ __exportStar(require("1eff590be5fe8c03"), exports);
 __exportStar(require("eff1c3ea55b1e13f"), exports);
 __exportStar(require("1c4f1db8390ba000"), exports);
 
-},{"1c58e9eceb887314":"dWQqn","8947ba99a84d17e2":"eQ3Yl","75755ba9de3e2a89":"eEPuU","9e940adf16a5eed3":"2QtL3","96724d8400af0537":"g1Ysh","1eff590be5fe8c03":"fNlxU","eff1c3ea55b1e13f":"44LGg","1c4f1db8390ba000":"3AEx3"}],"dWQqn":[function(require,module,exports) {
+},{"1c58e9eceb887314":"dWQqn","8947ba99a84d17e2":"eQ3Yl","75755ba9de3e2a89":"eEPuU","9e940adf16a5eed3":"2QtL3","96724d8400af0537":"g1Ysh","1eff590be5fe8c03":"fNlxU","eff1c3ea55b1e13f":"44LGg","1c4f1db8390ba000":"3AEx3"}],"dWQqn":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -2546,7 +2546,7 @@ __exportStar(require("1b13216fea35ca31"), exports);
 __exportStar(require("6db873f047d2430e"), exports);
 __exportStar(require("f37762c09f0696b8"), exports);
 
-},{"4e85847368877f75":"9Nu8V","5f0833f6925fc7e4":"4sB3k","c76f0f4098cb3cb9":"6kHSp","e148547322424348":"glsqA","f68742657a9c76a":"4W13A","4167f566ebb90f13":"kGLxR","2de64906aeb72b76":"brHEG","5d9f934c3f22d639":"3HK9u","1b13216fea35ca31":"7qdll","6db873f047d2430e":"2Mnvz","f37762c09f0696b8":"i7fsS"}],"9Nu8V":[function(require,module,exports) {
+},{"4e85847368877f75":"9Nu8V","5f0833f6925fc7e4":"4sB3k","c76f0f4098cb3cb9":"6kHSp","e148547322424348":"glsqA","f68742657a9c76a":"4W13A","4167f566ebb90f13":"kGLxR","2de64906aeb72b76":"brHEG","5d9f934c3f22d639":"3HK9u","1b13216fea35ca31":"7qdll","6db873f047d2430e":"2Mnvz","f37762c09f0696b8":"i7fsS"}],"9Nu8V":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -2574,7 +2574,7 @@ __exportStar(require("f37762c09f0696b8"), exports);
     value: true
 });
 
-},{}],"4sB3k":[function(require,module,exports) {
+},{}],"4sB3k":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -2602,13 +2602,13 @@ __exportStar(require("f37762c09f0696b8"), exports);
     value: true
 });
 
-},{}],"6kHSp":[function(require,module,exports) {
+},{}],"6kHSp":[function(require,module,exports,__globalThis) {
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-},{}],"glsqA":[function(require,module,exports) {
+},{}],"glsqA":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -2636,7 +2636,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-},{}],"4W13A":[function(require,module,exports) {
+},{}],"4W13A":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -2675,7 +2675,7 @@ var EModificationType;
     EModificationType[EModificationType["delete"] = 64] = "delete";
 })(EModificationType || (exports.EModificationType = EModificationType = {}));
 
-},{}],"kGLxR":[function(require,module,exports) {
+},{}],"kGLxR":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -2703,7 +2703,7 @@ var EModificationType;
     value: true
 });
 
-},{}],"brHEG":[function(require,module,exports) {
+},{}],"brHEG":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -2731,7 +2731,7 @@ var EModificationType;
     value: true
 });
 
-},{}],"3HK9u":[function(require,module,exports) {
+},{}],"3HK9u":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -2759,7 +2759,7 @@ var EModificationType;
     value: true
 });
 
-},{}],"7qdll":[function(require,module,exports) {
+},{}],"7qdll":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -2787,7 +2787,7 @@ var EModificationType;
     value: true
 });
 
-},{}],"2Mnvz":[function(require,module,exports) {
+},{}],"2Mnvz":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -2815,7 +2815,7 @@ var EModificationType;
     value: true
 });
 
-},{}],"i7fsS":[function(require,module,exports) {
+},{}],"i7fsS":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -2843,7 +2843,7 @@ var EModificationType;
     value: true
 });
 
-},{}],"eQ3Yl":[function(require,module,exports) {
+},{}],"eQ3Yl":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -2896,7 +2896,7 @@ __exportStar(require("830060ac8dcd1cba"), exports);
 __exportStar(require("b19d9219cece0267"), exports);
 __exportStar(require("debf80a6f9d16cad"), exports);
 
-},{"c74bf7ff37956b15":"7CGtg","64711907b5000e7d":"j0Ghu","70fc3c0607044cf3":"h1jlL","4dcdbe89e42955ca":"hS6eW","e8ec8bc479690a1e":"4LcRf","830060ac8dcd1cba":"7FDV7","b19d9219cece0267":"aG3Zm","debf80a6f9d16cad":"flDVf"}],"7CGtg":[function(require,module,exports) {
+},{"c74bf7ff37956b15":"7CGtg","64711907b5000e7d":"j0Ghu","70fc3c0607044cf3":"h1jlL","4dcdbe89e42955ca":"hS6eW","e8ec8bc479690a1e":"4LcRf","830060ac8dcd1cba":"7FDV7","b19d9219cece0267":"aG3Zm","debf80a6f9d16cad":"flDVf"}],"7CGtg":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -2982,7 +2982,7 @@ function loadBimFile(bimFile, viewer) {
 }
 exports.loadBimFile = loadBimFile;
 
-},{}],"j0Ghu":[function(require,module,exports) {
+},{}],"j0Ghu":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -3041,30 +3041,30 @@ const spinal_model_graph_1 = require("939ee329da0797f9");
 const SpatialConfig_1 = require("e85968f67a1c4dd5");
 function loadConfig(graph) {
     return __awaiter(this, void 0, void 0, function*() {
-        let configContext = yield graph.getContext(".config");
-        if (typeof configContext === "undefined") {
-            configContext = new spinal_model_graph_1.SpinalContext(".config", "system configuration", undefined);
+        let configContext = yield graph.getContext('.config');
+        if (typeof configContext === 'undefined') {
+            configContext = new spinal_model_graph_1.SpinalContext('.config', 'system configuration', undefined);
             graph.addContext(configContext);
         }
         const children = yield configContext.getChildren([
-            "hasConfig"
+            'hasConfig'
         ]);
         let config;
-        for(let i = 0; i < children.length; i++)if (children[i].info.type.get() === "SpatialConfig") {
+        for(let i = 0; i < children.length; i++)if (children[i].info.type.get() === 'SpatialConfig') {
             config = children[i];
             break;
         }
-        if (typeof config === "undefined") {
+        if (typeof config === 'undefined') {
             // create default config
-            config = new spinal_model_graph_1.SpinalNode("spatial config", "SpatialConfig", new SpatialConfig_1.SpatialConfig());
-            yield configContext.addChild(config, "hasConfig", spinal_model_graph_1.SPINAL_RELATION_PTR_LST_TYPE);
+            config = new spinal_model_graph_1.SpinalNode('spatial config', 'SpatialConfig', new SpatialConfig_1.SpatialConfig());
+            yield configContext.addChild(config, 'hasConfig', spinal_model_graph_1.SPINAL_RELATION_PTR_LST_TYPE);
         }
         return config.element.load();
     });
 }
 exports.loadConfig = loadConfig;
 
-},{"939ee329da0797f9":"fkEXw","e85968f67a1c4dd5":"kJVYs"}],"h1jlL":[function(require,module,exports) {
+},{"939ee329da0797f9":"fkEXw","e85968f67a1c4dd5":"kJVYs"}],"h1jlL":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -3129,16 +3129,16 @@ const getADModelProps_1 = require("ee585c56fb93bfe0");
 const getADPropBylabel_1 = require("49aad4a1508e8178");
 function getAreaAttr(node) {
     return __awaiter(this, void 0, void 0, function*() {
-        const categoryName = "Spatial";
-        const label = "area";
+        const categoryName = 'Spatial';
+        const label = 'area';
         let category = yield spinal_env_viewer_plugin_documentation_service_1.attributeService.getCategoryByName(node, categoryName);
         if (!category) category = yield spinal_env_viewer_plugin_documentation_service_1.attributeService.addCategoryAttribute(node, categoryName);
         const attrs = yield spinal_env_viewer_plugin_documentation_service_1.attributeService.getAttributesByCategory(node, category);
         for (const attr of attrs)if (attr.label.get() === label) {
-            if (attr.value instanceof spinal_core_connectorjs_1.Val) attr.mod_attr("value", attr.value.get().toString());
+            if (attr.value instanceof spinal_core_connectorjs_1.Val) attr.mod_attr('value', attr.value.get().toString());
             return attr;
         }
-        return spinal_env_viewer_plugin_documentation_service_1.attributeService.addAttributeByCategory(node, category, label, "0");
+        return spinal_env_viewer_plugin_documentation_service_1.attributeService.addAttributeByCategory(node, category, label, '0');
     });
 }
 function updateRoomArea(room, loadedModel) {
@@ -3163,12 +3163,12 @@ function getADAreaProp(refRoom, loadedModel) {
             if (dbid && dbid > 0) {
                 const model = yield (0, getModelByBimFileId_1.getModelByBimFileId)(refRoom.info.bimFileId.get(), loadedModel);
                 const refProps = yield (0, getADModelProps_1.getADModelProps)(model, dbid);
-                const refADProp = (0, getADPropBylabel_1.getADPropBylabel)(refProps, "Area");
-                return ((_b = refADProp === null || refADProp === void 0 ? void 0 : refADProp.displayValue) === null || _b === void 0 ? void 0 : _b.toString()) || "0";
+                const refADProp = (0, getADPropBylabel_1.getADPropBylabel)(refProps, 'Area');
+                return ((_b = refADProp === null || refADProp === void 0 ? void 0 : refADProp.displayValue) === null || _b === void 0 ? void 0 : _b.toString()) || '0';
             }
-            return "0";
+            return '0';
         } catch (error) {
-            return "0";
+            return '0';
         }
     });
 }
@@ -3207,7 +3207,7 @@ function setAreaInContextGeo(graph) {
 }
 exports.setAreaInContextGeo = setAreaInContextGeo;
 
-},{"4705615493ba7868":"7eoNK","f6c9cb9496e9e3af":"b3pAR","b6aabf13bd0a8872":"5rYVR","2b41bab1eb999b32":"2uyD7","f954adfc9f51d79":"7Uou5","3290a7286e7867e7":"gp0sW","ee585c56fb93bfe0":"9XZOf","49aad4a1508e8178":"i4ABs"}],"7eoNK":[function(require,module,exports) {
+},{"4705615493ba7868":"7eoNK","f6c9cb9496e9e3af":"b3pAR","b6aabf13bd0a8872":"5rYVR","2b41bab1eb999b32":"2uyD7","f954adfc9f51d79":"7Uou5","3290a7286e7867e7":"gp0sW","ee585c56fb93bfe0":"9XZOf","49aad4a1508e8178":"i4ABs"}],"7eoNK":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -3265,16 +3265,16 @@ exports.getContextSpatial = void 0;
 const spinal_model_graph_1 = require("66ca27814a438be2");
 function getContextSpatial(graph) {
     return __awaiter(this, void 0, void 0, function*() {
-        let context = yield graph.getContext("spatial");
+        let context = yield graph.getContext('spatial');
         if (context) return context;
-        context = new spinal_model_graph_1.SpinalContext("spatial", "geographicContext");
+        context = new spinal_model_graph_1.SpinalContext('spatial', 'geographicContext');
         yield graph.addContext(context);
         return context;
     });
 }
 exports.getContextSpatial = getContextSpatial;
 
-},{"66ca27814a438be2":"fkEXw"}],"7Uou5":[function(require,module,exports) {
+},{"66ca27814a438be2":"fkEXw"}],"7Uou5":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -3316,12 +3316,12 @@ function updateLoadedModel(loadedModel) {
             }
         }
     } catch (error) {
-        console.log("updateLoadedModel fail load existing model list, ignore it if no model loaded");
+        console.log('updateLoadedModel fail load existing model list, ignore it if no model loaded');
     }
 }
 exports.updateLoadedModel = updateLoadedModel;
 
-},{"11ab4aeae64927b2":"7cAlu"}],"7cAlu":[function(require,module,exports) {
+},{"11ab4aeae64927b2":"7cAlu"}],"7cAlu":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -3358,7 +3358,7 @@ function getViewer() {
 }
 exports.getViewer = getViewer;
 
-},{}],"gp0sW":[function(require,module,exports) {
+},{}],"gp0sW":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -3395,7 +3395,7 @@ function getModelByBimFileId(bimFileId, loadedModel) {
 }
 exports.getModelByBimFileId = getModelByBimFileId;
 
-},{"75249869f5756ebb":"aiFRo"}],"aiFRo":[function(require,module,exports) {
+},{"75249869f5756ebb":"aiFRo"}],"aiFRo":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -3462,7 +3462,7 @@ function loadModelByBimFileId(bimFileId) {
 }
 exports.loadModelByBimFileId = loadModelByBimFileId;
 
-},{"2ac3ac306933d8ea":"bgfSo","65ba1d8ae3c4e8a4":"7CGtg","97f7ffbbf01f7ed8":"7cAlu"}],"bgfSo":[function(require,module,exports) {
+},{"2ac3ac306933d8ea":"bgfSo","65ba1d8ae3c4e8a4":"7CGtg","97f7ffbbf01f7ed8":"7cAlu"}],"bgfSo":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -3588,19 +3588,19 @@ function _getBimFileByBimFileId(bimFileId) {
                 continue;
             }
             const graph = (0, graphservice_1.getGraph)();
-            const context = yield __await(graph.getContext("BimFileContext"));
+            const context = yield __await(graph.getContext('BimFileContext'));
             if (!context) {
-                nextBimFileId = yield yield __await(new Error("BimFileContext not found in graph"));
+                nextBimFileId = yield yield __await(new Error('BimFileContext not found in graph'));
                 continue;
             }
-            const child = yield __await(context.getChild((node)=>node.info.id.get() === nextBimFileId, "hasBimFile", spinal_model_graph_1.SPINAL_RELATION_PTR_LST_TYPE));
+            const child = yield __await(context.getChild((node)=>node.info.id.get() === nextBimFileId, 'hasBimFile', spinal_model_graph_1.SPINAL_RELATION_PTR_LST_TYPE));
             if (child) nextBimFileId = yield yield __await(child);
             else nextBimFileId = yield yield __await(new Error(`BimFileId [${nextBimFileId}] not found`));
         }
     });
 }
 
-},{"ea2b775d06a50c0":"fkEXw","79a84e49be3a4d7d":"MYBU6"}],"MYBU6":[function(require,module,exports) {
+},{"ea2b775d06a50c0":"fkEXw","79a84e49be3a4d7d":"MYBU6"}],"MYBU6":[function(require,module,exports,__globalThis) {
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -3648,7 +3648,7 @@ function getInfoGraphService(nodeId) {
 }
 exports.getInfoGraphService = getInfoGraphService;
 
-},{"d6e8b04bf3b4a61a":"9n7zp"}],"9XZOf":[function(require,module,exports) {
+},{"d6e8b04bf3b4a61a":"9n7zp"}],"9XZOf":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -3685,7 +3685,7 @@ function getADModelProps(model, dbid) {
 }
 exports.getADModelProps = getADModelProps;
 
-},{}],"i4ABs":[function(require,module,exports) {
+},{}],"i4ABs":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -3720,7 +3720,7 @@ function getADPropBylabel(props, label) {
 }
 exports.getADPropBylabel = getADPropBylabel;
 
-},{}],"hS6eW":[function(require,module,exports) {
+},{}],"hS6eW":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -3839,16 +3839,16 @@ function updateRoomPos(roomNode) {
 }
 function getCenterPosAttr(node) {
     return __awaiter(this, void 0, void 0, function*() {
-        const categoryName = "Spatial";
-        const label = "XYZ center";
+        const categoryName = 'Spatial';
+        const label = 'XYZ center';
         let category = yield spinal_env_viewer_plugin_documentation_service_1.attributeService.getCategoryByName(node, categoryName);
         if (!category) category = yield spinal_env_viewer_plugin_documentation_service_1.attributeService.addCategoryAttribute(node, categoryName);
         const attrs = yield spinal_env_viewer_plugin_documentation_service_1.attributeService.getAttributesByCategory(node, category);
         for (const attr of attrs)if (attr.label.get() === label) {
-            if (attr.value instanceof spinal_core_connectorjs_1.Val) attr.mod_attr("value", attr.value.get().toString());
+            if (attr.value instanceof spinal_core_connectorjs_1.Val) attr.mod_attr('value', attr.value.get().toString());
             return attr;
         }
-        return spinal_env_viewer_plugin_documentation_service_1.attributeService.addAttributeByCategory(node, category, label, "0;0;0");
+        return spinal_env_viewer_plugin_documentation_service_1.attributeService.addAttributeByCategory(node, category, label, '0;0;0');
     });
 }
 function updateBimObj(roomNode, context, res) {
@@ -3875,7 +3875,7 @@ function updateBimObj(roomNode, context, res) {
     });
 }
 
-},{"2a46b31a8a69c110":"7eoNK","b0260ed4135cf5f9":"b3pAR","22fe0d0c4ec58f3b":"5rYVR","1ec4512ebda47215":"2uyD7","44a04927483814cb":"2wzJt","aba0512fa85bb61e":"9OSUv","4b8731f0b7c2574":"hGoCs","35acc1ad55318e4f":"2QtL3"}],"9OSUv":[function(require,module,exports) {
+},{"2a46b31a8a69c110":"7eoNK","b0260ed4135cf5f9":"b3pAR","22fe0d0c4ec58f3b":"5rYVR","1ec4512ebda47215":"2uyD7","44a04927483814cb":"2wzJt","aba0512fa85bb61e":"9OSUv","4b8731f0b7c2574":"hGoCs","35acc1ad55318e4f":"2QtL3"}],"9OSUv":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -3925,7 +3925,7 @@ function getFragIds(dbId, model) {
 }
 exports.getFragIds = getFragIds;
 
-},{}],"hGoCs":[function(require,module,exports) {
+},{}],"hGoCs":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -3965,7 +3965,7 @@ function getWorldBoundingBox(fragIds, model) {
 }
 exports.getWorldBoundingBox = getWorldBoundingBox;
 
-},{}],"2QtL3":[function(require,module,exports) {
+},{}],"2QtL3":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -4026,7 +4026,7 @@ __exportStar(require("57e3518cde77f608"), exports);
 __exportStar(require("99612be5c3958082"), exports);
 __exportStar(require("ba6cce7aa8bbd63f"), exports);
 
-},{"907e6f845f854707":"31vjO","2c424b28c345e7f4":"6301Z","4844756b187b58f0":"7eoNK","9f54d174ae6e1e1a":"9OSUv","1b996da8688d1167":"gp0sW","2bc0b496a077aa2a":"hGoCs","7b18e0b6c80203d6":"MYBU6","75317378ef40bf67":"j7UyN","24233f5511502dcb":"aiFRo","b5c55ef56bdacb08":"cHX8P","c2f308c23365d226":"c7mSl","9977756cd236bb05":"emWhR","8d6dacf7b0f48647":"7cAlu","57e3518cde77f608":"jSyCS","99612be5c3958082":"goGVj","ba6cce7aa8bbd63f":"9Ux7O"}],"31vjO":[function(require,module,exports) {
+},{"907e6f845f854707":"31vjO","2c424b28c345e7f4":"6301Z","4844756b187b58f0":"7eoNK","9f54d174ae6e1e1a":"9OSUv","1b996da8688d1167":"gp0sW","2bc0b496a077aa2a":"hGoCs","7b18e0b6c80203d6":"MYBU6","75317378ef40bf67":"j7UyN","24233f5511502dcb":"aiFRo","b5c55ef56bdacb08":"cHX8P","c2f308c23365d226":"c7mSl","9977756cd236bb05":"emWhR","8d6dacf7b0f48647":"7cAlu","57e3518cde77f608":"jSyCS","99612be5c3958082":"goGVj","ba6cce7aa8bbd63f":"9Ux7O"}],"31vjO":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -4086,7 +4086,7 @@ __exportStar(require("988d0995f2cd7ebb"), exports);
 __exportStar(require("42b4fd290a104846"), exports);
 __exportStar(require("b2fa4aed9fcf38c6"), exports);
 
-},{"a3fb66d3698a688b":"9XZOf","84f6ab83c26d954f":"i4ABs","d0d7805cb743cbb2":"f4ySM","9c4a21df56f45cf7":"1Vsqm","187c70326296e3a1":"4Tsm1","b7280d84240dccc5":"fClU2","24d28247c3187ba9":"kN6dl","c799a99451e31782":"eN1Tf","606e9e72c11a0739":"aRVIK","f074f52334f04993":"gwMxK","17152310198a0890":"7Uou5","99bbb592f29077aa":"d4dr2","988d0995f2cd7ebb":"5g0mR","42b4fd290a104846":"62VjY","b2fa4aed9fcf38c6":"etBRA"}],"f4ySM":[function(require,module,exports) {
+},{"a3fb66d3698a688b":"9XZOf","84f6ab83c26d954f":"i4ABs","d0d7805cb743cbb2":"f4ySM","9c4a21df56f45cf7":"1Vsqm","187c70326296e3a1":"4Tsm1","b7280d84240dccc5":"fClU2","24d28247c3187ba9":"kN6dl","c799a99451e31782":"eN1Tf","606e9e72c11a0739":"aRVIK","f074f52334f04993":"gwMxK","17152310198a0890":"7Uou5","99bbb592f29077aa":"d4dr2","988d0995f2cd7ebb":"5g0mR","42b4fd290a104846":"62VjY","b2fa4aed9fcf38c6":"etBRA"}],"f4ySM":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -4166,7 +4166,7 @@ function getArchi(graph, configName, bimFile, viewer) {
 }
 exports.getArchi = getArchi;
 
-},{"47b380d5a14fe710":"j0Ghu","abc375da3a7531aa":"7CGtg","ae9e2f5ceb3d1040":"aI5bI"}],"1Vsqm":[function(require,module,exports) {
+},{"47b380d5a14fe710":"j0Ghu","abc375da3a7531aa":"7CGtg","ae9e2f5ceb3d1040":"aI5bI"}],"1Vsqm":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -4203,7 +4203,7 @@ function getModType(modificationType) {
 }
 exports.getModType = getModType;
 
-},{"1d11a5628faef57e":"4W13A"}],"4Tsm1":[function(require,module,exports) {
+},{"1d11a5628faef57e":"4W13A"}],"4Tsm1":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -4238,7 +4238,7 @@ function getNodeInfoArchiAttr(nodeInfo, propName) {
 }
 exports.getNodeInfoArchiAttr = getNodeInfoArchiAttr;
 
-},{}],"fClU2":[function(require,module,exports) {
+},{}],"fClU2":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -4272,7 +4272,7 @@ function isInSkipList(skipList, id, parentId) {
 }
 exports.isInSkipList = isInSkipList;
 
-},{}],"kN6dl":[function(require,module,exports) {
+},{}],"kN6dl":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -4309,7 +4309,7 @@ function serverIdArrToNodeIdArr(serverIds) {
 }
 exports.serverIdArrToNodeIdArr = serverIdArrToNodeIdArr;
 
-},{"bdd88383220ede72":"2uyD7"}],"eN1Tf":[function(require,module,exports) {
+},{"bdd88383220ede72":"2uyD7"}],"eN1Tf":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -4369,30 +4369,30 @@ const spinal_core_connectorjs_1 = require("aec26c31f650ee27");
 function updateAttr(node, attrs) {
     return __awaiter(this, void 0, void 0, function*() {
         if (!attrs || attrs && attrs.length === 0) return; // skip if nothing to update
-        let cat = yield spinal_env_viewer_plugin_documentation_service_1.attributeService.getCategoryByName(node, "Spatial");
-        if (!cat) cat = yield spinal_env_viewer_plugin_documentation_service_1.attributeService.addCategoryAttribute(node, "Spatial");
+        let cat = yield spinal_env_viewer_plugin_documentation_service_1.attributeService.getCategoryByName(node, 'Spatial');
+        if (!cat) cat = yield spinal_env_viewer_plugin_documentation_service_1.attributeService.addCategoryAttribute(node, 'Spatial');
         const attrsFromNode = yield spinal_env_viewer_plugin_documentation_service_1.attributeService.getAttributesByCategory(node, cat);
         for (const attr of attrs){
             const attrFromNode = attrsFromNode.find((itm)=>itm.label.get() === attr.label);
             if (attrFromNode) {
                 try {
-                    if (attrFromNode.value instanceof spinal_core_connectorjs_1.Val) attrFromNode.mod_attr("value", attr.value);
+                    if (attrFromNode.value instanceof spinal_core_connectorjs_1.Val) attrFromNode.mod_attr('value', attr.value);
                     else attrFromNode.value.set(attr.value);
                 } catch (error) {
                     console.error(error);
-                    console.log("err", node, {
+                    console.log('err', node, {
                         label: attrFromNode.label,
                         value: attr.value
                     });
                 }
                 if (attr.unit) attrFromNode.unit.set(attr.unit);
-            } else spinal_env_viewer_plugin_documentation_service_1.attributeService.addAttributeByCategory(node, cat, attr.label, attr.value.toString(), "", attr.unit);
+            } else spinal_env_viewer_plugin_documentation_service_1.attributeService.addAttributeByCategory(node, cat, attr.label, attr.value.toString(), '', attr.unit);
         }
     });
 }
 exports.updateAttr = updateAttr;
 
-},{"cb01d4fedad8ca83":"5rYVR","aec26c31f650ee27":"2uyD7"}],"aRVIK":[function(require,module,exports) {
+},{"cb01d4fedad8ca83":"5rYVR","aec26c31f650ee27":"2uyD7"}],"aRVIK":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -4422,11 +4422,11 @@ exports.updateAttr = updateAttr;
 exports.updateInfoByKey = void 0;
 function updateInfoByKey(node, key, value) {
     try {
-        if (typeof node.info[key] === "undefined") node.info.add_attr(key, value);
+        if (typeof node.info[key] === 'undefined') node.info.add_attr(key, value);
         else node.info[key].set(value);
     } catch (err) {
         console.error(err);
-        console.log("err", node, {
+        console.log('err', node, {
             key,
             value
         });
@@ -4434,7 +4434,7 @@ function updateInfoByKey(node, key, value) {
 }
 exports.updateInfoByKey = updateInfoByKey;
 
-},{}],"gwMxK":[function(require,module,exports) {
+},{}],"gwMxK":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -4471,7 +4471,7 @@ function updateInfo(node, info) {
 }
 exports.updateInfo = updateInfo;
 
-},{"c392dc4c5735e1ef":"aRVIK"}],"d4dr2":[function(require,module,exports) {
+},{"c392dc4c5735e1ef":"aRVIK"}],"d4dr2":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -4541,7 +4541,7 @@ function getFloorNodesFromBIMGeo(bimGeoServerId) {
 }
 exports.getFloorNodesFromBIMGeo = getFloorNodesFromBIMGeo;
 
-},{"5ebb4592c6ee1c82":"jSyCS","888fd25c36f30ed6":"b3pAR"}],"jSyCS":[function(require,module,exports) {
+},{"5ebb4592c6ee1c82":"jSyCS","888fd25c36f30ed6":"b3pAR"}],"jSyCS":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -4608,7 +4608,7 @@ function getOrLoadModel(serverId) {
 }
 exports.getOrLoadModel = getOrLoadModel;
 
-},{"bc05880776e6098b":"2uyD7"}],"5g0mR":[function(require,module,exports) {
+},{"bc05880776e6098b":"2uyD7"}],"5g0mR":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -4676,7 +4676,7 @@ function getFloorNodesFromGeo(buildingServerId) {
 }
 exports.getFloorNodesFromGeo = getFloorNodesFromGeo;
 
-},{"4ed26dca6c994d70":"MYBU6","c0f981f91d9b74fa":"jSyCS","5c421af84d2917f2":"7eoNK"}],"62VjY":[function(require,module,exports) {
+},{"4ed26dca6c994d70":"MYBU6","c0f981f91d9b74fa":"jSyCS","5c421af84d2917f2":"7eoNK"}],"62VjY":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -4747,7 +4747,7 @@ function getRoomNodesFromBIMGeo(bimGeoServerId) {
 }
 exports.getRoomNodesFromBIMGeo = getRoomNodesFromBIMGeo;
 
-},{"19f3a3fd11c14fb7":"jSyCS","a3bc924acde3f930":"b3pAR"}],"etBRA":[function(require,module,exports) {
+},{"19f3a3fd11c14fb7":"jSyCS","a3bc924acde3f930":"b3pAR"}],"etBRA":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -4815,7 +4815,7 @@ function getRoomNodesFromFloor(floorServerId) {
 }
 exports.getRoomNodesFromFloor = getRoomNodesFromFloor;
 
-},{"7803a6eddab9a74b":"jSyCS","60458b299790f7be":"b3pAR"}],"6301Z":[function(require,module,exports) {
+},{"7803a6eddab9a74b":"jSyCS","60458b299790f7be":"b3pAR"}],"6301Z":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -4942,13 +4942,13 @@ function getBimContextByBimFileId(bimFileId_1) {
 exports.getBimContextByBimFileId = getBimContextByBimFileId;
 function _createBimContext(bimFile) {
     return __asyncGenerator(this, arguments, function* _createBimContext_1() {
-        const bimContext = new spinal_model_graph_1.SpinalNode("BIMContext", "SpinalNode");
+        const bimContext = new spinal_model_graph_1.SpinalNode('BIMContext', 'SpinalNode');
         yield __await(bimFile.addChild(bimContext, constant_1.BIMCONTEXT_RELATION_NAME, spinal_model_graph_2.SPINAL_RELATION_PTR_LST_TYPE));
         while(true)yield yield __await(bimContext);
     });
 }
 
-},{"24b566d9cdb638f5":"fkEXw","1bf795f60c12a7ae":"bgfSo","7e3a35b8faf0441e":"3AEx3"}],"3AEx3":[function(require,module,exports) {
+},{"24b566d9cdb638f5":"fkEXw","1bf795f60c12a7ae":"bgfSo","7e3a35b8faf0441e":"3AEx3"}],"3AEx3":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -4976,8 +4976,8 @@ function _createBimContext(bimFile) {
     value: true
 });
 exports.BIM_GEO_FLOOR_PART_TYPE = exports.BIM_GEO_CONTEXT_TYPE = exports.BIMCONTEXT_RELATION_NAME = exports.ARCHIVE_RELATION_NAME = exports.GENERATION_PROJECTION_TYPE = exports.GENERATION_GEO_TYPE = exports.GENERATION_RELATION = exports.GENERATION_TYPE = exports.GENERATION_CONTEXT_TYPE = exports.GENERATION_CONTEXT_NAME = exports.OVERLAY_SPHERES_PREVIEW_POSITION_NAME = exports.OVERLAY_LINES_PREVIEW_POSITION_NAME = exports.NOT_FOUND_DATE_TYPE = exports.CONTEXT_NOT_FOUND_RELATION = exports.CONTEXT_NOT_FOUND_TYPE = exports.CONTEXT_NOT_FOUND_NAME = exports.PROJECTION_CONFIG_RELATION_TYPE = exports.PROJECTION_CONFIG_RELATION = exports.PROJECTION_CONFIG_TYPE = void 0;
-exports.PROJECTION_CONFIG_TYPE = "ProjectionConfig";
-exports.PROJECTION_CONFIG_RELATION = "hasProjectionConfig";
+exports.PROJECTION_CONFIG_TYPE = 'ProjectionConfig';
+exports.PROJECTION_CONFIG_RELATION = 'hasProjectionConfig';
 var spinal_model_graph_1 = require("f1b768cd85f8bd81");
 Object.defineProperty(exports, "PROJECTION_CONFIG_RELATION_TYPE", {
     enumerable: true,
@@ -4985,24 +4985,24 @@ Object.defineProperty(exports, "PROJECTION_CONFIG_RELATION_TYPE", {
         return spinal_model_graph_1.SPINAL_RELATION_PTR_LST_TYPE;
     }
 });
-exports.CONTEXT_NOT_FOUND_NAME = "Projection Error";
-exports.CONTEXT_NOT_FOUND_TYPE = "ProjectionError";
-exports.CONTEXT_NOT_FOUND_RELATION = "ProjectionErrorHasDate";
-exports.NOT_FOUND_DATE_TYPE = "ProjectionErrorDate";
-exports.OVERLAY_LINES_PREVIEW_POSITION_NAME = "spinal-overlay-preview-position-line";
-exports.OVERLAY_SPHERES_PREVIEW_POSITION_NAME = "spinal-overlay-preview-position-sphere";
-exports.GENERATION_CONTEXT_NAME = "Generation Context";
-exports.GENERATION_CONTEXT_TYPE = "GenerationContext";
-exports.GENERATION_TYPE = "GenerationType";
-exports.GENERATION_RELATION = "hasGeneration";
-exports.GENERATION_GEO_TYPE = "ContextSpatial";
-exports.GENERATION_PROJECTION_TYPE = "ProjectionSpatial";
-exports.ARCHIVE_RELATION_NAME = "hasGenerationArchive";
-exports.BIMCONTEXT_RELATION_NAME = "hasBimContext";
-exports.BIM_GEO_CONTEXT_TYPE = "bimGeoContext";
-exports.BIM_GEO_FLOOR_PART_TYPE = "floorBimGeo";
+exports.CONTEXT_NOT_FOUND_NAME = 'Projection Error';
+exports.CONTEXT_NOT_FOUND_TYPE = 'ProjectionError';
+exports.CONTEXT_NOT_FOUND_RELATION = 'ProjectionErrorHasDate';
+exports.NOT_FOUND_DATE_TYPE = 'ProjectionErrorDate';
+exports.OVERLAY_LINES_PREVIEW_POSITION_NAME = 'spinal-overlay-preview-position-line';
+exports.OVERLAY_SPHERES_PREVIEW_POSITION_NAME = 'spinal-overlay-preview-position-sphere';
+exports.GENERATION_CONTEXT_NAME = 'Generation Context';
+exports.GENERATION_CONTEXT_TYPE = 'GenerationContext';
+exports.GENERATION_TYPE = 'GenerationType';
+exports.GENERATION_RELATION = 'hasGeneration';
+exports.GENERATION_GEO_TYPE = 'ContextSpatial';
+exports.GENERATION_PROJECTION_TYPE = 'ProjectionSpatial';
+exports.ARCHIVE_RELATION_NAME = 'hasGenerationArchive';
+exports.BIMCONTEXT_RELATION_NAME = 'hasBimContext';
+exports.BIM_GEO_CONTEXT_TYPE = 'bimGeoContext';
+exports.BIM_GEO_FLOOR_PART_TYPE = 'floorBimGeo';
 
-},{"f1b768cd85f8bd81":"fkEXw"}],"j7UyN":[function(require,module,exports) {
+},{"f1b768cd85f8bd81":"fkEXw"}],"j7UyN":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -5038,7 +5038,7 @@ function s4() {
     return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
 }
 
-},{}],"cHX8P":[function(require,module,exports) {
+},{}],"cHX8P":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -5099,7 +5099,7 @@ __exportStar(require("e6946d7bd0a870d6"), exports);
 __exportStar(require("ca1d1cda668ca79"), exports);
 __exportStar(require("f4f2f2ab22cc1d09"), exports);
 
-},{"5feccecae34c5c55":"cK2zJ","d32eb42ffcd3d0fb":"eOonW","36bd221a325be69b":"5QVLC","a8636f3faf810e71":"kRW4n","9a76657bcf53f81b":"jxYBg","e88a6b3f00cd6d0d":"ev9bs","1b53aa26a6292f33":"aLTS1","2f4f5ca521ebec12":"5dP2s","df54455620ff66dd":"lUmuX","df549e3bb80e7019":"9RDu2","f58424c0cef1ccdd":"jo8bm","e5044822a9838c4b":"2nCOY","1b5fdc30b2322ac4":"gBCuR","e6946d7bd0a870d6":"33BKm","ca1d1cda668ca79":"cCyX2","f4f2f2ab22cc1d09":"26kqv"}],"cK2zJ":[function(require,module,exports) {
+},{"5feccecae34c5c55":"cK2zJ","d32eb42ffcd3d0fb":"eOonW","36bd221a325be69b":"5QVLC","a8636f3faf810e71":"kRW4n","9a76657bcf53f81b":"jxYBg","e88a6b3f00cd6d0d":"ev9bs","1b53aa26a6292f33":"aLTS1","2f4f5ca521ebec12":"5dP2s","df54455620ff66dd":"lUmuX","df549e3bb80e7019":"9RDu2","f58424c0cef1ccdd":"jo8bm","e5044822a9838c4b":"2nCOY","1b5fdc30b2322ac4":"gBCuR","e6946d7bd0a870d6":"33BKm","ca1d1cda668ca79":"cCyX2","f4f2f2ab22cc1d09":"26kqv"}],"cK2zJ":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -5159,7 +5159,7 @@ const getBBoxAndMatrix_1 = require("ed510a738603a1ef");
 function getBBoxAndMatrixs(current, viewer) {
     return __awaiter(this, void 0, void 0, function*() {
         const prom = [];
-        for (const item of current.itemToShow)if (typeof item.meshs === "undefined" || typeof item.bbox === "undefined") {
+        for (const item of current.itemToShow)if (typeof item.meshs === 'undefined' || typeof item.bbox === 'undefined') {
             const model = (0, getModelByModelId_1.getModelByModelId)(item.modelId);
             prom.push((0, getBBoxAndMatrix_1.getBBoxAndMatrix)(item.dbId, model, viewer).then(({ matrixWorld, bbox })=>{
                 item.matrixWorld = matrixWorld;
@@ -5171,7 +5171,7 @@ function getBBoxAndMatrixs(current, viewer) {
 }
 exports.getBBoxAndMatrixs = getBBoxAndMatrixs;
 
-},{"39f3c50a6d3c59ee":"9RDu2","ed510a738603a1ef":"eOonW"}],"9RDu2":[function(require,module,exports) {
+},{"39f3c50a6d3c59ee":"9RDu2","ed510a738603a1ef":"eOonW"}],"9RDu2":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -5210,7 +5210,7 @@ function getModelByModelId(modelId) {
 }
 exports.getModelByModelId = getModelByModelId;
 
-},{}],"eOonW":[function(require,module,exports) {
+},{}],"eOonW":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -5280,7 +5280,7 @@ function getBBoxAndMatrix(dbId, model, viewer) {
 }
 exports.getBBoxAndMatrix = getBBoxAndMatrix;
 
-},{"5ff2dfb74de9a83e":"9OSUv","2e415fe83484366a":"jo8bm"}],"jo8bm":[function(require,module,exports) {
+},{"5ff2dfb74de9a83e":"9OSUv","2e415fe83484366a":"jo8bm"}],"jo8bm":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -5321,7 +5321,7 @@ function getModifiedWorldBoundingBox(fragIds, model) {
 }
 exports.getModifiedWorldBoundingBox = getModifiedWorldBoundingBox;
 
-},{}],"5QVLC":[function(require,module,exports) {
+},{}],"5QVLC":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -5360,7 +5360,7 @@ function getBimFileIdByModelId(modelId) {
 }
 exports.getBimFileIdByModelId = getBimFileIdByModelId;
 
-},{}],"kRW4n":[function(require,module,exports) {
+},{}],"kRW4n":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -5391,12 +5391,12 @@ exports.getBulkProperties = void 0;
 const getModelByModelId_1 = require("ecc02594e3010bd7");
 function getBulkProperties(model, dbIds, props = {
     propFilter: [
-        "name",
-        "externalId"
+        'name',
+        'externalId'
     ]
 }) {
     let m;
-    if (typeof model === "number") m = (0, getModelByModelId_1.getModelByModelId)(model);
+    if (typeof model === 'number') m = (0, getModelByModelId_1.getModelByModelId)(model);
     else m = model;
     return new Promise((resolve, reject)=>{
         m.getBulkProperties(Array.from(dbIds), props, (result)=>{
@@ -5412,7 +5412,7 @@ function getBulkProperties(model, dbIds, props = {
 }
 exports.getBulkProperties = getBulkProperties;
 
-},{"ecc02594e3010bd7":"9RDu2"}],"jxYBg":[function(require,module,exports) {
+},{"ecc02594e3010bd7":"9RDu2"}],"jxYBg":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -5449,7 +5449,7 @@ function getDbIdChildren(tree, id) {
 }
 exports.getDbIdChildren = getDbIdChildren;
 
-},{}],"ev9bs":[function(require,module,exports) {
+},{}],"ev9bs":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -5485,7 +5485,7 @@ function getLeafDbIdsByModelId(modelId, dbIds) {
 }
 exports.getLeafDbIdsByModelId = getLeafDbIdsByModelId;
 
-},{"3d20a7fe9c9e3a4d":"9RDu2","a13d0fe7a7196a5c":"5dP2s"}],"5dP2s":[function(require,module,exports) {
+},{"3d20a7fe9c9e3a4d":"9RDu2","a13d0fe7a7196a5c":"5dP2s"}],"5dP2s":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -5517,7 +5517,7 @@ const getDbIdChildren_1 = require("c31dc4925cd08d92");
 function getLeafDbIds(model, rootId) {
     const tree = model.getInstanceTree();
     const dbIds = [];
-    if (typeof rootId === "undefined") rootId = [
+    if (typeof rootId === 'undefined') rootId = [
         tree.nodeAccess.rootId
     ];
     else rootId = Array.isArray(rootId) ? rootId : [
@@ -5541,7 +5541,7 @@ function getLeafDbIds(model, rootId) {
 }
 exports.getLeafDbIds = getLeafDbIds;
 
-},{"c31dc4925cd08d92":"jxYBg"}],"aLTS1":[function(require,module,exports) {
+},{"c31dc4925cd08d92":"jxYBg"}],"aLTS1":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -5575,7 +5575,7 @@ function getLeafDbIdsByModel(model, dbIds) {
 }
 exports.getLeafDbIdsByModel = getLeafDbIdsByModel;
 
-},{"4dadd572331b5a5c":"5dP2s"}],"lUmuX":[function(require,module,exports) {
+},{"4dadd572331b5a5c":"5dP2s"}],"lUmuX":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -5612,7 +5612,7 @@ function getModelByBimFileIdLoaded(bimFileId) {
 }
 exports.getModelByBimFileIdLoaded = getModelByBimFileIdLoaded;
 
-},{}],"2nCOY":[function(require,module,exports) {
+},{}],"2nCOY":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -5652,7 +5652,7 @@ function getPointOffset(orig, offset, matrixWorld) {
 }
 exports.getPointOffset = getPointOffset;
 
-},{}],"gBCuR":[function(require,module,exports) {
+},{}],"gBCuR":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -5726,7 +5726,7 @@ function getPropItemFromPropPath(propPath, model) {
 }
 exports.getPropItemFromPropPath = getPropItemFromPropPath;
 
-},{"3a43e907dde37ccb":"kRW4n","91d2f4175782781":"jxYBg"}],"33BKm":[function(require,module,exports) {
+},{"3a43e907dde37ccb":"kRW4n","91d2f4175782781":"jxYBg"}],"33BKm":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -5794,14 +5794,14 @@ function getPropPath(dbId, model) {
                 currentDbId
             ], {
                 propFilter: [
-                    "name",
-                    "externalId",
-                    "parent"
+                    'name',
+                    'externalId',
+                    'parent'
                 ]
             });
             const prop = props[0];
             res.push(prop.name);
-            const p = prop.properties.find((p)=>p.attributeName === "parent");
+            const p = prop.properties.find((p)=>p.attributeName === 'parent');
             if (!p) return undefined;
             currentDbId = parseInt((_a = p.displayValue) === null || _a === void 0 ? void 0 : _a.toString());
         }
@@ -5810,7 +5810,7 @@ function getPropPath(dbId, model) {
 }
 exports.getPropPath = getPropPath;
 
-},{"d2489edc7a0c8d64":"kRW4n"}],"cCyX2":[function(require,module,exports) {
+},{"d2489edc7a0c8d64":"kRW4n"}],"cCyX2":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -5844,7 +5844,7 @@ function isProjectionGroup(item) {
 }
 exports.isProjectionGroup = isProjectionGroup;
 
-},{"dd184b35e940ab4a":"4PJt3"}],"4PJt3":[function(require,module,exports) {
+},{"dd184b35e940ab4a":"4PJt3"}],"4PJt3":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -5919,7 +5919,7 @@ class ProjectionGroup {
                 const found = this.data.find((el)=>{
                     return el.modelId === model.id;
                 });
-                if (typeof found !== "undefined") {
+                if (typeof found !== 'undefined') {
                     if (!found.selection.includes(dbId)) found.selection.push(dbId);
                 } else this.data.push({
                     modelId: model.id,
@@ -5981,7 +5981,7 @@ class ProjectionGroup {
 }
 exports.ProjectionGroup = ProjectionGroup;
 
-},{"239532c44d03eb25":"kRW4n","ebe98178bf2eedd3":"9RDu2"}],"26kqv":[function(require,module,exports) {
+},{"239532c44d03eb25":"kRW4n","ebe98178bf2eedd3":"9RDu2"}],"26kqv":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -6021,7 +6021,7 @@ function transformRtzToXyz(obj) {
 }
 exports.transformRtzToXyz = transformRtzToXyz;
 
-},{}],"c7mSl":[function(require,module,exports) {
+},{}],"c7mSl":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -6051,10 +6051,10 @@ exports.transformRtzToXyz = transformRtzToXyz;
 exports.waitGetServerId = void 0;
 const spinal_core_connectorjs_1 = require("b953520b1a845295");
 function waitGetServerId(model) {
-    if (typeof spinal_core_connectorjs_1.FileSystem._objects[model._server_id] !== "undefined") return Promise.resolve();
+    if (typeof spinal_core_connectorjs_1.FileSystem._objects[model._server_id] !== 'undefined') return Promise.resolve();
     return new Promise((resolve)=>{
         const inter = setInterval(()=>{
-            if (typeof spinal_core_connectorjs_1.FileSystem._objects[model._server_id] !== "undefined") {
+            if (typeof spinal_core_connectorjs_1.FileSystem._objects[model._server_id] !== 'undefined') {
                 clearInterval(inter);
                 resolve();
             }
@@ -6063,7 +6063,7 @@ function waitGetServerId(model) {
 }
 exports.waitGetServerId = waitGetServerId;
 
-},{"b953520b1a845295":"2uyD7"}],"emWhR":[function(require,module,exports) {
+},{"b953520b1a845295":"2uyD7"}],"emWhR":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -6103,7 +6103,7 @@ function waitPathSendToHub(path) {
 }
 exports.waitPathSendToHub = waitPathSendToHub;
 
-},{}],"goGVj":[function(require,module,exports) {
+},{}],"goGVj":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -6141,7 +6141,7 @@ function createBIMGeoContext(contextName) {
 }
 exports.createBIMGeoContext = createBIMGeoContext;
 
-},{"c2bffd5192577631":"fkEXw","4f5128d24ba91146":"3AEx3","d567f029ea33373":"MYBU6"}],"9Ux7O":[function(require,module,exports) {
+},{"c2bffd5192577631":"fkEXw","4f5128d24ba91146":"3AEx3","d567f029ea33373":"MYBU6"}],"9Ux7O":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -6207,7 +6207,7 @@ function getBimGeoContexts() {
 }
 exports.getBimGeoContexts = getBimGeoContexts;
 
-},{"d6edd1544c98e5a3":"3AEx3","126bd02f618f48a5":"MYBU6"}],"4LcRf":[function(require,module,exports) {
+},{"d6edd1544c98e5a3":"3AEx3","126bd02f618f48a5":"MYBU6"}],"4LcRf":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -6272,13 +6272,13 @@ const spinal_env_viewer_plugin_documentation_service_1 = require("b95870a455f387
 const spinal_core_connectorjs_1 = require("ffe1b1e29cd67429");
 function setLevelAttr(node, value) {
     return __awaiter(this, void 0, void 0, function*() {
-        const categoryName = "Spatial";
-        const label = "level";
+        const categoryName = 'Spatial';
+        const label = 'level';
         let category = yield spinal_env_viewer_plugin_documentation_service_1.attributeService.getCategoryByName(node, categoryName);
         if (!category) category = yield spinal_env_viewer_plugin_documentation_service_1.attributeService.addCategoryAttribute(node, categoryName);
         const attrs = yield spinal_env_viewer_plugin_documentation_service_1.attributeService.getAttributesByCategory(node, category);
         for (const attr of attrs)if (attr.label.get() === label) {
-            if (attr.value instanceof spinal_core_connectorjs_1.Val) attr.mod_attr("value", value);
+            if (attr.value instanceof spinal_core_connectorjs_1.Val) attr.mod_attr('value', value);
             else attr.value.set(value);
             return;
         }
@@ -6312,7 +6312,7 @@ function setLevelInContextGeo(graph) {
 }
 exports.setLevelInContextGeo = setLevelInContextGeo;
 
-},{"2c0232512c429b2a":"7eoNK","b95870a455f387d4":"5rYVR","ffe1b1e29cd67429":"2uyD7"}],"7FDV7":[function(require,module,exports) {
+},{"2c0232512c429b2a":"7eoNK","b95870a455f387d4":"5rYVR","ffe1b1e29cd67429":"2uyD7"}],"7FDV7":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -6347,15 +6347,15 @@ function parseUnit(str) {
 }
 exports.parseUnit = parseUnit;
 function returnNumberStr(value) {
-    if (typeof value === "number") return Number.isInteger(value) ? value.toString() : value.toFixed(2);
+    if (typeof value === 'number') return Number.isInteger(value) ? value.toString() : value.toFixed(2);
     return value.toString();
 }
 function updatePropsUnitAndGetArea(props) {
     let res;
     for (const prop of props){
-        if (prop.name === "area") res = prop;
+        if (prop.name === 'area') res = prop;
         if (prop.dataTypeContext) prop.dataTypeContext = parseUnit(prop.dataTypeContext);
-        if (typeof prop.value === "number") prop.value = returnNumberStr(prop.value);
+        if (typeof prop.value === 'number') prop.value = returnNumberStr(prop.value);
     }
     return res;
 }
@@ -6366,7 +6366,7 @@ function updatePropsUnitAndGetArea(props) {
  */ function transformArchi(archi) {
     for(const floorExtId in archi)if (Object.prototype.hasOwnProperty.call(archi, floorExtId)) {
         const floorAchi = archi[floorExtId];
-        let unitName = "squareMeter";
+        let unitName = 'squareMeter';
         let floorArea = 0;
         for(const roomExtId in floorAchi.children)if (Object.prototype.hasOwnProperty.call(floorAchi.children, roomExtId)) {
             const roomAchi = floorAchi.children[roomExtId];
@@ -6382,7 +6382,7 @@ function updatePropsUnitAndGetArea(props) {
             let roomProp = updatePropsUnitAndGetArea(roomAchi.properties.properties);
             if (!roomProp) {
                 roomProp = {
-                    name: "area",
+                    name: 'area',
                     value: returnNumberStr(roomArea),
                     dataTypeContext: unitName
                 };
@@ -6398,7 +6398,7 @@ function updatePropsUnitAndGetArea(props) {
         let floorProp = updatePropsUnitAndGetArea(floorAchi.properties.properties);
         if (!floorProp) {
             floorProp = {
-                name: "area",
+                name: 'area',
                 value: returnNumberStr(floorArea),
                 dataTypeContext: unitName
             };
@@ -6408,7 +6408,7 @@ function updatePropsUnitAndGetArea(props) {
 }
 exports.transformArchi = transformArchi;
 
-},{}],"aG3Zm":[function(require,module,exports) {
+},{}],"aG3Zm":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -6470,7 +6470,7 @@ function updateBimObjectFromBimFileId(bimFileId, model, updateBimobjectsName, up
     return __awaiter(this, void 0, void 0, function*() {
         if (!updateBimobjectsName && !updateBimobjectsDbid) return;
         const bimContext = yield (0, getBimContextByBimFileId_1.getBimContextByBimFileId)(bimFileId);
-        if (typeof bimContext === "undefined") throw new Error("No BimOject found with this bimFileId");
+        if (typeof bimContext === 'undefined') throw new Error('No BimOject found with this bimFileId');
         const map = yield (0, getExternalIdMapping_1.getExternalIdMapping)(model);
         const bimobjs = yield bimContext.getChildren(Constant_1.GEO_EQUIPMENT_RELATION);
         const promises = [];
@@ -6505,7 +6505,7 @@ function updateName(model, dbid, bimobj) {
     });
 }
 
-},{"57142b6ed4b5072f":"b3pAR","c83f09ce23b3cb78":"6301Z","f6f7bd1f806b5dda":"c0Xxv"}],"c0Xxv":[function(require,module,exports) {
+},{"57142b6ed4b5072f":"b3pAR","c83f09ce23b3cb78":"6301Z","f6f7bd1f806b5dda":"c0Xxv"}],"c0Xxv":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -6540,7 +6540,7 @@ function getExternalIdMapping(model) {
 }
 exports.getExternalIdMapping = getExternalIdMapping;
 
-},{}],"flDVf":[function(require,module,exports) {
+},{}],"flDVf":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -6598,12 +6598,12 @@ exports.updateRoomDbId = void 0;
 const getContextSpatial_1 = require("ae541f50717d3191");
 const Constant_1 = require("7d2777a34c806dfe");
 function updateDbId(spinalNode) {
-    if (typeof spinalNode.info.dbId !== "undefined") {
-        if (typeof spinalNode.info.dbid === "undefined") {
+    if (typeof spinalNode.info.dbId !== 'undefined') {
+        if (typeof spinalNode.info.dbid === 'undefined') {
             const dbid = spinalNode.info.dbId;
-            spinalNode.info.rem_attr("dbId");
-            spinalNode.info.add_attr("dbid", dbid);
-        } else spinalNode.info.rem_attr("dbId");
+            spinalNode.info.rem_attr('dbId');
+            spinalNode.info.add_attr('dbid', dbid);
+        } else spinalNode.info.rem_attr('dbId');
     }
 }
 function updateRoomDbId(graph) {
@@ -6629,7 +6629,7 @@ function updateRoomDbId(graph) {
 }
 exports.updateRoomDbId = updateRoomDbId;
 
-},{"ae541f50717d3191":"7eoNK","7d2777a34c806dfe":"b3pAR"}],"eEPuU":[function(require,module,exports) {
+},{"ae541f50717d3191":"7eoNK","7d2777a34c806dfe":"b3pAR"}],"eEPuU":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -6685,7 +6685,7 @@ __exportStar(require("6fb8615c3c8e0fec"), exports);
 __exportStar(require("553c87b95db57e79"), exports);
 __exportStar(require("32695adb4d6342c8"), exports);
 
-},{"489a6cd1bd47bd17":"3FnU2","292eee3413e319e1":"3vTe1","2b900b2777e20ade":"8hCUN","23ce64669bed9657":"4NKqN","c99a581093fa24e":"dC0Uy","29343324235c99e9":"j51dB","58113905a96d0c0d":"7queL","770b8c3149199af5":"kaL3f","6fb8615c3c8e0fec":"fCePx","553c87b95db57e79":"9XiCf","32695adb4d6342c8":"61gSG"}],"3FnU2":[function(require,module,exports) {
+},{"489a6cd1bd47bd17":"3FnU2","292eee3413e319e1":"3vTe1","2b900b2777e20ade":"8hCUN","23ce64669bed9657":"4NKqN","c99a581093fa24e":"dC0Uy","29343324235c99e9":"j51dB","58113905a96d0c0d":"7queL","770b8c3149199af5":"kaL3f","6fb8615c3c8e0fec":"fCePx","553c87b95db57e79":"9XiCf","32695adb4d6342c8":"61gSG"}],"3FnU2":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -6777,17 +6777,17 @@ function consumeCmdGeo(cmds_1, nodeGenerationId_1, contextGenerationId_1, callba
             const proms = [];
             let isFloors = false;
             for (const cmd of cmdArr){
-                if (cmd.type === "building") proms.push(safe_call(consumeNewUpdateCmd, dico, cmd, spinal_env_viewer_context_geographic_service_1.addBuilding));
-                else if (cmd.type === "floor") {
+                if (cmd.type === 'building') proms.push(safe_call(consumeNewUpdateCmd, dico, cmd, spinal_env_viewer_context_geographic_service_1.addBuilding));
+                else if (cmd.type === 'floor') {
                     proms.push(safe_call(consumeNewUpdateCmd, dico, cmd, spinal_env_viewer_context_geographic_service_1.addFloor));
                     isFloors = true;
-                } else if (cmd.type === "floorRef") proms.push(safe_call(consumeNewUpdateRefCmd, dico, cmd, spinal_env_viewer_context_geographic_service_1.REFERENCE_RELATION));
-                else if (cmd.type === "floorRefDel") proms.push(safe_call(consumeDeleteCmd, dico, cmd, spinal_env_viewer_context_geographic_service_1.REFERENCE_RELATION));
-                else if (cmd.type === "floorRoomDel") proms.push(safe_call(consumeDeleteCmd, dico, cmd, spinal_env_viewer_context_geographic_service_1.ROOM_RELATION, nodeGenerationId, contextGenerationId));
-                else if (cmd.type === "room") proms.push(safe_call(consumeNewUpdateCmd, dico, cmd, spinal_env_viewer_context_geographic_service_1.addRoom));
-                else if (cmd.type === "roomRef") proms.push(safe_call(consumeNewUpdateRefCmd, dico, cmd, spinal_env_viewer_context_geographic_service_1.REFERENCE_ROOM_RELATION));
-                else if (cmd.type === "roomRefDel") proms.push(safe_call(consumeDeleteCmd, dico, cmd, spinal_env_viewer_context_geographic_service_1.REFERENCE_ROOM_RELATION));
-                else if (cmd.type === "RefNode") proms.push(safe_call(consumeRefNode, dico, cmd));
+                } else if (cmd.type === 'floorRef') proms.push(safe_call(consumeNewUpdateRefCmd, dico, cmd, spinal_env_viewer_context_geographic_service_1.REFERENCE_RELATION));
+                else if (cmd.type === 'floorRefDel') proms.push(safe_call(consumeDeleteCmd, dico, cmd, spinal_env_viewer_context_geographic_service_1.REFERENCE_RELATION));
+                else if (cmd.type === 'floorRoomDel') proms.push(safe_call(consumeDeleteCmd, dico, cmd, spinal_env_viewer_context_geographic_service_1.ROOM_RELATION, nodeGenerationId, contextGenerationId));
+                else if (cmd.type === 'room') proms.push(safe_call(consumeNewUpdateCmd, dico, cmd, spinal_env_viewer_context_geographic_service_1.addRoom));
+                else if (cmd.type === 'roomRef') proms.push(safe_call(consumeNewUpdateRefCmd, dico, cmd, spinal_env_viewer_context_geographic_service_1.REFERENCE_ROOM_RELATION));
+                else if (cmd.type === 'roomRefDel') proms.push(safe_call(consumeDeleteCmd, dico, cmd, spinal_env_viewer_context_geographic_service_1.REFERENCE_ROOM_RELATION));
+                else if (cmd.type === 'RefNode') proms.push(safe_call(consumeRefNode, dico, cmd));
             }
             yield (0, consumeBatch_1.consumeBatch)(proms, isFloors ? 1 : consumeBatchSize, (idx)=>{
                 try {
@@ -6812,7 +6812,7 @@ function getBimContext(dico, bimFileId) {
 }
 function consumeRefNode(dico, cmd) {
     return __awaiter(this, void 0, void 0, function*() {
-        if (spinal.SHOW_LOG_GENERATION) console.log("consumeRef", cmd);
+        if (spinal.SHOW_LOG_GENERATION) console.log('consumeRef', cmd);
         const parentNode = dico[cmd.pNId];
         if (!parentNode) throw new Error(`ParentId for ${cmd.pNId} not found.`);
         const context = dico[cmd.contextId];
@@ -6825,7 +6825,7 @@ function consumeRefNode(dico, cmd) {
 }
 function consumeDeleteCmd(dico, cmd, relationName, nodeGenerationId, contextGenerationId) {
     return __awaiter(this, void 0, void 0, function*() {
-        if (spinal.SHOW_LOG_GENERATION) console.log("consumeDeleteCmd", cmd);
+        if (spinal.SHOW_LOG_GENERATION) console.log('consumeDeleteCmd', cmd);
         const parentNode = dico[cmd.pNId];
         if (!parentNode) {
             console.error(new Error(`consumeDeleteCmd skip, ParentId for ${cmd.pNId} not found.`));
@@ -6855,7 +6855,7 @@ function recordDico(dico, node) {
 }
 function consumeNewUpdateCmd(dico, cmd, createMtd) {
     return __awaiter(this, void 0, void 0, function*() {
-        if (spinal.SHOW_LOG_GENERATION) console.log("consumeNewUpdateCmd", cmd);
+        if (spinal.SHOW_LOG_GENERATION) console.log('consumeNewUpdateCmd', cmd);
         const parentNode = dico[cmd.pNId];
         if (!parentNode) throw new Error(`ParentId for ${cmd.pNId} not found.`);
         const context = dico[cmd.contextId];
@@ -6869,7 +6869,7 @@ function consumeNewUpdateCmd(dico, cmd, createMtd) {
         // update info
         if (cmd.info) (0, updateInfo_1.updateInfo)(child, cmd.info);
         yield (0, updateAttr_1.updateAttr)(child, cmd.attr); // update attr
-        if (cmd.name) (0, updateInfoByKey_1.updateInfoByKey)(child, "name", cmd.name);
+        if (cmd.name) (0, updateInfoByKey_1.updateInfoByKey)(child, 'name', cmd.name);
         // Update linkedBimGeos
         yield handleLinkedBimGeosInfo(cmd, child, context);
         recordDico(dico, child);
@@ -6881,7 +6881,7 @@ function handleLinkedBimGeosInfo(cmd, floorNode, contextGeo) {
     return __awaiter(this, void 0, void 0, function*() {
         if (!cmd.linkedBimGeos) return;
         // update child.info.linkedBimGeos
-        if (typeof floorNode.info.linkedBimGeos === "undefined") floorNode.info.add_attr("linkedBimGeos", cmd.linkedBimGeos);
+        if (typeof floorNode.info.linkedBimGeos === 'undefined') floorNode.info.add_attr('linkedBimGeos', cmd.linkedBimGeos);
         else {
             const toRm = [];
             let found = false;
@@ -6999,32 +6999,32 @@ function createOrUpdateBimObjByBimFileId(dico, id, bimFileId, name, dbId, extern
         const bimobjs = yield bimContext.getChildren(Constant_1.GEO_EQUIPMENT_RELATION);
         if (externalId) {
             for (const bimObj of bimobjs)if (externalId === ((_a = bimObj.info.externalId) === null || _a === void 0 ? void 0 : _a.get())) {
-                (0, updateInfoByKey_1.updateInfoByKey)(bimObj, "name", name);
-                (0, updateInfoByKey_1.updateInfoByKey)(bimObj, "dbid", dbId);
-                (0, updateInfoByKey_1.updateInfoByKey)(bimObj, "bimFileId", bimFileId);
-                (0, updateInfoByKey_1.updateInfoByKey)(bimObj, "externalId", externalId);
+                (0, updateInfoByKey_1.updateInfoByKey)(bimObj, 'name', name);
+                (0, updateInfoByKey_1.updateInfoByKey)(bimObj, 'dbid', dbId);
+                (0, updateInfoByKey_1.updateInfoByKey)(bimObj, 'bimFileId', bimFileId);
+                (0, updateInfoByKey_1.updateInfoByKey)(bimObj, 'externalId', externalId);
                 return bimObj;
             }
         }
         for (const bimObj of bimobjs)if (dbId === ((_b = bimObj.info.dbid) === null || _b === void 0 ? void 0 : _b.get())) {
-            (0, updateInfoByKey_1.updateInfoByKey)(bimObj, "name", name);
-            (0, updateInfoByKey_1.updateInfoByKey)(bimObj, "dbid", dbId);
-            (0, updateInfoByKey_1.updateInfoByKey)(bimObj, "bimFileId", bimFileId);
-            (0, updateInfoByKey_1.updateInfoByKey)(bimObj, "externalId", externalId);
+            (0, updateInfoByKey_1.updateInfoByKey)(bimObj, 'name', name);
+            (0, updateInfoByKey_1.updateInfoByKey)(bimObj, 'dbid', dbId);
+            (0, updateInfoByKey_1.updateInfoByKey)(bimObj, 'bimFileId', bimFileId);
+            (0, updateInfoByKey_1.updateInfoByKey)(bimObj, 'externalId', externalId);
             return bimObj;
         }
         const bimObj = new spinal_model_graph_1.SpinalNode(name, spinal_env_viewer_context_geographic_service_1.EQUIPMENT_TYPE);
-        (0, updateInfoByKey_1.updateInfoByKey)(bimObj, "name", name);
-        (0, updateInfoByKey_1.updateInfoByKey)(bimObj, "id", id);
-        (0, updateInfoByKey_1.updateInfoByKey)(bimObj, "dbid", dbId);
-        (0, updateInfoByKey_1.updateInfoByKey)(bimObj, "bimFileId", bimFileId);
-        (0, updateInfoByKey_1.updateInfoByKey)(bimObj, "externalId", externalId);
+        (0, updateInfoByKey_1.updateInfoByKey)(bimObj, 'name', name);
+        (0, updateInfoByKey_1.updateInfoByKey)(bimObj, 'id', id);
+        (0, updateInfoByKey_1.updateInfoByKey)(bimObj, 'dbid', dbId);
+        (0, updateInfoByKey_1.updateInfoByKey)(bimObj, 'bimFileId', bimFileId);
+        (0, updateInfoByKey_1.updateInfoByKey)(bimObj, 'externalId', externalId);
         return bimContext.addChild(bimObj, Constant_1.GEO_EQUIPMENT_RELATION, spinal_model_graph_1.SPINAL_RELATION_PTR_LST_TYPE);
     });
 }
 function consumeNewUpdateRefCmd(dico, cmd, relationName) {
     return __awaiter(this, void 0, void 0, function*() {
-        if (spinal.SHOW_LOG_GENERATION) console.log("consumeNewUpdateRefCmd", cmd);
+        if (spinal.SHOW_LOG_GENERATION) console.log('consumeNewUpdateRefCmd', cmd);
         const parentNode = dico[cmd.pNId];
         if (!parentNode) throw new Error(`ParentId for ${cmd.type} not found.`);
         // find id in parentChildren
@@ -7042,7 +7042,7 @@ function consumeNewUpdateRefCmd(dico, cmd, relationName) {
     });
 }
 
-},{"e393f284ce7b7021":"fkEXw","e131a2ff9346963c":"7eoNK","1d201b212ec6dcbd":"5QjJf","27373c673d3c3cb":"2wzJt","5780231b0e4d9189":"eN1Tf","5abb683a46d96e10":"gwMxK","721fd08bd207338":"aRVIK","ae54b583dc852419":"MYBU6","75af6bff8a27f027":"c7mSl","9be23858761b3dd8":"6301Z","15e25285f848741a":"3AEx3","76d46131c6ae3827":"b3pAR"}],"3vTe1":[function(require,module,exports) {
+},{"e393f284ce7b7021":"fkEXw","e131a2ff9346963c":"7eoNK","1d201b212ec6dcbd":"5QjJf","27373c673d3c3cb":"2wzJt","5780231b0e4d9189":"eN1Tf","5abb683a46d96e10":"gwMxK","721fd08bd207338":"aRVIK","ae54b583dc852419":"MYBU6","75af6bff8a27f027":"c7mSl","9be23858761b3dd8":"6301Z","15e25285f848741a":"3AEx3","76d46131c6ae3827":"b3pAR"}],"3vTe1":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -7162,8 +7162,8 @@ function consumeCmdProjection(cmds_1, nodeId_1, contextId_1, callbackProg_1) {
     return __awaiter(this, arguments, void 0, function*(cmds, nodeId, contextId, callbackProg, consumeBatchSize = 20) {
         const contextGeneration = (0, utils_1.getRealNode)(contextId);
         const nodeGeneration = (0, utils_1.getRealNode)(nodeId);
-        const warnNodeGen = getOrCreateGenOutNode(contextGeneration, nodeGeneration, "warn");
-        const errorNodeGen = getOrCreateGenOutNode(contextGeneration, nodeGeneration, "error");
+        const warnNodeGen = getOrCreateGenOutNode(contextGeneration, nodeGeneration, 'warn');
+        const errorNodeGen = getOrCreateGenOutNode(contextGeneration, nodeGeneration, 'error');
         const dico = {};
         const graph = (0, utils_1.getGraph)();
         const contextGeo = yield (0, utils_1.getContextSpatial)(graph);
@@ -7208,12 +7208,12 @@ function getOrCreateGenOutNode(contextGeneration, nodeGeneration, type) {
         let resNode;
         const nodes = yield __await(nodeGeneration.getChildrenInContext(contextGeneration));
         for (const node of nodes){
-            if (type === "warn" && node.info.name.get() === "warn") resNode = node;
-            else if (type === "error" && node.info.name.get() === "error") resNode = node;
+            if (type === 'warn' && node.info.name.get() === 'warn') resNode = node;
+            else if (type === 'error' && node.info.name.get() === 'error') resNode = node;
         }
         if (!resNode) {
             resNode = new spinal_model_graph_1.SpinalNode(type, `GenerationContextType`);
-            nodeGeneration.addChildInContext(resNode, "hasGenerationContextType", spinal_model_graph_1.SPINAL_RELATION_PTR_LST_TYPE, contextGeneration);
+            nodeGeneration.addChildInContext(resNode, 'hasGenerationContextType', spinal_model_graph_1.SPINAL_RELATION_PTR_LST_TYPE, contextGeneration);
         }
         const children = yield __await(resNode.getChildrenInContext(contextGeneration));
         while(true)yield yield __await({
@@ -7224,10 +7224,10 @@ function getOrCreateGenOutNode(contextGeneration, nodeGeneration, type) {
 }
 function consumeCmdMissingProj(errorGen, contextGeo, cmd, bimContext, bimobjs, contextGeneration, callbackProg) {
     return __awaiter(this, void 0, void 0, function*() {
-        if (spinal.SHOW_LOG_GENERATION) console.log("consumeCmdMissingProj", cmd);
+        if (spinal.SHOW_LOG_GENERATION) console.log('consumeCmdMissingProj', cmd);
         const nodeGeneration = (yield errorGen.next()).value;
         for (const obj of cmd.data){
-            if (spinal.SHOW_LOG_GENERATION) console.log(" => ", obj);
+            if (spinal.SHOW_LOG_GENERATION) console.log(' => ', obj);
             let child = nodeGeneration.children.find((node)=>node.info.externalId.get() === obj.externalId);
             if (child) updateBimObjInfo(child, obj.name, obj.dbid, cmd.bimFileId, obj.externalId);
             else {
@@ -7235,7 +7235,7 @@ function consumeCmdMissingProj(errorGen, contextGeo, cmd, bimContext, bimobjs, c
                 yield nodeGeneration.node.addChildInContext(child, Constant_1.GEO_EQUIPMENT_RELATION, spinal_model_graph_1.SPINAL_RELATION_PTR_LST_TYPE, contextGeneration);
                 yield updateRevitCategory(child, obj.revitCat, obj.centerPos);
             }
-            yield removeOtherParents(child, contextGeo, "");
+            yield removeOtherParents(child, contextGeo, '');
             yield removeOtherParents(child, contextGeneration, nodeGeneration.node.info.id.get());
             yield (0, utils_1.waitGetServerId)(child);
             if (callbackProg) callbackProg();
@@ -7244,12 +7244,12 @@ function consumeCmdMissingProj(errorGen, contextGeo, cmd, bimContext, bimobjs, c
 }
 function consumeCmdProj(dico, cmd, contextGeo, callbackProg, bimContext, bimobjs, warnGen, contextGeneration) {
     return __awaiter(this, void 0, void 0, function*() {
-        if (spinal.SHOW_LOG_GENERATION) console.log("consumeCmdProj", cmd);
+        if (spinal.SHOW_LOG_GENERATION) console.log('consumeCmdProj', cmd);
         const parentNode = yield getFromDico(dico, cmd.pNId);
         if (!parentNode) throw new Error(`ParentId for ${cmd.type} not found.`);
         const children = yield parentNode.getChildrenInContext(contextGeo);
         for (const obj of cmd.data){
-            if (spinal.SHOW_LOG_GENERATION) console.log(" => ", obj);
+            if (spinal.SHOW_LOG_GENERATION) console.log(' => ', obj);
             let child = children.find((node)=>node.info.externalId.get() === obj.externalId);
             if (child) updateBimObjInfo(child, obj.name, obj.dbid, cmd.bimFileId, obj.externalId);
             else {
@@ -7257,7 +7257,7 @@ function consumeCmdProj(dico, cmd, contextGeo, callbackProg, bimContext, bimobjs
                 yield parentNode.addChildInContext(child, Constant_1.GEO_EQUIPMENT_RELATION, spinal_model_graph_1.SPINAL_RELATION_PTR_LST_TYPE, contextGeo);
             }
             yield removeOtherParents(child, contextGeo, parentNode.info.id.get());
-            yield removeOtherParents(child, contextGeneration, "");
+            yield removeOtherParents(child, contextGeneration, '');
             yield updateRevitCategory(child, obj.revitCat, obj.centerPos);
             if (obj.flagWarining) {
                 const nodeGeneration = (yield warnGen.next()).value;
@@ -7276,16 +7276,16 @@ function consumeCmdProj(dico, cmd, contextGeo, callbackProg, bimContext, bimobjs
 function updateRevitCategory(child, revitCat, centerPos) {
     return __awaiter(this, void 0, void 0, function*() {
         if (!revitCat) return;
-        let cat = yield spinal_env_viewer_plugin_documentation_service_1.attributeService.getCategoryByName(child, "Spatial");
-        if (!cat) cat = yield spinal_env_viewer_plugin_documentation_service_1.attributeService.addCategoryAttribute(child, "Spatial");
+        let cat = yield spinal_env_viewer_plugin_documentation_service_1.attributeService.getCategoryByName(child, 'Spatial');
+        if (!cat) cat = yield spinal_env_viewer_plugin_documentation_service_1.attributeService.addCategoryAttribute(child, 'Spatial');
         const attrsFromNode = yield spinal_env_viewer_plugin_documentation_service_1.attributeService.getAttributesByCategory(child, cat);
-        const revitCatAttr = attrsFromNode.find((itm)=>itm.label.get() === "revit_category");
+        const revitCatAttr = attrsFromNode.find((itm)=>itm.label.get() === 'revit_category');
         if (revitCatAttr) revitCatAttr.value.set(revitCat);
-        else spinal_env_viewer_plugin_documentation_service_1.attributeService.addAttributeByCategory(child, cat, "revit_category", revitCat, "", "");
+        else spinal_env_viewer_plugin_documentation_service_1.attributeService.addAttributeByCategory(child, cat, 'revit_category', revitCat, '', '');
         if (centerPos) {
-            const centerPosAttr = attrsFromNode.find((itm)=>itm.label.get() === "XYZ center");
+            const centerPosAttr = attrsFromNode.find((itm)=>itm.label.get() === 'XYZ center');
             if (centerPosAttr) centerPosAttr.value.set(centerPos);
-            else spinal_env_viewer_plugin_documentation_service_1.attributeService.addAttributeByCategory(child, cat, "XYZ center", centerPos, "", "");
+            else spinal_env_viewer_plugin_documentation_service_1.attributeService.addAttributeByCategory(child, cat, 'XYZ center', centerPos, '', '');
         }
     });
 }
@@ -7306,7 +7306,7 @@ function removeOtherParents(child, context, parentNodeId) {
             }
         } catch (error) {
             console.error(error);
-            console.log("trying to removeOtherParents", {
+            console.log('trying to removeOtherParents', {
                 child,
                 context,
                 parentNodeId
@@ -7321,7 +7321,7 @@ function getFromDico(dico, id) {
     return dico[id];
 }
 function isCmdProj(item) {
-    return item.type === "CmdProjection";
+    return item.type === 'CmdProjection';
 }
 function getBimContext(dico, bimFileId) {
     return __awaiter(this, void 0, void 0, function*() {
@@ -7352,13 +7352,13 @@ function createOrUpdateBimObj(bimContext, bimobjs, bimFileId, name, dbid, extern
     });
 }
 function updateBimObjInfo(bimObj, name, dbid, bimFileId, externalId) {
-    (0, utils_1.updateInfoByKey)(bimObj, "name", name);
-    (0, utils_1.updateInfoByKey)(bimObj, "dbid", dbid);
-    (0, utils_1.updateInfoByKey)(bimObj, "bimFileId", bimFileId);
-    (0, utils_1.updateInfoByKey)(bimObj, "externalId", externalId);
+    (0, utils_1.updateInfoByKey)(bimObj, 'name', name);
+    (0, utils_1.updateInfoByKey)(bimObj, 'dbid', dbid);
+    (0, utils_1.updateInfoByKey)(bimObj, 'bimFileId', bimFileId);
+    (0, utils_1.updateInfoByKey)(bimObj, 'externalId', externalId);
 }
 
-},{"7f627c5282f899d0":"fkEXw","5b13e6304d16cbef":"2QtL3","4757b649db324b46":"b3pAR","b9aafbbe7b5fbcf3":"5QjJf","da9c8315619dc65f":"5rYVR","68d248b27e2690d2":"2wzJt","2313cb9ea6e7f245":"bGJVT"}],"8hCUN":[function(require,module,exports) {
+},{"7f627c5282f899d0":"fkEXw","5b13e6304d16cbef":"2QtL3","4757b649db324b46":"b3pAR","b9aafbbe7b5fbcf3":"5QjJf","da9c8315619dc65f":"5rYVR","68d248b27e2690d2":"2wzJt","2313cb9ea6e7f245":"bGJVT"}],"8hCUN":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -7474,7 +7474,7 @@ function generateCmdGeoLoop(data, skipList, parentNodeId, dataToDo, bimFileId, r
     });
 }
 
-},{"401279c631c6361c":"4W13A","2668f14e0a93abef":"1Vsqm","5d32ee360919b081":"fClU2","84499f06eae2dc6d":"TuZrQ","567b5ecff72abeac":"5ZUYP","e21bd6d0a5b2cb2":"5QjJf","4c916c6df1d5ad54":"jSyCS","ad93ea8444bed822":"2QtL3"}],"TuZrQ":[function(require,module,exports) {
+},{"401279c631c6361c":"4W13A","2668f14e0a93abef":"1Vsqm","5d32ee360919b081":"fClU2","84499f06eae2dc6d":"TuZrQ","567b5ecff72abeac":"5ZUYP","e21bd6d0a5b2cb2":"5QjJf","4c916c6df1d5ad54":"jSyCS","ad93ea8444bed822":"2QtL3"}],"TuZrQ":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -7557,7 +7557,7 @@ function getFloorRoomsCmdNew(floorData, floorCmd, bimFileId, skipList, refContex
 function getFloorRefCmdNew(structures, floorId, bimFileId, floorRefs) {
     for(const RefExtId in structures)if (Object.prototype.hasOwnProperty.call(structures, RefExtId)) {
         const { properties } = structures[RefExtId];
-        const struct = (0, getRefCmd_1.getRefCmd)(properties, floorId, "floorRef", bimFileId);
+        const struct = (0, getRefCmd_1.getRefCmd)(properties, floorId, 'floorRef', bimFileId);
         floorRefs.push(struct);
     }
 }
@@ -7567,9 +7567,9 @@ function getFloorCmdNew(floorData, parentNodeId, bimFileId, contextId) {
         externalId: floorData.floorArchi.properties.externalId,
         bimFileId
     };
-    let name = "";
+    let name = '';
     const attr = floorData.floorArchi.properties.properties.map((itm)=>{
-        if (itm.name === "name") name = itm.value;
+        if (itm.name === 'name') name = itm.value;
         return {
             label: itm.name,
             value: itm.value,
@@ -7580,14 +7580,14 @@ function getFloorCmdNew(floorData, parentNodeId, bimFileId, contextId) {
         pNId: parentNodeId,
         contextId,
         id: (0, guid_1.guid)(),
-        type: "floor",
+        type: 'floor',
         name,
         info,
         attr
     };
 }
 
-},{"8e46c1545e2256e4":"7FDV7","bc6ef65707c31fcb":"j7UyN","46646eb6a59383ed":"fClU2","76556ed1f5f58d0f":"exmCP","3e02087f1cffc4eb":"1RDYz"}],"exmCP":[function(require,module,exports) {
+},{"8e46c1545e2256e4":"7FDV7","bc6ef65707c31fcb":"j7UyN","46646eb6a59383ed":"fClU2","76556ed1f5f58d0f":"exmCP","3e02087f1cffc4eb":"1RDYz"}],"exmCP":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -7617,9 +7617,9 @@ function getFloorCmdNew(floorData, parentNodeId, bimFileId, contextId) {
 exports.getRefCmd = void 0;
 const guid_1 = require("c84931331e0ba6a1");
 function getRefCmd(properties, pNId, type, bimFileId) {
-    let name = "";
+    let name = '';
     properties.properties.forEach((itm)=>{
-        if (itm.name === "name") name = itm.value;
+        if (itm.name === 'name') name = itm.value;
     });
     return {
         pNId,
@@ -7635,7 +7635,7 @@ function getRefCmd(properties, pNId, type, bimFileId) {
 }
 exports.getRefCmd = getRefCmd;
 
-},{"c84931331e0ba6a1":"j7UyN"}],"1RDYz":[function(require,module,exports) {
+},{"c84931331e0ba6a1":"j7UyN"}],"1RDYz":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -7696,11 +7696,11 @@ const getRefCmd_1 = require("77b0db6d1cc6f105");
 const Constant_1 = require("ac7dcda2b536023f");
 function getRoomCmd(roomArchi, pNId, bimFileId, roomCmds, roomRefCmds, refContext, contextId) {
     return __awaiter(this, void 0, void 0, function*() {
-        let name = "";
+        let name = '';
         let number = undefined;
         const attr = roomArchi.properties.properties.map((itm)=>{
-            if (itm.name === "name") name = itm.value;
-            if (itm.name === "number") number = itm.value;
+            if (itm.name === 'name') name = itm.value;
+            if (itm.name === 'number') number = itm.value;
             return {
                 label: itm.name,
                 value: itm.value,
@@ -7714,7 +7714,7 @@ function getRoomCmd(roomArchi, pNId, bimFileId, roomCmds, roomRefCmds, refContex
             pNId,
             contextId,
             id,
-            type: "room",
+            type: 'room',
             name,
             info: {
                 dbid: roomArchi.properties.dbId,
@@ -7725,7 +7725,7 @@ function getRoomCmd(roomArchi, pNId, bimFileId, roomCmds, roomRefCmds, refContex
         };
         roomCmds.push(roomCmd);
         roomArchi.children.forEach((nodeInfo)=>{
-            const roomRefCmd = (0, getRefCmd_1.getRefCmd)(nodeInfo, roomCmd.id, "roomRef", bimFileId);
+            const roomRefCmd = (0, getRefCmd_1.getRefCmd)(nodeInfo, roomCmd.id, 'roomRef', bimFileId);
             roomRefCmds.push(roomRefCmd);
         });
     });
@@ -7740,7 +7740,7 @@ function getRoomFromRefByName(refContext, name) {
     });
 }
 
-},{"8d754f7b9dec61f6":"7FDV7","337aab7b624307ac":"j7UyN","77b0db6d1cc6f105":"exmCP","ac7dcda2b536023f":"b3pAR"}],"5ZUYP":[function(require,module,exports) {
+},{"8d754f7b9dec61f6":"7FDV7","337aab7b624307ac":"j7UyN","77b0db6d1cc6f105":"exmCP","ac7dcda2b536023f":"b3pAR"}],"5ZUYP":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -7812,7 +7812,7 @@ function handleFloorUpdate(floorData, parentNodeId, skipList, bimFileId, refCont
         if (floorData.diff.diffRef.delBimObj.length > 0) {
             const delBimObj = {
                 pNId: floorNode.info.id.get(),
-                type: "floorRefDel",
+                type: 'floorRefDel',
                 nIdToDel: (0, serverIdArrToNodeIdArr_1.serverIdArrToNodeIdArr)(floorData.diff.diffRef.delBimObj)
             };
             itemDeletes.push(delBimObj);
@@ -7821,7 +7821,7 @@ function handleFloorUpdate(floorData, parentNodeId, skipList, bimFileId, refCont
         if (roomDelServerId.length > 0) {
             const floorRoomDel = {
                 pNId: floorNode.info.id.get(),
-                type: "floorRoomDel",
+                type: 'floorRoomDel',
                 nIdToDel: (0, serverIdArrToNodeIdArr_1.serverIdArrToNodeIdArr)(roomDelServerId)
             };
             itemDeletes.push(floorRoomDel);
@@ -7851,7 +7851,7 @@ function getRoomCmdUp(floorData, floorNode, roomCmds, bimFileId, roomRefCmds, sk
             const roomCmd = {
                 pNId: floorNode.info.id.get(),
                 id: ((_a = roomNode === null || roomNode === void 0 ? void 0 : roomNode.info.id) === null || _a === void 0 ? void 0 : _a.get()) || (0, guid_1.guid)(),
-                type: "room",
+                type: 'room',
                 contextId,
                 name,
                 info,
@@ -7859,7 +7859,7 @@ function getRoomCmdUp(floorData, floorNode, roomCmds, bimFileId, roomRefCmds, sk
             };
             roomCmds.push(roomCmd);
             roomArchi.children.forEach((nodeInfo)=>{
-                const roomRefCmd = (0, getRefCmd_1.getRefCmd)(nodeInfo, roomCmd.id, "roomRef", bimFileId);
+                const roomRefCmd = (0, getRefCmd_1.getRefCmd)(nodeInfo, roomCmd.id, 'roomRef', bimFileId);
                 roomRefCmds.push(roomRefCmd);
             });
         }
@@ -7880,7 +7880,7 @@ function getRoomCmdUp(floorData, floorNode, roomCmds, bimFileId, roomRefCmds, sk
                         contextId,
                         pNId: floorNode.info.id.get(),
                         id: ((_a = roomNode === null || roomNode === void 0 ? void 0 : roomNode.info.id) === null || _a === void 0 ? void 0 : _a.get()) || (0, guid_1.guid)(),
-                        type: "RefNode"
+                        type: 'RefNode'
                     }
                 };
             }));
@@ -7905,7 +7905,7 @@ function getRoomCmdUp(floorData, floorNode, roomCmds, bimFileId, roomRefCmds, sk
                     if (child.info.externalId.get() === nodeInfo.externalId) return;
                 }
                 // if not exist add to list createRef
-                const roomRefCmd = (0, getRefCmd_1.getRefCmd)(nodeInfo, roomCmd.id, "roomRef", bimFileId);
+                const roomRefCmd = (0, getRefCmd_1.getRefCmd)(nodeInfo, roomCmd.id, 'roomRef', bimFileId);
                 roomRefCmds.push(roomRefCmd);
                 needUpdate = true;
             });
@@ -7918,7 +7918,7 @@ function getRoomCmdUp(floorData, floorNode, roomCmds, bimFileId, roomRefCmds, sk
                 if (needPushRefNode) roomCmds.push(roomCmd);
                 if (refsToRm.length > 0) itemDeletes.push({
                     pNId: roomCmd.id,
-                    type: "roomRefDel",
+                    type: 'roomRefDel',
                     nIdToDel: refsToRm
                 });
             }
@@ -7927,10 +7927,10 @@ function getRoomCmdUp(floorData, floorNode, roomCmds, bimFileId, roomRefCmds, sk
 }
 function getRoomName(roomArchi, diff) {
     for (const infoObj of diff.diffInfo){
-        if (infoObj.label === "name") return infoObj.archiValue;
+        if (infoObj.label === 'name') return infoObj.archiValue;
     }
-    const name = (0, getNodeInfoArchiAttr_1.getNodeInfoArchiAttr)(roomArchi.properties, "name");
-    const number = (0, getNodeInfoArchiAttr_1.getNodeInfoArchiAttr)(roomArchi.properties, "number");
+    const name = (0, getNodeInfoArchiAttr_1.getNodeInfoArchiAttr)(roomArchi.properties, 'name');
+    const number = (0, getNodeInfoArchiAttr_1.getNodeInfoArchiAttr)(roomArchi.properties, 'number');
     return number ? `${number}-${name}` : name;
 }
 function getRoomNameAndAttr(roomArchi, diff) {
@@ -7952,14 +7952,14 @@ function getRoomNameAndAttr(roomArchi, diff) {
 }
 function getFloorRefCmd(floorData, floorNode, bimFileId, floorRefCmd) {
     for (const strucNodeInfo of floorData.diff.diffRef.newBimObj){
-        let name = "";
+        let name = '';
         strucNodeInfo.properties.forEach((itm)=>{
-            if (itm.name === "name") name = itm.value;
+            if (itm.name === 'name') name = itm.value;
         });
         floorRefCmd.push({
             pNId: floorNode.info.id.get(),
             id: (0, guid_1.guid)(),
-            type: "floorRef",
+            type: 'floorRef',
             name,
             info: {
                 dbid: strucNodeInfo.dbId,
@@ -7971,9 +7971,9 @@ function getFloorRefCmd(floorData, floorNode, bimFileId, floorRefCmd) {
 }
 function getFloorName(floorData) {
     for (const infoObj of floorData.diff.diffInfo.diffInfo){
-        if (infoObj.label === "name") return infoObj.archiValue;
+        if (infoObj.label === 'name') return infoObj.archiValue;
     }
-    return (0, getNodeInfoArchiAttr_1.getNodeInfoArchiAttr)(floorData.floorArchi.properties, "name");
+    return (0, getNodeInfoArchiAttr_1.getNodeInfoArchiAttr)(floorData.floorArchi.properties, 'name');
 }
 function getFloorCmdUp(floorData, parentNodeId, floorNode, contextId) {
     var _a;
@@ -7988,7 +7988,7 @@ function getFloorCmdUp(floorData, parentNodeId, floorNode, contextId) {
         };
     });
     const floorCmd = {
-        type: "floor",
+        type: 'floor',
         pNId: parentNodeId,
         id: (_a = floorNode === null || floorNode === void 0 ? void 0 : floorNode.info.id) === null || _a === void 0 ? void 0 : _a.get(),
         contextId,
@@ -7996,13 +7996,13 @@ function getFloorCmdUp(floorData, parentNodeId, floorNode, contextId) {
         info,
         attr
     };
-    if (name === "") Object.assign(floorCmd, {
+    if (name === '') Object.assign(floorCmd, {
         name
     });
     return floorCmd;
 }
 
-},{"7fad9509a770469d":"fClU2","e737d99b350ab00c":"1RDYz","7ce5df7329080fe7":"exmCP","447b5b161f3d13f7":"7FDV7","e81beb5356bae5b":"j7UyN","3eb3c6801468a7f":"4Tsm1","fe95c068a8e4a752":"kN6dl","73f3328f7ccba856":"5QjJf","b52168a0c52c7560":"jSyCS"}],"4NKqN":[function(require,module,exports) {
+},{"7fad9509a770469d":"fClU2","e737d99b350ab00c":"1RDYz","7ce5df7329080fe7":"exmCP","447b5b161f3d13f7":"7FDV7","e81beb5356bae5b":"j7UyN","3eb3c6801468a7f":"4Tsm1","fe95c068a8e4a752":"kN6dl","73f3328f7ccba856":"5QjJf","b52168a0c52c7560":"jSyCS"}],"4NKqN":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -8080,9 +8080,9 @@ function getItemNames(data) {
         const res = [];
         for (const { model, dbIds } of data)res.push((0, getBulkProperties_1.getBulkProperties)(model, dbIds, {
             propFilter: [
-                "name",
-                "externalId",
-                "Category"
+                'name',
+                'externalId',
+                'Category'
             ]
         }));
         return Promise.all(res).then((arr)=>{
@@ -8093,7 +8093,7 @@ function getItemNames(data) {
     });
 }
 
-},{"8895279892c0ad4":"kRW4n","59b517267426bb90":"7p5UB","cd154cc9c9d6c9ad":"2Lk71","6f3f3e181894433f":"8bb9P"}],"7p5UB":[function(require,module,exports) {
+},{"8895279892c0ad4":"kRW4n","59b517267426bb90":"7p5UB","cd154cc9c9d6c9ad":"2Lk71","6f3f3e181894433f":"8bb9P"}],"7p5UB":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -8147,7 +8147,7 @@ function pushToData(data, dbId, model) {
     });
 }
 
-},{}],"2Lk71":[function(require,module,exports) {
+},{}],"2Lk71":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -8192,7 +8192,7 @@ function createCmdNotFoundItm(target, auProp, centerPos) {
             centerPos
         });
     } else target.push({
-        type: "CmdMissing",
+        type: 'CmdMissing',
         bimFileId,
         data: [
             {
@@ -8207,7 +8207,7 @@ function createCmdNotFoundItm(target, auProp, centerPos) {
 }
 exports.createCmdNotFoundItm = createCmdNotFoundItm;
 
-},{"e61c5521a7af3214":"5QVLC","e54a69c21e503db0":"1cuiH"}],"1cuiH":[function(require,module,exports) {
+},{"e61c5521a7af3214":"5QVLC","e54a69c21e503db0":"1cuiH"}],"1cuiH":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -8237,12 +8237,12 @@ exports.createCmdNotFoundItm = createCmdNotFoundItm;
 exports.getCategory = void 0;
 function getCategory(props) {
     for (const prop of props.properties){
-        if (prop.attributeName === "Category" && prop.displayCategory === "__category__") return prop;
+        if (prop.attributeName === 'Category' && prop.displayCategory === '__category__') return prop;
     }
 }
 exports.getCategory = getCategory;
 
-},{}],"8bb9P":[function(require,module,exports) {
+},{}],"8bb9P":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -8310,7 +8310,7 @@ function getCenterPos(auProp) {
 }
 exports.getCenterPos = getCenterPos;
 
-},{"6a79580bf5b1134a":"2QtL3"}],"dC0Uy":[function(require,module,exports) {
+},{"6a79580bf5b1134a":"2QtL3"}],"dC0Uy":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -8378,7 +8378,7 @@ function createCmdProjection(intersects, contextGeoId, floorsData) {
         const dicoBimObjs = {};
         const proms = [];
         for (const spinalIntersection of intersects)proms.push(()=>handleCreateCmd(spinalIntersection, dicoBimObjs, contextGeoId, floorsData, res));
-        yield (0, consumeBatch_1.consumeBatch)(proms, 500, console.log.bind(null, "createCmdProjection %d/%d"));
+        yield (0, consumeBatch_1.consumeBatch)(proms, 500, console.log.bind(null, 'createCmdProjection %d/%d'));
         return res;
     });
 }
@@ -8410,7 +8410,7 @@ function getFloorFromRoom(room, contextGeoId) {
     });
 }
 
-},{"c98866c250ab98ec":"MYBU6","21d3752b3eea3068":"9RDu2","6cd13ba6a4e19a21":"aiYfE","2b31cc29df551617":"6Yw3u","f7d2fb661b98f434":"jYc0v","66617092c0cca4e5":"8bb9P","7166704a57b2d00b":"2wzJt"}],"aiYfE":[function(require,module,exports) {
+},{"c98866c250ab98ec":"MYBU6","21d3752b3eea3068":"9RDu2","6cd13ba6a4e19a21":"aiYfE","2b31cc29df551617":"6Yw3u","f7d2fb661b98f434":"jYc0v","66617092c0cca4e5":"8bb9P","7166704a57b2d00b":"2wzJt"}],"aiYfE":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -8441,7 +8441,7 @@ exports.getProperties = void 0;
 const getModelByModelId_1 = require("d004ebb83c44ae");
 function getProperties(model, dbId) {
     let m;
-    if (typeof model === "number") m = (0, getModelByModelId_1.getModelByModelId)(model);
+    if (typeof model === 'number') m = (0, getModelByModelId_1.getModelByModelId)(model);
     else m = model;
     return new Promise((resolve, reject)=>{
         m.getProperties(dbId, (result)=>{
@@ -8455,7 +8455,7 @@ function getProperties(model, dbId) {
 }
 exports.getProperties = getProperties;
 
-},{"d004ebb83c44ae":"9RDu2"}],"6Yw3u":[function(require,module,exports) {
+},{"d004ebb83c44ae":"9RDu2"}],"6Yw3u":[function(require,module,exports,__globalThis) {
 "use strict";
 var __awaiter = this && this.__awaiter || function(thisArg, _arguments, P, generator) {
     function adopt(value) {
@@ -8507,7 +8507,7 @@ function getIntersectionRoom(dbId, modelId, dicoBimObjs, contextGeoId) {
 }
 exports.getIntersectionRoom = getIntersectionRoom;
 
-},{"e04c4a16c54e2875":"2QtL3","a66fd8d4b0aa13d0":"9RDu2","cf39c1811aa99b15":"b3pAR","b6feb8b4e0145182":"j3lBN"}],"j3lBN":[function(require,module,exports) {
+},{"e04c4a16c54e2875":"2QtL3","a66fd8d4b0aa13d0":"9RDu2","cf39c1811aa99b15":"b3pAR","b6feb8b4e0145182":"j3lBN"}],"j3lBN":[function(require,module,exports,__globalThis) {
 "use strict";
 var __awaiter = this && this.__awaiter || function(thisArg, _arguments, P, generator) {
     function adopt(value) {
@@ -8551,7 +8551,7 @@ function getBimObjFromBimFileId(dico, bimFileId, bimObjectDbId) {
 }
 exports.getBimObjFromBimFileId = getBimObjFromBimFileId;
 
-},{"822b8bd53c5fd654":"gOvHN"}],"gOvHN":[function(require,module,exports) {
+},{"822b8bd53c5fd654":"gOvHN"}],"gOvHN":[function(require,module,exports,__globalThis) {
 "use strict";
 var __awaiter = this && this.__awaiter || function(thisArg, _arguments, P, generator) {
     function adopt(value) {
@@ -8598,7 +8598,7 @@ function getBimObjsOfBimFileId(dico, bimFileId) {
 }
 exports.getBimObjsOfBimFileId = getBimObjsOfBimFileId;
 
-},{"9611bb12b91a6ca0":"2QtL3","709e74bdc9d1be1f":"b3pAR"}],"jYc0v":[function(require,module,exports) {
+},{"9611bb12b91a6ca0":"2QtL3","709e74bdc9d1be1f":"b3pAR"}],"jYc0v":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -8644,7 +8644,7 @@ function createCmdProjItm(target, auProp, pNId, centerPos, flagWarining) {
             flagWarining
         });
     } else target.push({
-        type: "CmdProjection",
+        type: 'CmdProjection',
         pNId,
         bimFileId,
         data: [
@@ -8661,7 +8661,7 @@ function createCmdProjItm(target, auProp, pNId, centerPos, flagWarining) {
 }
 exports.createCmdProjItm = createCmdProjItm;
 
-},{"d26a99a04e34c735":"1cuiH","e1d08933658dec6c":"5QVLC"}],"j51dB":[function(require,module,exports) {
+},{"d26a99a04e34c735":"1cuiH","e1d08933658dec6c":"5QVLC"}],"j51dB":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -8693,14 +8693,14 @@ const compress_json_1 = require("d8eaf6c530d45ee7");
 const pako_1 = require("eee64ade53331889");
 function decodeCmds(compressed) {
     const ungzip = (0, pako_1.inflate)(compressed, {
-        to: "string"
+        to: 'string'
     });
     const reversed = (0, compress_json_1.decompress)(JSON.parse(ungzip));
     return reversed;
 }
 exports.decodeCmds = decodeCmds;
 
-},{"d8eaf6c530d45ee7":"6XW9k","eee64ade53331889":"6sHn9"}],"6XW9k":[function(require,module,exports) {
+},{"d8eaf6c530d45ee7":"6XW9k","eee64ade53331889":"6sHn9"}],"6XW9k":[function(require,module,exports,__globalThis) {
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -8716,7 +8716,7 @@ exports.addValue = memory_1.addValue;
 exports.trimUndefined = helpers_1.trimUndefined;
 exports.trimUndefinedRecursively = helpers_1.trimUndefinedRecursively;
 
-},{"6ec54ab21d5a6381":"hXyBe","1e0839633fff787":"hNzuL","cbc023fcf829905a":"9o75M"}],"hXyBe":[function(require,module,exports) {
+},{"6ec54ab21d5a6381":"hXyBe","1e0839633fff787":"hNzuL","cbc023fcf829905a":"9o75M"}],"hXyBe":[function(require,module,exports,__globalThis) {
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -8735,9 +8735,9 @@ function compress(o) {
 }
 exports.compress = compress;
 function decodeObject(values, s) {
-    if (s === "o|") return {};
+    if (s === 'o|') return {};
     const o = {};
-    const vs = s.split("|");
+    const vs = s.split('|');
     const key_id = vs[1];
     let keys = decode(values, key_id);
     const n = vs.length;
@@ -8754,8 +8754,8 @@ function decodeObject(values, s) {
     return o;
 }
 function decodeArray(values, s) {
-    if (s === "a|") return [];
-    const vs = s.split("|");
+    if (s === 'a|') return [];
+    const vs = s.split('|');
     const n = vs.length - 1;
     const xs = new Array(n);
     for(let i = 0; i < n; i++){
@@ -8766,25 +8766,25 @@ function decodeArray(values, s) {
     return xs;
 }
 function decode(values, key) {
-    if (key === "" || key === "_") return null;
+    if (key === '' || key === '_') return null;
     const id = encode_1.decodeKey(key);
     const v = values[id];
     if (v === null) return v;
     switch(typeof v){
-        case "undefined":
+        case 'undefined':
             return v;
-        case "number":
+        case 'number':
             return v;
-        case "string":
+        case 'string':
             const prefix = v[0] + v[1];
             switch(prefix){
-                case "b|":
+                case 'b|':
                     return encode_1.decodeBool(v);
-                case "o|":
+                case 'o|':
                     return decodeObject(values, v);
-                case "n|":
+                case 'n|':
                     return encode_1.decodeNum(v);
-                case "a|":
+                case 'a|':
                     return decodeArray(values, v);
                 default:
                     return encode_1.decodeStr(v);
@@ -8799,7 +8799,7 @@ function decompress(c) {
 }
 exports.decompress = decompress;
 
-},{"43a60b4b6f2c97f0":"dKcjY","7f728b8b71f038db":"fOOIL","7ebb017235279e08":"hNzuL"}],"dKcjY":[function(require,module,exports) {
+},{"43a60b4b6f2c97f0":"dKcjY","7f728b8b71f038db":"fOOIL","7ebb017235279e08":"hNzuL"}],"dKcjY":[function(require,module,exports,__globalThis) {
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -8809,42 +8809,42 @@ function getType(o) {
 }
 exports.getType = getType;
 function throwUnknownDataType(o) {
-    throw new TypeError("unsupported data type: " + getType(o));
+    throw new TypeError('unsupported data type: ' + getType(o));
 }
 exports.throwUnknownDataType = throwUnknownDataType;
 
-},{}],"fOOIL":[function(require,module,exports) {
+},{}],"fOOIL":[function(require,module,exports,__globalThis) {
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
 const number_1 = require("17504c7c015c49e");
 function encodeNum(num) {
-    const a = "n|" + number_1.num_to_s(num);
+    const a = 'n|' + number_1.num_to_s(num);
     return a;
 // let b = num.toString()
 // return a.length < b.length ? a : num
 }
 exports.encodeNum = encodeNum;
 function decodeNum(s) {
-    s = s.replace("n|", "");
+    s = s.replace('n|', '');
     return number_1.s_to_num(s);
 }
 exports.decodeNum = decodeNum;
 function decodeKey(key) {
-    return typeof key === "number" ? key : number_1.s_to_int(key);
+    return typeof key === 'number' ? key : number_1.s_to_int(key);
 }
 exports.decodeKey = decodeKey;
 function encodeBool(b) {
     // return 'b|' + bool_to_s(b)
-    return b ? "b|T" : "b|F";
+    return b ? 'b|T' : 'b|F';
 }
 exports.encodeBool = encodeBool;
 function decodeBool(s) {
     switch(s){
-        case "b|T":
+        case 'b|T':
             return true;
-        case "b|F":
+        case 'b|F':
             return false;
     }
     return !!s;
@@ -8853,28 +8853,28 @@ exports.decodeBool = decodeBool;
 function encodeStr(str) {
     const prefix = str[0] + str[1];
     switch(prefix){
-        case "b|":
-        case "o|":
-        case "n|":
-        case "a|":
-        case "s|":
-            str = "s|" + str;
+        case 'b|':
+        case 'o|':
+        case 'n|':
+        case 'a|':
+        case 's|':
+            str = 's|' + str;
     }
     return str;
 }
 exports.encodeStr = encodeStr;
 function decodeStr(s) {
     const prefix = s[0] + s[1];
-    return prefix === "s|" ? s.substr(2) : s;
+    return prefix === 's|' ? s.substr(2) : s;
 }
 exports.decodeStr = decodeStr;
 
-},{"17504c7c015c49e":"W6ekq"}],"W6ekq":[function(require,module,exports) {
+},{"17504c7c015c49e":"W6ekq"}],"W6ekq":[function(require,module,exports,__globalThis) {
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-let i_to_s = "";
+let i_to_s = '';
 for(let i = 0; i < 10; i++){
     const c = String.fromCharCode(48 + i);
     i_to_s += c;
@@ -8930,7 +8930,7 @@ function int_to_s(int) {
         int -= i;
         int /= N;
     }
-    return acc.reverse().join("");
+    return acc.reverse().join('');
 }
 exports.int_to_s = int_to_s;
 function big_int_to_s(int) {
@@ -8944,30 +8944,30 @@ function big_int_to_s(int) {
         acc.push(c);
         int /= n;
     }
-    return acc.reverse().join("");
+    return acc.reverse().join('');
 }
 exports.big_int_to_s = big_int_to_s;
 function reverse(s) {
-    return s.split("").reverse().join("");
+    return s.split('').reverse().join('');
 }
 function num_to_s(num) {
-    if (num < 0) return "-" + num_to_s(-num);
-    let [a, b] = num.toString().split(".");
+    if (num < 0) return '-' + num_to_s(-num);
+    let [a, b] = num.toString().split('.');
     if (!b) return int_to_s(num);
     let c;
-    if (b) [b, c] = b.split("e");
+    if (b) [b, c] = b.split('e');
     a = int_str_to_s(a);
     b = reverse(b);
     b = int_str_to_s(b);
-    let str = a + "." + b;
+    let str = a + '.' + b;
     if (c) {
-        str += ".";
+        str += '.';
         switch(c[0]){
-            case "+":
+            case '+':
                 c = c.slice(1);
                 break;
-            case "-":
-                str += "-";
+            case '-':
+                str += '-';
                 c = c.slice(1);
                 break;
         }
@@ -8981,25 +8981,25 @@ exports.num_to_s = num_to_s;
 function int_str_to_s(int_str) {
     const num = +int_str;
     if (num.toString() === int_str) return int_to_s(num);
-    return ":" + big_int_to_s(BigInt(int_str));
+    return ':' + big_int_to_s(BigInt(int_str));
 }
 exports.int_str_to_s = int_str_to_s;
 function s_to_int_str(s) {
-    if (s[0] === ":") return s_to_big_int(s.substring(1)).toString();
+    if (s[0] === ':') return s_to_big_int(s.substring(1)).toString();
     return s_to_int(s).toString();
 }
 function s_to_num(s) {
-    if (s[0] === "-") return -s_to_num(s.substr(1));
-    let [a, b, c] = s.split(".");
+    if (s[0] === '-') return -s_to_num(s.substr(1));
+    let [a, b, c] = s.split('.');
     if (!b) return s_to_int(a);
     a = s_to_int_str(a);
     b = s_to_int_str(b);
     b = reverse(b);
-    let str = a + "." + b;
+    let str = a + '.' + b;
     if (c) {
-        str += "e";
+        str += 'e';
         let neg = false;
-        if (c[0] === "-") {
+        if (c[0] === '-') {
             neg = true;
             c = c.slice(1);
         }
@@ -9011,7 +9011,7 @@ function s_to_num(s) {
 }
 exports.s_to_num = s_to_num;
 
-},{}],"hNzuL":[function(require,module,exports) {
+},{}],"hNzuL":[function(require,module,exports,__globalThis) {
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -9029,7 +9029,7 @@ function makeInMemoryStore() {
     return {
         forEach (cb) {
             for(let i = 0; i < mem.length; i++){
-                if (cb(mem[i]) === "break") return;
+                if (cb(mem[i]) === 'break') return;
             }
         },
         add (value) {
@@ -9053,12 +9053,12 @@ function makeInMemoryCache() {
         },
         forEachValue (cb) {
             for (const [key, value] of Object.entries(valueMem)){
-                if (cb(key, value) === "break") return;
+                if (cb(key, value) === 'break') return;
             }
         },
         forEachSchema (cb) {
             for (const [key, value] of Object.entries(schemaMem)){
-                if (cb(key, value) === "break") return;
+                if (cb(key, value) === 'break') return;
             }
         },
         setValue (key, value) {
@@ -9094,54 +9094,54 @@ function getValueKey(mem, value) {
 }
 /** @remark in-place sort the keys */ function getSchema(mem, keys) {
     if (config_1.config.sort_key) keys.sort();
-    const schema = keys.join(",");
+    const schema = keys.join(',');
     if (mem.cache.hasSchema(schema)) return mem.cache.getSchema(schema);
     const key_id = addValue(mem, keys, undefined);
     mem.cache.setSchema(schema, key_id);
     return key_id;
 }
 function addValue(mem, o, parent) {
-    if (o === null) return "";
+    if (o === null) return '';
     switch(typeof o){
-        case "undefined":
+        case 'undefined':
             if (Array.isArray(parent)) return addValue(mem, null, parent);
             break;
-        case "object":
+        case 'object':
             if (o === null) return getValueKey(mem, null);
             if (Array.isArray(o)) {
-                let acc = "a";
+                let acc = 'a';
                 for(let i = 0; i < o.length; i++){
                     const v = o[i];
-                    const key = v === null ? "_" : addValue(mem, v, o);
-                    acc += "|" + key;
+                    const key = v === null ? '_' : addValue(mem, v, o);
+                    acc += '|' + key;
                 }
-                if (acc === "a") acc = "a|";
+                if (acc === 'a') acc = 'a|';
                 return getValueKey(mem, acc);
             } else {
                 const keys = Object.keys(o);
-                if (keys.length === 0) return getValueKey(mem, "o|");
-                let acc = "o";
+                if (keys.length === 0) return getValueKey(mem, 'o|');
+                let acc = 'o';
                 const key_id = getSchema(mem, keys);
-                acc += "|" + key_id;
+                acc += '|' + key_id;
                 for (const key of keys){
                     const value = o[key];
                     const v = addValue(mem, value, o);
-                    acc += "|" + v;
+                    acc += '|' + v;
                 }
                 return getValueKey(mem, acc);
             }
-        case "boolean":
+        case 'boolean':
             return getValueKey(mem, encode_1.encodeBool(o));
-        case "number":
+        case 'number':
             return getValueKey(mem, encode_1.encodeNum(o));
-        case "string":
+        case 'string':
             return getValueKey(mem, encode_1.encodeStr(o));
     }
     return debug_1.throwUnknownDataType(o);
 }
 exports.addValue = addValue;
 
-},{"5bc74932c839a4c1":"j20qE","ff3ddf2d477481f":"dKcjY","5e0aec9e52c3efe7":"fOOIL","8a389ab9d9e4c889":"W6ekq"}],"j20qE":[function(require,module,exports) {
+},{"5bc74932c839a4c1":"j20qE","ff3ddf2d477481f":"dKcjY","5e0aec9e52c3efe7":"fOOIL","8a389ab9d9e4c889":"W6ekq"}],"j20qE":[function(require,module,exports,__globalThis) {
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -9150,7 +9150,7 @@ exports.config = {
     sort_key: false
 };
 
-},{}],"9o75M":[function(require,module,exports) {
+},{}],"9o75M":[function(require,module,exports,__globalThis) {
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -9168,11 +9168,11 @@ function trimUndefinedRecursivelyLoop(object, tracks) {
     for(const key in object)if (object[key] === undefined) delete object[key];
     else {
         const value = object[key];
-        if (value && typeof value === "object" && !tracks.has(value)) trimUndefinedRecursivelyLoop(value, tracks);
+        if (value && typeof value === 'object' && !tracks.has(value)) trimUndefinedRecursivelyLoop(value, tracks);
     }
 }
 
-},{}],"6sHn9":[function(require,module,exports) {
+},{}],"6sHn9":[function(require,module,exports,__globalThis) {
 /*! pako 2.1.0 https://github.com/nodeca/pako @license (MIT AND Zlib) */ // (C) 1995-2013 Jean-loup Gailly and Mark Adler
 // (C) 2014-2017 Vitaly Puzrin and Andrey Tupitsin
 //
@@ -10174,15 +10174,15 @@ var crc32_1 = crc32;
 //   misrepresented as being the original software.
 // 3. This notice may not be removed or altered from any source distribution.
 var messages = {
-    2: "need dictionary",
-    /* Z_NEED_DICT       2  */ 1: "stream end",
-    /* Z_STREAM_END      1  */ 0: "",
-    /* Z_OK              0  */ "-1": "file error",
-    /* Z_ERRNO         (-1) */ "-2": "stream error",
-    /* Z_STREAM_ERROR  (-2) */ "-3": "data error",
-    /* Z_DATA_ERROR    (-3) */ "-4": "insufficient memory",
-    /* Z_MEM_ERROR     (-4) */ "-5": "buffer error",
-    /* Z_BUF_ERROR     (-5) */ "-6": "incompatible version" /* Z_VERSION_ERROR (-6) */ 
+    2: 'need dictionary',
+    /* Z_NEED_DICT       2  */ 1: 'stream end',
+    /* Z_STREAM_END      1  */ 0: '',
+    /* Z_OK              0  */ '-1': 'file error',
+    /* Z_ERRNO         (-1) */ '-2': 'stream error',
+    /* Z_STREAM_ERROR  (-2) */ '-3': 'data error',
+    /* Z_DATA_ERROR    (-3) */ '-4': 'insufficient memory',
+    /* Z_MEM_ERROR     (-4) */ '-5': 'buffer error',
+    /* Z_BUF_ERROR     (-5) */ '-6': 'incompatible version' /* Z_VERSION_ERROR (-6) */ 
 };
 // (C) 1995-2013 Jean-loup Gailly and Mark Adler
 // (C) 2014-2017 Vitaly Puzrin and Andrey Tupitsin
@@ -11600,7 +11600,7 @@ var deflateSetHeader_1 = deflateSetHeader;
 var deflate_2$1 = deflate$2;
 var deflateEnd_1 = deflateEnd;
 var deflateSetDictionary_1 = deflateSetDictionary;
-var deflateInfo = "pako deflate (from Nodeca project)";
+var deflateInfo = 'pako deflate (from Nodeca project)';
 /* Not implemented
 module.exports.deflateBound = deflateBound;
 module.exports.deflateCopy = deflateCopy;
@@ -11628,7 +11628,7 @@ var assign = function(obj /*from1, from2, from3, ...*/ ) {
     while(sources.length){
         const source = sources.shift();
         if (!source) continue;
-        if (typeof source !== "object") throw new TypeError(source + "must be non-object");
+        if (typeof source !== 'object') throw new TypeError(source + 'must be non-object');
         for(const p in source)if (_has(source, p)) obj[p] = source[p];
     }
     return obj;
@@ -11671,7 +11671,7 @@ for(let q = 0; q < 256; q++)_utf8len[q] = q >= 252 ? 6 : q >= 248 ? 5 : q >= 240
 _utf8len[254] = _utf8len[254] = 1; // Invalid sequence start
 // convert string to array (typed, when possible)
 var string2buf = (str)=>{
-    if (typeof TextEncoder === "function" && TextEncoder.prototype.encode) return new TextEncoder().encode(str);
+    if (typeof TextEncoder === 'function' && TextEncoder.prototype.encode) return new TextEncoder().encode(str);
     let buf, c, c2, m_pos, i, str_len = str.length, buf_len = 0;
     // count binary size
     for(m_pos = 0; m_pos < str_len; m_pos++){
@@ -11722,14 +11722,14 @@ const buf2binstring = (buf, len)=>{
     if (len < 65534) {
         if (buf.subarray && STR_APPLY_UIA_OK) return String.fromCharCode.apply(null, buf.length === len ? buf : buf.subarray(0, len));
     }
-    let result = "";
+    let result = '';
     for(let i = 0; i < len; i++)result += String.fromCharCode(buf[i]);
     return result;
 };
 // convert array to string
 var buf2string = (buf, max)=>{
     const len = max || buf.length;
-    if (typeof TextDecoder === "function" && TextDecoder.prototype.decode) return new TextDecoder().decode(buf.subarray(0, max));
+    if (typeof TextDecoder === 'function' && TextDecoder.prototype.decode) return new TextDecoder().decode(buf.subarray(0, max));
     let i, out;
     // Reserve max possible length (2 words per char)
     // NB: by unknown reasons, Array is significantly faster for
@@ -11822,7 +11822,7 @@ function ZStream() {
     this.next_out = 0;
     /* remaining free space at output */ this.avail_out = 0;
     /* total number of bytes output so far */ this.total_out = 0;
-    /* last error message, NULL if no error */ this.msg = "" /*Z_NULL*/ ;
+    /* last error message, NULL if no error */ this.msg = '' /*Z_NULL*/ ;
     /* not visible by applications */ this.state = null;
     /* best guess about the data type: binary or text */ this.data_type = 2 /*Z_UNKNOWN*/ ;
     /* adler32 value of the uncompressed data */ this.adler = 0;
@@ -11916,7 +11916,7 @@ const toString$1 = Object.prototype.toString;
     if (opt.raw && opt.windowBits > 0) opt.windowBits = -opt.windowBits;
     else if (opt.gzip && opt.windowBits > 0 && opt.windowBits < 16) opt.windowBits += 16;
     this.err = 0; // error code, if happens (0 = Z_OK)
-    this.msg = ""; // error message
+    this.msg = ''; // error message
     this.ended = false; // used to avoid multiple onEnd() calls
     this.chunks = []; // chunks of compressed data
     this.strm = new zstream();
@@ -11927,9 +11927,9 @@ const toString$1 = Object.prototype.toString;
     if (opt.dictionary) {
         let dict;
         // Convert data if needed
-        if (typeof opt.dictionary === "string") // If we need to compress text, change encoding to utf8.
+        if (typeof opt.dictionary === 'string') // If we need to compress text, change encoding to utf8.
         dict = strings.string2buf(opt.dictionary);
-        else if (toString$1.call(opt.dictionary) === "[object ArrayBuffer]") dict = new Uint8Array(opt.dictionary);
+        else if (toString$1.call(opt.dictionary) === '[object ArrayBuffer]') dict = new Uint8Array(opt.dictionary);
         else dict = opt.dictionary;
         status = deflate_1$2.deflateSetDictionary(this.strm, dict);
         if (status !== Z_OK$2) throw new Error(messages[status]);
@@ -11965,9 +11965,9 @@ const toString$1 = Object.prototype.toString;
     if (flush_mode === ~~flush_mode) _flush_mode = flush_mode;
     else _flush_mode = flush_mode === true ? Z_FINISH$2 : Z_NO_FLUSH$1;
     // Convert data if needed
-    if (typeof data === "string") // If we need to compress text, change encoding to utf8.
+    if (typeof data === 'string') // If we need to compress text, change encoding to utf8.
     strm.input = strings.string2buf(data);
-    else if (toString$1.call(data) === "[object ArrayBuffer]") strm.input = new Uint8Array(data);
+    else if (toString$1.call(data) === '[object ArrayBuffer]') strm.input = new Uint8Array(data);
     else strm.input = data;
     strm.next_in = 0;
     strm.avail_in = strm.input.length;
@@ -12266,7 +12266,7 @@ const TYPE$1 = 16191; /* i: waiting for type bits, including last-flag bit */
                         dist += hold & (1 << op) - 1;
                         //#ifdef INFLATE_STRICT
                         if (dist > dmax) {
-                            strm.msg = "invalid distance too far back";
+                            strm.msg = 'invalid distance too far back';
                             state.mode = BAD$1;
                             break top;
                         }
@@ -12279,7 +12279,7 @@ const TYPE$1 = 16191; /* i: waiting for type bits, including last-flag bit */
                             op = dist - op; /* distance back in window */ 
                             if (op > whave) {
                                 if (state.sane) {
-                                    strm.msg = "invalid distance too far back";
+                                    strm.msg = 'invalid distance too far back';
                                     state.mode = BAD$1;
                                     break top;
                                 }
@@ -12349,7 +12349,7 @@ const TYPE$1 = 16191; /* i: waiting for type bits, including last-flag bit */
                         here = dcode[(here & 0xffff) + (hold & (1 << op) - 1)];
                         continue dodist;
                     } else {
-                        strm.msg = "invalid distance code";
+                        strm.msg = 'invalid distance code';
                         state.mode = BAD$1;
                         break top;
                     }
@@ -12363,7 +12363,7 @@ const TYPE$1 = 16191; /* i: waiting for type bits, including last-flag bit */
                 state.mode = TYPE$1;
                 break top;
             } else {
-                strm.msg = "invalid literal/length code";
+                strm.msg = 'invalid literal/length code';
                 state.mode = BAD$1;
                 break top;
             }
@@ -12858,7 +12858,7 @@ const inflateResetKeep = (strm)=>{
     if (inflateStateCheck(strm)) return Z_STREAM_ERROR$1;
     const state = strm.state;
     strm.total_in = strm.total_out = state.total = 0;
-    strm.msg = ""; /*Z_NULL*/ 
+    strm.msg = ''; /*Z_NULL*/ 
     if (state.wrap) strm.adler = state.wrap & 1;
     state.mode = HEAD;
     state.last = 0;
@@ -13088,12 +13088,12 @@ const inflate$2 = (strm, flush)=>{
             }
             if (state.head) state.head.done = false;
             if (!(state.wrap & 1) || /* check if zlib header allowed */ (((hold & 0xff) << 8) + (hold >> 8)) % 31) {
-                strm.msg = "incorrect header check";
+                strm.msg = 'incorrect header check';
                 state.mode = BAD;
                 break;
             }
             if ((hold & 0x0f) !== Z_DEFLATED) {
-                strm.msg = "unknown compression method";
+                strm.msg = 'unknown compression method';
                 state.mode = BAD;
                 break;
             }
@@ -13104,7 +13104,7 @@ const inflate$2 = (strm, flush)=>{
             len = (hold & 0x0f) + 8;
             if (state.wbits === 0) state.wbits = len;
             if (len > 15 || len > state.wbits) {
-                strm.msg = "invalid window size";
+                strm.msg = 'invalid window size';
                 state.mode = BAD;
                 break;
             }
@@ -13131,12 +13131,12 @@ const inflate$2 = (strm, flush)=>{
             //===//
             state.flags = hold;
             if ((state.flags & 0xff) !== Z_DEFLATED) {
-                strm.msg = "unknown compression method";
+                strm.msg = 'unknown compression method';
                 state.mode = BAD;
                 break;
             }
             if (state.flags & 0xe000) {
-                strm.msg = "unknown header flags set";
+                strm.msg = 'unknown header flags set';
                 state.mode = BAD;
                 break;
             }
@@ -13293,7 +13293,7 @@ const inflate$2 = (strm, flush)=>{
                 }
                 //===//
                 if (state.wrap & 4 && hold !== (state.check & 0xffff)) {
-                    strm.msg = "header crc mismatch";
+                    strm.msg = 'header crc mismatch';
                     state.mode = BAD;
                     break;
                 }
@@ -13386,7 +13386,7 @@ const inflate$2 = (strm, flush)=>{
                     state.mode = TABLE;
                     break;
                 case 3:
-                    strm.msg = "invalid block type";
+                    strm.msg = 'invalid block type';
                     state.mode = BAD;
             }
             //--- DROPBITS(2) ---//
@@ -13407,7 +13407,7 @@ const inflate$2 = (strm, flush)=>{
             }
             //===//
             if ((hold & 0xffff) !== (hold >>> 16 ^ 0xffff)) {
-                strm.msg = "invalid stored block lengths";
+                strm.msg = 'invalid stored block lengths';
                 state.mode = BAD;
                 break;
             }
@@ -13467,7 +13467,7 @@ const inflate$2 = (strm, flush)=>{
             //---//
             //#ifndef PKZIP_BUG_WORKAROUND
             if (state.nlen > 286 || state.ndist > 30) {
-                strm.msg = "too many length or distance symbols";
+                strm.msg = 'too many length or distance symbols';
                 state.mode = BAD;
                 break;
             }
@@ -13504,7 +13504,7 @@ const inflate$2 = (strm, flush)=>{
             ret = inftrees(CODES, state.lens, 0, 19, state.lencode, 0, state.work, opts);
             state.lenbits = opts.bits;
             if (ret) {
-                strm.msg = "invalid code lengths set";
+                strm.msg = 'invalid code lengths set';
                 state.mode = BAD;
                 break;
             }
@@ -13548,7 +13548,7 @@ const inflate$2 = (strm, flush)=>{
                         bits -= here_bits;
                         //---//
                         if (state.have === 0) {
-                            strm.msg = "invalid bit length repeat";
+                            strm.msg = 'invalid bit length repeat';
                             state.mode = BAD;
                             break;
                         }
@@ -13600,7 +13600,7 @@ const inflate$2 = (strm, flush)=>{
                     //---//
                     }
                     if (state.have + copy > state.nlen + state.ndist) {
-                        strm.msg = "invalid bit length repeat";
+                        strm.msg = 'invalid bit length repeat';
                         state.mode = BAD;
                         break;
                     }
@@ -13609,7 +13609,7 @@ const inflate$2 = (strm, flush)=>{
             }
             /* handle error breaks in while */ if (state.mode === BAD) break;
             /* check for end-of-block code (better have one) */ if (state.lens[256] === 0) {
-                strm.msg = "invalid code -- missing end-of-block";
+                strm.msg = 'invalid code -- missing end-of-block';
                 state.mode = BAD;
                 break;
             }
@@ -13625,7 +13625,7 @@ const inflate$2 = (strm, flush)=>{
             state.lenbits = opts.bits;
             // state.lencode = state.next;
             if (ret) {
-                strm.msg = "invalid literal/lengths set";
+                strm.msg = 'invalid literal/lengths set';
                 state.mode = BAD;
                 break;
             }
@@ -13642,7 +13642,7 @@ const inflate$2 = (strm, flush)=>{
             state.distbits = opts.bits;
             // state.distcode = state.next;
             if (ret) {
-                strm.msg = "invalid distances set";
+                strm.msg = 'invalid distances set';
                 state.mode = BAD;
                 break;
             }
@@ -13732,7 +13732,7 @@ const inflate$2 = (strm, flush)=>{
                 break;
             }
             if (here_op & 64) {
-                strm.msg = "invalid literal/length code";
+                strm.msg = 'invalid literal/length code';
                 state.mode = BAD;
                 break;
             }
@@ -13802,7 +13802,7 @@ const inflate$2 = (strm, flush)=>{
             //---//
             state.back += here_bits;
             if (here_op & 64) {
-                strm.msg = "invalid distance code";
+                strm.msg = 'invalid distance code';
                 state.mode = BAD;
                 break;
             }
@@ -13829,7 +13829,7 @@ const inflate$2 = (strm, flush)=>{
             }
             //#ifdef INFLATE_STRICT
             if (state.offset > state.dmax) {
-                strm.msg = "invalid distance too far back";
+                strm.msg = 'invalid distance too far back';
                 state.mode = BAD;
                 break;
             }
@@ -13843,7 +13843,7 @@ const inflate$2 = (strm, flush)=>{
                 copy = state.offset - copy;
                 if (copy > state.whave) {
                     if (state.sane) {
-                        strm.msg = "invalid distance too far back";
+                        strm.msg = 'invalid distance too far back';
                         state.mode = BAD;
                         break;
                     }
@@ -13890,7 +13890,7 @@ const inflate$2 = (strm, flush)=>{
                 _out = left;
                 // NB: crc32 stored as signed 32-bit int, zswap32 returns signed too
                 if (state.wrap & 4 && (state.flags ? hold : zswap32(hold)) !== state.check) {
-                    strm.msg = "incorrect data check";
+                    strm.msg = 'incorrect data check';
                     state.mode = BAD;
                     break;
                 }
@@ -13912,7 +13912,7 @@ const inflate$2 = (strm, flush)=>{
                 }
                 //===//
                 if (state.wrap & 4 && hold !== (state.total & 0xffffffff)) {
-                    strm.msg = "incorrect length check";
+                    strm.msg = 'incorrect length check';
                     state.mode = BAD;
                     break;
                 }
@@ -14007,7 +14007,7 @@ var inflate_2$1 = inflate$2;
 var inflateEnd_1 = inflateEnd;
 var inflateGetHeader_1 = inflateGetHeader;
 var inflateSetDictionary_1 = inflateSetDictionary;
-var inflateInfo = "pako inflate (from Nodeca project)";
+var inflateInfo = 'pako inflate (from Nodeca project)';
 /* Not implemented
 module.exports.inflateCodesUsed = inflateCodesUsed;
 module.exports.inflateCopy = inflateCopy;
@@ -14061,9 +14061,9 @@ function GZheader() {
     // for inflate use constant limit in 65536 bytes
     //
     /* space at extra (only when reading header) */ // this.extra_max  = 0;
-    /* pointer to zero-terminated file name or Z_NULL */ this.name = "";
+    /* pointer to zero-terminated file name or Z_NULL */ this.name = '';
     /* space at name (only when reading header) */ // this.name_max   = 0;
-    /* pointer to zero-terminated comment or Z_NULL */ this.comment = "";
+    /* pointer to zero-terminated comment or Z_NULL */ this.comment = '';
     /* space at comment (only when reading header) */ // this.comm_max   = 0;
     /* true if there was or will be a header crc */ this.hcrc = 0;
     /* true when done reading gzip header (not used when writing a gzip file) */ this.done = false;
@@ -14140,7 +14140,7 @@ const toString = Object.prototype.toString;
     this.options = common.assign({
         chunkSize: 65536,
         windowBits: 15,
-        to: ""
+        to: ''
     }, options || {});
     const opt = this.options;
     // Force window size for `raw` data, if not set directly,
@@ -14159,7 +14159,7 @@ const toString = Object.prototype.toString;
         if ((opt.windowBits & 15) === 0) opt.windowBits |= 15;
     }
     this.err = 0; // error code, if happens (0 = Z_OK)
-    this.msg = ""; // error message
+    this.msg = ''; // error message
     this.ended = false; // used to avoid multiple onEnd() calls
     this.chunks = []; // chunks of compressed data
     this.strm = new zstream();
@@ -14171,8 +14171,8 @@ const toString = Object.prototype.toString;
     // Setup dictionary
     if (opt.dictionary) {
         // Convert data if needed
-        if (typeof opt.dictionary === "string") opt.dictionary = strings.string2buf(opt.dictionary);
-        else if (toString.call(opt.dictionary) === "[object ArrayBuffer]") opt.dictionary = new Uint8Array(opt.dictionary);
+        if (typeof opt.dictionary === 'string') opt.dictionary = strings.string2buf(opt.dictionary);
+        else if (toString.call(opt.dictionary) === '[object ArrayBuffer]') opt.dictionary = new Uint8Array(opt.dictionary);
         if (opt.raw) {
             status = inflate_1$2.inflateSetDictionary(this.strm, opt.dictionary);
             if (status !== Z_OK) throw new Error(messages[status]);
@@ -14212,7 +14212,7 @@ const toString = Object.prototype.toString;
     if (flush_mode === ~~flush_mode) _flush_mode = flush_mode;
     else _flush_mode = flush_mode === true ? Z_FINISH : Z_NO_FLUSH;
     // Convert data if needed
-    if (toString.call(data) === "[object ArrayBuffer]") strm.input = new Uint8Array(data);
+    if (toString.call(data) === '[object ArrayBuffer]') strm.input = new Uint8Array(data);
     else strm.input = data;
     strm.next_in = 0;
     strm.avail_in = strm.input.length;
@@ -14248,7 +14248,7 @@ const toString = Object.prototype.toString;
         last_avail_out = strm.avail_out;
         if (strm.next_out) {
             if (strm.avail_out === 0 || status === Z_STREAM_END) {
-                if (this.options.to === "string") {
+                if (this.options.to === 'string') {
                     let next_out_utf8 = strings.utf8border(strm.output, strm.next_out);
                     let tail = strm.next_out - next_out_utf8;
                     let utf8str = strings.buf2string(strm.output, next_out_utf8);
@@ -14294,7 +14294,7 @@ const toString = Object.prototype.toString;
  **/ Inflate$1.prototype.onEnd = function(status) {
     // On success - join
     if (status === Z_OK) {
-        if (this.options.to === "string") this.result = this.chunks.join("");
+        if (this.options.to === 'string') this.result = this.chunks.join('');
         else this.result = common.flattenChunks(this.chunks);
     }
     this.chunks = [];
@@ -14400,7 +14400,7 @@ var pako = {
     constants: constants_1
 };
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7queL":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7queL":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -14437,7 +14437,7 @@ function getCmdServId(node) {
 }
 exports.getCmdServId = getCmdServId;
 
-},{"e9b8d8aa9533c7f6":"3AEx3"}],"kaL3f":[function(require,module,exports) {
+},{"e9b8d8aa9533c7f6":"3AEx3"}],"kaL3f":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -14472,7 +14472,7 @@ function saveCmdsGenerateGeo(json, local = true) {
 }
 exports.saveCmdsGenerateGeo = saveCmdsGenerateGeo;
 
-},{"c2636e3de299805a":"3AEx3","18ddb9807c3cdcaf":"2EMtY"}],"2EMtY":[function(require,module,exports) {
+},{"c2636e3de299805a":"3AEx3","18ddb9807c3cdcaf":"2EMtY"}],"2EMtY":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -14546,8 +14546,8 @@ function saveCmds(json, generationType, local) {
         p.to_upload.set(compressed.length);
         const node = new spinal_model_graph_1.SpinalNode(`${generationType}-${new Date().toISOString()}`, constant_1.GENERATION_TYPE, p);
         (0, utils_1.addNodeGraphService)(node);
-        node.info.add_attr("generationType", generationType);
-        node.info.add_attr("local", local);
+        node.info.add_attr('generationType', generationType);
+        node.info.add_attr('local', local);
         yield context.addChildInContext(node, constant_1.GENERATION_RELATION);
         return {
             node,
@@ -14558,7 +14558,7 @@ function saveCmds(json, generationType, local) {
 }
 exports.saveCmds = saveCmds;
 
-},{"c5ddb9eb7c39d27d":"fkEXw","2c7d167626df9051":"6XW9k","e04180f878137d77":"6sHn9","bc10b678de464367":"2uyD7","c159a1a85f3d97fb":"3AEx3","46aa2e47e70f456c":"9XiCf","28a3b8bd7d3a07be":"2QtL3"}],"9XiCf":[function(require,module,exports) {
+},{"c5ddb9eb7c39d27d":"fkEXw","2c7d167626df9051":"6XW9k","e04180f878137d77":"6sHn9","bc10b678de464367":"2uyD7","c159a1a85f3d97fb":"3AEx3","46aa2e47e70f456c":"9XiCf","28a3b8bd7d3a07be":"2QtL3"}],"9XiCf":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -14629,7 +14629,7 @@ function getContextGeneration() {
 }
 exports.getContextGeneration = getContextGeneration;
 
-},{"396c54f3a727ed42":"fkEXw","40c51ca8be0c0bc7":"MYBU6","1cb8a90990c998a2":"3AEx3"}],"fCePx":[function(require,module,exports) {
+},{"396c54f3a727ed42":"fkEXw","40c51ca8be0c0bc7":"MYBU6","1cb8a90990c998a2":"3AEx3"}],"fCePx":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -14664,7 +14664,7 @@ function saveCmdsProjectionGeo(json, local = true) {
 }
 exports.saveCmdsProjectionGeo = saveCmdsProjectionGeo;
 
-},{"209d76f0bc0e330e":"3AEx3","8170805c14242b7b":"2EMtY"}],"61gSG":[function(require,module,exports) {
+},{"209d76f0bc0e330e":"3AEx3","8170805c14242b7b":"2EMtY"}],"61gSG":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -14738,7 +14738,7 @@ function createCmdProjectionForManualAssing(warnArr, errorArr) {
             const bimObjectDbId = err.dbid;
             proms.push(()=>handleErrCmd(err, bimObjectDbId, res, resMiss));
         }
-        yield (0, consumeBatch_1.consumeBatch)(proms, 20, console.log.bind(null, "createCmdProjectionForManualAssing %d/%d"));
+        yield (0, consumeBatch_1.consumeBatch)(proms, 20, console.log.bind(null, 'createCmdProjectionForManualAssing %d/%d'));
         return {
             cmd: res,
             cmdMiss: resMiss
@@ -14765,7 +14765,7 @@ function handleWarnCmd(warn, bimObjectDbId, res) {
     });
 }
 
-},{"a051677058fb5cc1":"2wzJt","bf33c648dbc8a78c":"2QtL3","ba247255a87aa98f":"aiYfE","c59e036e9695efe4":"2Lk71","d822731ec7236b3e":"jYc0v","3db949cccd2091c1":"8bb9P"}],"g1Ysh":[function(require,module,exports) {
+},{"a051677058fb5cc1":"2wzJt","bf33c648dbc8a78c":"2QtL3","ba247255a87aa98f":"aiYfE","c59e036e9695efe4":"2Lk71","d822731ec7236b3e":"jYc0v","3db949cccd2091c1":"8bb9P"}],"g1Ysh":[function(require,module,exports,__globalThis) {
 "use strict";
 var __createBinding = this && this.__createBinding || (Object.create ? function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
@@ -14822,7 +14822,7 @@ __exportStar(require("c6e0658e83d35d0"), exports);
 __exportStar(require("d3347ff1f37eaf42"), exports);
 __exportStar(require("6394dd712e5010e3"), exports);
 
-},{"7b738d9e0e404da4":"4NiA0","dae7345e128f6a82":"5ms3H","4e803052c6ef1e63":"d6sKt","a8b6269fd4e5876":"kOBng","5b969f75a088cece":"7ozMI","4d7dcd8880d08ec":"KAERI","f2aaa047f3300a32":"gzFME","33decdba7d6bb6f6":"dpwhV","9e73773bd22a7e22":"1gulT","c6e0658e83d35d0":"eNKYZ","d3347ff1f37eaf42":"ixgSJ","6394dd712e5010e3":"aOVLJ"}],"4NiA0":[function(require,module,exports) {
+},{"7b738d9e0e404da4":"4NiA0","dae7345e128f6a82":"5ms3H","4e803052c6ef1e63":"d6sKt","a8b6269fd4e5876":"kOBng","5b969f75a088cece":"7ozMI","4d7dcd8880d08ec":"KAERI","f2aaa047f3300a32":"gzFME","33decdba7d6bb6f6":"dpwhV","9e73773bd22a7e22":"1gulT","c6e0658e83d35d0":"eNKYZ","d3347ff1f37eaf42":"ixgSJ","6394dd712e5010e3":"aOVLJ"}],"4NiA0":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -14865,7 +14865,7 @@ function checkDiffObj(result, label, nodeValue, archiValue, unit) {
 }
 exports.checkDiffObj = checkDiffObj;
 
-},{}],"5ms3H":[function(require,module,exports) {
+},{}],"5ms3H":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -14948,7 +14948,7 @@ function diffBimObjs(bimObjInfos, bimObjNodes, manualAssingment) {
 }
 exports.diffBimObjs = diffBimObjs;
 
-},{"37e23c792ec6e280":"4W13A","eedc363ecf1b6985":"aOVLJ","35a251d2778e60e5":"dpwhV"}],"aOVLJ":[function(require,module,exports) {
+},{"37e23c792ec6e280":"4W13A","eedc363ecf1b6985":"aOVLJ","35a251d2778e60e5":"dpwhV"}],"aOVLJ":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -15017,7 +15017,7 @@ function getNodeFromGeo(geoNodes, nodeInfo, manualAssingment) {
             if (((_a = geoRoomNode.info.externalId) === null || _a === void 0 ? void 0 : _a.get()) === nodeInfo.externalId) return geoRoomNode;
         }
         // search via name
-        const roomArchiName = (0, getNodeInfoArchiAttr_1.getNodeInfoArchiAttr)(nodeInfo, "name");
+        const roomArchiName = (0, getNodeInfoArchiAttr_1.getNodeInfoArchiAttr)(nodeInfo, 'name');
         for (const geoRoomNode of geoNodes){
             if (((_b = geoRoomNode.info.externalId) === null || _b === void 0 ? void 0 : _b.get()) === roomArchiName) return geoRoomNode;
         }
@@ -15025,7 +15025,7 @@ function getNodeFromGeo(geoNodes, nodeInfo, manualAssingment) {
 }
 exports.getNodeFromGeo = getNodeFromGeo;
 
-},{"3f55e6261f57c9eb":"4Tsm1","454c0aecf6682101":"jSyCS"}],"dpwhV":[function(require,module,exports) {
+},{"3f55e6261f57c9eb":"4Tsm1","454c0aecf6682101":"jSyCS"}],"dpwhV":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -15097,14 +15097,14 @@ function findNodeArchiWithSpinalNode(node, nodeInfosArchi, manualAssingment) {
         }
         // search via name
         for (const nodeArchi2 of nodeInfosArchi){
-            const nodeArchiName = (0, getNodeInfoArchiAttr_1.getNodeInfoArchiAttr)(nodeArchi2, "name");
+            const nodeArchiName = (0, getNodeInfoArchiAttr_1.getNodeInfoArchiAttr)(nodeArchi2, 'name');
             if (nodeArchiName === ((_b = node.info.name) === null || _b === void 0 ? void 0 : _b.get())) return nodeArchi2;
         }
     });
 }
 exports.findNodeArchiWithSpinalNode = findNodeArchiWithSpinalNode;
 
-},{"51d83cf223e79ef2":"4Tsm1","ab6f7c6097dd9e16":"jSyCS"}],"d6sKt":[function(require,module,exports) {
+},{"51d83cf223e79ef2":"4Tsm1","ab6f7c6097dd9e16":"jSyCS"}],"d6sKt":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -15180,7 +15180,7 @@ function diffArchiWithContextGeo(archiData, buildingServerId, manualAssingment) 
 }
 exports.diffArchiWithContextGeo = diffArchiWithContextGeo;
 
-},{"5d87609425c89ac3":"7ozMI","54a25394ae917a60":"2QtL3","bbea5c00c8f94a43":"7F2D0"}],"7ozMI":[function(require,module,exports) {
+},{"5d87609425c89ac3":"7ozMI","54a25394ae917a60":"2QtL3","bbea5c00c8f94a43":"7F2D0"}],"7ozMI":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -15266,7 +15266,7 @@ function diffFloorWithContext(floorArchi, context, manualAssingment, buildingSer
 }
 exports.diffFloorWithContext = diffFloorWithContext;
 
-},{"dc0d12b591504fa2":"4W13A","163912477b646eb1":"ixgSJ","3a38fc76fa18661e":"eNKYZ","a120fe480fa1cc22":"gzFME","c4593c8f0713cda3":"KAERI"}],"ixgSJ":[function(require,module,exports) {
+},{"dc0d12b591504fa2":"4W13A","163912477b646eb1":"ixgSJ","3a38fc76fa18661e":"eNKYZ","a120fe480fa1cc22":"gzFME","c4593c8f0713cda3":"KAERI"}],"ixgSJ":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -15343,7 +15343,7 @@ function getFloorFromContext(context, floorArchi, manualAssingment, buildingServ
             if (((_a = floorNode.info.externalId) === null || _a === void 0 ? void 0 : _a.get()) === floorArchi.properties.externalId) return floorNode;
         }
         // search via name
-        const floorArchiName = (0, getNodeInfoArchiAttr_1.getNodeInfoArchiAttr)(floorArchi.properties, "name");
+        const floorArchiName = (0, getNodeInfoArchiAttr_1.getNodeInfoArchiAttr)(floorArchi.properties, 'name');
         for (const floorNode of floorNodes){
             if (floorNode.info.name.get() === floorArchiName) return floorNode;
         }
@@ -15351,7 +15351,7 @@ function getFloorFromContext(context, floorArchi, manualAssingment, buildingServ
 }
 exports.getFloorFromContext = getFloorFromContext;
 
-},{"5ccf7e7d0d60df88":"4Tsm1","bff6a0194d1560e":"jSyCS","1aca7c11883c4f16":"b3pAR"}],"eNKYZ":[function(require,module,exports) {
+},{"5ccf7e7d0d60df88":"4Tsm1","bff6a0194d1560e":"jSyCS","1aca7c11883c4f16":"b3pAR"}],"eNKYZ":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -15417,7 +15417,7 @@ function getDiffRefFloor(floorNode, floorArchi, manualAssingment) {
 }
 exports.getDiffRefFloor = getDiffRefFloor;
 
-},{"8c60df9e9075ed77":"b3pAR","2e0e158900f573fb":"5ms3H"}],"gzFME":[function(require,module,exports) {
+},{"8c60df9e9075ed77":"b3pAR","2e0e158900f573fb":"5ms3H"}],"gzFME":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -15515,7 +15515,7 @@ function diffRoomChildren(floorNode, contextGeo, floorArchi, manualAssingment) {
 }
 exports.diffRoomChildren = diffRoomChildren;
 
-},{"3f75b6c46fb0e393":"4W13A","223929b6394ecfc5":"aOVLJ","b09c4d857b676165":"dpwhV","51b19a16674c6ef9":"KAERI"}],"KAERI":[function(require,module,exports) {
+},{"3f75b6c46fb0e393":"4W13A","223929b6394ecfc5":"aOVLJ","b09c4d857b676165":"dpwhV","51b19a16674c6ef9":"KAERI"}],"KAERI":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -15581,19 +15581,19 @@ function diffInfoAttr(nodeInfo, spinalNode) {
         nodeInfo.modificationType = 0;
         const diffInfo = [];
         // check dbId
-        (0, checkDiffObj_1.checkDiffObj)(diffInfo, "dbid", (_a = spinalNode.info.dbid) === null || _a === void 0 ? void 0 : _a.get(), nodeInfo.dbId);
+        (0, checkDiffObj_1.checkDiffObj)(diffInfo, 'dbid', (_a = spinalNode.info.dbid) === null || _a === void 0 ? void 0 : _a.get(), nodeInfo.dbId);
         // check externalId
-        (0, checkDiffObj_1.checkDiffObj)(diffInfo, "externalId", (_b = spinalNode.info.externalId) === null || _b === void 0 ? void 0 : _b.get(), nodeInfo.externalId);
+        (0, checkDiffObj_1.checkDiffObj)(diffInfo, 'externalId', (_b = spinalNode.info.externalId) === null || _b === void 0 ? void 0 : _b.get(), nodeInfo.externalId);
         // check name node
-        const name = (0, getNodeInfoArchiAttr_1.getNodeInfoArchiAttr)(nodeInfo, "name");
-        const number = (0, getNodeInfoArchiAttr_1.getNodeInfoArchiAttr)(nodeInfo, "number");
-        (0, checkDiffObj_1.checkDiffObj)(diffInfo, "name", spinalNode.info.name.get(), number ? `${number}-${name}` : name);
+        const name = (0, getNodeInfoArchiAttr_1.getNodeInfoArchiAttr)(nodeInfo, 'name');
+        const number = (0, getNodeInfoArchiAttr_1.getNodeInfoArchiAttr)(nodeInfo, 'number');
+        (0, checkDiffObj_1.checkDiffObj)(diffInfo, 'name', spinalNode.info.name.get(), number ? `${number}-${name}` : name);
         // -> diff archi attr
-        const categoryNodeSpatial = yield spinal_env_viewer_plugin_documentation_service_1.attributeService.getCategoryByName(spinalNode, "Spatial");
+        const categoryNodeSpatial = yield spinal_env_viewer_plugin_documentation_service_1.attributeService.getCategoryByName(spinalNode, 'Spatial');
         const attrs = yield spinal_env_viewer_plugin_documentation_service_1.attributeService.getAttributesByCategory(spinalNode, categoryNodeSpatial);
         const diffAttr = [];
         for (const archiProps of nodeInfo.properties){
-            if (archiProps.category === "__internalref__") continue; // if level skip (will be set later)
+            if (archiProps.category === '__internalref__') continue; // if level skip (will be set later)
             let find = false;
             for (const attr of attrs)if (archiProps.name === attr.label.get()) {
                 (0, checkDiffObj_1.checkDiffObj)(diffAttr, archiProps.name, attr.value.get(), archiProps.value, archiProps.dataTypeContext);
@@ -15618,7 +15618,7 @@ function diffInfoAttr(nodeInfo, spinalNode) {
 }
 exports.diffInfoAttr = diffInfoAttr;
 
-},{"e5e9b6ebcb04d9b8":"5rYVR","704b4c5e3128acb0":"4W13A","42dc442af3802e2e":"4NiA0","cdd4539f5d85c7ad":"4Tsm1"}],"7F2D0":[function(require,module,exports) {
+},{"e5e9b6ebcb04d9b8":"5rYVR","704b4c5e3128acb0":"4W13A","42dc442af3802e2e":"4NiA0","cdd4539f5d85c7ad":"4Tsm1"}],"7F2D0":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -15736,7 +15736,7 @@ function mergeFloorArchi(from, to) {
     return to;
 }
 
-},{"c9ced8db982e5ff0":"1gulT","f40d7a3a31528f36":"ixgSJ"}],"1gulT":[function(require,module,exports) {
+},{"c9ced8db982e5ff0":"1gulT","f40d7a3a31528f36":"ixgSJ"}],"1gulT":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -15772,7 +15772,7 @@ function floorArchiHasChildren(floorArchi) {
 }
 exports.floorArchiHasChildren = floorArchiHasChildren;
 
-},{}],"kOBng":[function(require,module,exports) {
+},{}],"kOBng":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -15847,7 +15847,7 @@ function diffArchiWithContextBIMGeo(archiData, BIMGeocontextServId, manualAssing
 }
 exports.diffArchiWithContextBIMGeo = diffArchiWithContextBIMGeo;
 
-},{"e5bf7437ca6c54a9":"7ozMI","209ed62b875e4789":"7F2D0","9d7e4983b01c0918":"jSyCS"}],"fNlxU":[function(require,module,exports) {
+},{"e5bf7437ca6c54a9":"7ozMI","209ed62b875e4789":"7F2D0","9d7e4983b01c0918":"jSyCS"}],"fNlxU":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -15924,7 +15924,7 @@ __exportStar(require("360b4e2db5f2e2d1"), exports);
 __exportStar(require("848edc917568a12"), exports);
 __exportStar(require("3a0b5bd71abe7098"), exports);
 
-},{"5a06c03b8c928613":"8yd5K","79428b54087f1697":"fkW9L","42c4ef575bfc7bf1":"gbyev","25029c3570e74560":"jzE3X","e129e97fbc64fd4":"bXpxK","2b3308415ec8c04d":"lynDq","d8c8a701ef8218b6":"jfjEw","a773654ec46106fb":"b7337","9ab9ee6302e405f6":"77akB","26ac4eb4a5041e48":"4PJt3","d5a772c5ad03bdd8":"iOdSD","cd2ec4d6d733ac93":"1xqG0","e09c10e0e3ecea17":"2sNYL","1befa413171ea0":"jTt3S","d9b5b780780b4d1":"i7WvX","6a4663c470666d2b":"4N0yQ","290b955ac3d8d28f":"a4HpH","59db8976814c9bc6":"fhIeg","5479e7aedfe151e8":"a17fo","26f3a80274351b06":"iEPLy","8a7927f103accf97":"2rMBe","44f19d76dfc37114":"fmm7b","60b79e84c446383b":"1osyi","5841aaaf9f35b93b":"i3Czq","26721e59a64d44cc":"7IOVH","733ed8150dd9cd0c":"30xEH","908c25def61e4e3b":"9hE8M","9c171735b8dd2cb":"e7uSI","c5f4b4bff7f2ee47":"5YQdd","360b4e2db5f2e2d1":"bJ91b","848edc917568a12":"cZkMG","3a0b5bd71abe7098":"djnxu"}],"8yd5K":[function(require,module,exports) {
+},{"5a06c03b8c928613":"8yd5K","79428b54087f1697":"fkW9L","42c4ef575bfc7bf1":"gbyev","25029c3570e74560":"jzE3X","e129e97fbc64fd4":"bXpxK","2b3308415ec8c04d":"lynDq","d8c8a701ef8218b6":"jfjEw","a773654ec46106fb":"b7337","9ab9ee6302e405f6":"77akB","26ac4eb4a5041e48":"4PJt3","d5a772c5ad03bdd8":"iOdSD","cd2ec4d6d733ac93":"1xqG0","e09c10e0e3ecea17":"2sNYL","1befa413171ea0":"jTt3S","d9b5b780780b4d1":"i7WvX","6a4663c470666d2b":"4N0yQ","290b955ac3d8d28f":"a4HpH","59db8976814c9bc6":"fhIeg","5479e7aedfe151e8":"a17fo","26f3a80274351b06":"iEPLy","8a7927f103accf97":"2rMBe","44f19d76dfc37114":"fmm7b","60b79e84c446383b":"1osyi","5841aaaf9f35b93b":"i3Czq","26721e59a64d44cc":"7IOVH","733ed8150dd9cd0c":"30xEH","908c25def61e4e3b":"9hE8M","9c171735b8dd2cb":"e7uSI","c5f4b4bff7f2ee47":"5YQdd","360b4e2db5f2e2d1":"bJ91b","848edc917568a12":"cZkMG","3a0b5bd71abe7098":"djnxu"}],"8yd5K":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -15989,9 +15989,9 @@ class ProjectionItemModel extends spinal_core_connectorjs_1.Model {
     constructor(projectionItem){
         super();
         if (spinal_core_connectorjs_1.FileSystem._sig_server === false) return;
-        this.add_attr("uid", projectionItem.uid);
-        this.add_attr("bimFileId", (0, utils_1.getBimFileIdByModelId)(projectionItem.modelId));
-        this.add_attr("offset", new ProjectionOffsetModel_1.ProjectionOffsetModel(projectionItem.offset));
+        this.add_attr('uid', projectionItem.uid);
+        this.add_attr('bimFileId', (0, utils_1.getBimFileIdByModelId)(projectionItem.modelId));
+        this.add_attr('offset', new ProjectionOffsetModel_1.ProjectionOffsetModel(projectionItem.offset));
     }
     update(projectionItem) {
         return __awaiter(this, void 0, void 0, function*() {
@@ -16003,9 +16003,9 @@ class ProjectionItemModel extends spinal_core_connectorjs_1.Model {
             const children = (0, utils_1.getDbIdChildren)(tree, projectionItem.dbId);
             if (children.length > 0) {
                 const path = yield (0, utils_1.getPropPath)(projectionItem.dbId, model);
-                if (typeof this.path === "undefined") this.add_attr("path", path);
+                if (typeof this.path === 'undefined') this.add_attr('path', path);
                 else this.path.set(path);
-            } else if (typeof this.externalId === "undefined") this.add_attr("externalId", projectionItem.externalId);
+            } else if (typeof this.externalId === 'undefined') this.add_attr('externalId', projectionItem.externalId);
             else this.externalId.set(projectionItem.externalId);
             return this;
         });
@@ -16021,7 +16021,7 @@ class ProjectionItemModel extends spinal_core_connectorjs_1.Model {
                 throw error;
             }
             let projectionItem;
-            if (typeof this.path !== "undefined") {
+            if (typeof this.path !== 'undefined') {
                 const path = this.path.get();
                 const props = yield (0, utils_1.getPropItemFromPropPath)(path, model);
                 if (!props) throw new Error(`projectionItemModel [${this.uid.get()}] no item found for path : ${path}`);
@@ -16044,7 +16044,7 @@ class ProjectionItemModel extends spinal_core_connectorjs_1.Model {
 exports.ProjectionItemModel = ProjectionItemModel;
 spinal_core_connectorjs_1.spinalCore.register_models(ProjectionItemModel);
 
-},{"659125655239f369":"1xqG0","eb1d3c51255e1b8c":"2uyD7","23ea181649c813e8":"2QtL3","19fa1d435fb02bea":"fkW9L","21ee3c6d2b78540a":"c0Xxv","a107e363e53fbdb9":"bgfSo"}],"1xqG0":[function(require,module,exports) {
+},{"659125655239f369":"1xqG0","eb1d3c51255e1b8c":"2uyD7","23ea181649c813e8":"2QtL3","19fa1d435fb02bea":"fkW9L","21ee3c6d2b78540a":"c0Xxv","a107e363e53fbdb9":"bgfSo"}],"1xqG0":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -16097,7 +16097,7 @@ class ProjectionItem {
 }
 exports.ProjectionItem = ProjectionItem;
 
-},{"c6a29a0bfbe6bf8c":"9RDu2"}],"fkW9L":[function(require,module,exports) {
+},{"c6a29a0bfbe6bf8c":"9RDu2"}],"fkW9L":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -16130,9 +16130,9 @@ class ProjectionOffsetModel extends spinal_core_connectorjs_1.Model {
     constructor(offset){
         super();
         if (spinal_core_connectorjs_1.FileSystem._sig_server === false) return;
-        this.add_attr("r", offset.r);
-        this.add_attr("t", offset.t);
-        this.add_attr("z", offset.z);
+        this.add_attr('r', offset.r);
+        this.add_attr('t', offset.t);
+        this.add_attr('z', offset.z);
     }
     update(offset) {
         this.r.set(offset.r);
@@ -16143,7 +16143,7 @@ class ProjectionOffsetModel extends spinal_core_connectorjs_1.Model {
 exports.ProjectionOffsetModel = ProjectionOffsetModel;
 spinal_core_connectorjs_1.spinalCore.register_models(ProjectionOffsetModel);
 
-},{"947891d0f75ad8b0":"2uyD7"}],"gbyev":[function(require,module,exports) {
+},{"947891d0f75ad8b0":"2uyD7"}],"gbyev":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -16206,8 +16206,8 @@ class ProjectionGroupItemModel extends spinal_core_connectorjs_1.Model {
     constructor(item){
         super();
         if (spinal_core_connectorjs_1.FileSystem._sig_server === false) return;
-        this.add_attr("bimFileId", (0, utils_1.getBimFileIdByModelId)(item.modelId));
-        this.add_attr("uid", item.uid);
+        this.add_attr('bimFileId', (0, utils_1.getBimFileIdByModelId)(item.modelId));
+        this.add_attr('uid', item.uid);
     }
     update(item) {
         return __awaiter(this, void 0, void 0, function*() {
@@ -16218,9 +16218,9 @@ class ProjectionGroupItemModel extends spinal_core_connectorjs_1.Model {
             const children = (0, utils_1.getDbIdChildren)(tree, item.dbId);
             if (children.length > 0) {
                 const path = yield (0, utils_1.getPropPath)(item.dbId, model);
-                if (typeof this.path === "undefined") this.add_attr("path", path);
+                if (typeof this.path === 'undefined') this.add_attr('path', path);
                 else this.path.set(path);
-            } else if (typeof this.externalId === "undefined") this.add_attr("externalId", item.externalId);
+            } else if (typeof this.externalId === 'undefined') this.add_attr('externalId', item.externalId);
             else this.externalId.set(item.externalId);
             return this;
         });
@@ -16235,7 +16235,7 @@ class ProjectionGroupItemModel extends spinal_core_connectorjs_1.Model {
                 console.error(error);
                 throw error;
             }
-            if (typeof this.path !== "undefined") {
+            if (typeof this.path !== 'undefined') {
                 const path = this.path.get();
                 const props = yield (0, utils_1.getPropItemFromPropPath)(path, model);
                 if (!props) throw new Error(`ProjectionGroupItemModel [${this.uid.get()}] no item found for path : ${path}`);
@@ -16258,7 +16258,7 @@ class ProjectionGroupItemModel extends spinal_core_connectorjs_1.Model {
 exports.ProjectionGroupItemModel = ProjectionGroupItemModel;
 spinal_core_connectorjs_1.spinalCore.register_models(ProjectionGroupItemModel);
 
-},{"de9ba437d0e18465":"2uyD7","fc5f1b8d476b97a6":"2QtL3","eba1d41e2c43edca":"c0Xxv","a81842f8cb298355":"bgfSo"}],"jzE3X":[function(require,module,exports) {
+},{"de9ba437d0e18465":"2uyD7","fc5f1b8d476b97a6":"2QtL3","eba1d41e2c43edca":"c0Xxv","a81842f8cb298355":"bgfSo"}],"jzE3X":[function(require,module,exports,__globalThis) {
 "use strict";
 var __awaiter = this && this.__awaiter || function(thisArg, _arguments, P, generator) {
     function adopt(value) {
@@ -16321,10 +16321,10 @@ class ProjectionGroupModel extends spinal_core_connectorjs_1.Model {
     constructor(projectionGroup){
         super();
         if (spinal_core_connectorjs_1.FileSystem._sig_server === false) return;
-        this.add_attr("name", projectionGroup.name);
-        this.add_attr("uid", projectionGroup.uid);
-        this.add_attr("offset", new ProjectionOffsetModel_1.ProjectionOffsetModel(projectionGroup.offset));
-        this.add_attr("data", []);
+        this.add_attr('name', projectionGroup.name);
+        this.add_attr('uid', projectionGroup.uid);
+        this.add_attr('offset', new ProjectionOffsetModel_1.ProjectionOffsetModel(projectionGroup.offset));
+        this.add_attr('data', []);
     }
     updateData(projectionGroup) {
         return __awaiter(this, void 0, void 0, function*() {
@@ -16386,7 +16386,7 @@ class ProjectionGroupModel extends spinal_core_connectorjs_1.Model {
 exports.ProjectionGroupModel = ProjectionGroupModel;
 spinal_core_connectorjs_1.spinalCore.register_models(ProjectionGroupModel);
 
-},{"760ab14d934ae2ce":"4PJt3","308cb3676ec07a7e":"2uyD7","b54f46f6e947941f":"fkW9L","b5b3a699673e2bca":"gbyev"}],"bXpxK":[function(require,module,exports) {
+},{"760ab14d934ae2ce":"4PJt3","308cb3676ec07a7e":"2uyD7","b54f46f6e947941f":"fkW9L","b5b3a699673e2bca":"gbyev"}],"bXpxK":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -16456,7 +16456,7 @@ function addSelectionToList(list, viewer) {
 }
 exports.addSelectionToList = addSelectionToList;
 
-},{"77168fd90ba055e0":"kRW4n","9047da35d389e94f":"77akB"}],"77akB":[function(require,module,exports) {
+},{"77168fd90ba055e0":"kRW4n","9047da35d389e94f":"77akB"}],"77akB":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -16529,7 +16529,7 @@ function addProjectItem(list, prop) {
 }
 exports.addProjectItem = addProjectItem;
 
-},{"827f6d58bbcff713":"4PJt3","1103e5e1b8bdb5fd":"1xqG0"}],"lynDq":[function(require,module,exports) {
+},{"827f6d58bbcff713":"4PJt3","1103e5e1b8bdb5fd":"1xqG0"}],"lynDq":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -16601,7 +16601,7 @@ let sphereMat = null;
 let lineMat = null;
 let sceneSphereOverlay = null;
 let sceneLineOverlay = null;
-let color = "#00ff00";
+let color = '#00ff00';
 exports.previewItem = (0, lodash_throttle_1.default)(_previewItem, 1000);
 function _previewItem(item, offset, mode, viewer) {
     return __awaiter(this, void 0, void 0, function*() {
@@ -16657,7 +16657,7 @@ function populateItemToShow(item, mode) {
         } else if (mode === 1) {
             if ((0, isProjectionGroup_1.isProjectionGroup)(item)) {
                 const first = item.computedData[0];
-                if (typeof first === "undefined") return;
+                if (typeof first === 'undefined') return;
                 const ids = (0, getLeafDbIdsByModelId_1.getLeafDbIdsByModelId)(first.modelId, first.dbId);
                 if (ids.length === 0) return;
                 for (const itm of curr.itemToShow)hideItem(itm);
@@ -16746,7 +16746,7 @@ function updatePointOffset(item, offset, viewer) {
     else line.geometry.verticesNeedUpdate = true;
 }
 function getOrCreateSphere(item, viewer) {
-    if (typeof item.sphere === "undefined") {
+    if (typeof item.sphere === 'undefined') {
         const material_green = getSphereMat(viewer);
         const sphere_geo = new THREE.SphereGeometry(0.4, 30, 30);
         const sphere_maxpt = new THREE.Mesh(sphere_geo, material_green);
@@ -16757,7 +16757,7 @@ function getOrCreateSphere(item, viewer) {
     return item.sphere;
 }
 function getOrCreateLine(item, bBoxCenter, viewer) {
-    if (typeof item.line === "undefined") {
+    if (typeof item.line === 'undefined') {
         const geometryLine = new THREE.Geometry();
         geometryLine.vertices.push(new THREE.Vector3(bBoxCenter.x, bBoxCenter.y, bBoxCenter.z), item.sphere.position);
         const material = getLineMat(viewer);
@@ -16768,7 +16768,7 @@ function getOrCreateLine(item, bBoxCenter, viewer) {
     return item.line;
 }
 
-},{"f40f3d3f83b2b7a5":"cK2zJ","15e4fd72152b91e3":"ev9bs","b265ecec4dca013d":"2nCOY","311ab18f9c81584a":"26kqv","65d639fa7291f739":"cCyX2","e549a7df983e1c50":"bGJVT","b26ee11e10a55143":"3AEx3"}],"jfjEw":[function(require,module,exports) {
+},{"f40f3d3f83b2b7a5":"cK2zJ","15e4fd72152b91e3":"ev9bs","b265ecec4dca013d":"2nCOY","311ab18f9c81584a":"26kqv","65d639fa7291f739":"cCyX2","e549a7df983e1c50":"bGJVT","b26ee11e10a55143":"3AEx3"}],"jfjEw":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -16853,7 +16853,7 @@ function addViewerSelection(index, list, viewer) {
 }
 exports.addViewerSelection = addViewerSelection;
 
-},{"2f25dc6224e115d5":"kRW4n","2732bd511781e824":"cCyX2"}],"b7337":[function(require,module,exports) {
+},{"2f25dc6224e115d5":"kRW4n","2732bd511781e824":"cCyX2"}],"b7337":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -16887,7 +16887,7 @@ function addToProjectionGroup(list, name) {
 }
 exports.addToProjectionGroup = addToProjectionGroup;
 
-},{"b91614babbf09075":"4PJt3"}],"iOdSD":[function(require,module,exports) {
+},{"b91614babbf09075":"4PJt3"}],"iOdSD":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -16978,7 +16978,7 @@ class ProjectionGroupConfig {
                 for (const data of lstData)promises.push(data.toUxModel());
                 const data = yield Promise.all(promises);
                 for (const itm of data)if (itm) this.data.push(itm);
-                if (typeof configNode.info.uid === "undefined") configNode.info.add_attr("uid", this.uid);
+                if (typeof configNode.info.uid === 'undefined') configNode.info.add_attr('uid', this.uid);
             } catch (error) {
                 this.isLoaded = false;
                 throw error;
@@ -17014,7 +17014,7 @@ class ProjectionGroupConfig {
 }
 exports.ProjectionGroupConfig = ProjectionGroupConfig;
 
-},{"4401a93465b5e254":"cCyX2","e8316a89745e80a3":"jTt3S","e039bee26c47e451":"i7WvX","821d98e3dc25a99c":"a4HpH","855b6cd6f17ab396":"jzE3X","8b6dd6bf548292d3":"8yd5K","648bc2350190cf6d":"2uyD7"}],"jTt3S":[function(require,module,exports) {
+},{"4401a93465b5e254":"cCyX2","e8316a89745e80a3":"jTt3S","e039bee26c47e451":"i7WvX","821d98e3dc25a99c":"a4HpH","855b6cd6f17ab396":"jzE3X","8b6dd6bf548292d3":"8yd5K","648bc2350190cf6d":"2uyD7"}],"jTt3S":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -17081,7 +17081,7 @@ function getConfigFromContext(context_1, item_1) {
 }
 exports.getConfigFromContext = getConfigFromContext;
 
-},{"4322c2981cdcc690":"3AEx3"}],"i7WvX":[function(require,module,exports) {
+},{"4322c2981cdcc690":"3AEx3"}],"i7WvX":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -17143,14 +17143,14 @@ function createConfigNode(context, item) {
     return __awaiter(this, void 0, void 0, function*() {
         const config = new spinal_core_connectorjs_1.Lst();
         const configNode = new spinal_model_graph_1.SpinalNode(item.name, constant_1.PROJECTION_CONFIG_TYPE, config);
-        configNode.info.add_attr("uid", item.uid);
+        configNode.info.add_attr('uid', item.uid);
         context.addChild(configNode, constant_1.PROJECTION_CONFIG_RELATION, constant_1.PROJECTION_CONFIG_RELATION_TYPE);
         return config;
     });
 }
 exports.createConfigNode = createConfigNode;
 
-},{"64994859a0f168ba":"fkEXw","ddac7da2836893f6":"2uyD7","2e47b9a2418aabd9":"3AEx3"}],"a4HpH":[function(require,module,exports) {
+},{"64994859a0f168ba":"fkEXw","ddac7da2836893f6":"2uyD7","2e47b9a2418aabd9":"3AEx3"}],"a4HpH":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -17216,7 +17216,7 @@ function removeConfigFromContext(context, uid) {
 }
 exports.removeConfigFromContext = removeConfigFromContext;
 
-},{"4f2b189d0fa03593":"3AEx3"}],"2sNYL":[function(require,module,exports) {
+},{"4f2b189d0fa03593":"3AEx3"}],"2sNYL":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -17282,7 +17282,7 @@ function getProjectionConfig(context) {
             yield (0, utils_1.waitGetServerId)(configNode);
             let projectionGroupConfig;
             // old config => add uid
-            if (typeof configNode.info.uid === "undefined") projectionGroupConfig = new ProjectionGroupConfig_1.ProjectionGroupConfig(configNode.info.name.get(), configNode._server_id);
+            if (typeof configNode.info.uid === 'undefined') projectionGroupConfig = new ProjectionGroupConfig_1.ProjectionGroupConfig(configNode.info.name.get(), configNode._server_id);
             else projectionGroupConfig = new ProjectionGroupConfig_1.ProjectionGroupConfig(configNode.info.name.get(), configNode._server_id, configNode.info.uid.get());
             res.push(projectionGroupConfig);
         }
@@ -17291,7 +17291,7 @@ function getProjectionConfig(context) {
 }
 exports.getProjectionConfig = getProjectionConfig;
 
-},{"97b894397038ce7c":"3AEx3","9d457cfa281b5c62":"iOdSD","4376056e37738ba2":"2QtL3"}],"4N0yQ":[function(require,module,exports) {
+},{"97b894397038ce7c":"3AEx3","9d457cfa281b5c62":"iOdSD","4376056e37738ba2":"2QtL3"}],"4N0yQ":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -17358,13 +17358,13 @@ function createConfigNodeAndProjGroup(context, name) {
         context.addChild(configNode, constant_1.PROJECTION_CONFIG_RELATION, constant_1.PROJECTION_CONFIG_RELATION_TYPE);
         yield (0, utils_1.waitGetServerId)(configNode);
         const cfgGroup = new ProjectionGroupConfig_1.ProjectionGroupConfig(name, configNode._server_id);
-        configNode.info.add_attr("uid", cfgGroup.uid);
+        configNode.info.add_attr('uid', cfgGroup.uid);
         return cfgGroup;
     });
 }
 exports.createConfigNodeAndProjGroup = createConfigNodeAndProjGroup;
 
-},{"c4a87e675f97bab3":"iOdSD","964aab0ae93f3da1":"fkEXw","3e89c290aa8c9ab6":"2uyD7","43afdee41a3f5c82":"3AEx3","44990c43bd6ed82":"2QtL3"}],"fhIeg":[function(require,module,exports) {
+},{"c4a87e675f97bab3":"iOdSD","964aab0ae93f3da1":"fkEXw","3e89c290aa8c9ab6":"2uyD7","43afdee41a3f5c82":"3AEx3","44990c43bd6ed82":"2QtL3"}],"fhIeg":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2020 SpinalCom - www.spinalcom.com
@@ -17540,7 +17540,7 @@ function enumMeshTriangles(geometry, callback) {
 }
 exports.enumMeshTriangles = enumMeshTriangles;
 
-},{"5a1875c93dc3f742":"ktPTu"}],"a17fo":[function(require,module,exports) {
+},{"5a1875c93dc3f742":"ktPTu"}],"a17fo":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -17668,7 +17668,7 @@ function pushToAggregateDbidByModel(targetArray, ids, model, offset, rootDbId) {
 }
 exports.pushToAggregateDbidByModel = pushToAggregateDbidByModel;
 
-},{"1913d268c9f20e66":"iEPLy","61d83f03389005dd":"aLTS1","970f7a421b483413":"26kqv","edf014ed06b8cfa4":"cCyX2","f4b425cbf866afab":"9RDu2","48994d81f62559fe":"7cAlu"}],"iEPLy":[function(require,module,exports) {
+},{"1913d268c9f20e66":"iEPLy","61d83f03389005dd":"aLTS1","970f7a421b483413":"26kqv","edf014ed06b8cfa4":"cCyX2","f4b425cbf866afab":"9RDu2","48994d81f62559fe":"7cAlu"}],"iEPLy":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -17737,7 +17737,7 @@ function raycastItemToMesh(from, to, viewer) {
                 getCenterObjects(from, viewer),
                 getMeshsData(to, viewer)
             ]);
-            console.log("raycastItemToMesh", centerPoints, geometries);
+            console.log('raycastItemToMesh', centerPoints, geometries);
             return (0, raycastJob_1.raycastJob)({
                 centerPoints,
                 geometries
@@ -17811,13 +17811,13 @@ function getMesh(dbIdItem, model, viewer) {
                 modelId: model.id
             };
         } catch (e) {
-            console.log("getMeshsData no fragId in", dbIdItem);
+            console.log('getMeshsData no fragId in', dbIdItem);
             return null;
         }
     });
 }
 
-},{"b0617c49847b6861":"2QtL3","2613016b2902a66a":"jo8bm","f7829c7cb0e471d":"2nCOY","f5115cede6912dc0":"9OSUv","877f75ed0b67c22":"7xFki"}],"7xFki":[function(require,module,exports) {
+},{"b0617c49847b6861":"2QtL3","2613016b2902a66a":"jo8bm","f7829c7cb0e471d":"2nCOY","f5115cede6912dc0":"9OSUv","877f75ed0b67c22":"7xFki"}],"7xFki":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -17923,7 +17923,7 @@ function isPointOnTopOfBBox(bBox, point) {
     return false;
 }
 
-},{"9b17b9cfc45502e3":"fhIeg","851136264cee14eb":"ktPTu"}],"2rMBe":[function(require,module,exports) {
+},{"9b17b9cfc45502e3":"fhIeg","851136264cee14eb":"ktPTu"}],"2rMBe":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -17975,7 +17975,7 @@ function mergeIntersectRes(target, item) {
 }
 exports.mergeIntersectRes = mergeIntersectRes;
 
-},{}],"fmm7b":[function(require,module,exports) {
+},{}],"fmm7b":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -18018,7 +18018,7 @@ function mergeRoomRef(data) {
 }
 exports.mergeRoomRef = mergeRoomRef;
 
-},{"c98d7ebb628fe491":"1osyi"}],"1osyi":[function(require,module,exports) {
+},{"c98d7ebb628fe491":"1osyi"}],"1osyi":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -18126,7 +18126,7 @@ function pushToAggregateSetDbidByModel(targetArray, id, model) {
 }
 exports.pushToAggregateSetDbidByModel = pushToAggregateSetDbidByModel;
 
-},{"8b2c694c00b7b6b3":"b3pAR","2cdd0b64d42c2281":"lUmuX"}],"i3Czq":[function(require,module,exports) {
+},{"8b2c694c00b7b6b3":"b3pAR","2cdd0b64d42c2281":"lUmuX"}],"i3Czq":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -18230,7 +18230,7 @@ function getMinZ(dbid, model) {
     });
 }
 
-},{"62143a88f1ede919":"9OSUv","35ea8087ce3fefd7":"hGoCs"}],"7IOVH":[function(require,module,exports) {
+},{"62143a88f1ede919":"9OSUv","35ea8087ce3fefd7":"hGoCs"}],"7IOVH":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -18292,7 +18292,7 @@ function getFloorChildrenDbIdOfModel(model, floorNbr) {
 }
 exports.getFloorChildrenDbIdOfModel = getFloorChildrenDbIdOfModel;
 
-},{}],"30xEH":[function(require,module,exports) {
+},{}],"30xEH":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -18358,8 +18358,8 @@ function getFloorPropForModel() {
             const floorDbid = yield (0, getFloorsDbIdOfModel_1.getFloorsDbIdOfModel)(model);
             const floorProps = yield (0, getBulkProperties_1.getBulkProperties)(model, floorDbid, {
                 propFilter: [
-                    "name",
-                    "externalId"
+                    'name',
+                    'externalId'
                 ]
             });
             res[model.id] = floorProps.map((itm)=>{
@@ -18377,7 +18377,7 @@ function getFloorPropForModel() {
 }
 exports.getFloorPropForModel = getFloorPropForModel;
 
-},{"da7fbb14be9adfbd":"kRW4n","cc01201d94c970bf":"2YAgU","6da6a48f416e41bd":"9hE8M"}],"2YAgU":[function(require,module,exports) {
+},{"da7fbb14be9adfbd":"kRW4n","cc01201d94c970bf":"2YAgU","6da6a48f416e41bd":"9hE8M"}],"2YAgU":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -18415,7 +18415,7 @@ function getAllModelLoaded() {
 }
 exports.getAllModelLoaded = getAllModelLoaded;
 
-},{}],"9hE8M":[function(require,module,exports) {
+},{}],"9hE8M":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -18473,7 +18473,7 @@ function getFloorsDbIdOfModel(model) {
 }
 exports.getFloorsDbIdOfModel = getFloorsDbIdOfModel;
 
-},{}],"e7uSI":[function(require,module,exports) {
+},{}],"e7uSI":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -18582,7 +18582,7 @@ function getRoomRefByFloor() {
 }
 exports.getRoomRefByFloor = getRoomRefByFloor;
 
-},{"56571cc91acf5796":"b3pAR","efe3553023309dfa":"lUmuX","af21f6e2d1376137":"1osyi","95b32225585ac656":"2QtL3"}],"5YQdd":[function(require,module,exports) {
+},{"56571cc91acf5796":"b3pAR","efe3553023309dfa":"lUmuX","af21f6e2d1376137":"1osyi","95b32225585ac656":"2QtL3"}],"5YQdd":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -18662,7 +18662,7 @@ function getSpatialTree() {
                                 //   );
                                 // }
                                 return {
-                                    type: "room",
+                                    type: 'room',
                                     id: room.info.id.get(),
                                     name: room.info.name.get(),
                                     server_id: room._server_id,
@@ -18670,7 +18670,7 @@ function getSpatialTree() {
                                 };
                             }));
                         return {
-                            type: "floor",
+                            type: 'floor',
                             id: floor.info.id.get(),
                             name: floor.info.name.get(),
                             server_id: floor._server_id,
@@ -18678,7 +18678,7 @@ function getSpatialTree() {
                         };
                     }));
                 return {
-                    type: "building",
+                    type: 'building',
                     id: building.info.id.get(),
                     name: building.info.name.get(),
                     server_id: building._server_id,
@@ -18704,7 +18704,7 @@ function pushToAggregateSetDbidByBimFileId(targetArray, id, bimFileId) {
 }
 exports.pushToAggregateSetDbidByBimFileId = pushToAggregateSetDbidByBimFileId;
 
-},{"9caa433c477cea9":"b3pAR","96ebd1bbf6cb8e5e":"2QtL3"}],"bJ91b":[function(require,module,exports) {
+},{"9caa433c477cea9":"b3pAR","96ebd1bbf6cb8e5e":"2QtL3"}],"bJ91b":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -18776,16 +18776,16 @@ function getDataAssing(_a) {
         const error = [];
         const children = yield selectedNode.getChildrenInContext(context);
         for (const child of children){
-            const arr = child.info.name.get() === "error" ? error : warn;
+            const arr = child.info.name.get() === 'error' ? error : warn;
             const items = yield child.getChildrenInContext(context);
             for (const item of items){
-                let PNId = "";
-                let PName = "";
-                if (child.info.name.get() === "warn") {
+                let PNId = '';
+                let PName = '';
+                if (child.info.name.get() === 'warn') {
                     // get parent ID
                     const parent = yield getParentRoom(item, contextGeo);
-                    PNId = (parent === null || parent === void 0 ? void 0 : parent.info.id.get()) || "";
-                    PName = (parent === null || parent === void 0 ? void 0 : parent.info.name.get()) || "";
+                    PNId = (parent === null || parent === void 0 ? void 0 : parent.info.id.get()) || '';
+                    PName = (parent === null || parent === void 0 ? void 0 : parent.info.name.get()) || '';
                 }
                 arr.push({
                     name: item.info.name.get(),
@@ -18794,7 +18794,7 @@ function getDataAssing(_a) {
                     bimFileId: item.info.bimFileId.get(),
                     dbid: item.info.dbid.get(),
                     externalId: item.info.externalId.get(),
-                    validId: ""
+                    validId: ''
                 });
             }
         }
@@ -18806,7 +18806,7 @@ function getDataAssing(_a) {
 }
 exports.getDataAssing = getDataAssing;
 
-},{"6f4cf66249c3d437":"2QtL3"}],"cZkMG":[function(require,module,exports) {
+},{"6f4cf66249c3d437":"2QtL3"}],"cZkMG":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -18953,7 +18953,7 @@ function clearThemingColors() {
 }
 exports.clearThemingColors = clearThemingColors;
 
-},{"ed0ac4935b69ac60":"b3pAR","5f740b71c95a5d7d":"2QtL3","72fec649b3b8e0d":"2YAgU","7f21c25f8c46b807":"1osyi"}],"djnxu":[function(require,module,exports) {
+},{"ed0ac4935b69ac60":"b3pAR","5f740b71c95a5d7d":"2QtL3","72fec649b3b8e0d":"2YAgU","7f21c25f8c46b807":"1osyi"}],"djnxu":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -19049,7 +19049,7 @@ function getBimFileIdByModelId(modelId) {
     }
 }
 
-},{"359faa06123be6f2":"2QtL3","b0cdb09dbf2fdb97":"b3pAR"}],"44LGg":[function(require,module,exports) {
+},{"359faa06123be6f2":"2QtL3","b0cdb09dbf2fdb97":"b3pAR"}],"44LGg":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -19103,7 +19103,7 @@ __exportStar(require("bfcf380a938040f2"), exports);
 __exportStar(require("7a56ed9e5eecd5ce"), exports);
 __exportStar(require("c6dc85b99fdebe16"), exports);
 
-},{"230c28f2f9c7d75d":"gt3uN","752138bd5e5bff86":"e3aE9","a9ec155ad42fc678":"7o8ew","432be2073a0a7fb0":"wRZKN","95634b6b01e5660f":"5y6G6","acecbe8837ac5943":"fwMCV","bfcf380a938040f2":"l5G6M","7a56ed9e5eecd5ce":"8xBmu","c6dc85b99fdebe16":"bxKti"}],"gt3uN":[function(require,module,exports) {
+},{"230c28f2f9c7d75d":"gt3uN","752138bd5e5bff86":"e3aE9","a9ec155ad42fc678":"7o8ew","432be2073a0a7fb0":"wRZKN","95634b6b01e5660f":"5y6G6","acecbe8837ac5943":"fwMCV","bfcf380a938040f2":"l5G6M","7a56ed9e5eecd5ce":"8xBmu","c6dc85b99fdebe16":"bxKti"}],"gt3uN":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -19146,7 +19146,7 @@ function addBimFloorToFloor(selectedItem, bimFloorItem) {
 }
 exports.addBimFloorToFloor = addBimFloorToFloor;
 
-},{"157197239188333f":"wRZKN","f910c960000b0157":"b3pAR","f81e02bfb796b6c8":"3AEx3"}],"wRZKN":[function(require,module,exports) {
+},{"157197239188333f":"wRZKN","f910c960000b0157":"b3pAR","f81e02bfb796b6c8":"3AEx3"}],"wRZKN":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -19182,7 +19182,7 @@ var ETreeItemStatus;
     ETreeItemStatus[ETreeItemStatus["unknown"] = 3] = "unknown";
 })(ETreeItemStatus || (exports.ETreeItemStatus = ETreeItemStatus = {}));
 
-},{}],"e3aE9":[function(require,module,exports) {
+},{}],"e3aE9":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -19288,7 +19288,7 @@ function getMergeBimGeoTrees(spatialTree) {
 }
 exports.getMergeBimGeoTrees = getMergeBimGeoTrees;
 
-},{"60eb37d2074e34a5":"3AEx3","340a75eb396ee1ae":"2QtL3","a6dd3700c7e252be":"wRZKN"}],"7o8ew":[function(require,module,exports) {
+},{"60eb37d2074e34a5":"3AEx3","340a75eb396ee1ae":"2QtL3","a6dd3700c7e252be":"wRZKN"}],"7o8ew":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -19389,7 +19389,7 @@ function isSpinalNodeTypeFloor(node) {
 }
 function getBimContextLinked(targetArr, child) {
     return __awaiter(this, void 0, void 0, function*() {
-        if (typeof child.info.linkedBimGeos === "undefined") return;
+        if (typeof child.info.linkedBimGeos === 'undefined') return;
         for (const linkedBimGeo of child.info.linkedBimGeos){
             const contextId = linkedBimGeo.contextId.get();
             const floorId = linkedBimGeo.floorId.get();
@@ -19400,8 +19400,8 @@ function getBimContextLinked(targetArr, child) {
                 contextId,
                 type: constant_1.BIM_GEO_FLOOR_PART_TYPE,
                 inGeoContext: true,
-                status: name === "unknown" ? ITreeItem_1.ETreeItemStatus.unknown : ITreeItem_1.ETreeItemStatus.normal,
-                startStatus: name === "unknown" ? ITreeItem_1.ETreeItemStatus.unknown : ITreeItem_1.ETreeItemStatus.normal,
+                status: name === 'unknown' ? ITreeItem_1.ETreeItemStatus.unknown : ITreeItem_1.ETreeItemStatus.normal,
+                startStatus: name === 'unknown' ? ITreeItem_1.ETreeItemStatus.unknown : ITreeItem_1.ETreeItemStatus.normal,
                 children: []
             });
         }
@@ -19414,11 +19414,11 @@ function getFloorName(contextId, floorId) {
         for (const child of children){
             if (child.info.id.get() === floorId) return child.info.name.get();
         }
-        return "unknown";
+        return 'unknown';
     });
 }
 
-},{"dabc4c7fffedfbb0":"2QtL3","d50ddb042b472111":"b3pAR","23db1729c6161585":"wRZKN","2388fff5cbd4b2f7":"3AEx3"}],"5y6G6":[function(require,module,exports) {
+},{"dabc4c7fffedfbb0":"2QtL3","d50ddb042b472111":"b3pAR","23db1729c6161585":"wRZKN","2388fff5cbd4b2f7":"3AEx3"}],"5y6G6":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -19499,7 +19499,7 @@ function mergeBimGeoCreateCmd(treeItems) {
                 case Constant_1.GEO_BUILDING_TYPE:
                     cmdsGen.push({
                         pNId: parent === null || parent === void 0 ? void 0 : parent.id,
-                        type: "building",
+                        type: 'building',
                         contextId: item.contextId,
                         id: item.id,
                         name: item.name
@@ -19529,7 +19529,7 @@ function mergeBimGeoHandleFloor(item, parentId, contextId, cmdsFloor) {
         const floorParts = item.children.filter((i)=>i.status === ITreeItem_1.ETreeItemStatus.normal || i.status === ITreeItem_1.ETreeItemStatus.newItem);
         const floorCmd = {
             pNId: parentId,
-            type: "floor",
+            type: 'floor',
             contextId,
             id: item.id,
             name: item.name,
@@ -19544,7 +19544,7 @@ function mergeBimGeoHandleFloor(item, parentId, contextId, cmdsFloor) {
     });
 }
 
-},{"96f547d2c9e4d2e2":"b3pAR","c2a57908da5dbbf3":"wRZKN"}],"fwMCV":[function(require,module,exports) {
+},{"96f547d2c9e4d2e2":"b3pAR","c2a57908da5dbbf3":"wRZKN"}],"fwMCV":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -19584,11 +19584,11 @@ function spatialTreeCreateBuilding(parent, name, contextId) {
         type: Constant_1.GEO_BUILDING_TYPE,
         children: []
     });
-    else throw new Error("Parent Item must be the Geographic Context or a Site");
+    else throw new Error('Parent Item must be the Geographic Context or a Site');
 }
 exports.spatialTreeCreateBuilding = spatialTreeCreateBuilding;
 
-},{"f6eb2234d628a6cf":"b3pAR","d9782c4e2953a22b":"2QtL3","cf11f679b3aaee8e":"wRZKN"}],"l5G6M":[function(require,module,exports) {
+},{"f6eb2234d628a6cf":"b3pAR","d9782c4e2953a22b":"2QtL3","cf11f679b3aaee8e":"wRZKN"}],"l5G6M":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -19628,11 +19628,11 @@ function spatialTreeCreateFloor(parent, name, contextId) {
         type: Constant_1.GEO_FLOOR_TYPE,
         children: []
     });
-    else throw new Error("Parent Item must be an Building");
+    else throw new Error('Parent Item must be an Building');
 }
 exports.spatialTreeCreateFloor = spatialTreeCreateFloor;
 
-},{"a27594026ceef299":"b3pAR","cde538d4bf302109":"2QtL3","5b460923b258a390":"wRZKN"}],"8xBmu":[function(require,module,exports) {
+},{"a27594026ceef299":"b3pAR","cde538d4bf302109":"2QtL3","5b460923b258a390":"wRZKN"}],"8xBmu":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -19660,7 +19660,7 @@ exports.spatialTreeCreateFloor = spatialTreeCreateFloor;
     value: true
 });
 
-},{}],"bxKti":[function(require,module,exports) {
+},{}],"bxKti":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -19718,6 +19718,6 @@ function removeBimFloor(contextGeoTree, bimFloorItem) {
 }
 exports.removeBimFloor = removeBimFloor;
 
-},{"1d485a18f6baabd3":"wRZKN"}]},[], null, "parcelRequire02e5")
+},{"1d485a18f6baabd3":"wRZKN"}]},[], null, "parcelRequire94c2")
 
 //# sourceMappingURL=spinal-env-viewer-service.d93d9092.js.map

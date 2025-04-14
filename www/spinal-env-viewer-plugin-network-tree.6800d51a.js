@@ -73,7 +73,7 @@
         localRequire,
         module,
         module.exports,
-        this
+        globalObject
       );
     }
 
@@ -142,7 +142,7 @@
       this[globalName] = mainExports;
     }
   }
-})({"fxyeC":[function(require,module,exports) {
+})({"fxyeC":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2021 SpinalCom - www.spinalcom.com
@@ -168,12 +168,14 @@
  * <http://resources.spinalcom.com/licenses.pdf>.
  */ var __createBinding = this && this.__createBinding || (Object.create ? function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
-    Object.defineProperty(o, k2, {
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) desc = {
         enumerable: true,
         get: function() {
             return m[k];
         }
-    });
+    };
+    Object.defineProperty(o, k2, desc);
 } : function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
     o[k2] = m[k];
@@ -197,7 +199,7 @@ __exportStar(require("f1c213c8cdc748fb"), exports);
 __exportStar(require("6f557d012c572713"), exports);
 __exportStar(require("61468a17e7b3f3a9"), exports);
 
-},{"56cefb5faadbf0d9":"kVUAV","2f9db6393495b73":"f7bXT","c19be94333640961":"kjgTt","3e5166ec14a732b5":"9BMU3","817e51d4197c6c98":"j4ejR","956b6d839e7d5a18":"fY8Ic","f1c213c8cdc748fb":"epS9u","6f557d012c572713":"3M9TP","61468a17e7b3f3a9":"cRfg2"}],"kVUAV":[function(require,module,exports) {
+},{"56cefb5faadbf0d9":"kVUAV","2f9db6393495b73":"f7bXT","c19be94333640961":"kjgTt","3e5166ec14a732b5":"9BMU3","817e51d4197c6c98":"j4ejR","956b6d839e7d5a18":"fY8Ic","f1c213c8cdc748fb":"epS9u","6f557d012c572713":"3M9TP","61468a17e7b3f3a9":"cRfg2"}],"kVUAV":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2021 SpinalCom - www.spinalcom.com
@@ -231,8 +233,9 @@ const uuid_1 = require("49b2a9bc18f80f95");
 class SpinalDisoverModel extends spinal_core_connectorjs_type_1.Model {
     constructor(graph, contextInfo, network, organ){
         super();
+        if (!graph || !contextInfo || !network || !organ) return;
         this.add_attr({
-            id: uuid_1.v4(),
+            id: (0, uuid_1.v4)(),
             state: StateEnum_1.STATES.reseted,
             graph: graph ? new spinal_core_connectorjs_type_1.Pbr(graph) : undefined,
             devices: new spinal_core_connectorjs_type_1.Lst(),
@@ -296,13 +299,12 @@ class SpinalDisoverModel extends spinal_core_connectorjs_type_1.Model {
     }
 }
 exports.SpinalDisoverModel = SpinalDisoverModel;
-//@ts-ignore
 spinal_core_connectorjs_type_1.spinalCore.register_models([
     SpinalDisoverModel
 ]);
 exports.default = SpinalDisoverModel;
 
-},{"866865bba0aadf6f":"fRH70","2365dbfdc11d314e":"epS9u","49b2a9bc18f80f95":"j4KJi"}],"epS9u":[function(require,module,exports) {
+},{"866865bba0aadf6f":"fRH70","2365dbfdc11d314e":"epS9u","49b2a9bc18f80f95":"j4KJi"}],"epS9u":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2021 SpinalCom - www.spinalcom.com
@@ -339,9 +341,9 @@ var STATES;
     STATES[STATES["timeout"] = 3] = "timeout";
     STATES[STATES["creating"] = 4] = "creating";
     STATES[STATES["created"] = 5] = "created";
-})(STATES = exports.STATES || (exports.STATES = {}));
+})(STATES || (exports.STATES = STATES = {}));
 
-},{}],"j4KJi":[function(require,module,exports) {
+},{}],"j4KJi":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "v1", ()=>(0, _v1JsDefault.default));
@@ -372,7 +374,7 @@ var _stringifyJsDefault = parcelHelpers.interopDefault(_stringifyJs);
 var _parseJs = require("./parse.js");
 var _parseJsDefault = parcelHelpers.interopDefault(_parseJs);
 
-},{"./v1.js":"9qfh9","./v3.js":"3RlI2","./v4.js":"8zJtu","./v5.js":"i3cfs","./nil.js":"kcLFq","./version.js":"gvRcF","./validate.js":"eHPgI","./stringify.js":"5Y9F1","./parse.js":"6aVVs","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9qfh9":[function(require,module,exports) {
+},{"./v1.js":"9qfh9","./v3.js":"3RlI2","./v4.js":"8zJtu","./v5.js":"i3cfs","./nil.js":"kcLFq","./version.js":"gvRcF","./validate.js":"eHPgI","./stringify.js":"5Y9F1","./parse.js":"6aVVs","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9qfh9":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _rngJs = require("./rng.js");
@@ -442,7 +444,7 @@ function v1(options, buf, offset) {
 }
 exports.default = v1;
 
-},{"./rng.js":"2psyE","./stringify.js":"5Y9F1","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2psyE":[function(require,module,exports) {
+},{"./rng.js":"2psyE","./stringify.js":"5Y9F1","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2psyE":[function(require,module,exports,__globalThis) {
 // Unique ID creation requires a high quality random # generator. In the browser we therefore
 // require the crypto API and do not support built-in fallback to lower quality random number
 // generators (like Math.random()).
@@ -456,13 +458,13 @@ function rng() {
     if (!getRandomValues) {
         // getRandomValues needs to be invoked in a context where "this" is a Crypto implementation. Also,
         // find the complete implementation of crypto (msCrypto) on IE11.
-        getRandomValues = typeof crypto !== "undefined" && crypto.getRandomValues && crypto.getRandomValues.bind(crypto) || typeof msCrypto !== "undefined" && typeof msCrypto.getRandomValues === "function" && msCrypto.getRandomValues.bind(msCrypto);
-        if (!getRandomValues) throw new Error("crypto.getRandomValues() not supported. See https://github.com/uuidjs/uuid#getrandomvalues-not-supported");
+        getRandomValues = typeof crypto !== 'undefined' && crypto.getRandomValues && crypto.getRandomValues.bind(crypto) || typeof msCrypto !== 'undefined' && typeof msCrypto.getRandomValues === 'function' && msCrypto.getRandomValues.bind(msCrypto);
+        if (!getRandomValues) throw new Error('crypto.getRandomValues() not supported. See https://github.com/uuidjs/uuid#getrandomvalues-not-supported');
     }
     return getRandomValues(rnds8);
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5Y9F1":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5Y9F1":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _validateJs = require("./validate.js");
@@ -476,51 +478,51 @@ function stringify(arr) {
     var offset = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
     // Note: Be careful editing this code!  It's been tuned for performance
     // and works in ways you may not expect. See https://github.com/uuidjs/uuid/pull/434
-    var uuid = (byteToHex[arr[offset + 0]] + byteToHex[arr[offset + 1]] + byteToHex[arr[offset + 2]] + byteToHex[arr[offset + 3]] + "-" + byteToHex[arr[offset + 4]] + byteToHex[arr[offset + 5]] + "-" + byteToHex[arr[offset + 6]] + byteToHex[arr[offset + 7]] + "-" + byteToHex[arr[offset + 8]] + byteToHex[arr[offset + 9]] + "-" + byteToHex[arr[offset + 10]] + byteToHex[arr[offset + 11]] + byteToHex[arr[offset + 12]] + byteToHex[arr[offset + 13]] + byteToHex[arr[offset + 14]] + byteToHex[arr[offset + 15]]).toLowerCase(); // Consistency check for valid UUID.  If this throws, it's likely due to one
+    var uuid = (byteToHex[arr[offset + 0]] + byteToHex[arr[offset + 1]] + byteToHex[arr[offset + 2]] + byteToHex[arr[offset + 3]] + '-' + byteToHex[arr[offset + 4]] + byteToHex[arr[offset + 5]] + '-' + byteToHex[arr[offset + 6]] + byteToHex[arr[offset + 7]] + '-' + byteToHex[arr[offset + 8]] + byteToHex[arr[offset + 9]] + '-' + byteToHex[arr[offset + 10]] + byteToHex[arr[offset + 11]] + byteToHex[arr[offset + 12]] + byteToHex[arr[offset + 13]] + byteToHex[arr[offset + 14]] + byteToHex[arr[offset + 15]]).toLowerCase(); // Consistency check for valid UUID.  If this throws, it's likely due to one
     // of the following:
     // - One or more input array values don't map to a hex octet (leading to
     // "undefined" in the uuid)
     // - Invalid input values for the RFC `version` or `variant` fields
-    if (!(0, _validateJsDefault.default)(uuid)) throw TypeError("Stringified UUID is invalid");
+    if (!(0, _validateJsDefault.default)(uuid)) throw TypeError('Stringified UUID is invalid');
     return uuid;
 }
 exports.default = stringify;
 
-},{"./validate.js":"eHPgI","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"eHPgI":[function(require,module,exports) {
+},{"./validate.js":"eHPgI","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"eHPgI":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _regexJs = require("./regex.js");
 var _regexJsDefault = parcelHelpers.interopDefault(_regexJs);
 function validate(uuid) {
-    return typeof uuid === "string" && (0, _regexJsDefault.default).test(uuid);
+    return typeof uuid === 'string' && (0, _regexJsDefault.default).test(uuid);
 }
 exports.default = validate;
 
-},{"./regex.js":"bUa5g","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"bUa5g":[function(require,module,exports) {
+},{"./regex.js":"bUa5g","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"bUa5g":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 exports.default = /^(?:[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}|00000000-0000-0000-0000-000000000000)$/i;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3RlI2":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3RlI2":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _v35Js = require("./v35.js");
 var _v35JsDefault = parcelHelpers.interopDefault(_v35Js);
 var _md5Js = require("./md5.js");
 var _md5JsDefault = parcelHelpers.interopDefault(_md5Js);
-var v3 = (0, _v35JsDefault.default)("v3", 0x30, (0, _md5JsDefault.default));
+var v3 = (0, _v35JsDefault.default)('v3', 0x30, (0, _md5JsDefault.default));
 exports.default = v3;
 
-},{"./v35.js":"f7cVj","./md5.js":"k0SFu","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"f7cVj":[function(require,module,exports) {
+},{"./v35.js":"f7cVj","./md5.js":"k0SFu","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"f7cVj":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "DNS", ()=>DNS);
 parcelHelpers.export(exports, "URL", ()=>URL);
 parcelHelpers.export(exports, "default", ()=>function(name, version, hashfunc) {
         function generateUUID(value, namespace, buf, offset) {
-            if (typeof value === "string") value = stringToBytes(value);
-            if (typeof namespace === "string") namespace = (0, _parseJsDefault.default)(namespace);
-            if (namespace.length !== 16) throw TypeError("Namespace must be array-like (16 iterable integer values, 0-255)");
+            if (typeof value === 'string') value = stringToBytes(value);
+            if (typeof namespace === 'string') namespace = (0, _parseJsDefault.default)(namespace);
+            if (namespace.length !== 16) throw TypeError('Namespace must be array-like (16 iterable integer values, 0-255)');
              // Compute hash of namespace and value, Per 4.3
             // Future: Use spread syntax when supported on all platforms, e.g. `bytes =
             // hashfunc([...namespace, ... value])`
@@ -554,16 +556,16 @@ function stringToBytes(str) {
     for(var i = 0; i < str.length; ++i)bytes.push(str.charCodeAt(i));
     return bytes;
 }
-var DNS = "6ba7b810-9dad-11d1-80b4-00c04fd430c8";
-var URL = "6ba7b811-9dad-11d1-80b4-00c04fd430c8";
+var DNS = '6ba7b810-9dad-11d1-80b4-00c04fd430c8';
+var URL = '6ba7b811-9dad-11d1-80b4-00c04fd430c8';
 
-},{"./stringify.js":"5Y9F1","./parse.js":"6aVVs","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6aVVs":[function(require,module,exports) {
+},{"./stringify.js":"5Y9F1","./parse.js":"6aVVs","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6aVVs":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _validateJs = require("./validate.js");
 var _validateJsDefault = parcelHelpers.interopDefault(_validateJs);
 function parse(uuid) {
-    if (!(0, _validateJsDefault.default)(uuid)) throw TypeError("Invalid UUID");
+    if (!(0, _validateJsDefault.default)(uuid)) throw TypeError('Invalid UUID');
     var v;
     var arr = new Uint8Array(16); // Parse ########-....-....-....-............
     arr[0] = (v = parseInt(uuid.slice(0, 8), 16)) >>> 24;
@@ -587,7 +589,7 @@ function parse(uuid) {
 }
 exports.default = parse;
 
-},{"./validate.js":"eHPgI","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"k0SFu":[function(require,module,exports) {
+},{"./validate.js":"eHPgI","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"k0SFu":[function(require,module,exports,__globalThis) {
 /*
  * Browser-compatible JavaScript MD5
  *
@@ -610,7 +612,7 @@ exports.default = parse;
  */ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 function md5(bytes) {
-    if (typeof bytes === "string") {
+    if (typeof bytes === 'string') {
         var msg = unescape(encodeURIComponent(bytes)); // UTF8 escape
         bytes = new Uint8Array(msg.length);
         for(var i = 0; i < msg.length; ++i)bytes[i] = msg.charCodeAt(i);
@@ -622,7 +624,7 @@ function md5(bytes) {
  */ function md5ToHexEncodedArray(input) {
     var output = [];
     var length32 = input.length * 32;
-    var hexTab = "0123456789abcdef";
+    var hexTab = '0123456789abcdef';
     for(var i = 0; i < length32; i += 8){
         var x = input[i >> 5] >>> i % 32 & 0xff;
         var hex = parseInt(hexTab.charAt(x >>> 4 & 0x0f) + hexTab.charAt(x & 0x0f), 16);
@@ -767,7 +769,7 @@ function md5ii(a, b, c, d, x, s, t) {
 }
 exports.default = md5;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"8zJtu":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"8zJtu":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _rngJs = require("./rng.js");
@@ -788,17 +790,17 @@ function v4(options, buf, offset) {
 }
 exports.default = v4;
 
-},{"./rng.js":"2psyE","./stringify.js":"5Y9F1","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"i3cfs":[function(require,module,exports) {
+},{"./rng.js":"2psyE","./stringify.js":"5Y9F1","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"i3cfs":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _v35Js = require("./v35.js");
 var _v35JsDefault = parcelHelpers.interopDefault(_v35Js);
 var _sha1Js = require("./sha1.js");
 var _sha1JsDefault = parcelHelpers.interopDefault(_sha1Js);
-var v5 = (0, _v35JsDefault.default)("v5", 0x50, (0, _sha1JsDefault.default));
+var v5 = (0, _v35JsDefault.default)('v5', 0x50, (0, _sha1JsDefault.default));
 exports.default = v5;
 
-},{"./v35.js":"f7cVj","./sha1.js":"BVVut","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"BVVut":[function(require,module,exports) {
+},{"./v35.js":"f7cVj","./sha1.js":"BVVut","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"BVVut":[function(require,module,exports,__globalThis) {
 // Adapted from Chris Veness' SHA1 code at
 // http://www.movable-type.co.uk/scripts/sha1.html
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -832,7 +834,7 @@ function sha1(bytes) {
         0x10325476,
         0xc3d2e1f0
     ];
-    if (typeof bytes === "string") {
+    if (typeof bytes === 'string') {
         var msg = unescape(encodeURIComponent(bytes)); // UTF8 escape
         bytes = [];
         for(var i = 0; i < msg.length; ++i)bytes.push(msg.charCodeAt(i));
@@ -899,23 +901,23 @@ function sha1(bytes) {
 }
 exports.default = sha1;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"kcLFq":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"kcLFq":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-exports.default = "00000000-0000-0000-0000-000000000000";
+exports.default = '00000000-0000-0000-0000-000000000000';
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gvRcF":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gvRcF":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _validateJs = require("./validate.js");
 var _validateJsDefault = parcelHelpers.interopDefault(_validateJs);
 function version(uuid) {
-    if (!(0, _validateJsDefault.default)(uuid)) throw TypeError("Invalid UUID");
+    if (!(0, _validateJsDefault.default)(uuid)) throw TypeError('Invalid UUID');
     return parseInt(uuid.substr(14, 1), 16);
 }
 exports.default = version;
 
-},{"./validate.js":"eHPgI","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"f7bXT":[function(require,module,exports) {
+},{"./validate.js":"eHPgI","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"f7bXT":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2021 SpinalCom - www.spinalcom.com
@@ -948,8 +950,9 @@ const uuid_1 = require("b1c2433a8f8e91e6");
 class SpinalListenerModel extends spinal_core_connectorjs_type_1.Model {
     constructor(graph, context, network, bmsDevice, organ, monitor){
         super();
+        if (!graph || !context || !network || !bmsDevice || !organ || !monitor) return;
         this.add_attr({
-            id: uuid_1.v4(),
+            id: (0, uuid_1.v4)(),
             graph: new spinal_core_connectorjs_type_1.Pbr(graph),
             listen: true,
             saveTimeSeries: false,
@@ -963,13 +966,12 @@ class SpinalListenerModel extends spinal_core_connectorjs_type_1.Model {
     }
 }
 exports.SpinalListenerModel = SpinalListenerModel;
-//@ts-ignore
 spinal_core_connectorjs_type_1.spinalCore.register_models([
     SpinalListenerModel
 ]);
 exports.default = SpinalListenerModel;
 
-},{"ec4a552073f149cb":"fRH70","b1c2433a8f8e91e6":"j4KJi"}],"kjgTt":[function(require,module,exports) {
+},{"ec4a552073f149cb":"fRH70","b1c2433a8f8e91e6":"j4KJi"}],"kjgTt":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2021 SpinalCom - www.spinalcom.com
@@ -1002,38 +1004,39 @@ const uuid_1 = require("3f378c20bd8a8238");
 class SpinalBacnetValueModel extends spinal_core_connectorjs_type_1.Model {
     constructor(graph, context, organ, network, node, sensor){
         super();
+        if (!graph || !context || !organ || !network || !node || !sensor) return;
         this.add_attr({
-            id: uuid_1.v4(),
+            id: (0, uuid_1.v4)(),
             context: new spinal_core_connectorjs_type_1.Pbr(context),
             node: new spinal_core_connectorjs_type_1.Pbr(node),
             graph: new spinal_core_connectorjs_type_1.Pbr(graph),
             network: new spinal_core_connectorjs_type_1.Pbr(network),
             organ: new spinal_core_connectorjs_type_1.Pbr(organ),
-            state: "wait",
+            state: 'wait',
             sensor: sensor,
             progress: 0
         });
     }
     addToNode() {
-        return this.loadItem("node").then((node)=>{
+        return this.loadItem('node').then((node)=>{
             node.info.add_attr({
                 bacnet: new spinal_core_connectorjs_type_1.Ptr(this)
             });
         });
     }
     remToNode() {
-        return this.loadItem("node").then((node)=>{
+        return this.loadItem('node').then((node)=>{
             if (node.info.bacnet) node.info.rem_attr("bacnet");
-            node.info.rem_attr("bacnet");
+            node.info.rem_attr('bacnet');
         });
     }
     getAllItem() {
         const promises = [
-            this.loadItem("context"),
-            this.loadItem("node"),
-            this.loadItem("graph"),
-            this.loadItem("network"),
-            this.loadItem("organ")
+            this.loadItem('context'),
+            this.loadItem('node'),
+            this.loadItem('graph'),
+            this.loadItem('network'),
+            this.loadItem('organ')
         ];
         return Promise.all(promises).then(([context, node, graph, network, organ])=>{
             return {
@@ -1072,13 +1075,12 @@ class SpinalBacnetValueModel extends spinal_core_connectorjs_type_1.Model {
     }
 }
 exports.SpinalBacnetValueModel = SpinalBacnetValueModel;
-//@ts-ignore
 spinal_core_connectorjs_type_1.spinalCore.register_models([
     SpinalBacnetValueModel
 ]);
 exports.default = SpinalBacnetValueModel;
 
-},{"b5e4028893e992d9":"fRH70","3f378c20bd8a8238":"j4KJi"}],"9BMU3":[function(require,module,exports) {
+},{"b5e4028893e992d9":"fRH70","3f378c20bd8a8238":"j4KJi"}],"9BMU3":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2021 SpinalCom - www.spinalcom.com
@@ -1111,8 +1113,9 @@ const uuid_1 = require("aefe8f4abc7008fe");
 class SpinalMonitorInfoModel extends spinal_core_connectorjs_type_1.Model {
     constructor(profil, monit){
         super();
+        if (!profil || !monit) return;
         this.add_attr({
-            id: uuid_1.v4(),
+            id: (0, uuid_1.v4)(),
             profil: new spinal_core_connectorjs_type_1.Pbr(profil),
             data: monit
         });
@@ -1122,13 +1125,12 @@ class SpinalMonitorInfoModel extends spinal_core_connectorjs_type_1.Model {
     }
 }
 exports.SpinalMonitorInfoModel = SpinalMonitorInfoModel;
-//@ts-ignore
 spinal_core_connectorjs_type_1.spinalCore.register_models([
     SpinalMonitorInfoModel
 ]);
 exports.default = SpinalMonitorInfoModel;
 
-},{"215aa3dc58930590":"fRH70","aefe8f4abc7008fe":"j4KJi"}],"j4ejR":[function(require,module,exports) {
+},{"215aa3dc58930590":"fRH70","aefe8f4abc7008fe":"j4KJi"}],"j4ejR":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2021 SpinalCom - www.spinalcom.com
@@ -1161,8 +1163,9 @@ const uuid_1 = require("308104debf5db104");
 class SpinalPilotModel extends spinal_core_connectorjs_type_1.Model {
     constructor(organ, request){
         super();
+        if (!organ || !request) return;
         this.add_attr({
-            id: uuid_1.v4(),
+            id: (0, uuid_1.v4)(),
             state: new spinal_core_connectorjs_type_1.Choice(0, [
                 "normal",
                 "process",
@@ -1233,7 +1236,7 @@ spinal_core_connectorjs_type_1.spinalCore.register_models([
 ]);
 exports.default = SpinalPilotModel;
 
-},{"b96878e6c0ee0ad1":"fRH70","308104debf5db104":"j4KJi"}],"fY8Ic":[function(require,module,exports) {
+},{"b96878e6c0ee0ad1":"fRH70","308104debf5db104":"j4KJi"}],"fY8Ic":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2021 SpinalCom - www.spinalcom.com
@@ -1267,8 +1270,9 @@ const constants_1 = require("ae254f37488da623");
 class SpinalOrganConfigModel extends spinal_core_connectorjs_type_1.Model {
     constructor(name, type = constants_1.BACNET_ORGAN_TYPE){
         super();
+        if (!name) return;
         this.add_attr({
-            id: uuid_1.v4(),
+            id: (0, uuid_1.v4)(),
             name,
             type,
             references: {},
@@ -1315,7 +1319,7 @@ spinal_core_connectorjs_type_1.spinalCore.register_models([
 ]);
 exports.default = SpinalOrganConfigModel;
 
-},{"eaff646cd57dc381":"fRH70","7c21300510fdadb6":"j4KJi","ae254f37488da623":"cRfg2"}],"cRfg2":[function(require,module,exports) {
+},{"eaff646cd57dc381":"fRH70","7c21300510fdadb6":"j4KJi","ae254f37488da623":"cRfg2"}],"cRfg2":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2021 SpinalCom - www.spinalcom.com
@@ -1346,7 +1350,7 @@ exports.BACNET_ORGAN_TYPE = void 0;
 const BACNET_ORGAN_TYPE = "BACNET_ORGAN";
 exports.BACNET_ORGAN_TYPE = BACNET_ORGAN_TYPE;
 
-},{}],"3M9TP":[function(require,module,exports) {
+},{}],"3M9TP":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2021 SpinalCom - www.spinalcom.com
@@ -1374,6 +1378,6 @@ exports.BACNET_ORGAN_TYPE = BACNET_ORGAN_TYPE;
     value: true
 });
 
-},{}]},[], null, "parcelRequire02e5")
+},{}]},[], null, "parcelRequire94c2")
 
 //# sourceMappingURL=spinal-env-viewer-plugin-network-tree.6800d51a.js.map

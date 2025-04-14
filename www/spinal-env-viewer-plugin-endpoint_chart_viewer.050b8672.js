@@ -73,7 +73,7 @@
         localRequire,
         module,
         module.exports,
-        this
+        globalObject
       );
     }
 
@@ -142,7 +142,7 @@
       this[globalName] = mainExports;
     }
   }
-})({"llL6V":[function(require,module,exports) {
+})({"llL6V":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -183,9 +183,9 @@ const extentionCreated = SpinalForgeExtention.createExtention({
         closeBehaviour: "delete"
     },
     style: {
-        height: "80vh",
+        height: '80vh',
         left: "405px",
-        width: "631px"
+        width: '631px'
     },
     onLoad: function() {},
     onUnLoad: function() {}
@@ -219,7 +219,7 @@ spinalContextMenuService.registerApp("GraphManagerSideBar", new EndpointChartVie
     15
 ]);
 
-},{"c330929e436eea20":"7Uw4d","fe79739a112c1e0":"1mGHd","vue":"gt5MM","./endpointChartViewerPanel.vue":"hEuRo","c183c27801ae096a":"kHlxv","spinal-env-viewer-graph-service":"9n7zp","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7Uw4d":[function(require,module,exports) {
+},{"c330929e436eea20":"7Uw4d","fe79739a112c1e0":"1mGHd","vue":"gt5MM","./endpointChartViewerPanel.vue":"hEuRo","c183c27801ae096a":"kHlxv","spinal-env-viewer-graph-service":"9n7zp","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7Uw4d":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -258,7 +258,7 @@ module.exports = {
     }
 };
 
-},{"8b71a79dcc12420e":"h7sS1","e47c36529e942a76":"cvBJ6","cfd4c6200ba55765":"9SKSV"}],"h7sS1":[function(require,module,exports) {
+},{"8b71a79dcc12420e":"h7sS1","e47c36529e942a76":"cvBJ6","cfd4c6200ba55765":"9SKSV"}],"h7sS1":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -338,7 +338,7 @@ module.exports = {
 }
 module.exports = SpinalPanelManagerService;
 
-},{}],"cvBJ6":[function(require,module,exports) {
+},{}],"cvBJ6":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -373,7 +373,7 @@ module.exports = SpinalPanelManagerService;
 }
 module.exports = SpinalPanelApp;
 
-},{}],"9SKSV":[function(require,module,exports) {
+},{}],"9SKSV":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -472,7 +472,7 @@ function getDialog() {
     };
 };
 
-},{}],"1mGHd":[function(require,module,exports) {
+},{}],"1mGHd":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -501,7 +501,7 @@ module.exports = {
     SpinalForgeExtention
 };
 
-},{"bf7edd8450503e22":"7Uw4d","64bd1569b4ded066":"gsEky"}],"gsEky":[function(require,module,exports) {
+},{"bf7edd8450503e22":"7Uw4d","64bd1569b4ded066":"gsEky"}],"gsEky":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
  * 
@@ -736,7 +736,7 @@ function getPanel() {
     };
 };
 
-},{}],"hEuRo":[function(require,module,exports) {
+},{}],"hEuRo":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -748,13 +748,13 @@ let initialize = ()=>{
     script._scopeId = "data-v-c4fec0";
     script.__cssModules = require("f4fa6f5a2744d4fa").default;
     require("1e940583767df3c5").default(script);
-    script.__scopeId = "data-v-c4fec0";
+    script.__scopeId = 'data-v-c4fec0';
     script.__file = "endpointChartViewerPanel.vue";
 };
 initialize();
 exports.default = script;
 
-},{"14b954c7622c597e":"6MohN","f268f4e15ce09593":"9a05P","f4fa6f5a2744d4fa":"dMv6I","1e940583767df3c5":"hhrA8","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6MohN":[function(require,module,exports) {
+},{"14b954c7622c597e":"6MohN","f268f4e15ce09593":"9a05P","f4fa6f5a2744d4fa":"dMv6I","1e940583767df3c5":"hhrA8","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6MohN":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _plotlyCompomentVue = require("./plotlyCompoment.vue");
@@ -877,10 +877,10 @@ var scriptExports = {
         closed () {}
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"./plotlyCompoment.vue":"5qhzN","./ChartDataEndpoint.js":"9yaKt","./customDateIntervalDialog.vue":"6sw55","lodash.union":"1oYVM","./map":"4CucY","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5qhzN":[function(require,module,exports) {
+},{"./plotlyCompoment.vue":"5qhzN","./ChartDataEndpoint.js":"9yaKt","./customDateIntervalDialog.vue":"6sw55","lodash.union":"1oYVM","./map":"4CucY","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5qhzN":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -892,13 +892,13 @@ let initialize = ()=>{
     script._scopeId = "data-v-b3c772";
     script.__cssModules = require("db6b285aa8e6db81").default;
     require("1d690daf02288498").default(script);
-    script.__scopeId = "data-v-b3c772";
+    script.__scopeId = 'data-v-b3c772';
     script.__file = "plotlyCompoment.vue";
 };
 initialize();
 exports.default = script;
 
-},{"4bc106588c46e008":"3XoWn","8a3335ff63ca01e6":"hhHyJ","db6b285aa8e6db81":"fI7SS","1d690daf02288498":"gcCDN","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3XoWn":[function(require,module,exports) {
+},{"4bc106588c46e008":"3XoWn","8a3335ff63ca01e6":"hhHyJ","db6b285aa8e6db81":"fI7SS","1d690daf02288498":"gcCDN","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3XoWn":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _chartOptionDialogVue = require("./chartOptionDialog.vue");
@@ -906,20 +906,20 @@ var _chartOptionDialogVueDefault = parcelHelpers.interopDefault(_chartOptionDial
 var _timers = require("timers");
 var _map = require("./map");
 var global = arguments[3];
-const globalType = typeof window === "undefined" ? global : window;
+const globalType = typeof window === 'undefined' ? global : window;
 var scriptExports = {
-    name: "plotlyComponent",
+    name: 'plotlyComponent',
     components: {
         chartOptionDialog: (0, _chartOptionDialogVueDefault.default)
     },
     data () {
         return {
             chartData: [],
-            selectedNames: "",
+            selectedNames: '',
             optionOpen: false,
             isReady: false,
             haveData: false,
-            lineMode: "lines",
+            lineMode: 'lines',
             layout: {
                 margin: {
                     b: 90,
@@ -928,16 +928,16 @@ var scriptExports = {
                 },
                 font: {
                     size: 15,
-                    color: "#FFFFFF"
+                    color: '#FFFFFF'
                 },
-                paper_bgcolor: "rgba(0,0,0,0)",
-                plot_bgcolor: "rgba(0,0,0,0)",
+                paper_bgcolor: 'rgba(0,0,0,0)',
+                plot_bgcolor: 'rgba(0,0,0,0)',
                 xaxis: {
                     rangeslider: null,
                     showgrid: false,
                     showline: true,
-                    type: "date",
-                    tickformat: "%d/%m/%Y %H:%M"
+                    type: 'date',
+                    tickformat: '%d/%m/%Y %H:%M'
                 },
                 yaxis: {
                     showgrid: false,
@@ -945,27 +945,27 @@ var scriptExports = {
                 },
                 showlegend: true,
                 legend: {
-                    xanchor: "auto",
-                    yanchor: "auto",
-                    orientation: "v",
+                    xanchor: 'auto',
+                    yanchor: 'auto',
+                    orientation: 'v',
                     x: null,
                     y: null,
-                    traceorder: "normal",
+                    traceorder: 'normal',
                     font: {
-                        family: "sans-serif",
+                        family: 'sans-serif',
                         size: 12,
-                        color: "#FFF"
+                        color: '#FFF'
                     },
-                    bgcolor: "rgba(34,34,34,.9)",
-                    bordercolor: "#424242",
+                    bgcolor: 'rgba(34,34,34,.9)',
+                    bordercolor: '#424242',
                     borderwidth: 2
                 }
             }
         };
     },
     props: [
-        "data",
-        "reloadData"
+        'data',
+        'reloadData'
     ],
     computed: {
         isviewerV6 () {
@@ -1001,16 +1001,16 @@ var scriptExports = {
         init () {
             this.promUpdate = null;
             this.rect = {
-                w: "100px",
-                h: "100px"
+                w: '100px',
+                h: '100px'
             };
             this.my_chartData = [];
             this._graph_ = null;
         },
         updateObj (obj, data) {
             for(const key in data)if (data.hasOwnProperty(key)) {
-                if (Array.isArray(data[key]) === false && typeof data[key] === "object" && data[key] !== null) {
-                    if (typeof obj[key] === "undefined" || obj[key] === null) obj[key] = {};
+                if (Array.isArray(data[key]) === false && typeof data[key] === 'object' && data[key] !== null) {
+                    if (typeof obj[key] === 'undefined' || obj[key] === null) obj[key] = {};
                     this.updateObj(obj[key], data[key]);
                 } else obj[key] = data[key];
             }
@@ -1019,7 +1019,7 @@ var scriptExports = {
             this.updateObj(this.layout, data);
             globalType.Plotly.react(this._graph_.gd, this.my_chartData, this.layout, {
                 modeBarButtonsToRemove: [
-                    "sendDataToCloud"
+                    'sendDataToCloud'
                 ],
                 displaylogo: false,
                 responsive: true
@@ -1033,7 +1033,7 @@ var scriptExports = {
             }
             globalType.Plotly.react(this._graph_.gd, this.my_chartData, this.layout, {
                 modeBarButtonsToRemove: [
-                    "sendDataToCloud"
+                    'sendDataToCloud'
                 ],
                 displaylogo: false,
                 responsive: true
@@ -1054,7 +1054,7 @@ var scriptExports = {
                 if (found === false) this.my_chartData.push({
                     nodeId: element.nodeId,
                     mode: this.lineMode,
-                    type: "scatter",
+                    type: 'scatter',
                     name: element.name,
                     x: element.x,
                     y: element.y
@@ -1077,7 +1077,7 @@ var scriptExports = {
             }
             globalType.Plotly.react(this._graph_.gd, this.my_chartData, this.layout, {
                 modeBarButtonsToRemove: [
-                    "sendDataToCloud"
+                    'sendDataToCloud'
                 ],
                 displaylogo: false,
                 responsive: true
@@ -1092,14 +1092,14 @@ var scriptExports = {
             }
             this.haveData = false;
             this.isReady = true;
-            this.selectedNames = this.my_chartData.map((e)=>e.name).join(", ");
+            this.selectedNames = this.my_chartData.map((e)=>e.name).join(', ');
         },
         createGraph: function() {
             var d3 = globalType.Plotly.d3;
             var graphWidth = 100, graphHeight = 100;
-            var gd3 = d3.select(document.getElementById("chart-data-endpoint-graph-container-plotgraph")).style({
-                width: graphWidth + "%",
-                height: graphHeight + "%"
+            var gd3 = d3.select(document.getElementById('chart-data-endpoint-graph-container-plotgraph')).style({
+                width: graphWidth + '%',
+                height: graphHeight + '%'
             });
             var gd = gd3.node();
             return {
@@ -1108,8 +1108,8 @@ var scriptExports = {
             };
         },
         resize: function(gd, gd3) {
-            let w = gd3.style("width");
-            let h = gd3.style("height");
+            let w = gd3.style('width');
+            let h = gd3.style('height');
             if (this.rect.w !== w || this.rect.h !== h) {
                 this.rect.w = w;
                 this.rect.h = h;
@@ -1120,16 +1120,16 @@ var scriptExports = {
             this.chartData = Array.from((0, _map.timeSeriesMap).values());
         },
         refreshData () {
-            console.log("refresh Data");
+            console.log('refresh Data');
             this.setChartData();
             this.updateGraph(this.chartData);
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"./chartOptionDialog.vue":"g82jt","timers":"l8XYx","./map":"4CucY","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"g82jt":[function(require,module,exports) {
+},{"./chartOptionDialog.vue":"g82jt","timers":"l8XYx","./map":"4CucY","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"g82jt":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -1141,13 +1141,13 @@ let initialize = ()=>{
     script._scopeId = "data-v-b0ff64";
     script.__cssModules = require("891359f93bedc151").default;
     require("a5dd891615be60df").default(script);
-    script.__scopeId = "data-v-b0ff64";
+    script.__scopeId = 'data-v-b0ff64';
     script.__file = "chartOptionDialog.vue";
 };
 initialize();
 exports.default = script;
 
-},{"be3159053e824345":"3zwze","a5fb166d21e1cb3d":"iWQI4","891359f93bedc151":"jgVtm","a5dd891615be60df":"l9NUO","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3zwze":[function(require,module,exports) {
+},{"be3159053e824345":"3zwze","a5fb166d21e1cb3d":"iWQI4","891359f93bedc151":"jgVtm","a5dd891615be60df":"l9NUO","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3zwze":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var scriptExports = {
@@ -1293,15 +1293,15 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"iWQI4":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"iWQI4":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("md-dialog", {
+    return _c('md-dialog', {
         staticClass: "endpoint-chart-viewer-panel-dialog-chart-option",
         attrs: {
             "md-active": _vm.isOpenComputed,
@@ -1318,24 +1318,24 @@ var render = function() {
             }
         }
     }, [
-        _c("md-dialog-title", [
+        _c('md-dialog-title', [
             _vm._v("Chart Preferences")
         ]),
         _vm._v(" "),
-        _c("md-dialog-content", {
+        _c('md-dialog-content', {
             staticClass: "md-scrollbar"
         }, [
-            _c("div", [
-                _c("div", {
+            _c('div', [
+                _c('div', {
                     staticClass: "endpoint-chart-viewer-panel-dialog-chart-option-container"
                 }, [
-                    _c("h5", {
+                    _c('h5', {
                         staticClass: "endpoint-chart-viewer-panel-dialog-chart-option-postion-header"
                     }, [
                         _vm._v("\n          Line Mode")
                     ]),
                     _vm._v(" "),
-                    _c("md-radio", {
+                    _c('md-radio', {
                         attrs: {
                             "value": "lines"
                         },
@@ -1350,7 +1350,7 @@ var render = function() {
                         _vm._v("Lines")
                     ]),
                     _vm._v(" "),
-                    _c("md-radio", {
+                    _c('md-radio', {
                         attrs: {
                             "value": "markers"
                         },
@@ -1365,7 +1365,7 @@ var render = function() {
                         _vm._v("Markers")
                     ]),
                     _vm._v(" "),
-                    _c("md-radio", {
+                    _c('md-radio', {
                         attrs: {
                             "value": "lines+markers"
                         },
@@ -1381,15 +1381,15 @@ var render = function() {
                     ])
                 ], 1),
                 _vm._v(" "),
-                _c("div", {
+                _c('div', {
                     staticClass: "endpoint-chart-viewer-panel-dialog-chart-option-container"
                 }, [
-                    _c("md-checkbox", {
+                    _c('md-checkbox', {
                         directives: [
                             {
                                 name: "tooltip",
                                 rawName: "v-tooltip",
-                                value: "you may need to resize the panel.",
+                                value: 'you may need to resize the panel.',
                                 expression: "'you may need to resize the panel.'"
                             }
                         ],
@@ -1408,20 +1408,20 @@ var render = function() {
                         _vm._v("Use range slider")
                     ]),
                     _vm._v(" "),
-                    _vm.rangeSlider ? _c("div", [
-                        _c("em", [
+                    _vm.rangeSlider ? _c('div', [
+                        _c('em', [
                             _vm._v("If the pannel is too small the range slider may not showup.")
                         ])
                     ]) : _vm._e()
                 ], 1),
                 _vm._v(" "),
-                _c("div", {
+                _c('div', {
                     staticClass: "endpoint-chart-viewer-panel-dialog-chart-option-container",
                     class: {
-                        "endpoint-chart-viewer-panel-dialog-chart-option-container-border": _vm.showLegendComputed
+                        'endpoint-chart-viewer-panel-dialog-chart-option-container-border': _vm.showLegendComputed
                     }
                 }, [
-                    _c("md-checkbox", {
+                    _c('md-checkbox', {
                         attrs: {
                             "true-value": "true",
                             "false-value": "false"
@@ -1437,11 +1437,11 @@ var render = function() {
                         _vm._v("Show Legend")
                     ]),
                     _vm._v(" "),
-                    _vm.showLegendComputed ? _c("div", {
+                    _vm.showLegendComputed ? _c('div', {
                         staticClass: "endpoint-chart-viewer-panel-dialog-chart-option-container-legend"
                     }, [
-                        _c("div", [
-                            _c("md-radio", {
+                        _c('div', [
+                            _c('md-radio', {
                                 attrs: {
                                     "value": "h"
                                 },
@@ -1456,7 +1456,7 @@ var render = function() {
                                 _vm._v("Horizontal")
                             ]),
                             _vm._v(" "),
-                            _c("md-radio", {
+                            _c('md-radio', {
                                 attrs: {
                                     "value": "v"
                                 },
@@ -1472,12 +1472,12 @@ var render = function() {
                             ])
                         ], 1),
                         _vm._v(" "),
-                        _c("div", {
+                        _c('div', {
                             class: {
-                                "endpoint-chart-viewer-panel-dialog-chart-option-container-legend-subcontainer": _vm.position
+                                'endpoint-chart-viewer-panel-dialog-chart-option-container-legend-subcontainer': _vm.position
                             }
                         }, [
-                            _c("md-checkbox", {
+                            _c('md-checkbox', {
                                 attrs: {
                                     "true-value": "true",
                                     "false-value": "false"
@@ -1493,17 +1493,17 @@ var render = function() {
                                 _vm._v("Override default Position")
                             ]),
                             _vm._v(" "),
-                            _vm.position ? _c("div", [
-                                _c("hr"),
+                            _vm.position ? _c('div', [
+                                _c('hr'),
                                 _vm._v(" "),
-                                _c("div", [
-                                    _c("h5", {
+                                _c('div', [
+                                    _c('h5', {
                                         staticClass: "endpoint-chart-viewer-panel-dialog-chart-option-postion-header"
                                     }, [
                                         _vm._v("Vertical\n                  Postion")
                                     ]),
                                     _vm._v(" "),
-                                    _c("md-radio", {
+                                    _c('md-radio', {
                                         attrs: {
                                             "value": "0"
                                         },
@@ -1518,7 +1518,7 @@ var render = function() {
                                         _vm._v("left")
                                     ]),
                                     _vm._v(" "),
-                                    _c("md-radio", {
+                                    _c('md-radio', {
                                         attrs: {
                                             "value": "0.5"
                                         },
@@ -1533,7 +1533,7 @@ var render = function() {
                                         _vm._v("center")
                                     ]),
                                     _vm._v(" "),
-                                    _c("md-radio", {
+                                    _c('md-radio', {
                                         attrs: {
                                             "value": "1"
                                         },
@@ -1549,16 +1549,16 @@ var render = function() {
                                     ])
                                 ], 1),
                                 _vm._v(" "),
-                                _c("hr"),
+                                _c('hr'),
                                 _vm._v(" "),
-                                _c("div", [
-                                    _c("h5", {
+                                _c('div', [
+                                    _c('h5', {
                                         staticClass: "endpoint-chart-viewer-panel-dialog-chart-option-postion-header"
                                     }, [
                                         _vm._v("Vertical\n                  Anchor Postion")
                                     ]),
                                     _vm._v(" "),
-                                    _c("md-radio", {
+                                    _c('md-radio', {
                                         attrs: {
                                             "value": "auto"
                                         },
@@ -1573,7 +1573,7 @@ var render = function() {
                                         _vm._v("auto")
                                     ]),
                                     _vm._v(" "),
-                                    _c("md-radio", {
+                                    _c('md-radio', {
                                         attrs: {
                                             "value": "left"
                                         },
@@ -1588,7 +1588,7 @@ var render = function() {
                                         _vm._v("left")
                                     ]),
                                     _vm._v(" "),
-                                    _c("md-radio", {
+                                    _c('md-radio', {
                                         attrs: {
                                             "value": "center"
                                         },
@@ -1603,7 +1603,7 @@ var render = function() {
                                         _vm._v("center")
                                     ]),
                                     _vm._v(" "),
-                                    _c("md-radio", {
+                                    _c('md-radio', {
                                         attrs: {
                                             "value": "right"
                                         },
@@ -1619,16 +1619,16 @@ var render = function() {
                                     ])
                                 ], 1),
                                 _vm._v(" "),
-                                _c("hr"),
+                                _c('hr'),
                                 _vm._v(" "),
-                                _c("div", [
-                                    _c("h5", {
+                                _c('div', [
+                                    _c('h5', {
                                         staticClass: "endpoint-chart-viewer-panel-dialog-chart-option-postion-header"
                                     }, [
                                         _vm._v("Horizontal\n                  Postion")
                                     ]),
                                     _vm._v(" "),
-                                    _c("md-radio", {
+                                    _c('md-radio', {
                                         attrs: {
                                             "value": "1"
                                         },
@@ -1643,7 +1643,7 @@ var render = function() {
                                         _vm._v("top")
                                     ]),
                                     _vm._v(" "),
-                                    _c("md-radio", {
+                                    _c('md-radio', {
                                         attrs: {
                                             "value": "0.5"
                                         },
@@ -1658,7 +1658,7 @@ var render = function() {
                                         _vm._v("middle")
                                     ]),
                                     _vm._v(" "),
-                                    _c("md-radio", {
+                                    _c('md-radio', {
                                         attrs: {
                                             "value": "0"
                                         },
@@ -1674,16 +1674,16 @@ var render = function() {
                                     ])
                                 ], 1),
                                 _vm._v(" "),
-                                _c("hr"),
+                                _c('hr'),
                                 _vm._v(" "),
-                                _c("div", [
-                                    _c("h5", {
+                                _c('div', [
+                                    _c('h5', {
                                         staticClass: "endpoint-chart-viewer-panel-dialog-chart-option-postion-header"
                                     }, [
                                         _vm._v("Horizontal\n                  Anchor Postion")
                                     ]),
                                     _vm._v(" "),
-                                    _c("md-radio", {
+                                    _c('md-radio', {
                                         attrs: {
                                             "value": "auto"
                                         },
@@ -1698,7 +1698,7 @@ var render = function() {
                                         _vm._v("auto")
                                     ]),
                                     _vm._v(" "),
-                                    _c("md-radio", {
+                                    _c('md-radio', {
                                         attrs: {
                                             "value": "top"
                                         },
@@ -1713,7 +1713,7 @@ var render = function() {
                                         _vm._v("top")
                                     ]),
                                     _vm._v(" "),
-                                    _c("md-radio", {
+                                    _c('md-radio', {
                                         attrs: {
                                             "value": "middle"
                                         },
@@ -1728,7 +1728,7 @@ var render = function() {
                                         _vm._v("middle")
                                     ]),
                                     _vm._v(" "),
-                                    _c("md-radio", {
+                                    _c('md-radio', {
                                         attrs: {
                                             "value": "bottom"
                                         },
@@ -1750,8 +1750,8 @@ var render = function() {
             ])
         ]),
         _vm._v(" "),
-        _c("md-dialog-actions", [
-            _c("md-button", {
+        _c('md-dialog-actions', [
+            _c('md-button', {
                 staticClass: "md-primary",
                 on: {
                     "click": _vm.closeDialog
@@ -1766,13 +1766,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"jgVtm":[function() {},{}],"l9NUO":[function(require,module,exports) {
+},{}],"jgVtm":[function() {},{}],"l9NUO":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"l8XYx":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"l8XYx":[function(require,module,exports,__globalThis) {
 var global = arguments[3];
 var scope = typeof global !== "undefined" && global || typeof self !== "undefined" && self || window;
 var apply = Function.prototype.apply;
@@ -1818,7 +1818,7 @@ require("55080a345f0b7464");
 exports.setImmediate = typeof self !== "undefined" && self.setImmediate || typeof global !== "undefined" && global.setImmediate || this && this.setImmediate;
 exports.clearImmediate = typeof self !== "undefined" && self.clearImmediate || typeof global !== "undefined" && global.clearImmediate || this && this.clearImmediate;
 
-},{"55080a345f0b7464":"g4k8b"}],"g4k8b":[function(require,module,exports) {
+},{"55080a345f0b7464":"g4k8b"}],"g4k8b":[function(require,module,exports,__globalThis) {
 var process = require("96b87729426a727d");
 var global = arguments[3];
 (function(global, undefined) {
@@ -1970,7 +1970,7 @@ var global = arguments[3];
     attachTo.clearImmediate = clearImmediate;
 })(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self);
 
-},{"96b87729426a727d":"d5jf4"}],"4CucY":[function(require,module,exports) {
+},{"96b87729426a727d":"d5jf4"}],"4CucY":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "timeSeriesMap", ()=>timeSeriesMap);
@@ -1980,27 +1980,27 @@ const resetTimeSeriesMap = ()=>{
     timeSeriesMap = new Map();
 };
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hhHyJ":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hhHyJ":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("md-content", {
+    return _c('md-content', {
         staticClass: "chart-data-endpoint-graph-container"
     }, [
-        _c("md-content", {
+        _c('md-content', {
             attrs: {
                 "id": "chart-data-endpoint-graph-container-plotgraph"
             }
         }),
         _vm._v(" "),
-        _vm.isReady && _vm.chartData.length <= 0 ? _c("md-empty-state", {
+        _vm.isReady && _vm.chartData.length <= 0 ? _c('md-empty-state', {
             staticClass: "chart-data-endpoint-graph-container-empty",
             attrs: {
                 "md-icon": "show_chart",
                 "md-label": "No Endpoint selected"
             }
-        }) : _vm.isReady && !_vm.haveData ? _c("md-empty-state", {
+        }) : _vm.isReady && !_vm.haveData ? _c('md-empty-state', {
             directives: [
                 {
                     name: "tooltip",
@@ -2017,7 +2017,7 @@ var render = function() {
             }
         }) : _vm._e(),
         _vm._v(" "),
-        _c("md-button", {
+        _c('md-button', {
             staticClass: "md-icon-button md-primary md-raised chart-data-endpoint-graph-container-option-button",
             class: {
                 autodeskv6: _vm.isviewerV6
@@ -2028,12 +2028,12 @@ var render = function() {
                 }
             }
         }, [
-            _c("md-icon", [
+            _c('md-icon', [
                 _vm._v("settings")
             ])
         ], 1),
         _vm._v(" "),
-        _c("chartOptionDialog", {
+        _c('chartOptionDialog', {
             attrs: {
                 "isOpen": _vm.optionOpen,
                 "layoutOption": this.layout,
@@ -2053,13 +2053,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"fI7SS":[function() {},{}],"gcCDN":[function(require,module,exports) {
+},{}],"fI7SS":[function() {},{}],"gcCDN":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9yaKt":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9yaKt":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -2179,7 +2179,7 @@ class ChartDataEndpoint {
 }
 exports.default = ChartDataEndpoint;
 
-},{"spinal-core-connectorjs_type":"fRH70","spinal-env-viewer-graph-service":"9n7zp","./asyncGenToArray/asyncGenToArray":"fnIG0","./BtnMappingDate":"5rDz1","./timeseriesServiceInstance.js":"kfv6x","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fnIG0":[function(require,module,exports) {
+},{"spinal-core-connectorjs_type":"fRH70","spinal-env-viewer-graph-service":"9n7zp","./asyncGenToArray/asyncGenToArray":"fnIG0","./BtnMappingDate":"5rDz1","./timeseriesServiceInstance.js":"kfv6x","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fnIG0":[function(require,module,exports,__globalThis) {
 "use strict";
 var __awaiter = this && this.__awaiter || function(thisArg, _arguments, P, generator) {
     return new (P || (P = Promise))(function(resolve, reject) {
@@ -2257,7 +2257,7 @@ function asyncGenToArray(asyncGen) {
 exports.default = asyncGenToArray;
 exports.asyncGenToArray = asyncGenToArray;
 
-},{}],"5rDz1":[function(require,module,exports) {
+},{}],"5rDz1":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -2310,7 +2310,7 @@ exports.default = {
     ]
 };
 
-},{"./timeseriesServiceInstance.js":"kfv6x","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"kfv6x":[function(require,module,exports) {
+},{"./timeseriesServiceInstance.js":"kfv6x","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"kfv6x":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -2340,7 +2340,7 @@ var _spinalModelTimeseries = require("spinal-model-timeseries");
 const spinalServiceTimeseries = new (0, _spinalModelTimeseries.SpinalServiceTimeseries)();
 exports.default = spinalServiceTimeseries;
 
-},{"spinal-model-timeseries":"hIcty","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6sw55":[function(require,module,exports) {
+},{"spinal-model-timeseries":"hIcty","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6sw55":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -2352,29 +2352,29 @@ let initialize = ()=>{
     script._scopeId = "data-v-cff2e0";
     script.__cssModules = require("8fbff0a875b0544e").default;
     require("238c94283df6ae60").default(script);
-    script.__scopeId = "data-v-cff2e0";
+    script.__scopeId = 'data-v-cff2e0';
     script.__file = "customDateIntervalDialog.vue";
 };
 initialize();
 exports.default = script;
 
-},{"90984fb233593b57":"d7DPB","5c0c80c32dfd4be4":"lOvDF","8fbff0a875b0544e":"amUj9","238c94283df6ae60":"ksja2","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"d7DPB":[function(require,module,exports) {
+},{"90984fb233593b57":"d7DPB","5c0c80c32dfd4be4":"lOvDF","8fbff0a875b0544e":"amUj9","238c94283df6ae60":"ksja2","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"d7DPB":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _moment = require("moment");
 var _momentDefault = parcelHelpers.interopDefault(_moment);
 var scriptExports = {
-    name: "customDateIntervalDialog",
+    name: 'customDateIntervalDialog',
     props: [
-        "isOpen",
-        "dateAvailable"
+        'isOpen',
+        'dateAvailable'
     ],
     data () {
         const today = new Date();
         today.setUTCHours(23, 59, 59);
         return {
-            hint: "Select the starting point to show",
-            format: "YYYY-MM-DD HH:mm:ss",
+            hint: 'Select the starting point to show',
+            format: 'YYYY-MM-DD HH:mm:ss',
             today: today.toISOString(),
             start: null,
             end: null,
@@ -2384,17 +2384,17 @@ var scriptExports = {
     computed: {
         startCompu: {
             get () {
-                if (this.start === null) return "Other";
+                if (this.start === null) return 'Other';
                 const data = new Date(this.start.valueOf());
                 data.setUTCHours(0, 0, 0, 0);
                 for(let idx = 0; idx < this.dateAvailableCompu.length; idx++){
                     const element = this.dateAvailableCompu[idx];
                     if (data.getTime() === element) return data.toISOString();
                 }
-                return "Other";
+                return 'Other';
             },
             set (value) {
-                if (value === "Other") return;
+                if (value === 'Other') return;
                 this.start = (0, _momentDefault.default).utc(value);
             }
         },
@@ -2404,22 +2404,22 @@ var scriptExports = {
                 else return new Date(this.start).toISOString();
             },
             set (value) {
-                this.start = (0, _momentDefault.default).utc(value, "YYYY-MM-DD HH:mm:ss");
+                this.start = (0, _momentDefault.default).utc(value, 'YYYY-MM-DD HH:mm:ss');
             }
         },
         endCompu: {
             get () {
-                if (this.end === null) return "Other";
+                if (this.end === null) return 'Other';
                 const data = new Date(this.end.valueOf());
                 data.setUTCHours(0.0, 0, 0);
                 for(let idx = 0; idx < this.dateAvailableCompu.length; idx++){
                     const element = this.dateAvailableCompu[idx];
                     if (data.getTime() === element) return this.selectDateStart(data);
                 }
-                return "Other";
+                return 'Other';
             },
             set (value) {
-                if (value === "Other") return;
+                if (value === 'Other') return;
                 this.end = (0, _momentDefault.default).utc(value).hours(23).minutes(59).second(59);
             }
         },
@@ -2429,7 +2429,7 @@ var scriptExports = {
                 else return new Date(this.end).toISOString();
             },
             set (value) {
-                this.end = (0, _momentDefault.default).utc(value, "YYYY-MM-DD HH:mm:ss");
+                this.end = (0, _momentDefault.default).utc(value, 'YYYY-MM-DD HH:mm:ss');
             }
         },
         dateAvailableCompu () {
@@ -2470,7 +2470,7 @@ var scriptExports = {
             let valid = this.valid;
             if (this.end === null || this.start === null) valid = false;
             this.valid = false;
-            this.$emit("closeDialog", {
+            this.$emit('closeDialog', {
                 start: this.start,
                 end: this.end,
                 valid: valid
@@ -2478,15 +2478,15 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"moment":"jwcsj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"lOvDF":[function(require,module,exports) {
+},{"moment":"jwcsj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"lOvDF":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("md-dialog", {
+    return _c('md-dialog', {
         staticClass: "endpoint-chart-viewer-panel-dialog-custom-interval",
         attrs: {
             "md-active": _vm.isOpenComputed,
@@ -2503,21 +2503,21 @@ var render = function() {
             }
         }
     }, [
-        _c("md-dialog-content", {
+        _c('md-dialog-content', {
             staticClass: "md-scrollbar"
         }, [
-            _c("div", {
+            _c('div', {
                 staticClass: "md-layout"
             }),
             _vm._v(" "),
-            _c("div", {
+            _c('div', {
                 staticClass: "md-layout"
             }, [
-                _c("div", {
+                _c('div', {
                     staticClass: "md-layout-item endpoint-chart-viewer-panel-dialog-custom-interval-calendar-container"
                 }, [
-                    _c("md-field", [
-                        _c("label", {
+                    _c('md-field', [
+                        _c('label', {
                             attrs: {
                                 "for": "start"
                             }
@@ -2525,7 +2525,7 @@ var render = function() {
                             _vm._v("Start")
                         ]),
                         _vm._v(" "),
-                        _c("md-select", {
+                        _c('md-select', {
                             attrs: {
                                 "name": "start",
                                 "id": "start"
@@ -2538,7 +2538,7 @@ var render = function() {
                                 expression: "startCompu"
                             }
                         }, [
-                            _c("md-option", {
+                            _c('md-option', {
                                 attrs: {
                                     "value": "Other"
                                 }
@@ -2547,7 +2547,7 @@ var render = function() {
                             ]),
                             _vm._v(" "),
                             _vm._l(_vm.dateAvailableCompu, function(date) {
-                                return _c("md-option", {
+                                return _c('md-option', {
                                     key: date,
                                     attrs: {
                                         "value": _vm.selectDateStart(date)
@@ -2559,7 +2559,7 @@ var render = function() {
                         ], 2)
                     ], 1),
                     _vm._v(" "),
-                    _c("VueCtkDateTimePicker", {
+                    _c('VueCtkDateTimePicker', {
                         attrs: {
                             "max-date": _vm.endPickerCompu,
                             "dark": true,
@@ -2578,11 +2578,11 @@ var render = function() {
                     })
                 ], 1),
                 _vm._v(" "),
-                _c("div", {
+                _c('div', {
                     staticClass: "md-layout-item endpoint-chart-viewer-panel-dialog-custom-interval-calendar-container"
                 }, [
-                    _c("md-field", [
-                        _c("label", {
+                    _c('md-field', [
+                        _c('label', {
                             attrs: {
                                 "for": "end"
                             }
@@ -2590,7 +2590,7 @@ var render = function() {
                             _vm._v("End")
                         ]),
                         _vm._v(" "),
-                        _c("md-select", {
+                        _c('md-select', {
                             attrs: {
                                 "name": "end",
                                 "id": "end"
@@ -2603,7 +2603,7 @@ var render = function() {
                                 expression: "endCompu"
                             }
                         }, [
-                            _c("md-option", {
+                            _c('md-option', {
                                 attrs: {
                                     "value": "Other"
                                 }
@@ -2612,7 +2612,7 @@ var render = function() {
                             ]),
                             _vm._v(" "),
                             _vm._l(_vm.dateAvailableCompu, function(date) {
-                                return _c("md-option", {
+                                return _c('md-option', {
                                     key: date,
                                     attrs: {
                                         "value": _vm.selectDateStart(date)
@@ -2624,7 +2624,7 @@ var render = function() {
                         ], 2)
                     ], 1),
                     _vm._v(" "),
-                    _c("VueCtkDateTimePicker", {
+                    _c('VueCtkDateTimePicker', {
                         attrs: {
                             "max-date": _vm.today,
                             "min-date": _vm.endStart,
@@ -2646,8 +2646,8 @@ var render = function() {
             ])
         ]),
         _vm._v(" "),
-        _c("md-dialog-actions", [
-            _c("md-button", {
+        _c('md-dialog-actions', [
+            _c('md-button', {
                 staticClass: "md-primary",
                 on: {
                     "click": function($event) {
@@ -2658,7 +2658,7 @@ var render = function() {
                 _vm._v("Close")
             ]),
             _vm._v(" "),
-            _c("md-button", {
+            _c('md-button', {
                 staticClass: "md-primary",
                 attrs: {
                     "disabled": _vm.start === null || _vm.end === null
@@ -2678,13 +2678,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"amUj9":[function() {},{}],"ksja2":[function(require,module,exports) {
+},{}],"amUj9":[function() {},{}],"ksja2":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1oYVM":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1oYVM":[function(require,module,exports,__globalThis) {
 /**
  * lodash (Custom Build) <https://lodash.com/>
  * Build: `lodash modularize exports="npm" -o ./`
@@ -2694,17 +2694,17 @@ exports.default = (script)=>{};
  * Copyright Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
  */ /** Used as the size to enable large array optimizations. */ var global = arguments[3];
 var LARGE_ARRAY_SIZE = 200;
-/** Used to stand-in for `undefined` hash values. */ var HASH_UNDEFINED = "__lodash_hash_undefined__";
+/** Used to stand-in for `undefined` hash values. */ var HASH_UNDEFINED = '__lodash_hash_undefined__';
 /** Used as references for various `Number` constants. */ var INFINITY = 1 / 0, MAX_SAFE_INTEGER = 9007199254740991;
-/** `Object#toString` result references. */ var argsTag = "[object Arguments]", funcTag = "[object Function]", genTag = "[object GeneratorFunction]";
+/** `Object#toString` result references. */ var argsTag = '[object Arguments]', funcTag = '[object Function]', genTag = '[object GeneratorFunction]';
 /**
  * Used to match `RegExp`
  * [syntax characters](http://ecma-international.org/ecma-262/7.0/#sec-patterns).
  */ var reRegExpChar = /[\\^$.*+?()[\]{}|]/g;
 /** Used to detect host constructors (Safari). */ var reIsHostCtor = /^\[object .+?Constructor\]$/;
-/** Detect free variable `global` from Node.js. */ var freeGlobal = typeof global == "object" && global && global.Object === Object && global;
-/** Detect free variable `self`. */ var freeSelf = typeof self == "object" && self && self.Object === Object && self;
-/** Used as a reference to the global object. */ var root = freeGlobal || freeSelf || Function("return this")();
+/** Detect free variable `global` from Node.js. */ var freeGlobal = typeof global == 'object' && global && global.Object === Object && global;
+/** Detect free variable `self`. */ var freeSelf = typeof self == 'object' && self && self.Object === Object && self;
+/** Used as a reference to the global object. */ var root = freeGlobal || freeSelf || Function('return this')();
 /**
  * A faster alternative to `Function#apply`, this function invokes `func`
  * with the `this` binding of `thisArg` and the arguments of `args`.
@@ -2838,8 +2838,8 @@ var LARGE_ARRAY_SIZE = 200;
     // Many host objects are `Object` objects that can coerce to strings
     // despite having improperly defined `toString` methods.
     var result = false;
-    if (value != null && typeof value.toString != "function") try {
-        result = !!(value + "");
+    if (value != null && typeof value.toString != 'function') try {
+        result = !!(value + '');
     } catch (e) {}
     return result;
 }
@@ -2857,10 +2857,10 @@ var LARGE_ARRAY_SIZE = 200;
     return result;
 }
 /** Used for built-in method references. */ var arrayProto = Array.prototype, funcProto = Function.prototype, objectProto = Object.prototype;
-/** Used to detect overreaching core-js shims. */ var coreJsData = root["__core-js_shared__"];
+/** Used to detect overreaching core-js shims. */ var coreJsData = root['__core-js_shared__'];
 /** Used to detect methods masquerading as native. */ var maskSrcKey = function() {
-    var uid = /[^.]+$/.exec(coreJsData && coreJsData.keys && coreJsData.keys.IE_PROTO || "");
-    return uid ? "Symbol(src)_1." + uid : "";
+    var uid = /[^.]+$/.exec(coreJsData && coreJsData.keys && coreJsData.keys.IE_PROTO || '');
+    return uid ? 'Symbol(src)_1.' + uid : '';
 }();
 /** Used to resolve the decompiled source of functions. */ var funcToString = funcProto.toString;
 /** Used to check objects for own properties. */ var hasOwnProperty = objectProto.hasOwnProperty;
@@ -2869,10 +2869,10 @@ var LARGE_ARRAY_SIZE = 200;
  * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
  * of values.
  */ var objectToString = objectProto.toString;
-/** Used to detect if a method is native. */ var reIsNative = RegExp("^" + funcToString.call(hasOwnProperty).replace(reRegExpChar, "\\$&").replace(/hasOwnProperty|(function).*?(?=\\\()| for .+?(?=\\\])/g, "$1.*?") + "$");
+/** Used to detect if a method is native. */ var reIsNative = RegExp('^' + funcToString.call(hasOwnProperty).replace(reRegExpChar, '\\$&').replace(/hasOwnProperty|(function).*?(?=\\\()| for .+?(?=\\\])/g, '$1.*?') + '$');
 /** Built-in value references. */ var Symbol = root.Symbol, propertyIsEnumerable = objectProto.propertyIsEnumerable, splice = arrayProto.splice, spreadableSymbol = Symbol ? Symbol.isConcatSpreadable : undefined;
 /* Built-in method references for those with the same name as other `lodash` methods. */ var nativeMax = Math.max;
-/* Built-in method references that are verified to be native. */ var Map = getNative(root, "Map"), Set = getNative(root, "Set"), nativeCreate = getNative(Object, "create");
+/* Built-in method references that are verified to be native. */ var Map = getNative(root, 'Map'), Set = getNative(root, 'Set'), nativeCreate = getNative(Object, 'create');
 /**
  * Creates a hash object.
  *
@@ -2952,7 +2952,7 @@ var LARGE_ARRAY_SIZE = 200;
 }
 // Add methods to `Hash`.
 Hash.prototype.clear = hashClear;
-Hash.prototype["delete"] = hashDelete;
+Hash.prototype['delete'] = hashDelete;
 Hash.prototype.get = hashGet;
 Hash.prototype.has = hashHas;
 Hash.prototype.set = hashSet;
@@ -3038,7 +3038,7 @@ Hash.prototype.set = hashSet;
 }
 // Add methods to `ListCache`.
 ListCache.prototype.clear = listCacheClear;
-ListCache.prototype["delete"] = listCacheDelete;
+ListCache.prototype['delete'] = listCacheDelete;
 ListCache.prototype.get = listCacheGet;
 ListCache.prototype.has = listCacheHas;
 ListCache.prototype.set = listCacheSet;
@@ -3064,9 +3064,9 @@ ListCache.prototype.set = listCacheSet;
  * @memberOf MapCache
  */ function mapCacheClear() {
     this.__data__ = {
-        "hash": new Hash,
-        "map": new (Map || ListCache),
-        "string": new Hash
+        'hash': new Hash,
+        'map': new (Map || ListCache),
+        'string': new Hash
     };
 }
 /**
@@ -3078,7 +3078,7 @@ ListCache.prototype.set = listCacheSet;
  * @param {string} key The key of the value to remove.
  * @returns {boolean} Returns `true` if the entry was removed, else `false`.
  */ function mapCacheDelete(key) {
-    return getMapData(this, key)["delete"](key);
+    return getMapData(this, key)['delete'](key);
 }
 /**
  * Gets the map value for `key`.
@@ -3117,7 +3117,7 @@ ListCache.prototype.set = listCacheSet;
 }
 // Add methods to `MapCache`.
 MapCache.prototype.clear = mapCacheClear;
-MapCache.prototype["delete"] = mapCacheDelete;
+MapCache.prototype['delete'] = mapCacheDelete;
 MapCache.prototype.get = mapCacheGet;
 MapCache.prototype.has = mapCacheHas;
 MapCache.prototype.set = mapCacheSet;
@@ -3287,7 +3287,7 @@ SetCache.prototype.has = setCacheHas;
  * @returns {*} Returns the map data.
  */ function getMapData(map, key) {
     var data = map.__data__;
-    return isKeyable(key) ? data[typeof key == "string" ? "string" : "hash"] : data.map;
+    return isKeyable(key) ? data[typeof key == 'string' ? 'string' : 'hash'] : data.map;
 }
 /**
  * Gets the native function at `key` of `object`.
@@ -3317,7 +3317,7 @@ SetCache.prototype.has = setCacheHas;
  * @returns {boolean} Returns `true` if `value` is suitable, else `false`.
  */ function isKeyable(value) {
     var type = typeof value;
-    return type == "string" || type == "number" || type == "symbol" || type == "boolean" ? value !== "__proto__" : value === null;
+    return type == 'string' || type == 'number' || type == 'symbol' || type == 'boolean' ? value !== '__proto__' : value === null;
 }
 /**
  * Checks if `func` has its source masked.
@@ -3340,10 +3340,10 @@ SetCache.prototype.has = setCacheHas;
             return funcToString.call(func);
         } catch (e) {}
         try {
-            return func + "";
+            return func + '';
         } catch (e) {}
     }
-    return "";
+    return '';
 }
 /**
  * Creates an array of unique values, in order, from all given arrays using
@@ -3416,7 +3416,7 @@ SetCache.prototype.has = setCacheHas;
  * // => false
  */ function isArguments(value) {
     // Safari 8.1 makes `arguments.callee` enumerable in strict mode.
-    return isArrayLikeObject(value) && hasOwnProperty.call(value, "callee") && (!propertyIsEnumerable.call(value, "callee") || objectToString.call(value) == argsTag);
+    return isArrayLikeObject(value) && hasOwnProperty.call(value, 'callee') && (!propertyIsEnumerable.call(value, 'callee') || objectToString.call(value) == argsTag);
 }
 /**
  * Checks if `value` is classified as an `Array` object.
@@ -3514,7 +3514,7 @@ SetCache.prototype.has = setCacheHas;
  */ function isFunction(value) {
     // The use of `Object#toString` avoids issues with the `typeof` operator
     // in Safari 8-9 which returns 'object' for typed array and other constructors.
-    var tag = isObject(value) ? objectToString.call(value) : "";
+    var tag = isObject(value) ? objectToString.call(value) : '';
     return tag == funcTag || tag == genTag;
 }
 /**
@@ -3543,7 +3543,7 @@ SetCache.prototype.has = setCacheHas;
  * _.isLength('3');
  * // => false
  */ function isLength(value) {
-    return typeof value == "number" && value > -1 && value % 1 == 0 && value <= MAX_SAFE_INTEGER;
+    return typeof value == 'number' && value > -1 && value % 1 == 0 && value <= MAX_SAFE_INTEGER;
 }
 /**
  * Checks if `value` is the
@@ -3571,7 +3571,7 @@ SetCache.prototype.has = setCacheHas;
  * // => false
  */ function isObject(value) {
     var type = typeof value;
-    return !!value && (type == "object" || type == "function");
+    return !!value && (type == 'object' || type == 'function');
 }
 /**
  * Checks if `value` is object-like. A value is object-like if it's not `null`
@@ -3597,7 +3597,7 @@ SetCache.prototype.has = setCacheHas;
  * _.isObjectLike(null);
  * // => false
  */ function isObjectLike(value) {
-    return !!value && typeof value == "object";
+    return !!value && typeof value == 'object';
 }
 /**
  * This method returns `undefined`.
@@ -3615,23 +3615,23 @@ SetCache.prototype.has = setCacheHas;
 }
 module.exports = union;
 
-},{}],"9a05P":[function(require,module,exports) {
+},{}],"9a05P":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("div", {
+    return _c('div', {
         staticClass: "endpoint-chart-viewer-panel"
     }, [
-        _c("div", {
+        _c('div', {
             staticClass: "md-layout endpoint-chart-viewer-panel-topbtn-container"
         }, [
             _vm._l(_vm.buttons, function(value) {
-                return _c("md-button", {
+                return _c('md-button', {
                     key: value,
                     staticClass: "md-layout-item topbtn",
                     class: {
-                        "raise-disable": value === _vm.btnSelected
+                        'raise-disable': value === _vm.btnSelected
                     },
                     attrs: {
                         "disabled": value === _vm.btnSelected
@@ -3646,10 +3646,10 @@ var render = function() {
                 ]);
             }),
             _vm._v(" "),
-            _c("md-button", {
+            _c('md-button', {
                 staticClass: "md-layout-item topbtn",
                 class: {
-                    "raise-disable": "CUSTOM" === _vm.btnSelected
+                    'raise-disable': 'CUSTOM' === _vm.btnSelected
                 },
                 attrs: {
                     "disabled": _vm.value === _vm.btnSelected
@@ -3662,13 +3662,13 @@ var render = function() {
             ])
         ], 2),
         _vm._v(" "),
-        _c("div", {
+        _c('div', {
             staticClass: "md-layout md-alignment-center-center endpoint-chart-viewer-panel-chart-container",
             class: {
                 autodeskv6: _vm.isviewerV6
             }
         }, [
-            _c("plotlyCompoment", {
+            _c('plotlyCompoment', {
                 attrs: {
                     "data": _vm.timeSeriesData,
                     "reloadData": _vm.reloadData
@@ -3676,7 +3676,7 @@ var render = function() {
             })
         ], 1),
         _vm._v(" "),
-        _c("customDateIntervalDialog", {
+        _c('customDateIntervalDialog', {
             attrs: {
                 "dateAvailable": _vm.dateAvailable,
                 "isOpen": _vm.isDialogCustomOpen
@@ -3691,12 +3691,12 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"dMv6I":[function() {},{}],"hhrA8":[function(require,module,exports) {
+},{}],"dMv6I":[function() {},{}],"hhrA8":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},[], null, "parcelRequire02e5")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},[], null, "parcelRequire94c2")
 
 //# sourceMappingURL=spinal-env-viewer-plugin-endpoint_chart_viewer.050b8672.js.map

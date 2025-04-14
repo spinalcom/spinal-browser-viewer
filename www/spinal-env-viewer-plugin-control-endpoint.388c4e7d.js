@@ -73,7 +73,7 @@
         localRequire,
         module,
         module.exports,
-        this
+        globalObject
       );
     }
 
@@ -142,13 +142,13 @@
       this[globalName] = mainExports;
     }
   }
-})({"aiiQH":[function(require,module,exports) {
+})({"aiiQH":[function(require,module,exports,__globalThis) {
 var _buttons = require("./src/buttons");
 var _dialogs = require("./src/vue/dialogs");
 var _panels = require("./src/vue/panels");
 var _legends = require("./src/vue/legends");
 
-},{"./src/buttons":"lAxcK","./src/vue/dialogs":"jKj4S","./src/vue/panels":"leIOn","./src/vue/legends":"kVe3m"}],"lAxcK":[function(require,module,exports) {
+},{"./src/buttons":"lAxcK","./src/vue/dialogs":"jKj4S","./src/vue/panels":"leIOn","./src/vue/legends":"kVe3m"}],"lAxcK":[function(require,module,exports,__globalThis) {
 var _createContext = require("./createContext");
 var _createControlPoint = require("./createControlPoint");
 var _controlPointDetail = require("./controlPointDetail");
@@ -156,7 +156,7 @@ var _linkControlPoint = require("./linkControlPoint");
 var _seeHeatmap = require("./seeHeatmap");
 var _unLinkControlPoint = require("./unLinkControlPoint");
 
-},{"./createContext":"9Q3bz","./createControlPoint":"3yf7Y","./controlPointDetail":"2YzJp","./linkControlPoint":"fwVON","./seeHeatmap":"eC9Pk","./unLinkControlPoint":"bGYxm"}],"9Q3bz":[function(require,module,exports) {
+},{"./createContext":"9Q3bz","./createControlPoint":"3yf7Y","./controlPointDetail":"2YzJp","./linkControlPoint":"fwVON","./seeHeatmap":"eC9Pk","./unLinkControlPoint":"bGYxm"}],"9Q3bz":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerContextMenuService = require("spinal-env-viewer-context-menu-service");
@@ -184,7 +184,7 @@ const createControlEndpointContext = new CreateControlEndpointContextButton();
 ]);
 exports.default = createControlEndpointContext;
 
-},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-panel-manager-service":"7Uw4d","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7Uw4d":[function(require,module,exports) {
+},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-panel-manager-service":"7Uw4d","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7Uw4d":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -223,7 +223,7 @@ module.exports = {
     }
 };
 
-},{"8b71a79dcc12420e":"h7sS1","e47c36529e942a76":"cvBJ6","cfd4c6200ba55765":"9SKSV"}],"h7sS1":[function(require,module,exports) {
+},{"8b71a79dcc12420e":"h7sS1","e47c36529e942a76":"cvBJ6","cfd4c6200ba55765":"9SKSV"}],"h7sS1":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -303,7 +303,7 @@ module.exports = {
 }
 module.exports = SpinalPanelManagerService;
 
-},{}],"cvBJ6":[function(require,module,exports) {
+},{}],"cvBJ6":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -338,7 +338,7 @@ module.exports = SpinalPanelManagerService;
 }
 module.exports = SpinalPanelApp;
 
-},{}],"9SKSV":[function(require,module,exports) {
+},{}],"9SKSV":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -437,7 +437,7 @@ function getDialog() {
     };
 };
 
-},{}],"3yf7Y":[function(require,module,exports) {
+},{}],"3yf7Y":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerContextMenuService = require("spinal-env-viewer-context-menu-service");
@@ -472,7 +472,7 @@ const createControlPointContext = new CreateControlPointButton();
 ]);
 exports.default = createControlPointContext;
 
-},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-panel-manager-service":"7Uw4d","spinal-env-viewer-plugin-control-endpoint-service":"5dUad","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2YzJp":[function(require,module,exports) {
+},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-panel-manager-service":"7Uw4d","spinal-env-viewer-plugin-control-endpoint-service":"5dUad","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2YzJp":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerContextMenuService = require("spinal-env-viewer-context-menu-service");
@@ -507,7 +507,7 @@ const seeControlPointDetail = new SeeControlPointDetail();
 ]);
 exports.default = seeControlPointDetail;
 
-},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-panel-manager-service":"7Uw4d","spinal-env-viewer-plugin-control-endpoint-service":"5dUad","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fwVON":[function(require,module,exports) {
+},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-panel-manager-service":"7Uw4d","spinal-env-viewer-plugin-control-endpoint-service":"5dUad","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fwVON":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerContextMenuService = require("spinal-env-viewer-context-menu-service");
@@ -576,7 +576,7 @@ const linkControlPointToGroup = new LinkControlPointToGroup();
 ]);
 exports.default = linkControlPointToGroup;
 
-},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-panel-manager-service":"7Uw4d","spinal-env-viewer-plugin-group-manager-service":"tSLpq","spinal-env-viewer-context-geographic-service/build/constants":"eV0id","../utilities/utitlities":"adP1U","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"adP1U":[function(require,module,exports) {
+},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-panel-manager-service":"7Uw4d","spinal-env-viewer-plugin-group-manager-service":"tSLpq","spinal-env-viewer-context-geographic-service/build/constants":"eV0id","../utilities/utitlities":"adP1U","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"adP1U":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerGraphService = require("spinal-env-viewer-graph-service");
@@ -623,7 +623,7 @@ exports.default = {
     }
 };
 
-},{"spinal-env-viewer-graph-service":"9n7zp","spinal-env-viewer-plugin-forge/dist/Constants":"f3Ny6","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"f3Ny6":[function(require,module,exports) {
+},{"spinal-env-viewer-graph-service":"9n7zp","spinal-env-viewer-plugin-forge/dist/Constants":"f3Ny6","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"f3Ny6":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2020 SpinalCom - www.spinalcom.com
@@ -651,9 +651,9 @@ exports.default = {
 exports.REFERENCE_OBJECT_RELATION_TYPE = exports.BIM_OBJECT_RELATION_TYPE = exports.BIM_NODE_RELATION_TYPE = exports.BIM_OBJECT_VERSION_RELATION_TYPE = exports.REFERENCE_OBJECT_RELATION_NAME = exports.BIM_OBJECT_VERSION_RELATION_NAME = exports.BIM_OBJECT_RELATION_NAME = exports.BIM_NODE_RELATION_NAME = exports.BIM_CONTEXT_RELATION_TYPE = exports.BIM_CONTEXT_RELATION_NAME = exports.BIM_OBJECT_TYPE = exports.PART_RELATION_TYPE = exports.SCENE_RELATION_TYPE = exports.PART_RELATION_NAME = exports.SCENE_TYPE = exports.SCENE_RELATION_NAME = void 0;
 var spinal_env_viewer_graph_service_1 = require("44f946b368e03b14");
 var constants_js_1 = require("3c0117970d993dce");
-exports.SCENE_RELATION_NAME = "hasScene";
+exports.SCENE_RELATION_NAME = 'hasScene';
 exports.SCENE_TYPE = "scene";
-exports.PART_RELATION_NAME = "hasParts";
+exports.PART_RELATION_NAME = 'hasParts';
 exports.SCENE_RELATION_TYPE = spinal_env_viewer_graph_service_1.SPINAL_RELATION_PTR_LST_TYPE;
 exports.PART_RELATION_TYPE = spinal_env_viewer_graph_service_1.SPINAL_RELATION_PTR_LST_TYPE;
 exports.BIM_OBJECT_TYPE = constants_js_1.EQUIPMENT_TYPE;
@@ -668,7 +668,7 @@ exports.BIM_NODE_RELATION_TYPE = spinal_env_viewer_graph_service_1.SPINAL_RELATI
 exports.BIM_OBJECT_RELATION_TYPE = spinal_env_viewer_graph_service_1.SPINAL_RELATION_PTR_LST_TYPE;
 exports.REFERENCE_OBJECT_RELATION_TYPE = spinal_env_viewer_graph_service_1.SPINAL_RELATION_PTR_LST_TYPE;
 
-},{"44f946b368e03b14":"9n7zp","3c0117970d993dce":"eV0id"}],"eC9Pk":[function(require,module,exports) {
+},{"44f946b368e03b14":"9n7zp","3c0117970d993dce":"eV0id"}],"eC9Pk":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerContextMenuService = require("spinal-env-viewer-context-menu-service");
@@ -736,7 +736,7 @@ const seeHeatMapButton = new SeeHeatMapButton();
 ]);
 exports.default = seeHeatMapButton;
 
-},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-panel-manager-service":"7Uw4d","spinal-env-viewer-plugin-control-endpoint-service":"5dUad","spinal-env-viewer-plugin-group-manager-service":"tSLpq","../utilities/itemsColored":"ddtvZ","spinal-env-viewer-context-geographic-service/build/constants":"eV0id","../utilities/utitlities":"adP1U","../utilities/event":"1IHAo","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ddtvZ":[function(require,module,exports) {
+},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-panel-manager-service":"7Uw4d","spinal-env-viewer-plugin-control-endpoint-service":"5dUad","spinal-env-viewer-plugin-group-manager-service":"tSLpq","../utilities/itemsColored":"ddtvZ","spinal-env-viewer-context-geographic-service/build/constants":"eV0id","../utilities/utitlities":"adP1U","../utilities/event":"1IHAo","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ddtvZ":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "itemColoredMap", ()=>itemColoredMap);
@@ -746,7 +746,7 @@ const isColored = (id)=>{
     return typeof itemColoredMap.get(id) !== "undefined";
 };
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1IHAo":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1IHAo":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "EventBus", ()=>EventBus);
@@ -754,7 +754,7 @@ var _vue = require("vue");
 var _vueDefault = parcelHelpers.interopDefault(_vue);
 const EventBus = new (0, _vueDefault.default)();
 
-},{"vue":"gt5MM","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"bGYxm":[function(require,module,exports) {
+},{"vue":"gt5MM","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"bGYxm":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerContextMenuService = require("spinal-env-viewer-context-menu-service");
@@ -798,7 +798,7 @@ const unLinkControlPointToGroup = new UnLinkControlPointToGroup();
 ]);
 exports.default = unLinkControlPointToGroup;
 
-},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-plugin-group-manager-service":"tSLpq","spinal-env-viewer-context-geographic-service/build/constants":"eV0id","spinal-env-viewer-panel-manager-service":"7Uw4d","../utilities/utitlities":"adP1U","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jKj4S":[function(require,module,exports) {
+},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-plugin-group-manager-service":"tSLpq","spinal-env-viewer-context-geographic-service/build/constants":"eV0id","spinal-env-viewer-panel-manager-service":"7Uw4d","../utilities/utitlities":"adP1U","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jKj4S":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _spinalEnvViewerPanelManagerService = require("spinal-env-viewer-panel-manager-service");
 var _vue = require("vue");
@@ -843,7 +843,7 @@ const dialogs = [
 ];
 for(let index = 0; index < dialogs.length; index++)(0, _spinalEnvViewerPanelManagerService.SpinalMountExtention).mount(dialogs[index]);
 
-},{"spinal-env-viewer-panel-manager-service":"7Uw4d","vue":"gt5MM","./createContext.vue":"1xcC4","./createControlPoint.vue":"epAcg","./configuration.vue":"1zHaW","./linkControlPointDialog.vue":"iLKFN","./selectGeoType.vue":"aDJac","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1xcC4":[function(require,module,exports) {
+},{"spinal-env-viewer-panel-manager-service":"7Uw4d","vue":"gt5MM","./createContext.vue":"1xcC4","./createControlPoint.vue":"epAcg","./configuration.vue":"1zHaW","./linkControlPointDialog.vue":"iLKFN","./selectGeoType.vue":"aDJac","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1xcC4":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -855,13 +855,13 @@ let initialize = ()=>{
     script._scopeId = "data-v-c728a4";
     script.__cssModules = require("911a671472c98f0f").default;
     require("2594acb2a852a3ae").default(script);
-    script.__scopeId = "data-v-c728a4";
+    script.__scopeId = 'data-v-c728a4';
     script.__file = "createContext.vue";
 };
 initialize();
 exports.default = script;
 
-},{"c8d4650fc870dfb7":"9F21x","ea2a51db771c1536":"jDphY","911a671472c98f0f":"9j4qK","2594acb2a852a3ae":"4Q0q4","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9F21x":[function(require,module,exports) {
+},{"c8d4650fc870dfb7":"9F21x","ea2a51db771c1536":"jDphY","911a671472c98f0f":"9j4qK","2594acb2a852a3ae":"4Q0q4","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9F21x":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerPluginControlEndpointService = require("spinal-env-viewer-plugin-control-endpoint-service");
@@ -896,15 +896,15 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"spinal-env-viewer-plugin-control-endpoint-service":"5dUad","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jDphY":[function(require,module,exports) {
+},{"spinal-env-viewer-plugin-control-endpoint-service":"5dUad","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jDphY":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("md-dialog", {
+    return _c('md-dialog', {
         attrs: {
             "md-active": _vm.showDialog
         },
@@ -920,19 +920,19 @@ var render = function() {
             }
         }
     }, [
-        _c("md-dialog-title", {
+        _c('md-dialog-title', {
             staticClass: "_dialogTitle"
         }, [
             _vm._v("Create Control Point Context\n  ")
         ]),
         _vm._v(" "),
-        _c("md-dialog-content", [
-            _c("md-field", [
-                _c("label", [
+        _c('md-dialog-content', [
+            _c('md-field', [
+                _c('label', [
                     _vm._v("Context name")
                 ]),
                 _vm._v(" "),
-                _c("md-input", {
+                _c('md-input', {
                     model: {
                         value: _vm.name,
                         callback: function($$v) {
@@ -944,8 +944,8 @@ var render = function() {
             ], 1)
         ], 1),
         _vm._v(" "),
-        _c("md-dialog-actions", [
-            _c("md-button", {
+        _c('md-dialog-actions', [
+            _c('md-button', {
                 staticClass: "md-primary",
                 on: {
                     "click": function($event) {
@@ -956,7 +956,7 @@ var render = function() {
                 _vm._v("Cancel")
             ]),
             _vm._v(" "),
-            _c("md-button", {
+            _c('md-button', {
                 staticClass: "md-primary",
                 attrs: {
                     "disabled": _vm.disabled()
@@ -976,13 +976,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"9j4qK":[function() {},{}],"4Q0q4":[function(require,module,exports) {
+},{}],"9j4qK":[function() {},{}],"4Q0q4":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"epAcg":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"epAcg":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -994,13 +994,13 @@ let initialize = ()=>{
     script._scopeId = "data-v-d3eaa1";
     script.__cssModules = require("226bf9777e5ee3b2").default;
     require("a4d516f8f256f942").default(script);
-    script.__scopeId = "data-v-d3eaa1";
+    script.__scopeId = 'data-v-d3eaa1';
     script.__file = "createControlPoint.vue";
 };
 initialize();
 exports.default = script;
 
-},{"348f508b466950eb":"a2fWb","1c7ec9cef2a50075":"kIR5B","226bf9777e5ee3b2":"a3dZ7","a4d516f8f256f942":"l5t8D","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"a2fWb":[function(require,module,exports) {
+},{"348f508b466950eb":"a2fWb","1c7ec9cef2a50075":"kIR5B","226bf9777e5ee3b2":"a3dZ7","a4d516f8f256f942":"l5t8D","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"a2fWb":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerPluginControlEndpointService = require("spinal-env-viewer-plugin-control-endpoint-service");
@@ -1053,10 +1053,10 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"spinal-env-viewer-plugin-control-endpoint-service":"5dUad","../components/controlPoints.vue":"17NUS","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"17NUS":[function(require,module,exports) {
+},{"spinal-env-viewer-plugin-control-endpoint-service":"5dUad","../components/controlPoints.vue":"17NUS","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"17NUS":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -1068,13 +1068,13 @@ let initialize = ()=>{
     script._scopeId = "data-v-21987b";
     script.__cssModules = require("1ea528785544b8df").default;
     require("525186675f1bb932").default(script);
-    script.__scopeId = "data-v-21987b";
+    script.__scopeId = 'data-v-21987b';
     script.__file = "controlPoints.vue";
 };
 initialize();
 exports.default = script;
 
-},{"9e286e324684196e":"p0Wx7","d06a8440e9003e1c":"ghZYs","1ea528785544b8df":"46HAy","525186675f1bb932":"fVoOt","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"p0Wx7":[function(require,module,exports) {
+},{"9e286e324684196e":"p0Wx7","d06a8440e9003e1c":"ghZYs","1ea528785544b8df":"46HAy","525186675f1bb932":"fVoOt","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"p0Wx7":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerPluginControlEndpointService = require("spinal-env-viewer-plugin-control-endpoint-service");
@@ -1187,97 +1187,97 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"spinal-env-viewer-plugin-control-endpoint-service":"5dUad","spinal-env-viewer-panel-manager-service":"7Uw4d","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ghZYs":[function(require,module,exports) {
+},{"spinal-env-viewer-plugin-control-endpoint-service":"5dUad","spinal-env-viewer-panel-manager-service":"7Uw4d","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ghZYs":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("div", {
+    return _c('div', {
         staticClass: "control-point-table"
     }, [
-        _c("md-table", {
+        _c('md-table', {
             staticClass: "table",
             scopedSlots: _vm._u([
                 {
                     key: "md-table-row",
                     fn: function(ref) {
                         var item = ref.item;
-                        return !_vm.editMode ? _c("md-table-row", {}, [
-                            _c("md-table-cell", {
+                        return !_vm.editMode ? _c('md-table-row', {}, [
+                            _c('md-table-cell', {
                                 attrs: {
                                     "md-label": "Name"
                                 }
                             }, [
-                                _vm._v("\n					" + _vm._s(item.name) + "\n				")
+                                _vm._v("\n\t\t\t\t\t" + _vm._s(item.name) + "\n\t\t\t\t")
                             ]),
                             _vm._v(" "),
-                            _c("md-table-cell", {
+                            _c('md-table-cell', {
                                 attrs: {
                                     "md-label": "Alias"
                                 }
                             }, [
-                                _vm._v("\n					" + _vm._s(item.alias) + "\n				")
+                                _vm._v("\n\t\t\t\t\t" + _vm._s(item.alias) + "\n\t\t\t\t")
                             ]),
                             _vm._v(" "),
-                            _c("md-table-cell", {
+                            _c('md-table-cell', {
                                 attrs: {
                                     "md-label": "DataType"
                                 }
                             }, [
-                                _vm._v("\n					" + _vm._s(_vm.controlPointDataType[item.dataType]) + "\n				")
+                                _vm._v("\n\t\t\t\t\t" + _vm._s(_vm.controlPointDataType[item.dataType]) + "\n\t\t\t\t")
                             ]),
                             _vm._v(" "),
-                            _c("md-table-cell", {
+                            _c('md-table-cell', {
                                 attrs: {
                                     "md-label": "Endpoint Type"
                                 }
                             }, [
-                                _vm._v("\n					" + _vm._s(item.type) + "\n				")
+                                _vm._v("\n\t\t\t\t\t" + _vm._s(item.type) + "\n\t\t\t\t")
                             ]),
                             _vm._v(" "),
-                            _c("md-table-cell", {
+                            _c('md-table-cell', {
                                 attrs: {
                                     "md-label": "Unit"
                                 }
                             }, [
-                                _vm._v("\n					" + _vm._s(item.unit || "-") + "\n				")
+                                _vm._v("\n\t\t\t\t\t" + _vm._s(item.unit || "-") + "\n\t\t\t\t")
                             ]),
                             _vm._v(" "),
-                            _c("md-table-cell", {
+                            _c('md-table-cell', {
                                 attrs: {
                                     "md-label": "Command"
                                 }
                             }, [
-                                _vm._v("\n					" + _vm._s(_vm.boolValues[item.command] || "No") + "\n				")
+                                _vm._v("\n\t\t\t\t\t" + _vm._s(_vm.boolValues[item.command] || "No") + "\n\t\t\t\t")
                             ]),
                             _vm._v(" "),
-                            _c("md-table-cell", {
+                            _c('md-table-cell', {
                                 attrs: {
                                     "md-label": "Save TimeSeries"
                                 }
                             }, [
-                                _vm._v("\n					" + _vm._s(_vm.boolValues[item.saveTimeSeries] || "No") + "\n				")
+                                _vm._v("\n\t\t\t\t\t" + _vm._s(_vm.boolValues[item.saveTimeSeries] || "No") + "\n\t\t\t\t")
                             ])
-                        ], 1) : _c("md-table-row", {}, [
-                            _c("md-table-cell", {
+                        ], 1) : _c('md-table-row', {}, [
+                            _c('md-table-cell', {
                                 staticClass: "tableCell",
                                 attrs: {
                                     "md-label": "Name"
                                 }
                             }, [
-                                _c("md-field", {
+                                _c('md-field', {
                                     attrs: {
                                         "md-inline": ""
                                     }
                                 }, [
-                                    _c("label", [
+                                    _c('label', [
                                         _vm._v("Name")
                                     ]),
                                     _vm._v(" "),
-                                    _c("md-input", {
+                                    _c('md-input', {
                                         model: {
                                             value: item.name,
                                             callback: function($$v) {
@@ -1289,22 +1289,22 @@ var render = function() {
                                 ], 1)
                             ], 1),
                             _vm._v(" "),
-                            _c("md-table-cell", {
+                            _c('md-table-cell', {
                                 staticClass: "tableCell",
                                 attrs: {
                                     "md-label": "Alias"
                                 }
                             }, [
-                                _c("md-field", {
+                                _c('md-field', {
                                     attrs: {
                                         "md-inline": ""
                                     }
                                 }, [
-                                    _c("label", [
+                                    _c('label', [
                                         _vm._v("Alias")
                                     ]),
                                     _vm._v(" "),
-                                    _c("md-input", {
+                                    _c('md-input', {
                                         model: {
                                             value: item.alias,
                                             callback: function($$v) {
@@ -1316,18 +1316,18 @@ var render = function() {
                                 ], 1)
                             ], 1),
                             _vm._v(" "),
-                            _c("md-table-cell", {
+                            _c('md-table-cell', {
                                 staticClass: "tableCell",
                                 attrs: {
                                     "md-label": "DataType"
                                 }
                             }, [
-                                _c("md-field", {
+                                _c('md-field', {
                                     attrs: {
                                         "md-inline": ""
                                     }
                                 }, [
-                                    _c("label", {
+                                    _c('label', {
                                         attrs: {
                                             "for": "command"
                                         }
@@ -1335,7 +1335,7 @@ var render = function() {
                                         _vm._v("dataType")
                                     ]),
                                     _vm._v(" "),
-                                    _c("md-select", {
+                                    _c('md-select', {
                                         attrs: {
                                             "name": "dataType",
                                             "id": "dataType"
@@ -1353,30 +1353,30 @@ var render = function() {
                                             expression: "item.dataType"
                                         }
                                     }, _vm._l(Object.keys(_vm.controlPointDataType), function(type, index) {
-                                        return _c("md-option", {
+                                        return _c('md-option', {
                                             key: index,
                                             attrs: {
                                                 "value": type
                                             }
                                         }, [
-                                            _vm._v("\n								" + _vm._s(_vm.controlPointDataType[type]) + "\n							")
+                                            _vm._v("\n\t\t\t\t\t\t\t\t" + _vm._s(_vm.controlPointDataType[type]) + "\n\t\t\t\t\t\t\t")
                                         ]);
                                     }), 1)
                                 ], 1)
                             ], 1),
                             _vm._v(" "),
-                            _c("md-table-cell", {
+                            _c('md-table-cell', {
                                 staticClass: "tableCell",
                                 attrs: {
                                     "md-label": "Endpoint Type"
                                 }
                             }, [
-                                _c("md-field", {
+                                _c('md-field', {
                                     attrs: {
                                         "md-inline": ""
                                     }
                                 }, [
-                                    _c("label", {
+                                    _c('label', {
                                         attrs: {
                                             "for": "command"
                                         }
@@ -1384,7 +1384,7 @@ var render = function() {
                                         _vm._v("type")
                                     ]),
                                     _vm._v(" "),
-                                    _c("md-select", {
+                                    _c('md-select', {
                                         attrs: {
                                             "name": "type",
                                             "id": "type"
@@ -1397,34 +1397,34 @@ var render = function() {
                                             expression: "item.type"
                                         }
                                     }, _vm._l(Object.keys(_vm.endpointTypes), function(type, index) {
-                                        return _c("md-option", {
+                                        return _c('md-option', {
                                             key: index,
                                             attrs: {
                                                 "value": type
                                             }
                                         }, [
-                                            _vm._v("\n								" + _vm._s(_vm.endpointTypes[type]) + "\n							")
+                                            _vm._v("\n\t\t\t\t\t\t\t\t" + _vm._s(_vm.endpointTypes[type]) + "\n\t\t\t\t\t\t\t")
                                         ]);
                                     }), 1)
                                 ], 1)
                             ], 1),
                             _vm._v(" "),
-                            _c("md-table-cell", {
+                            _c('md-table-cell', {
                                 staticClass: "tableCell",
                                 attrs: {
                                     "md-label": "Unit"
                                 }
                             }, [
-                                _c("md-field", {
+                                _c('md-field', {
                                     attrs: {
                                         "md-inline": ""
                                     }
                                 }, [
-                                    _c("label", [
+                                    _c('label', [
                                         _vm._v("Unit")
                                     ]),
                                     _vm._v(" "),
-                                    _c("md-input", {
+                                    _c('md-input', {
                                         model: {
                                             value: item.unit,
                                             callback: function($$v) {
@@ -1436,18 +1436,18 @@ var render = function() {
                                 ], 1)
                             ], 1),
                             _vm._v(" "),
-                            _c("md-table-cell", {
+                            _c('md-table-cell', {
                                 staticClass: "tableCell",
                                 attrs: {
                                     "md-label": "Command"
                                 }
                             }, [
-                                _c("md-field", {
+                                _c('md-field', {
                                     attrs: {
                                         "md-inline": ""
                                     }
                                 }, [
-                                    _c("label", {
+                                    _c('label', {
                                         attrs: {
                                             "for": "command"
                                         }
@@ -1455,7 +1455,7 @@ var render = function() {
                                         _vm._v("Command")
                                     ]),
                                     _vm._v(" "),
-                                    _c("md-select", {
+                                    _c('md-select', {
                                         attrs: {
                                             "name": "command",
                                             "id": "command"
@@ -1468,7 +1468,7 @@ var render = function() {
                                             expression: "item.command"
                                         }
                                     }, [
-                                        _c("md-option", {
+                                        _c('md-option', {
                                             attrs: {
                                                 "value": 1
                                             }
@@ -1476,7 +1476,7 @@ var render = function() {
                                             _vm._v("Yes")
                                         ]),
                                         _vm._v(" "),
-                                        _c("md-option", {
+                                        _c('md-option', {
                                             attrs: {
                                                 "value": 0
                                             }
@@ -1487,18 +1487,18 @@ var render = function() {
                                 ], 1)
                             ], 1),
                             _vm._v(" "),
-                            _c("md-table-cell", {
+                            _c('md-table-cell', {
                                 staticClass: "tableCell",
                                 attrs: {
                                     "md-label": "Save TimeSeries"
                                 }
                             }, [
-                                _c("md-field", {
+                                _c('md-field', {
                                     attrs: {
                                         "md-inline": ""
                                     }
                                 }, [
-                                    _c("label", {
+                                    _c('label', {
                                         attrs: {
                                             "for": "saveTimeSeries"
                                         }
@@ -1506,7 +1506,7 @@ var render = function() {
                                         _vm._v("TimeSeries")
                                     ]),
                                     _vm._v(" "),
-                                    _c("md-select", {
+                                    _c('md-select', {
                                         attrs: {
                                             "name": "saveTimeSeries",
                                             "id": "saveTimeSeries"
@@ -1519,7 +1519,7 @@ var render = function() {
                                             expression: "item.saveTimeSeries"
                                         }
                                     }, [
-                                        _c("md-option", {
+                                        _c('md-option', {
                                             attrs: {
                                                 "value": 1
                                             }
@@ -1527,7 +1527,7 @@ var render = function() {
                                             _vm._v("Yes")
                                         ]),
                                         _vm._v(" "),
-                                        _c("md-option", {
+                                        _c('md-option', {
                                             attrs: {
                                                 "value": 0
                                             }
@@ -1538,10 +1538,10 @@ var render = function() {
                                 ], 1)
                             ], 1),
                             _vm._v(" "),
-                            _c("md-table-cell", {
+                            _c('md-table-cell', {
                                 staticClass: "tableCell"
                             }, [
-                                _c("md-button", {
+                                _c('md-button', {
                                     staticClass: "md-icon-button md-primary",
                                     attrs: {
                                         "disabled": _vm.disableConfig(item)
@@ -1552,16 +1552,16 @@ var render = function() {
                                         }
                                     }
                                 }, [
-                                    _c("md-icon", [
+                                    _c('md-icon', [
                                         _vm._v("settings")
                                     ])
                                 ], 1)
                             ], 1),
                             _vm._v(" "),
-                            _c("md-table-cell", {
+                            _c('md-table-cell', {
                                 staticClass: "tableCell"
                             }, [
-                                _c("md-button", {
+                                _c('md-button', {
                                     staticClass: "md-icon-button md-accent",
                                     on: {
                                         "click": function($event) {
@@ -1569,7 +1569,7 @@ var render = function() {
                                         }
                                     }
                                 }, [
-                                    _c("md-icon", [
+                                    _c('md-icon', [
                                         _vm._v("delete")
                                     ])
                                 ], 1)
@@ -1586,7 +1586,7 @@ var render = function() {
                 expression: "searched"
             }
         }, [
-            _c("md-table-empty-state", {
+            _c('md-table-empty-state', {
                 attrs: {
                     "md-label": "No control point found",
                     "md-description": "No control point found."
@@ -1594,10 +1594,10 @@ var render = function() {
             })
         ], 1),
         _vm._v(" "),
-        _vm.editMode ? _c("div", {
+        _vm.editMode ? _c('div', {
             staticClass: "fabs"
         }, [
-            _c("md-button", {
+            _c('md-button', {
                 staticClass: "md-fab md-mini md-primary",
                 attrs: {
                     "title": "add controlPoint"
@@ -1606,12 +1606,12 @@ var render = function() {
                     "click": _vm.addControlPoint
                 }
             }, [
-                _c("md-icon", [
+                _c('md-icon', [
                     _vm._v("add")
                 ])
             ], 1),
             _vm._v(" "),
-            _c("md-button", {
+            _c('md-button', {
                 staticClass: "md-fab md-mini md-accent",
                 attrs: {
                     "title": "cancel"
@@ -1620,12 +1620,12 @@ var render = function() {
                     "click": _vm.cancel
                 }
             }, [
-                _c("md-icon", [
+                _c('md-icon', [
                     _vm._v("close")
                 ])
             ], 1),
             _vm._v(" "),
-            _c("md-button", {
+            _c('md-button', {
                 staticClass: "md-fab md-mini md-primary",
                 attrs: {
                     "title": "confirm"
@@ -1634,7 +1634,7 @@ var render = function() {
                     "click": _vm.valid
                 }
             }, [
-                _c("md-icon", [
+                _c('md-icon', [
                     _vm._v("check")
                 ])
             ], 1)
@@ -1645,18 +1645,18 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"46HAy":[function() {},{}],"fVoOt":[function(require,module,exports) {
+},{}],"46HAy":[function() {},{}],"fVoOt":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"kIR5B":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"kIR5B":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("md-dialog", {
+    return _c('md-dialog', {
         staticClass: "_controlPointdialog",
         attrs: {
             "md-active": _vm.showDialog
@@ -1673,23 +1673,23 @@ var render = function() {
             }
         }
     }, [
-        _c("md-dialog-title", {
+        _c('md-dialog-title', {
             staticClass: "_dialogTitle"
         }, [
             _vm._v("Create Control Point")
         ]),
         _vm._v(" "),
-        _c("md-dialog-content", {
+        _c('md-dialog-content', {
             staticClass: "controlPointDialogContent"
         }, [
-            _c("md-field", {
+            _c('md-field', {
                 staticClass: "nameInput"
             }, [
-                _c("label", [
+                _c('label', [
                     _vm._v("Control point name")
                 ]),
                 _vm._v(" "),
-                _c("md-input", {
+                _c('md-input', {
                     model: {
                         value: _vm.name,
                         callback: function($$v) {
@@ -1700,10 +1700,10 @@ var render = function() {
                 })
             ], 1),
             _vm._v(" "),
-            _c("div", {
+            _c('div', {
                 staticClass: "table-container"
             }, [
-                _c("control-point-component", {
+                _c('control-point-component', {
                     staticClass: "table-component-content",
                     attrs: {
                         "data": _vm.endpoints,
@@ -1724,13 +1724,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"a3dZ7":[function() {},{}],"l5t8D":[function(require,module,exports) {
+},{}],"a3dZ7":[function() {},{}],"l5t8D":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1zHaW":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1zHaW":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -1742,13 +1742,13 @@ let initialize = ()=>{
     script._scopeId = "data-v-3103bb";
     script.__cssModules = require("de470a4b8effae67").default;
     require("9fd67831415c6600").default(script);
-    script.__scopeId = "data-v-3103bb";
+    script.__scopeId = 'data-v-3103bb';
     script.__file = "configuration.vue";
 };
 initialize();
 exports.default = script;
 
-},{"8bf0c5fd55a4cbc9":"c6WCH","c1c4f27b8c89466":"hDQiz","de470a4b8effae67":"1vQez","9fd67831415c6600":"i0RLg","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"c6WCH":[function(require,module,exports) {
+},{"8bf0c5fd55a4cbc9":"c6WCH","c1c4f27b8c89466":"hDQiz","de470a4b8effae67":"1vQez","9fd67831415c6600":"i0RLg","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"c6WCH":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _numberConfigVue = require("../components/config-components/numberConfig.vue");
@@ -1835,10 +1835,10 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"../components/config-components/numberConfig.vue":"drxAw","../components/config-components/booleanConfig.vue":"irJF5","../components/config-components/enumConfig.vue":"7coME","spinal-env-viewer-plugin-control-endpoint-service":"5dUad","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"drxAw":[function(require,module,exports) {
+},{"../components/config-components/numberConfig.vue":"drxAw","../components/config-components/booleanConfig.vue":"irJF5","../components/config-components/enumConfig.vue":"7coME","spinal-env-viewer-plugin-control-endpoint-service":"5dUad","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"drxAw":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -1850,21 +1850,21 @@ let initialize = ()=>{
     script._scopeId = "data-v-cd49e4";
     script.__cssModules = require("aa1bf42d398ff04e").default;
     require("a76c147145aa930d").default(script);
-    script.__scopeId = "data-v-cd49e4";
+    script.__scopeId = 'data-v-cd49e4';
     script.__file = "numberConfig.vue";
 };
 initialize();
 exports.default = script;
 
-},{"f3d95b05c15ce8fe":"lue6V","5a08f1dae5a69e76":"aL7UI","aa1bf42d398ff04e":"gRrs6","a76c147145aa930d":"41kWd","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"lue6V":[function(require,module,exports) {
+},{"f3d95b05c15ce8fe":"lue6V","5a08f1dae5a69e76":"aL7UI","aa1bf42d398ff04e":"gRrs6","a76c147145aa930d":"41kWd","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"lue6V":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _vueColor = require("vue-color");
 var _color = require("../../../utilities/color");
 var scriptExports = {
-    name: "NumberConfigTemplate",
+    name: 'NumberConfigTemplate',
     components: {
-        "chrome-picker": (0, _vueColor.Chrome)
+        'chrome-picker': (0, _vueColor.Chrome)
     },
     props: {
         config: {}
@@ -1912,14 +1912,14 @@ var scriptExports = {
                 let end = (max - min) * (index + 1) / 10;
                 return `${begin + min} - ${end + min}`;
             }
-            return "-";
+            return '-';
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"vue-color":"bOuNP","../../../utilities/color":"kTUWR","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"kTUWR":[function(require,module,exports) {
+},{"vue-color":"bOuNP","../../../utilities/color":"kTUWR","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"kTUWR":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "color", ()=>color);
@@ -1960,7 +1960,7 @@ let color = {
     }
 };
 
-},{"44ab11c785d2b081":"elJFN","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"elJFN":[function(require,module,exports) {
+},{"44ab11c785d2b081":"elJFN","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"elJFN":[function(require,module,exports,__globalThis) {
 /*!
  * tinygradient (v1.1.5)
  * @copyright 2014-2021 Damien "Mistic" Sorel <contact@git.strangeplanet.fr>
@@ -1968,10 +1968,10 @@ let color = {
  */ (function(global, factory) {
     module.exports = factory(require("65c17899bf3bc7f9"));
 })(this, function(tinycolor2) {
-    "use strict";
+    'use strict';
     function _interopDefaultLegacy(e) {
-        return e && typeof e === "object" && "default" in e ? e : {
-            "default": e
+        return e && typeof e === 'object' && 'default' in e ? e : {
+            'default': e
         };
     }
     var tinycolor2__default = /*#__PURE__*/ _interopDefaultLegacy(tinycolor2);
@@ -2045,7 +2045,7 @@ let color = {
         ];
         for(var i = 1; i < steps; i++){
             var color = interpolate(step, start, i, RGBA_MAX);
-            gradient.push(tinycolor2__default["default"](color));
+            gradient.push(tinycolor2__default['default'](color));
         }
         return gradient;
     }
@@ -2061,10 +2061,10 @@ let color = {
         var end = stop2.color.toHsv(); // rgb interpolation if one of the steps in grayscale
         if (start.s === 0 || end.s === 0) return interpolateRgb(stop1, stop2, steps);
         var trigonometric;
-        if (typeof mode === "boolean") trigonometric = mode;
+        if (typeof mode === 'boolean') trigonometric = mode;
         else {
             var trigShortest = start.h < end.h && end.h - start.h < 180 || start.h > end.h && start.h - end.h > 180;
-            trigonometric = mode === "long" && trigShortest || mode === "short" && !trigShortest;
+            trigonometric = mode === 'long' && trigShortest || mode === 'short' && !trigShortest;
         }
         var step = stepize(start, end, steps);
         var gradient = [
@@ -2077,7 +2077,7 @@ let color = {
         step.h = Math.pow(-1, trigonometric ? 1 : 0) * Math.abs(diff) / steps;
         for(var i = 1; i < steps; i++){
             var color = interpolate(step, start, i, HSVA_MAX);
-            gradient.push(tinycolor2__default["default"](color));
+            gradient.push(tinycolor2__default['default'](color));
         }
         return gradient;
     }
@@ -2089,8 +2089,8 @@ let color = {
      */ function computeSubsteps(stops, steps) {
         var l = stops.length; // validation
         steps = parseInt(steps, 10);
-        if (isNaN(steps) || steps < 2) throw new Error("Invalid number of steps (< 2)");
-        if (steps < l) throw new Error("Number of steps cannot be inferior to number of stops");
+        if (isNaN(steps) || steps < 2) throw new Error('Invalid number of steps (< 2)');
+        if (steps < l) throw new Error('Number of steps cannot be inferior to number of stops');
          // compute substeps from stop positions
         var substeps = [];
         for(var i = 1; i < l; i++){
@@ -2118,7 +2118,7 @@ let color = {
      * @param {StepValue} max
      * @returns {tinycolor}
      */ function computeAt(stops, pos, method, max) {
-        if (pos < 0 || pos > 1) throw new Error("Position must be between 0 and 1");
+        if (pos < 0 || pos > 1) throw new Error('Position must be between 0 and 1');
         var start, end;
         for(var i = 0, l = stops.length; i < l - 1; i++)if (pos >= stops[i].pos && pos < stops[i + 1].pos) {
             start = stops[i];
@@ -2128,7 +2128,7 @@ let color = {
         if (!start) start = end = stops[stops.length - 1];
         var step = stepize(start.color[method](), end.color[method](), (end.pos - start.pos) * 100);
         var color = interpolate(step, start.color[method](), (pos - start.pos) * 100, max);
-        return tinycolor2__default["default"](color);
+        return tinycolor2__default['default'](color);
     }
     var TinyGradient = /*#__PURE__*/ function() {
         /**
@@ -2136,28 +2136,28 @@ let color = {
        * @returns {TinyGradient}
        */ function TinyGradient(stops) {
             // validation
-            if (stops.length < 2) throw new Error("Invalid number of stops (< 2)");
+            if (stops.length < 2) throw new Error('Invalid number of stops (< 2)');
             var havingPositions = stops[0].pos !== undefined;
             var l = stops.length;
             var p = -1;
             var lastColorLess = false; // create tinycolor objects and clean positions
             this.stops = stops.map(function(stop, i) {
                 var hasPosition = stop.pos !== undefined;
-                if (havingPositions ^ hasPosition) throw new Error("Cannot mix positionned and not posionned color stops");
+                if (havingPositions ^ hasPosition) throw new Error('Cannot mix positionned and not posionned color stops');
                 if (hasPosition) {
                     var hasColor = stop.color !== undefined;
-                    if (!hasColor && (lastColorLess || i === 0 || i === l - 1)) throw new Error("Cannot define two consecutive position-only stops");
+                    if (!hasColor && (lastColorLess || i === 0 || i === l - 1)) throw new Error('Cannot define two consecutive position-only stops');
                     lastColorLess = !hasColor;
                     stop = {
-                        color: hasColor ? tinycolor2__default["default"](stop.color) : null,
+                        color: hasColor ? tinycolor2__default['default'](stop.color) : null,
                         colorLess: !hasColor,
                         pos: stop.pos
                     };
-                    if (stop.pos < 0 || stop.pos > 1) throw new Error("Color stops positions must be between 0 and 1");
-                    else if (stop.pos < p) throw new Error("Color stops positions are not ordered");
+                    if (stop.pos < 0 || stop.pos > 1) throw new Error('Color stops positions must be between 0 and 1');
+                    else if (stop.pos < p) throw new Error('Color stops positions are not ordered');
                     p = stop.pos;
                 } else stop = {
-                    color: tinycolor2__default["default"](stop.color !== undefined ? stop.color : stop),
+                    color: tinycolor2__default['default'](stop.color !== undefined ? stop.color : stop),
                     pos: i / (l - 1)
                 };
                 return stop;
@@ -2261,13 +2261,13 @@ let color = {
        * @return {String}
        */ ;
         _proto.css = function css(mode, direction) {
-            mode = mode || "linear";
-            direction = direction || (mode === "linear" ? "to right" : "ellipse at center");
-            var css = mode + "-gradient(" + direction;
+            mode = mode || 'linear';
+            direction = direction || (mode === 'linear' ? 'to right' : 'ellipse at center');
+            var css = mode + '-gradient(' + direction;
             this.stops.forEach(function(stop) {
-                css += ", " + (stop.colorLess ? "" : stop.color.toRgbString() + " ") + stop.pos * 100 + "%";
+                css += ', ' + (stop.colorLess ? '' : stop.color.toRgbString() + ' ') + stop.pos * 100 + '%';
             });
-            css += ")";
+            css += ')';
             return css;
         } /**
        * Returns the color at specific position with RGBa interpolation
@@ -2275,14 +2275,14 @@ let color = {
        * @return {tinycolor}
        */ ;
         _proto.rgbAt = function rgbAt(pos) {
-            return computeAt(this.stops, pos, "toRgb", RGBA_MAX);
+            return computeAt(this.stops, pos, 'toRgb', RGBA_MAX);
         } /**
        * Returns the color at specific position with HSVa interpolation
        * @param {number} pos, between 0 and 1
        * @return {tinycolor}
        */ ;
         _proto.hsvAt = function hsvAt(pos) {
-            return computeAt(this.stops, pos, "toHsv", HSVA_MAX);
+            return computeAt(this.stops, pos, 'toHsv', HSVA_MAX);
         };
         return TinyGradient;
     }();
@@ -2300,12 +2300,12 @@ let color = {
     return tinygradient;
 });
 
-},{"65c17899bf3bc7f9":"6vCCi"}],"6vCCi":[function(require,module,exports) {
+},{"65c17899bf3bc7f9":"6vCCi"}],"6vCCi":[function(require,module,exports,__globalThis) {
 // This file is autogenerated. It's used to publish CJS to npm.
 (function(global, factory) {
     module.exports = factory();
 })(this, function() {
-    "use strict";
+    'use strict';
     function _typeof(obj) {
         "@babel/helpers - typeof";
         return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(obj) {
@@ -3382,32 +3382,32 @@ let color = {
     return tinycolor;
 });
 
-},{}],"aL7UI":[function(require,module,exports) {
+},{}],"aL7UI":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("div", {
+    return _c('div', {
         staticClass: "number-config-config_container"
     }, [
-        _c("div", {
+        _c('div', {
             staticClass: "values md-layout md-gutter"
         }, [
-            _c("div", {
+            _c('div', {
                 staticClass: "md-layout-item md-size-33"
             }, [
-                _c("span", {
+                _c('span', {
                     staticClass: "md-caption"
                 }, [
                     _vm._v("Min")
                 ]),
                 _vm._v(" "),
-                _c("md-field", {
+                _c('md-field', {
                     attrs: {
                         "md-inline": ""
                     }
                 }, [
-                    _c("md-input", {
+                    _c('md-input', {
                         attrs: {
                             "type": "number"
                         },
@@ -3424,26 +3424,26 @@ var render = function() {
                     })
                 ], 1),
                 _vm._v(" "),
-                _c("span", {
+                _c('span', {
                     staticClass: "md-caption"
                 }, [
                     _vm._v("Color")
                 ]),
                 _vm._v(" "),
-                _c("div", {
+                _c('div', {
                     staticClass: "colorContainer"
                 }, [
-                    _c("div", {
+                    _c('div', {
                         staticClass: "current-color",
-                        style: "background-color: " + _vm.config.min.color,
+                        style: 'background-color: ' + _vm.config.min.color,
                         on: {
                             "click": function($event) {
-                                return _vm.togglePicker("min");
+                                return _vm.togglePicker('min');
                             }
                         }
                     }),
                     _vm._v(" "),
-                    _vm.display.min ? _c("chrome-picker", {
+                    _vm.display.min ? _c('chrome-picker', {
                         staticClass: "colorSelect",
                         on: {
                             "input": _vm.updateMinColor
@@ -3459,21 +3459,21 @@ var render = function() {
                 ], 1)
             ], 1),
             _vm._v(" "),
-            _c("div", {
+            _c('div', {
                 staticClass: "md-layout-item md-size-33"
             }, [
-                _c("span", {
+                _c('span', {
                     staticClass: "md-caption"
                 }, [
                     _vm._v("Average")
                 ]),
                 _vm._v(" "),
-                _c("md-field", {
+                _c('md-field', {
                     attrs: {
                         "md-inline": ""
                     }
                 }, [
-                    _c("md-input", {
+                    _c('md-input', {
                         attrs: {
                             "type": "number",
                             "disabled": ""
@@ -3488,26 +3488,26 @@ var render = function() {
                     })
                 ], 1),
                 _vm._v(" "),
-                _c("span", {
+                _c('span', {
                     staticClass: "md-caption"
                 }, [
                     _vm._v("Color")
                 ]),
                 _vm._v(" "),
-                _c("div", {
+                _c('div', {
                     staticClass: "colorContainer"
                 }, [
-                    _c("div", {
+                    _c('div', {
                         staticClass: "current-color",
-                        style: "background-color: " + _vm.config.average.color,
+                        style: 'background-color: ' + _vm.config.average.color,
                         on: {
                             "click": function($event) {
-                                return _vm.togglePicker("average");
+                                return _vm.togglePicker('average');
                             }
                         }
                     }),
                     _vm._v(" "),
-                    _vm.display.average ? _c("chrome-picker", {
+                    _vm.display.average ? _c('chrome-picker', {
                         staticClass: "colorSelect",
                         on: {
                             "input": _vm.updateAverageColor
@@ -3523,21 +3523,21 @@ var render = function() {
                 ], 1)
             ], 1),
             _vm._v(" "),
-            _c("div", {
+            _c('div', {
                 staticClass: "md-layout-item md-size-33"
             }, [
-                _c("span", {
+                _c('span', {
                     staticClass: "md-caption"
                 }, [
                     _vm._v("Max")
                 ]),
                 _vm._v(" "),
-                _c("md-field", {
+                _c('md-field', {
                     attrs: {
                         "md-inline": ""
                     }
                 }, [
-                    _c("md-input", {
+                    _c('md-input', {
                         attrs: {
                             "type": "number"
                         },
@@ -3554,26 +3554,26 @@ var render = function() {
                     })
                 ], 1),
                 _vm._v(" "),
-                _c("span", {
+                _c('span', {
                     staticClass: "md-caption"
                 }, [
                     _vm._v("Color")
                 ]),
                 _vm._v(" "),
-                _c("div", {
+                _c('div', {
                     staticClass: "colorContainer"
                 }, [
-                    _c("div", {
+                    _c('div', {
                         staticClass: "current-color",
-                        style: "background-color: " + _vm.config.max.color,
+                        style: 'background-color: ' + _vm.config.max.color,
                         on: {
                             "click": function($event) {
-                                return _vm.togglePicker("max");
+                                return _vm.togglePicker('max');
                             }
                         }
                     }),
                     _vm._v(" "),
-                    _vm.display.max ? _c("chrome-picker", {
+                    _vm.display.max ? _c('chrome-picker', {
                         staticClass: "colorSelect",
                         on: {
                             "input": _vm.updateMaxColor
@@ -3590,10 +3590,10 @@ var render = function() {
             ], 1)
         ]),
         _vm._v(" "),
-        _c("div", {
+        _c('div', {
             staticClass: "colorGradient"
         }, _vm._l(_vm.gradient, function(g, index) {
-            return _c("div", {
+            return _c('div', {
                 directives: [
                     {
                         name: "tooltip",
@@ -3603,7 +3603,7 @@ var render = function() {
                     }
                 ],
                 key: index,
-                style: "background-color: #" + g.toHex()
+                style: 'background-color: #' + g.toHex()
             });
         }), 0)
     ]);
@@ -3612,13 +3612,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"gRrs6":[function() {},{}],"41kWd":[function(require,module,exports) {
+},{}],"gRrs6":[function() {},{}],"41kWd":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"irJF5":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"irJF5":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -3630,21 +3630,21 @@ let initialize = ()=>{
     script._scopeId = "data-v-c74d77";
     script.__cssModules = require("123575a0a5ee048c").default;
     require("dfb0df8d42ff73c4").default(script);
-    script.__scopeId = "data-v-c74d77";
+    script.__scopeId = 'data-v-c74d77';
     script.__file = "booleanConfig.vue";
 };
 initialize();
 exports.default = script;
 
-},{"c6c3a2df3353ebf8":"aqDpw","b5193516d7717b97":"3fsvT","123575a0a5ee048c":"3eioN","dfb0df8d42ff73c4":"8ggs4","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"aqDpw":[function(require,module,exports) {
+},{"c6c3a2df3353ebf8":"aqDpw","b5193516d7717b97":"3fsvT","123575a0a5ee048c":"3eioN","dfb0df8d42ff73c4":"8ggs4","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"aqDpw":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _vueColor = require("vue-color");
 var _color = require("../../../utilities/color");
 var scriptExports = {
-    name: "NumberConfigTemplate",
+    name: 'NumberConfigTemplate',
     components: {
-        "chrome-picker": (0, _vueColor.Chrome)
+        'chrome-picker': (0, _vueColor.Chrome)
     },
     props: {
         config: {}
@@ -3692,47 +3692,47 @@ var scriptExports = {
                 let end = (max - min) * (index + 1) / 10;
                 return `${begin + min} - ${end + min}`;
             }
-            return "-";
+            return '-';
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"vue-color":"bOuNP","../../../utilities/color":"kTUWR","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3fsvT":[function(require,module,exports) {
+},{"vue-color":"bOuNP","../../../utilities/color":"kTUWR","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3fsvT":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("div", {
+    return _c('div', {
         staticClass: "boolean-config-config_container"
     }, [
-        _c("div", {
+        _c('div', {
             staticClass: "values md-layout md-gutter"
         }, [
-            _c("div", {
+            _c('div', {
                 staticClass: "md-layout-item md-size-50"
             }, [
-                _c("span", {
+                _c('span', {
                     staticClass: "md-caption"
                 }, [
                     _vm._v("False")
                 ]),
                 _vm._v(" "),
-                _c("div", {
+                _c('div', {
                     staticClass: "colorContainer"
                 }, [
-                    _c("div", {
+                    _c('div', {
                         staticClass: "current-color",
-                        style: "background-color: " + _vm.config.min.color,
+                        style: 'background-color: ' + _vm.config.min.color,
                         on: {
                             "click": function($event) {
-                                return _vm.togglePicker("min");
+                                return _vm.togglePicker('min');
                             }
                         }
                     }),
                     _vm._v(" "),
-                    _vm.display.min ? _c("chrome-picker", {
+                    _vm.display.min ? _c('chrome-picker', {
                         staticClass: "colorSelect",
                         on: {
                             "input": _vm.updateMinColor
@@ -3748,29 +3748,29 @@ var render = function() {
                 ], 1)
             ]),
             _vm._v(" "),
-            _c("div", {
+            _c('div', {
                 staticClass: "md-layout-item md-size-50"
             }, [
-                _c("span", {
+                _c('span', {
                     staticClass: "md-caption"
                 }, [
                     _vm._v("True")
                 ]),
                 _vm._v(" "),
-                _c("div", {
+                _c('div', {
                     staticClass: "colorContainer"
                 }, [
-                    _c("div", {
+                    _c('div', {
                         staticClass: "current-color",
-                        style: "background-color: " + _vm.config.max.color,
+                        style: 'background-color: ' + _vm.config.max.color,
                         on: {
                             "click": function($event) {
-                                return _vm.togglePicker("max");
+                                return _vm.togglePicker('max');
                             }
                         }
                     }),
                     _vm._v(" "),
-                    _vm.display.max ? _c("chrome-picker", {
+                    _vm.display.max ? _c('chrome-picker', {
                         staticClass: "colorSelect",
                         on: {
                             "input": _vm.updateMaxColor
@@ -3787,10 +3787,10 @@ var render = function() {
             ])
         ]),
         _vm._v(" "),
-        _c("div", {
+        _c('div', {
             staticClass: "colorGradient"
         }, _vm._l(_vm.gradient, function(g, index) {
-            return _c("div", {
+            return _c('div', {
                 directives: [
                     {
                         name: "tooltip",
@@ -3800,7 +3800,7 @@ var render = function() {
                     }
                 ],
                 key: index,
-                style: "background-color: #" + g.toHex()
+                style: 'background-color: #' + g.toHex()
             });
         }), 0)
     ]);
@@ -3809,13 +3809,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"3eioN":[function() {},{}],"8ggs4":[function(require,module,exports) {
+},{}],"3eioN":[function() {},{}],"8ggs4":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7coME":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7coME":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -3827,20 +3827,20 @@ let initialize = ()=>{
     script._scopeId = "data-v-7a4af8";
     script.__cssModules = require("39b712e85a80d537").default;
     require("79b2a0a006b26751").default(script);
-    script.__scopeId = "data-v-7a4af8";
+    script.__scopeId = 'data-v-7a4af8';
     script.__file = "enumConfig.vue";
 };
 initialize();
 exports.default = script;
 
-},{"24d00eb5275e3f68":"cGzSS","4ddf3f4fd87a64c4":"jWzo4","39b712e85a80d537":"hI7yI","79b2a0a006b26751":"blfhG","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"cGzSS":[function(require,module,exports) {
+},{"24d00eb5275e3f68":"cGzSS","4ddf3f4fd87a64c4":"jWzo4","39b712e85a80d537":"hI7yI","79b2a0a006b26751":"blfhG","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"cGzSS":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _vueColor = require("vue-color");
 var scriptExports = {
-    name: "enumConfigTemplate",
+    name: 'enumConfigTemplate',
     components: {
-        "chrome-picker": (0, _vueColor.Chrome)
+        'chrome-picker': (0, _vueColor.Chrome)
     },
     props: {
         config: {}
@@ -3862,8 +3862,8 @@ var scriptExports = {
             this.enumeration = [
                 ...this.enumeration,
                 {
-                    name: "",
-                    color: "#000000",
+                    name: '',
+                    color: '#000000',
                     id: Date.now()
                 }
             ];
@@ -3875,33 +3875,33 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"vue-color":"bOuNP","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jWzo4":[function(require,module,exports) {
+},{"vue-color":"bOuNP","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jWzo4":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("div", {
+    return _c('div', {
         staticClass: "enum-config-config_container"
     }, [
-        _c("md-content", {
+        _c('md-content', {
             staticClass: "colors md-scrollbar"
         }, _vm._l(_vm.enumeration, function(item) {
-            return _c("div", {
+            return _c('div', {
                 key: item.id,
                 staticClass: "md-layout md-gutter item"
             }, [
-                _c("div", {
+                _c('div', {
                     staticClass: "md-layout-item md-size-45"
                 }, [
-                    _c("md-field", {
+                    _c('md-field', {
                         attrs: {
                             "md-inline": ""
                         }
                     }, [
-                        _c("md-input", {
+                        _c('md-input', {
                             attrs: {
                                 "placeholder": "name"
                             },
@@ -3916,15 +3916,15 @@ var render = function() {
                     ], 1)
                 ], 1),
                 _vm._v(" "),
-                _c("div", {
+                _c('div', {
                     staticClass: "md-layout-item md-size-45"
                 }, [
-                    _c("div", {
+                    _c('div', {
                         staticClass: "colorContainer"
                     }, [
-                        _c("div", {
+                        _c('div', {
                             staticClass: "current-color",
-                            style: "background-color: " + item.color,
+                            style: 'background-color: ' + item.color,
                             on: {
                                 "click": function($event) {
                                     return _vm.togglePicker(item.id);
@@ -3932,7 +3932,7 @@ var render = function() {
                             }
                         }),
                         _vm._v(" "),
-                        _vm.display[item.id] ? _c("chrome-picker", {
+                        _vm.display[item.id] ? _c('chrome-picker', {
                             staticClass: "colorSelect",
                             on: {
                                 "input": function(val) {
@@ -3952,13 +3952,13 @@ var render = function() {
             ]);
         }), 0),
         _vm._v(" "),
-        _c("md-button", {
+        _c('md-button', {
             staticClass: "md-fab md-mini md-primary md-fab-bottom-right",
             on: {
                 "click": _vm.addColor
             }
         }, [
-            _c("md-icon", [
+            _c('md-icon', [
                 _vm._v("add")
             ])
         ], 1)
@@ -3968,18 +3968,18 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"hI7yI":[function() {},{}],"blfhG":[function(require,module,exports) {
+},{}],"hI7yI":[function() {},{}],"blfhG":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hDQiz":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hDQiz":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("md-dialog", {
+    return _c('md-dialog', {
         staticClass: "config_dialog_content",
         attrs: {
             "md-active": _vm.showDialog
@@ -3996,28 +3996,28 @@ var render = function() {
             }
         }
     }, [
-        _c("md-dialog-title", {
+        _c('md-dialog-title', {
             staticClass: "_dialogTitle"
         }, [
             _vm._v("Configuration")
         ]),
         _vm._v(" "),
-        _c("md-dialog-content", [
-            _vm.isNumberConfig() ? _c("number-config-template", {
+        _c('md-dialog-content', [
+            _vm.isNumberConfig() ? _c('number-config-template', {
                 attrs: {
                     "config": _vm.config
                 },
                 on: {
                     "valid": _vm.confirmConfig
                 }
-            }) : _vm.isBoolConfig() ? _c("boolean-config-template", {
+            }) : _vm.isBoolConfig() ? _c('boolean-config-template', {
                 attrs: {
                     "config": _vm.config
                 },
                 on: {
                     "valid": _vm.confirmConfig
                 }
-            }) : _vm.isEnumConfig() ? _c("enum-config-template", {
+            }) : _vm.isEnumConfig() ? _c('enum-config-template', {
                 ref: "enum-config",
                 attrs: {
                     "config": _vm.config
@@ -4025,8 +4025,8 @@ var render = function() {
             }) : _vm._e()
         ], 1),
         _vm._v(" "),
-        _c("md-dialog-actions", [
-            _c("md-button", {
+        _c('md-dialog-actions', [
+            _c('md-button', {
                 staticClass: "md-primary",
                 on: {
                     "click": function($event) {
@@ -4037,7 +4037,7 @@ var render = function() {
                 _vm._v("Cancel")
             ]),
             _vm._v(" "),
-            _c("md-button", {
+            _c('md-button', {
                 staticClass: "md-primary",
                 attrs: {
                     "disabled": _vm.disableOkBtn()
@@ -4057,13 +4057,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"1vQez":[function() {},{}],"i0RLg":[function(require,module,exports) {
+},{}],"1vQez":[function() {},{}],"i0RLg":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"iLKFN":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"iLKFN":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -4075,13 +4075,13 @@ let initialize = ()=>{
     script._scopeId = "data-v-656d54";
     script.__cssModules = require("56ed21fc20d5c4e7").default;
     require("f71b04c8f68161c6").default(script);
-    script.__scopeId = "data-v-656d54";
+    script.__scopeId = 'data-v-656d54';
     script.__file = "linkControlPointDialog.vue";
 };
 initialize();
 exports.default = script;
 
-},{"1b5703774244a7a":"9Pq9B","1f920fb470f42ae3":"cF2vn","56ed21fc20d5c4e7":"1EBwl","f71b04c8f68161c6":"d2uVQ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9Pq9B":[function(require,module,exports) {
+},{"1b5703774244a7a":"9Pq9B","1f920fb470f42ae3":"cF2vn","56ed21fc20d5c4e7":"1EBwl","f71b04c8f68161c6":"d2uVQ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9Pq9B":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _index = require("spinal-env-viewer-plugin-attribute-manager/src/services/index");
@@ -4325,10 +4325,10 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"spinal-env-viewer-plugin-attribute-manager/src/services/index":"R5DpR","spinal-env-viewer-panel-manager-service":"7Uw4d","spinal-env-viewer-graph-service":"9n7zp","../components/linkTogroupTemplate.vue":"fBvNT","spinal-env-viewer-plugin-control-endpoint-service":"5dUad","spinal-env-viewer-room-manager/js/event":"bnFtF","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"R5DpR":[function(require,module,exports) {
+},{"spinal-env-viewer-plugin-attribute-manager/src/services/index":"R5DpR","spinal-env-viewer-panel-manager-service":"7Uw4d","spinal-env-viewer-graph-service":"9n7zp","../components/linkTogroupTemplate.vue":"fBvNT","spinal-env-viewer-plugin-control-endpoint-service":"5dUad","spinal-env-viewer-room-manager/js/event":"bnFtF","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"R5DpR":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "spinalAttributeService", ()=>spinalAttributeService);
@@ -4341,7 +4341,7 @@ const spinalAttributeService = new (0, _spinalAttributeServiceDefault.default)()
 const spinalConfigurationService = new (0, _spinalConfigurationServiceDefault.default)();
 exports.default = spinalAttributeService;
 
-},{"./classes/spinalAttributeService":"3zGxM","./classes/spinalConfigurationService":"e8hB8","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3zGxM":[function(require,module,exports) {
+},{"./classes/spinalAttributeService":"3zGxM","./classes/spinalConfigurationService":"e8hB8","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3zGxM":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
  *
@@ -4373,29 +4373,21 @@ var _spinalEnvViewerBimManagerService = require("spinal-env-viewer-bim-manager-s
 var _spinalEnvViewerPluginGroupManagerService = require("spinal-env-viewer-plugin-group-manager-service");
 class SpinalAttributeService {
     constructor(){}
-    getAllAttributes(nodeId, liste) {
+    async getAllAttributes(nodeId, liste) {
         let realNode = (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(nodeId);
-        if (realNode) // return serviceDocumentation.getAllAttributes(realNode).then(
-        //   argAttributes => {
-        //     return argAttributes.map(el => {
-        //       let info = el.get();
-        //       if (liste && liste.indexOf(info.label) === -1) liste.push(info
-        //         .label);
-        //       return info;
-        //     })
-        //   });
-        return (0, _spinalEnvViewerPluginDocumentationService.serviceDocumentation).getCategory(realNode).then((res)=>{
-            return res.map((el)=>{
-                let attrs = el.element.get();
-                return attrs.map((attr)=>{
-                    if (liste && liste.indexOf(attr.label) === -1) liste.push(attr.label);
-                    attr["category"] = el.nameCat;
-                    return attr;
-                });
-            }).flat();
-        });
-        else return Promise.resolve([]);
+        if (!realNode) return Promise.resolve([]);
+        const categories = await (0, _spinalEnvViewerPluginDocumentationService.serviceDocumentation).getCategory(realNode);
+        return categories.reduce((l, el)=>{
+            let attrs = el.element.get();
+            for (const attr of attrs){
+                if (liste && !liste.includes(attr.label)) liste.push(attr.label);
+                attr.category = el.nameCat;
+                l.push(attr);
+            }
+            return l;
+        }, []);
     }
+    // get All Nodes and their attributes
     async getAllData(contextId, nodeId) {
         let context = (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(contextId);
         let realNode = (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(nodeId);
@@ -4404,142 +4396,137 @@ class SpinalAttributeService {
             attributes: [],
             data: {}
         };
-        if (context && realNode) await realNode.findInContext(context, async (node)=>{
+        if (!context || !realNode) return res;
+        await realNode.findInContext(context, async (node)=>{
             (0, _spinalEnvViewerGraphService.SpinalGraphService)._addNode(node);
-            let type = node.getType().get();
-            let info = node.info.get();
-            if (res.types.indexOf(type) === -1) res.types.push(type);
-            if (typeof res.data[type] === "undefined") res.data[type] = [];
-            info["attributes"] = await this.getAllAttributes(info.id, res.attributes);
-            res.data[type].push(info);
+            await this._formatNodeAndItToList(node, res);
         });
         return res;
     }
-    getBimObjectAttribute(bimObjectInfo, attributeName) {
-        let value = attributeName.toLowerCase();
-        let model = window.spinal.BimObjectService.getModelByBimfile(bimObjectInfo.bimFileId) || window.NOP_VIEWER.model;
-        const dbId = bimObjectInfo.dbid || bimObjectInfo.dbId;
-        if (model) return (0, _spinalEnvViewerBimManagerService.bimObjectManagerService).getBimObjectProperties({
-            model: model,
-            selection: [
-                dbId
-            ]
-        }).then((res)=>{
-            let properties = res[0].properties[0].properties;
-            let found = properties.find((el)=>{
-                let attrName = el.attributeName.toLowerCase();
-                let displayName = el.displayName.toLowerCase();
-                return attrName === value || displayName === value;
-            });
-            if (found) return found.displayValue;
-            else return "-";
-        }).catch((err)=>{
-            console.error(err);
-        });
-        else return "-";
+    async _formatNodeAndItToList(node, res) {
+        const info = node.info.get();
+        const type = info.type;
+        if (!res.types.includes(type)) res.types.push(type);
+        if (!res.data[type]) res.data[type] = [];
+        info.dynamicId = node._server_id;
+        info.attributes = await this.getAllAttributes(info.id, res.attributes);
+        res.data[type].push(info);
+        return info;
     }
-    async createAttribute(nodeId, categoryName, attributeName) {
+    async getBimObjectAttribute(bimObjectInfo, attributeName) {
+        try {
+            let value = attributeName.toLowerCase();
+            const modelByBimFile = window.spinal.BimObjectService.getModelByBimfile(bimObjectInfo.bimFileId);
+            let model = modelByBimFile || window.NOP_VIEWER.model;
+            if (!model) return '-';
+            const dbId = bimObjectInfo.dbid || bimObjectInfo.dbId;
+            let properties = await this.getBimObjectProperties(model, [
+                dbId
+            ]);
+            let found = properties.find(({ attributeName, displayName })=>[
+                    attributeName.toLowerCase(),
+                    displayName.toLowerCase()
+                ].includes(value.toLowerCase()));
+            if (found) return found.displayValue;
+            return '-';
+        } catch (error) {
+            console.error(error);
+            return "-";
+        }
+    }
+    async createAttribute(nodeId, categoryName, attributeName, attributeValue) {
         let realNode = (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(nodeId);
-        let category;
-        category = await (0, _spinalEnvViewerPluginDocumentationService.serviceDocumentation).getCategoryByName(realNode, categoryName);
-        if (typeof category === "undefined") category = await (0, _spinalEnvViewerPluginDocumentationService.serviceDocumentation).addCategoryAttribute(realNode, categoryName);
+        let category = await this.getOrCreateCategory(realNode, categoryName);
+        const value = (attributeValue && attributeValue.toString()).length > 0 ? attributeValue : "-";
         let attr = {
             label: attributeName,
-            value: "-"
+            value
         };
-        if (realNode.getType().get() === (0, _constants.BIM_OBJECT_TYPE)) attr.value = await this.getBimObjectAttribute(realNode.info.get(), attributeName);
+        if (realNode.getType().get() === (0, _constants.BIM_OBJECT_TYPE) && value === "-") attr.value = await this.getBimObjectAttribute(realNode.info.get(), attributeName);
         await (0, _spinalEnvViewerPluginDocumentationService.serviceDocumentation).addAttributeByCategory(realNode, category, attr.label, attr.value);
     }
+    async updateSeveralAttributes(nodeId, categoryName, attributes) {
+        const realNode = (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(nodeId);
+        if (!realNode) return;
+        const category = await this.getOrCreateCategory(realNode, categoryName);
+        const attributesList = await (0, _spinalEnvViewerPluginDocumentationService.serviceDocumentation).getAttributesByCategory(realNode, category);
+        const obj = this._convertLstToObj(attributesList);
+        for (const attr of attributes)if (obj[attr.label]) obj[attr.label].mod_attr("value", attr.value);
+        else await this.updateAttributeValue(nodeId, category, attr.label, attr.value);
+    }
     async updateAttributeValue(nodeId, categoryName, attributeName, attributeValue) {
-        let attr = await this.getOrCreateAttribute(nodeId, categoryName, attributeName);
-        if (attr && attr.value) attr.value.set(attributeValue);
+        let attr = await this.getOrCreateAttribute(nodeId, categoryName, attributeName, attributeValue);
+        if (attr && typeof attr.value != "undefined") attr.mod_attr("value", attributeValue);
     }
     getBimObjects(nodeId) {
     // console.log(SpinalGraphService.getInfo(nodeId));
     // return SpinalGraphService.findNodes(nodeId,)
     }
-    async getOrCreateAttribute(nodeId, categoryName, attributeName) {
+    async getOrCreateAttribute(nodeId, categoryName, attributeName, attributeValue) {
         let realNode = (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(nodeId);
-        if (realNode) {
-            let category = await (0, _spinalEnvViewerPluginDocumentationService.serviceDocumentation).getCategoryByName(realNode, categoryName);
-            if (typeof category === "undefined") category = await (0, _spinalEnvViewerPluginDocumentationService.serviceDocumentation).addCategoryAttribute(realNode, categoryName);
-            let attributes = await (0, _spinalEnvViewerPluginDocumentationService.serviceDocumentation).getAttributesByCategory(realNode, categoryName);
-            let attr = attributes.find((el)=>{
-                return el.label.get() === attributeName;
-            });
-            if (attr) return attr;
-            await (0, _spinalEnvViewerPluginDocumentationService.serviceDocumentation).addAttributeByCategory(realNode, category, attributeName, "-");
-            attributes = await (0, _spinalEnvViewerPluginDocumentationService.serviceDocumentation).getAttributesByCategory(realNode, categoryName);
-            return attributes.find((el)=>{
-                return el.label.get() === attributeName;
-            });
+        if (!realNode) return;
+        let category = await this.getOrCreateCategory(realNode, categoryName);
+        let attr = await this.findAttributeInCategory(realNode, category, attributeName);
+        if (attr) return attr;
+        return this.createAttribute(nodeId, category, attributeName, attributeValue);
+    }
+    async findAttributeInCategory(realNode, category, attributeName) {
+        const attributes = await (0, _spinalEnvViewerPluginDocumentationService.serviceDocumentation).getAttributesByCategory(realNode, category);
+        for(let i = 0; i < attributes.length; i++){
+            const el = attributes[i];
+            if (el.label.get() === attributeName) return el;
         }
     }
-    getAllGroupContext(type) {
-        // return Promise.all([SpinalGraphService.getContextWithType(
-        //     groupService.constants.ROOMS_GROUP_CONTEXT),
-        //   SpinalGraphService.getContextWithType(
-        //     groupService.constants.EQUIPMENTS_GROUP_CONTEXT),
-        //   SpinalGraphService.getContextWithType(
-        //     groupService.constants.ENDPOINTS_GROUP_CONTEXT)
-        // ]).then(values => {
-        //   let contexts = values.flat();
-        //   let promises = contexts.map(async context => {
-        //     let res = context.info.get();
-        //     res["category"] = await this.getCategory(res.id, res
-        //       .type);
-        //     return res;
-        //   })
-        //   return Promise.all(promises);
-        // })
-        // console.log("service type", type);
-        return (0, _spinalEnvViewerPluginGroupManagerService.groupManagerService).getGroupContexts(type).then((contexts)=>{
-            const promises = contexts.map(async (context)=>{
-                context["category"] = await this.getCategory(context.id);
-                return context;
-            });
-            return Promise.all(promises);
+    async getAllGroupContext(type) {
+        const contexts = await (0, _spinalEnvViewerPluginGroupManagerService.groupManagerService).getGroupContexts(type);
+        const promises = contexts.map(async (context)=>{
+            context.category = await this.getCategory(context.id);
+            return context;
         });
+        return Promise.all(promises);
     }
     async getCategory(contextId) {
-        // let relationName = groupService.constants
-        //   .CONTEXT_TO_CATEGORY_RELATION;
-        // return SpinalGraphService.getChildren(contextId, [relationName]).then(
-        //   children => {
-        //     let promises = children.map(async child => {
-        //       let info = child.get();
-        //       info["groups"] = await this.getGroup(child.id, child
-        //         .type);
-        //       return info;
-        //     })
-        //     return Promise.all(promises);
-        //   })
         const categories = await (0, _spinalEnvViewerPluginGroupManagerService.groupManagerService).getCategories(contextId);
         const promises = categories.map(async (category)=>{
             let info = category.get();
-            info["groups"] = await this.getGroup(category.id);
+            info.groups = await this.getGroup(category.id);
             return info;
         });
         return Promise.all(promises);
     }
     async getGroup(categoryId) {
-        // let relationName = groupService.constants.CATEGORY_TO_GROUP_RELATION;
-        // return SpinalGraphService.getChildren(categoryId, [relationName])
-        //   .then(
-        //     children => {
-        //       return children.map(el => el.get());
-        //     })
         const groups = await (0, _spinalEnvViewerPluginGroupManagerService.groupManagerService).getGroups(categoryId);
         return groups.map((el)=>el.get());
     }
     linkItem(contextId, parentId, itemId) {
-        // groupService.linkElementToGroup(parentId, itemId, contextId)
         return (0, _spinalEnvViewerPluginGroupManagerService.groupManagerService).linkElementToGroup(contextId, parentId, itemId);
+    }
+    async getOrCreateCategory(realNode, categoryName) {
+        if (typeof categoryName === "object") return categoryName;
+        realNode = realNode instanceof (0, _spinalEnvViewerGraphService.SpinalNode) ? realNode : (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(realNode);
+        let category = await (0, _spinalEnvViewerPluginDocumentationService.serviceDocumentation).getCategoryByName(realNode, categoryName);
+        if (!category) category = await (0, _spinalEnvViewerPluginDocumentationService.serviceDocumentation).addCategoryAttribute(realNode, categoryName);
+        return category;
+    }
+    async getBimObjectProperties(model, dbIds) {
+        const res = await (0, _spinalEnvViewerBimManagerService.bimObjectManagerService).getBimObjectProperties({
+            model: model,
+            selection: dbIds
+        });
+        return res[0].properties[0].properties;
+    }
+    _convertLstToObj(lst) {
+        const obj = {};
+        for(let i = 0; i < lst.length; i++){
+            let el = lst[i];
+            obj[el.label.get()] = el;
+        }
+        return obj;
     }
 }
 exports.default = SpinalAttributeService;
 
-},{"spinal-env-viewer-graph-service":"9n7zp","spinal-env-viewer-plugin-documentation-service":"5rYVR","spinal-env-viewer-plugin-forge/dist/Constants":"f3Ny6","spinal-env-viewer-bim-manager-service":"9Nkbe","spinal-env-viewer-plugin-group-manager-service":"tSLpq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9Nkbe":[function(require,module,exports) {
+},{"spinal-env-viewer-graph-service":"9n7zp","spinal-env-viewer-plugin-documentation-service":"5rYVR","spinal-env-viewer-plugin-forge/dist/Constants":"f3Ny6","spinal-env-viewer-bim-manager-service":"9Nkbe","spinal-env-viewer-plugin-group-manager-service":"tSLpq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9Nkbe":[function(require,module,exports,__globalThis) {
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -4547,7 +4534,7 @@ Object.defineProperty(exports, "__esModule", {
 const bimService_1 = require("edfb101c687f070e");
 exports.bimObjectManagerService = bimService_1.default;
 
-},{"edfb101c687f070e":"cXqcc"}],"cXqcc":[function(require,module,exports) {
+},{"edfb101c687f070e":"cXqcc"}],"cXqcc":[function(require,module,exports,__globalThis) {
 "use strict";
 var __awaiter = this && this.__awaiter || function(thisArg, _arguments, P, generator) {
     return new (P || (P = Promise))(function(resolve, reject) {
@@ -4722,7 +4709,7 @@ class BimObjectManagerService {
 }
 exports.default = new BimObjectManagerService();
 
-},{}],"e8hB8":[function(require,module,exports) {
+},{}],"e8hB8":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerPluginGroupManagerService = require("spinal-env-viewer-plugin-group-manager-service");
@@ -4734,8 +4721,7 @@ class SpinalConfigurationService {
         this.ATTRIBUTE_TYPE = "configurationAttribute";
     }
     async createOrGetContext() {
-        const context = await (0, _spinalEnvViewerPluginGroupManagerService.groupManagerService).createGroupContext(this.CONTEXT_NAME, this.CONFIGURATION_PROFIL_TYPE);
-        return context;
+        return (0, _spinalEnvViewerPluginGroupManagerService.groupManagerService).createGroupContext(this.CONTEXT_NAME, this.CONFIGURATION_PROFIL_TYPE);
     }
     async createCategory(categoryName, iconName) {
         const context = await this.createOrGetContext();
@@ -4750,65 +4736,61 @@ class SpinalConfigurationService {
     async createConfiguration(groupId, configurationName, configurationCategories = []) {
         const context = await this.createOrGetContext();
         const contextId = context ? context.info.id.get() : undefined;
+        const element = new Model({
+            name: configurationName,
+            categories: configurationCategories
+        });
         const configurationNodeId = (0, _spinalEnvViewerGraphService.SpinalGraphService).createNode({
             name: configurationName,
             type: this.CONFIGURATION_PROFIL_TYPE
-        }, new Model({
-            name: configurationName,
-            categories: configurationCategories
-        }));
+        }, element);
         await (0, _spinalEnvViewerPluginGroupManagerService.groupManagerService).linkElementToGroup(contextId, groupId, configurationNodeId);
         return (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(configurationNodeId);
     }
-    setAsCurrentConfiguration(nodeId) {
-        this.createOrGetContext().then((context)=>{
-            let realNode = (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(nodeId);
-            if (realNode) {
-                if (context.info.currentConfiguration) context.info.rem_attr("currentConfiguration");
-                context.info.add_attr({
-                    currentConfiguration: new Ptr(realNode)
-                });
-            }
+    async setAsCurrentConfiguration(nodeId) {
+        const context = await this.createOrGetContext();
+        let realNode = (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(nodeId);
+        if (!realNode) return;
+        if (context.info.currentConfiguration) context.info.rem_attr("currentConfiguration");
+        context.info.add_attr({
+            currentConfiguration: new Ptr(realNode)
         });
     }
     async deleteCurrentConf() {
         const context = await this.createOrGetContext();
         if (context && context.info.currentConfiguration) context.info.rem_attr("currentConfiguration");
     }
-    getCurrentConfiguration() {
-        return this.createOrGetContext().then((context)=>{
-            let confPtr = context.info.currentConfiguration;
-            if (typeof confPtr !== "undefined") return new Promise((resolve)=>{
-                confPtr.load((realNode)=>{
-                    (0, _spinalEnvViewerGraphService.SpinalGraphService)._addNode(realNode);
-                    return realNode.getElement().then((el)=>{
-                        let element = el.get();
-                        element["id"] = realNode.info.id.get();
-                        resolve(element);
-                    });
-                });
+    async getCurrentConfiguration() {
+        const context = await this.createOrGetContext();
+        let confPtr = context.info.currentConfiguration;
+        if (!confPtr) return {
+            name: "",
+            categories: []
+        };
+        return new Promise((resolve)=>{
+            confPtr.load(async (realNode)=>{
+                (0, _spinalEnvViewerGraphService.SpinalGraphService)._addNode(realNode);
+                const el = await realNode.getElement();
+                let element = el.get();
+                element.id = realNode.getId().get();
+                resolve(element);
             });
-            return {
-                name: "",
-                categories: []
-            };
         });
     }
-    editConfiguration(configurationId, configurationElement) {
+    async editConfiguration(configurationId, configurationElement) {
         let realNode = (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(configurationId);
-        if (realNode) realNode.getElement().then((element)=>{
-            element.set(configurationElement);
-        });
+        if (!realNode) return;
+        const element = await realNode.getElement();
+        element.set(configurationElement);
     }
     async getConfigurationById(configId) {
         const realNode = (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(configId);
-        if (realNode) {
-            const elementModel = await realNode.getElement();
-            if (elementModel) {
-                let element = elementModel.get();
-                element["id"] = configId;
-                return element;
-            }
+        if (!realNode) return;
+        const elementModel = await realNode.getElement();
+        if (elementModel) {
+            let element = elementModel.get();
+            element.id = configId;
+            return element;
         }
     }
     async getCategories() {
@@ -4816,7 +4798,6 @@ class SpinalConfigurationService {
         return (0, _spinalEnvViewerPluginGroupManagerService.groupManagerService).getCategories(context.info.id.get());
     }
     getGroups(nodeId) {
-        // const context = await this.createOrGetContext();
         return (0, _spinalEnvViewerPluginGroupManagerService.groupManagerService).getGroups(nodeId);
     }
     getConfigurations(groupId) {
@@ -4833,31 +4814,34 @@ class SpinalConfigurationService {
         return parents[0];
     }
     async getTree(info) {
-        const obj = {
-            categoryId: undefined,
-            groupId: undefined,
-            configId: undefined
+        if (this.isCategory(info.type)) return this.getTreeUntilCategory(info.id);
+        if (this.isGroup(info.type)) return this.getTreeUntilGroup(info.id);
+        if (info.type === this.CONFIGURATION_PROFIL_TYPE) return this.getTreeUntilProfile(info.id);
+        return {};
+    }
+    getTreeUntilCategory(id) {
+        return {
+            categoryId: id
         };
-        if (this.isCategory(info.type)) obj.categoryId = info.id;
-        else if (this.isGroup(info.type)) {
-            const category = await (0, _spinalEnvViewerPluginGroupManagerService.groupManagerService).getGroupCategory(info.id);
-            if (category) obj.categoryId = category.id.get();
-            obj.groupId = info.id;
-        } else if (info.type === this.CONFIGURATION_PROFIL_TYPE) {
-            obj.configId = info.id;
-            const group = await this.getElementGroup(info.id);
-            if (group) {
-                obj.groupId = group.id.get();
-                const category = await (0, _spinalEnvViewerPluginGroupManagerService.groupManagerService).getGroupCategory(group.id.get());
-                if (category) obj.categoryId = category.id.get();
-            }
-        }
+    }
+    async getTreeUntilGroup(id) {
+        const category = await (0, _spinalEnvViewerPluginGroupManagerService.groupManagerService).getGroupCategory(id);
+        return {
+            categoryId: category.id.get(),
+            groupId: id
+        };
+    }
+    async getTreeUntilProfile(id) {
+        const group = await this.getElementGroup(id);
+        if (!group) return {};
+        const obj = await this.getTreeUntilGroup(group.id.get());
+        obj.configId = id;
         return obj;
     }
 }
 exports.default = SpinalConfigurationService;
 
-},{"spinal-env-viewer-plugin-group-manager-service":"tSLpq","spinal-env-viewer-graph-service":"9n7zp","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fBvNT":[function(require,module,exports) {
+},{"spinal-env-viewer-plugin-group-manager-service":"tSLpq","spinal-env-viewer-graph-service":"9n7zp","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fBvNT":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -4869,13 +4853,13 @@ let initialize = ()=>{
     script._scopeId = "data-v-a4a4d2";
     script.__cssModules = require("422a24a2d1b43611").default;
     require("450f1b2ed133c683").default(script);
-    script.__scopeId = "data-v-a4a4d2";
+    script.__scopeId = 'data-v-a4a4d2';
     script.__file = "linkTogroupTemplate.vue";
 };
 initialize();
 exports.default = script;
 
-},{"c1c479aa6fc0768":"3WxZK","b7caf7c3326f8962":"bvCbB","422a24a2d1b43611":"fTTu9","450f1b2ed133c683":"chsUf","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3WxZK":[function(require,module,exports) {
+},{"c1c479aa6fc0768":"3WxZK","b7caf7c3326f8962":"bvCbB","422a24a2d1b43611":"fTTu9","450f1b2ed133c683":"chsUf","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3WxZK":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var scriptExports = {
@@ -4895,30 +4879,30 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"bvCbB":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"bvCbB":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("div", {
+    return _c('div', {
         staticClass: "subContent"
     }, [
-        _c("div", {
+        _c('div', {
             staticClass: "title"
         }, [
-            _c("div", [
+            _c('div', [
                 _vm._v(_vm._s(_vm.title))
             ])
         ]),
         _vm._v(" "),
-        _c("md-content", {
+        _c('md-content', {
             staticClass: "container md-scrollbar"
         }, [
-            _c("md-list", _vm._l(_vm.data, function(item, index) {
-                return _c("md-list-item", {
+            _c('md-list', _vm._l(_vm.data, function(item, index) {
+                return _c('md-list-item', {
                     directives: [
                         {
                             name: "tooltip",
@@ -4930,7 +4914,7 @@ var render = function() {
                     key: index,
                     staticClass: "list-item",
                     class: {
-                        "selected": item.id === _vm.itemSelected
+                        'selected': item.id === _vm.itemSelected
                     },
                     on: {
                         "click": function($event) {
@@ -4938,7 +4922,7 @@ var render = function() {
                         }
                     }
                 }, [
-                    _c("span", {
+                    _c('span', {
                         staticClass: "md-list-item-text"
                     }, [
                         _vm._v(_vm._s(item.name))
@@ -4952,18 +4936,261 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"fTTu9":[function() {},{}],"chsUf":[function(require,module,exports) {
+},{}],"fTTu9":[function() {},{}],"chsUf":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"cF2vn":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"bnFtF":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _vue = require("vue");
+var _vueDefault = parcelHelpers.interopDefault(_vue);
+var _utilities = require("./utilities");
+var _utilitiesDefault = parcelHelpers.interopDefault(_utilities);
+const EventBus = new (0, _vueDefault.default)();
+EventBus.$on("mouseover", (item)=>{
+    (0, _utilitiesDefault.default).getBimObjects(item.id).then((res)=>{
+        let selections = [];
+        res.forEach((el)=>{
+            let info = el.get();
+            let model = window.spinal.BimObjectService.getModelByBimfile(info.bimFileId);
+            let selected = selections.find((el2)=>{
+                return el2.model.id === model.id;
+            });
+            if (selected) selected.ids.push(el.dbid);
+            else selections.push({
+                model: model,
+                ids: [
+                    info.dbid
+                ]
+            });
+        });
+        window.spinal.ForgeViewer.viewer.impl.selector.setAggregateSelection(selections);
+    });
+});
+EventBus.$on("mouseleave", ()=>{
+    window.spinal.ForgeViewer.viewer.select();
+});
+exports.default = EventBus;
+
+},{"vue":"gt5MM","./utilities":"cYKMv","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"cYKMv":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _spinalEnvViewerGraphService = require("spinal-env-viewer-graph-service");
+var _spinalEnvViewerContextGeographicService = require("spinal-env-viewer-context-geographic-service");
+var _spinalEnvViewerContextGeographicServiceDefault = parcelHelpers.interopDefault(_spinalEnvViewerContextGeographicService);
+var _spinalEnvViewerPluginGroupManagerService = require("spinal-env-viewer-plugin-group-manager-service");
+let ItemColoredMap = new Map();
+let BimElementsColor = new Map();
+const ROOMS_RELATIONS = [
+    (0, _spinalEnvViewerPluginGroupManagerService.groupManagerService).constants.CATEGORY_TO_GROUP_RELATION,
+    (0, _spinalEnvViewerPluginGroupManagerService.groupManagerService).constants.CONTEXT_TO_CATEGORY_RELATION,
+    (0, _spinalEnvViewerPluginGroupManagerService.groupManagerService).constants.OLD_RELATIONS_TYPES.GROUP_TO_ROOMS_RELATION,
+    `groupHas${(0, _spinalEnvViewerContextGeographicServiceDefault.default).constants.ROOM_TYPE}`,
+    (0, _spinalEnvViewerContextGeographicServiceDefault.default).constants.REFERENCE_RELATION,
+    (0, _spinalEnvViewerContextGeographicServiceDefault.default).constants.EQUIPMENT_RELATION
+];
+const EQUIPMENTS_RELATIONS = [
+    (0, _spinalEnvViewerPluginGroupManagerService.groupManagerService).constants.CATEGORY_TO_GROUP_RELATION,
+    (0, _spinalEnvViewerPluginGroupManagerService.groupManagerService).constants.CONTEXT_TO_CATEGORY_RELATION,
+    (0, _spinalEnvViewerPluginGroupManagerService.groupManagerService).constants.OLD_RELATIONS_TYPES.GROUP_TO_EQUIPMENTS_RELATION,
+    `groupHas${(0, _spinalEnvViewerContextGeographicServiceDefault.default).constants.EQUIPMENT_TYPE}`,
+    (0, _spinalEnvViewerContextGeographicServiceDefault.default).constants.REFERENCE_RELATION,
+    (0, _spinalEnvViewerContextGeographicServiceDefault.default).constants.EQUIPMENT_RELATION,
+    `${(0, _spinalEnvViewerContextGeographicServiceDefault.default).constants.REFERENCE_RELATION}.ROOM`
+];
+// const ROOMS_TYPES = [
+//   groupManagerService.constants.OLD_CONTEXTS_TYPES.ROOMS_GROUP_CONTEXT,
+//   groupManagerService.constants.CATEGORY_TYPE,
+//   groupManagerService.constants.OLD_GROUPS_TYPES.ROOMS_GROUP,
+//   `${geographicService.constants.ROOM_TYPE}GroupContext`,
+//   `${geographicService.constants.ROOM_TYPE}Group`,
+// ];
+// // eslint-disable-next-line no-unused-vars
+// const EQUIPMENTS_TYPES = [
+//   groupManagerService.constants.OLD_CONTEXTS_TYPES.EQUIPMENTS_GROUP_CONTEXT,
+//   groupManagerService.constants.CATEGORY_TYPE,
+//   groupManagerService.constants.OLD_GROUPS_TYPES.EQUIPMENTS_GROUP,
+//   `${geographicService.constants.EQUIPMENT_TYPE}GroupContext`,
+//   `${geographicService.constants.EQUIPMENT_TYPE}Group`,
+// ];
+let utilities = {
+    getIcon (selectedNode) {
+        return this._isColored(selectedNode).then((isColored)=>{
+            return isColored;
+        });
+    },
+    async getGroupBimObjects (groupId) {
+        const groupInfo = (0, _spinalEnvViewerGraphService.SpinalGraphService).getInfo(groupId);
+        if ((0, _spinalEnvViewerPluginGroupManagerService.groupManagerService).isRoomsGroup(groupInfo.type.get())) {
+            const rooms = await (0, _spinalEnvViewerGraphService.SpinalGraphService).getChildren(groupId, ROOMS_RELATIONS);
+            const promises = rooms.map((el)=>(0, _spinalEnvViewerGraphService.SpinalGraphService).getChildren(el.id.get(), EQUIPMENTS_RELATIONS));
+            return Promise.all(promises).then((res)=>{
+                console.log("res equip", res);
+                return res.flat();
+            });
+        }
+        if ((0, _spinalEnvViewerPluginGroupManagerService.groupManagerService).isEquipmentsGroup(groupInfo.type.get())) return (0, _spinalEnvViewerGraphService.SpinalGraphService).getChildren(groupId, EQUIPMENTS_RELATIONS);
+        return [];
+    // let nodeInfo = SpinalGraphService.getInfo(nodeId);
+    // let type = nodeInfo.type.get();
+    // if (type === BIM_OBJECT_TYPE) return Promise.resolve([nodeInfo]);
+    // if (type === geographicService.constants.ROOM_TYPE) {
+    //   const { REFERENCE_RELATION, EQUIPMENT_RELATION } = geographicService.constants;
+    //   const relations = [REFERENCE_RELATION, EQUIPMENT_RELATION];
+    //   return SpinalGraphService.getChildren(nodeId, relations);
+    // }
+    // let relations = ROOMS_TYPES.includes(type) ? ROOMS_RELATIONS : EQUIPMENTS_RELATIONS;
+    // const predicate = (node) => node.getType().get() === BIM_OBJECT_TYPE;
+    // const node = SpinalGraphService.getRealNode(nodeId);
+    // const found = [];
+    // return SpinalGraphService.findNodes(nodeId, relations, (node) => {
+    //   return node.getType().get() === BIM_OBJECT_TYPE;
+    // }).then((res) => {
+    //   return res.map((el) => {
+    //     SpinalGraphService._addNode(el);
+    //     return el.info;
+    //   });
+    // });
+    },
+    getGroups (selectedNode) {
+        try {
+            return (0, _spinalEnvViewerPluginGroupManagerService.groupManagerService).getGroups(selectedNode.id.get());
+        } catch (error) {
+            console.error("getGroups error");
+            console.error(error);
+        }
+    // let type = selectedNode.type.get();
+    // let nodeId = selectedNode.id.get();
+    // if (groupManagerService.isGroup(type)) {
+    //   return Promise.resolve([selectedNode]);
+    // }
+    // if (groupManagerService.isCategory(type)) groupManagerService.getGroups(nodeId);
+    // let relations = [];
+    // return SpinalGraphService.findNodes(nodeId, relations, (node) => {
+    //   let argType = node.getType().get();
+    //   return groupManagerService.isGroup(argType);
+    // }).then((res) => {
+    //   return res.map((el) => {
+    //     SpinalGraphService._addNode(el);
+    //     return el.info;
+    //   });
+    // });
+    },
+    colorItem (selectedNode) {
+        this.getGroups(selectedNode).then((res)=>{
+            res.forEach((el)=>{
+                let id = el.id.get();
+                let color = el.color ? el.color.get() : undefined;
+                this.colorGroup(id, color);
+            });
+        });
+    },
+    restoreItem (selectedNode) {
+        this.getGroups(selectedNode).then((res)=>{
+            res.forEach((el)=>{
+                let id = el.id.get();
+                this.restoreGroup(id);
+            });
+        });
+    },
+    colorGroup (groupId, argColor) {
+        this.getGroupBimObjects(groupId).then((res)=>{
+            console.log("res", res);
+            let color = argColor ? this._convertHexColorToRGB(argColor) : this._convertHexColorToRGB("#000000");
+            ItemColoredMap.set(groupId, groupId);
+            for (const child of res){
+                const dbId = child.dbid.get();
+                let BimColors = BimElementsColor.get(dbId) || [];
+                BimColors.push({
+                    id: groupId,
+                    color: color
+                });
+                BimElementsColor.set(dbId, BimColors);
+                let model = window.spinal.BimObjectService.getModelByBimfile(child.bimFileId.get());
+                console.log(model);
+                if (model) model.setThemingColor(dbId, new THREE.Vector4(color.r / 255, color.g / 255, color.b / 255, 0.7, true));
+            }
+        });
+    },
+    restoreGroup (groupId) {
+        this.getGroupBimObjects(groupId).then((res)=>{
+            ItemColoredMap.delete(groupId);
+            for (const child of res){
+                const dbId = child.dbid.get();
+                let model = window.spinal.BimObjectService.getModelByBimfile(child.bimFileId.get());
+                model.setThemingColor(dbId, new THREE.Vector4(0, 0, 0, 0), true);
+                let allColors = BimElementsColor.get(dbId);
+                if (!allColors) continue;
+                allColors = allColors.filter((el)=>el.id !== groupId);
+                BimElementsColor.set(dbId, allColors);
+                if (allColors.length > 0) {
+                    let color = allColors[0].color;
+                    model.setThemingColor(dbId, new THREE.Vector4(color.r / 255, color.g / 255, color.b / 255, 0.7), true);
+                }
+            }
+        });
+    },
+    async consumeBatch (promises, batchSize = 2) {
+        let index = 0;
+        const result = {
+            successed: [],
+            failed: []
+        };
+        while(index < promises.length){
+            let endIndex = index + batchSize;
+            if (promises.length <= endIndex) endIndex = promises.length;
+            const slice = promises.slice(index, endIndex);
+            const { successed, failed } = await this.getPromiseResult(slice.map((e)=>e()));
+            result.successed.push(...successed);
+            result.failed.push(...failed);
+            index = endIndex;
+        }
+        return result;
+    },
+    getPromiseResult (liste) {
+        return Promise.allSettled(liste).then((result)=>{
+            const obj = {
+                successed: [],
+                failed: []
+            };
+            for (const { status, value } of result)if (status === "fulfilled") obj.successed.push(value);
+            else obj.failed.push(value);
+            return obj;
+        });
+    },
+    //////////////////////////////////////////////////////////////////////////////////////////////////
+    //                                                    Private                                   //
+    //////////////////////////////////////////////////////////////////////////////////////////////////
+    _isColored (selectedNode) {
+        return this.getGroups(selectedNode).then((res)=>{
+            if (res.length === 0) return false;
+            for(let index = 0; index < res.length; index++){
+                const id = res[index].id.get();
+                if (typeof ItemColoredMap.get(id) === "undefined") return false;
+            }
+            return true;
+        });
+    },
+    _convertHexColorToRGB (hex) {
+        var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+        return result ? {
+            r: parseInt(result[1], 16),
+            g: parseInt(result[2], 16),
+            b: parseInt(result[3], 16)
+        } : null;
+    }
+};
+exports.default = utilities;
+
+},{"spinal-env-viewer-graph-service":"9n7zp","spinal-env-viewer-context-geographic-service":"5QjJf","spinal-env-viewer-plugin-group-manager-service":"tSLpq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"cF2vn":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("md-dialog", {
+    return _c('md-dialog', {
         staticClass: "mdDialogContainer",
         attrs: {
             "md-active": _vm.showDialog
@@ -4980,22 +5207,22 @@ var render = function() {
             }
         }
     }, [
-        _c("md-dialog-title", {
+        _c('md-dialog-title', {
             staticClass: "dialogTitle"
         }, [
-            _vm._v("\n		Select Controlpoint\n	")
+            _vm._v("\n\t\tSelect Controlpoint\n\t")
         ]),
         _vm._v(" "),
-        _c("md-dialog-content", [
-            _vm.state === _vm.STATES.normal ? _c("div", {
+        _c('md-dialog-content', [
+            _vm.state === _vm.STATES.normal ? _c('div', {
                 staticClass: "content"
             }, [
-                _c("div", {
+                _c('div', {
                     staticClass: "section"
                 }, [
-                    _c("link-template", {
+                    _c('link-template', {
                         attrs: {
-                            "title": "Contexts",
+                            "title": 'Contexts',
                             "data": _vm.data,
                             "itemSelected": _vm.contextSelected,
                             "disableBtn": false
@@ -5007,12 +5234,12 @@ var render = function() {
                     })
                 ], 1),
                 _vm._v(" "),
-                _c("div", {
+                _c('div', {
                     staticClass: "section"
                 }, [
-                    _c("link-template", {
+                    _c('link-template', {
                         attrs: {
-                            "title": "Categories",
+                            "title": 'Categories',
                             "data": _vm.categories,
                             "itemSelected": _vm.categorySelected,
                             "disableBtn": !_vm.contextSelected
@@ -5024,12 +5251,12 @@ var render = function() {
                     })
                 ], 1),
                 _vm._v(" "),
-                _c("div", {
+                _c('div', {
                     staticClass: "section"
                 }, [
-                    _c("link-template", {
+                    _c('link-template', {
                         attrs: {
-                            "title": "Groups",
+                            "title": 'Groups',
                             "data": _vm.groups,
                             "itemSelected": _vm.groupSelected,
                             "disableBtn": !_vm.categorySelected
@@ -5041,12 +5268,12 @@ var render = function() {
                     })
                 ], 1),
                 _vm._v(" "),
-                _c("div", {
+                _c('div', {
                     staticClass: "section"
                 }, [
-                    _c("link-template", {
+                    _c('link-template', {
                         attrs: {
-                            "title": "Control Points",
+                            "title": 'Control Points',
                             "data": _vm.controlPoints,
                             "itemSelected": _vm.controlPointSelected,
                             "disableBtn": !_vm.categorySelected
@@ -5057,18 +5284,18 @@ var render = function() {
                         }
                     })
                 ], 1)
-            ]) : _c("div", {
+            ]) : _c('div', {
                 staticClass: "states"
             }, [
-                _vm.state === _vm.STATES.loading ? _c("md-progress-spinner", {
+                _vm.state === _vm.STATES.loading ? _c('md-progress-spinner', {
                     attrs: {
                         "md-mode": "indeterminate"
                     }
-                }) : _vm.state === _vm.STATES.error ? _c("md-icon", {
+                }) : _vm.state === _vm.STATES.error ? _c('md-icon', {
                     staticClass: "md-size-5x"
                 }, [
                     _vm._v("close")
-                ]) : _vm.state === _vm.STATES.success ? _c("md-icon", {
+                ]) : _vm.state === _vm.STATES.success ? _c('md-icon', {
                     staticClass: "md-size-5x"
                 }, [
                     _vm._v("check")
@@ -5076,8 +5303,8 @@ var render = function() {
             ], 1)
         ]),
         _vm._v(" "),
-        _c("md-dialog-actions", [
-            _c("md-button", {
+        _c('md-dialog-actions', [
+            _c('md-button', {
                 staticClass: "md-primary",
                 on: {
                     "click": function($event) {
@@ -5088,7 +5315,7 @@ var render = function() {
                 _vm._v("Close")
             ]),
             _vm._v(" "),
-            _c("md-button", {
+            _c('md-button', {
                 staticClass: "md-primary",
                 attrs: {
                     "disabled": _vm.disabled
@@ -5106,13 +5333,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"1EBwl":[function() {},{}],"d2uVQ":[function(require,module,exports) {
+},{}],"1EBwl":[function() {},{}],"d2uVQ":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"aDJac":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"aDJac":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -5124,13 +5351,13 @@ let initialize = ()=>{
     script._scopeId = "data-v-8a8b91";
     script.__cssModules = require("b4adb5bb0d56c210").default;
     require("2c4eeea0810deed8").default(script);
-    script.__scopeId = "data-v-8a8b91";
+    script.__scopeId = 'data-v-8a8b91';
     script.__file = "selectGeoType.vue";
 };
 initialize();
 exports.default = script;
 
-},{"7ddd34c5a32fcc6d":"1apq6","24ca93a65d97632a":"fiYWE","b4adb5bb0d56c210":"hTgOi","2c4eeea0810deed8":"a7rPL","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1apq6":[function(require,module,exports) {
+},{"7ddd34c5a32fcc6d":"1apq6","24ca93a65d97632a":"fiYWE","b4adb5bb0d56c210":"hTgOi","2c4eeea0810deed8":"a7rPL","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1apq6":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerGraphService = require("spinal-env-viewer-graph-service");
@@ -5187,15 +5414,15 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"spinal-env-viewer-graph-service":"9n7zp","spinal-env-viewer-context-geographic-service/build/constants":"eV0id","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fiYWE":[function(require,module,exports) {
+},{"spinal-env-viewer-graph-service":"9n7zp","spinal-env-viewer-context-geographic-service/build/constants":"eV0id","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fiYWE":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("md-dialog", {
+    return _c('md-dialog', {
         staticClass: "mdDialogContainer",
         attrs: {
             "md-active": _vm.showDialog
@@ -5212,17 +5439,17 @@ var render = function() {
             }
         }
     }, [
-        _c("md-dialog-title", {
+        _c('md-dialog-title', {
             staticClass: "dialogTitle"
         }, [
-            _vm._v("\n		Link Controlpoint To\n	")
+            _vm._v("\n\t\tLink Controlpoint To\n\t")
         ]),
         _vm._v(" "),
-        _c("md-dialog-content", {
+        _c('md-dialog-content', {
             staticClass: "content"
         }, [
-            _c("md-field", [
-                _c("label", {
+            _c('md-field', [
+                _c('label', {
                     attrs: {
                         "for": "type"
                     }
@@ -5230,7 +5457,7 @@ var render = function() {
                     _vm._v("Link controlpoint to all")
                 ]),
                 _vm._v(" "),
-                _c("md-select", {
+                _c('md-select', {
                     attrs: {
                         "name": "type",
                         "id": "type"
@@ -5243,20 +5470,20 @@ var render = function() {
                         expression: "type"
                     }
                 }, _vm._l(_vm.types, function(t) {
-                    return _c("md-option", {
+                    return _c('md-option', {
                         key: t,
                         attrs: {
                             "value": t
                         }
                     }, [
-                        _vm._v("\n					" + _vm._s(t) + "\n				")
+                        _vm._v("\n\t\t\t\t\t" + _vm._s(t) + "\n\t\t\t\t")
                     ]);
                 }), 1)
             ], 1)
         ], 1),
         _vm._v(" "),
-        _c("md-dialog-actions", [
-            _c("md-button", {
+        _c('md-dialog-actions', [
+            _c('md-button', {
                 staticClass: "md-primary",
                 on: {
                     "click": function($event) {
@@ -5264,10 +5491,10 @@ var render = function() {
                     }
                 }
             }, [
-                _vm._v("\n			Cancel\n		")
+                _vm._v("\n\t\t\tCancel\n\t\t")
             ]),
             _vm._v(" "),
-            _c("md-button", {
+            _c('md-button', {
                 staticClass: "md-primary",
                 attrs: {
                     "disabled": _vm.disabled()
@@ -5278,7 +5505,7 @@ var render = function() {
                     }
                 }
             }, [
-                _vm._v("\n			Save\n		")
+                _vm._v("\n\t\t\tSave\n\t\t")
             ])
         ], 1)
     ], 1);
@@ -5287,13 +5514,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"hTgOi":[function() {},{}],"a7rPL":[function(require,module,exports) {
+},{}],"hTgOi":[function() {},{}],"a7rPL":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"leIOn":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"leIOn":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _vue = require("vue");
 var _vueDefault = parcelHelpers.interopDefault(_vue);
@@ -5336,7 +5563,7 @@ for (const element of panels){
     (0, _spinalEnvViewerPanelManagerServiceSpinalforgeextention.SpinalForgeExtention).registerExtention(element.name, panelExtension);
 }
 
-},{"vue":"gt5MM","spinal-env-viewer-panel-manager-service_spinalforgeextention":"1mGHd","./controlPointEdit.vue":"Y8Uay","./unLinkControlPointPanel.vue":"81Nze","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1mGHd":[function(require,module,exports) {
+},{"vue":"gt5MM","spinal-env-viewer-panel-manager-service_spinalforgeextention":"1mGHd","./controlPointEdit.vue":"Y8Uay","./unLinkControlPointPanel.vue":"81Nze","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1mGHd":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -5365,7 +5592,7 @@ module.exports = {
     SpinalForgeExtention
 };
 
-},{"bf7edd8450503e22":"7Uw4d","64bd1569b4ded066":"gsEky"}],"gsEky":[function(require,module,exports) {
+},{"bf7edd8450503e22":"7Uw4d","64bd1569b4ded066":"gsEky"}],"gsEky":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
  * 
@@ -5600,7 +5827,7 @@ function getPanel() {
     };
 };
 
-},{}],"Y8Uay":[function(require,module,exports) {
+},{}],"Y8Uay":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -5612,13 +5839,13 @@ let initialize = ()=>{
     script._scopeId = "data-v-fe1eb9";
     script.__cssModules = require("77b7e1cc4f786525").default;
     require("42a58fb9b5b38fc0").default(script);
-    script.__scopeId = "data-v-fe1eb9";
+    script.__scopeId = 'data-v-fe1eb9';
     script.__file = "controlPointEdit.vue";
 };
 initialize();
 exports.default = script;
 
-},{"3e8de36af07d260e":"7UOec","983154c142585fd0":"lGo7N","77b7e1cc4f786525":"1Ag5p","42a58fb9b5b38fc0":"gqeKK","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7UOec":[function(require,module,exports) {
+},{"3e8de36af07d260e":"7UOec","983154c142585fd0":"lGo7N","77b7e1cc4f786525":"1Ag5p","42a58fb9b5b38fc0":"gqeKK","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7UOec":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _controlPointsVue = require("../components/controlPoints.vue");
@@ -5670,29 +5897,29 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"../components/controlPoints.vue":"17NUS","spinal-env-viewer-plugin-control-endpoint-service":"5dUad","../../utilities/event":"1IHAo","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"lGo7N":[function(require,module,exports) {
+},{"../components/controlPoints.vue":"17NUS","spinal-env-viewer-plugin-control-endpoint-service":"5dUad","../../utilities/event":"1IHAo","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"lGo7N":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("div", {
+    return _c('div', {
         staticClass: "control_points_container"
     }, [
-        !_vm.editMode ? _c("md-button", {
+        !_vm.editMode ? _c('md-button', {
             staticClass: "md-fab md-mini md-plain md-primary md-fab-bottom-right",
             on: {
                 "click": _vm.activeEditMode
             }
         }, [
-            _c("md-icon", [
+            _c('md-icon', [
                 _vm._v("edit")
             ])
         ], 1) : _vm._e(),
         _vm._v(" "),
-        _c("control-point-vue", {
+        _c('control-point-vue', {
             attrs: {
                 "editMode": _vm.editMode,
                 "data": _vm.data
@@ -5708,13 +5935,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"1Ag5p":[function() {},{}],"gqeKK":[function(require,module,exports) {
+},{}],"1Ag5p":[function() {},{}],"gqeKK":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"81Nze":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"81Nze":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -5726,13 +5953,13 @@ let initialize = ()=>{
     script._scopeId = "data-v-5893ae";
     script.__cssModules = require("393caf86bba76c60").default;
     require("51784d02c9404db8").default(script);
-    script.__scopeId = "data-v-5893ae";
+    script.__scopeId = 'data-v-5893ae';
     script.__file = "unLinkControlPointPanel.vue";
 };
 initialize();
 exports.default = script;
 
-},{"dc040ed744f796dc":"lB96E","e0c4eaffd114d8e5":"8TgNz","393caf86bba76c60":"bx2Zc","51784d02c9404db8":"7uMHU","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"lB96E":[function(require,module,exports) {
+},{"dc040ed744f796dc":"lB96E","e0c4eaffd114d8e5":"8TgNz","393caf86bba76c60":"bx2Zc","51784d02c9404db8":"7uMHU","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"lB96E":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerPluginControlEndpointService = require("spinal-env-viewer-plugin-control-endpoint-service");
@@ -5791,37 +6018,37 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"spinal-env-viewer-plugin-control-endpoint-service":"5dUad","85a6910f04d9a211":"7Uw4d","spinal-env-viewer-plugin-group-manager-service":"tSLpq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"8TgNz":[function(require,module,exports) {
+},{"spinal-env-viewer-plugin-control-endpoint-service":"5dUad","85a6910f04d9a211":"7Uw4d","spinal-env-viewer-plugin-group-manager-service":"tSLpq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"8TgNz":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("div", {
+    return _c('div', {
         staticClass: "_unLinkDialogContent"
     }, [
-        _vm.state === _vm.PAGES.loaded ? _c("div", {
+        _vm.state === _vm.PAGES.loaded ? _c('div', {
             staticClass: "content"
         }, [
-            _vm.controlEndpoints.length === 0 ? _c("div", {
+            _vm.controlEndpoints.length === 0 ? _c('div', {
                 staticClass: "state"
             }, [
                 _vm._v("\n      No controlPoints linked\n    ")
-            ]) : _c("md-list", {
+            ]) : _c('md-list', {
                 staticClass: "list_content md-scrollbar"
             }, _vm._l(_vm.controlEndpoints, function(item) {
-                return _c("md-list-item", {
+                return _c('md-list-item', {
                     key: item.id
                 }, [
-                    _c("span", {
+                    _c('span', {
                         staticClass: "md-list-item-text"
                     }, [
                         _vm._v(_vm._s(item.name))
                     ]),
                     _vm._v(" "),
-                    _c("md-button", {
+                    _c('md-button', {
                         staticClass: "md-icon-button md-list-action",
                         on: {
                             "click": function($event) {
@@ -5829,7 +6056,7 @@ var render = function() {
                             }
                         }
                     }, [
-                        _c("md-icon", {
+                        _c('md-icon', {
                             staticClass: "md-accent"
                         }, [
                             _vm._v("link_off")
@@ -5837,14 +6064,14 @@ var render = function() {
                     ], 1)
                 ], 1);
             }), 1)
-        ], 1) : _c("div", {
+        ], 1) : _c('div', {
             staticClass: "state"
         }, [
-            _vm.state === _vm.PAGES.loading ? _c("md-progress-spinner", {
+            _vm.state === _vm.PAGES.loading ? _c('md-progress-spinner', {
                 attrs: {
                     "md-mode": "indeterminate"
                 }
-            }) : _c("md-icon", {
+            }) : _c('md-icon', {
                 staticClass: "md-size-5x"
             }, [
                 _vm._v("error")
@@ -5856,13 +6083,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"bx2Zc":[function() {},{}],"7uMHU":[function(require,module,exports) {
+},{}],"bx2Zc":[function() {},{}],"7uMHU":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"kVe3m":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"kVe3m":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _vue = require("vue");
 var _vueDefault = parcelHelpers.interopDefault(_vue);
@@ -5873,7 +6100,7 @@ let app = new legendsHeatmapComponent();
 app.$mount();
 document.getElementsByTagName("body")[0].appendChild(app.$el);
 
-},{"vue":"gt5MM","./heatmap-container.vue":"bD1nh","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"bD1nh":[function(require,module,exports) {
+},{"vue":"gt5MM","./heatmap-container.vue":"bD1nh","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"bD1nh":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -5885,13 +6112,13 @@ let initialize = ()=>{
     script._scopeId = "data-v-a3d074";
     script.__cssModules = require("1bf7e10a49c8dc29").default;
     require("4a9ad9773e5c61c9").default(script);
-    script.__scopeId = "data-v-a3d074";
+    script.__scopeId = 'data-v-a3d074';
     script.__file = "heatmap-container.vue";
 };
 initialize();
 exports.default = script;
 
-},{"78075c93296ff468":"fJAw1","2197d627c4e45235":"ktieT","1bf7e10a49c8dc29":"2617i","4a9ad9773e5c61c9":"aQl1H","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fJAw1":[function(require,module,exports) {
+},{"78075c93296ff468":"fJAw1","2197d627c4e45235":"ktieT","1bf7e10a49c8dc29":"2617i","4a9ad9773e5c61c9":"aQl1H","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fJAw1":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerPluginControlEndpointService = require("spinal-env-viewer-plugin-control-endpoint-service");
@@ -5982,10 +6209,10 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"spinal-env-viewer-plugin-control-endpoint-service":"5dUad","../components/heatmap.vue":"2bBcS","../../utilities/event":"1IHAo","../../utilities/itemsColored":"ddtvZ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2bBcS":[function(require,module,exports) {
+},{"spinal-env-viewer-plugin-control-endpoint-service":"5dUad","../components/heatmap.vue":"2bBcS","../../utilities/event":"1IHAo","../../utilities/itemsColored":"ddtvZ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2bBcS":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -5997,13 +6224,13 @@ let initialize = ()=>{
     script._scopeId = "data-v-438436";
     script.__cssModules = require("720f20569cfe356e").default;
     require("21206b33b4eafe81").default(script);
-    script.__scopeId = "data-v-438436";
+    script.__scopeId = 'data-v-438436';
     script.__file = "heatmap.vue";
 };
 initialize();
 exports.default = script;
 
-},{"aa3ca27a466732ed":"gGDIc","b7ab112426355ef9":"iVXpb","720f20569cfe356e":"6rsU7","21206b33b4eafe81":"kzKTZ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gGDIc":[function(require,module,exports) {
+},{"aa3ca27a466732ed":"gGDIc","b7ab112426355ef9":"iVXpb","720f20569cfe356e":"6rsU7","21206b33b4eafe81":"kzKTZ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gGDIc":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerGraphService = require("spinal-env-viewer-graph-service");
@@ -6183,23 +6410,23 @@ var scriptExports = {
         }
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"spinal-env-viewer-graph-service":"9n7zp","../../utilities/color":"kTUWR","../../utilities/utitlities":"adP1U","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"iVXpb":[function(require,module,exports) {
+},{"spinal-env-viewer-graph-service":"9n7zp","../../utilities/color":"kTUWR","../../utilities/utitlities":"adP1U","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"iVXpb":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("div", {
+    return _c('div', {
         staticClass: "_legends"
     }, [
-        _c("div", {
+        _c('div', {
             directives: [
                 {
                     name: "tooltip",
                     rawName: "v-tooltip",
-                    value: "close " + _vm.title,
+                    value: 'close ' + _vm.title,
                     expression: "'close ' + title"
                 }
             ],
@@ -6211,7 +6438,7 @@ var render = function() {
             _vm._v("X")
         ]),
         _vm._v(" "),
-        _c("div", {
+        _c('div', {
             directives: [
                 {
                     name: "tooltip",
@@ -6225,28 +6452,28 @@ var render = function() {
             _vm._v(_vm._s(_vm.title))
         ]),
         _vm._v(" "),
-        _c("md-menu", {
+        _c('md-menu', {
             staticClass: "selects",
             attrs: {
                 "md-size": "small",
                 "mdCloseOnClick": true
             }
         }, [
-            _c("md-button", {
+            _c('md-button', {
                 staticClass: "btn-trigger",
                 attrs: {
                     "md-menu-trigger": ""
                 }
             }, [
-                _c("md-icon", {
+                _c('md-icon', {
                     staticClass: "menu_icon legendIcon"
                 }, [
                     _vm._v("\n        menu\n      ")
                 ])
             ], 1),
             _vm._v(" "),
-            _c("md-menu-content", _vm._l(_vm.endpointProfils, function(profil) {
-                return _c("md-menu-item", {
+            _c('md-menu-content', _vm._l(_vm.endpointProfils, function(profil) {
+                return _c('md-menu-item', {
                     key: profil.id,
                     on: {
                         "click": function($event) {
@@ -6259,26 +6486,26 @@ var render = function() {
             }), 1)
         ], 1),
         _vm._v(" "),
-        _c("div", {
+        _c('div', {
             staticClass: "colors"
         }, _vm._l(this.gradient, function(g, index) {
-            return _c("div", {
+            return _c('div', {
                 key: index,
                 staticClass: "boxContainer"
             }, [
-                _c("div", {
+                _c('div', {
                     staticClass: "boxColor",
                     style: {
-                        "background-color": g.color
+                        'background-color': g.color
                     }
                 }),
                 _vm._v(" "),
-                _c("div", {
+                _c('div', {
                     directives: [
                         {
                             name: "tooltip",
                             rawName: "v-tooltip",
-                            value: g.value + "",
+                            value: g.value + '',
                             expression: "g.value + ''"
                         }
                     ],
@@ -6294,28 +6521,28 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"6rsU7":[function() {},{}],"kzKTZ":[function(require,module,exports) {
+},{}],"6rsU7":[function() {},{}],"kzKTZ":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ktieT":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ktieT":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("div", {
+    return _c('div', {
         staticClass: "_container"
     }, [
-        _vm.legendLength > 0 ? _c("md-content", {
+        _vm.legendLength > 0 ? _c('md-content', {
             staticClass: "md-scrollbar heatmap_legends_container"
         }, _vm._l(Object.keys(_vm.data), function(key) {
-            return _c("div", {
+            return _c('div', {
                 key: key,
                 staticClass: "legend"
             }, [
-                _c("heatmap-legend", {
+                _c('heatmap-legend', {
                     ref: key,
                     refInFor: true,
                     attrs: {
@@ -6334,12 +6561,12 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"2617i":[function() {},{}],"aQl1H":[function(require,module,exports) {
+},{}],"2617i":[function() {},{}],"aQl1H":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},[], null, "parcelRequire02e5")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},[], null, "parcelRequire94c2")
 
 //# sourceMappingURL=spinal-env-viewer-plugin-control-endpoint.388c4e7d.js.map

@@ -73,7 +73,7 @@
         localRequire,
         module,
         module.exports,
-        this
+        globalObject
       );
     }
 
@@ -142,7 +142,7 @@
       this[globalName] = mainExports;
     }
   }
-})({"5QGzG":[function(require,module,exports) {
+})({"5QGzG":[function(require,module,exports,__globalThis) {
 /**
   * vue-cal v3.11.0
   * (c) 2022 Antoni Andre <antoniandre.web@gmail.com>
@@ -169,7 +169,7 @@ const a = [
     "Th\u1EE9 ba",
     "Th\u1EE9 t\u01B0",
     "Th\u1EE9 n\u0103m",
-    "Th\u1EE9 s\xe1u",
+    "Th\u1EE9 s\xE1u",
     "Th\u1EE9 b\u1EA3y",
     "Ch\u1EE7 nh\u1EADt"
 ], n = [
@@ -181,35 +181,35 @@ const a = [
     "T7",
     "CN"
 ], e = [
-    "Th\xe1ng 1",
-    "Th\xe1ng 2",
-    "Th\xe1ng 3",
-    "Th\xe1ng 4",
-    "Th\xe1ng 5",
-    "Th\xe1ng 6",
-    "Th\xe1ng 7",
-    "Th\xe1ng 8",
-    "Th\xe1ng 9",
-    "Th\xe1ng 10",
-    "Th\xe1ng 11",
-    "Th\xe1ng 12"
-], h = "N\u0103m", t = "N\u0103m nay", T = "Th\xe1ng", s = "Tu\u1EA7n", y = "Ng\xe0y", g = "H\xf4m nay", d = "NKh\xf4ng c\xf3 Event", o = "C\u1EA3 ng\xe0y", m = "X\xf3a", r = "T\u1EA1o event", v = "dddd MMMM D YYYY", N = {
+    "Th\xE1ng 1",
+    "Th\xE1ng 2",
+    "Th\xE1ng 3",
+    "Th\xE1ng 4",
+    "Th\xE1ng 5",
+    "Th\xE1ng 6",
+    "Th\xE1ng 7",
+    "Th\xE1ng 8",
+    "Th\xE1ng 9",
+    "Th\xE1ng 10",
+    "Th\xE1ng 11",
+    "Th\xE1ng 12"
+], h = "N\u0103m", t = "N\u0103m nay", T = "Th\xE1ng", s = "Tu\u1EA7n", y = "Ng\xE0y", g = "H\xF4m nay", d = "NKh\xF4ng c\xF3 Event", o = "C\u1EA3 ng\xE0y", m = "X\xF3a", r = "T\u1EA1o event", v = "dddd MMMM D YYYY", N = {
     weekDays: a,
     weekDaysShort: n,
     months: e,
     years: "N\u0103m",
     year: "N\u0103m nay",
-    month: "Th\xe1ng",
+    month: "Th\xE1ng",
     week: "Tu\u1EA7n",
-    day: "Ng\xe0y",
-    today: "H\xf4m nay",
-    noEvent: "NKh\xf4ng c\xf3 Event",
-    allDay: "C\u1EA3 ng\xe0y",
-    deleteEvent: "X\xf3a",
+    day: "Ng\xE0y",
+    today: "H\xF4m nay",
+    noEvent: "NKh\xF4ng c\xF3 Event",
+    allDay: "C\u1EA3 ng\xE0y",
+    deleteEvent: "X\xF3a",
     createEvent: "T\u1EA1o event",
     dateFormat: "dddd MMMM D YYYY"
 };
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},[], null, "parcelRequire02e5")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},[], null, "parcelRequire94c2")
 
 //# sourceMappingURL=vi.es.f97ac906.js.map

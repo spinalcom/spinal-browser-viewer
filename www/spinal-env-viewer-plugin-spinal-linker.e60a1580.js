@@ -73,7 +73,7 @@
         localRequire,
         module,
         module.exports,
-        this
+        globalObject
       );
     }
 
@@ -142,7 +142,7 @@
       this[globalName] = mainExports;
     }
   }
-})({"jnvPn":[function(require,module,exports) {
+})({"jnvPn":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2019 SpinalCom - www.spinalcom.com
  *
@@ -184,15 +184,15 @@ const extentions = (0, _spinalEnvViewerPanelManagerServiceSpinalforgeextention.S
         closeBehaviour: "delete"
     },
     style: {
-        height: "80vh",
-        width: "360px",
-        top: "0px",
-        left: "427px"
+        height: '80vh',
+        width: '360px',
+        top: '0px',
+        left: '427px'
     }
 });
 (0, _spinalEnvViewerPanelManagerServiceSpinalforgeextention.SpinalForgeExtention).registerExtention("plugin-spinal-linker", extentions);
 
-},{"spinal-env-viewer-panel-manager-service_spinalforgeextention":"1mGHd","./src/SpinalLinker.vue":"gbgUt","./src/GraphManagerButton/SpinalLinkerButton":"13UTj","vue":"gt5MM","vue-async-computed":"k3v8t","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1mGHd":[function(require,module,exports) {
+},{"spinal-env-viewer-panel-manager-service_spinalforgeextention":"1mGHd","./src/SpinalLinker.vue":"gbgUt","./src/GraphManagerButton/SpinalLinkerButton":"13UTj","vue":"gt5MM","vue-async-computed":"k3v8t","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1mGHd":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -221,7 +221,7 @@ module.exports = {
     SpinalForgeExtention
 };
 
-},{"bf7edd8450503e22":"7Uw4d","64bd1569b4ded066":"gsEky"}],"7Uw4d":[function(require,module,exports) {
+},{"bf7edd8450503e22":"7Uw4d","64bd1569b4ded066":"gsEky"}],"7Uw4d":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -260,7 +260,7 @@ module.exports = {
     }
 };
 
-},{"8b71a79dcc12420e":"h7sS1","e47c36529e942a76":"cvBJ6","cfd4c6200ba55765":"9SKSV"}],"h7sS1":[function(require,module,exports) {
+},{"8b71a79dcc12420e":"h7sS1","e47c36529e942a76":"cvBJ6","cfd4c6200ba55765":"9SKSV"}],"h7sS1":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -340,7 +340,7 @@ module.exports = {
 }
 module.exports = SpinalPanelManagerService;
 
-},{}],"cvBJ6":[function(require,module,exports) {
+},{}],"cvBJ6":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -375,7 +375,7 @@ module.exports = SpinalPanelManagerService;
 }
 module.exports = SpinalPanelApp;
 
-},{}],"9SKSV":[function(require,module,exports) {
+},{}],"9SKSV":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -474,7 +474,7 @@ function getDialog() {
     };
 };
 
-},{}],"gsEky":[function(require,module,exports) {
+},{}],"gsEky":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
  * 
@@ -709,7 +709,7 @@ function getPanel() {
     };
 };
 
-},{}],"gbgUt":[function(require,module,exports) {
+},{}],"gbgUt":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -721,13 +721,13 @@ let initialize = ()=>{
     script._scopeId = "data-v-f0d48e";
     script.__cssModules = require("b54c4fec0b887e3c").default;
     require("a7a307444dab9b2d").default(script);
-    script.__scopeId = "data-v-f0d48e";
+    script.__scopeId = 'data-v-f0d48e';
     script.__file = "SpinalLinker.vue";
 };
 initialize();
 exports.default = script;
 
-},{"94c2b0c8977d9598":"9MsBO","efe57650cd460dcd":"5p4Y2","b54c4fec0b887e3c":"484yJ","a7a307444dab9b2d":"5rf5n","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9MsBO":[function(require,module,exports) {
+},{"94c2b0c8977d9598":"9MsBO","efe57650cd460dcd":"5p4Y2","b54c4fec0b887e3c":"484yJ","a7a307444dab9b2d":"5rf5n","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9MsBO":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerGraphService = require("spinal-env-viewer-graph-service");
@@ -740,16 +740,16 @@ var scriptExports = {
     },
     data: function() {
         return {
-            "contextsId": [],
-            "inspectedNode": "",
-            "relationName": "",
-            "relationType": ""
+            'contextsId': [],
+            'inspectedNode': '',
+            'relationName': '',
+            'relationType': ''
         };
     },
     computed: {
         name: function() {
-            if (this.inspectedNode && this.inspectedNode.hasOwnProperty("name")) return this.inspectedNode.name.get();
-            return "";
+            if (this.inspectedNode && this.inspectedNode.hasOwnProperty('name')) return this.inspectedNode.name.get();
+            return '';
         }
     },
     methods: {
@@ -760,17 +760,17 @@ var scriptExports = {
             this.contextsId = [];
             const graphId = (0, _spinalEnvViewerGraphService.SpinalGraphService).getGraph().info.id.get();
             (0, _spinalEnvViewerGraphService.SpinalGraphService).getChildren(graphId, []).then((children)=>{
-                for(let i = 0; i < children.length; i++)if (children[i].hasOwnProperty("id")) this.contextsId.push(children[i].id.get());
+                for(let i = 0; i < children.length; i++)if (children[i].hasOwnProperty('id')) this.contextsId.push(children[i].id.get());
             });
         },
         closed: function() {},
         removed: function() {}
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"spinal-env-viewer-graph-service":"9n7zp","./node-item.vue":"fmT1t","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fmT1t":[function(require,module,exports) {
+},{"spinal-env-viewer-graph-service":"9n7zp","./node-item.vue":"fmT1t","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fmT1t":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -782,13 +782,13 @@ let initialize = ()=>{
     script._scopeId = "data-v-53383f";
     script.__cssModules = require("8593a4c08c2f0e7b").default;
     require("e87eed8d87e01087").default(script);
-    script.__scopeId = "data-v-53383f";
+    script.__scopeId = 'data-v-53383f';
     script.__file = "node-item.vue";
 };
 initialize();
 exports.default = script;
 
-},{"a1c40e309a7f268e":"6oFu8","1a1e8b2dde852098":"1mMRU","8593a4c08c2f0e7b":"g1e9e","e87eed8d87e01087":"b3gEb","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6oFu8":[function(require,module,exports) {
+},{"a1c40e309a7f268e":"6oFu8","1a1e8b2dde852098":"1mMRU","8593a4c08c2f0e7b":"g1e9e","e87eed8d87e01087":"b3gEb","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6oFu8":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerVueComponentsLib = require("spinal-env-viewer-vue-components-lib");
@@ -821,7 +821,7 @@ var scriptExports = {
         },
         linkRelationName: {
             type: String,
-            default: "HasBeenLink"
+            default: 'HasBeenLink'
         },
         linkRelationType: {
             type: String,
@@ -830,18 +830,18 @@ var scriptExports = {
     },
     computed: {
         name: function() {
-            if (this.node && this.node.hasOwnProperty("name")) return this.node.name.get();
-            return "Unknown name";
+            if (this.node && this.node.hasOwnProperty('name')) return this.node.name.get();
+            return 'Unknown name';
         },
         hasChildren: function() {
-            if (this.node && this.node.hasOwnProperty("childrenIds")) return false;
+            if (this.node && this.node.hasOwnProperty('childrenIds')) return false;
             return false;
         }
     },
     asyncComputed: {
         canLink: {
             get: async function() {
-                if (!this.linked && this.node && this.node.hasOwnProperty("id")) {
+                if (!this.linked && this.node && this.node.hasOwnProperty('id')) {
                     let res = await (0, _spinalEnvViewerGraphService.SpinalGraphService).isChild(this.linkId, this.node.id.get(), [
                         this.linkRelationName
                     ]);
@@ -854,7 +854,7 @@ var scriptExports = {
             },
             default: false,
             watch: [
-                "linked"
+                'linked'
             ]
         }
     },
@@ -866,10 +866,10 @@ var scriptExports = {
         },
         unlink: function() {
             if (this.invertLink) (0, _spinalEnvViewerGraphService.SpinalGraphService).removeChild(this.node.id.get(), this.linkId, this.linkRelationName, this.linkRelationType).then(()=>{
-                console.log("unlink inverted");
+                console.log('unlink inverted');
             }).catch((e)=>console.error(e));
             else (0, _spinalEnvViewerGraphService.SpinalGraphService).removeChild(this.linkId, this.node.id.get(), this.linkRelationName, this.linkRelationType).then(()=>{
-                console.log("unlink");
+                console.log('unlink');
             }).catch((e)=>console.error(e));
             this.linked = false;
         },
@@ -881,19 +881,19 @@ var scriptExports = {
         this.node = (0, _spinalEnvViewerGraphService.SpinalGraphService).getNode(this.nodeId);
     }
 };
-var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"spinal-env-viewer-vue-components-lib":"f8kzc","spinal-env-viewer-graph-service":"9n7zp","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1mMRU":[function(require,module,exports) {
+},{"spinal-env-viewer-vue-components-lib":"f8kzc","spinal-env-viewer-graph-service":"9n7zp","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1mMRU":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("li", [
-        _c("div", {
+    return _c('li', [
+        _c('div', {
             staticClass: "plugin-linker-header"
         }, [
-            _c("drop-up-down-button", {
+            _c('drop-up-down-button', {
                 attrs: {
                     "opened": _vm.open
                 },
@@ -902,7 +902,7 @@ var render = function() {
                 }
             }),
             _vm._v("\n        " + _vm._s(_vm.name) + "\n        "),
-            _vm.canLink ? _c("spinal-icon-button", {
+            _vm.canLink ? _c('spinal-icon-button', {
                 staticClass: "plugin-linker-link-button",
                 attrs: {
                     "icon": "link",
@@ -911,7 +911,7 @@ var render = function() {
                 on: {
                     "click": _vm.link
                 }
-            }) : _c("spinal-icon-button", {
+            }) : _c('spinal-icon-button', {
                 staticClass: "plugin-linker-link-button",
                 attrs: {
                     "icon": "link_off",
@@ -923,8 +923,8 @@ var render = function() {
             })
         ], 1),
         _vm._v(" "),
-        _vm.open ? _c("ul", _vm._l(_vm.node.childrenIds, function(nodeId, index) {
-            return _c("node-item", {
+        _vm.open ? _c('ul', _vm._l(_vm.node.childrenIds, function(nodeId, index) {
+            return _c('node-item', {
                 key: index,
                 attrs: {
                     "nodeId": nodeId,
@@ -941,26 +941,26 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"g1e9e":[function() {},{}],"b3gEb":[function(require,module,exports) {
+},{}],"g1e9e":[function() {},{}],"b3gEb":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5p4Y2":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5p4Y2":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("div", {
+    return _c('div', {
         staticClass: "plugin-spinal-linker"
     }, [
-        _c("h1", [
+        _c('h1', [
             _vm._v(_vm._s(_vm.name))
         ]),
         _vm._v(" "),
         _vm._l(_vm.contextsId, function(contextId) {
-            return _c("node-item", {
+            return _c('node-item', {
                 attrs: {
                     "node-id": contextId,
                     "invert-link": false,
@@ -976,13 +976,13 @@ var staticRenderFns = [];
 exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
-},{}],"484yJ":[function() {},{}],"5rf5n":[function(require,module,exports) {
+},{}],"484yJ":[function() {},{}],"5rf5n":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"13UTj":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"13UTj":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerContextMenuService = require("spinal-env-viewer-context-menu-service");
@@ -991,18 +991,18 @@ var _spinalEnvViewerGraphService = require("spinal-env-viewer-graph-service");
 var _utilities = require("../utilities");
 class SpinalLinkerButton extends (0, _spinalEnvViewerContextMenuService.SpinalContextApp) {
     constructor(){
-        super("SpinalLinker", "Open SpinalLinker", {
-            icon: "link",
-            icon_type: "in",
-            backgroundColor: "#000000",
-            fontColor: "#ffffff"
+        super('SpinalLinker', 'Open SpinalLinker', {
+            icon: 'link',
+            icon_type: 'in',
+            backgroundColor: '#000000',
+            fontColor: '#ffffff'
         });
     }
     isShown(option) {
         if (option.exist || option.selectedNode) {
             if (option.selectedNode instanceof (0, _spinalEnvViewerGraphService.SpinalNode)) return Promise.resolve(true);
             else {
-                if (option.hasOwnProperty("selectedNode") && (0, _utilities.isShownParam).includes(option.selectedNode.type.get())) return Promise.resolve(true);
+                if (option.hasOwnProperty('selectedNode') && (0, _utilities.isShownParam).includes(option.selectedNode.type.get())) return Promise.resolve(true);
             }
         }
         return Promise.resolve(-1);
@@ -1014,16 +1014,16 @@ class SpinalLinkerButton extends (0, _spinalEnvViewerContextMenuService.SpinalCo
             selectedNode = (0, _spinalEnvViewerGraphService.SpinalGraphService).getInfo(option.selectedNode.getId());
         }
         const param = {
-            relationName: "hasEndPoint",
+            relationName: 'hasEndPoint',
             relationType: (0, _spinalEnvViewerGraphService.SPINAL_RELATION_PTR_LST_TYPE),
             selectedNode: selectedNode
         };
-        (0, _spinalEnvViewerPanelManagerService.spinalPanelManagerService).openPanel("plugin-spinal-linker", param);
+        (0, _spinalEnvViewerPanelManagerService.spinalPanelManagerService).openPanel('plugin-spinal-linker', param);
     }
 }
 exports.default = SpinalLinkerButton;
-const TopBarName = "GraphManagerSideBar";
-const circularMenuName = "circularMenu";
+const TopBarName = 'GraphManagerSideBar';
+const circularMenuName = 'circularMenu';
 (0, _spinalEnvViewerContextMenuService.spinalContextMenuService).registerApp(TopBarName, new SpinalLinkerButton(), [
     3
 ]);
@@ -1031,7 +1031,7 @@ const circularMenuName = "circularMenu";
     3
 ]);
 
-},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-panel-manager-service":"7Uw4d","spinal-env-viewer-graph-service":"9n7zp","../utilities":"82KtY","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"82KtY":[function(require,module,exports) {
+},{"spinal-env-viewer-context-menu-service":"kHlxv","spinal-env-viewer-panel-manager-service":"7Uw4d","spinal-env-viewer-graph-service":"9n7zp","../utilities":"82KtY","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"82KtY":[function(require,module,exports,__globalThis) {
 var _spinalEnvViewerGraphService = require("spinal-env-viewer-graph-service");
 var _constants = require("spinal-env-viewer-context-geographic-service/build/constants");
 let isShownParam = [
@@ -1046,7 +1046,7 @@ module.exports = {
     isShownParam
 };
 
-},{"spinal-env-viewer-graph-service":"9n7zp","spinal-env-viewer-context-geographic-service/build/constants":"eV0id"}],"eV0id":[function(require,module,exports) {
+},{"spinal-env-viewer-graph-service":"9n7zp","spinal-env-viewer-context-geographic-service/build/constants":"eV0id"}],"eV0id":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -1074,47 +1074,47 @@ module.exports = {
     value: true
 });
 exports.REFERENCE_ROOM_RELATION = exports.ROOM_REFERENCE_CONTEXT = exports.ZONE_REFERENCE_CONTEXT = exports.FLOOR_REFERENCE_CONTEXT = exports.BUILDING_REFERENCE_CONTEXT = exports.SITE_REFERENCE_CONTEXT = exports.REFERENCE_RELATION = exports.REFERENCE_TYPE = exports.MAP_RELATION_TYPE = exports.MAP_TYPE_RELATION = exports.GEOGRAPHIC_RELATIONS_ORDER = exports.EQUIPMENT_RELATION = exports.GEOGRAPHIC_RELATIONS = exports.ROOM_RELATION = exports.ZONE_RELATION = exports.FLOOR_RELATION = exports.BUILDING_RELATION = exports.SITE_RELATION = exports.GEOGRAPHIC_TYPES_ORDER = exports.EQUIPMENT_TYPE = exports.GEOGRAPHIC_TYPES = exports.ROOM_TYPE = exports.ZONE_TYPE = exports.FLOOR_TYPE = exports.BUILDING_TYPE = exports.SITE_TYPE = exports.CONTEXT_TYPE = void 0;
-const CONTEXT_TYPE = "geographicContext";
+const CONTEXT_TYPE = 'geographicContext';
 exports.CONTEXT_TYPE = CONTEXT_TYPE;
-const SITE_TYPE = "geographicSite";
+const SITE_TYPE = 'geographicSite';
 exports.SITE_TYPE = SITE_TYPE;
-const BUILDING_TYPE = "geographicBuilding";
+const BUILDING_TYPE = 'geographicBuilding';
 exports.BUILDING_TYPE = BUILDING_TYPE;
-const FLOOR_TYPE = "geographicFloor";
+const FLOOR_TYPE = 'geographicFloor';
 exports.FLOOR_TYPE = FLOOR_TYPE;
-const ZONE_TYPE = "geographicZone";
+const ZONE_TYPE = 'geographicZone';
 exports.ZONE_TYPE = ZONE_TYPE;
-const ROOM_TYPE = "geographicRoom";
+const ROOM_TYPE = 'geographicRoom';
 exports.ROOM_TYPE = ROOM_TYPE;
-const EQUIPMENT_TYPE = "BIMObject";
+const EQUIPMENT_TYPE = 'BIMObject';
 exports.EQUIPMENT_TYPE = EQUIPMENT_TYPE;
-const REFERENCE_TYPE = "geographicReference";
+const REFERENCE_TYPE = 'geographicReference';
 exports.REFERENCE_TYPE = REFERENCE_TYPE;
-const SITE_RELATION = "hasGeographicSite";
+const SITE_RELATION = 'hasGeographicSite';
 exports.SITE_RELATION = SITE_RELATION;
-const BUILDING_RELATION = "hasGeographicBuilding";
+const BUILDING_RELATION = 'hasGeographicBuilding';
 exports.BUILDING_RELATION = BUILDING_RELATION;
-const FLOOR_RELATION = "hasGeographicFloor";
+const FLOOR_RELATION = 'hasGeographicFloor';
 exports.FLOOR_RELATION = FLOOR_RELATION;
-const ZONE_RELATION = "hasGeographicZone";
+const ZONE_RELATION = 'hasGeographicZone';
 exports.ZONE_RELATION = ZONE_RELATION;
-const ROOM_RELATION = "hasGeographicRoom";
+const ROOM_RELATION = 'hasGeographicRoom';
 exports.ROOM_RELATION = ROOM_RELATION;
-const EQUIPMENT_RELATION = "hasBimObject";
+const EQUIPMENT_RELATION = 'hasBimObject';
 exports.EQUIPMENT_RELATION = EQUIPMENT_RELATION;
-const REFERENCE_RELATION = "hasReferenceObject";
+const REFERENCE_RELATION = 'hasReferenceObject';
 exports.REFERENCE_RELATION = REFERENCE_RELATION;
-const REFERENCE_ROOM_RELATION = "hasReferenceObject.ROOM";
+const REFERENCE_ROOM_RELATION = 'hasReferenceObject.ROOM';
 exports.REFERENCE_ROOM_RELATION = REFERENCE_ROOM_RELATION;
-const SITE_REFERENCE_CONTEXT = ".SiteContext";
+const SITE_REFERENCE_CONTEXT = '.SiteContext';
 exports.SITE_REFERENCE_CONTEXT = SITE_REFERENCE_CONTEXT;
-const BUILDING_REFERENCE_CONTEXT = ".BuildingContext";
+const BUILDING_REFERENCE_CONTEXT = '.BuildingContext';
 exports.BUILDING_REFERENCE_CONTEXT = BUILDING_REFERENCE_CONTEXT;
-const FLOOR_REFERENCE_CONTEXT = ".FloorContext";
+const FLOOR_REFERENCE_CONTEXT = '.FloorContext';
 exports.FLOOR_REFERENCE_CONTEXT = FLOOR_REFERENCE_CONTEXT;
-const ZONE_REFERENCE_CONTEXT = ".ZoneContext";
+const ZONE_REFERENCE_CONTEXT = '.ZoneContext';
 exports.ZONE_REFERENCE_CONTEXT = ZONE_REFERENCE_CONTEXT;
-const ROOM_REFERENCE_CONTEXT = ".RoomContext";
+const ROOM_REFERENCE_CONTEXT = '.RoomContext';
 exports.ROOM_REFERENCE_CONTEXT = ROOM_REFERENCE_CONTEXT;
 const GEOGRAPHIC_TYPES = Object.freeze([
     SITE_TYPE,
@@ -1207,29 +1207,29 @@ const MAP_RELATION_TYPE = Object.freeze(new Map([
 ]));
 exports.MAP_RELATION_TYPE = MAP_RELATION_TYPE;
 
-},{}],"k3v8t":[function(require,module,exports) {
+},{}],"k3v8t":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 function setAsyncState(vm, stateObject, state) {
-    vm.$set(vm.$data._asyncComputed[stateObject], "state", state);
-    vm.$set(vm.$data._asyncComputed[stateObject], "updating", state === "updating");
-    vm.$set(vm.$data._asyncComputed[stateObject], "error", state === "error");
-    vm.$set(vm.$data._asyncComputed[stateObject], "success", state === "success");
+    vm.$set(vm.$data._asyncComputed[stateObject], 'state', state);
+    vm.$set(vm.$data._asyncComputed[stateObject], 'updating', state === 'updating');
+    vm.$set(vm.$data._asyncComputed[stateObject], 'error', state === 'error');
+    vm.$set(vm.$data._asyncComputed[stateObject], 'success', state === 'success');
 }
 function getterOnly(fn) {
-    if (typeof fn === "function") return fn;
+    if (typeof fn === 'function') return fn;
     return fn.get;
 }
 function hasOwnProperty(object, property) {
     return Object.prototype.hasOwnProperty.call(object, property);
 }
 function isComputedLazy(item) {
-    return hasOwnProperty(item, "lazy") && item.lazy;
+    return hasOwnProperty(item, 'lazy') && item.lazy;
 }
 function isLazyActive(vm, key) {
     return vm[lazyActivePrefix + key];
 }
-var lazyActivePrefix = "async_computed$lazy_active$", lazyDataPrefix = "async_computed$lazy_data$";
+var lazyActivePrefix = 'async_computed$lazy_active$', lazyDataPrefix = 'async_computed$lazy_data$';
 function initLazy(data, key, value) {
     data[lazyActivePrefix + key] = false;
     data[lazyDataPrefix + key] = value;
@@ -1256,7 +1256,7 @@ var getGetterWatchedByArray = function getGetterWatchedByArray(computedAsyncProp
         var _this = this;
         computedAsyncProperty.watch.forEach(function(key) {
             // Check if nested key is watched.
-            var splittedByDot = key.split(".");
+            var splittedByDot = key.split('.');
             if (splittedByDot.length === 1) // If not, just access it.
             // eslint-disable-next-line no-unused-expressions
             _this[key];
@@ -1267,7 +1267,7 @@ var getGetterWatchedByArray = function getGetterWatchedByArray(computedAsyncProp
                     start = start[part];
                 });
             } catch (error) {
-                console.error("AsyncComputed: bad path: ", key);
+                console.error('AsyncComputed: bad path: ', key);
                 throw error;
             }
         });
@@ -1281,15 +1281,15 @@ var getGetterWatchedByFunction = function getGetterWatchedByFunction(computedAsy
     };
 };
 function getWatchedGetter(computedAsyncProperty) {
-    if (typeof computedAsyncProperty.watch === "function") return getGetterWatchedByFunction(computedAsyncProperty);
+    if (typeof computedAsyncProperty.watch === 'function') return getGetterWatchedByFunction(computedAsyncProperty);
     else if (Array.isArray(computedAsyncProperty.watch)) {
         computedAsyncProperty.watch.forEach(function(key) {
-            if (typeof key !== "string") throw new Error("AsyncComputed: watch elemnts must be strings");
+            if (typeof key !== 'string') throw new Error('AsyncComputed: watch elemnts must be strings');
         });
         return getGetterWatchedByArray(computedAsyncProperty);
-    } else throw Error("AsyncComputed: watch should be function or an array");
+    } else throw Error('AsyncComputed: watch should be function or an array');
 }
-var DidNotUpdate = typeof Symbol === "function" ? Symbol("did-not-update") : {};
+var DidNotUpdate = typeof Symbol === 'function' ? Symbol('did-not-update') : {};
 var getGetterWithShouldUpdate = function getGetterWithShouldUpdate(asyncProprety, currentGetter) {
     return function getter() {
         return asyncProprety.shouldUpdate.call(this) ? currentGetter.call(this) : DidNotUpdate;
@@ -1298,7 +1298,7 @@ var getGetterWithShouldUpdate = function getGetterWithShouldUpdate(asyncProprety
 var shouldNotUpdate = function shouldNotUpdate(value) {
     return DidNotUpdate === value;
 };
-var prefix = "_async_computed$";
+var prefix = '_async_computed$';
 var AsyncComputed = {
     install: function install(Vue, pluginOptions) {
         pluginOptions = pluginOptions || {};
@@ -1340,17 +1340,17 @@ function handleAsyncComputedPropetyChanges(vm, key, pluginOptions, Vue) {
         var thisPromise = ++promiseId;
         if (shouldNotUpdate(newPromise)) return;
         if (!newPromise || !newPromise.then) newPromise = Promise.resolve(newPromise);
-        setAsyncState(vm, key, "updating");
+        setAsyncState(vm, key, 'updating');
         newPromise.then(function(value) {
             if (thisPromise !== promiseId) return;
-            setAsyncState(vm, key, "success");
+            setAsyncState(vm, key, 'success');
             vm[key] = value;
         }).catch(function(err) {
             if (thisPromise !== promiseId) return;
-            setAsyncState(vm, key, "error");
-            Vue.set(vm.$data._asyncComputed[key], "exception", err);
+            setAsyncState(vm, key, 'error');
+            Vue.set(vm.$data._asyncComputed[key], 'exception', err);
             if (pluginOptions.errorHandler === false) return;
-            var handler = pluginOptions.errorHandler === undefined ? console.error.bind(console, "Error evaluating async computed property:") : pluginOptions.errorHandler;
+            var handler = pluginOptions.errorHandler === undefined ? console.error.bind(console, 'Error evaluating async computed property:') : pluginOptions.errorHandler;
             if (pluginOptions.useRawError) handler(err, vm, err.stack);
             else handler(err.stack);
         });
@@ -1361,7 +1361,7 @@ function handleAsyncComputedPropetyChanges(vm, key, pluginOptions, Vue) {
             if (!vm._isDestroyed) watcher(getterOnly(vm.$options.asyncComputed[key]).apply(vm));
         }
     });
-    setAsyncState(vm, key, "updating");
+    setAsyncState(vm, key, 'updating');
     vm.$watch(prefix + key, watcher, {
         immediate: true
     });
@@ -1370,7 +1370,7 @@ function initDataWithAsyncComputed(options, pluginOptions) {
     var optionData = options.data;
     var asyncComputed = options.asyncComputed || {};
     return function vueAsyncComputedInjectedDataFn(vm) {
-        var data = (typeof optionData === "function" ? optionData.call(this, vm) : optionData) || {};
+        var data = (typeof optionData === 'function' ? optionData.call(this, vm) : optionData) || {};
         for(var key in asyncComputed){
             var item = this.$options.asyncComputed[key];
             var value = generateDefault.call(this, item, pluginOptions);
@@ -1383,10 +1383,10 @@ function initDataWithAsyncComputed(options, pluginOptions) {
     };
 }
 function getterFn(key, fn) {
-    if (typeof fn === "function") return fn;
+    if (typeof fn === 'function') return fn;
     var getter = fn.get;
-    if (hasOwnProperty(fn, "watch")) getter = getWatchedGetter(fn);
-    if (hasOwnProperty(fn, "shouldUpdate")) getter = getGetterWithShouldUpdate(fn, getter);
+    if (hasOwnProperty(fn, 'watch')) getter = getWatchedGetter(fn);
+    if (hasOwnProperty(fn, 'shouldUpdate')) getter = getGetterWithShouldUpdate(fn, getter);
     if (isComputedLazy(fn)) {
         var nonLazy = getter;
         getter = function lazyGetter() {
@@ -1398,15 +1398,15 @@ function getterFn(key, fn) {
 }
 function generateDefault(fn, pluginOptions) {
     var defaultValue = null;
-    if ("default" in fn) defaultValue = fn.default;
-    else if ("default" in pluginOptions) defaultValue = pluginOptions.default;
-    if (typeof defaultValue === "function") return defaultValue.call(this);
+    if ('default' in fn) defaultValue = fn.default;
+    else if ('default' in pluginOptions) defaultValue = pluginOptions.default;
+    if (typeof defaultValue === 'function') return defaultValue.call(this);
     else return defaultValue;
 }
-/* istanbul ignore if */ if (typeof window !== "undefined" && window.Vue) // Auto install in dist mode
+/* istanbul ignore if */ if (typeof window !== 'undefined' && window.Vue) // Auto install in dist mode
 window.Vue.use(AsyncComputed);
 exports.default = AsyncComputed;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},[], null, "parcelRequire02e5")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},[], null, "parcelRequire94c2")
 
 //# sourceMappingURL=spinal-env-viewer-plugin-spinal-linker.e60a1580.js.map

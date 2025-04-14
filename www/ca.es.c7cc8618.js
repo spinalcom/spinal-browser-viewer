@@ -73,7 +73,7 @@
         localRequire,
         module,
         module.exports,
-        this
+        globalObject
       );
     }
 
@@ -142,7 +142,7 @@
       this[globalName] = mainExports;
     }
   }
-})({"etoix":[function(require,module,exports) {
+})({"etoix":[function(require,module,exports,__globalThis) {
 /**
   * vue-cal v3.11.0
   * (c) 2022 Antoni Andre <antoniandre.web@gmail.com>
@@ -183,7 +183,7 @@ const e = [
 ], s = [
     "Gener",
     "Febrer",
-    "Mar\xe7",
+    "Mar\xE7",
     "Abril",
     "Maig",
     "Juny",
@@ -210,6 +210,6 @@ const e = [
     dateFormat: "dddd D MMMM YYYY"
 };
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},[], null, "parcelRequire02e5")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},[], null, "parcelRequire94c2")
 
 //# sourceMappingURL=ca.es.c7cc8618.js.map
