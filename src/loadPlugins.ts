@@ -114,6 +114,12 @@ export function loadPlugins() {
     safeImport(import('spinal-env-viewer-plugin-analysis')),
     safeImport(import('spinal-env-viewer-plugin-offset-calcul')),
     safeImport(import('spinal-env-viewer-plugin-opcua-manager')),
+    safeImport(
+      import(
+        'spinal-env-viewer-plugin-link_endpoint_timeseries_to_control_point'
+      )
+    ),
+
     // add plugins ex:
     // safeImport(import('spinal-env-viewer-plugin-attribute-manager')),
     // or
