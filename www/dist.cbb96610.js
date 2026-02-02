@@ -3961,7 +3961,8 @@ const SpinalTimeSeriesConfig_1 = require("1d2e5ea7cf84a8b8");
                 }
                 for(; index < archiveLen; index += 1){
                     const dateValue = archive.get(index);
-                    if (dateValue.date > normalizedEnd) return yield __await(void 0);
+                    if (dateValue.date === 0) continue; // skip empty timeseries
+                    if (dateValue.date > normalizedEnd || dateValue.date < normalizedStart) return yield __await(void 0);
                     yield yield __await(dateValue);
                 }
             }
@@ -4116,6 +4117,7 @@ const spinal_core_connectorjs_1 = require("ce4fcb549d946cf6");
      * @memberof SpinalTimeSeriesArchiveDay
      */ push(data) {
         this.upgradeFromOldTimeSeries();
+        this.removeTrailingEmptyTimeseries();
         if (this.lstDate.length <= this.length.get()) this.addBufferSizeLength();
         this.setLstVal(this.length.get(), Date.now(), data);
         this.length.set(this.length.get() + 1);
@@ -4127,19 +4129,19 @@ const spinal_core_connectorjs_1 = require("ce4fcb549d946cf6");
      * @memberof SpinalTimeSeriesArchiveDay
      */ insert(data, date) {
         this.upgradeFromOldTimeSeries();
-        const targetDate = new Date(date).getTime();
-        const maxDate = new Date(this.dateDay.get()).setUTCHours(23, 59, 59, 999);
+        const targetDate = new Date(date).getTime(); //the date to insert to
+        const maxDate = new Date(this.dateDay.get()).setUTCHours(23, 59, 59, 999); // max date allowed to insert in this day
         if (!(this.dateDay.get() <= targetDate && targetDate <= maxDate)) return false;
-        if (this.lstDate.length <= this.length.get()) this.addBufferSizeLength();
+        this.removeTrailingEmptyTimeseries(); // clean trailing empty timeseries before insert
+        if (this.lstDate.length <= this.length.get()) this.addBufferSizeLength(); // resize if needed
         let index = 0;
         for(; index < this.length.get(); index += 1){
             const element = this.lstDate[index].get();
             if (element === targetDate) {
-                // check exist
                 this.lstValue[index].set(data);
                 return true;
             }
-            if (element > targetDate) break;
+            if (element > targetDate) break; // we stop looking when we passed the target date
         }
         if (index === this.length.get()) {
             this.setLstVal(this.length.get(), targetDate, data);
@@ -4211,6 +4213,12 @@ const spinal_core_connectorjs_1 = require("ce4fcb549d946cf6");
             this.lstDate.push(0);
             this.lstValue.push(0);
         }
+    }
+    isEmptyTimeseries(index) {
+        return this.lstDate[index].get() === 0 && this.lstValue[index].get() === 0;
+    }
+    removeTrailingEmptyTimeseries() {
+        while(this.length.get() > 0 && this.isEmptyTimeseries(this.length.get() - 1))this.length.set(this.length.get() - 1);
     }
     upgradeFromOldTimeSeries() {
         var _a;

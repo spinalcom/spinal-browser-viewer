@@ -521,7 +521,7 @@ function getDialog() {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.ALGORITHMS = exports.algos = exports.isGChatOrganCardResult = exports.isGChatMessageResult = exports.isResultSuccess = exports.CONSTANTS = exports.TrackingMethodModel = exports.AnalyticModel = exports.spinalAnalyticOutputManagerService = exports.spinalAnalyticInputManagerService = exports.spinalAnalyticNodeManagerService = exports.spinalAnalyticExecutionService = void 0;
+exports.VERSION = exports.ALGORITHMS = exports.algos = exports.isGChatOrganCardResult = exports.isGChatMessageResult = exports.isResultSuccess = exports.CONSTANTS = exports.TrackingMethodModel = exports.AnalyticModel = exports.spinalAnalyticOutputManagerService = exports.spinalAnalyticInputManagerService = exports.spinalAnalyticNodeManagerService = exports.spinalAnalyticExecutionService = void 0;
 const AnalyticModel_1 = require("bd4f04811876fe06");
 Object.defineProperty(exports, "AnalyticModel", {
     enumerable: true,
@@ -534,6 +534,13 @@ Object.defineProperty(exports, "TrackingMethodModel", {
     enumerable: true,
     get: function() {
         return TrackingMethodModel_1.TrackingMethodModel;
+    }
+});
+const version_1 = require("50bd3ece572be55d");
+Object.defineProperty(exports, "VERSION", {
+    enumerable: true,
+    get: function() {
+        return version_1.VERSION;
     }
 });
 const IAnalyticResult_1 = require("75545a2a14e5f4c1");
@@ -580,7 +587,7 @@ const spinalAnalyticExecutionService = new AnalyticExecutionManagerService_1.def
 exports.spinalAnalyticExecutionService = spinalAnalyticExecutionService;
 exports.default = spinalAnalyticExecutionService;
 
-},{"bd4f04811876fe06":"94N05","346b732d03dffb52":"7svXi","75545a2a14e5f4c1":"3tfRS","15091bfe302456c3":"5MX1w","b5cbb7d75b37f0f9":"eRZCB","1b7c8aae456a9e13":"lbwPG","a9537eec833b1ee7":"6eh2j","7650e6cdfbebff7a":"6sI4H","42b8c086105a42c":"iZwq9"}],"94N05":[function(require,module,exports,__globalThis) {
+},{"bd4f04811876fe06":"94N05","346b732d03dffb52":"7svXi","50bd3ece572be55d":"9wEug","75545a2a14e5f4c1":"3tfRS","15091bfe302456c3":"5MX1w","b5cbb7d75b37f0f9":"eRZCB","1b7c8aae456a9e13":"lbwPG","a9537eec833b1ee7":"6eh2j","7650e6cdfbebff7a":"6sI4H","42b8c086105a42c":"iZwq9"}],"94N05":[function(require,module,exports,__globalThis) {
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -614,7 +621,15 @@ exports.TrackingMethodModel = TrackingMethodModel;
 spinal_core_connectorjs_type_1.spinalCore.register_models(TrackingMethodModel);
 exports.default = TrackingMethodModel;
 
-},{"1b149d1bd23ef12c":"1A32E"}],"3tfRS":[function(require,module,exports,__globalThis) {
+},{"1b149d1bd23ef12c":"1A32E"}],"9wEug":[function(require,module,exports,__globalThis) {
+"use strict";
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.VERSION = void 0;
+exports.VERSION = '3.2.4';
+
+},{}],"3tfRS":[function(require,module,exports,__globalThis) {
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -8931,6 +8946,7 @@ const InputsModel_1 = require("a5ef27f319369412");
 const OutputsModel_1 = require("a05d0a34f760483e");
 const spinal_env_viewer_plugin_documentation_service_1 = require("bb4c818c4c0b9f78");
 const utils_1 = require("5e5277095b4cb738");
+const version_1 = require("e47d9341ea099c34");
 class AnalyticNodeManagerService {
     // eslint-disable-next-line @typescript-eslint/no-empty-function
     constructor(){}
@@ -8971,6 +8987,9 @@ class AnalyticNodeManagerService {
             }
             return spinal_env_viewer_graph_service_1.SpinalGraphService.addContext(contextName, CONSTANTS.CONTEXT_TYPE, undefined).then((context)=>{
                 const contextId = context.getId().get();
+                spinal_env_viewer_plugin_documentation_service_1.attributeService.createOrUpdateAttrsAndCategories(context, "metadata", {
+                    version: version_1.VERSION
+                });
                 return spinal_env_viewer_graph_service_1.SpinalGraphService.getInfo(contextId);
             });
         });
@@ -9028,8 +9047,10 @@ class AnalyticNodeManagerService {
             if (!context) return undefined;
             const contextNode = spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(context.id.get());
             const entities = yield contextNode.getChildren(CONSTANTS.CONTEXT_TO_ENTITY_RELATION);
-            const entitiesModels = entities.map((el)=>spinal_env_viewer_graph_service_1.SpinalGraphService.getInfo(el.info.id.get()));
-            return entitiesModels.find((entity)=>entity.name.get() === entityName);
+            const foundEntityNode = entities.find((el)=>el.getName().get() === entityName);
+            if (!foundEntityNode) return undefined;
+            spinal_env_viewer_graph_service_1.SpinalGraphService._addNode(foundEntityNode);
+            return spinal_env_viewer_graph_service_1.SpinalGraphService.getInfo(foundEntityNode.getId().get());
         });
     }
     /**
@@ -9127,34 +9148,46 @@ class AnalyticNodeManagerService {
             if (!trackingMethod) throw new Error('No tracking method node found');
             if (!followedEntity) throw new Error('No followed entity node found');
             if (!entity) throw new Error('No entity node found');
-            const configNode = spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(config.id.get());
-            const trackingMethodNode = spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(trackingMethod.id.get());
-            const configCategoryAttributes = (yield spinal_env_viewer_plugin_documentation_service_1.attributeService.getCategory(configNode)).map((el)=>{
-                return el.nameCat;
-            });
-            const trackingMethodCategoryAttributes = (yield spinal_env_viewer_plugin_documentation_service_1.attributeService.getCategory(trackingMethodNode)).map((el)=>{
-                return el.nameCat;
-            });
-            const configInfo = {};
-            const trackingMethodInfo = {};
-            for (const cat of configCategoryAttributes){
-                const attributes = yield spinal_env_viewer_plugin_documentation_service_1.attributeService.getAttributesByCategory(configNode, cat);
-                configInfo[cat] = attributes;
-            }
-            for (const cat of trackingMethodCategoryAttributes){
-                const attributes = yield spinal_env_viewer_plugin_documentation_service_1.attributeService.getAttributesByCategory(trackingMethodNode, cat);
-                trackingMethodInfo[cat] = attributes;
-            }
-            const analyticDetails = spinal_env_viewer_graph_service_1.SpinalGraphService.getInfo(analyticId);
-            const followedEntityId = followedEntity.id.get();
-            const res = {
-                entityNodeInfo: entity,
-                analyticName: analyticDetails.name.get(),
-                config: configInfo,
-                trackingMethod: trackingMethodInfo,
-                followedEntityId
+            // Config node
+            const analyticConfigAttributes = yield this.getAllCategoriesAndAttributesFromNode(config.id.get());
+            // Anchor node 
+            const analyticAnchorNode = spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(followedEntity.id.get());
+            const inputAttributes = yield this.getAllCategoriesAndAttributesFromNode(trackingMethod.id.get());
+            return {
+                id: analyticNode._server_id,
+                name: analyticNode.getName().get(),
+                type: analyticNode.getType().get(),
+                analyticOnEntityName: entity.name.get(),
+                analyticOnEntityType: entity.entityType.get(),
+                config: analyticConfigAttributes,
+                inputs: inputAttributes,
+                anchor: {
+                    id: analyticAnchorNode._server_id,
+                    name: analyticAnchorNode.getName().get(),
+                    type: analyticAnchorNode.getType().get()
+                }
             };
-            return res;
+        });
+    }
+    createAnalytic(analyticDetails, contextNode) {
+        return __awaiter(this, void 0, void 0, function*() {
+            const entity = yield this.getEntity(contextNode.getName().get(), analyticDetails.analyticOnEntityName);
+            if (!entity) throw new Error(`Entity ${analyticDetails.analyticOnEntityName} not found in context ${contextNode.getName().get()}`);
+            const analyticInfo = {
+                name: analyticDetails.name,
+                description: ''
+            };
+            const anchorNode = spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(analyticDetails.anchor.id);
+            spinal_env_viewer_graph_service_1.SpinalGraphService._addNode(anchorNode);
+            const analyticNodeRef = yield this.addAnalytic(analyticInfo, contextNode.getId().get(), entity.id.get()); // also creates inputs/outputs nodes
+            const configRef = yield this.addConfig(analyticDetails.config, analyticNodeRef.id.get(), contextNode.getId().get());
+            //const configNode = SpinalGraphService.getRealNode(configRef.id.get());
+            //await this.addAttributesToNode(configNode, analyticDetails.config);
+            const trackingMethodRef = yield this.addInputTrackingMethod(analyticDetails.inputs, contextNode.getId().get(), analyticNodeRef.id.get());
+            //const trackingMethodNode = SpinalGraphService.getRealNode(trackingMethodRef.id.get());
+            //await this.addAttributesToNode(trackingMethodNode, analyticDetails.inputs);
+            yield this.addInputLinkToFollowedEntity(contextNode.getId().get(), analyticNodeRef.id.get(), anchorNode.getId().get());
+            return this.getAnalyticDetails(analyticNodeRef.id.get());
         });
     }
     // #endregion ANALYTIC
@@ -9437,16 +9470,9 @@ class AnalyticNodeManagerService {
     }
     // #endregion FOLLOWED ENTITY
     // #region NODE DOCUMENTATION
-    /**
-     * Adds the specified attributes to the node with the specified ID.
-     * @async
-     * @param {SpinalNode<any>} node - The node to which to add the attributes.
-     * @param {INodeDocumentation} attributes - An array of objects representing the attributes to add to the node.
-     * @returns {Promise<void>} A Promise that resolves when the attributes have been added.
-     * @memberof AnalyticService
-     */ addAttributesToNode(node, attributes) {
+    addAttributesToNode(node, attributes) {
         return __awaiter(this, void 0, void 0, function*() {
-            for (const categoryName of Object.keys(attributes))for (const attribute of attributes[categoryName])yield spinal_env_viewer_plugin_documentation_service_1.default.addAttributeByCategoryName(node, categoryName, attribute.name, attribute.value, attribute.type, '');
+            for (const categoryName of Object.keys(attributes))spinal_env_viewer_plugin_documentation_service_1.attributeService.createOrUpdateAttrsAndCategories(node, categoryName, Object.assign({}, attributes[categoryName]));
         });
     }
     getAttributesFromNode(nodeId, category) {
@@ -9531,7 +9557,7 @@ class AnalyticNodeManagerService {
 }
 exports.default = AnalyticNodeManagerService;
 
-},{"c3a59c8970091084":"9LAk7","6c67449c51cd01":"5MX1w","d5f7a1fec079d05c":"elokR","94b49308811f97f8":"94N05","4521602391679e75":"7svXi","105589ec012d945b":"j9nPO","a5ef27f319369412":"g1mvO","a05d0a34f760483e":"2bE7q","bb4c818c4c0b9f78":"cP9kK","5e5277095b4cb738":"1cC3y"}],"elokR":[function(require,module,exports,__globalThis) {
+},{"c3a59c8970091084":"9LAk7","6c67449c51cd01":"5MX1w","d5f7a1fec079d05c":"elokR","94b49308811f97f8":"94N05","4521602391679e75":"7svXi","105589ec012d945b":"j9nPO","a5ef27f319369412":"g1mvO","a05d0a34f760483e":"2bE7q","bb4c818c4c0b9f78":"cP9kK","5e5277095b4cb738":"1cC3y","e47d9341ea099c34":"9wEug"}],"elokR":[function(require,module,exports,__globalThis) {
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true

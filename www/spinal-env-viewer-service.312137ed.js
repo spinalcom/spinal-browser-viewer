@@ -2620,18 +2620,44 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 __exportStar(require("4e85847368877f75"), exports);
-__exportStar(require("5f0833f6925fc7e4"), exports);
-__exportStar(require("c76f0f4098cb3cb9"), exports);
-__exportStar(require("e148547322424348"), exports);
+__exportStar(require("3100387d1e50f32c"), exports);
+__exportStar(require("ac5b751c6aac26cc"), exports);
 __exportStar(require("f68742657a9c76a"), exports);
+__exportStar(require("eaabdeed72aa1c85"), exports);
 __exportStar(require("4167f566ebb90f13"), exports);
-__exportStar(require("2de64906aeb72b76"), exports);
-__exportStar(require("5d9f934c3f22d639"), exports);
+__exportStar(require("f35787d9864363b6"), exports);
 __exportStar(require("1b13216fea35ca31"), exports);
+__exportStar(require("d6d488b7934b0bcb"), exports);
+__exportStar(require("c76f0f4098cb3cb9"), exports);
+__exportStar(require("49f76c051e012894"), exports);
+__exportStar(require("244235bf88ce372"), exports);
+__exportStar(require("2de64906aeb72b76"), exports);
+__exportStar(require("74c33d813454aa5a"), exports);
 __exportStar(require("6db873f047d2430e"), exports);
+__exportStar(require("726940a2044b2ecc"), exports);
+__exportStar(require("a5b69c68abbfa418"), exports);
+__exportStar(require("e148547322424348"), exports);
+__exportStar(require("505626a7878daa08"), exports);
+__exportStar(require("d5ba052b793dc944"), exports);
+__exportStar(require("668828f6795b7642"), exports);
+__exportStar(require("be1ff0d2d23164bc"), exports);
 __exportStar(require("f37762c09f0696b8"), exports);
+__exportStar(require("5f0833f6925fc7e4"), exports);
+__exportStar(require("b8cb0f43ab64dce4"), exports);
+__exportStar(require("a5061cb5b198b34c"), exports);
+__exportStar(require("d24a1cc2e8280209"), exports);
+__exportStar(require("8090b18236a1647b"), exports);
+__exportStar(require("5d9f934c3f22d639"), exports);
+__exportStar(require("9b79e8838fd21355"), exports);
+__exportStar(require("710a0e6d69904d1e"), exports);
+__exportStar(require("f6feac0c0e39a2c4"), exports);
+__exportStar(require("267c5be5cf6248b"), exports);
+__exportStar(require("c4bf72f98d6040f3"), exports);
+__exportStar(require("4a3cb02fc5cf800d"), exports);
+__exportStar(require("e7b4eeba834b96c5"), exports);
+__exportStar(require("2a53d7cf7acb95a"), exports);
 
-},{"4e85847368877f75":"3kQeu","5f0833f6925fc7e4":"6cA1l","c76f0f4098cb3cb9":"9GtH0","e148547322424348":"6r9Ac","f68742657a9c76a":"dGvxs","4167f566ebb90f13":"b61V5","2de64906aeb72b76":"knwHJ","5d9f934c3f22d639":"a9AqU","1b13216fea35ca31":"bYChC","6db873f047d2430e":"fEbpc","f37762c09f0696b8":"i4LaT"}],"3kQeu":[function(require,module,exports,__globalThis) {
+},{"4e85847368877f75":"3kQeu","3100387d1e50f32c":"1ZYls","ac5b751c6aac26cc":"fgYhX","f68742657a9c76a":"dGvxs","eaabdeed72aa1c85":"bWYJM","4167f566ebb90f13":"b61V5","f35787d9864363b6":"kewpB","1b13216fea35ca31":"bYChC","d6d488b7934b0bcb":"blCVi","c76f0f4098cb3cb9":"9GtH0","49f76c051e012894":"aMDgY","244235bf88ce372":"h3UgT","2de64906aeb72b76":"knwHJ","74c33d813454aa5a":"8w0mf","6db873f047d2430e":"fEbpc","726940a2044b2ecc":"6qCQP","a5b69c68abbfa418":"g0YoO","e148547322424348":"6r9Ac","505626a7878daa08":"bcxKD","d5ba052b793dc944":"dsG7r","668828f6795b7642":"dIljW","be1ff0d2d23164bc":"1nnmD","f37762c09f0696b8":"i4LaT","5f0833f6925fc7e4":"6cA1l","b8cb0f43ab64dce4":"5gHeA","a5061cb5b198b34c":"dKDTQ","d24a1cc2e8280209":"kXX1i","8090b18236a1647b":"3aTHR","5d9f934c3f22d639":"a9AqU","9b79e8838fd21355":"2kb9M","710a0e6d69904d1e":"4wyr8","f6feac0c0e39a2c4":"7R42l","267c5be5cf6248b":"fCU7w","c4bf72f98d6040f3":"lwCdJ","4a3cb02fc5cf800d":"6hbE6","e7b4eeba834b96c5":"eElqu","2a53d7cf7acb95a":"b6VrL"}],"3kQeu":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -2659,7 +2685,7 @@ __exportStar(require("f37762c09f0696b8"), exports);
     value: true
 });
 
-},{}],"6cA1l":[function(require,module,exports,__globalThis) {
+},{}],"1ZYls":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -2687,13 +2713,7 @@ __exportStar(require("f37762c09f0696b8"), exports);
     value: true
 });
 
-},{}],"9GtH0":[function(require,module,exports,__globalThis) {
-"use strict";
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-},{}],"6r9Ac":[function(require,module,exports,__globalThis) {
+},{}],"fgYhX":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -2760,6 +2780,12 @@ var EModificationType;
     EModificationType[EModificationType["delete"] = 64] = "delete";
 })(EModificationType || (exports.EModificationType = EModificationType = {}));
 
+},{}],"bWYJM":[function(require,module,exports,__globalThis) {
+"use strict";
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
 },{}],"b61V5":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
@@ -2788,35 +2814,7 @@ var EModificationType;
     value: true
 });
 
-},{}],"knwHJ":[function(require,module,exports,__globalThis) {
-"use strict";
-/*
- * Copyright 2023 SpinalCom - www.spinalcom.com
- *
- * This file is part of SpinalCore.
- *
- * Please read all of the following terms and conditions
- * of the Free Software license Agreement ("Agreement")
- * carefully.
- *
- * This Agreement is a legally binding contract between
- * the Licensee (as defined below) and SpinalCom that
- * sets forth the terms and conditions that govern your
- * use of the Program. By installing and/or using the
- * Program, you agree to abide by all the terms and
- * conditions stated or referenced herein.
- *
- * If you do not agree to abide by these terms and
- * conditions, do not demonstrate your acceptance and do
- * not install or use the Program.
- * You should have received a copy of the license along
- * with this file. If not, see
- * <http://resources.spinalcom.com/licenses.pdf>.
- */ Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-},{}],"a9AqU":[function(require,module,exports,__globalThis) {
+},{}],"kewpB":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -2872,6 +2870,152 @@ var EModificationType;
     value: true
 });
 
+},{}],"blCVi":[function(require,module,exports,__globalThis) {
+"use strict";
+/*
+ * Copyright 2023 SpinalCom - www.spinalcom.com
+ *
+ * This file is part of SpinalCore.
+ *
+ * Please read all of the following terms and conditions
+ * of the Free Software license Agreement ("Agreement")
+ * carefully.
+ *
+ * This Agreement is a legally binding contract between
+ * the Licensee (as defined below) and SpinalCom that
+ * sets forth the terms and conditions that govern your
+ * use of the Program. By installing and/or using the
+ * Program, you agree to abide by all the terms and
+ * conditions stated or referenced herein.
+ *
+ * If you do not agree to abide by these terms and
+ * conditions, do not demonstrate your acceptance and do
+ * not install or use the Program.
+ * You should have received a copy of the license along
+ * with this file. If not, see
+ * <http://resources.spinalcom.com/licenses.pdf>.
+ */ Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+},{}],"9GtH0":[function(require,module,exports,__globalThis) {
+"use strict";
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+},{}],"aMDgY":[function(require,module,exports,__globalThis) {
+"use strict";
+/*
+ * Copyright 2023 SpinalCom - www.spinalcom.com
+ *
+ * This file is part of SpinalCore.
+ *
+ * Please read all of the following terms and conditions
+ * of the Free Software license Agreement ("Agreement")
+ * carefully.
+ *
+ * This Agreement is a legally binding contract between
+ * the Licensee (as defined below) and SpinalCom that
+ * sets forth the terms and conditions that govern your
+ * use of the Program. By installing and/or using the
+ * Program, you agree to abide by all the terms and
+ * conditions stated or referenced herein.
+ *
+ * If you do not agree to abide by these terms and
+ * conditions, do not demonstrate your acceptance and do
+ * not install or use the Program.
+ * You should have received a copy of the license along
+ * with this file. If not, see
+ * <http://resources.spinalcom.com/licenses.pdf>.
+ */ Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+},{}],"h3UgT":[function(require,module,exports,__globalThis) {
+"use strict";
+/*
+ * Copyright 2023 SpinalCom - www.spinalcom.com
+ *
+ * This file is part of SpinalCore.
+ *
+ * Please read all of the following terms and conditions
+ * of the Free Software license Agreement ("Agreement")
+ * carefully.
+ *
+ * This Agreement is a legally binding contract between
+ * the Licensee (as defined below) and SpinalCom that
+ * sets forth the terms and conditions that govern your
+ * use of the Program. By installing and/or using the
+ * Program, you agree to abide by all the terms and
+ * conditions stated or referenced herein.
+ *
+ * If you do not agree to abide by these terms and
+ * conditions, do not demonstrate your acceptance and do
+ * not install or use the Program.
+ * You should have received a copy of the license along
+ * with this file. If not, see
+ * <http://resources.spinalcom.com/licenses.pdf>.
+ */ Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+},{}],"knwHJ":[function(require,module,exports,__globalThis) {
+"use strict";
+/*
+ * Copyright 2023 SpinalCom - www.spinalcom.com
+ *
+ * This file is part of SpinalCore.
+ *
+ * Please read all of the following terms and conditions
+ * of the Free Software license Agreement ("Agreement")
+ * carefully.
+ *
+ * This Agreement is a legally binding contract between
+ * the Licensee (as defined below) and SpinalCom that
+ * sets forth the terms and conditions that govern your
+ * use of the Program. By installing and/or using the
+ * Program, you agree to abide by all the terms and
+ * conditions stated or referenced herein.
+ *
+ * If you do not agree to abide by these terms and
+ * conditions, do not demonstrate your acceptance and do
+ * not install or use the Program.
+ * You should have received a copy of the license along
+ * with this file. If not, see
+ * <http://resources.spinalcom.com/licenses.pdf>.
+ */ Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+},{}],"8w0mf":[function(require,module,exports,__globalThis) {
+"use strict";
+/*
+ * Copyright 2026 SpinalCom - www.spinalcom.com
+ *
+ * This file is part of SpinalCore.
+ *
+ * Please read all of the following terms and conditions
+ * of the Software license Agreement ("Agreement")
+ * carefully.
+ *
+ * This Agreement is a legally binding contract between
+ * the Licensee (as defined below) and SpinalCom that
+ * sets forth the terms and conditions that govern your
+ * use of the Program. By installing and/or using the
+ * Program, you agree to abide by all the terms and
+ * conditions stated or referenced herein.
+ *
+ * If you do not agree to abide by these terms and
+ * conditions, do not demonstrate your acceptance and do
+ * not install or use the Program.
+ * You should have received a copy of the license along
+ * with this file. If not, see
+ * <http://resources.spinalcom.com/licenses.pdf>.
+ */ Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
 },{}],"fEbpc":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
@@ -2900,6 +3044,202 @@ var EModificationType;
     value: true
 });
 
+},{}],"6qCQP":[function(require,module,exports,__globalThis) {
+"use strict";
+/*
+ * Copyright 2023 SpinalCom - www.spinalcom.com
+ *
+ * This file is part of SpinalCore.
+ *
+ * Please read all of the following terms and conditions
+ * of the Free Software license Agreement ("Agreement")
+ * carefully.
+ *
+ * This Agreement is a legally binding contract between
+ * the Licensee (as defined below) and SpinalCom that
+ * sets forth the terms and conditions that govern your
+ * use of the Program. By installing and/or using the
+ * Program, you agree to abide by all the terms and
+ * conditions stated or referenced herein.
+ *
+ * If you do not agree to abide by these terms and
+ * conditions, do not demonstrate your acceptance and do
+ * not install or use the Program.
+ * You should have received a copy of the license along
+ * with this file. If not, see
+ * <http://resources.spinalcom.com/licenses.pdf>.
+ */ Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+},{}],"g0YoO":[function(require,module,exports,__globalThis) {
+"use strict";
+/*
+ * Copyright 2023 SpinalCom - www.spinalcom.com
+ *
+ * This file is part of SpinalCore.
+ *
+ * Please read all of the following terms and conditions
+ * of the Free Software license Agreement ("Agreement")
+ * carefully.
+ *
+ * This Agreement is a legally binding contract between
+ * the Licensee (as defined below) and SpinalCom that
+ * sets forth the terms and conditions that govern your
+ * use of the Program. By installing and/or using the
+ * Program, you agree to abide by all the terms and
+ * conditions stated or referenced herein.
+ *
+ * If you do not agree to abide by these terms and
+ * conditions, do not demonstrate your acceptance and do
+ * not install or use the Program.
+ * You should have received a copy of the license along
+ * with this file. If not, see
+ * <http://resources.spinalcom.com/licenses.pdf>.
+ */ Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+},{}],"6r9Ac":[function(require,module,exports,__globalThis) {
+"use strict";
+/*
+ * Copyright 2023 SpinalCom - www.spinalcom.com
+ *
+ * This file is part of SpinalCore.
+ *
+ * Please read all of the following terms and conditions
+ * of the Free Software license Agreement ("Agreement")
+ * carefully.
+ *
+ * This Agreement is a legally binding contract between
+ * the Licensee (as defined below) and SpinalCom that
+ * sets forth the terms and conditions that govern your
+ * use of the Program. By installing and/or using the
+ * Program, you agree to abide by all the terms and
+ * conditions stated or referenced herein.
+ *
+ * If you do not agree to abide by these terms and
+ * conditions, do not demonstrate your acceptance and do
+ * not install or use the Program.
+ * You should have received a copy of the license along
+ * with this file. If not, see
+ * <http://resources.spinalcom.com/licenses.pdf>.
+ */ Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+},{}],"bcxKD":[function(require,module,exports,__globalThis) {
+"use strict";
+/*
+ * Copyright 2023 SpinalCom - www.spinalcom.com
+ *
+ * This file is part of SpinalCore.
+ *
+ * Please read all of the following terms and conditions
+ * of the Free Software license Agreement ("Agreement")
+ * carefully.
+ *
+ * This Agreement is a legally binding contract between
+ * the Licensee (as defined below) and SpinalCom that
+ * sets forth the terms and conditions that govern your
+ * use of the Program. By installing and/or using the
+ * Program, you agree to abide by all the terms and
+ * conditions stated or referenced herein.
+ *
+ * If you do not agree to abide by these terms and
+ * conditions, do not demonstrate your acceptance and do
+ * not install or use the Program.
+ * You should have received a copy of the license along
+ * with this file. If not, see
+ * <http://resources.spinalcom.com/licenses.pdf>.
+ */ Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+},{}],"dsG7r":[function(require,module,exports,__globalThis) {
+"use strict";
+/*
+ * Copyright 2023 SpinalCom - www.spinalcom.com
+ *
+ * This file is part of SpinalCore.
+ *
+ * Please read all of the following terms and conditions
+ * of the Free Software license Agreement ("Agreement")
+ * carefully.
+ *
+ * This Agreement is a legally binding contract between
+ * the Licensee (as defined below) and SpinalCom that
+ * sets forth the terms and conditions that govern your
+ * use of the Program. By installing and/or using the
+ * Program, you agree to abide by all the terms and
+ * conditions stated or referenced herein.
+ *
+ * If you do not agree to abide by these terms and
+ * conditions, do not demonstrate your acceptance and do
+ * not install or use the Program.
+ * You should have received a copy of the license along
+ * with this file. If not, see
+ * <http://resources.spinalcom.com/licenses.pdf>.
+ */ Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+},{}],"dIljW":[function(require,module,exports,__globalThis) {
+"use strict";
+/*
+ * Copyright 2023 SpinalCom - www.spinalcom.com
+ *
+ * This file is part of SpinalCore.
+ *
+ * Please read all of the following terms and conditions
+ * of the Free Software license Agreement ("Agreement")
+ * carefully.
+ *
+ * This Agreement is a legally binding contract between
+ * the Licensee (as defined below) and SpinalCom that
+ * sets forth the terms and conditions that govern your
+ * use of the Program. By installing and/or using the
+ * Program, you agree to abide by all the terms and
+ * conditions stated or referenced herein.
+ *
+ * If you do not agree to abide by these terms and
+ * conditions, do not demonstrate your acceptance and do
+ * not install or use the Program.
+ * You should have received a copy of the license along
+ * with this file. If not, see
+ * <http://resources.spinalcom.com/licenses.pdf>.
+ */ Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+},{}],"1nnmD":[function(require,module,exports,__globalThis) {
+"use strict";
+/*
+ * Copyright 2026 SpinalCom - www.spinalcom.com
+ *
+ * This file is part of SpinalCore.
+ *
+ * Please read all of the following terms and conditions
+ * of the Software license Agreement ("Agreement")
+ * carefully.
+ *
+ * This Agreement is a legally binding contract between
+ * the Licensee (as defined below) and SpinalCom that
+ * sets forth the terms and conditions that govern your
+ * use of the Program. By installing and/or using the
+ * Program, you agree to abide by all the terms and
+ * conditions stated or referenced herein.
+ *
+ * If you do not agree to abide by these terms and
+ * conditions, do not demonstrate your acceptance and do
+ * not install or use the Program.
+ * You should have received a copy of the license along
+ * with this file. If not, see
+ * <http://resources.spinalcom.com/licenses.pdf>.
+ */ Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
 },{}],"i4LaT":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
@@ -2909,6 +3249,398 @@ var EModificationType;
  *
  * Please read all of the following terms and conditions
  * of the Free Software license Agreement ("Agreement")
+ * carefully.
+ *
+ * This Agreement is a legally binding contract between
+ * the Licensee (as defined below) and SpinalCom that
+ * sets forth the terms and conditions that govern your
+ * use of the Program. By installing and/or using the
+ * Program, you agree to abide by all the terms and
+ * conditions stated or referenced herein.
+ *
+ * If you do not agree to abide by these terms and
+ * conditions, do not demonstrate your acceptance and do
+ * not install or use the Program.
+ * You should have received a copy of the license along
+ * with this file. If not, see
+ * <http://resources.spinalcom.com/licenses.pdf>.
+ */ Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+},{}],"6cA1l":[function(require,module,exports,__globalThis) {
+"use strict";
+/*
+ * Copyright 2023 SpinalCom - www.spinalcom.com
+ *
+ * This file is part of SpinalCore.
+ *
+ * Please read all of the following terms and conditions
+ * of the Free Software license Agreement ("Agreement")
+ * carefully.
+ *
+ * This Agreement is a legally binding contract between
+ * the Licensee (as defined below) and SpinalCom that
+ * sets forth the terms and conditions that govern your
+ * use of the Program. By installing and/or using the
+ * Program, you agree to abide by all the terms and
+ * conditions stated or referenced herein.
+ *
+ * If you do not agree to abide by these terms and
+ * conditions, do not demonstrate your acceptance and do
+ * not install or use the Program.
+ * You should have received a copy of the license along
+ * with this file. If not, see
+ * <http://resources.spinalcom.com/licenses.pdf>.
+ */ Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+},{}],"5gHeA":[function(require,module,exports,__globalThis) {
+"use strict";
+/*
+ * Copyright 2023 SpinalCom - www.spinalcom.com
+ *
+ * This file is part of SpinalCore.
+ *
+ * Please read all of the following terms and conditions
+ * of the Free Software license Agreement ("Agreement")
+ * carefully.
+ *
+ * This Agreement is a legally binding contract between
+ * the Licensee (as defined below) and SpinalCom that
+ * sets forth the terms and conditions that govern your
+ * use of the Program. By installing and/or using the
+ * Program, you agree to abide by all the terms and
+ * conditions stated or referenced herein.
+ *
+ * If you do not agree to abide by these terms and
+ * conditions, do not demonstrate your acceptance and do
+ * not install or use the Program.
+ * You should have received a copy of the license along
+ * with this file. If not, see
+ * <http://resources.spinalcom.com/licenses.pdf>.
+ */ Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+},{}],"dKDTQ":[function(require,module,exports,__globalThis) {
+"use strict";
+/*
+ * Copyright 2023 SpinalCom - www.spinalcom.com
+ *
+ * This file is part of SpinalCore.
+ *
+ * Please read all of the following terms and conditions
+ * of the Free Software license Agreement ("Agreement")
+ * carefully.
+ *
+ * This Agreement is a legally binding contract between
+ * the Licensee (as defined below) and SpinalCom that
+ * sets forth the terms and conditions that govern your
+ * use of the Program. By installing and/or using the
+ * Program, you agree to abide by all the terms and
+ * conditions stated or referenced herein.
+ *
+ * If you do not agree to abide by these terms and
+ * conditions, do not demonstrate your acceptance and do
+ * not install or use the Program.
+ * You should have received a copy of the license along
+ * with this file. If not, see
+ * <http://resources.spinalcom.com/licenses.pdf>.
+ */ Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+},{}],"kXX1i":[function(require,module,exports,__globalThis) {
+"use strict";
+/*
+ * Copyright 2023 SpinalCom - www.spinalcom.com
+ *
+ * This file is part of SpinalCore.
+ *
+ * Please read all of the following terms and conditions
+ * of the Free Software license Agreement ("Agreement")
+ * carefully.
+ *
+ * This Agreement is a legally binding contract between
+ * the Licensee (as defined below) and SpinalCom that
+ * sets forth the terms and conditions that govern your
+ * use of the Program. By installing and/or using the
+ * Program, you agree to abide by all the terms and
+ * conditions stated or referenced herein.
+ *
+ * If you do not agree to abide by these terms and
+ * conditions, do not demonstrate your acceptance and do
+ * not install or use the Program.
+ * You should have received a copy of the license along
+ * with this file. If not, see
+ * <http://resources.spinalcom.com/licenses.pdf>.
+ */ Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+},{}],"3aTHR":[function(require,module,exports,__globalThis) {
+"use strict";
+/*
+ * Copyright 2023 SpinalCom - www.spinalcom.com
+ *
+ * This file is part of SpinalCore.
+ *
+ * Please read all of the following terms and conditions
+ * of the Free Software license Agreement ("Agreement")
+ * carefully.
+ *
+ * This Agreement is a legally binding contract between
+ * the Licensee (as defined below) and SpinalCom that
+ * sets forth the terms and conditions that govern your
+ * use of the Program. By installing and/or using the
+ * Program, you agree to abide by all the terms and
+ * conditions stated or referenced herein.
+ *
+ * If you do not agree to abide by these terms and
+ * conditions, do not demonstrate your acceptance and do
+ * not install or use the Program.
+ * You should have received a copy of the license along
+ * with this file. If not, see
+ * <http://resources.spinalcom.com/licenses.pdf>.
+ */ Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+},{}],"a9AqU":[function(require,module,exports,__globalThis) {
+"use strict";
+/*
+ * Copyright 2023 SpinalCom - www.spinalcom.com
+ *
+ * This file is part of SpinalCore.
+ *
+ * Please read all of the following terms and conditions
+ * of the Free Software license Agreement ("Agreement")
+ * carefully.
+ *
+ * This Agreement is a legally binding contract between
+ * the Licensee (as defined below) and SpinalCom that
+ * sets forth the terms and conditions that govern your
+ * use of the Program. By installing and/or using the
+ * Program, you agree to abide by all the terms and
+ * conditions stated or referenced herein.
+ *
+ * If you do not agree to abide by these terms and
+ * conditions, do not demonstrate your acceptance and do
+ * not install or use the Program.
+ * You should have received a copy of the license along
+ * with this file. If not, see
+ * <http://resources.spinalcom.com/licenses.pdf>.
+ */ Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+},{}],"2kb9M":[function(require,module,exports,__globalThis) {
+"use strict";
+/*
+ * Copyright 2026 SpinalCom - www.spinalcom.com
+ *
+ * This file is part of SpinalCore.
+ *
+ * Please read all of the following terms and conditions
+ * of the Software license Agreement ("Agreement")
+ * carefully.
+ *
+ * This Agreement is a legally binding contract between
+ * the Licensee (as defined below) and SpinalCom that
+ * sets forth the terms and conditions that govern your
+ * use of the Program. By installing and/or using the
+ * Program, you agree to abide by all the terms and
+ * conditions stated or referenced herein.
+ *
+ * If you do not agree to abide by these terms and
+ * conditions, do not demonstrate your acceptance and do
+ * not install or use the Program.
+ * You should have received a copy of the license along
+ * with this file. If not, see
+ * <http://resources.spinalcom.com/licenses.pdf>.
+ */ Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+},{}],"4wyr8":[function(require,module,exports,__globalThis) {
+"use strict";
+/*
+ * Copyright 2023 SpinalCom - www.spinalcom.com
+ *
+ * This file is part of SpinalCore.
+ *
+ * Please read all of the following terms and conditions
+ * of the Free Software license Agreement ("Agreement")
+ * carefully.
+ *
+ * This Agreement is a legally binding contract between
+ * the Licensee (as defined below) and SpinalCom that
+ * sets forth the terms and conditions that govern your
+ * use of the Program. By installing and/or using the
+ * Program, you agree to abide by all the terms and
+ * conditions stated or referenced herein.
+ *
+ * If you do not agree to abide by these terms and
+ * conditions, do not demonstrate your acceptance and do
+ * not install or use the Program.
+ * You should have received a copy of the license along
+ * with this file. If not, see
+ * <http://resources.spinalcom.com/licenses.pdf>.
+ */ Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+},{}],"7R42l":[function(require,module,exports,__globalThis) {
+"use strict";
+/*
+ * Copyright 2023 SpinalCom - www.spinalcom.com
+ *
+ * This file is part of SpinalCore.
+ *
+ * Please read all of the following terms and conditions
+ * of the Free Software license Agreement ("Agreement")
+ * carefully.
+ *
+ * This Agreement is a legally binding contract between
+ * the Licensee (as defined below) and SpinalCom that
+ * sets forth the terms and conditions that govern your
+ * use of the Program. By installing and/or using the
+ * Program, you agree to abide by all the terms and
+ * conditions stated or referenced herein.
+ *
+ * If you do not agree to abide by these terms and
+ * conditions, do not demonstrate your acceptance and do
+ * not install or use the Program.
+ * You should have received a copy of the license along
+ * with this file. If not, see
+ * <http://resources.spinalcom.com/licenses.pdf>.
+ */ Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+},{}],"fCU7w":[function(require,module,exports,__globalThis) {
+"use strict";
+/*
+ * Copyright 2023 SpinalCom - www.spinalcom.com
+ *
+ * This file is part of SpinalCore.
+ *
+ * Please read all of the following terms and conditions
+ * of the Free Software license Agreement ("Agreement")
+ * carefully.
+ *
+ * This Agreement is a legally binding contract between
+ * the Licensee (as defined below) and SpinalCom that
+ * sets forth the terms and conditions that govern your
+ * use of the Program. By installing and/or using the
+ * Program, you agree to abide by all the terms and
+ * conditions stated or referenced herein.
+ *
+ * If you do not agree to abide by these terms and
+ * conditions, do not demonstrate your acceptance and do
+ * not install or use the Program.
+ * You should have received a copy of the license along
+ * with this file. If not, see
+ * <http://resources.spinalcom.com/licenses.pdf>.
+ */ Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+},{}],"lwCdJ":[function(require,module,exports,__globalThis) {
+"use strict";
+/*
+ * Copyright 2023 SpinalCom - www.spinalcom.com
+ *
+ * This file is part of SpinalCore.
+ *
+ * Please read all of the following terms and conditions
+ * of the Free Software license Agreement ("Agreement")
+ * carefully.
+ *
+ * This Agreement is a legally binding contract between
+ * the Licensee (as defined below) and SpinalCom that
+ * sets forth the terms and conditions that govern your
+ * use of the Program. By installing and/or using the
+ * Program, you agree to abide by all the terms and
+ * conditions stated or referenced herein.
+ *
+ * If you do not agree to abide by these terms and
+ * conditions, do not demonstrate your acceptance and do
+ * not install or use the Program.
+ * You should have received a copy of the license along
+ * with this file. If not, see
+ * <http://resources.spinalcom.com/licenses.pdf>.
+ */ Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+},{}],"6hbE6":[function(require,module,exports,__globalThis) {
+"use strict";
+/*
+ * Copyright 2023 SpinalCom - www.spinalcom.com
+ *
+ * This file is part of SpinalCore.
+ *
+ * Please read all of the following terms and conditions
+ * of the Free Software license Agreement ("Agreement")
+ * carefully.
+ *
+ * This Agreement is a legally binding contract between
+ * the Licensee (as defined below) and SpinalCom that
+ * sets forth the terms and conditions that govern your
+ * use of the Program. By installing and/or using the
+ * Program, you agree to abide by all the terms and
+ * conditions stated or referenced herein.
+ *
+ * If you do not agree to abide by these terms and
+ * conditions, do not demonstrate your acceptance and do
+ * not install or use the Program.
+ * You should have received a copy of the license along
+ * with this file. If not, see
+ * <http://resources.spinalcom.com/licenses.pdf>.
+ */ Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+},{}],"eElqu":[function(require,module,exports,__globalThis) {
+"use strict";
+/*
+ * Copyright 2023 SpinalCom - www.spinalcom.com
+ *
+ * This file is part of SpinalCore.
+ *
+ * Please read all of the following terms and conditions
+ * of the Free Software license Agreement ("Agreement")
+ * carefully.
+ *
+ * This Agreement is a legally binding contract between
+ * the Licensee (as defined below) and SpinalCom that
+ * sets forth the terms and conditions that govern your
+ * use of the Program. By installing and/or using the
+ * Program, you agree to abide by all the terms and
+ * conditions stated or referenced herein.
+ *
+ * If you do not agree to abide by these terms and
+ * conditions, do not demonstrate your acceptance and do
+ * not install or use the Program.
+ * You should have received a copy of the license along
+ * with this file. If not, see
+ * <http://resources.spinalcom.com/licenses.pdf>.
+ */ Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+},{}],"b6VrL":[function(require,module,exports,__globalThis) {
+"use strict";
+/*
+ * Copyright 2026 SpinalCom - www.spinalcom.com
+ *
+ * This file is part of SpinalCore.
+ *
+ * Please read all of the following terms and conditions
+ * of the Software license Agreement ("Agreement")
  * carefully.
  *
  * This Agreement is a legally binding contract between
@@ -3999,17 +4731,8 @@ function getFragIds(dbId, model) {
         it.enumNodeFragments(dbId, (res)=>{
             ids.push(res);
         }, false);
-        // wait 1s or 2 if not yet done
-        setTimeout(()=>{
-            if (ids.length === 0) {
-                setTimeout(()=>{
-                    if (ids.length === 0) return reject(`no fragIds found for dbId ${dbId}`);
-                    resolve(ids);
-                }, 1000);
-                return;
-            }
-            resolve(ids);
-        }, 500);
+        if (ids.length === 0) return reject(`no fragIds found for dbId ${dbId}`);
+        resolve(ids);
     });
 }
 
@@ -5154,6 +5877,8 @@ var __exportStar = this && this.__exportStar || function(m, exports1) {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+__exportStar(require("41201763118f3bb7"), exports);
+__exportStar(require("78da03b3286208ae"), exports);
 __exportStar(require("5feccecae34c5c55"), exports);
 __exportStar(require("d32eb42ffcd3d0fb"), exports);
 __exportStar(require("36bd221a325be69b"), exports);
@@ -5166,12 +5891,176 @@ __exportStar(require("df54455620ff66dd"), exports);
 __exportStar(require("df549e3bb80e7019"), exports);
 __exportStar(require("f58424c0cef1ccdd"), exports);
 __exportStar(require("e5044822a9838c4b"), exports);
+__exportStar(require("4f1aa023f4021e3"), exports);
 __exportStar(require("1b5fdc30b2322ac4"), exports);
 __exportStar(require("e6946d7bd0a870d6"), exports);
 __exportStar(require("ca1d1cda668ca79"), exports);
 __exportStar(require("f4f2f2ab22cc1d09"), exports);
 
-},{"5feccecae34c5c55":"aQan4","d32eb42ffcd3d0fb":"75phG","36bd221a325be69b":"cWlmq","a8636f3faf810e71":"hm6W8","9a76657bcf53f81b":"9aNqX","e88a6b3f00cd6d0d":"7GnRQ","1b53aa26a6292f33":"iFzGl","2f4f5ca521ebec12":"jd9l2","df54455620ff66dd":"ltnH8","df549e3bb80e7019":"2RiyL","f58424c0cef1ccdd":"fmCO7","e5044822a9838c4b":"78L2K","1b5fdc30b2322ac4":"cPgyQ","e6946d7bd0a870d6":"4hDpp","ca1d1cda668ca79":"3sIZF","f4f2f2ab22cc1d09":"6H7cz"}],"aQan4":[function(require,module,exports,__globalThis) {
+},{"41201763118f3bb7":"8Pe6x","78da03b3286208ae":"b6ZAO","5feccecae34c5c55":"aQan4","d32eb42ffcd3d0fb":"75phG","36bd221a325be69b":"cWlmq","a8636f3faf810e71":"hm6W8","9a76657bcf53f81b":"9aNqX","e88a6b3f00cd6d0d":"7GnRQ","1b53aa26a6292f33":"iFzGl","2f4f5ca521ebec12":"jd9l2","df54455620ff66dd":"ltnH8","df549e3bb80e7019":"2RiyL","f58424c0cef1ccdd":"fmCO7","e5044822a9838c4b":"78L2K","4f1aa023f4021e3":"eSD1P","1b5fdc30b2322ac4":"cPgyQ","e6946d7bd0a870d6":"4hDpp","ca1d1cda668ca79":"3sIZF","f4f2f2ab22cc1d09":"6H7cz"}],"8Pe6x":[function(require,module,exports,__globalThis) {
+"use strict";
+/*
+ * Copyright 2023 SpinalCom - www.spinalcom.com
+ *
+ * This file is part of SpinalCore.
+ *
+ * Please read all of the following terms and conditions
+ * of the Free Software license Agreement ("Agreement")
+ * carefully.
+ *
+ * This Agreement is a legally binding contract between
+ * the Licensee (as defined below) and SpinalCom that
+ * sets forth the terms and conditions that govern your
+ * use of the Program. By installing and/or using the
+ * Program, you agree to abide by all the terms and
+ * conditions stated or referenced herein.
+ *
+ * If you do not agree to abide by these terms and
+ * conditions, do not demonstrate your acceptance and do
+ * not install or use the Program.
+ * You should have received a copy of the license along
+ * with this file. If not, see
+ * <http://resources.spinalcom.com/licenses.pdf>.
+ */ var __awaiter = this && this.__awaiter || function(thisArg, _arguments, P, generator) {
+    function adopt(value) {
+        return value instanceof P ? value : new P(function(resolve) {
+            resolve(value);
+        });
+    }
+    return new (P || (P = Promise))(function(resolve, reject) {
+        function fulfilled(value) {
+            try {
+                step(generator.next(value));
+            } catch (e) {
+                reject(e);
+            }
+        }
+        function rejected(value) {
+            try {
+                step(generator["throw"](value));
+            } catch (e) {
+                reject(e);
+            }
+        }
+        function step(result) {
+            result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected);
+        }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.getAll3dbIdsByModel = getAll3dbIdsByModel;
+const getFragIds_1 = require("be46dc1af62fdbfc");
+const getDbIdChildren_1 = require("19e659103ac915fa");
+function getAll3dbIdsByModel(model, dbIds) {
+    return __awaiter(this, void 0, void 0, function*() {
+        const tree = model.getInstanceTree();
+        const resDbid = [];
+        if (typeof dbIds === 'undefined') dbIds = [
+            tree.nodeAccess.rootId
+        ];
+        else dbIds = Array.isArray(dbIds) ? dbIds : [
+            dbIds
+        ];
+        const CHUNK_SIZE = 100;
+        for (const el of dbIds){
+            const queue = [
+                el
+            ];
+            while(queue.length){
+                const chunk = queue.splice(0, CHUNK_SIZE);
+                const promises = chunk.map((id)=>__awaiter(this, void 0, void 0, function*() {
+                        try {
+                            yield (0, getFragIds_1.getFragIds)(id, model);
+                            resDbid.push(id);
+                        } catch (err) {
+                            const children = (0, getDbIdChildren_1.getDbIdChildren)(tree, id);
+                            if (children.length > 0) queue.push(...children);
+                        }
+                    }));
+                yield Promise.all(promises);
+            }
+        }
+        return resDbid;
+    });
+}
+
+},{"be46dc1af62fdbfc":"6q4gv","19e659103ac915fa":"9aNqX"}],"9aNqX":[function(require,module,exports,__globalThis) {
+"use strict";
+/*
+ * Copyright 2023 SpinalCom - www.spinalcom.com
+ *
+ * This file is part of SpinalCore.
+ *
+ * Please read all of the following terms and conditions
+ * of the Free Software license Agreement ("Agreement")
+ * carefully.
+ *
+ * This Agreement is a legally binding contract between
+ * the Licensee (as defined below) and SpinalCom that
+ * sets forth the terms and conditions that govern your
+ * use of the Program. By installing and/or using the
+ * Program, you agree to abide by all the terms and
+ * conditions stated or referenced herein.
+ *
+ * If you do not agree to abide by these terms and
+ * conditions, do not demonstrate your acceptance and do
+ * not install or use the Program.
+ * You should have received a copy of the license along
+ * with this file. If not, see
+ * <http://resources.spinalcom.com/licenses.pdf>.
+ */ Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.getDbIdChildren = getDbIdChildren;
+function getDbIdChildren(tree, id) {
+    const res = [];
+    tree.enumNodeChildren(id, (childId)=>{
+        res.push(childId);
+    });
+    return res;
+}
+
+},{}],"b6ZAO":[function(require,module,exports,__globalThis) {
+"use strict";
+/*
+ * Copyright 2023 SpinalCom - www.spinalcom.com
+ *
+ * This file is part of SpinalCore.
+ *
+ * Please read all of the following terms and conditions
+ * of the Free Software license Agreement ("Agreement")
+ * carefully.
+ *
+ * This Agreement is a legally binding contract between
+ * the Licensee (as defined below) and SpinalCom that
+ * sets forth the terms and conditions that govern your
+ * use of the Program. By installing and/or using the
+ * Program, you agree to abide by all the terms and
+ * conditions stated or referenced herein.
+ *
+ * If you do not agree to abide by these terms and
+ * conditions, do not demonstrate your acceptance and do
+ * not install or use the Program.
+ * You should have received a copy of the license along
+ * with this file. If not, see
+ * <http://resources.spinalcom.com/licenses.pdf>.
+ */ Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.getAllModelLoaded = getAllModelLoaded;
+function getAllModelLoaded() {
+    const mappingBimFileIdModelId = window.spinal.BimObjectService.mappingBimFileIdModelId;
+    const models = new Set();
+    for(const bimFileId in mappingBimFileIdModelId){
+        if (Object.prototype.hasOwnProperty.call(mappingBimFileIdModelId, bimFileId)) for (const { model } of mappingBimFileIdModelId[bimFileId].modelScene)models.add(model);
+    }
+    return Array.from(models);
+}
+
+},{}],"aQan4":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -5478,43 +6367,7 @@ function getBulkProperties(model, dbIds, props = {
     });
 }
 
-},{"ecc02594e3010bd7":"2RiyL"}],"9aNqX":[function(require,module,exports,__globalThis) {
-"use strict";
-/*
- * Copyright 2023 SpinalCom - www.spinalcom.com
- *
- * This file is part of SpinalCore.
- *
- * Please read all of the following terms and conditions
- * of the Free Software license Agreement ("Agreement")
- * carefully.
- *
- * This Agreement is a legally binding contract between
- * the Licensee (as defined below) and SpinalCom that
- * sets forth the terms and conditions that govern your
- * use of the Program. By installing and/or using the
- * Program, you agree to abide by all the terms and
- * conditions stated or referenced herein.
- *
- * If you do not agree to abide by these terms and
- * conditions, do not demonstrate your acceptance and do
- * not install or use the Program.
- * You should have received a copy of the license along
- * with this file. If not, see
- * <http://resources.spinalcom.com/licenses.pdf>.
- */ Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.getDbIdChildren = getDbIdChildren;
-function getDbIdChildren(tree, id) {
-    const res = [];
-    tree.enumNodeChildren(id, (childId)=>{
-        res.push(childId);
-    });
-    return res;
-}
-
-},{}],"7GnRQ":[function(require,module,exports,__globalThis) {
+},{"ecc02594e3010bd7":"2RiyL"}],"7GnRQ":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -5712,7 +6565,51 @@ function getPointOffset(orig, offset, matrixWorld) {
     return point;
 }
 
-},{}],"cPgyQ":[function(require,module,exports,__globalThis) {
+},{}],"eSD1P":[function(require,module,exports,__globalThis) {
+"use strict";
+/*
+ * Copyright 2023 SpinalCom - www.spinalcom.com
+ *
+ * This file is part of SpinalCore.
+ *
+ * Please read all of the following terms and conditions
+ * of the Free Software license Agreement ("Agreement")
+ * carefully.
+ *
+ * This Agreement is a legally binding contract between
+ * the Licensee (as defined below) and SpinalCom that
+ * sets forth the terms and conditions that govern your
+ * use of the Program. By installing and/or using the
+ * Program, you agree to abide by all the terms and
+ * conditions stated or referenced herein.
+ *
+ * If you do not agree to abide by these terms and
+ * conditions, do not demonstrate your acceptance and do
+ * not install or use the Program.
+ * You should have received a copy of the license along
+ * with this file. If not, see
+ * <http://resources.spinalcom.com/licenses.pdf>.
+ */ Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.getProperties = getProperties;
+const getModelByModelId_1 = require("d004ebb83c44ae");
+function getProperties(model, dbId) {
+    let m;
+    if (typeof model === 'number') m = (0, getModelByModelId_1.getModelByModelId)(model);
+    else m = model;
+    return new Promise((resolve, reject)=>{
+        m.getProperties(dbId, (result)=>{
+            const data = Object.assign(result, {
+                id: `${m.id}-${result.dbId}`,
+                modelId: m.id
+            });
+            resolve(data);
+        }, (err)=>reject(err));
+    });
+}
+
+},{"d004ebb83c44ae":"2RiyL"}],"cPgyQ":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -5959,7 +6856,7 @@ exports.ProjectionGroup = void 0;
 const getBulkProperties_1 = require("239532c44d03eb25");
 const getModelByModelId_1 = require("ebe98178bf2eedd3");
 class ProjectionGroup {
-    constructor(name, stopAtLeaf = false){
+    constructor(name, stopAtLeaf = false, aproximateByLevel = false){
         this.offset = {
             r: 0,
             t: 0,
@@ -5969,8 +6866,10 @@ class ProjectionGroup {
         this.data = [];
         this.computedData = [];
         this.stopAtLeaf = false;
+        this.aproximateByLevel = false;
         this.name = name;
         this.stopAtLeaf = stopAtLeaf;
+        this.aproximateByLevel = aproximateByLevel;
     }
     getAndMergeSelection(viewer) {
         return __awaiter(this, void 0, void 0, function*() {
@@ -8466,51 +9365,7 @@ function getFloorFromRoom(room, contextGeoId) {
     });
 }
 
-},{"c98866c250ab98ec":"aEXBy","21d3752b3eea3068":"2RiyL","6cd13ba6a4e19a21":"eSD1P","2b31cc29df551617":"lujQr","f7d2fb661b98f434":"3qXhH","66617092c0cca4e5":"llOhJ","7166704a57b2d00b":"c66eZ"}],"eSD1P":[function(require,module,exports,__globalThis) {
-"use strict";
-/*
- * Copyright 2023 SpinalCom - www.spinalcom.com
- *
- * This file is part of SpinalCore.
- *
- * Please read all of the following terms and conditions
- * of the Free Software license Agreement ("Agreement")
- * carefully.
- *
- * This Agreement is a legally binding contract between
- * the Licensee (as defined below) and SpinalCom that
- * sets forth the terms and conditions that govern your
- * use of the Program. By installing and/or using the
- * Program, you agree to abide by all the terms and
- * conditions stated or referenced herein.
- *
- * If you do not agree to abide by these terms and
- * conditions, do not demonstrate your acceptance and do
- * not install or use the Program.
- * You should have received a copy of the license along
- * with this file. If not, see
- * <http://resources.spinalcom.com/licenses.pdf>.
- */ Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.getProperties = getProperties;
-const getModelByModelId_1 = require("d004ebb83c44ae");
-function getProperties(model, dbId) {
-    let m;
-    if (typeof model === 'number') m = (0, getModelByModelId_1.getModelByModelId)(model);
-    else m = model;
-    return new Promise((resolve, reject)=>{
-        m.getProperties(dbId, (result)=>{
-            const data = Object.assign(result, {
-                id: `${m.id}-${result.dbId}`,
-                modelId: m.id
-            });
-            resolve(data);
-        }, (err)=>reject(err));
-    });
-}
-
-},{"d004ebb83c44ae":"2RiyL"}],"lujQr":[function(require,module,exports,__globalThis) {
+},{"c98866c250ab98ec":"aEXBy","21d3752b3eea3068":"2RiyL","6cd13ba6a4e19a21":"eSD1P","2b31cc29df551617":"lujQr","f7d2fb661b98f434":"3qXhH","66617092c0cca4e5":"llOhJ","7166704a57b2d00b":"c66eZ"}],"lujQr":[function(require,module,exports,__globalThis) {
 "use strict";
 var __awaiter = this && this.__awaiter || function(thisArg, _arguments, P, generator) {
     function adopt(value) {
@@ -15940,11 +16795,17 @@ __exportStar(require("d9b5b780780b4d1"), exports);
 __exportStar(require("6a4663c470666d2b"), exports);
 __exportStar(require("290b955ac3d8d28f"), exports);
 __exportStar(require("59db8976814c9bc6"), exports);
-__exportStar(require("5479e7aedfe151e8"), exports);
-__exportStar(require("26f3a80274351b06"), exports);
+__exportStar(require("1fca520f460cae25"), exports);
+__exportStar(require("131c233fc51ae048"), exports);
+__exportStar(require("501f29612b4ac5a7"), exports);
+__exportStar(require("60b79e84c446383b"), exports);
+__exportStar(require("9cc179ea476cb372"), exports);
 __exportStar(require("8a7927f103accf97"), exports);
 __exportStar(require("44f19d76dfc37114"), exports);
-__exportStar(require("60b79e84c446383b"), exports);
+__exportStar(require("d980b2ddf68fbbb4"), exports);
+__exportStar(require("507883713158d0ac"), exports);
+__exportStar(require("26f3a80274351b06"), exports);
+__exportStar(require("c5e1c5adda3f2388"), exports);
 __exportStar(require("5841aaaf9f35b93b"), exports);
 __exportStar(require("26721e59a64d44cc"), exports);
 __exportStar(require("733ed8150dd9cd0c"), exports);
@@ -15954,8 +16815,9 @@ __exportStar(require("c5f4b4bff7f2ee47"), exports);
 __exportStar(require("360b4e2db5f2e2d1"), exports);
 __exportStar(require("848edc917568a12"), exports);
 __exportStar(require("3a0b5bd71abe7098"), exports);
+__exportStar(require("27a948da553702b"), exports);
 
-},{"5a06c03b8c928613":"btKwG","79428b54087f1697":"4nSx4","42c4ef575bfc7bf1":"emNgX","25029c3570e74560":"vjqBA","e129e97fbc64fd4":"1gRHS","2b3308415ec8c04d":"2DUoa","d8c8a701ef8218b6":"iBbnE","a773654ec46106fb":"4tRUg","9ab9ee6302e405f6":"hGb7z","26ac4eb4a5041e48":"hhAyk","d5a772c5ad03bdd8":"i1MqN","cd2ec4d6d733ac93":"1MhCk","e09c10e0e3ecea17":"cvkNA","1befa413171ea0":"9zwVB","d9b5b780780b4d1":"lKLsf","6a4663c470666d2b":"gZIIV","290b955ac3d8d28f":"92BBu","59db8976814c9bc6":"4DPqN","5479e7aedfe151e8":"lXauv","26f3a80274351b06":"2FPyL","8a7927f103accf97":"fCK6A","44f19d76dfc37114":"iXnX4","60b79e84c446383b":"2zOH8","5841aaaf9f35b93b":"2Tr4K","26721e59a64d44cc":"h3BNL","733ed8150dd9cd0c":"8wUYy","908c25def61e4e3b":"4YVFi","9c171735b8dd2cb":"iNC4r","c5f4b4bff7f2ee47":"b9Y3t","360b4e2db5f2e2d1":"cMoaO","848edc917568a12":"jnhZr","3a0b5bd71abe7098":"gdS71"}],"btKwG":[function(require,module,exports,__globalThis) {
+},{"5a06c03b8c928613":"btKwG","79428b54087f1697":"4nSx4","42c4ef575bfc7bf1":"emNgX","25029c3570e74560":"vjqBA","e129e97fbc64fd4":"1gRHS","2b3308415ec8c04d":"2DUoa","d8c8a701ef8218b6":"iBbnE","a773654ec46106fb":"4tRUg","9ab9ee6302e405f6":"hGb7z","26ac4eb4a5041e48":"hhAyk","d5a772c5ad03bdd8":"i1MqN","cd2ec4d6d733ac93":"1MhCk","e09c10e0e3ecea17":"cvkNA","1befa413171ea0":"9zwVB","d9b5b780780b4d1":"lKLsf","6a4663c470666d2b":"gZIIV","290b955ac3d8d28f":"92BBu","59db8976814c9bc6":"4DPqN","1fca520f460cae25":"e5GRr","131c233fc51ae048":"5QmgF","501f29612b4ac5a7":"4IhXM","60b79e84c446383b":"2zOH8","9cc179ea476cb372":"lUscr","8a7927f103accf97":"fCK6A","44f19d76dfc37114":"iXnX4","d980b2ddf68fbbb4":"jSJJJ","507883713158d0ac":"dibJS","26f3a80274351b06":"2FPyL","c5e1c5adda3f2388":"cLRy9","5841aaaf9f35b93b":"2Tr4K","26721e59a64d44cc":"h3BNL","733ed8150dd9cd0c":"8wUYy","908c25def61e4e3b":"4YVFi","9c171735b8dd2cb":"iNC4r","c5f4b4bff7f2ee47":"b9Y3t","360b4e2db5f2e2d1":"cMoaO","848edc917568a12":"jnhZr","3a0b5bd71abe7098":"gdS71","27a948da553702b":"fMV5u"}],"btKwG":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -16023,6 +16885,7 @@ class ProjectionItemModel extends spinal_core_connectorjs_1.Model {
         this.add_attr('uid', projectionItem.uid);
         this.add_attr('bimFileId', (0, utils_1.getBimFileIdByModelId)(projectionItem.modelId));
         this.add_attr('offset', new ProjectionOffsetModel_1.ProjectionOffsetModel(projectionItem.offset));
+        this.add_attr('stopAtLeaf', projectionItem.stopAtLeaf || false);
     }
     update(projectionItem) {
         return __awaiter(this, void 0, void 0, function*() {
@@ -16038,11 +16901,16 @@ class ProjectionItemModel extends spinal_core_connectorjs_1.Model {
                 else this.path.set(path);
             } else if (typeof this.externalId === 'undefined') this.add_attr('externalId', projectionItem.externalId);
             else this.externalId.set(projectionItem.externalId);
+            if (typeof this.stopAtLeaf === 'undefined') this.add_attr('stopAtLeaf', projectionItem.stopAtLeaf);
+            else this.stopAtLeaf.set(projectionItem.stopAtLeaf);
+            if (typeof this.aproximateByLevel === 'undefined') this.add_attr('aproximateByLevel', projectionItem.aproximateByLevel);
+            else this.aproximateByLevel.set(projectionItem.aproximateByLevel);
             return this;
         });
     }
     toUxModel() {
         return __awaiter(this, void 0, void 0, function*() {
+            var _a, _b, _c, _d;
             const model = (0, utils_1.getModelByBimFileIdLoaded)(this.bimFileId.get());
             if (!model) try {
                 const bimFile = yield (0, getBimFileByBimFileId_1.getBimFileByBimFileId)(this.bimFileId.get());
@@ -16056,7 +16924,7 @@ class ProjectionItemModel extends spinal_core_connectorjs_1.Model {
                 const path = this.path.get();
                 const props = yield (0, utils_1.getPropItemFromPropPath)(path, model);
                 if (!props) throw new Error(`projectionItemModel [${this.uid.get()}] no item found for path : ${path}`);
-                projectionItem = new ProjectionItem_1.ProjectionItem(props.name, model.id, props.dbId, props.properties, props.externalId);
+                projectionItem = new ProjectionItem_1.ProjectionItem(props.name, model.id, props.dbId, props.properties, props.externalId, ((_a = this.stopAtLeaf) === null || _a === void 0 ? void 0 : _a.get()) || false, ((_b = this.aproximateByLevel) === null || _b === void 0 ? void 0 : _b.get()) || false);
             } else {
                 const extMap = yield (0, getExternalIdMapping_1.getExternalIdMapping)(model);
                 const dbid = extMap[this.externalId.get()];
@@ -16064,7 +16932,7 @@ class ProjectionItemModel extends spinal_core_connectorjs_1.Model {
                 const props = yield (0, utils_1.getBulkProperties)(model, [
                     dbid
                 ]);
-                projectionItem = new ProjectionItem_1.ProjectionItem(props[0].name, model.id, dbid, props[0].properties, props[0].externalId);
+                projectionItem = new ProjectionItem_1.ProjectionItem(props[0].name, model.id, dbid, props[0].properties, props[0].externalId, ((_c = this.stopAtLeaf) === null || _c === void 0 ? void 0 : _c.get()) || false, ((_d = this.aproximateByLevel) === null || _d === void 0 ? void 0 : _d.get()) || false);
             }
             projectionItem.uid = this.uid.get();
             projectionItem.offset = this.offset.get();
@@ -16105,19 +16973,23 @@ spinal_core_connectorjs_1.spinalCore.register_models(ProjectionItemModel);
 exports.ProjectionItem = void 0;
 const getModelByModelId_1 = require("c6a29a0bfbe6bf8c");
 class ProjectionItem {
-    constructor(name, modelId, dbId, properties, externalId){
+    constructor(name, modelId, dbId, properties, externalId, stopAtLeaf = false, aproximateByLevel = false){
         this.offset = {
             r: 0,
             t: 0,
             z: 0
         };
         this.uid = `${Date.now()}-${Math.round(Math.random() * 10000)}-${Math.round(Math.random() * 10000)}`;
+        this.stopAtLeaf = false;
+        this.aproximateByLevel = false;
         this.name = name;
         this.modelId = modelId;
         this.dbId = dbId;
         this.id = `${modelId}-${dbId}`;
         this.properties = properties;
         this.externalId = externalId;
+        this.stopAtLeaf = stopAtLeaf;
+        this.aproximateByLevel = aproximateByLevel;
     }
     selectItem(viewer) {
         const model = (0, getModelByModelId_1.getModelByModelId)(this.modelId);
@@ -16357,6 +17229,7 @@ class ProjectionGroupModel extends spinal_core_connectorjs_1.Model {
         this.add_attr('offset', new ProjectionOffsetModel_1.ProjectionOffsetModel(projectionGroup.offset));
         this.add_attr('data', []);
         this.add_attr('stopAtLeaf', projectionGroup.stopAtLeaf || false);
+        this.add_attr('aproximateByLevel', projectionGroup.aproximateByLevel || false);
     }
     updateData(projectionGroup) {
         return __awaiter(this, void 0, void 0, function*() {
@@ -16391,14 +17264,16 @@ class ProjectionGroupModel extends spinal_core_connectorjs_1.Model {
         this.uid.set(projectionGroup.uid);
         this.offset.update(projectionGroup.offset);
         this.offset.update(projectionGroup.offset);
-        if (typeof projectionGroup.stopAtLeaf === 'undefined') this.add_attr('stopAtLeaf', projectionGroup.stopAtLeaf);
+        if (typeof this.stopAtLeaf === 'undefined') this.add_attr('stopAtLeaf', projectionGroup.stopAtLeaf);
         else this.stopAtLeaf.set(projectionGroup.stopAtLeaf);
+        if (typeof this.aproximateByLevel === 'undefined') this.add_attr('aproximateByLevel', projectionGroup.aproximateByLevel);
+        else this.aproximateByLevel.set(projectionGroup.aproximateByLevel);
         return this.updateData(projectionGroup);
     }
     toUxModel() {
         return __awaiter(this, void 0, void 0, function*() {
-            var _a;
-            const projectionGroup = new ProjectionGroup_1.ProjectionGroup(this.name.get(), ((_a = this.stopAtLeaf) === null || _a === void 0 ? void 0 : _a.get()) || false);
+            var _a, _b;
+            const projectionGroup = new ProjectionGroup_1.ProjectionGroup(this.name.get(), ((_a = this.stopAtLeaf) === null || _a === void 0 ? void 0 : _a.get()) || false, ((_b = this.aproximateByLevel) === null || _b === void 0 ? void 0 : _b.get()) || false);
             projectionGroup.offset = this.offset.get();
             projectionGroup.uid = this.uid.get();
             const promises = [];
@@ -16479,13 +17354,13 @@ Object.defineProperty(exports, "__esModule", {
 exports.addSelectionToList = addSelectionToList;
 const getBulkProperties_1 = require("77168fd90ba055e0");
 const addProjectItem_1 = require("9047da35d389e94f");
-function addSelectionToList(list, viewer) {
+function addSelectionToList(list, stopAtLeaf, aproximateByLevel, viewer) {
     return __awaiter(this, void 0, void 0, function*() {
         const aggregateSelection = viewer.getAggregateSelection();
         for (const select of aggregateSelection){
             const props = yield (0, getBulkProperties_1.getBulkProperties)(select.model, select.selection);
             const prom = [];
-            for (const prop of props)prom.push((0, addProjectItem_1.addProjectItem)(list, prop));
+            for (const prop of props)prom.push((0, addProjectItem_1.addProjectItem)(list, prop, stopAtLeaf, aproximateByLevel));
             yield Promise.all(prom);
         }
     });
@@ -16548,7 +17423,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.addProjectItem = addProjectItem;
 const ProjectionGroup_1 = require("827f6d58bbcff713");
 const ProjectionItem_1 = require("1103e5e1b8bdb5fd");
-function addProjectItem(list, prop) {
+function addProjectItem(list, prop, stopAtLeaf, aproximateByLevel) {
     return __awaiter(this, void 0, void 0, function*() {
         let found = false;
         const promRemove = [];
@@ -16558,7 +17433,7 @@ function addProjectItem(list, prop) {
                 continue;
             } else if (item instanceof ProjectionGroup_1.ProjectionGroup) promRemove.push(item.deleteItem(prop));
         }
-        if (!found) list.push(new ProjectionItem_1.ProjectionItem(prop.name, prop.modelId, prop.dbId, prop.properties, prop.externalId));
+        if (!found) list.push(new ProjectionItem_1.ProjectionItem(prop.name, prop.modelId, prop.dbId, prop.properties, prop.externalId, stopAtLeaf, aproximateByLevel));
         yield Promise.all(promRemove);
     });
 }
@@ -16915,8 +17790,8 @@ function addViewerSelection(index, list, viewer) {
 });
 exports.addToProjectionGroup = addToProjectionGroup;
 const ProjectionGroup_1 = require("b91614babbf09075");
-function addToProjectionGroup(list, name, stopAtLeaf) {
-    list.push(new ProjectionGroup_1.ProjectionGroup(name, stopAtLeaf));
+function addToProjectionGroup(list, name, stopAtLeaf, aproximateByLevel = true) {
+    list.push(new ProjectionGroup_1.ProjectionGroup(name, stopAtLeaf, aproximateByLevel));
 }
 
 },{"b91614babbf09075":"hhAyk"}],"i1MqN":[function(require,module,exports,__globalThis) {
@@ -17576,15 +18451,15 @@ function enumMeshTriangles(geometry, callback) {
     }
 }
 
-},{"5a1875c93dc3f742":"dsoTF"}],"lXauv":[function(require,module,exports,__globalThis) {
+},{"5a1875c93dc3f742":"dsoTF"}],"e5GRr":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
- * Copyright 2023 SpinalCom - www.spinalcom.com
+ * Copyright 2026 SpinalCom - www.spinalcom.com
  *
  * This file is part of SpinalCore.
  *
  * Please read all of the following terms and conditions
- * of the Free Software license Agreement ("Agreement")
+ * of the Software license Agreement ("Agreement")
  * carefully.
  *
  * This Agreement is a legally binding contract between
@@ -17600,7 +18475,48 @@ function enumMeshTriangles(geometry, callback) {
  * You should have received a copy of the license along
  * with this file. If not, see
  * <http://resources.spinalcom.com/licenses.pdf>.
- */ var __awaiter = this && this.__awaiter || function(thisArg, _arguments, P, generator) {
+ */ var __createBinding = this && this.__createBinding || (Object.create ? function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) desc = {
+        enumerable: true,
+        get: function() {
+            return m[k];
+        }
+    };
+    Object.defineProperty(o, k2, desc);
+} : function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+});
+var __setModuleDefault = this && this.__setModuleDefault || (Object.create ? function(o, v) {
+    Object.defineProperty(o, "default", {
+        enumerable: true,
+        value: v
+    });
+} : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = this && this.__importStar || function() {
+    var ownKeys = function(o) {
+        ownKeys = Object.getOwnPropertyNames || function(o) {
+            var ar = [];
+            for(var k in o)if (Object.prototype.hasOwnProperty.call(o, k)) ar[ar.length] = k;
+            return ar;
+        };
+        return ownKeys(o);
+    };
+    return function(mod) {
+        if (mod && mod.__esModule) return mod;
+        var result = {};
+        if (mod != null) {
+            for(var k = ownKeys(mod), i = 0; i < k.length; i++)if (k[i] !== "default") __createBinding(result, mod, k[i]);
+        }
+        __setModuleDefault(result, mod);
+        return result;
+    };
+}();
+var __awaiter = this && this.__awaiter || function(thisArg, _arguments, P, generator) {
     function adopt(value) {
         return value instanceof P ? value : new P(function(resolve) {
             resolve(value);
@@ -17630,89 +18546,73 @@ function enumMeshTriangles(geometry, callback) {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.getIntersects = getIntersects;
-exports.pushToAggregateDbidByModel = pushToAggregateDbidByModel;
-const raycastItemToMesh_1 = require("1913d268c9f20e66");
-const getLeafDbIdsByModel_1 = require("61d83f03389005dd");
-const transformRtzToXyz_1 = require("970f7a421b483413");
-const isProjectionGroup_1 = require("edf014ed06b8cfa4");
-const getModelByModelId_1 = require("f4b425cbf866afab");
-const getViewer_1 = require("48994d81f62559fe");
-const getAll3dbIdsByModel_1 = require("7d1d6268d559cc5a");
-function getIntersects(projectionGroupConfig, mergedRoomRef) {
+exports.aproximateItemsToFloors = aproximateItemsToFloors;
+const spinal_core_connectorjs_1 = require("706e18619aed7d8");
+const utils_1 = require("9d155e694afeb055");
+const raycastItemToMesh_1 = require("e14cbab4ece6ca2");
+const enumMeshTriangles_1 = require("6fce9c6cd56270c6");
+const THREE = __importStar(require("a788a527d8fc6737")); // uncomment for worker usage
+function aproximateItemsToFloors(itemsToAproximate, roomRefsByFloor, configFloorProjections) {
     return __awaiter(this, void 0, void 0, function*() {
-        const selection = [];
-        projectionGroupConfig.progress = 0;
-        try {
-            const chunkSize = 50;
-            const total = projectionGroupConfig.data.length;
-            for(let start = 0; start < total; start += chunkSize){
-                const end = Math.min(start + chunkSize, total);
-                const chunk = projectionGroupConfig.data.slice(start, end);
-                for(let idx = 0; idx < chunk.length; idx++){
-                    const itemToProj = chunk[idx];
-                    const _offset = (0, transformRtzToXyz_1.transformRtzToXyz)(itemToProj.offset);
-                    if ((0, isProjectionGroup_1.isProjectionGroup)(itemToProj)) for (const itm of itemToProj.computedData){
-                        const model = (0, getModelByModelId_1.getModelByModelId)(itm.modelId);
-                        let ids = [];
-                        if (itemToProj.stopAtLeaf === true) ids = (0, getLeafDbIdsByModel_1.getLeafDbIdsByModel)(model, itm.dbId);
-                        else ids = yield (0, getAll3dbIdsByModel_1.getAll3dbIdsByModel)(model, itm.dbId);
-                        if (ids.length === 0) continue;
-                        pushToAggregateDbidByModel(selection, ids, model, _offset, itm.dbId);
-                    }
-                    else {
-                        const model = (0, getModelByModelId_1.getModelByModelId)(itemToProj.modelId);
-                        const ids = (0, getLeafDbIdsByModel_1.getLeafDbIdsByModel)(model, itemToProj.dbId);
-                        pushToAggregateDbidByModel(selection, ids, model, _offset, itemToProj.dbId);
-                    }
-                    projectionGroupConfig.progress = (start + idx + 1) / total * 66;
-                }
-            }
-            const intersects = yield (0, raycastItemToMesh_1.raycastItemToMesh)(selection, mergedRoomRef, (0, getViewer_1.getViewer)());
-            projectionGroupConfig.progress = 100;
-            return {
-                selection,
-                intersects
-            };
-        } catch (error) {
-            projectionGroupConfig.progress = 100;
-            console.error(error);
-        }
+        const meshesByFloorNodeId = {};
+        const promises = Object.entries(roomRefsByFloor).map((_a)=>__awaiter(this, [
+                _a
+            ], void 0, function*([floorNodeId, aggre]) {
+                meshesByFloorNodeId[floorNodeId] = yield (0, raycastItemToMesh_1.getMeshsData)(aggre, (0, utils_1.getViewer)());
+            }));
+        const centerObjects = yield (0, raycastItemToMesh_1.getCenterObjects)(itemsToAproximate, (0, utils_1.getViewer)());
+        yield Promise.all(promises);
+        return yield aproximateItemsToFloorsJob(centerObjects, meshesByFloorNodeId, configFloorProjections);
     });
 }
-function pushToAggregateDbidByModel(targetArray, ids, model, offset, rootDbId) {
-    for (const obj of targetArray)if (obj.model === model) {
-        for (const id of ids){
-            const findItem = obj.dbId.find((a)=>a.dbId === id);
-            const isFocus = rootDbId === id;
-            if (findItem === undefined) obj.dbId.push({
-                dbId: id,
-                offset,
-                isFocus
+function aproximateItemsToFloorsJob(centerObjects, meshesByFloorNodeId, configFloorProjections) {
+    return __awaiter(this, void 0, void 0, function*() {
+        const res = [];
+        const triangle = new THREE.Triangle();
+        for (const centerPoint of centerObjects){
+            const floorNodeId = yield getFloorNodeIdByLevelDbIdAndModel(centerPoint.levelDbId, centerPoint.modelId, configFloorProjections);
+            const intersectionsObjs = meshesByFloorNodeId[floorNodeId];
+            if (!intersectionsObjs) continue;
+            let dbObjIntersection = null;
+            const closestPoint = new THREE.Vector3();
+            for (const intersectionObjs of intersectionsObjs)for (const mesh of intersectionObjs.dataMesh)(0, enumMeshTriangles_1.enumMeshTriangles)(mesh.geometry, (vA, vB, vC)=>{
+                // @ts-ignore
+                triangle.set(vA, vB, vC);
+                // @ts-ignore
+                triangle.closestPointToPoint(centerPoint.center, closestPoint);
+                // if closestPoint is above centerPoint z, skip
+                // allow to filter objects with wrong elevation
+                if (closestPoint.z > centerPoint.center.z) return;
+                const distance = centerPoint.center.distanceTo(closestPoint);
+                // if dbObjIntersection don't exist or distance > to old distance
+                if (!dbObjIntersection || dbObjIntersection && dbObjIntersection.intersections.distance > distance) dbObjIntersection = {
+                    origin: centerPoint,
+                    intersections: {
+                        distance,
+                        modelId: intersectionObjs.modelId,
+                        dbId: intersectionObjs.dbId
+                    }
+                };
             });
-            else if (isFocus === true && findItem.isFocus === false) {
-                findItem.isFocus = true;
-                findItem.offset = offset;
+            if (dbObjIntersection) res.push(dbObjIntersection);
+        }
+        return res;
+    });
+}
+function getFloorNodeIdByLevelDbIdAndModel(levelDbId, modelId, configFloorProjections) {
+    return __awaiter(this, void 0, void 0, function*() {
+        const bimFileId = (0, utils_1.getBimFileIdByModelId)(modelId);
+        for (const configFloorProjection of configFloorProjections){
+            for (const floorData of configFloorProjection.floorData)if (floorData.bimFileId === bimFileId && floorData.floorDbId === levelDbId) {
+                const floorServerId = configFloorProjection.floorId;
+                const item = spinal_core_connectorjs_1.FileSystem._objects[floorServerId];
+                return item.info.id.get();
             }
         }
-        return;
-    }
-    const dbId = [];
-    for (const id of ids){
-        const isFocus = rootDbId === id;
-        dbId.push({
-            dbId: id,
-            offset,
-            isFocus
-        });
-    }
-    targetArray.push({
-        model,
-        dbId
     });
 }
 
-},{"1913d268c9f20e66":"2FPyL","61d83f03389005dd":"iFzGl","970f7a421b483413":"6H7cz","edf014ed06b8cfa4":"3sIZF","f4b425cbf866afab":"2RiyL","48994d81f62559fe":"2CCXN","7d1d6268d559cc5a":"8Pe6x"}],"2FPyL":[function(require,module,exports,__globalThis) {
+},{"706e18619aed7d8":"cQPh9","9d155e694afeb055":"8KCIQ","e14cbab4ece6ca2":"2FPyL","6fce9c6cd56270c6":"4DPqN","a788a527d8fc6737":"dsoTF"}],"2FPyL":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -17767,6 +18667,8 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 exports.raycastItemToMesh = raycastItemToMesh;
+exports.getCenterObjects = getCenterObjects;
+exports.getMeshsData = getMeshsData;
 const utils_1 = require("b0617c49847b6861");
 const getModifiedWorldBoundingBox_1 = require("2613016b2902a66a");
 const getPointOffset_1 = require("f7829c7cb0e471d");
@@ -17774,14 +18676,13 @@ const getFragIds_1 = require("f5115cede6912dc0");
 // raycast job don't use webworker
 const raycastJob_1 = require("877f75ed0b67c22");
 // also raycast job but use webworker
-function raycastItemToMesh(from, to, viewer) {
-    return __awaiter(this, void 0, void 0, function*() {
+function raycastItemToMesh(from_1, to_1) {
+    return __awaiter(this, arguments, void 0, function*(from, to, viewer = (0, utils_1.getViewer)()) {
         try {
             const [centerPoints, geometries] = yield Promise.all([
                 getCenterObjects(from, viewer),
                 getMeshsData(to, viewer)
             ]);
-            console.log('raycastItemToMesh', centerPoints, geometries);
             return (0, raycastJob_1.raycastJob)({
                 centerPoints,
                 geometries
@@ -17794,14 +18695,14 @@ function raycastItemToMesh(from, to, viewer) {
 }
 function getCenterObjects(array, viewer) {
     const res = [];
-    for (const obj of array)for (const { dbId, offset } of obj.dbId){
+    for (const obj of array)for (const item of obj.dbId){
         // add offset here
-        const center = getCenter(dbId, offset, obj.model, viewer);
+        const center = getCenter(item.dbId, item.offset, obj.model, viewer, item.levelDbId);
         res.push(center);
     }
     return Promise.all(res);
 }
-function getCenter(dbId, offset, model, viewer) {
+function getCenter(dbId, offset, model, viewer, levelDbId) {
     return __awaiter(this, void 0, void 0, function*() {
         const { matrixWorld, bbox } = yield (0, utils_1.getBBoxAndMatrix)(dbId, model, viewer);
         const center = new THREE.Vector3();
@@ -17809,7 +18710,8 @@ function getCenter(dbId, offset, model, viewer) {
         return {
             dbId,
             modelId: model.id,
-            center: (0, getPointOffset_1.getPointOffset)(center, offset, matrixWorld)
+            center: (0, getPointOffset_1.getPointOffset)(center, offset, matrixWorld),
+            levelDbId
         };
     });
 }
@@ -17975,15 +18877,53 @@ function isPointOnTopOfBBox(bBox, point) {
     return false;
 }
 
-},{"9b17b9cfc45502e3":"4DPqN","851136264cee14eb":"dsoTF"}],"8Pe6x":[function(require,module,exports,__globalThis) {
+},{"9b17b9cfc45502e3":"4DPqN","851136264cee14eb":"dsoTF"}],"5QmgF":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
- * Copyright 2023 SpinalCom - www.spinalcom.com
+ * Copyright 2026 SpinalCom - www.spinalcom.com
  *
  * This file is part of SpinalCore.
  *
  * Please read all of the following terms and conditions
- * of the Free Software license Agreement ("Agreement")
+ * of the Software license Agreement ("Agreement")
+ * carefully.
+ *
+ * This Agreement is a legally binding contract between
+ * the Licensee (as defined below) and SpinalCom that
+ * sets forth the terms and conditions that govern your
+ * use of the Program. By installing and/or using the
+ * Program, you agree to abide by all the terms and
+ * conditions stated or referenced herein.
+ *
+ * If you do not agree to abide by these terms and
+ * conditions, do not demonstrate your acceptance and do
+ * not install or use the Program.
+ * You should have received a copy of the license along
+ * with this file. If not, see
+ * <http://resources.spinalcom.com/licenses.pdf>.
+ */ Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.getBulkProperties_withOptions = getBulkProperties_withOptions;
+function getBulkProperties_withOptions(model, dbIds, options) {
+    return new Promise((resolve, reject)=>{
+        model.getBulkProperties2(dbIds, options, (results)=>{
+            resolve(results);
+        }, (error)=>{
+            reject(error);
+        });
+    });
+}
+
+},{}],"4IhXM":[function(require,module,exports,__globalThis) {
+"use strict";
+/*
+ * Copyright 2026 SpinalCom - www.spinalcom.com
+ *
+ * This file is part of SpinalCore.
+ *
+ * Please read all of the following terms and conditions
+ * of the Software license Agreement ("Agreement")
  * carefully.
  *
  * This Agreement is a legally binding contract between
@@ -18029,136 +18969,20 @@ function isPointOnTopOfBBox(bBox, point) {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.getAll3dbIdsByModel = getAll3dbIdsByModel;
-const getFragIds_1 = require("be46dc1af62fdbfc");
-const getDbIdChildren_1 = require("19e659103ac915fa");
-function getAll3dbIdsByModel(model, dbIds) {
+exports.getOrCreateProjectionFloorConfig = getOrCreateProjectionFloorConfig;
+const spinal_core_connectorjs_type_1 = require("251b5e3db60a726d");
+function getOrCreateProjectionFloorConfig(context) {
     return __awaiter(this, void 0, void 0, function*() {
-        const tree = model.getInstanceTree();
-        const resDbid = [];
-        if (typeof dbIds === 'undefined') dbIds = [
-            tree.nodeAccess.rootId
-        ];
-        else dbIds = Array.isArray(dbIds) ? dbIds : [
-            dbIds
-        ];
-        const CHUNK_SIZE = 100;
-        for (const el of dbIds){
-            const queue = [
-                el
-            ];
-            while(queue.length){
-                const chunk = queue.splice(0, CHUNK_SIZE);
-                const promises = chunk.map((id)=>__awaiter(this, void 0, void 0, function*() {
-                        try {
-                            yield (0, getFragIds_1.getFragIds)(id, model);
-                            resDbid.push(id);
-                        } catch (err) {
-                            const children = (0, getDbIdChildren_1.getDbIdChildren)(tree, id);
-                            if (children.length > 0) queue.push(...children);
-                        }
-                    }));
-                yield Promise.all(promises);
-            }
-        }
-        return resDbid;
+        let config;
+        if (typeof context.info.projectionFloorConfig === 'undefined') {
+            config = new spinal_core_connectorjs_type_1.Lst();
+            context.info.add_attr('projectionFloorConfig', new spinal_core_connectorjs_type_1.Ptr(config));
+        } else config = yield context.info.projectionFloorConfig.load();
+        return config.get();
     });
 }
 
-},{"be46dc1af62fdbfc":"6q4gv","19e659103ac915fa":"9aNqX"}],"fCK6A":[function(require,module,exports,__globalThis) {
-"use strict";
-/*
- * Copyright 2023 SpinalCom - www.spinalcom.com
- *
- * This file is part of SpinalCore.
- *
- * Please read all of the following terms and conditions
- * of the Free Software license Agreement ("Agreement")
- * carefully.
- *
- * This Agreement is a legally binding contract between
- * the Licensee (as defined below) and SpinalCom that
- * sets forth the terms and conditions that govern your
- * use of the Program. By installing and/or using the
- * Program, you agree to abide by all the terms and
- * conditions stated or referenced herein.
- *
- * If you do not agree to abide by these terms and
- * conditions, do not demonstrate your acceptance and do
- * not install or use the Program.
- * You should have received a copy of the license along
- * with this file. If not, see
- * <http://resources.spinalcom.com/licenses.pdf>.
- */ Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.mergeIntersectRes = mergeIntersectRes;
-function mergeIntersectRes(target, item) {
-    for (const itemInter of item.intersects){
-        const targetInter = target.intersects.find((t)=>{
-            return t.origin.modelId === itemInter.origin.modelId && t.origin.dbId === itemInter.origin.dbId;
-        });
-        if (!targetInter) target.intersects.push(itemInter);
-        else if (itemInter.intersections.distance > targetInter.intersections.distance) {
-            targetInter.intersections.dbId = itemInter.intersections.dbId;
-            targetInter.intersections.distance = itemInter.intersections.distance;
-            targetInter.intersections.modelId = itemInter.intersections.modelId;
-        }
-    }
-    for (const itemSelect of item.selection){
-        const targetSelect = target.selection.find((t)=>{
-            return t.model === itemSelect.model;
-        });
-        if (!targetSelect) target.selection.push(itemSelect);
-        else {
-            for (const objDbId of itemSelect.dbId)if (!targetSelect.dbId.find((tDbId)=>tDbId.dbId === objDbId.dbId)) targetSelect.dbId.push(objDbId);
-        }
-    }
-}
-
-},{}],"iXnX4":[function(require,module,exports,__globalThis) {
-"use strict";
-/*
- * Copyright 2023 SpinalCom - www.spinalcom.com
- *
- * This file is part of SpinalCore.
- *
- * Please read all of the following terms and conditions
- * of the Free Software license Agreement ("Agreement")
- * carefully.
- *
- * This Agreement is a legally binding contract between
- * the Licensee (as defined below) and SpinalCom that
- * sets forth the terms and conditions that govern your
- * use of the Program. By installing and/or using the
- * Program, you agree to abide by all the terms and
- * conditions stated or referenced herein.
- *
- * If you do not agree to abide by these terms and
- * conditions, do not demonstrate your acceptance and do
- * not install or use the Program.
- * You should have received a copy of the license along
- * with this file. If not, see
- * <http://resources.spinalcom.com/licenses.pdf>.
- */ Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.mergeRoomRef = mergeRoomRef;
-const getRoomRef_1 = require("c98d7ebb628fe491");
-function mergeRoomRef(data) {
-    const result = [];
-    for(const floorName in data)if (Object.prototype.hasOwnProperty.call(data, floorName)) {
-        const arrAgre = data[floorName];
-        arrAgre.forEach((agre)=>{
-            agre.dbId.forEach((dbid)=>{
-                (0, getRoomRef_1.pushToAggregateSetDbidByModel)(result, dbid, agre.model);
-            });
-        });
-    }
-    return result;
-}
-
-},{"c98d7ebb628fe491":"2zOH8"}],"2zOH8":[function(require,module,exports,__globalThis) {
+},{"251b5e3db60a726d":"1A32E"}],"2zOH8":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -18265,7 +19089,474 @@ function pushToAggregateSetDbidByModel(targetArray, id, model) {
     });
 }
 
-},{"8b2c694c00b7b6b3":"3IlJL","2cdd0b64d42c2281":"ltnH8"}],"2Tr4K":[function(require,module,exports,__globalThis) {
+},{"8b2c694c00b7b6b3":"3IlJL","2cdd0b64d42c2281":"ltnH8"}],"lUscr":[function(require,module,exports,__globalThis) {
+"use strict";
+/*
+ * Copyright 2026 SpinalCom - www.spinalcom.com
+ *
+ * This file is part of SpinalCore.
+ *
+ * Please read all of the following terms and conditions
+ * of the Software license Agreement ("Agreement")
+ * carefully.
+ *
+ * This Agreement is a legally binding contract between
+ * the Licensee (as defined below) and SpinalCom that
+ * sets forth the terms and conditions that govern your
+ * use of the Program. By installing and/or using the
+ * Program, you agree to abide by all the terms and
+ * conditions stated or referenced herein.
+ *
+ * If you do not agree to abide by these terms and
+ * conditions, do not demonstrate your acceptance and do
+ * not install or use the Program.
+ * You should have received a copy of the license along
+ * with this file. If not, see
+ * <http://resources.spinalcom.com/licenses.pdf>.
+ */ var __awaiter = this && this.__awaiter || function(thisArg, _arguments, P, generator) {
+    function adopt(value) {
+        return value instanceof P ? value : new P(function(resolve) {
+            resolve(value);
+        });
+    }
+    return new (P || (P = Promise))(function(resolve, reject) {
+        function fulfilled(value) {
+            try {
+                step(generator.next(value));
+            } catch (e) {
+                reject(e);
+            }
+        }
+        function rejected(value) {
+            try {
+                step(generator["throw"](value));
+            } catch (e) {
+                reject(e);
+            }
+        }
+        function step(result) {
+            result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected);
+        }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.initFloorAssign = initFloorAssign;
+const getBimFileIdByModelId_1 = require("b15b0ed10c95ff5c");
+const getOrCreateProjectionFloorConfig_1 = require("cd894104d7dd9843");
+const getBulkProperties_withOptions_1 = require("f729aeb3da519cba");
+const getProperties_1 = require("76ba26e4152f8acb");
+function initFloorAssign(lstItemsToAproximate, context) {
+    return __awaiter(this, void 0, void 0, function*() {
+        const levelsFound = yield fetchUsedFloors(lstItemsToAproximate);
+        // load floor form Spatial
+        const floorNodes = yield getFloorNodesFromContext(context);
+        const configFloorProjection = yield (0, getOrCreateProjectionFloorConfig_1.getOrCreateProjectionFloorConfig)(context);
+        for (const floorNode of floorNodes){
+            let floorConfig = configFloorProjection.find((a)=>a.floorId === floorNode._server_id);
+            if (!floorConfig) {
+                floorConfig = {
+                    floorId: floorNode._server_id,
+                    floorData: []
+                };
+                configFloorProjection.push(floorConfig);
+            } else // remove the levelsFound that are already in config
+            for (const item of floorConfig.floorData){
+                const index = levelsFound.findIndex((f)=>f.bimFileId === item.bimFileId && f.floorDbId === item.floorDbId);
+                if (index !== -1) levelsFound.splice(index, 1);
+            }
+        }
+        return {
+            levelsFound,
+            configFloorProjection
+        };
+    });
+}
+function getFloorNodesFromContext(context) {
+    return __awaiter(this, void 0, void 0, function*() {
+        const floorNodes = [];
+        const buildingNodes = yield context.getChildrenInContext(context);
+        for (const buildingNode of buildingNodes){
+            const floorNodesInContext = yield buildingNode.getChildrenInContext(context);
+            floorNodes.push(...floorNodesInContext);
+        }
+        return floorNodes;
+    });
+}
+function fetchUsedFloors(lstItemsToAproximate) {
+    return __awaiter(this, void 0, void 0, function*() {
+        const levelsFounds = [];
+        for (const items of lstItemsToAproximate)for (const item of items){
+            const dbIds = item.dbId.map((d)=>d.dbId);
+            const bulkLevelData = yield (0, getBulkProperties_withOptions_1.getBulkProperties_withOptions)(item.model, dbIds, {
+                propFilter: [
+                    'Level'
+                ],
+                ignoreHidden: false
+            });
+            for (const r of bulkLevelData){
+                const levelProp = r.properties.find((p)=>p.displayCategory === '__internalref__' && p.attributeName === 'Level');
+                if (levelProp) {
+                    const data = item.dbId.find((d)=>d.dbId === r.dbId);
+                    if (data) data.levelDbId = levelProp.displayValue;
+                    if (item.floors === undefined) item.floors = [];
+                    if (!item.floors.find((f)=>f.dbId === levelProp.displayValue)) {
+                        const floorData = yield (0, getProperties_1.getProperties)(item.model, levelProp.displayValue);
+                        item.floors.push({
+                            name: floorData.name,
+                            dbId: levelProp.displayValue
+                        });
+                        // test if exist in levelsFounds
+                        const bimFileId = (0, getBimFileIdByModelId_1.getBimFileIdByModelId)(item.model.id);
+                        if (!levelsFounds.find((f)=>f.bimFileId === bimFileId && f.floorDbId === levelProp.displayValue)) levelsFounds.push({
+                            bimFileId: bimFileId,
+                            floorDbId: levelProp.displayValue,
+                            name: floorData.name
+                        });
+                    }
+                }
+            }
+        }
+        return levelsFounds;
+    });
+}
+
+},{"b15b0ed10c95ff5c":"cWlmq","cd894104d7dd9843":"4IhXM","f729aeb3da519cba":"5QmgF","76ba26e4152f8acb":"eSD1P"}],"fCK6A":[function(require,module,exports,__globalThis) {
+"use strict";
+/*
+ * Copyright 2023 SpinalCom - www.spinalcom.com
+ *
+ * This file is part of SpinalCore.
+ *
+ * Please read all of the following terms and conditions
+ * of the Free Software license Agreement ("Agreement")
+ * carefully.
+ *
+ * This Agreement is a legally binding contract between
+ * the Licensee (as defined below) and SpinalCom that
+ * sets forth the terms and conditions that govern your
+ * use of the Program. By installing and/or using the
+ * Program, you agree to abide by all the terms and
+ * conditions stated or referenced herein.
+ *
+ * If you do not agree to abide by these terms and
+ * conditions, do not demonstrate your acceptance and do
+ * not install or use the Program.
+ * You should have received a copy of the license along
+ * with this file. If not, see
+ * <http://resources.spinalcom.com/licenses.pdf>.
+ */ Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.mergeIntersectRes = mergeIntersectRes;
+function mergeIntersectRes(target, item) {
+    for (const itemInter of item.intersects){
+        const targetInter = target.intersects.find((t)=>{
+            return t.origin.modelId === itemInter.origin.modelId && t.origin.dbId === itemInter.origin.dbId;
+        });
+        if (!targetInter) target.intersects.push(itemInter);
+        else if (itemInter.intersections.distance > targetInter.intersections.distance) {
+            targetInter.intersections.dbId = itemInter.intersections.dbId;
+            targetInter.intersections.distance = itemInter.intersections.distance;
+            targetInter.intersections.modelId = itemInter.intersections.modelId;
+        }
+    }
+    for (const itemSelect of item.selection){
+        const targetSelect = target.selection.find((t)=>{
+            return t.model === itemSelect.model;
+        });
+        if (!targetSelect) target.selection.push(itemSelect);
+        else {
+            for (const objDbId of itemSelect.dbId)if (!targetSelect.dbId.find((tDbId)=>tDbId.dbId === objDbId.dbId)) targetSelect.dbId.push(objDbId);
+        }
+    }
+}
+
+},{}],"iXnX4":[function(require,module,exports,__globalThis) {
+"use strict";
+/*
+ * Copyright 2023 SpinalCom - www.spinalcom.com
+ *
+ * This file is part of SpinalCore.
+ *
+ * Please read all of the following terms and conditions
+ * of the Free Software license Agreement ("Agreement")
+ * carefully.
+ *
+ * This Agreement is a legally binding contract between
+ * the Licensee (as defined below) and SpinalCom that
+ * sets forth the terms and conditions that govern your
+ * use of the Program. By installing and/or using the
+ * Program, you agree to abide by all the terms and
+ * conditions stated or referenced herein.
+ *
+ * If you do not agree to abide by these terms and
+ * conditions, do not demonstrate your acceptance and do
+ * not install or use the Program.
+ * You should have received a copy of the license along
+ * with this file. If not, see
+ * <http://resources.spinalcom.com/licenses.pdf>.
+ */ Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.mergeRoomRef = mergeRoomRef;
+const getRoomRef_1 = require("c98d7ebb628fe491");
+function mergeRoomRef(data) {
+    const result = [];
+    for(const floorName in data)if (Object.prototype.hasOwnProperty.call(data, floorName)) {
+        const arrAgre = data[floorName];
+        arrAgre.forEach((agre)=>{
+            agre.dbId.forEach((dbid)=>{
+                (0, getRoomRef_1.pushToAggregateSetDbidByModel)(result, dbid, agre.model);
+            });
+        });
+    }
+    return result;
+}
+
+},{"c98d7ebb628fe491":"2zOH8"}],"jSJJJ":[function(require,module,exports,__globalThis) {
+"use strict";
+/*
+ * Copyright 2026 SpinalCom - www.spinalcom.com
+ *
+ * This file is part of SpinalCore.
+ *
+ * Please read all of the following terms and conditions
+ * of the Software license Agreement ("Agreement")
+ * carefully.
+ *
+ * This Agreement is a legally binding contract between
+ * the Licensee (as defined below) and SpinalCom that
+ * sets forth the terms and conditions that govern your
+ * use of the Program. By installing and/or using the
+ * Program, you agree to abide by all the terms and
+ * conditions stated or referenced herein.
+ *
+ * If you do not agree to abide by these terms and
+ * conditions, do not demonstrate your acceptance and do
+ * not install or use the Program.
+ * You should have received a copy of the license along
+ * with this file. If not, see
+ * <http://resources.spinalcom.com/licenses.pdf>.
+ */ var __awaiter = this && this.__awaiter || function(thisArg, _arguments, P, generator) {
+    function adopt(value) {
+        return value instanceof P ? value : new P(function(resolve) {
+            resolve(value);
+        });
+    }
+    return new (P || (P = Promise))(function(resolve, reject) {
+        function fulfilled(value) {
+            try {
+                step(generator.next(value));
+            } catch (e) {
+                reject(e);
+            }
+        }
+        function rejected(value) {
+            try {
+                step(generator["throw"](value));
+            } catch (e) {
+                reject(e);
+            }
+        }
+        function step(result) {
+            result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected);
+        }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.prepareIntersects = prepareIntersects;
+const getLeafDbIdsByModel_1 = require("8282359d846d5fc5");
+const transformRtzToXyz_1 = require("cc000892aac3c936");
+const isProjectionGroup_1 = require("5fef2fc2dc14664b");
+const getModelByModelId_1 = require("ad06298a7ff25330");
+const getAll3dbIdsByModel_1 = require("b86e3fe2b8e588a6");
+const pushToAggregateDbidByModel_1 = require("6fb2437574fed469");
+function prepareIntersects(projectionGroupConfig) {
+    return __awaiter(this, void 0, void 0, function*() {
+        const itemsToIntersect = [];
+        const itemsToAproximate = [];
+        projectionGroupConfig.progress = 0;
+        try {
+            let proms = [];
+            for(let idx = 0; idx < projectionGroupConfig.data.length; idx++){
+                const itemToProj = projectionGroupConfig.data[idx];
+                const _offset = (0, transformRtzToXyz_1.transformRtzToXyz)(itemToProj.offset);
+                if ((0, isProjectionGroup_1.isProjectionGroup)(itemToProj)) for (const itm of itemToProj.computedData)proms.push(processProjectionData(itm.modelId, itm.dbId, itemsToAproximate, _offset, itemsToIntersect, itemToProj.stopAtLeaf, itemToProj.aproximateByLevel));
+                else proms.push(processProjectionData(itemToProj.modelId, itemToProj.dbId, itemsToAproximate, _offset, itemsToIntersect, itemToProj.stopAtLeaf, itemToProj.aproximateByLevel));
+                if (proms.length >= 200) {
+                    projectionGroupConfig.progress = (idx + 1) / projectionGroupConfig.data.length * 100;
+                    yield Promise.all(proms);
+                    proms = [];
+                }
+            }
+            yield Promise.all(proms);
+            projectionGroupConfig.progress = 100;
+            return {
+                itemsToAproximate,
+                itemsToIntersect
+            };
+        } catch (error) {
+            projectionGroupConfig.progress = 100;
+            console.error(error);
+        }
+    });
+}
+function processProjectionData(modelId, dbId, itemsToAproximate, _offset, itemsToIntersect, stopAtLeaf, aproximateByLevel) {
+    return __awaiter(this, void 0, void 0, function*() {
+        const model = (0, getModelByModelId_1.getModelByModelId)(modelId);
+        let ids = [];
+        if (stopAtLeaf === true) ids = (0, getLeafDbIdsByModel_1.getLeafDbIdsByModel)(model, dbId);
+        else ids = yield (0, getAll3dbIdsByModel_1.getAll3dbIdsByModel)(model, dbId);
+        if (ids.length === 0) return;
+        if (aproximateByLevel === true) (0, pushToAggregateDbidByModel_1.pushToAggregateDbidByModel)(itemsToAproximate, ids, model, _offset, dbId);
+        else (0, pushToAggregateDbidByModel_1.pushToAggregateDbidByModel)(itemsToIntersect, ids, model, _offset, dbId);
+    });
+}
+
+},{"8282359d846d5fc5":"iFzGl","cc000892aac3c936":"6H7cz","5fef2fc2dc14664b":"3sIZF","ad06298a7ff25330":"2RiyL","b86e3fe2b8e588a6":"8Pe6x","6fb2437574fed469":"dibJS"}],"dibJS":[function(require,module,exports,__globalThis) {
+"use strict";
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.pushToAggregateDbidByModel = pushToAggregateDbidByModel;
+function pushToAggregateDbidByModel(targetArray, ids, model, offset, rootDbId) {
+    for (const obj of targetArray)if (obj.model === model) {
+        for (const id of ids){
+            const findItem = obj.dbId.find((a)=>a.dbId === id);
+            const isFocus = rootDbId === id;
+            if (findItem === undefined) obj.dbId.push({
+                dbId: id,
+                offset,
+                isFocus
+            });
+            else if (isFocus === true && findItem.isFocus === false) {
+                findItem.isFocus = true;
+                findItem.offset = offset;
+            }
+        }
+        return;
+    }
+    const dbId = [];
+    for (const id of ids){
+        const isFocus = rootDbId === id;
+        dbId.push({
+            dbId: id,
+            offset,
+            isFocus
+        });
+    }
+    targetArray.push({
+        model,
+        dbId
+    });
+}
+
+},{}],"cLRy9":[function(require,module,exports,__globalThis) {
+"use strict";
+/*
+ * Copyright 2026 SpinalCom - www.spinalcom.com
+ *
+ * This file is part of SpinalCore.
+ *
+ * Please read all of the following terms and conditions
+ * of the Software license Agreement ("Agreement")
+ * carefully.
+ *
+ * This Agreement is a legally binding contract between
+ * the Licensee (as defined below) and SpinalCom that
+ * sets forth the terms and conditions that govern your
+ * use of the Program. By installing and/or using the
+ * Program, you agree to abide by all the terms and
+ * conditions stated or referenced herein.
+ *
+ * If you do not agree to abide by these terms and
+ * conditions, do not demonstrate your acceptance and do
+ * not install or use the Program.
+ * You should have received a copy of the license along
+ * with this file. If not, see
+ * <http://resources.spinalcom.com/licenses.pdf>.
+ */ var __awaiter = this && this.__awaiter || function(thisArg, _arguments, P, generator) {
+    function adopt(value) {
+        return value instanceof P ? value : new P(function(resolve) {
+            resolve(value);
+        });
+    }
+    return new (P || (P = Promise))(function(resolve, reject) {
+        function fulfilled(value) {
+            try {
+                step(generator.next(value));
+            } catch (e) {
+                reject(e);
+            }
+        }
+        function rejected(value) {
+            try {
+                step(generator["throw"](value));
+            } catch (e) {
+                reject(e);
+            }
+        }
+        function step(result) {
+            result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected);
+        }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.updateProjectionFloorConfig = updateProjectionFloorConfig;
+const spinal_core_connectorjs_1 = require("45ff0cd1daa9e202");
+function updateProjectionFloorConfig(context, levelsFoundAssigned, spatialLevels) {
+    return __awaiter(this, void 0, void 0, function*() {
+        let config;
+        if (typeof context.info.projectionFloorConfig === 'undefined') {
+            config = new spinal_core_connectorjs_1.Lst();
+            context.info.add_attr('projectionFloorConfig', new spinal_core_connectorjs_1.Ptr(config));
+        } else config = yield context.info.projectionFloorConfig.load();
+        for (const spatialLevel of spatialLevels){
+            let levelConfig = config.detect((item)=>item.floorId.get() === spatialLevel.floorId);
+            if (!levelConfig) {
+                levelConfig = new spinal_core_connectorjs_1.Model({
+                    floorId: spatialLevel.floorId,
+                    floorData: new spinal_core_connectorjs_1.Lst()
+                });
+                config.push(levelConfig);
+            }
+            const itemsInFloor = levelsFoundAssigned.filter((a)=>a.targetFloorId === spatialLevel.floorId);
+            for (const itemInFloor of itemsInFloor){
+                const levelItemCfg = levelConfig.floorData.detect((f)=>{
+                    return f.bimFileId.get() === itemInFloor.bimFileId && f.floorDbId.get() === itemInFloor.floorDbId;
+                });
+                if (!levelItemCfg) {
+                    // create new
+                    const newLevelItem = new spinal_core_connectorjs_1.Model({
+                        bimFileId: itemInFloor.bimFileId,
+                        floorDbId: itemInFloor.floorDbId
+                    });
+                    levelConfig.floorData.push(newLevelItem);
+                }
+            }
+            // clean floorData that are not in levelsFoundAssigned
+            const toRemove = [];
+            for(let index = 0; index < levelConfig.floorData.length; index++){
+                const f = levelConfig.floorData[index];
+                const found = itemsInFloor.find((a)=>a.bimFileId === f.bimFileId.get() && a.floorDbId === f.floorDbId.get());
+                if (!found) toRemove.push(f);
+            }
+            for (const item of toRemove)levelConfig.floorData.remove(item);
+        }
+        return config.get();
+    });
+}
+
+},{"45ff0cd1daa9e202":"cQPh9"}],"2Tr4K":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -18513,44 +19804,7 @@ function getFloorPropForModel() {
     });
 }
 
-},{"da7fbb14be9adfbd":"hm6W8","cc01201d94c970bf":"b6ZAO","6da6a48f416e41bd":"4YVFi"}],"b6ZAO":[function(require,module,exports,__globalThis) {
-"use strict";
-/*
- * Copyright 2023 SpinalCom - www.spinalcom.com
- *
- * This file is part of SpinalCore.
- *
- * Please read all of the following terms and conditions
- * of the Free Software license Agreement ("Agreement")
- * carefully.
- *
- * This Agreement is a legally binding contract between
- * the Licensee (as defined below) and SpinalCom that
- * sets forth the terms and conditions that govern your
- * use of the Program. By installing and/or using the
- * Program, you agree to abide by all the terms and
- * conditions stated or referenced herein.
- *
- * If you do not agree to abide by these terms and
- * conditions, do not demonstrate your acceptance and do
- * not install or use the Program.
- * You should have received a copy of the license along
- * with this file. If not, see
- * <http://resources.spinalcom.com/licenses.pdf>.
- */ Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.getAllModelLoaded = getAllModelLoaded;
-function getAllModelLoaded() {
-    const mappingBimFileIdModelId = window.spinal.BimObjectService.mappingBimFileIdModelId;
-    const models = new Set();
-    for(const bimFileId in mappingBimFileIdModelId){
-        if (Object.prototype.hasOwnProperty.call(mappingBimFileIdModelId, bimFileId)) for (const { model } of mappingBimFileIdModelId[bimFileId].modelScene)models.add(model);
-    }
-    return Array.from(models);
-}
-
-},{}],"4YVFi":[function(require,module,exports,__globalThis) {
+},{"da7fbb14be9adfbd":"hm6W8","cc01201d94c970bf":"b6ZAO","6da6a48f416e41bd":"4YVFi"}],"4YVFi":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -19178,7 +20432,220 @@ function getBimFileIdByModelId(modelId) {
     }
 }
 
-},{"359faa06123be6f2":"8KCIQ","b0cdb09dbf2fdb97":"3IlJL"}],"2eBL2":[function(require,module,exports,__globalThis) {
+},{"359faa06123be6f2":"8KCIQ","b0cdb09dbf2fdb97":"3IlJL"}],"fMV5u":[function(require,module,exports,__globalThis) {
+"use strict";
+/*
+ * Copyright 2026 SpinalCom - www.spinalcom.com
+ *
+ * This file is part of SpinalCore.
+ *
+ * Please read all of the following terms and conditions
+ * of the Software license Agreement ("Agreement")
+ * carefully.
+ *
+ * This Agreement is a legally binding contract between
+ * the Licensee (as defined below) and SpinalCom that
+ * sets forth the terms and conditions that govern your
+ * use of the Program. By installing and/or using the
+ * Program, you agree to abide by all the terms and
+ * conditions stated or referenced herein.
+ *
+ * If you do not agree to abide by these terms and
+ * conditions, do not demonstrate your acceptance and do
+ * not install or use the Program.
+ * You should have received a copy of the license along
+ * with this file. If not, see
+ * <http://resources.spinalcom.com/licenses.pdf>.
+ */ var __importDefault = this && this.__importDefault || function(mod) {
+    return mod && mod.__esModule ? mod : {
+        "default": mod
+    };
+};
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.ProjectionTester = void 0;
+const utils_1 = require("ad1022ef3c8b0760");
+const colors_json_1 = __importDefault(require("beda99e6bc8f60b0"));
+class ProjectionTester {
+    constructor(intersectRes, roomRefsByFloor){
+        this.pageSize = colors_json_1.default.length;
+        this.viewer = (0, utils_1.getViewer)();
+        this.floorsData = [];
+        this.colors = colors_json_1.default.map((c)=>new THREE.Vector4(c[0] / 255, c[1] / 255, c[2] / 255, 1));
+        this.assignItemByRooms(intersectRes, roomRefsByFloor);
+    }
+    getFloorsDataUx() {
+        return this.floorsData.map((item)=>{
+            return {
+                id: item.nodeId,
+                name: item.name,
+                size: item.rooms.length,
+                index: 0
+            };
+        });
+    }
+    /**
+     * @param {number} pageIndex start at 0
+     * @memberof ProjectionTester
+     */ colorRooms(floorNodeId, pageIndex) {
+        const floorData = this.floorsData.find((f)=>f.nodeId === floorNodeId);
+        if (!floorData) return;
+        const nbPages = Math.ceil(floorData.rooms.length / this.pageSize);
+        if (pageIndex >= nbPages) pageIndex = nbPages - 1;
+        const models = (0, utils_1.getAllModelLoaded)();
+        for (const model of models)model.clearThemingColors();
+        const start = pageIndex * this.pageSize;
+        const end = start + this.pageSize;
+        const roomSlice = floorData.rooms.slice(start, end);
+        const aggrData = [];
+        for(let i = 0; i < roomSlice.length; i++){
+            const roomData = roomSlice[i];
+            for (const data of roomData.data){
+                for (const dbid of data.dbId)data.model.setThemingColor(dbid, roomData.color);
+                pushToAggregateDbidByModel(aggrData, data.dbId, data.model);
+            }
+        }
+        const dataview = aggrData.map((view)=>{
+            return {
+                model: view.model,
+                selection: view.dbId,
+                ids: view.dbId
+            };
+        });
+        // @ts-ignore
+        this.viewer.fitToView(dataview);
+        // @ts-ignore
+        this.viewer.impl.visibilityManager.aggregateIsolate(dataview);
+        this.viewer.impl.invalidate(true);
+    // if (pageIndex > this.nbPages) pageIndex = this.nbPages;
+    // const models = getAllModelLoaded();
+    // for (const model of models) {
+    //   this.viewer.clearThemingColors(model);
+    // }
+    // const start = pageIndex * this.pageSize;
+    // const end = start + this.pageSize;
+    // const roomSlice = this.roomData.slice(start, end);
+    // const aggrData: IAggregateDbidByModelItem[] = [];
+    // for (let i = 0; i < roomSlice.length; i++) {
+    //   const roomData = roomSlice[i];
+    //   for (const data of roomData.data) {
+    //     for (const dbid of data.dbId) {
+    //       data.model.setThemingColor(dbid, roomData.color);
+    //     }
+    //     pushToAggregateDbidByModel(aggrData, data.dbId, data.model);
+    //   }
+    // }
+    // const dataview = aggrData.map((view) => {
+    //   return { model: view.model, selection: view.dbId, ids: view.dbId };
+    // });
+    // // @ts-ignore
+    // this.viewer.fitToView(dataview);
+    // // @ts-ignore
+    // this.viewer.impl.visibilityManager.aggregateIsolate(dataview);
+    // this.viewer.impl.invalidate(true);
+    }
+    clearColors() {
+        const models = (0, utils_1.getAllModelLoaded)();
+        for (const model of models)this.viewer.clearThemingColors(model);
+        this.viewer.impl.invalidate(true);
+    }
+    assignItemByRooms(intersectRes, roomRefsByFloor) {
+        this.floorsData = [];
+        for (const inter of intersectRes){
+            const floorData = this.getFloorData(inter.intersections.modelId, inter.intersections.dbId, roomRefsByFloor);
+            // get room data
+            let roomData = floorData.rooms.find((r)=>r.dbid === inter.intersections.dbId && r.modelId === inter.intersections.modelId);
+            if (!roomData) {
+                roomData = {
+                    dbid: inter.intersections.dbId,
+                    modelId: inter.intersections.modelId,
+                    color: this.colors[(floorData.rooms.length + 1) % this.colors.length],
+                    data: []
+                };
+                floorData.rooms.push(roomData);
+            }
+            const model = (0, utils_1.getModelByModelId)(inter.intersections.modelId);
+            pushToAggregateDbidByModel(roomData.data, [
+                inter.intersections.dbId
+            ], model);
+            const modelObj = (0, utils_1.getModelByModelId)(inter.origin.modelId);
+            pushToAggregateDbidByModel(roomData.data, [
+                inter.origin.dbId
+            ], modelObj);
+        }
+    //   const rooms: Map<number, IAggregateDbidByModelItem[]> = new Map();
+    //   for (const inter of intersectRes) {
+    //     let room = rooms.get(inter.intersections.dbId);
+    //     if (!room) {
+    //       room = [];
+    //       rooms.set(inter.intersections.dbId, room);
+    //     }
+    //     const model = getModelByModelId(inter.intersections.modelId);
+    //     pushToAggregateDbidByModel(room, [inter.intersections.dbId], model);
+    //     const modelObj = getModelByModelId(inter.origin.modelId);
+    //     pushToAggregateDbidByModel(room, [inter.origin.dbId], modelObj);
+    //   }
+    //   this.roomData = [];
+    //   let index = 0;
+    //   for (const [roomId, data] of rooms) {
+    //     this.roomData.push({
+    //       color: this.colors[index % this.colors.length],
+    //       data,
+    //     });
+    //     index++;
+    //   }
+    }
+    getFloorData(modelId, roomDbId, roomRefsByFloor) {
+        const roomModel = (0, utils_1.getModelByModelId)(modelId);
+        const FloorNodeId = this.getFloorIdByModelAndDbid(roomRefsByFloor, roomModel, roomDbId);
+        const floorName = this.getFloorNameById(FloorNodeId);
+        let floorData = this.floorsData.find((f)=>f.nodeId === FloorNodeId);
+        if (!floorData) {
+            floorData = {
+                nodeId: FloorNodeId,
+                name: floorName,
+                rooms: []
+            };
+            this.floorsData.push(floorData);
+        }
+        return floorData;
+    }
+    getFloorIdByModelAndDbid(roomRefsByFloor, model, dbId) {
+        for(const floorNodeId in roomRefsByFloor){
+            const refs = roomRefsByFloor[floorNodeId];
+            for (const ref of refs){
+                if (ref.model === model && ref.dbId.has(dbId)) return floorNodeId;
+            }
+        }
+        return undefined;
+    }
+    getFloorNameById(floorId) {
+        const floorNode = (0, utils_1.getRealNode)(floorId);
+        return floorNode ? floorNode.info.name.get() : 'undefined';
+    }
+}
+exports.ProjectionTester = ProjectionTester;
+function pushToAggregateDbidByModel(targetArray, ids, model) {
+    for (const obj of targetArray)if (obj.model === model) {
+        for (const id of ids){
+            const findItem = obj.dbId.find((a)=>a === id);
+            if (findItem === undefined) obj.dbId.push(id);
+        }
+        return;
+    }
+    const dbId = [];
+    for (const id of ids)dbId.push(id);
+    targetArray.push({
+        model,
+        dbId
+    });
+}
+
+},{"ad1022ef3c8b0760":"8KCIQ","beda99e6bc8f60b0":"kISIJ"}],"kISIJ":[function(require,module,exports,__globalThis) {
+module.exports = JSON.parse("[[166,90,121],[98,190,74],[161,102,218],[166,180,63],[92,111,218],[217,154,54],[189,77,184],[88,195,129],[225,80,150],[75,138,54],[170,62,123],[91,176,139],[220,70,95],[67,196,196],[209,81,43],[107,166,224],[164,102,48],[72,114,180],[113,115,42],[132,98,170],[187,168,102],[214,144,204],[49,123,84],[167,70,72],[229,137,119]]");
+
+},{}],"2eBL2":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
@@ -20299,4 +21766,4 @@ function getPropLevel(item) {
 
 },{}]},[], null, "parcelRequire02e5", {})
 
-//# sourceMappingURL=spinal-env-viewer-service.d4dc5560.js.map
+//# sourceMappingURL=spinal-env-viewer-service.312137ed.js.map

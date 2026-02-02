@@ -372,7 +372,7 @@ var scriptExports = {
             isFloorOnlyImport: false,
             BIMGeocontextServId: NaN,
             selectedModel: null,
-            selectedModelModal: null,
+            selectedModelModal: [],
             showDialog: false,
             showSnackbar: false,
             msgSnackbar: '',
@@ -481,7 +481,6 @@ var scriptExports = {
                 (0, _spinalEnvViewerContextGeographicService.BUILDING_RELATION),
                 (0, _spinalEnvViewerContextGeographicService.FLOOR_RELATION)
             ];
-            console.log('relationNames', relationNames);
             const floorNodes = await context.find(relationNames, (node)=>{
                 return node.info.type.get() === (0, _spinalEnvViewerContextGeographicService.FLOOR_TYPE);
             });
@@ -766,6 +765,14 @@ var render = function() {
                     }
                 }, _vm._l(_vm.bimfiles, function(bimfile, idx) {
                     return _c('md-option', {
+                        directives: [
+                            {
+                                name: "tooltip",
+                                rawName: "v-tooltip",
+                                value: bimfile,
+                                expression: "bimfile"
+                            }
+                        ],
                         key: idx,
                         attrs: {
                             "value": bimfile
@@ -5860,29 +5867,57 @@ var render = function() {
                 }
             }) : _vm._e(),
             _vm._v(" "),
-            _c('md-dialog', {
+            _c('v-dialog', {
                 attrs: {
-                    "md-active": _vm.showDialog
+                    "fill-width": ""
                 },
-                on: {
-                    "update:mdActive": function($event) {
-                        _vm.showDialog = $event;
+                model: {
+                    value: _vm.showDialog,
+                    callback: function($$v) {
+                        _vm.showDialog = $$v;
                     },
-                    "update:md-active": function($event) {
-                        _vm.showDialog = $event;
-                    }
+                    expression: "showDialog"
                 }
             }, [
-                _c('md-dialog-title', [
-                    _vm._v("Choose which bimFile to update")
-                ]),
-                _vm._v(" "),
-                _c('md-dialog-content', [
-                    _c('md-field', [
-                        _c('md-select', {
+                _c('v-card', [
+                    _c('v-card-title', {
+                        staticClass: "headline"
+                    }, [
+                        _vm._v("Update bimobjects from externalIds")
+                    ]),
+                    _vm._v(" "),
+                    _c('v-card-text', [
+                        _c('v-select', {
                             attrs: {
+                                "items": _vm.bimfiles,
+                                "label": "Choose which bimFile to update",
                                 "multiple": ""
                             },
+                            scopedSlots: _vm._u([
+                                {
+                                    key: "item",
+                                    fn: function(ref) {
+                                        var item = ref.item;
+                                        var tile = ref.tile;
+                                        return [
+                                            _c('v-checkbox', {
+                                                directives: [
+                                                    {
+                                                        name: "tooltip",
+                                                        rawName: "v-tooltip",
+                                                        value: item,
+                                                        expression: "item"
+                                                    }
+                                                ],
+                                                attrs: {
+                                                    "value": tile.props.value,
+                                                    "label": item
+                                                }
+                                            })
+                                        ];
+                                    }
+                                }
+                            ]),
                             model: {
                                 value: _vm.selectedModelModal,
                                 callback: function($$v) {
@@ -5890,91 +5925,118 @@ var render = function() {
                                 },
                                 expression: "selectedModelModal"
                             }
-                        }, _vm._l(_vm.bimfiles, function(bimFileName) {
-                            return _c('md-option', {
-                                key: bimFileName,
-                                attrs: {
-                                    "value": bimFileName
-                                }
-                            }, [
-                                _vm._v(_vm._s(bimFileName))
-                            ]);
-                        }), 1)
+                        }),
+                        _vm._v(" "),
+                        _c('v-checkbox', {
+                            attrs: {
+                                "label": "update bimobjects name"
+                            },
+                            model: {
+                                value: _vm.updateBimobjectsName,
+                                callback: function($$v) {
+                                    _vm.updateBimobjectsName = $$v;
+                                },
+                                expression: "updateBimobjectsName"
+                            }
+                        }),
+                        _vm._v(" "),
+                        _c('v-checkbox', {
+                            attrs: {
+                                "label": "update bimobjects dbid"
+                            },
+                            model: {
+                                value: _vm.updateBimobjectsDbid,
+                                callback: function($$v) {
+                                    _vm.updateBimobjectsDbid = $$v;
+                                },
+                                expression: "updateBimobjectsDbid"
+                            }
+                        })
                     ], 1),
                     _vm._v(" "),
-                    _c('v-checkbox', {
-                        attrs: {
-                            "label": "update bimobjects name"
-                        },
-                        model: {
-                            value: _vm.updateBimobjectsName,
-                            callback: function($$v) {
-                                _vm.updateBimobjectsName = $$v;
+                    _c('v-card-actions', [
+                        _c('v-spacer'),
+                        _vm._v(" "),
+                        _c('v-btn', {
+                            attrs: {
+                                "color": "red darken-1",
+                                "flat": "flat"
                             },
-                            expression: "updateBimobjectsName"
-                        }
-                    }),
-                    _vm._v(" "),
-                    _c('v-checkbox', {
-                        attrs: {
-                            "label": "update bimobjects dbid"
-                        },
-                        model: {
-                            value: _vm.updateBimobjectsDbid,
-                            callback: function($$v) {
-                                _vm.updateBimobjectsDbid = $$v;
-                            },
-                            expression: "updateBimobjectsDbid"
-                        }
-                    })
-                ], 1),
-                _vm._v(" "),
-                _c('md-dialog-actions', [
-                    _c('md-button', {
-                        staticClass: "md-primary",
-                        on: {
-                            "click": function($event) {
-                                _vm.showDialog = false;
+                            on: {
+                                "click": function($event) {
+                                    _vm.showDialog = false;
+                                }
                             }
-                        }
-                    }, [
-                        _vm._v("Close")
-                    ]),
-                    _vm._v(" "),
-                    _c('md-button', {
-                        staticClass: "md-primary",
-                        on: {
-                            "click": _vm.updateDbIdsConfirm
-                        }
-                    }, [
-                        _vm._v("confirm")
-                    ])
+                        }, [
+                            _vm._v("\n            Close\n          ")
+                        ]),
+                        _vm._v(" "),
+                        _c('v-btn', {
+                            attrs: {
+                                "color": "green darken-1",
+                                "flat": "flat"
+                            },
+                            on: {
+                                "click": _vm.updateDbIdsConfirm
+                            }
+                        }, [
+                            _vm._v("\n            Confirm\n          ")
+                        ])
+                    ], 1)
                 ], 1)
             ], 1),
             _vm._v(" "),
-            _c('md-dialog', {
+            _c('v-dialog', {
                 attrs: {
-                    "md-active": _vm.showDialogCenterPos
+                    "fill-width": ""
                 },
-                on: {
-                    "update:mdActive": function($event) {
-                        _vm.showDialogCenterPos = $event;
+                model: {
+                    value: _vm.showDialogCenterPos,
+                    callback: function($$v) {
+                        _vm.showDialogCenterPos = $$v;
                     },
-                    "update:md-active": function($event) {
-                        _vm.showDialogCenterPos = $event;
-                    }
+                    expression: "showDialogCenterPos"
                 }
             }, [
-                _c('md-dialog-title', [
-                    _vm._v("Choose which floors to update")
-                ]),
-                _vm._v(" "),
-                _c('md-dialog-content', [
-                    _c('md-field', [
-                        _c('md-select', {
+                _c('v-card', [
+                    _c('v-card-title', {
+                        staticClass: "headline"
+                    }, [
+                        _vm._v("Set center postion attribute in context spatial")
+                    ]),
+                    _vm._v(" "),
+                    _c('v-card-text', [
+                        _c('v-select', {
                             attrs: {
+                                "items": _vm.floorsNames,
+                                "label": "Choose which floors to update",
                                 "multiple": ""
                             },
+                            scopedSlots: _vm._u([
+                                {
+                                    key: "item",
+                                    fn: function(ref) {
+                                        var item = ref.item;
+                                        var tile = ref.tile;
+                                        return [
+                                            _c('v-checkbox', {
+                                                directives: [
+                                                    {
+                                                        name: "tooltip",
+                                                        rawName: "v-tooltip",
+                                                        value: item,
+                                                        expression: "item"
+                                                    }
+                                                ],
+                                                attrs: {
+                                                    "value": tile.props.value,
+                                                    "label": item
+                                                }
+                                            })
+                                        ];
+                                    }
+                                }
+                            ]),
                             model: {
                                 value: _vm.selectedFloorNames,
                                 callback: function($$v) {
@@ -5982,39 +6044,38 @@ var render = function() {
                                 },
                                 expression: "selectedFloorNames"
                             }
-                        }, _vm._l(_vm.floorsNames, function(floor) {
-                            return _c('md-option', {
-                                key: floor,
-                                attrs: {
-                                    "value": floor
-                                }
-                            }, [
-                                _vm._v(_vm._s(floor))
-                            ]);
-                        }), 1)
-                    ], 1)
-                ], 1),
-                _vm._v(" "),
-                _c('md-dialog-actions', [
-                    _c('md-button', {
-                        staticClass: "md-primary",
-                        on: {
-                            "click": function($event) {
-                                _vm.showDialogCenterPos = false;
-                            }
-                        }
-                    }, [
-                        _vm._v("Close")
-                    ]),
+                        })
+                    ], 1),
                     _vm._v(" "),
-                    _c('md-button', {
-                        staticClass: "md-primary",
-                        on: {
-                            "click": _vm.setCenterPosInContextGeo
-                        }
-                    }, [
-                        _vm._v("confirm")
-                    ])
+                    _c('v-card-actions', [
+                        _c('v-spacer'),
+                        _vm._v(" "),
+                        _c('v-btn', {
+                            attrs: {
+                                "color": "red darken-1",
+                                "flat": "flat"
+                            },
+                            on: {
+                                "click": function($event) {
+                                    _vm.showDialogCenterPos = false;
+                                }
+                            }
+                        }, [
+                            _vm._v("\n            Close\n          ")
+                        ]),
+                        _vm._v(" "),
+                        _c('v-btn', {
+                            attrs: {
+                                "color": "green darken-1",
+                                "flat": "flat"
+                            },
+                            on: {
+                                "click": _vm.setCenterPosInContextGeo
+                            }
+                        }, [
+                            _vm._v("\n            Confirm\n          ")
+                        ])
+                    ], 1)
                 ], 1)
             ], 1),
             _vm._v(" "),
@@ -6099,11 +6160,14 @@ var _groupConfigVue = require("./groupConfig/GroupConfig.vue");
 var _groupConfigVueDefault = parcelHelpers.interopDefault(_groupConfigVue);
 var _selectedGroupVue = require("./SelectedGroup/SelectedGroup.vue");
 var _selectedGroupVueDefault = parcelHelpers.interopDefault(_selectedGroupVue);
+var _assignFloorVue = require("./AssingFloor/AssignFloor.vue");
+var _assignFloorVueDefault = parcelHelpers.interopDefault(_assignFloorVue);
 var scriptExports = {
     name: 'ProjectObjectInContext',
     components: {
         GroupeConfig: (0, _groupConfigVueDefault.default),
-        SelectedGroup: (0, _selectedGroupVueDefault.default)
+        SelectedGroup: (0, _selectedGroupVueDefault.default),
+        AssignFloor: (0, _assignFloorVueDefault.default)
     },
     data () {
         return {
@@ -6114,7 +6178,13 @@ var scriptExports = {
             progress: 100,
             errorMode: true,
             msgSnackbar: '',
-            showSnackbar: false
+            showSnackbar: false,
+            showAssignFloor: false,
+            levelsFound: [],
+            configFloorProjection: [],
+            showVerification: false,
+            verificationData: [],
+            verifiPageSize: 25
         };
     },
     mounted () {},
@@ -6165,52 +6235,185 @@ var scriptExports = {
                 if (cfg.uid === configUidToGen) return cfg;
             }
         },
+        async prepareItems (configUidToGens) {
+            const lstItemsToAproximate = [];
+            const lstItemsToIntersect = [];
+            for(let idx = 0; idx < configUidToGens.length; idx++){
+                const configToGen = this.getConfigByUid(configUidToGens[idx]);
+                if (!configToGen) {
+                    console.error(`${configUidToGens[idx]} skipped no config found with this uid`);
+                    continue;
+                }
+                const { itemsToAproximate, itemsToIntersect } = await (0, _spinalSpatialReferential.prepareIntersects)(configToGen);
+                if (itemsToAproximate.length > 0) lstItemsToAproximate.push(itemsToAproximate);
+                if (itemsToIntersect.length > 0) lstItemsToIntersect.push(itemsToIntersect);
+            }
+            return {
+                lstItemsToAproximate,
+                lstItemsToIntersect
+            };
+        },
         async generate (configUidToGens) {
+            this.configUidToGens = configUidToGens;
             await this.onSave(configUidToGens);
-            this.progress = 0;
+            this.progress = NaN;
             try {
-                const roomRef = await (0, _spinalSpatialReferential.getRoomRefByFloor)();
-                this.progress = 25;
-                const floorsZData = await (0, _spinalSpatialReferential.getRefFloorZMinMax)(roomRef);
-                const mergedRoomRef = (0, _spinalSpatialReferential.mergeRoomRef)(roomRef);
-                const intersectRes = {
+                const { lstItemsToAproximate, lstItemsToIntersect } = await this.prepareItems(configUidToGens);
+                this.lstItemsToIntersect = lstItemsToIntersect;
+                if (lstItemsToAproximate.length > 0) {
+                    const { levelsFound, configFloorProjection } = await (0, _spinalSpatialReferential.initFloorAssign)(lstItemsToAproximate, (0, _spinalSpatialReferential.getRealNode)(this.contextId));
+                    this.lstItemsToAproximate = lstItemsToAproximate;
+                    this.levelsFound = levelsFound;
+                    this.configFloorProjection = configFloorProjection;
+                    this.showAssignFloor = true;
+                    this.progress = 100;
+                    return;
+                }
+                this.progress = 100;
+                this.generate_intersects();
+            } catch (error) {
+                console.error(error);
+                this.progress = 100;
+            }
+        // this.progress = 0;
+        // try {
+        //   const roomRef = await getRoomRefByFloor();
+        //   this.progress = 25;
+        //   const floorsZData = await getRefFloorZMinMax(roomRef);
+        //   const mergedRoomRef = mergeRoomRef(roomRef);
+        //   const intersectRes = {
+        //     selection: [],
+        //     intersects: [],
+        //   };
+        //   for (let idx = 0; idx < configUidToGens.length; idx++) {
+        //     const configToGen = this.getConfigByUid(configUidToGens[idx]);
+        //     if (!configToGen) {
+        //       console.error(
+        //         `${configUidToGens[idx]} skipped no config found with this uid`
+        //       );
+        //       continue;
+        //     }
+        //     const { itemsToAproximate, itemsToIntersect } =
+        //       await prepareIntersects(configToGen);
+        //     const intersectResTmp = await raycastItemToMesh(
+        //       itemsToIntersect,
+        //       mergedRoomRef
+        //     );
+        //     // merge intersectRes
+        //     mergeIntersectRes(intersectRes, intersectResTmp);
+        //     this.progress = (configUidToGens.length / (idx + 1)) * 66;
+        //     console.log(
+        //       'raycasting %d% => %d/%d',
+        //       (configUidToGens.length / (idx + 1)) * 100,
+        //       idx + 1,
+        //       configUidToGens.length
+        //     );
+        //   }
+        //   console.log('raycasting', intersectRes);
+        //   const cmdNotFounds = await createCmdNotFound(intersectRes);
+        //   console.log('cmdNotFounds', cmdNotFounds);
+        //   this.progress = 80;
+        //   const cmdProject = await createCmdProjection(
+        //     intersectRes.intersects,
+        //     this.contextId,
+        //     floorsZData
+        //   );
+        //   console.log('cmdProject', cmdProject);
+        //   this.progress = 90;
+        //   const cmd = cmdNotFounds.concat(cmdProject);
+        //   const {
+        //     node,
+        //     context: contextCmd,
+        //     data,
+        //   } = await saveCmdsProjectionGeo(cmd);
+        //   addNodeGraphService(node);
+        //   await waitPathSendToHub(data);
+        //   console.log('done', cmd);
+        //   spinal.spinalPanelManagerService.openPanel('CmdRunViewer', {
+        //     dataCmd: cmd,
+        //     node,
+        //     contextId: contextCmd.info.id.get(),
+        //   });
+        // } catch (error) {
+        //   console.error(error);
+        // } finally {
+        //   this.progress = 100;
+        // }
+        },
+        async validateGenerate () {
+            const cmdNotFounds = await (0, _spinalSpatialReferential.createCmdNotFound)(this.intersectRes);
+            console.log('cmdNotFounds', cmdNotFounds);
+            const cmdProject = await (0, _spinalSpatialReferential.createCmdProjection)(this.intersectRes.intersects, this.contextId, this.floorsZData);
+            console.log('cmdProject', cmdProject);
+            // this.progress = 90;
+            const cmd = cmdNotFounds.concat(cmdProject);
+            const { node, context: contextCmd, data } = await (0, _spinalSpatialReferential.saveCmdsProjectionGeo)(cmd);
+            (0, _spinalSpatialReferential.addNodeGraphService)(node);
+            await (0, _spinalSpatialReferential.waitPathSendToHub)(data);
+            this.showVerification = false;
+            console.log('done', cmd);
+            spinal.spinalPanelManagerService.openPanel('CmdRunViewer', {
+                dataCmd: cmd,
+                node,
+                contextId: contextCmd.info.id.get()
+            });
+            this.cleanupProjectionTester();
+        },
+        async generate_intersects () {
+            this.progress = NaN;
+            try {
+                const roomRefsByFloor = await (0, _spinalSpatialReferential.getRoomRefByFloor)();
+                this.floorsZData = await (0, _spinalSpatialReferential.getRefFloorZMinMax)(roomRefsByFloor);
+                const mergedRoomRef = (0, _spinalSpatialReferential.mergeRoomRef)(roomRefsByFloor);
+                const config = await (0, _spinalSpatialReferential.getOrCreateProjectionFloorConfig)((0, _spinalSpatialReferential.getRealNode)(this.contextId));
+                this.intersectRes = {
                     selection: [],
                     intersects: []
                 };
-                for(let idx = 0; idx < configUidToGens.length; idx++){
-                    const configToGen = this.getConfigByUid(configUidToGens[idx]);
-                    if (!configToGen) {
-                        console.error(`${configUidToGens[idx]} skipped no config found with this uid`);
-                        continue;
-                    }
-                    const intersectResTmp = await (0, _spinalSpatialReferential.getIntersects)(configToGen, mergedRoomRef);
-                    // merge intersectRes
-                    (0, _spinalSpatialReferential.mergeIntersectRes)(intersectRes, intersectResTmp);
-                    this.progress = configUidToGens.length / (idx + 1) * 66;
-                    console.log('raycasting %d% => %d/%d', configUidToGens.length / (idx + 1) * 100, idx + 1, configUidToGens.length);
+                if (this.lstItemsToAproximate) for(let idx = 0; idx < this.lstItemsToAproximate.length; idx++){
+                    const itemsToAproximate = this.lstItemsToAproximate[idx];
+                    const intersectResTmp = await (0, _spinalSpatialReferential.aproximateItemsToFloors)(itemsToAproximate, roomRefsByFloor, config);
+                    (0, _spinalSpatialReferential.mergeIntersectRes)(this.intersectRes, {
+                        selection: itemsToAproximate,
+                        intersects: intersectResTmp
+                    });
+                    console.log('aproximating items to floors %d / %d', idx + 1, this.lstItemsToAproximate.length);
                 }
-                console.log('raycasting', intersectRes);
-                const cmdNotFounds = await (0, _spinalSpatialReferential.createCmdNotFound)(intersectRes);
-                console.log('cmdNotFounds', cmdNotFounds);
-                this.progress = 80;
-                const cmdProject = await (0, _spinalSpatialReferential.createCmdProjection)(intersectRes.intersects, this.contextId, floorsZData);
-                console.log('cmdProject', cmdProject);
-                this.progress = 90;
-                const cmd = cmdNotFounds.concat(cmdProject);
-                const { node, context: contextCmd, data } = await (0, _spinalSpatialReferential.saveCmdsProjectionGeo)(cmd);
-                (0, _spinalSpatialReferential.addNodeGraphService)(node);
-                await (0, _spinalSpatialReferential.waitPathSendToHub)(data);
-                console.log('done', cmd);
-                spinal.spinalPanelManagerService.openPanel('CmdRunViewer', {
-                    dataCmd: cmd,
-                    node,
-                    contextId: contextCmd.info.id.get()
-                });
+                if (this.lstItemsToIntersect) for(let idx = 0; idx < this.lstItemsToIntersect.length; idx++){
+                    const itemsToIntersect = this.lstItemsToIntersect[idx];
+                    const intersectResTmp = await (0, _spinalSpatialReferential.raycastItemToMesh)(itemsToIntersect, mergedRoomRef);
+                    (0, _spinalSpatialReferential.mergeIntersectRes)(this.intersectRes, {
+                        selection: itemsToIntersect,
+                        intersects: intersectResTmp
+                    });
+                    console.log('raycasting %d / %d', idx + 1, this.lstItemsToIntersect.length);
+                }
+                // same for raycast intersects
+                console.log('intersectRes', this.intersectRes);
+                this.projectionTester = new (0, _spinalSpatialReferential.ProjectionTester)(this.intersectRes.intersects, roomRefsByFloor);
+                this.verificationData = this.projectionTester.getFloorsDataUx();
+                this.verifiPageSize = this.projectionTester.pageSize;
+                this.showVerification = true;
             } catch (error) {
                 console.error(error);
+                this.progress = 100;
             } finally{
                 this.progress = 100;
             }
+        },
+        updateItemIndex (newIndex, item) {
+            item.index = newIndex;
+            this.verificationData = this.verificationData.map((it)=>{
+                if (it.id === item.id) it.index = newIndex;
+                else it.index = 0;
+                return it;
+            });
+            if (this.projectionTester) this.projectionTester.colorRooms(item.id, newIndex - 1);
+        },
+        async onConfirmAssignFloor ({ levelsFoundAssigned, spatialLevels }) {
+            await (0, _spinalSpatialReferential.updateProjectionFloorConfig)((0, _spinalSpatialReferential.getRealNode)(this.contextId), levelsFoundAssigned, spatialLevels);
+            this.showAssignFloor = false;
+            this.generate_intersects();
         },
         deleteGroup (uid) {
             const index = this.groupConfigs.findIndex((itm)=>itm.uid === uid);
@@ -6227,19 +6430,38 @@ var scriptExports = {
             this.groupConfigs = await (0, _spinalSpatialReferential.getProjectionConfig)(context);
             this.progress = 100;
         },
+        cleanupProjectionTester () {
+            if (this.projectionTester) {
+                this.projectionTester.clearColors();
+                this.projectionTester = null;
+                this.progress = 100;
+            }
+        },
         async opened (contextId) {
             this.contextId = contextId;
             return this.getConfig();
         },
-        removed () {},
+        removed () {
+            this.cleanupProjectionTester();
+        },
         close () {},
         closeDialog () {}
+    },
+    // watch: {
+    //   verificationPage(newPage) {
+    //     // console.log('verificationPage changed to:', newPage);
+    //     if (this.showVerification && this.projectionTester)
+    //       this.projectionTester.colorRooms(newPage - 1);
+    //   },
+    // },
+    beforeDestroy () {
+        this.cleanupProjectionTester();
     }
 };
 var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"spinal-spatial-referential":"i97vk","./groupConfig/GroupConfig.vue":"ebaAL","./SelectedGroup/SelectedGroup.vue":"1PZtk","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"ebaAL":[function(require,module,exports,__globalThis) {
+},{"spinal-spatial-referential":"i97vk","./groupConfig/GroupConfig.vue":"ebaAL","./SelectedGroup/SelectedGroup.vue":"1PZtk","./AssingFloor/AssignFloor.vue":"ic3va","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"ebaAL":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -6898,7 +7120,8 @@ var scriptExports = {
         'name',
         'uid',
         'list',
-        'canSave'
+        'canSave',
+        'progress'
     ],
     components: {
         AddAGroup: (0, _addAGroupVueDefault.default),
@@ -6936,13 +7159,13 @@ var scriptExports = {
                 this.uid
             ]);
         },
-        addSelection () {
+        addSelection ({ stopAtLeaf, aproximateByLevel }) {
             this.$emit('savableCfg');
-            return (0, _spinalSpatialReferential.addSelectionToList)(this.list, (0, _spinalSpatialReferential.getViewer)());
+            return (0, _spinalSpatialReferential.addSelectionToList)(this.list, stopAtLeaf, aproximateByLevel, (0, _spinalSpatialReferential.getViewer)());
         },
-        addAGroup ({ groupName, stopAtLeaf }) {
+        addAGroup ({ groupName, stopAtLeaf, aproximateByLevel }) {
             this.$emit('savableCfg');
-            (0, _spinalSpatialReferential.addToProjectionGroup)(this.list, groupName, stopAtLeaf);
+            (0, _spinalSpatialReferential.addToProjectionGroup)(this.list, groupName, stopAtLeaf, aproximateByLevel);
         },
         isProjectionGroup: (0, _spinalSpatialReferential.isProjectionGroup),
         addViewerSelection (idx) {
@@ -6979,6 +7202,8 @@ var scriptExports = {
                     item.offset.r = editItem.offset.r;
                     item.offset.t = editItem.offset.t;
                     item.offset.z = editItem.offset.z;
+                    item.stopAtLeaf = editItem.stopAtLeaf;
+                    item.aproximateByLevel = editItem.aproximateByLevel;
                     this.$emit('savableCfg');
                     break;
                 }
@@ -7019,7 +7244,8 @@ var scriptExports = {
             groupName: '',
             show: false,
             radioSelection: '3d',
-            stopAtLeaf: false
+            stopAtLeaf: false,
+            aproximateByLevel: false
         };
     },
     computed: {
@@ -7038,10 +7264,14 @@ var scriptExports = {
             this.$refs['dialog-add-a-group'].showModal();
         },
         onConfirm () {
-            if (this.radioSelection === '3d') this.$emit('addSelection');
+            if (this.radioSelection === '3d') this.$emit('addSelection', {
+                stopAtLeaf: this.stopAtLeaf,
+                aproximateByLevel: this.aproximateByLevel
+            });
             else this.$emit('addAGroup', {
                 groupName: this.groupName,
-                stopAtLeaf: this.stopAtLeaf
+                stopAtLeaf: this.stopAtLeaf,
+                aproximateByLevel: this.aproximateByLevel
             });
             this.show = false;
         }
@@ -7141,7 +7371,7 @@ var render = function() {
                     }
                 }) : _vm._e(),
                 _vm._v(" "),
-                _vm.radioSelection === 'group' ? _c('v-checkbox', {
+                _c('v-checkbox', {
                     attrs: {
                         "label": "Stop at leaf nodes"
                     },
@@ -7152,7 +7382,20 @@ var render = function() {
                         },
                         expression: "stopAtLeaf"
                     }
-                }) : _vm._e()
+                }),
+                _vm._v(" "),
+                _c('v-checkbox', {
+                    attrs: {
+                        "label": "Aproximate by level"
+                    },
+                    model: {
+                        value: _vm.aproximateByLevel,
+                        callback: function($$v) {
+                            _vm.aproximateByLevel = $$v;
+                        },
+                        expression: "aproximateByLevel"
+                    }
+                })
             ], 1),
             _vm._v(" "),
             _c('v-card-actions', [
@@ -7655,7 +7898,9 @@ var scriptExports = {
                 z: 0
             },
             uid: 0,
-            previewMode: 0
+            previewMode: 0,
+            stopAtLeaf: false,
+            aproximateByLevel: false
         };
     },
     conputed: {
@@ -7673,6 +7918,8 @@ var scriptExports = {
                 this.offset.z = this.itemToEdit.offset.z;
                 this.uid = this.itemToEdit.uid;
                 this.previewMode = 0;
+                this.stopAtLeaf = this.itemToEdit.stopAtLeaf || false;
+                this.aproximateByLevel = this.itemToEdit.aproximateByLevel || false;
             }
         }
     },
@@ -7705,7 +7952,9 @@ var scriptExports = {
             this.$emit('close', {
                 name: this.name,
                 offset: this.offset,
-                uid: this.uid
+                uid: this.uid,
+                stopAtLeaf: this.stopAtLeaf,
+                aproximateByLevel: this.aproximateByLevel
             });
         }
     }
@@ -8200,6 +8449,32 @@ var render = function() {
                                 },
                                 expression: "name"
                             }
+                        }),
+                        _vm._v(" "),
+                        _c('v-checkbox', {
+                            attrs: {
+                                "label": "Stop at leaf nodes"
+                            },
+                            model: {
+                                value: _vm.stopAtLeaf,
+                                callback: function($$v) {
+                                    _vm.stopAtLeaf = $$v;
+                                },
+                                expression: "stopAtLeaf"
+                            }
+                        }),
+                        _vm._v(" "),
+                        _c('v-checkbox', {
+                            attrs: {
+                                "label": "Aproximate by level"
+                            },
+                            model: {
+                                value: _vm.aproximateByLevel,
+                                callback: function($$v) {
+                                    _vm.aproximateByLevel = $$v;
+                                },
+                                expression: "aproximateByLevel"
+                            }
                         })
                     ], 1),
                     _vm._v(" "),
@@ -8331,13 +8606,13 @@ var render = function() {
         ], 1),
         _vm._v(" "),
         _c('div', {
-            staticClass: "geolocate-selected-groupe-main"
+            staticClass: "geolocate-selected-groupe-main spinal-scrollbar"
         }, [
             _c('md-card', {
                 staticClass: "geolocate-groupe-card"
             }, [
                 _c('div', {
-                    staticClass: "geolocate-groupe-card-content spinal-scrollbar"
+                    staticClass: "geolocate-groupe-card-content"
                 }, [
                     _c('v-list', {
                         staticClass: "spinal-project-item-main-list"
@@ -8539,6 +8814,13 @@ var render = function() {
             ])
         ], 1),
         _vm._v(" "),
+        _vm.progress != 100 ? _c('v-progress-linear', {
+            staticClass: "spinal-project-item-group-progressbar",
+            attrs: {
+                "value": _vm.progress
+            }
+        }) : _vm._e(),
+        _vm._v(" "),
         _c('BimGroupsItemEdit', {
             attrs: {
                 "item-to-edit": _vm.itemToEdit
@@ -8559,6 +8841,320 @@ parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"ic3va":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+let script;
+let initialize = ()=>{
+    script = require("d44edaaae26dfe0");
+    if (script.__esModule) script = script.default;
+    script.render = require("c594e15d8284cd9b").render;
+    script.staticRenderFns = require("c594e15d8284cd9b").staticRenderFns;
+    script._scopeId = "data-v-52b030";
+    script.__cssModules = require("1f58f2970fac1e7b").default;
+    require("a7af05c09bc8d8c9").default(script);
+    script.__scopeId = 'data-v-52b030';
+    script.__file = "AssignFloor.vue";
+};
+initialize();
+exports.default = script;
+
+},{"d44edaaae26dfe0":"3AVp9","c594e15d8284cd9b":"9fdo2","1f58f2970fac1e7b":"1wapu","a7af05c09bc8d8c9":"8wF1z","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"3AVp9":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _spinalSpatialReferential = require("spinal-spatial-referential");
+var _spinalCoreConnectorjs = require("spinal-core-connectorjs");
+var scriptExports = {
+    name: 'AssignFloor',
+    props: {
+        levelsFound: {
+            type: Array,
+            required: true
+        },
+        configFloorProjection: {
+            type: Array,
+            required: true
+        },
+        value: {
+            type: Boolean,
+            required: true
+        }
+    },
+    data () {
+        return {
+            levelsFoundAssigned: [],
+            spatialLevels: [],
+            floorIdSelected: null
+        };
+    },
+    methods: {
+        onInput (value) {
+            this.$emit('input', value);
+        },
+        onConfirm () {
+            this.$emit('confirm', {
+                levelsFoundAssigned: this.levelsFoundAssigned,
+                spatialLevels: this.spatialLevels
+            });
+        },
+        addToSelected (item) {
+            // remove existing
+            this.levelsFoundAssigned = this.levelsFoundAssigned.filter((level)=>!(level.bimFileId === item.bimFileId && level.floorDbId === item.floorDbId));
+            for (const spinalfloor of this.spatialLevels)if (spinalfloor.floorId === this.floorIdSelected) {
+                this.levelsFoundAssigned.push({
+                    ...item,
+                    targetFloorName: spinalfloor.name,
+                    targetFloorId: spinalfloor.floorId
+                });
+                break;
+            }
+        }
+    },
+    computed: {
+        levelsFoundComputed () {
+            return this.levelsFound.filter((level)=>this.levelsFoundAssigned.findIndex((l)=>l.bimFileId === level.bimFileId && l.floorDbId === level.floorDbId) === -1).map((level)=>({
+                    ...level,
+                    bimFileName: (0, _spinalSpatialReferential.getRealNode)(level.bimFileId)?.info?.name?.get() || 'unknown'
+                }));
+        }
+    },
+    watch: {
+        configFloorProjection: {
+            immediate: true,
+            deep: true,
+            async handler (newVal) {
+                this.levelsFoundAssigned = [];
+                this.spatialLevels = [];
+                for (const level of newVal){
+                    const spatialLevelNode = (0, _spinalCoreConnectorjs.FileSystem)._objects[level.floorId];
+                    for (const child of level.floorData){
+                        const bimFileNode = (0, _spinalSpatialReferential.getRealNode)(child.bimFileId);
+                        if (bimFileNode) {
+                            const model = (0, _spinalSpatialReferential.getModelByBimFileIdLoaded)(bimFileNode.info.id.get());
+                            const props = await (0, _spinalSpatialReferential.getProperties)(model, child.floorDbId);
+                            const item = {
+                                bimFileName: bimFileNode.info.name.get(),
+                                bimFileId: child.bimFileId,
+                                name: props?.name || `Dbid: ${child.floorDbId}`,
+                                floorDbId: child.floorDbId,
+                                targetFloorName: spatialLevelNode.info.name.get(),
+                                targetFloorId: level.floorId
+                            };
+                            this.levelsFoundAssigned.push(item);
+                        }
+                    }
+                    this.spatialLevels.push({
+                        name: spatialLevelNode.info.name.get(),
+                        floorId: level.floorId
+                    });
+                }
+            }
+        }
+    }
+};
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
+exports.default = options; // parcel transformer vue2 compiler hack
+
+},{"spinal-spatial-referential":"i97vk","spinal-core-connectorjs":"cQPh9","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"9fdo2":[function(require,module,exports,__globalThis) {
+var render = function() {
+    var _vm = this;
+    var _h = _vm.$createElement;
+    var _c = _vm._self._c || _h;
+    return _c('v-dialog', {
+        attrs: {
+            "value": _vm.value,
+            "attach": "body"
+        },
+        on: {
+            "input": _vm.onInput
+        }
+    }, [
+        _c('v-card', [
+            _c('v-card-title', [
+                _vm._v(" Assign Floor ")
+            ]),
+            _vm._v(" "),
+            _c('v-card-text', [
+                _c('v-layout', {
+                    staticClass: "project-bimobj-assignfloor-layout"
+                }, [
+                    _c('v-flex', {
+                        staticClass: "project-bimobj-assignfloor-flex spinal-scrollbar",
+                        attrs: {
+                            "xs4": ""
+                        }
+                    }, [
+                        _c('v-list', {
+                            attrs: {
+                                "dense": "",
+                                "two-line": ""
+                            }
+                        }, [
+                            _c('v-subheader', [
+                                _vm._v("\n              Select the target floor to assign levels to\n            ")
+                            ]),
+                            _vm._v(" "),
+                            _vm._l(_vm.spatialLevels, function(spatialLevel) {
+                                return _c('v-list-tile', {
+                                    key: spatialLevel.floorId,
+                                    class: {
+                                        'grey lighten-2': _vm.floorIdSelected === spatialLevel.floorId
+                                    },
+                                    attrs: {
+                                        "ripple": ""
+                                    },
+                                    on: {
+                                        "click": function($event) {
+                                            _vm.floorIdSelected = spatialLevel.floorId;
+                                        }
+                                    }
+                                }, [
+                                    _c('v-list-tile-content', [
+                                        _c('v-list-tile-title', [
+                                            _vm._v("\n                  " + _vm._s(spatialLevel.name) + "\n                ")
+                                        ])
+                                    ], 1)
+                                ], 1);
+                            })
+                        ], 2)
+                    ], 1),
+                    _vm._v(" "),
+                    _c('v-flex', {
+                        staticClass: "project-bimobj-assignfloor-flex spinal-scrollbar",
+                        attrs: {
+                            "xs8": ""
+                        }
+                    }, [
+                        _c('v-list', {
+                            attrs: {
+                                "dense": "",
+                                "two-line": ""
+                            }
+                        }, [
+                            _c('v-subheader', [
+                                _vm._v("\n              Floor found to assign (" + _vm._s(_vm.levelsFoundComputed.length) + ")\n            ")
+                            ]),
+                            _vm._v(" "),
+                            _vm._l(_vm.levelsFoundComputed, function(item) {
+                                return _c('v-list-tile', {
+                                    key: item.bimFileId + "." + item.floorDbId
+                                }, [
+                                    _c('v-list-tile-content', [
+                                        _c('v-list-tile-title', [
+                                            _vm._v("\n                  " + _vm._s(item.name) + "\n                ")
+                                        ]),
+                                        _vm._v(" "),
+                                        _c('v-list-tile-sub-title', [
+                                            _vm._v("\n                  " + _vm._s(item.bimFileName) + "\n                ")
+                                        ])
+                                    ], 1),
+                                    _vm._v(" "),
+                                    _c('v-list-tile-action', [
+                                        _c('v-icon', {
+                                            attrs: {
+                                                "color": "green lighten-1",
+                                                "disabled": _vm.floorIdSelected === null
+                                            },
+                                            on: {
+                                                "click": function($event) {
+                                                    return _vm.addToSelected(item);
+                                                }
+                                            }
+                                        }, [
+                                            _vm._v("\n                  add\n                ")
+                                        ])
+                                    ], 1)
+                                ], 1);
+                            }),
+                            _vm._v(" "),
+                            _c('v-divider'),
+                            _vm._v(" "),
+                            _c('v-subheader', [
+                                _vm._v("\n              Already assigned (" + _vm._s(_vm.levelsFoundAssigned.length) + ")\n            ")
+                            ]),
+                            _vm._v(" "),
+                            _vm._l(_vm.levelsFoundAssigned, function(item) {
+                                return _c('v-list-tile', {
+                                    key: item.bimFileId + "." + item.floorDbId
+                                }, [
+                                    _c('v-list-tile-content', [
+                                        _c('v-list-tile-title', [
+                                            _vm._v("\n                  " + _vm._s(item.name) + "\n                  "),
+                                            _c('span', [
+                                                _vm._v("> " + _vm._s(item.targetFloorName))
+                                            ])
+                                        ]),
+                                        _vm._v(" "),
+                                        _c('v-list-tile-sub-title', [
+                                            _vm._v("\n                  " + _vm._s(item.bimFileName) + "\n                ")
+                                        ])
+                                    ], 1),
+                                    _vm._v(" "),
+                                    _c('v-list-tile-action', [
+                                        _c('v-icon', {
+                                            attrs: {
+                                                "color": "grey lighten-1",
+                                                "disabled": _vm.floorIdSelected === null
+                                            },
+                                            on: {
+                                                "click": function($event) {
+                                                    return _vm.addToSelected(item);
+                                                }
+                                            }
+                                        }, [
+                                            _vm._v("\n                  add\n                ")
+                                        ])
+                                    ], 1)
+                                ], 1);
+                            })
+                        ], 2)
+                    ], 1)
+                ], 1)
+            ], 1),
+            _vm._v(" "),
+            _c('v-card-actions', [
+                _c('v-spacer'),
+                _vm._v(" "),
+                _c('v-btn', {
+                    attrs: {
+                        "color": "red darken-1",
+                        "flat": ""
+                    },
+                    on: {
+                        "click": function($event) {
+                            return _vm.$emit('input', false);
+                        }
+                    }
+                }, [
+                    _vm._v("\n        Cancel\n      ")
+                ]),
+                _vm._v(" "),
+                _c('v-btn', {
+                    attrs: {
+                        "color": "green darken-1",
+                        "flat": "",
+                        "disabled": _vm.levelsFoundComputed.length > 0
+                    },
+                    on: {
+                        "click": _vm.onConfirm
+                    }
+                }, [
+                    _vm._v("\n        Confirm\n      ")
+                ])
+            ], 1)
+        ], 1)
+    ], 1);
+};
+var staticRenderFns = [];
+exports.render = render;
+exports.staticRenderFns = staticRenderFns;
+
+},{}],"1wapu":[function() {},{}],"8wF1z":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+let NOOP = ()=>{};
+exports.default = (script)=>{};
+
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"58rM7":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
@@ -8573,7 +9169,66 @@ var render = function() {
         _c('div', {
             staticClass: "geolocate-bimObj-container"
         }, [
-            _vm.selectedGroup === undefined ? _c('GroupeConfig', {
+            _vm.showVerification ? _c('v-card', {
+                staticClass: "geolocate-bimObj-verif-card pa-3 mb-3"
+            }, [
+                _c('v-card-text', {
+                    staticClass: "geolocate-bimObj-card-verif-content"
+                }, [
+                    _vm._l(_vm.verificationData, function(item) {
+                        return [
+                            _c('v-subheader', [
+                                _vm._v(" " + _vm._s(item.name) + " (" + _vm._s(item.size) + ") ")
+                            ]),
+                            _vm._v(" "),
+                            _c('v-pagination', {
+                                attrs: {
+                                    "value": item.index,
+                                    "length": Math.ceil(item.size / _vm.verifiPageSize)
+                                },
+                                on: {
+                                    "input": function($event) {
+                                        return _vm.updateItemIndex($event, item);
+                                    }
+                                }
+                            }),
+                            _vm._v(" "),
+                            _c('v-divider')
+                        ];
+                    })
+                ], 2),
+                _vm._v(" "),
+                _c('v-card-actions', [
+                    _c('v-spacer'),
+                    _vm._v(" "),
+                    _c('v-btn', {
+                        attrs: {
+                            "color": "red",
+                            "text": ""
+                        },
+                        on: {
+                            "click": function($event) {
+                                _vm.showVerification = false;
+                                _vm.cleanupProjectionTester();
+                            }
+                        }
+                    }, [
+                        _vm._v("\n          Cancel\n        ")
+                    ]),
+                    _vm._v(" "),
+                    _c('v-btn', {
+                        attrs: {
+                            "color": "primary",
+                            "text": ""
+                        },
+                        on: {
+                            "click": _vm.validateGenerate
+                        }
+                    }, [
+                        _vm._v("\n          Validate\n        ")
+                    ])
+                ], 1)
+            ], 1) : _vm.selectedGroup === undefined ? _c('GroupeConfig', {
                 attrs: {
                     "groupConfigs": _vm.groupConfigs
                 },
@@ -8589,6 +9244,7 @@ var render = function() {
                     "name": _vm.selectedGroup.name,
                     "uid": _vm.selectedGroup.uid,
                     "list": _vm.selectedGroup.data,
+                    "progress": _vm.selectedGroup.progress,
                     "can-save": _vm.cleanCfg
                 },
                 on: {
@@ -8603,8 +9259,28 @@ var render = function() {
                 }
             }),
             _vm._v(" "),
+            _c('AssignFloor', {
+                attrs: {
+                    "levelsFound": _vm.levelsFound,
+                    "configFloorProjection": _vm.configFloorProjection
+                },
+                on: {
+                    "confirm": _vm.onConfirmAssignFloor
+                },
+                model: {
+                    value: _vm.showAssignFloor,
+                    callback: function($$v) {
+                        _vm.showAssignFloor = $$v;
+                    },
+                    expression: "showAssignFloor"
+                }
+            }),
+            _vm._v(" "),
             _vm.progress != 100 ? _c('v-progress-linear', {
                 staticClass: "geolocate-bimObj-progressbar",
+                attrs: {
+                    "indeterminate": isNaN(_vm.progress)
+                },
                 model: {
                     value: _vm.progress,
                     callback: function($$v) {
@@ -11040,8 +11716,8 @@ const CmdRunViewer = {
                 this.mode = node.info.generationType.get();
                 try {
                     this.loading = true;
-                    if (this.mode === (0, _spinalSpatialReferential.GENERATION_GEO_TYPE)) await this.$refs.CmdRunViewerGeo.setUp(node, option.contextId);
-                    else if (this.mode === (0, _spinalSpatialReferential.GENERATION_PROJECTION_TYPE)) await this.$refs.CmdRunViewerProjection.setUp(node, option.contextId);
+                    if (this.mode === (0, _spinalSpatialReferential.GENERATION_GEO_TYPE)) await this.$refs.CmdRunViewerGeo.setUp(node, option.contextId, option.dataCmd);
+                    else if (this.mode === (0, _spinalSpatialReferential.GENERATION_PROJECTION_TYPE)) await this.$refs.CmdRunViewerProjection.setUp(node, option.contextId, option.dataCmd);
                 } catch (error) {
                     console.error(error);
                     this.snackbarError = true;
@@ -11141,12 +11817,18 @@ var scriptExports = {
         }
     },
     methods: {
-        async setUp (node, contextId) {
+        async setUp (node, contextId, dataCmd = null) {
             this.indexCmd = 0;
             this.idxInCmd = 0;
             this.status = 0;
             this.nodeId = node.info.id.get();
             this.contextId = contextId;
+            if (dataCmd) {
+                this.dataCmd = dataCmd;
+                this.cmdLen = this.dataCmd.map((it)=>it.length);
+                console.log('this.dataCmd', this.dataCmd, this.cmdLen);
+                return;
+            }
             const servId = (0, _spinalSpatialReferential.getCmdServId)(node);
             const getData = await (0, _axiosDefault.default).get(`/sceen/_?u=${servId}`, {
                 responseType: 'blob'
@@ -11250,11 +11932,15 @@ var scriptExports = {
         };
     },
     methods: {
-        async setUp (node, contextId) {
+        async setUp (node, contextId, dataCmd = null) {
             this.$emit('status', 0);
             this.progress = 0;
             this.nodeId = node.info.id.get();
             this.contextId = contextId;
+            if (dataCmd) {
+                this.dataCmd = dataCmd;
+                return;
+            }
             const servId = (0, _spinalSpatialReferential.getCmdServId)(node);
             const getData = await (0, _axiosDefault.default).get(`/sceen/_?u=${servId}`, {
                 responseType: 'blob'
