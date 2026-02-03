@@ -4252,7 +4252,8 @@ class SpinalSNMPNetwork extends spinal_core_connectorjs_1.Model {
         if (!network) return;
         this.add_attr(Object.assign({
             id: network.id || (0, uuid_1.v4)(),
-            address: network.address
+            address: network.address,
+            name: network.name || network.address
         }, network.mibFile && {
             mibFile: this._convertFileToSpinalFile(network.mibFile)
         }));
@@ -5191,6 +5192,8 @@ const spinal_core_connectorjs_1 = require("21097df71d5f5946");
 const uuid_1 = require("636986f7e65341db");
 const constants_1 = require("dc959920adc6c1e4");
 const SpinalSNMPNetwork_1 = require("ecd3c4fb8029972b");
+const gzip = require("35b65380b8cb29c5");
+const utils_1 = require("d1c5ee74034f3ae7");
 class SpinalSNMPDiscover extends spinal_core_connectorjs_1.Model {
     constructor(graph, context, organ, networks){
         super();
@@ -5244,6 +5247,42 @@ class SpinalSNMPDiscover extends spinal_core_connectorjs_1.Model {
                 return organ.removeDiscoverModelFromGraph(this);
             }));
     }
+    setTreeDiscovered(json) {
+        return __awaiter(this, void 0, void 0, function*() {
+            const compressed = yield gzip.gzip(JSON.stringify(json));
+            const path = new spinal_core_connectorjs_1.Path(compressed);
+            if (this.treeDiscovered) this.rem_attr("treeDiscovered");
+            this.add_attr({
+                treeDiscovered: new spinal_core_connectorjs_1.Ptr(path)
+            });
+        });
+    }
+    setTreeToCreate(json) {
+        return __awaiter(this, void 0, void 0, function*() {
+            const compressed = yield gzip.gzip(JSON.stringify(json));
+            const path = new spinal_core_connectorjs_1.Path(compressed);
+            if (this.treeToCreate) this.rem_attr("treeToCreate");
+            this.add_attr({
+                treeToCreate: new spinal_core_connectorjs_1.Ptr(path)
+            });
+        });
+    }
+    getTreeDiscovered(hubUrl) {
+        return __awaiter(this, void 0, void 0, function*() {
+            // await waitModelReady(this.treeDiscovered);
+            const pathData = yield (0, utils_1.getPathData)(this.treeDiscovered.data.value, hubUrl);
+            const decompressed = yield gzip.ungzip(pathData);
+            return JSON.parse(decompressed.toString());
+        });
+    }
+    getTreeToCreate(hubUrl) {
+        return __awaiter(this, void 0, void 0, function*() {
+            // await waitModelReady(this.treeToCreate);
+            const pathData = yield (0, utils_1.getPathData)(this.treeToCreate.data.value, hubUrl);
+            const decompressed = yield gzip.ungzip(pathData);
+            return JSON.parse(decompressed.toString());
+        });
+    }
 }
 exports.SpinalSNMPDiscover = SpinalSNMPDiscover;
 spinal_core_connectorjs_1.spinalCore.register_models([
@@ -5251,7 +5290,7 @@ spinal_core_connectorjs_1.spinalCore.register_models([
 ]);
 exports.default = SpinalSNMPDiscover;
 
-},{"21097df71d5f5946":"cQPh9","636986f7e65341db":"8jiAI","dc959920adc6c1e4":"2deZq","ecd3c4fb8029972b":"6zR1E"}],"5dLgf":[function(require,module,exports,__globalThis) {
+},{"21097df71d5f5946":"cQPh9","636986f7e65341db":"8jiAI","dc959920adc6c1e4":"2deZq","ecd3c4fb8029972b":"6zR1E","35b65380b8cb29c5":"hWUhg","d1c5ee74034f3ae7":"9WDNv"}],"5dLgf":[function(require,module,exports,__globalThis) {
 "use strict";
 var __awaiter = this && this.__awaiter || function(thisArg, _arguments, P, generator) {
     function adopt(value) {

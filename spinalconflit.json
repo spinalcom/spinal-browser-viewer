@@ -1,0 +1,25 @@
+{
+  "spinal-model-analysis": {
+    "forceCommit": "3.2.4",
+    "found": {
+      "": [
+        "spinal-browser-viewer"
+      ],
+      "3.2.4": [
+        "spinal-env-viewer-plugin-analysis"
+      ]
+    }
+  },
+  "spinal-model-bacnet": {
+    "forceCommit": "without_load_type",
+    "found": {
+      "without_load_type": [
+        "spinal-browser-viewer"
+      ],
+      "": [
+        "spinal-env-viewer-plugin-dashboard-panel",
+        "spinal-env-viewer-plugin-park-management"
+      ]
+    }
+  }
+}

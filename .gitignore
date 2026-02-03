@@ -25,3 +25,5 @@ nm
 src/plugins/*
 *old
 viewer.zip
+
+viewer*
