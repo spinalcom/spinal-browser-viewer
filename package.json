@@ -102,6 +102,8 @@
     "spinal-env-viewer-plugin-network-tree": "spinal-env-viewer-plugin-network-tree",
     "spinal-env-viewer-plugin-control-endpoint": "spinal-env-viewer-plugin-control-endpoint",
     "spinal-env-viewer-plugin-upload": "spinal-env-viewer-plugin-upload",
+    "spinal-env-viewer-plugin-snmp-manager": "spinal-env-viewer-plugin-snmp-manager",
+    "spinal-model-snmp": "spinal-model-snmp",
     "spinal-env-viewer-plugin-bacnet-manager": "spinal-env-viewer-plugin-bacnet-manager@without_load_type",
     "spinal-model-bacnet": "spinal-model-bacnet@without_load_type",
     "spinal-env-viewer-plugin-device_profile": "spinal-env-viewer-plugin-device_profile",

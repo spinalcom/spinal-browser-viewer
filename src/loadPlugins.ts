@@ -109,6 +109,7 @@ export function loadPlugins() {
     safeImport(
       import('spinal-env-viewer-plugin-note-standard-buttons-service')
     ),
+    safeImport(import('spinal-env-viewer-plugin-snmp-manager')),
     safeImport(import('spinal-env-viewer-plugin-nomenclature-service')),
     safeImport(import('spinal-env-viewer-context-geographic-service')),
     safeImport(import('spinal-env-viewer-plugin-analysis')),
