@@ -1263,10 +1263,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("8342ac9fe6817fab").render;
     script.staticRenderFns = require("8342ac9fe6817fab").staticRenderFns;
-    script._scopeId = "data-v-d61a4d";
+    script._scopeId = "data-v-72d8c8";
     script.__cssModules = require("ba00d089cce7ce18").default;
     require("b369ded47c2d75ca").default(script);
-    script.__scopeId = 'data-v-d61a4d';
+    script.__scopeId = 'data-v-72d8c8';
     script.__file = "dashboardPanel.vue";
 };
 initialize();
@@ -1460,10 +1460,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("db2919c59d661c2a").render;
     script.staticRenderFns = require("db2919c59d661c2a").staticRenderFns;
-    script._scopeId = "data-v-1d8036";
+    script._scopeId = "data-v-8399ed";
     script.__cssModules = require("91ee5acf6f7647ed").default;
     require("f9ac4f49cb6aff10").default(script);
-    script.__scopeId = 'data-v-1d8036';
+    script.__scopeId = 'data-v-8399ed';
     script.__file = "header.vue";
 };
 initialize();
@@ -1564,10 +1564,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("a3d54f798cbe62a1").render;
     script.staticRenderFns = require("a3d54f798cbe62a1").staticRenderFns;
-    script._scopeId = "data-v-f04c82";
+    script._scopeId = "data-v-e5bd07";
     script.__cssModules = require("4f8c49180ce3de16").default;
     require("1af07f834d5d1387").default(script);
-    script.__scopeId = 'data-v-f04c82';
+    script.__scopeId = 'data-v-e5bd07';
     script.__file = "content.vue";
 };
 initialize();
@@ -1650,10 +1650,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("ce2889f887aa73fa").render;
     script.staticRenderFns = require("ce2889f887aa73fa").staticRenderFns;
-    script._scopeId = "data-v-632771";
+    script._scopeId = "data-v-3f968a";
     script.__cssModules = require("cc2ca880c38d9a12").default;
     require("d138e1ab6b75660b").default(script);
-    script.__scopeId = 'data-v-632771';
+    script.__scopeId = 'data-v-3f968a';
     script.__file = "tab-template.vue";
 };
 initialize();
@@ -1748,10 +1748,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("3ad56f9388ee7e94").render;
     script.staticRenderFns = require("3ad56f9388ee7e94").staticRenderFns;
-    script._scopeId = "data-v-eb3071";
+    script._scopeId = "data-v-9c3ebe";
     script.__cssModules = require("8049ded07650e544").default;
     require("beec4daa45a20276").default(script);
-    script.__scopeId = 'data-v-eb3071';
+    script.__scopeId = 'data-v-9c3ebe';
     script.__file = "endpoint.vue";
 };
 initialize();
@@ -1995,11 +1995,13 @@ var _spinalEnvViewerGraphService = require("spinal-env-viewer-graph-service");
 var _spinalModelBmsnetwork = require("spinal-model-bmsnetwork");
 var _spinalModelBacnet = require("spinal-model-bacnet");
 var _spinalModelOpcua = require("spinal-model-opcua");
+var _spinalModelSnmp = require("spinal-model-snmp");
 exports.default = {
     getEndpointOrgan (endpointNodeId) {
         const organTypes = [
             (0, _spinalModelBacnet.BACNET_ORGAN_TYPE),
-            (0, _spinalModelOpcua.OPCUA_ORGAN_TYPE)
+            (0, _spinalModelOpcua.OPCUA_ORGAN_TYPE),
+            (0, _spinalModelSnmp.SNMP_ORGAN_TYPE)
         ];
         return this.findParents(endpointNodeId, [
             (0, _spinalModelBmsnetwork.SpinalBmsNetwork).relationName,
@@ -2095,6 +2097,8 @@ exports.default = {
                 return this.sendBacnetRequest(organ, endpointNode, devices, value);
             case 0, _spinalModelOpcua.OPCUA_ORGAN_TYPE:
                 return this.sendOPCUARequest(organNode, endpointNode, value, devices);
+            case 0, _spinalModelSnmp.SNMP_ORGAN_TYPE:
+                return this.sendSNMPRequest(organNode, endpointNode, value, devices);
             default:
                 break;
         }
@@ -2121,22 +2125,30 @@ exports.default = {
         // const [network] = await this.getNetwork(endpointNode.getId().get())
         const request = devices.map((device)=>({
                 nodeId: endpointNode.info.idNetwork && endpointNode.info.idNetwork.get(),
-                path: device.info.path && device.info.path.get(),
+                path: endpointNode.info.path && endpointNode.info.path.get(),
                 value,
                 networkInfo: device.info.server && device.info.server.get() || {}
             }));
-        // const request = {
-        //    nodeId: endpointNode.info.idNetwork && endpointNode.info.idNetwork.get(),
-        //    value,
-        //    networkInfo: (network.info.serverInfo && network.info.serverInfo.get()) || {}
-        // }
         const spinalPilot = new (0, _spinalModelOpcua.SpinalOPCUAPilot)(organ, request);
         await spinalPilot.addToGraph(endpointNode);
+        return spinalPilot;
+    },
+    async sendSNMPRequest (organNode, endpointNode, value, devices) {
+        const deviceElement = await devices[0].getElement();
+        const endpointElement = await endpointNode.getElement();
+        const request = devices.map((device)=>({
+                oid: endpointElement.id && endpointElement.id.get(),
+                value,
+                type: endpointElement.dataType && endpointElement.dataType.get(),
+                address: deviceElement.address && deviceElement.address.get()
+            }));
+        const spinalPilot = new (0, _spinalModelSnmp.SpinalSNMPPilot)(organNode, request);
+        spinalPilot.addToGraph(endpointNode);
         return spinalPilot;
     }
 };
 
-},{"spinal-env-viewer-graph-service":"9LAk7","spinal-model-bmsnetwork":"haihS","spinal-model-bacnet":"aS2yR","spinal-model-opcua":"l0Ztm","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"c4XHB":[function(require,module,exports,__globalThis) {
+},{"spinal-env-viewer-graph-service":"9LAk7","spinal-model-bmsnetwork":"haihS","spinal-model-bacnet":"aS2yR","spinal-model-opcua":"l0Ztm","spinal-model-snmp":"coTUC","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"c4XHB":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -2145,10 +2157,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("bc10d94d6011ecc1").render;
     script.staticRenderFns = require("bc10d94d6011ecc1").staticRenderFns;
-    script._scopeId = "data-v-b5940a";
+    script._scopeId = "data-v-0dd6b6";
     script.__cssModules = require("a5a76c02b1139875").default;
     require("926a1105409fd131").default(script);
-    script.__scopeId = 'data-v-b5940a';
+    script.__scopeId = 'data-v-0dd6b6';
     script.__file = "popover.vue";
 };
 initialize();
@@ -2240,10 +2252,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("85b6a011e5a3ea82").render;
     script.staticRenderFns = require("85b6a011e5a3ea82").staticRenderFns;
-    script._scopeId = "data-v-7faec2";
+    script._scopeId = "data-v-153c4c";
     script.__cssModules = require("b14a61dac6c555f0").default;
     require("eea605f974e7bc40").default(script);
-    script.__scopeId = 'data-v-7faec2';
+    script.__scopeId = 'data-v-153c4c';
     script.__file = "boolean.vue";
 };
 initialize();
@@ -2341,10 +2353,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("540615f667526a64").render;
     script.staticRenderFns = require("540615f667526a64").staticRenderFns;
-    script._scopeId = "data-v-ab603c";
+    script._scopeId = "data-v-87c031";
     script.__cssModules = require("6eb22d1b1cc22b3b").default;
     require("ea0a21cc95033fe").default(script);
-    script.__scopeId = 'data-v-ab603c';
+    script.__scopeId = 'data-v-87c031';
     script.__file = "text.vue";
 };
 initialize();
@@ -37088,10 +37100,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("e991fee296b70642").render;
     script.staticRenderFns = require("e991fee296b70642").staticRenderFns;
-    script._scopeId = "data-v-bcc0db";
+    script._scopeId = "data-v-09203b";
     script.__cssModules = require("a7657671d02a9bc9").default;
     require("2a7abb4e56d36289").default(script);
-    script.__scopeId = 'data-v-bcc0db';
+    script.__scopeId = 'data-v-09203b';
     script.__file = "unlinkBmsNodePanel.vue";
 };
 initialize();
@@ -37522,9 +37534,9 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("87dd900c24f17cf8").render;
     script.staticRenderFns = require("87dd900c24f17cf8").staticRenderFns;
-    script._scopeId = "data-v-410303";
+    script._scopeId = "data-v-a83b02";
     require("6c346950b5a6d10c").default(script);
-    script.__scopeId = 'data-v-410303';
+    script.__scopeId = 'data-v-a83b02';
     script.__file = "confirmDialog.vue";
 };
 initialize();

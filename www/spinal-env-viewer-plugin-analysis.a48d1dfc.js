@@ -521,7 +521,7 @@ function getDialog() {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.VERSION = exports.ALGORITHMS = exports.algos = exports.isGChatOrganCardResult = exports.isGChatMessageResult = exports.isResultSuccess = exports.CONSTANTS = exports.TrackingMethodModel = exports.AnalyticModel = exports.spinalAnalyticOutputManagerService = exports.spinalAnalyticInputManagerService = exports.spinalAnalyticNodeManagerService = exports.spinalAnalyticExecutionService = void 0;
+exports.ALGORITHMS = exports.algos = exports.isGChatOrganCardResult = exports.isGChatMessageResult = exports.isResultSuccess = exports.CONSTANTS = exports.TrackingMethodModel = exports.AnalyticModel = exports.spinalAnalyticOutputManagerService = exports.spinalAnalyticInputManagerService = exports.spinalAnalyticNodeManagerService = exports.spinalAnalyticExecutionService = void 0;
 const AnalyticModel_1 = require("bd4f04811876fe06");
 Object.defineProperty(exports, "AnalyticModel", {
     enumerable: true,
@@ -534,13 +534,6 @@ Object.defineProperty(exports, "TrackingMethodModel", {
     enumerable: true,
     get: function() {
         return TrackingMethodModel_1.TrackingMethodModel;
-    }
-});
-const version_1 = require("50bd3ece572be55d");
-Object.defineProperty(exports, "VERSION", {
-    enumerable: true,
-    get: function() {
-        return version_1.VERSION;
     }
 });
 const IAnalyticResult_1 = require("75545a2a14e5f4c1");
@@ -587,7 +580,7 @@ const spinalAnalyticExecutionService = new AnalyticExecutionManagerService_1.def
 exports.spinalAnalyticExecutionService = spinalAnalyticExecutionService;
 exports.default = spinalAnalyticExecutionService;
 
-},{"bd4f04811876fe06":"94N05","346b732d03dffb52":"7svXi","50bd3ece572be55d":"9wEug","75545a2a14e5f4c1":"3tfRS","15091bfe302456c3":"5MX1w","b5cbb7d75b37f0f9":"eRZCB","1b7c8aae456a9e13":"lbwPG","a9537eec833b1ee7":"6eh2j","7650e6cdfbebff7a":"6sI4H","42b8c086105a42c":"iZwq9"}],"94N05":[function(require,module,exports,__globalThis) {
+},{"bd4f04811876fe06":"94N05","346b732d03dffb52":"7svXi","75545a2a14e5f4c1":"3tfRS","15091bfe302456c3":"5MX1w","b5cbb7d75b37f0f9":"eRZCB","1b7c8aae456a9e13":"lbwPG","a9537eec833b1ee7":"6eh2j","7650e6cdfbebff7a":"6sI4H","42b8c086105a42c":"iZwq9"}],"94N05":[function(require,module,exports,__globalThis) {
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -621,15 +614,7 @@ exports.TrackingMethodModel = TrackingMethodModel;
 spinal_core_connectorjs_type_1.spinalCore.register_models(TrackingMethodModel);
 exports.default = TrackingMethodModel;
 
-},{"1b149d1bd23ef12c":"1A32E"}],"9wEug":[function(require,module,exports,__globalThis) {
-"use strict";
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.VERSION = void 0;
-exports.VERSION = '3.2.4';
-
-},{}],"3tfRS":[function(require,module,exports,__globalThis) {
+},{"1b149d1bd23ef12c":"1A32E"}],"3tfRS":[function(require,module,exports,__globalThis) {
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -8946,7 +8931,6 @@ const InputsModel_1 = require("a5ef27f319369412");
 const OutputsModel_1 = require("a05d0a34f760483e");
 const spinal_env_viewer_plugin_documentation_service_1 = require("bb4c818c4c0b9f78");
 const utils_1 = require("5e5277095b4cb738");
-const version_1 = require("e47d9341ea099c34");
 class AnalyticNodeManagerService {
     // eslint-disable-next-line @typescript-eslint/no-empty-function
     constructor(){}
@@ -8987,9 +8971,6 @@ class AnalyticNodeManagerService {
             }
             return spinal_env_viewer_graph_service_1.SpinalGraphService.addContext(contextName, CONSTANTS.CONTEXT_TYPE, undefined).then((context)=>{
                 const contextId = context.getId().get();
-                spinal_env_viewer_plugin_documentation_service_1.attributeService.createOrUpdateAttrsAndCategories(context, "metadata", {
-                    version: version_1.VERSION
-                });
                 return spinal_env_viewer_graph_service_1.SpinalGraphService.getInfo(contextId);
             });
         });
@@ -9047,10 +9028,8 @@ class AnalyticNodeManagerService {
             if (!context) return undefined;
             const contextNode = spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(context.id.get());
             const entities = yield contextNode.getChildren(CONSTANTS.CONTEXT_TO_ENTITY_RELATION);
-            const foundEntityNode = entities.find((el)=>el.getName().get() === entityName);
-            if (!foundEntityNode) return undefined;
-            spinal_env_viewer_graph_service_1.SpinalGraphService._addNode(foundEntityNode);
-            return spinal_env_viewer_graph_service_1.SpinalGraphService.getInfo(foundEntityNode.getId().get());
+            const entitiesModels = entities.map((el)=>spinal_env_viewer_graph_service_1.SpinalGraphService.getInfo(el.info.id.get()));
+            return entitiesModels.find((entity)=>entity.name.get() === entityName);
         });
     }
     /**
@@ -9148,46 +9127,34 @@ class AnalyticNodeManagerService {
             if (!trackingMethod) throw new Error('No tracking method node found');
             if (!followedEntity) throw new Error('No followed entity node found');
             if (!entity) throw new Error('No entity node found');
-            // Config node
-            const analyticConfigAttributes = yield this.getAllCategoriesAndAttributesFromNode(config.id.get());
-            // Anchor node 
-            const analyticAnchorNode = spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(followedEntity.id.get());
-            const inputAttributes = yield this.getAllCategoriesAndAttributesFromNode(trackingMethod.id.get());
-            return {
-                id: analyticNode._server_id,
-                name: analyticNode.getName().get(),
-                type: analyticNode.getType().get(),
-                analyticOnEntityName: entity.name.get(),
-                analyticOnEntityType: entity.entityType.get(),
-                config: analyticConfigAttributes,
-                inputs: inputAttributes,
-                anchor: {
-                    id: analyticAnchorNode._server_id,
-                    name: analyticAnchorNode.getName().get(),
-                    type: analyticAnchorNode.getType().get()
-                }
+            const configNode = spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(config.id.get());
+            const trackingMethodNode = spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(trackingMethod.id.get());
+            const configCategoryAttributes = (yield spinal_env_viewer_plugin_documentation_service_1.attributeService.getCategory(configNode)).map((el)=>{
+                return el.nameCat;
+            });
+            const trackingMethodCategoryAttributes = (yield spinal_env_viewer_plugin_documentation_service_1.attributeService.getCategory(trackingMethodNode)).map((el)=>{
+                return el.nameCat;
+            });
+            const configInfo = {};
+            const trackingMethodInfo = {};
+            for (const cat of configCategoryAttributes){
+                const attributes = yield spinal_env_viewer_plugin_documentation_service_1.attributeService.getAttributesByCategory(configNode, cat);
+                configInfo[cat] = attributes;
+            }
+            for (const cat of trackingMethodCategoryAttributes){
+                const attributes = yield spinal_env_viewer_plugin_documentation_service_1.attributeService.getAttributesByCategory(trackingMethodNode, cat);
+                trackingMethodInfo[cat] = attributes;
+            }
+            const analyticDetails = spinal_env_viewer_graph_service_1.SpinalGraphService.getInfo(analyticId);
+            const followedEntityId = followedEntity.id.get();
+            const res = {
+                entityNodeInfo: entity,
+                analyticName: analyticDetails.name.get(),
+                config: configInfo,
+                trackingMethod: trackingMethodInfo,
+                followedEntityId
             };
-        });
-    }
-    createAnalytic(analyticDetails, contextNode) {
-        return __awaiter(this, void 0, void 0, function*() {
-            const entity = yield this.getEntity(contextNode.getName().get(), analyticDetails.analyticOnEntityName);
-            if (!entity) throw new Error(`Entity ${analyticDetails.analyticOnEntityName} not found in context ${contextNode.getName().get()}`);
-            const analyticInfo = {
-                name: analyticDetails.name,
-                description: ''
-            };
-            const anchorNode = spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(analyticDetails.anchor.id);
-            spinal_env_viewer_graph_service_1.SpinalGraphService._addNode(anchorNode);
-            const analyticNodeRef = yield this.addAnalytic(analyticInfo, contextNode.getId().get(), entity.id.get()); // also creates inputs/outputs nodes
-            const configRef = yield this.addConfig(analyticDetails.config, analyticNodeRef.id.get(), contextNode.getId().get());
-            //const configNode = SpinalGraphService.getRealNode(configRef.id.get());
-            //await this.addAttributesToNode(configNode, analyticDetails.config);
-            const trackingMethodRef = yield this.addInputTrackingMethod(analyticDetails.inputs, contextNode.getId().get(), analyticNodeRef.id.get());
-            //const trackingMethodNode = SpinalGraphService.getRealNode(trackingMethodRef.id.get());
-            //await this.addAttributesToNode(trackingMethodNode, analyticDetails.inputs);
-            yield this.addInputLinkToFollowedEntity(contextNode.getId().get(), analyticNodeRef.id.get(), anchorNode.getId().get());
-            return this.getAnalyticDetails(analyticNodeRef.id.get());
+            return res;
         });
     }
     // #endregion ANALYTIC
@@ -9470,9 +9437,16 @@ class AnalyticNodeManagerService {
     }
     // #endregion FOLLOWED ENTITY
     // #region NODE DOCUMENTATION
-    addAttributesToNode(node, attributes) {
+    /**
+     * Adds the specified attributes to the node with the specified ID.
+     * @async
+     * @param {SpinalNode<any>} node - The node to which to add the attributes.
+     * @param {INodeDocumentation} attributes - An array of objects representing the attributes to add to the node.
+     * @returns {Promise<void>} A Promise that resolves when the attributes have been added.
+     * @memberof AnalyticService
+     */ addAttributesToNode(node, attributes) {
         return __awaiter(this, void 0, void 0, function*() {
-            for (const categoryName of Object.keys(attributes))spinal_env_viewer_plugin_documentation_service_1.attributeService.createOrUpdateAttrsAndCategories(node, categoryName, Object.assign({}, attributes[categoryName]));
+            for (const categoryName of Object.keys(attributes))for (const attribute of attributes[categoryName])yield spinal_env_viewer_plugin_documentation_service_1.default.addAttributeByCategoryName(node, categoryName, attribute.name, attribute.value, attribute.type, '');
         });
     }
     getAttributesFromNode(nodeId, category) {
@@ -9557,7 +9531,7 @@ class AnalyticNodeManagerService {
 }
 exports.default = AnalyticNodeManagerService;
 
-},{"c3a59c8970091084":"9LAk7","6c67449c51cd01":"5MX1w","d5f7a1fec079d05c":"elokR","94b49308811f97f8":"94N05","4521602391679e75":"7svXi","105589ec012d945b":"j9nPO","a5ef27f319369412":"g1mvO","a05d0a34f760483e":"2bE7q","bb4c818c4c0b9f78":"cP9kK","5e5277095b4cb738":"1cC3y","e47d9341ea099c34":"9wEug"}],"elokR":[function(require,module,exports,__globalThis) {
+},{"c3a59c8970091084":"9LAk7","6c67449c51cd01":"5MX1w","d5f7a1fec079d05c":"elokR","94b49308811f97f8":"94N05","4521602391679e75":"7svXi","105589ec012d945b":"j9nPO","a5ef27f319369412":"g1mvO","a05d0a34f760483e":"2bE7q","bb4c818c4c0b9f78":"cP9kK","5e5277095b4cb738":"1cC3y"}],"elokR":[function(require,module,exports,__globalThis) {
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -11827,7 +11801,7 @@ var setMaxIndex = function setMaxIndex(obj, maxIndex) {
 };
 var hexTable = function() {
     var array = [];
-    for(var i = 0; i < 256; ++i)array.push('%' + ((i < 16 ? '0' : '') + i.toString(16)).toUpperCase());
+    for(var i = 0; i < 256; ++i)array[array.length] = '%' + ((i < 16 ? '0' : '') + i.toString(16)).toUpperCase();
     return array;
 }();
 var compactQueue = function compactQueue(queue) {
@@ -11836,7 +11810,7 @@ var compactQueue = function compactQueue(queue) {
         var obj = item.obj[item.prop];
         if (isArray(obj)) {
             var compacted = [];
-            for(var j = 0; j < obj.length; ++j)if (typeof obj[j] !== 'undefined') compacted.push(obj[j]);
+            for(var j = 0; j < obj.length; ++j)if (typeof obj[j] !== 'undefined') compacted[compacted.length] = obj[j];
             item.obj[item.prop] = compacted;
         }
     }
@@ -11851,14 +11825,21 @@ var arrayToObject = function arrayToObject(source, options) {
 var merge = function merge(target, source, options) {
     /* eslint no-param-reassign: 0 */ if (!source) return target;
     if (typeof source !== 'object' && typeof source !== 'function') {
-        if (isArray(target)) target.push(source);
-        else if (target && typeof target === 'object') {
+        if (isArray(target)) {
+            var nextIndex = target.length;
+            if (options && typeof options.arrayLimit === 'number' && nextIndex > options.arrayLimit) return markOverflow(arrayToObject(target.concat(source), options), nextIndex);
+            target[nextIndex] = source;
+        } else if (target && typeof target === 'object') {
             if (isOverflow(target)) {
                 // Add at next numeric index for overflow objects
                 var newIndex = getMaxIndex(target) + 1;
                 target[newIndex] = source;
                 setMaxIndex(target, newIndex);
-            } else if (options && (options.plainObjects || options.allowPrototypes) || !has.call(Object.prototype, source)) target[source] = true;
+            } else if (options && options.strictMerge) return [
+                target,
+                source
+            ];
+            else if (options && (options.plainObjects || options.allowPrototypes) || !has.call(Object.prototype, source)) target[source] = true;
         } else return [
             target,
             source
@@ -11881,9 +11862,11 @@ var merge = function merge(target, source, options) {
             }
             return markOverflow(result, getMaxIndex(source) + 1);
         }
-        return [
+        var combined = [
             target
         ].concat(source);
+        if (options && typeof options.arrayLimit === 'number' && combined.length > options.arrayLimit) return markOverflow(arrayToObject(combined, options), combined.length - 1);
+        return combined;
     }
     var mergeTarget = target;
     if (isArray(target) && !isArray(source)) mergeTarget = arrayToObject(target, options);
@@ -11892,7 +11875,7 @@ var merge = function merge(target, source, options) {
             if (has.call(target, i)) {
                 var targetItem = target[i];
                 if (targetItem && typeof targetItem === 'object' && item && typeof item === 'object') target[i] = merge(targetItem, item, options);
-                else target.push(item);
+                else target[target.length] = item;
             } else target[i] = item;
         });
         return target;
@@ -11901,6 +11884,11 @@ var merge = function merge(target, source, options) {
         var value = source[key];
         if (has.call(acc, key)) acc[key] = merge(acc[key], value, options);
         else acc[key] = value;
+        if (isOverflow(source) && !isOverflow(acc)) markOverflow(acc, getMaxIndex(source));
+        if (isOverflow(acc)) {
+            var keyNum = parseInt(key, 10);
+            if (String(keyNum) === key && keyNum >= 0 && keyNum > getMaxIndex(acc)) setMaxIndex(acc, keyNum);
+        }
         return acc;
     }, mergeTarget);
 };
@@ -11988,11 +11976,11 @@ var compact = function compact(value) {
             var key = keys[j];
             var val = obj[key];
             if (typeof val === 'object' && val !== null && refs.indexOf(val) === -1) {
-                queue.push({
+                queue[queue.length] = {
                     obj: obj,
                     prop: key
-                });
-                refs.push(val);
+                };
+                refs[refs.length] = val;
             }
         }
     }
@@ -12023,7 +12011,7 @@ var combine = function combine(a, b, arrayLimit, plainObjects) {
 var maybeMap = function maybeMap(val, fn) {
     if (isArray(val)) {
         var mapped = [];
-        for(var i = 0; i < val.length; i += 1)mapped.push(fn(val[i]));
+        for(var i = 0; i < val.length; i += 1)mapped[mapped.length] = fn(val[i]);
         return mapped;
     }
     return fn(val);
@@ -12038,6 +12026,7 @@ module.exports = {
     isBuffer: isBuffer,
     isOverflow: isOverflow,
     isRegExp: isRegExp,
+    markOverflow: markOverflow,
     maybeMap: maybeMap,
     merge: merge
 };
@@ -12089,6 +12078,7 @@ var defaults = {
     parseArrays: true,
     plainObjects: false,
     strictDepth: false,
+    strictMerge: true,
     strictNullHandling: false,
     throwOnLimitExceeded: false
 };
@@ -12116,7 +12106,7 @@ var parseValues = function parseQueryStringValues(str, options) {
     };
     var cleanStr = options.ignoreQueryPrefix ? str.replace(/^\?/, '') : str;
     cleanStr = cleanStr.replace(/%5B/gi, '[').replace(/%5D/gi, ']');
-    var limit = options.parameterLimit === Infinity ? undefined : options.parameterLimit;
+    var limit = options.parameterLimit === Infinity ? void 0 : options.parameterLimit;
     var parts = cleanStr.split(options.delimiter, options.throwOnLimitExceeded ? limit + 1 : limit);
     if (options.throwOnLimitExceeded && parts.length > limit) throw new RangeError('Parameter limit exceeded. Only ' + limit + ' parameter' + (limit === 1 ? '' : 's') + ' allowed.');
     var skipIndex = -1; // Keep track of where the utf8 sentinel was found
@@ -12150,9 +12140,13 @@ var parseValues = function parseQueryStringValues(str, options) {
         if (part.indexOf('[]=') > -1) val = isArray(val) ? [
             val
         ] : val;
+        if (options.comma && isArray(val) && val.length > options.arrayLimit) {
+            if (options.throwOnLimitExceeded) throw new RangeError('Array limit exceeded. Only ' + options.arrayLimit + ' element' + (options.arrayLimit === 1 ? '' : 's') + ' allowed in an array.');
+            val = utils.combine([], val, options.arrayLimit, options.plainObjects);
+        }
         if (key !== null) {
             var existing = has.call(obj, key);
-            if (existing && options.duplicates === 'combine') obj[key] = utils.combine(obj[key], val, options.arrayLimit, options.plainObjects);
+            if (existing && (options.duplicates === 'combine' || part.indexOf('[]=') > -1)) obj[key] = utils.combine(obj[key], val, options.arrayLimit, options.plainObjects);
             else if (!existing || options.duplicates === 'last') obj[key] = val;
         }
     }
@@ -12179,12 +12173,17 @@ var parseObject = function(chain, val, options, valuesParsed) {
             var cleanRoot = root.charAt(0) === '[' && root.charAt(root.length - 1) === ']' ? root.slice(1, -1) : root;
             var decodedRoot = options.decodeDotInKeys ? cleanRoot.replace(/%2E/g, '.') : cleanRoot;
             var index = parseInt(decodedRoot, 10);
+            var isValidArrayIndex = !isNaN(index) && root !== decodedRoot && String(index) === decodedRoot && index >= 0 && options.parseArrays;
             if (!options.parseArrays && decodedRoot === '') obj = {
                 0: leaf
             };
-            else if (!isNaN(index) && root !== decodedRoot && String(index) === decodedRoot && index >= 0 && options.parseArrays && index <= options.arrayLimit) {
+            else if (isValidArrayIndex && index < options.arrayLimit) {
                 obj = [];
                 obj[index] = leaf;
+            } else if (isValidArrayIndex && options.throwOnLimitExceeded) throw new RangeError('Array limit exceeded. Only ' + options.arrayLimit + ' element' + (options.arrayLimit === 1 ? '' : 's') + ' allowed in an array.');
+            else if (isValidArrayIndex) {
+                obj[index] = leaf;
+                utils.markOverflow(obj, index);
             } else if (decodedRoot !== '__proto__') obj[decodedRoot] = leaf;
         }
         leaf = obj;
@@ -12210,7 +12209,7 @@ var splitKeyIntoSegments = function splitKeyIntoSegments(givenKey, options) {
         if (!options.plainObjects && has.call(Object.prototype, parent)) {
             if (!options.allowPrototypes) return;
         }
-        keys.push(parent);
+        keys[keys.length] = parent;
     }
     var i = 0;
     while((segment = child.exec(key)) !== null && i < options.depth){
@@ -12219,11 +12218,11 @@ var splitKeyIntoSegments = function splitKeyIntoSegments(givenKey, options) {
         if (!options.plainObjects && has.call(Object.prototype, segmentContent)) {
             if (!options.allowPrototypes) return;
         }
-        keys.push(segment[1]);
+        keys[keys.length] = segment[1];
     }
     if (segment) {
         if (options.strictDepth === true) throw new RangeError('Input depth exceeded depth option of ' + options.depth + ' and strictDepth is true');
-        keys.push('[' + key.slice(segment.index) + ']');
+        keys[keys.length] = '[' + key.slice(segment.index) + ']';
     }
     return keys;
 };
@@ -12265,6 +12264,7 @@ var normalizeParseOptions = function normalizeParseOptions(opts) {
         parseArrays: opts.parseArrays !== false,
         plainObjects: typeof opts.plainObjects === 'boolean' ? opts.plainObjects : defaults.plainObjects,
         strictDepth: typeof opts.strictDepth === 'boolean' ? !!opts.strictDepth : defaults.strictDepth,
+        strictMerge: typeof opts.strictMerge === 'boolean' ? !!opts.strictMerge : defaults.strictMerge,
         strictNullHandling: typeof opts.strictNullHandling === 'boolean' ? opts.strictNullHandling : defaults.strictNullHandling,
         throwOnLimitExceeded: typeof opts.throwOnLimitExceeded === 'boolean' ? opts.throwOnLimitExceeded : false
     };
@@ -12526,10 +12526,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("79603633ea371214").render;
     script.staticRenderFns = require("79603633ea371214").staticRenderFns;
-    script._scopeId = "data-v-f50035";
+    script._scopeId = "data-v-3415f1";
     script.__cssModules = require("c9d76c18c5788e98").default;
     require("4764d454bdec37fa").default(script);
-    script.__scopeId = 'data-v-f50035';
+    script.__scopeId = 'data-v-3415f1';
     script.__file = "createContextDialog.vue";
 };
 initialize();
@@ -12701,10 +12701,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("148f7f85916fa99f").render;
     script.staticRenderFns = require("148f7f85916fa99f").staticRenderFns;
-    script._scopeId = "data-v-1da401";
+    script._scopeId = "data-v-137aed";
     script.__cssModules = require("18d6b8a71ffa0673").default;
     require("765c69e92bfcf808").default(script);
-    script.__scopeId = 'data-v-1da401';
+    script.__scopeId = 'data-v-137aed';
     script.__file = "sortable-list.vue";
 };
 initialize();
@@ -12766,10 +12766,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("43addf22ab5ff52b").render;
     script.staticRenderFns = require("43addf22ab5ff52b").staticRenderFns;
-    script._scopeId = "data-v-99ff4b";
+    script._scopeId = "data-v-d051ef";
     script.__cssModules = require("b5151400238568ba").default;
     require("dc4f3bfb5f2f9a3e").default(script);
-    script.__scopeId = 'data-v-99ff4b';
+    script.__scopeId = 'data-v-d051ef';
     script.__file = "addItemsPopover.vue";
 };
 initialize();
@@ -13219,10 +13219,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("d65a7c438c4cbc2b").render;
     script.staticRenderFns = require("d65a7c438c4cbc2b").staticRenderFns;
-    script._scopeId = "data-v-216d9a";
+    script._scopeId = "data-v-745301";
     script.__cssModules = require("f4102860c351f73e").default;
     require("e6f886d3ba47a944").default(script);
-    script.__scopeId = 'data-v-216d9a';
+    script.__scopeId = 'data-v-745301';
     script.__file = "createEntityDialog.vue";
 };
 initialize();
@@ -13424,10 +13424,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("627298b955099f43").render;
     script.staticRenderFns = require("627298b955099f43").staticRenderFns;
-    script._scopeId = "data-v-2ec450";
+    script._scopeId = "data-v-e6abd0";
     script.__cssModules = require("cc43dd29276c16a3").default;
     require("8a421bcfa6ff918c").default(script);
-    script.__scopeId = 'data-v-2ec450';
+    script.__scopeId = 'data-v-e6abd0';
     script.__file = "createAnalyticDialog.vue";
 };
 initialize();
@@ -13976,9 +13976,9 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("a2886d4834b780f6").render;
     script.staticRenderFns = require("a2886d4834b780f6").staticRenderFns;
-    script._scopeId = "data-v-cc0acf";
+    script._scopeId = "data-v-c4e794";
     require("2e65fd3ada512a11").default(script);
-    script.__scopeId = 'data-v-cc0acf';
+    script.__scopeId = 'data-v-c4e794';
     script.__file = "analyticName.vue";
 };
 initialize();
@@ -14213,9 +14213,9 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("df91edfc020a44ec").render;
     script.staticRenderFns = require("df91edfc020a44ec").staticRenderFns;
-    script._scopeId = "data-v-8cd933";
+    script._scopeId = "data-v-a1f15f";
     require("a9d15aa6691f2297").default(script);
-    script.__scopeId = 'data-v-8cd933';
+    script.__scopeId = 'data-v-a1f15f';
     script.__file = "followedEntity.vue";
 };
 initialize();
@@ -14293,10 +14293,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("fc571b523ea36ce0").render;
     script.staticRenderFns = require("fc571b523ea36ce0").staticRenderFns;
-    script._scopeId = "data-v-8a87fc";
+    script._scopeId = "data-v-56c21c";
     script.__cssModules = require("aec4895752613f80").default;
     require("ebf5fd019ba261a1").default(script);
-    script.__scopeId = 'data-v-8a87fc';
+    script.__scopeId = 'data-v-56c21c';
     script.__file = "linkToEntity.vue";
 };
 initialize();
@@ -14952,10 +14952,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("5966b8a4206d51fe").render;
     script.staticRenderFns = require("5966b8a4206d51fe").staticRenderFns;
-    script._scopeId = "data-v-99f33a";
+    script._scopeId = "data-v-6d7dcc";
     script.__cssModules = require("935875a4c72e9f38").default;
     require("30fc33d99f7ca241").default(script);
-    script.__scopeId = 'data-v-99f33a';
+    script.__scopeId = 'data-v-6d7dcc';
     script.__file = "linkerTemplate.vue";
 };
 initialize();
@@ -15183,10 +15183,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("c11d4a91a08d9ceb").render;
     script.staticRenderFns = require("c11d4a91a08d9ceb").staticRenderFns;
-    script._scopeId = "data-v-f24325";
+    script._scopeId = "data-v-2202c0";
     script.__cssModules = require("2c27762d2d96d6b4").default;
     require("79d30b5f3442688a").default(script);
-    script.__scopeId = 'data-v-f24325';
+    script.__scopeId = 'data-v-2202c0';
     script.__file = "linkToSpatialEntity.vue";
 };
 initialize();
@@ -15421,10 +15421,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("ebd8d57fe5144b69").render;
     script.staticRenderFns = require("ebd8d57fe5144b69").staticRenderFns;
-    script._scopeId = "data-v-142b1a";
+    script._scopeId = "data-v-94e949";
     script.__cssModules = require("6adae82734d05a29").default;
     require("328ff90a8667f2ff").default(script);
-    script.__scopeId = 'data-v-142b1a';
+    script.__scopeId = 'data-v-94e949';
     script.__file = "linkToContext.vue";
 };
 initialize();
@@ -15688,10 +15688,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("fb86fb1561a4eb5b").render;
     script.staticRenderFns = require("fb86fb1561a4eb5b").staticRenderFns;
-    script._scopeId = "data-v-e40a92";
+    script._scopeId = "data-v-52cab7";
     script.__cssModules = require("f37bf822f7eef2d8").default;
     require("d131062c24ad9ae5").default(script);
-    script.__scopeId = 'data-v-e40a92';
+    script.__scopeId = 'data-v-52cab7';
     script.__file = "inputConfiguration.vue";
 };
 initialize();
@@ -15841,10 +15841,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("174e7b05869e11a9").render;
     script.staticRenderFns = require("174e7b05869e11a9").staticRenderFns;
-    script._scopeId = "data-v-ef1b06";
+    script._scopeId = "data-v-9023b4";
     script.__cssModules = require("1288094a95e27ca4").default;
     require("7368bf4ac5988e14").default(script);
-    script.__scopeId = 'data-v-ef1b06';
+    script.__scopeId = 'data-v-9023b4';
     script.__file = "previewDialog.vue";
 };
 initialize();
@@ -16253,10 +16253,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("49da852768d78444").render;
     script.staticRenderFns = require("49da852768d78444").staticRenderFns;
-    script._scopeId = "data-v-554f4d";
+    script._scopeId = "data-v-52e2a8";
     script.__cssModules = require("b39680976e629309").default;
     require("c3be97543a3ed817").default(script);
-    script.__scopeId = 'data-v-554f4d';
+    script.__scopeId = 'data-v-52e2a8';
     script.__file = "triggerConfiguration.vue";
 };
 initialize();
@@ -16333,10 +16333,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("c4b4fddc6076f5c").render;
     script.staticRenderFns = require("c4b4fddc6076f5c").staticRenderFns;
-    script._scopeId = "data-v-1aee9f";
+    script._scopeId = "data-v-50a753";
     script.__cssModules = require("1bb6326be9835e1").default;
     require("634f54cafa2b3756").default(script);
-    script.__scopeId = 'data-v-1aee9f';
+    script.__scopeId = 'data-v-50a753';
     script.__file = "cronHelpDialog.vue";
 };
 initialize();
@@ -16728,10 +16728,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("ac88efc713ea1b8e").render;
     script.staticRenderFns = require("ac88efc713ea1b8e").staticRenderFns;
-    script._scopeId = "data-v-605333";
+    script._scopeId = "data-v-84a9e7";
     script.__cssModules = require("ee766329a47d2e89").default;
     require("615b599c90b8c4dd").default(script);
-    script.__scopeId = 'data-v-605333';
+    script.__scopeId = 'data-v-84a9e7';
     script.__file = "algorithmConfiguration.vue";
 };
 initialize();
@@ -16932,9 +16932,9 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("dd38818ea3b69c13").render;
     script.staticRenderFns = require("dd38818ea3b69c13").staticRenderFns;
-    script._scopeId = "data-v-0e819e";
+    script._scopeId = "data-v-815eb4";
     require("a00646bce0539e1e").default(script);
-    script.__scopeId = 'data-v-0e819e';
+    script.__scopeId = 'data-v-815eb4';
     script.__file = "resultConfiguration.vue";
 };
 initialize();
@@ -16983,12 +16983,19 @@ var scriptExports = {
             localEndpointModifyAttrInstead: this.endpointModifyAttrInstead,
             localResultCategoryName: this.resultCategoryName,
             localResultCreateAttributeIfNotExist: this.resultCreateAttributeIfNotExist,
+            alarmContexts: [],
             ticketProcesses: []
         };
     },
-    created () {
+    async created () {
         this.CONST_ANALYTIC_RESULT_TYPE = (0, _spinalModelAnalysis.CONSTANTS).ANALYTIC_RESULT_TYPE;
-        this.alarmContexts = (0, _spinalServiceTicket.spinalServiceTicket).getContexts();
+        try {
+            const ticketContexts = await (0, _spinalServiceTicket.spinalServiceTicket).getContexts();
+            console.log('TICKET CONTEXTS : ', ticketContexts);
+            this.alarmContexts = ticketContexts;
+        } catch (error) {
+            console.error('Failed to load ticket contexts:', error);
+        }
     },
     methods: {
         update (key, value) {
@@ -17532,10 +17539,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("7c58b3461bf9c840").render;
     script.staticRenderFns = require("7c58b3461bf9c840").staticRenderFns;
-    script._scopeId = "data-v-bbdec2";
+    script._scopeId = "data-v-419292";
     script.__cssModules = require("a117151e03e8bca0").default;
     require("52ee573fb9bbe7f9").default(script);
-    script.__scopeId = 'data-v-bbdec2';
+    script.__scopeId = 'data-v-419292';
     script.__file = "IODependencies.vue";
 };
 initialize();
@@ -17602,10 +17609,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("3f4905037d909310").render;
     script.staticRenderFns = require("3f4905037d909310").staticRenderFns;
-    script._scopeId = "data-v-ceecef";
+    script._scopeId = "data-v-05b195";
     script.__cssModules = require("cc903ab60d3a7548").default;
     require("c950a0cfb7a97d39").default(script);
-    script.__scopeId = 'data-v-ceecef';
+    script.__scopeId = 'data-v-05b195';
     script.__file = "inputSelectionTable.vue";
 };
 initialize();
@@ -18101,9 +18108,9 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("c82c8a04709c5c39").render;
     script.staticRenderFns = require("c82c8a04709c5c39").staticRenderFns;
-    script._scopeId = "data-v-ba85a8";
+    script._scopeId = "data-v-9a0e1a";
     require("7bdb5b575d989e53").default(script);
-    script.__scopeId = 'data-v-ba85a8';
+    script.__scopeId = 'data-v-9a0e1a';
     script.__file = "configuration.vue";
 };
 initialize();
@@ -18625,10 +18632,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("b92ecc6f89af854c").render;
     script.staticRenderFns = require("b92ecc6f89af854c").staticRenderFns;
-    script._scopeId = "data-v-dbe495";
+    script._scopeId = "data-v-9d1c7c";
     script.__cssModules = require("f78316d3492726cb").default;
     require("c88d640afaf2a223").default(script);
-    script.__scopeId = 'data-v-dbe495';
+    script.__scopeId = 'data-v-9d1c7c';
     script.__file = "summary.vue";
 };
 initialize();
@@ -19118,10 +19125,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("3fdf391e9c73cd5").render;
     script.staticRenderFns = require("3fdf391e9c73cd5").staticRenderFns;
-    script._scopeId = "data-v-19c5d7";
+    script._scopeId = "data-v-03c1c9";
     script.__cssModules = require("f93af72822295694").default;
     require("217d35c413f75cf6").default(script);
-    script.__scopeId = 'data-v-19c5d7';
+    script.__scopeId = 'data-v-03c1c9';
     script.__file = "modifyAnalyticDialog.vue";
 };
 initialize();

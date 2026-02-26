@@ -314,10 +314,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("334e410359e39538").render;
     script.staticRenderFns = require("334e410359e39538").staticRenderFns;
-    script._scopeId = "data-v-7f8522";
+    script._scopeId = "data-v-cad18a";
     script.__cssModules = require("fe6cdee010c4175d").default;
     require("5fc14a2872370e0c").default(script);
-    script.__scopeId = 'data-v-7f8522';
+    script.__scopeId = 'data-v-cad18a';
     script.__file = "deletePanel.vue";
 };
 initialize();
@@ -609,7 +609,7 @@ var render = function() {
                             expression: "selectedOption"
                         }
                     }, [
-                        _vm._v("\n          This node only\n        ")
+                        _vm._v("\n          This node only (remove from graph)\n        ")
                     ]),
                     _vm._v(" "),
                     _c('md-radio', {
@@ -883,9 +883,9 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("f3110c23e293571").render;
     script.staticRenderFns = require("f3110c23e293571").staticRenderFns;
-    script._scopeId = "data-v-781f82";
+    script._scopeId = "data-v-05961a";
     require("34246a61773a2dd").default(script);
-    script.__scopeId = 'data-v-781f82';
+    script.__scopeId = 'data-v-05961a';
     script.__file = "renamePanel.vue";
 };
 initialize();
@@ -1019,9 +1019,9 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("c2e0446d1649305f").render;
     script.staticRenderFns = require("c2e0446d1649305f").staticRenderFns;
-    script._scopeId = "data-v-f56ac5";
+    script._scopeId = "data-v-c5d837";
     require("430b9d4c9288cc6f").default(script);
-    script.__scopeId = 'data-v-f56ac5';
+    script.__scopeId = 'data-v-c5d837';
     script.__file = "researchPanel.vue";
 };
 initialize();
@@ -1167,10 +1167,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("842bb3afc6cfcb4e").render;
     script.staticRenderFns = require("842bb3afc6cfcb4e").staticRenderFns;
-    script._scopeId = "data-v-bf2d9a";
+    script._scopeId = "data-v-764f2f";
     script.__cssModules = require("b5e6ccc8de18c740").default;
     require("8313894fa4a0eef6").default(script);
-    script.__scopeId = 'data-v-bf2d9a';
+    script.__scopeId = 'data-v-764f2f';
     script.__file = "colorDialog.vue";
 };
 initialize();

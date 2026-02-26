@@ -780,10 +780,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("2bb2a8999f597104").render;
     script.staticRenderFns = require("2bb2a8999f597104").staticRenderFns;
-    script._scopeId = "data-v-ce5558";
+    script._scopeId = "data-v-4a3a6c";
     script.__cssModules = require("1475d2a9522ce925").default;
     require("9a123931a7d2f9c").default(script);
-    script.__scopeId = 'data-v-ce5558';
+    script.__scopeId = 'data-v-4a3a6c';
     script.__file = "LinkEndpointTimeseriesToControlPoint.vue";
 };
 initialize();

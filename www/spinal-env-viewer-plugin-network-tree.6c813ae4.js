@@ -1094,9 +1094,9 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("730a130575b76379").render;
     script.staticRenderFns = require("730a130575b76379").staticRenderFns;
-    script._scopeId = "data-v-1d6e0b";
+    script._scopeId = "data-v-68018c";
     require("eab508ee32b20141").default(script);
-    script.__scopeId = 'data-v-1d6e0b';
+    script.__scopeId = 'data-v-68018c';
     script.__file = "dialog.vue";
 };
 initialize();
@@ -1246,10 +1246,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("8297c01292c7cd77").render;
     script.staticRenderFns = require("8297c01292c7cd77").staticRenderFns;
-    script._scopeId = "data-v-e284e2";
+    script._scopeId = "data-v-48488f";
     script.__cssModules = require("4183691c538b8910").default;
     require("394bd612ede59e08").default(script);
-    script.__scopeId = 'data-v-e284e2';
+    script.__scopeId = 'data-v-48488f';
     script.__file = "linkAutomateToProfil.vue";
 };
 initialize();
@@ -1791,10 +1791,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("e23aef5cfec5827d").render;
     script.staticRenderFns = require("e23aef5cfec5827d").staticRenderFns;
-    script._scopeId = "data-v-be9878";
+    script._scopeId = "data-v-fb754f";
     script.__cssModules = require("eb83d506f7a51bb1").default;
     require("d7700fef2c73b7d").default(script);
-    script.__scopeId = 'data-v-be9878';
+    script.__scopeId = 'data-v-fb754f';
     script.__file = "LinkComponent.vue";
 };
 initialize();
@@ -1849,10 +1849,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("d2b20b9299ffa2b6").render;
     script.staticRenderFns = require("d2b20b9299ffa2b6").staticRenderFns;
-    script._scopeId = "data-v-4913a4";
+    script._scopeId = "data-v-9581a3";
     script.__cssModules = require("19ba773085da12d1").default;
     require("85e321a035b77700").default(script);
-    script.__scopeId = 'data-v-4913a4';
+    script.__scopeId = 'data-v-9581a3';
     script.__file = "linkToGroupTemplate.vue";
 };
 initialize();
@@ -2014,10 +2014,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("2f46b156e55c5b92").render;
     script.staticRenderFns = require("2f46b156e55c5b92").staticRenderFns;
-    script._scopeId = "data-v-4e3681";
+    script._scopeId = "data-v-9e5c05";
     script.__cssModules = require("fc49dcf1962cf8d8").default;
     require("5081cad7ebe99d6c").default(script);
-    script.__scopeId = 'data-v-4e3681';
+    script.__scopeId = 'data-v-9e5c05';
     script.__file = "resultComponent.vue";
 };
 initialize();
@@ -2328,10 +2328,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("8fccbbab8a37de33").render;
     script.staticRenderFns = require("8fccbbab8a37de33").staticRenderFns;
-    script._scopeId = "data-v-3b500b";
+    script._scopeId = "data-v-583298";
     script.__cssModules = require("6b29dfe7366b61ba").default;
     require("2ede9cda74297d80").default(script);
-    script.__scopeId = 'data-v-3b500b';
+    script.__scopeId = 'data-v-583298';
     script.__file = "confirmUnlikProfil.vue";
 };
 initialize();
@@ -2614,10 +2614,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("6a76f32260b50b06").render;
     script.staticRenderFns = require("6a76f32260b50b06").staticRenderFns;
-    script._scopeId = "data-v-4eecf3";
+    script._scopeId = "data-v-14b1e9";
     script.__cssModules = require("63a5c1aa2c3acc54").default;
     require("396da377d6c5f9cd").default(script);
-    script.__scopeId = 'data-v-4eecf3';
+    script.__scopeId = 'data-v-14b1e9';
     script.__file = "editLinksDialog.vue";
 };
 initialize();
@@ -2689,10 +2689,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("2a61a6547201adc3").render;
     script.staticRenderFns = require("2a61a6547201adc3").staticRenderFns;
-    script._scopeId = "data-v-ffbf85";
+    script._scopeId = "data-v-6c422f";
     script.__cssModules = require("68955a3498ac5c38").default;
     require("ec37eaeda824b53e").default(script);
-    script.__scopeId = 'data-v-ffbf85';
+    script.__scopeId = 'data-v-6c422f';
     script.__file = "editLinks.vue";
 };
 initialize();
@@ -3112,10 +3112,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("728ba785e63f9703").render;
     script.staticRenderFns = require("728ba785e63f9703").staticRenderFns;
-    script._scopeId = "data-v-c4601c";
+    script._scopeId = "data-v-fe1475";
     script.__cssModules = require("732a8e6188d94707").default;
     require("f0677dc836896c62").default(script);
-    script.__scopeId = 'data-v-c4601c';
+    script.__scopeId = 'data-v-fe1475';
     script.__file = "personalizedAttributeDialog.vue";
 };
 initialize();
@@ -3226,10 +3226,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("6cf183a77759acb8").render;
     script.staticRenderFns = require("6cf183a77759acb8").staticRenderFns;
-    script._scopeId = "data-v-787510";
+    script._scopeId = "data-v-0c321c";
     script.__cssModules = require("9fe5f60dbadd6d9f").default;
     require("ba29e279f3f9e303").default(script);
-    script.__scopeId = 'data-v-787510';
+    script.__scopeId = 'data-v-0c321c';
     script.__file = "SpinalCodeMirror.vue";
 };
 initialize();
@@ -3784,7 +3784,7 @@ exports.default = options; // parcel transformer vue2 compiler hack
     }
     function copyObj(obj, target, overwrite) {
         if (!target) target = {};
-        for(var prop in obj)if (obj.hasOwnProperty(prop) && (overwrite !== false || !target.hasOwnProperty(prop))) target[prop] = obj[prop];
+        for(var prop in obj)if (Object.prototype.hasOwnProperty.call(obj, prop) && (overwrite !== false || !Object.prototype.hasOwnProperty.call(target, prop))) target[prop] = obj[prop];
         return target;
     }
     // Counts the column offset in a string, taking tabs into account.
@@ -13195,7 +13195,7 @@ exports.default = options; // parcel transformer vue2 compiler hack
     };
     CodeMirror.fromTextArea = fromTextArea;
     addLegacyProps(CodeMirror);
-    CodeMirror.version = "5.65.20";
+    CodeMirror.version = "5.65.21";
     return CodeMirror;
 });
 
@@ -16172,10 +16172,10 @@ exports.default = options; // parcel transformer vue2 compiler hack
         name: "clike",
         keywords: words(/*keywords*/ "package as typealias class interface this super val operator var fun for is in This throw return annotation break continue object if else while do try when !in !is as? file import where by get set abstract enum open inner override private public internal protected catch finally out final vararg reified dynamic companion constructor init sealed field property receiver param sparam lateinit data inline noinline tailrec external annotation crossinline const operator infix suspend actual expect setparam value"),
         types: words(/* package java.lang */ "Boolean Byte Character CharSequence Class ClassLoader Cloneable Comparable Compiler Double Exception Float Integer Long Math Number Object Package Pair Process Runtime Runnable SecurityManager Short StackTraceElement StrictMath String StringBuffer System Thread ThreadGroup ThreadLocal Throwable Triple Void Annotation Any BooleanArray ByteArray Char CharArray DeprecationLevel DoubleArray Enum FloatArray Function Int IntArray Lazy LazyThreadSafetyMode LongArray Nothing ShortArray Unit"),
-        intendSwitch: false,
+        indentSwitch: false,
         indentStatements: false,
         multiLineStrings: true,
-        number: /^(?:0x[a-f\d_]+|0b[01_]+|(?:[\d_]+(\.\d+)?|\.\d+)(?:e[-+]?[\d_]+)?)(u|ll?|l|f)?/i,
+        number: /^(?:0x[a-f\d_]+|0b[01_]+|(?:[\d_]+(\.\d+)?|\.\d+)(?:e[-+]?[\d_]+)?)(ul?|l|f)?/i,
         blockKeywords: words("catch class do else finally for if where try while enum"),
         defKeywords: words("class val var object interface fun"),
         atoms: words("true false null this"),
@@ -19051,10 +19051,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("d8c4f1237e014116").render;
     script.staticRenderFns = require("d8c4f1237e014116").staticRenderFns;
-    script._scopeId = "data-v-b4b423";
+    script._scopeId = "data-v-f3e914";
     script.__cssModules = require("54b9128f4b62bdbe").default;
     require("9d41ccc06d40f597").default(script);
-    script.__scopeId = 'data-v-b4b423';
+    script.__scopeId = 'data-v-f3e914';
     script.__file = "personalizeNamingConvention.vue";
 };
 initialize();
@@ -19217,10 +19217,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("5d1d6b1e34c98bbc").render;
     script.staticRenderFns = require("5d1d6b1e34c98bbc").staticRenderFns;
-    script._scopeId = "data-v-60f96f";
+    script._scopeId = "data-v-56e6d5";
     script.__cssModules = require("563e79239cd0905").default;
     require("5d4605d094161727").default(script);
-    script.__scopeId = 'data-v-60f96f';
+    script.__scopeId = 'data-v-56e6d5';
     script.__file = "linkToGtbDialog.vue";
 };
 initialize();
@@ -19822,10 +19822,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("dd29c38949f2f735").render;
     script.staticRenderFns = require("dd29c38949f2f735").staticRenderFns;
-    script._scopeId = "data-v-555609";
+    script._scopeId = "data-v-11d7ad";
     script.__cssModules = require("3966c533931dbc3f").default;
     require("5532f6928b5262dc").default(script);
-    script.__scopeId = 'data-v-555609';
+    script.__scopeId = 'data-v-11d7ad';
     script.__file = "confirmLinkToGTB.vue";
 };
 initialize();
@@ -19893,10 +19893,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("298ed84a989a440a").render;
     script.staticRenderFns = require("298ed84a989a440a").staticRenderFns;
-    script._scopeId = "data-v-079095";
+    script._scopeId = "data-v-cfcb4f";
     script.__cssModules = require("4fc3099cf12646ad").default;
     require("e60a990dc63c6143").default(script);
-    script.__scopeId = 'data-v-079095';
+    script.__scopeId = 'data-v-cfcb4f';
     script.__file = "configuration.vue";
 };
 initialize();
@@ -20642,10 +20642,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("84571788a217ffac").render;
     script.staticRenderFns = require("84571788a217ffac").staticRenderFns;
-    script._scopeId = "data-v-44dddf";
+    script._scopeId = "data-v-34db89";
     script.__cssModules = require("8c19a545434bfbe3").default;
     require("ac78cafaf4bc9de5").default(script);
-    script.__scopeId = 'data-v-44dddf';
+    script.__scopeId = 'data-v-34db89';
     script.__file = "generateAutomateContext.vue";
 };
 initialize();
@@ -20770,10 +20770,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("298ffae9827df5fb").render;
     script.staticRenderFns = require("298ffae9827df5fb").staticRenderFns;
-    script._scopeId = "data-v-fb7293";
+    script._scopeId = "data-v-e7c390";
     script.__cssModules = require("63e6991408ee2d15").default;
     require("3626fe00e4bce521").default(script);
-    script.__scopeId = 'data-v-fb7293';
+    script.__scopeId = 'data-v-e7c390';
     script.__file = "configurationStep.vue";
 };
 initialize();
@@ -20992,10 +20992,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("509024ffde84d942").render;
     script.staticRenderFns = require("509024ffde84d942").staticRenderFns;
-    script._scopeId = "data-v-b8d3b7";
+    script._scopeId = "data-v-af4967";
     script.__cssModules = require("e1f1ebbd48ff2d2a").default;
     require("3bb7ddc847b19957").default(script);
-    script.__scopeId = 'data-v-b8d3b7';
+    script.__scopeId = 'data-v-af4967';
     script.__file = "launchStep.vue";
 };
 initialize();
@@ -21376,10 +21376,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("d5265ceeb04784b6").render;
     script.staticRenderFns = require("d5265ceeb04784b6").staticRenderFns;
-    script._scopeId = "data-v-f6c77a";
+    script._scopeId = "data-v-e3ea80";
     script.__cssModules = require("128777ec4a20de93").default;
     require("c3f3ab1734951b35").default(script);
-    script.__scopeId = 'data-v-f6c77a';
+    script.__scopeId = 'data-v-e3ea80';
     script.__file = "selectionStep.vue";
 };
 initialize();
@@ -21830,10 +21830,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("9ada1ab7bb26b167").render;
     script.staticRenderFns = require("9ada1ab7bb26b167").staticRenderFns;
-    script._scopeId = "data-v-4734bd";
+    script._scopeId = "data-v-1d00cd";
     script.__cssModules = require("f01c2045c9b63151").default;
     require("73039832046f2ac6").default(script);
-    script.__scopeId = 'data-v-4734bd';
+    script.__scopeId = 'data-v-1d00cd';
     script.__file = "namingConventionStep.vue";
 };
 initialize();
@@ -22101,10 +22101,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("cb8cca1d6aee716d").render;
     script.staticRenderFns = require("cb8cca1d6aee716d").staticRenderFns;
-    script._scopeId = "data-v-2abcd3";
+    script._scopeId = "data-v-9ab44a";
     script.__cssModules = require("21e70be1bfe1ac20").default;
     require("b2d7151347fe9d59").default(script);
-    script.__scopeId = 'data-v-2abcd3';
+    script.__scopeId = 'data-v-9ab44a';
     script.__file = "detailPanel.vue";
 };
 initialize();

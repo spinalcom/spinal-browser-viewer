@@ -1630,10 +1630,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("a0ec4736448e321f").render;
     script.staticRenderFns = require("a0ec4736448e321f").staticRenderFns;
-    script._scopeId = "data-v-8cb455";
+    script._scopeId = "data-v-c87bf1";
     script.__cssModules = require("c858734c905ee75c").default;
     require("48aed9c626e76d57").default(script);
-    script.__scopeId = 'data-v-8cb455';
+    script.__scopeId = 'data-v-c87bf1';
     script.__file = "panel.vue";
 };
 initialize();
@@ -1761,10 +1761,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("f99d2bee93f24e6e").render;
     script.staticRenderFns = require("f99d2bee93f24e6e").staticRenderFns;
-    script._scopeId = "data-v-e69111";
+    script._scopeId = "data-v-83f206";
     script.__cssModules = require("f835a18f842c9159").default;
     require("b47a3cbf86bf73c").default(script);
-    script.__scopeId = 'data-v-e69111';
+    script.__scopeId = 'data-v-83f206';
     script.__file = "typesList.vue";
 };
 initialize();
@@ -1836,10 +1836,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("ee50dcc265090d90").render;
     script.staticRenderFns = require("ee50dcc265090d90").staticRenderFns;
-    script._scopeId = "data-v-19d346";
+    script._scopeId = "data-v-a7a6b2";
     script.__cssModules = require("189bc5a10f201f5").default;
     require("c74aea5bef02c650").default(script);
-    script.__scopeId = 'data-v-19d346';
+    script.__scopeId = 'data-v-a7a6b2';
     script.__file = "tablePage.vue";
 };
 initialize();
@@ -2064,10 +2064,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("441720c91b2f1859").render;
     script.staticRenderFns = require("441720c91b2f1859").staticRenderFns;
-    script._scopeId = "data-v-2b24d1";
+    script._scopeId = "data-v-52ede6";
     script.__cssModules = require("927bcc5adabd65c6").default;
     require("9922b255ce52a965").default(script);
-    script.__scopeId = 'data-v-2b24d1';
+    script.__scopeId = 'data-v-52ede6';
     script.__file = "index.vue";
 };
 initialize();
@@ -2488,10 +2488,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("2c3fe023969701e").render;
     script.staticRenderFns = require("2c3fe023969701e").staticRenderFns;
-    script._scopeId = "data-v-4bd15e";
+    script._scopeId = "data-v-0b19ae";
     script.__cssModules = require("8ae79e92a348db16").default;
     require("6962e7b0c1ae8771").default(script);
-    script.__scopeId = 'data-v-4bd15e';
+    script.__scopeId = 'data-v-0b19ae';
     script.__file = "tableContent.vue";
 };
 initialize();
@@ -2664,10 +2664,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("bd39819a9d7f1444").render;
     script.staticRenderFns = require("bd39819a9d7f1444").staticRenderFns;
-    script._scopeId = "data-v-bf4f22";
+    script._scopeId = "data-v-cbbe9e";
     script.__cssModules = require("ebaac81af665f0d").default;
     require("197d202768bc4a8").default(script);
-    script.__scopeId = 'data-v-bf4f22';
+    script.__scopeId = 'data-v-cbbe9e';
     script.__file = "createAttribute.vue";
 };
 initialize();
@@ -2828,9 +2828,9 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("c18d7050fdad2197").render;
     script.staticRenderFns = require("c18d7050fdad2197").staticRenderFns;
-    script._scopeId = "data-v-23f05e";
+    script._scopeId = "data-v-ce9821";
     require("56a64ba58024bdd").default(script);
-    script.__scopeId = 'data-v-23f05e';
+    script.__scopeId = 'data-v-ce9821';
     script.__file = "standard-buttons.vue";
 };
 initialize();
@@ -2937,10 +2937,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("9e463d5ccd9399af").render;
     script.staticRenderFns = require("9e463d5ccd9399af").staticRenderFns;
-    script._scopeId = "data-v-6a7c75";
+    script._scopeId = "data-v-7d2ca0";
     script.__cssModules = require("91f9b8a294f04f74").default;
     require("7f68fa221d68432a").default(script);
-    script.__scopeId = 'data-v-6a7c75';
+    script.__scopeId = 'data-v-7d2ca0';
     script.__file = "fabs.vue";
 };
 initialize();
@@ -3013,10 +3013,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("b1c1aeec10e32e99").render;
     script.staticRenderFns = require("b1c1aeec10e32e99").staticRenderFns;
-    script._scopeId = "data-v-b5bf2e";
+    script._scopeId = "data-v-d004d4";
     script.__cssModules = require("6aca9b7c2a62fe8a").default;
     require("9e9b70229b39aa2").default(script);
-    script.__scopeId = 'data-v-b5bf2e';
+    script.__scopeId = 'data-v-d004d4';
     script.__file = "changeCol.vue";
 };
 initialize();
@@ -3027,41 +3027,41 @@ exports.default = script;
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var scriptExports = {
-    name: "createAttributeTooltip",
+    name: 'createAttributeTooltip',
     props: {
         columns: {},
         itemsSelected: {}
     },
     data () {
         return {
-            columnSelected: "",
+            columnSelected: '',
             columnsFiltered: [],
             useMaquetteValue: false,
             pageOnly: true,
-            value: ""
+            value: ''
         };
     },
     mounted () {
         this.columnsFiltered = this.columns.filter((el)=>{
-            const hasNoCategory = typeof el.category !== "undefined";
-            const hasNoLabel = typeof el.label !== "undefined";
+            const hasNoCategory = typeof el.category !== 'undefined';
+            const hasNoLabel = typeof el.label !== 'undefined';
             return hasNoCategory && hasNoLabel;
         });
     },
     methods: {
         Validate () {
-            if (this.itemsSelected && (this.value.trim().length > 0 || this.useMaquetteValue)) this.$emit("setValueToColumn", {
+            if (this.itemsSelected && (this.value.trim().length > 0 || this.useMaquetteValue)) this.$emit('setValueToColumn', {
                 value: this.value.trim(),
                 column: this.columnSelected,
                 pageOnly: this.pageOnly,
                 useMaquetteValue: this.useMaquetteValue
             });
-            else alert("select at least one item, select value !");
+            else alert('select at least one item, select value !');
         }
     },
     watch: {
         useMaquetteValue () {
-            if (this.useMaquetteValue) this.value = "";
+            if (this.useMaquetteValue) this.value = '';
         }
     }
 };
@@ -3895,10 +3895,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("1e005ebd2e772239").render;
     script.staticRenderFns = require("1e005ebd2e772239").staticRenderFns;
-    script._scopeId = "data-v-db4c58";
+    script._scopeId = "data-v-994db1";
     script.__cssModules = require("759fd34271367772").default;
     require("bf12535373e5f08a").default(script);
-    script.__scopeId = 'data-v-db4c58';
+    script.__scopeId = 'data-v-994db1';
     script.__file = "configurationPanel.vue";
 };
 initialize();
@@ -3984,10 +3984,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("6cac901d656acdcd").render;
     script.staticRenderFns = require("6cac901d656acdcd").staticRenderFns;
-    script._scopeId = "data-v-08e01e";
+    script._scopeId = "data-v-baf747";
     script.__cssModules = require("4381e5fd30071113").default;
     require("fe0dea4d8906181c").default(script);
-    script.__scopeId = 'data-v-08e01e';
+    script.__scopeId = 'data-v-baf747';
     script.__file = "configuration-crud.vue";
 };
 initialize();
@@ -4204,10 +4204,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("91a7cedff877e636").render;
     script.staticRenderFns = require("91a7cedff877e636").staticRenderFns;
-    script._scopeId = "data-v-8e8f8a";
+    script._scopeId = "data-v-1957cb";
     script.__cssModules = require("879cb20adbe8aa93").default;
     require("9031c6b9ffe8c589").default(script);
-    script.__scopeId = 'data-v-8e8f8a';
+    script.__scopeId = 'data-v-1957cb';
     script.__file = "mdSelect.vue";
 };
 initialize();
@@ -4313,10 +4313,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("498570b1895ee12d").render;
     script.staticRenderFns = require("498570b1895ee12d").staticRenderFns;
-    script._scopeId = "data-v-99bd0c";
+    script._scopeId = "data-v-d5299d";
     script.__cssModules = require("d7c5fef2f881600c").default;
     require("b483e929af4a6131").default(script);
-    script.__scopeId = 'data-v-99bd0c';
+    script.__scopeId = 'data-v-d5299d';
     script.__file = "createItem.vue";
 };
 initialize();
@@ -4475,10 +4475,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("514ed369a0239388").render;
     script.staticRenderFns = require("514ed369a0239388").staticRenderFns;
-    script._scopeId = "data-v-c20ec9";
+    script._scopeId = "data-v-bb5f45";
     script.__cssModules = require("fba86237fdccdcf9").default;
     require("a1215ad87363da8f").default(script);
-    script.__scopeId = 'data-v-c20ec9';
+    script.__scopeId = 'data-v-bb5f45';
     script.__file = "configurations.vue";
 };
 initialize();
@@ -4599,10 +4599,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("89f0a79fa7ed865b").render;
     script.staticRenderFns = require("89f0a79fa7ed865b").staticRenderFns;
-    script._scopeId = "data-v-d4927a";
+    script._scopeId = "data-v-5383f7";
     script.__cssModules = require("3af5efd7c45217a8").default;
     require("11e15826551e04e7").default(script);
-    script.__scopeId = 'data-v-d4927a';
+    script.__scopeId = 'data-v-5383f7';
     script.__file = "displayList.vue";
 };
 initialize();
@@ -4654,10 +4654,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("92ab28538916bce7").render;
     script.staticRenderFns = require("92ab28538916bce7").staticRenderFns;
-    script._scopeId = "data-v-511560";
+    script._scopeId = "data-v-aa8113";
     script.__cssModules = require("6ba404904517acda").default;
     require("55b39925041223d8").default(script);
-    script.__scopeId = 'data-v-511560';
+    script.__scopeId = 'data-v-aa8113';
     script.__file = "addItem.vue";
 };
 initialize();
@@ -5282,10 +5282,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("add8588e4e89bd47").render;
     script.staticRenderFns = require("add8588e4e89bd47").staticRenderFns;
-    script._scopeId = "data-v-b9966f";
+    script._scopeId = "data-v-dd66de";
     script.__cssModules = require("5cc5d7188172fb40").default;
     require("471a8c72695cac0").default(script);
-    script.__scopeId = 'data-v-b9966f';
+    script.__scopeId = 'data-v-dd66de';
     script.__file = "currentConfiguration.vue";
 };
 initialize();
@@ -5424,10 +5424,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("8bdcbfc539a29625").render;
     script.staticRenderFns = require("8bdcbfc539a29625").staticRenderFns;
-    script._scopeId = "data-v-e6453f";
+    script._scopeId = "data-v-9eb962";
     script.__cssModules = require("cea67c9a95ed8243").default;
     require("eb043ed407b8d9e5").default(script);
-    script.__scopeId = 'data-v-e6453f';
+    script.__scopeId = 'data-v-9eb962';
     script.__file = "panel.vue";
 };
 initialize();
@@ -5532,10 +5532,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("738b6f3cac5c628e").render;
     script.staticRenderFns = require("738b6f3cac5c628e").staticRenderFns;
-    script._scopeId = "data-v-f2f23f";
+    script._scopeId = "data-v-769d9b";
     script.__cssModules = require("7e083d70bd916fb9").default;
     require("6b529f1988a807de").default(script);
-    script.__scopeId = 'data-v-f2f23f';
+    script.__scopeId = 'data-v-769d9b';
     script.__file = "configurationStep.vue";
 };
 initialize();
@@ -5587,10 +5587,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("f31f5661f3a671af").render;
     script.staticRenderFns = require("f31f5661f3a671af").staticRenderFns;
-    script._scopeId = "data-v-8a6181";
+    script._scopeId = "data-v-0a8c3d";
     script.__cssModules = require("2ec74175702e5aa4").default;
     require("6cbbf52f3db9e2c5").default(script);
-    script.__scopeId = 'data-v-8a6181';
+    script.__scopeId = 'data-v-0a8c3d';
     script.__file = "context.vue";
 };
 initialize();
@@ -5812,10 +5812,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("b751701979b7df58").render;
     script.staticRenderFns = require("b751701979b7df58").staticRenderFns;
-    script._scopeId = "data-v-9c04d3";
+    script._scopeId = "data-v-834110";
     script.__cssModules = require("2e02fb504955ca5").default;
     require("7b00f205630dc118").default(script);
-    script.__scopeId = 'data-v-9c04d3';
+    script.__scopeId = 'data-v-834110';
     script.__file = "category.vue";
 };
 initialize();
@@ -5891,10 +5891,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("8f518e098e51e5f8").render;
     script.staticRenderFns = require("8f518e098e51e5f8").staticRenderFns;
-    script._scopeId = "data-v-78b3fc";
+    script._scopeId = "data-v-f43c9d";
     script.__cssModules = require("44c7b23fe2fad4a6").default;
     require("6232067e2acbccf4").default(script);
-    script.__scopeId = 'data-v-78b3fc';
+    script.__scopeId = 'data-v-f43c9d';
     script.__file = "createByAttribute.vue";
 };
 initialize();
@@ -6072,10 +6072,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("f63161be9143028c").render;
     script.staticRenderFns = require("f63161be9143028c").staticRenderFns;
-    script._scopeId = "data-v-f6fc84";
+    script._scopeId = "data-v-979290";
     script.__cssModules = require("d88584e02248f030").default;
     require("b210f43113a6901a").default(script);
-    script.__scopeId = 'data-v-f6fc84';
+    script.__scopeId = 'data-v-979290';
     script.__file = "createByName.vue";
 };
 initialize();
@@ -6194,10 +6194,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("40a387f6f8d675a").render;
     script.staticRenderFns = require("40a387f6f8d675a").staticRenderFns;
-    script._scopeId = "data-v-5f7b0e";
+    script._scopeId = "data-v-e759ab";
     script.__cssModules = require("2ac2e8d386e6d329").default;
     require("b4f6bc3534c10a9d").default(script);
-    script.__scopeId = 'data-v-5f7b0e';
+    script.__scopeId = 'data-v-e759ab';
     script.__file = "createByFixedValue.vue";
 };
 initialize();
@@ -6401,10 +6401,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("c5029272f85170b1").render;
     script.staticRenderFns = require("c5029272f85170b1").staticRenderFns;
-    script._scopeId = "data-v-b870b9";
+    script._scopeId = "data-v-88e4d7";
     script.__cssModules = require("9a23f62b0638f384").default;
     require("dd6f6773ab0ff6c4").default(script);
-    script.__scopeId = 'data-v-b870b9';
+    script.__scopeId = 'data-v-88e4d7';
     script.__file = "group.vue";
 };
 initialize();
@@ -6632,10 +6632,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("7efe07b82ff3546e").render;
     script.staticRenderFns = require("7efe07b82ff3546e").staticRenderFns;
-    script._scopeId = "data-v-edee46";
+    script._scopeId = "data-v-bf8d39";
     script.__cssModules = require("4ed3e348fbc8c684").default;
     require("6c1f6a8873beb06").default(script);
-    script.__scopeId = 'data-v-edee46';
+    script.__scopeId = 'data-v-bf8d39';
     script.__file = "launchGenerationStep.vue";
 };
 initialize();
@@ -6943,10 +6943,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("d444d988083689ba").render;
     script.staticRenderFns = require("d444d988083689ba").staticRenderFns;
-    script._scopeId = "data-v-8dfd9d";
+    script._scopeId = "data-v-72d484";
     script.__cssModules = require("89362a9ce5718e03").default;
     require("85e2b6edf7047cd").default(script);
-    script.__scopeId = 'data-v-8dfd9d';
+    script.__scopeId = 'data-v-72d484';
     script.__file = "selectionStep.vue";
 };
 initialize();
@@ -7284,10 +7284,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("8ee45e52138c8f92").render;
     script.staticRenderFns = require("8ee45e52138c8f92").staticRenderFns;
-    script._scopeId = "data-v-ec0791";
+    script._scopeId = "data-v-8d6ffe";
     script.__cssModules = require("bd7776e4b2140de7").default;
     require("28b6fc036c3ffe15").default(script);
-    script.__scopeId = 'data-v-ec0791';
+    script.__scopeId = 'data-v-8d6ffe';
     script.__file = "paramsDialog.vue";
 };
 initialize();
@@ -7520,10 +7520,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("55356b827fbbca63").render;
     script.staticRenderFns = require("55356b827fbbca63").staticRenderFns;
-    script._scopeId = "data-v-1261ac";
+    script._scopeId = "data-v-fa9a2e";
     script.__cssModules = require("e7bf20573e131290").default;
     require("3853266209273dda").default(script);
-    script.__scopeId = 'data-v-1261ac';
+    script.__scopeId = 'data-v-fa9a2e';
     script.__file = "editParamsComponent.vue";
 };
 initialize();
@@ -7635,10 +7635,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("bc3ec381bf5ab633").render;
     script.staticRenderFns = require("bc3ec381bf5ab633").staticRenderFns;
-    script._scopeId = "data-v-4065af";
+    script._scopeId = "data-v-ee885c";
     script.__cssModules = require("1d8a6cd1a6fd0e18").default;
     require("f88853d207c46835").default(script);
-    script.__scopeId = 'data-v-4065af';
+    script.__scopeId = 'data-v-ee885c';
     script.__file = "displayList.vue";
 };
 initialize();
@@ -7998,10 +7998,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("6e100a5ae0d4b462").render;
     script.staticRenderFns = require("6e100a5ae0d4b462").staticRenderFns;
-    script._scopeId = "data-v-f07513";
+    script._scopeId = "data-v-244c80";
     script.__cssModules = require("b56a7815c8ad81ab").default;
     require("e0ffcb63798e1e1d").default(script);
-    script.__scopeId = 'data-v-f07513';
+    script.__scopeId = 'data-v-244c80';
     script.__file = "paramsUploaded.vue";
 };
 initialize();
@@ -8171,10 +8171,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("10988aafa6f69fef").render;
     script.staticRenderFns = require("10988aafa6f69fef").staticRenderFns;
-    script._scopeId = "data-v-eb2f91";
+    script._scopeId = "data-v-c08768";
     script.__cssModules = require("e4999cb96603f9b9").default;
     require("79a4d7a2d8ea7b73").default(script);
-    script.__scopeId = 'data-v-eb2f91';
+    script.__scopeId = 'data-v-c08768';
     script.__file = "createParamsComponent.vue";
 };
 initialize();
@@ -8459,10 +8459,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("3db377a62bfc2c7").render;
     script.staticRenderFns = require("3db377a62bfc2c7").staticRenderFns;
-    script._scopeId = "data-v-60c269";
+    script._scopeId = "data-v-ae03a6";
     script.__cssModules = require("168d54d6168f7291").default;
     require("b9952c511c9f76a2").default(script);
-    script.__scopeId = 'data-v-60c269';
+    script.__scopeId = 'data-v-ae03a6';
     script.__file = "importAttributeExcelDialog.vue";
 };
 initialize();
@@ -8872,9 +8872,9 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("d5434d80edd7880f").render;
     script.staticRenderFns = require("d5434d80edd7880f").staticRenderFns;
-    script._scopeId = "data-v-f47229";
+    script._scopeId = "data-v-5b664c";
     require("f98687c4f475aa42").default(script);
-    script.__scopeId = 'data-v-f47229';
+    script.__scopeId = 'data-v-5b664c';
     script.__file = "export.vue";
 };
 initialize();
@@ -8986,10 +8986,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("d89bd9f4f36716c3").render;
     script.staticRenderFns = require("d89bd9f4f36716c3").staticRenderFns;
-    script._scopeId = "data-v-6adad1";
+    script._scopeId = "data-v-e2530b";
     script.__cssModules = require("b61c528dbf711a75").default;
     require("f498859b9203edf6").default(script);
-    script.__scopeId = 'data-v-6adad1';
+    script.__scopeId = 'data-v-e2530b';
     script.__file = "import.vue";
 };
 initialize();
@@ -9247,10 +9247,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("8afb3aa690dc9fbb").render;
     script.staticRenderFns = require("8afb3aa690dc9fbb").staticRenderFns;
-    script._scopeId = "data-v-9834ef";
+    script._scopeId = "data-v-0f1685";
     script.__cssModules = require("70e107926612c471").default;
     require("81f26c8cb4e544fd").default(script);
-    script.__scopeId = 'data-v-9834ef';
+    script.__scopeId = 'data-v-0f1685';
     script.__file = "configurations.vue";
 };
 initialize();
@@ -9510,10 +9510,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("a872d0763a5bb0b7").render;
     script.staticRenderFns = require("a872d0763a5bb0b7").staticRenderFns;
-    script._scopeId = "data-v-72a62f";
+    script._scopeId = "data-v-8add9e";
     script.__cssModules = require("dc635b68836fb558").default;
     require("d819cc33b8528386").default(script);
-    script.__scopeId = 'data-v-72a62f';
+    script.__scopeId = 'data-v-8add9e';
     script.__file = "select-type.vue";
 };
 initialize();

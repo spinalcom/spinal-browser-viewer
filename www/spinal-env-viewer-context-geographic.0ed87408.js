@@ -329,9 +329,9 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("4000ee518605746a").render;
     script.staticRenderFns = require("4000ee518605746a").staticRenderFns;
-    script._scopeId = "data-v-6564eb";
+    script._scopeId = "data-v-9aabc3";
     require("19ba109dfb6c9c82").default(script);
-    script.__scopeId = 'data-v-6564eb';
+    script.__scopeId = 'data-v-9aabc3';
     script.__file = "dialog.vue";
 };
 initialize();
@@ -478,9 +478,9 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("dca1f72470943cb0").render;
     script.staticRenderFns = require("dca1f72470943cb0").staticRenderFns;
-    script._scopeId = "data-v-a2d6c1";
+    script._scopeId = "data-v-881f8d";
     require("85f2f4022567a079").default(script);
-    script.__scopeId = 'data-v-a2d6c1';
+    script.__scopeId = 'data-v-881f8d';
     script.__file = "addChildDialog.vue";
 };
 initialize();
@@ -688,9 +688,9 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("ed02b270f0594de9").render;
     script.staticRenderFns = require("ed02b270f0594de9").staticRenderFns;
-    script._scopeId = "data-v-6d3334";
+    script._scopeId = "data-v-f8c4c0";
     require("680dd8623588b106").default(script);
-    script.__scopeId = 'data-v-6d3334';
+    script.__scopeId = 'data-v-f8c4c0';
     script.__file = "notification.vue";
 };
 initialize();

@@ -783,10 +783,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("efe57650cd460dcd").render;
     script.staticRenderFns = require("efe57650cd460dcd").staticRenderFns;
-    script._scopeId = "data-v-f0d48e";
+    script._scopeId = "data-v-e94f18";
     script.__cssModules = require("b54c4fec0b887e3c").default;
     require("a7a307444dab9b2d").default(script);
-    script.__scopeId = 'data-v-f0d48e';
+    script.__scopeId = 'data-v-e94f18';
     script.__file = "SpinalLinker.vue";
 };
 initialize();
@@ -944,10 +944,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("c218bce1773c22a1").render;
     script.staticRenderFns = require("c218bce1773c22a1").staticRenderFns;
-    script._scopeId = "data-v-20a9bf";
+    script._scopeId = "data-v-57c99e";
     script.__cssModules = require("18bf47d577fbecb9").default;
     require("6c7d1f0eb0930841").default(script);
-    script.__scopeId = 'data-v-20a9bf';
+    script.__scopeId = 'data-v-57c99e';
     script.__file = "SpinalLinkerDialogShowItems.vue";
 };
 initialize();

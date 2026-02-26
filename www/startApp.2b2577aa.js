@@ -6480,10 +6480,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("8a4954974a3e2a08").render;
     script.staticRenderFns = require("8a4954974a3e2a08").staticRenderFns;
-    script._scopeId = "data-v-e30921";
+    script._scopeId = "data-v-aadfa6";
     script.__cssModules = require("f5f81ab60053088e").default;
     require("7e9898e9b122e745").default(script);
-    script.__scopeId = 'data-v-e30921';
+    script.__scopeId = 'data-v-aadfa6';
     script.__file = "App.vue";
 };
 initialize();
@@ -6534,10 +6534,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("f15864c5c5402877").render;
     script.staticRenderFns = require("f15864c5c5402877").staticRenderFns;
-    script._scopeId = "data-v-5d934f";
+    script._scopeId = "data-v-c4aef8";
     script.__cssModules = require("860cf64167baff16").default;
     require("2931b2c99cae818c").default(script);
-    script.__scopeId = 'data-v-5d934f';
+    script.__scopeId = 'data-v-c4aef8';
     script.__file = "SpinalHeader.vue";
 };
 initialize();
@@ -7006,7 +7006,7 @@ parcelHelpers.defineInteropFlag(exports);
 var _bindJs = require("./helpers/bind.js");
 var _bindJsDefault = parcelHelpers.interopDefault(_bindJs);
 var global = arguments[3];
-'use strict';
+"use strict";
 // utils is a library of generic helper functions non-specific to axios
 const { toString } = Object.prototype;
 const { getPrototypeOf } = Object;
@@ -7021,7 +7021,7 @@ const kindOfTest = (type)=>{
 };
 const typeOfTest = (type)=>(thing)=>typeof thing === type;
 /**
- * Determine if a value is an Array
+ * Determine if a value is a non-null object
  *
  * @param {Object} val The value to test
  *
@@ -7033,7 +7033,7 @@ const typeOfTest = (type)=>(thing)=>typeof thing === type;
  * @param {*} val The value to test
  *
  * @returns {boolean} True if the value is undefined, otherwise false
- */ const isUndefined = typeOfTest('undefined');
+ */ const isUndefined = typeOfTest("undefined");
 /**
  * Determine if a value is a Buffer
  *
@@ -7049,7 +7049,7 @@ const typeOfTest = (type)=>(thing)=>typeof thing === type;
  * @param {*} val The value to test
  *
  * @returns {boolean} True if value is an ArrayBuffer, otherwise false
- */ const isArrayBuffer = kindOfTest('ArrayBuffer');
+ */ const isArrayBuffer = kindOfTest("ArrayBuffer");
 /**
  * Determine if a value is a view on an ArrayBuffer
  *
@@ -7058,7 +7058,7 @@ const typeOfTest = (type)=>(thing)=>typeof thing === type;
  * @returns {boolean} True if value is a view on an ArrayBuffer, otherwise false
  */ function isArrayBufferView(val) {
     let result;
-    if (typeof ArrayBuffer !== 'undefined' && ArrayBuffer.isView) result = ArrayBuffer.isView(val);
+    if (typeof ArrayBuffer !== "undefined" && ArrayBuffer.isView) result = ArrayBuffer.isView(val);
     else result = val && val.buffer && isArrayBuffer(val.buffer);
     return result;
 }
@@ -7068,27 +7068,27 @@ const typeOfTest = (type)=>(thing)=>typeof thing === type;
  * @param {*} val The value to test
  *
  * @returns {boolean} True if value is a String, otherwise false
- */ const isString = typeOfTest('string');
+ */ const isString = typeOfTest("string");
 /**
  * Determine if a value is a Function
  *
  * @param {*} val The value to test
  * @returns {boolean} True if value is a Function, otherwise false
- */ const isFunction = typeOfTest('function');
+ */ const isFunction = typeOfTest("function");
 /**
  * Determine if a value is a Number
  *
  * @param {*} val The value to test
  *
  * @returns {boolean} True if value is a Number, otherwise false
- */ const isNumber = typeOfTest('number');
+ */ const isNumber = typeOfTest("number");
 /**
  * Determine if a value is an Object
  *
  * @param {*} thing The value to test
  *
  * @returns {boolean} True if value is an Object, otherwise false
- */ const isObject = (thing)=>thing !== null && typeof thing === 'object';
+ */ const isObject = (thing)=>thing !== null && typeof thing === "object";
 /**
  * Determine if a value is a Boolean
  *
@@ -7102,7 +7102,7 @@ const typeOfTest = (type)=>(thing)=>typeof thing === type;
  *
  * @returns {boolean} True if value is a plain Object, otherwise false
  */ const isPlainObject = (val)=>{
-    if (kindOf(val) !== 'object') return false;
+    if (kindOf(val) !== "object") return false;
     const prototype = getPrototypeOf(val);
     return (prototype === null || prototype === Object.prototype || Object.getPrototypeOf(prototype) === null) && !(toStringTag in val) && !(iterator in val);
 };
@@ -7128,28 +7128,28 @@ const typeOfTest = (type)=>(thing)=>typeof thing === type;
  * @param {*} val The value to test
  *
  * @returns {boolean} True if value is a Date, otherwise false
- */ const isDate = kindOfTest('Date');
+ */ const isDate = kindOfTest("Date");
 /**
  * Determine if a value is a File
  *
  * @param {*} val The value to test
  *
  * @returns {boolean} True if value is a File, otherwise false
- */ const isFile = kindOfTest('File');
+ */ const isFile = kindOfTest("File");
 /**
  * Determine if a value is a Blob
  *
  * @param {*} val The value to test
  *
  * @returns {boolean} True if value is a Blob, otherwise false
- */ const isBlob = kindOfTest('Blob');
+ */ const isBlob = kindOfTest("Blob");
 /**
  * Determine if a value is a FileList
  *
  * @param {*} val The value to test
  *
  * @returns {boolean} True if value is a File, otherwise false
- */ const isFileList = kindOfTest('FileList');
+ */ const isFileList = kindOfTest("FileList");
 /**
  * Determine if a value is a Stream
  *
@@ -7165,8 +7165,8 @@ const typeOfTest = (type)=>(thing)=>typeof thing === type;
  * @returns {boolean} True if value is an FormData, otherwise false
  */ const isFormData = (thing)=>{
     let kind;
-    return thing && (typeof FormData === 'function' && thing instanceof FormData || isFunction(thing.append) && ((kind = kindOf(thing)) === 'formdata' || // detect form-data instance
-    kind === 'object' && isFunction(thing.toString) && thing.toString() === '[object FormData]'));
+    return thing && (typeof FormData === "function" && thing instanceof FormData || isFunction(thing.append) && ((kind = kindOf(thing)) === "formdata" || // detect form-data instance
+    kind === "object" && isFunction(thing.toString) && thing.toString() === "[object FormData]"));
 };
 /**
  * Determine if a value is a URLSearchParams object
@@ -7174,12 +7174,12 @@ const typeOfTest = (type)=>(thing)=>typeof thing === type;
  * @param {*} val The value to test
  *
  * @returns {boolean} True if value is a URLSearchParams object, otherwise false
- */ const isURLSearchParams = kindOfTest('URLSearchParams');
+ */ const isURLSearchParams = kindOfTest("URLSearchParams");
 const [isReadableStream, isRequest, isResponse, isHeaders] = [
-    'ReadableStream',
-    'Request',
-    'Response',
-    'Headers'
+    "ReadableStream",
+    "Request",
+    "Response",
+    "Headers"
 ].map(kindOfTest);
 /**
  * Trim excess whitespace off the beginning and end of a string
@@ -7187,7 +7187,7 @@ const [isReadableStream, isRequest, isResponse, isHeaders] = [
  * @param {String} str The String to trim
  *
  * @returns {String} The String freed of excess whitespace
- */ const trim = (str)=>str.trim ? str.trim() : str.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, '');
+ */ const trim = (str)=>str.trim ? str.trim() : str.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, "");
 /**
  * Iterate over an Array or an Object invoking a function for each item.
  *
@@ -7197,18 +7197,19 @@ const [isReadableStream, isRequest, isResponse, isHeaders] = [
  * If 'obj' is an Object callback will be called passing
  * the value, key, and complete object for each property.
  *
- * @param {Object|Array} obj The object to iterate
+ * @param {Object|Array<unknown>} obj The object to iterate
  * @param {Function} fn The callback to invoke for each item
  *
- * @param {Boolean} [allOwnKeys = false]
+ * @param {Object} [options]
+ * @param {Boolean} [options.allOwnKeys = false]
  * @returns {any}
  */ function forEach(obj, fn, { allOwnKeys = false } = {}) {
     // Don't bother if no value provided
-    if (obj === null || typeof obj === 'undefined') return;
+    if (obj === null || typeof obj === "undefined") return;
     let i;
     let l;
     // Force an array if not already something iterable
-    if (typeof obj !== 'object') /*eslint no-param-reassign:0*/ obj = [
+    if (typeof obj !== "object") /*eslint no-param-reassign:0*/ obj = [
         obj
     ];
     if (isArray(obj)) // Iterate over array values
@@ -7240,7 +7241,7 @@ function findKey(obj, key) {
 }
 const _global = (()=>{
     /*eslint no-undef:0*/ if (typeof globalThis !== "undefined") return globalThis;
-    return typeof self !== "undefined" ? self : typeof window !== 'undefined' ? window : global;
+    return typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : global;
 })();
 const isContextDefined = (context)=>!isUndefined(context) && context !== _global;
 /**
@@ -7253,7 +7254,7 @@ const isContextDefined = (context)=>!isUndefined(context) && context !== _global
  * Example:
  *
  * ```js
- * var result = merge({foo: 123}, {foo: 456});
+ * const result = merge({foo: 123}, {foo: 456});
  * console.log(result.foo); // outputs 456
  * ```
  *
@@ -7264,6 +7265,8 @@ const isContextDefined = (context)=>!isUndefined(context) && context !== _global
     const { caseless, skipUndefined } = isContextDefined(this) && this || {};
     const result = {};
     const assignValue = (val, key)=>{
+        // Skip dangerous property names to prevent prototype pollution
+        if (key === "__proto__" || key === "constructor" || key === "prototype") return;
         const targetKey = caseless && findKey(result, key) || key;
         if (isPlainObject(result[targetKey]) && isPlainObject(val)) result[targetKey] = merge(result[targetKey], val);
         else if (isPlainObject(val)) result[targetKey] = merge({}, val);
@@ -7280,12 +7283,23 @@ const isContextDefined = (context)=>!isUndefined(context) && context !== _global
  * @param {Object} b The object to copy properties from
  * @param {Object} thisArg The object to bind function to
  *
- * @param {Boolean} [allOwnKeys]
+ * @param {Object} [options]
+ * @param {Boolean} [options.allOwnKeys]
  * @returns {Object} The resulting value of object a
  */ const extend = (a, b, thisArg, { allOwnKeys } = {})=>{
     forEach(b, (val, key)=>{
-        if (thisArg && isFunction(val)) a[key] = (0, _bindJsDefault.default)(val, thisArg);
-        else a[key] = val;
+        if (thisArg && isFunction(val)) Object.defineProperty(a, key, {
+            value: (0, _bindJsDefault.default)(val, thisArg),
+            writable: true,
+            enumerable: true,
+            configurable: true
+        });
+        else Object.defineProperty(a, key, {
+            value: val,
+            writable: true,
+            enumerable: true,
+            configurable: true
+        });
     }, {
         allOwnKeys
     });
@@ -7298,7 +7312,7 @@ const isContextDefined = (context)=>!isUndefined(context) && context !== _global
  *
  * @returns {string} content value without BOM
  */ const stripBOM = (content)=>{
-    if (content.charCodeAt(0) === 0xFEFF) content = content.slice(1);
+    if (content.charCodeAt(0) === 0xfeff) content = content.slice(1);
     return content;
 };
 /**
@@ -7311,8 +7325,13 @@ const isContextDefined = (context)=>!isUndefined(context) && context !== _global
  * @returns {void}
  */ const inherits = (constructor, superConstructor, props, descriptors)=>{
     constructor.prototype = Object.create(superConstructor.prototype, descriptors);
-    constructor.prototype.constructor = constructor;
-    Object.defineProperty(constructor, 'super', {
+    Object.defineProperty(constructor.prototype, "constructor", {
+        value: constructor,
+        writable: true,
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(constructor, "super", {
         value: superConstructor.prototype
     });
     props && Object.assign(constructor.prototype, props);
@@ -7390,7 +7409,7 @@ const isTypedArray = ((TypedArray)=>{
     return (thing)=>{
         return TypedArray && thing instanceof TypedArray;
     };
-})(typeof Uint8Array !== 'undefined' && getPrototypeOf(Uint8Array));
+})(typeof Uint8Array !== "undefined" && getPrototypeOf(Uint8Array));
 /**
  * For each entry in the object, call the function with the key and value.
  *
@@ -7420,7 +7439,7 @@ const isTypedArray = ((TypedArray)=>{
     while((matches = regExp.exec(str)) !== null)arr.push(matches);
     return arr;
 };
-/* Checking if the kindOfTest function returns true when passed an HTMLFormElement. */ const isHTMLForm = kindOfTest('HTMLFormElement');
+/* Checking if the kindOfTest function returns true when passed an HTMLFormElement. */ const isHTMLForm = kindOfTest("HTMLFormElement");
 const toCamelCase = (str)=>{
     return str.toLowerCase().replace(/[-_\s]([a-z\d])(\w*)/g, function replacer(m, p1, p2) {
         return p1.toUpperCase() + p2;
@@ -7433,7 +7452,7 @@ const toCamelCase = (str)=>{
  * @param {*} val The value to test
  *
  * @returns {boolean} True if value is a RegExp object, otherwise false
- */ const isRegExp = kindOfTest('RegExp');
+ */ const isRegExp = kindOfTest("RegExp");
 const reduceDescriptors = (obj, reducer)=>{
     const descriptors = Object.getOwnPropertyDescriptors(obj);
     const reducedDescriptors = {};
@@ -7450,19 +7469,19 @@ const reduceDescriptors = (obj, reducer)=>{
     reduceDescriptors(obj, (descriptor, name)=>{
         // skip restricted props in strict mode
         if (isFunction(obj) && [
-            'arguments',
-            'caller',
-            'callee'
+            "arguments",
+            "caller",
+            "callee"
         ].indexOf(name) !== -1) return false;
         const value = obj[name];
         if (!isFunction(value)) return;
         descriptor.enumerable = false;
-        if ('writable' in descriptor) {
+        if ("writable" in descriptor) {
             descriptor.writable = false;
             return;
         }
         if (!descriptor.set) descriptor.set = ()=>{
-            throw Error('Can not rewrite read-only method \'' + name + '\'');
+            throw Error("Can not rewrite read-only method '" + name + "'");
         };
     });
 };
@@ -7487,7 +7506,7 @@ const toFiniteNumber = (value, defaultValue)=>{
  *
  * @returns {boolean}
  */ function isSpecCompliantForm(thing) {
-    return !!(thing && isFunction(thing.append) && thing[toStringTag] === 'FormData' && thing[iterator]);
+    return !!(thing && isFunction(thing.append) && thing[toStringTag] === "FormData" && thing[iterator]);
 }
 const toJSONObject = (obj)=>{
     const stack = new Array(10);
@@ -7496,7 +7515,7 @@ const toJSONObject = (obj)=>{
             if (stack.indexOf(source) >= 0) return;
             //Buffer check
             if (isBuffer(source)) return source;
-            if (!('toJSON' in source)) {
+            if (!("toJSON" in source)) {
                 stack[i] = source;
                 const target = isArray(source) ? [] : {};
                 forEach(source, (value, key)=>{
@@ -7511,7 +7530,7 @@ const toJSONObject = (obj)=>{
     };
     return visit(obj, 0);
 };
-const isAsyncFn = kindOfTest('AsyncFunction');
+const isAsyncFn = kindOfTest("AsyncFunction");
 const isThenable = (thing)=>thing && (isObject(thing) || isFunction(thing)) && isFunction(thing.then) && isFunction(thing.catch);
 // original code
 // https://github.com/DigitalBrainJS/AxiosPromise/blob/16deab13710ec09779922131f3fa5954320f83ab/lib/utils.js#L11-L34
@@ -7526,8 +7545,8 @@ const _setImmediate = ((setImmediateSupported, postMessageSupported)=>{
             _global.postMessage(token, "*");
         };
     })(`axios@${Math.random()}`, []) : (cb)=>setTimeout(cb);
-})(typeof setImmediate === 'function', isFunction(_global.postMessage));
-const asap = typeof queueMicrotask !== 'undefined' ? queueMicrotask.bind(_global) : _setImmediate;
+})(typeof setImmediate === "function", isFunction(_global.postMessage));
+const asap = typeof queueMicrotask !== "undefined" ? queueMicrotask.bind(_global) : _setImmediate;
 // *********************
 const isIterable = (thing)=>thing != null && isFunction(thing[iterator]);
 exports.default = {
@@ -7604,7 +7623,7 @@ function bind(fn, thisArg) {
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"cBDUi":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-var _utilsJs = require("./../utils.js");
+var _utilsJs = require("../utils.js");
 var _utilsJsDefault = parcelHelpers.interopDefault(_utilsJs);
 var _buildURLJs = require("../helpers/buildURL.js");
 var _buildURLJsDefault = parcelHelpers.interopDefault(_buildURLJs);
@@ -7620,6 +7639,8 @@ var _validatorJs = require("../helpers/validator.js");
 var _validatorJsDefault = parcelHelpers.interopDefault(_validatorJs);
 var _axiosHeadersJs = require("./AxiosHeaders.js");
 var _axiosHeadersJsDefault = parcelHelpers.interopDefault(_axiosHeadersJs);
+var _transitionalJs = require("../defaults/transitional.js");
+var _transitionalJsDefault = parcelHelpers.interopDefault(_transitionalJs);
 'use strict';
 const validators = (0, _validatorJsDefault.default).validators;
 /**
@@ -7673,7 +7694,8 @@ const validators = (0, _validatorJsDefault.default).validators;
         if (transitional !== undefined) (0, _validatorJsDefault.default).assertOptions(transitional, {
             silentJSONParsing: validators.transitional(validators.boolean),
             forcedJSONParsing: validators.transitional(validators.boolean),
-            clarifyTimeoutError: validators.transitional(validators.boolean)
+            clarifyTimeoutError: validators.transitional(validators.boolean),
+            legacyInterceptorReqResOrdering: validators.transitional(validators.boolean)
         }, false);
         if (paramsSerializer != null) {
             if ((0, _utilsJsDefault.default).isFunction(paramsSerializer)) config.paramsSerializer = {
@@ -7714,7 +7736,10 @@ const validators = (0, _validatorJsDefault.default).validators;
         this.interceptors.request.forEach(function unshiftRequestInterceptors(interceptor) {
             if (typeof interceptor.runWhen === 'function' && interceptor.runWhen(config) === false) return;
             synchronousRequestInterceptors = synchronousRequestInterceptors && interceptor.synchronous;
-            requestInterceptorChain.unshift(interceptor.fulfilled, interceptor.rejected);
+            const transitional = config.transitional || (0, _transitionalJsDefault.default);
+            const legacyInterceptorReqResOrdering = transitional && transitional.legacyInterceptorReqResOrdering;
+            if (legacyInterceptorReqResOrdering) requestInterceptorChain.unshift(interceptor.fulfilled, interceptor.rejected);
+            else requestInterceptorChain.push(interceptor.fulfilled, interceptor.rejected);
         });
         const responseInterceptorChain = [];
         this.interceptors.response.forEach(function pushResponseInterceptors(interceptor) {
@@ -7800,7 +7825,7 @@ const validators = (0, _validatorJsDefault.default).validators;
 });
 exports.default = Axios;
 
-},{"./../utils.js":"jI6DP","../helpers/buildURL.js":"3CNaw","./InterceptorManager.js":"bt5wS","./dispatchRequest.js":"1p0aT","./mergeConfig.js":"311Mu","./buildFullPath.js":"kg0Bk","../helpers/validator.js":"9wnyh","./AxiosHeaders.js":"9EzTj","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"3CNaw":[function(require,module,exports,__globalThis) {
+},{"../utils.js":"jI6DP","../helpers/buildURL.js":"3CNaw","./InterceptorManager.js":"bt5wS","./dispatchRequest.js":"1p0aT","./mergeConfig.js":"311Mu","./buildFullPath.js":"kg0Bk","../helpers/validator.js":"9wnyh","./AxiosHeaders.js":"9EzTj","../defaults/transitional.js":"cKdyU","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"3CNaw":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "default", ()=>buildURL);
@@ -7820,15 +7845,15 @@ var _axiosURLSearchParamsJsDefault = parcelHelpers.interopDefault(_axiosURLSearc
     return encodeURIComponent(val).replace(/%3A/gi, ':').replace(/%24/g, '$').replace(/%2C/gi, ',').replace(/%20/g, '+');
 }
 function buildURL(url, params, options) {
-    /*eslint no-param-reassign:0*/ if (!params) return url;
+    if (!params) return url;
     const _encode = options && options.encode || encode;
-    if ((0, _utilsJsDefault.default).isFunction(options)) options = {
+    const _options = (0, _utilsJsDefault.default).isFunction(options) ? {
         serialize: options
-    };
-    const serializeFn = options && options.serialize;
+    } : options;
+    const serializeFn = _options && _options.serialize;
     let serializedParams;
-    if (serializeFn) serializedParams = serializeFn(params, options);
-    else serializedParams = (0, _utilsJsDefault.default).isURLSearchParams(params) ? params.toString() : new (0, _axiosURLSearchParamsJsDefault.default)(params, options).toString(_encode);
+    if (serializeFn) serializedParams = serializeFn(params, _options);
+    else serializedParams = (0, _utilsJsDefault.default).isURLSearchParams(params) ? params.toString() : new (0, _axiosURLSearchParamsJsDefault.default)(params, _options).toString(_encode);
     if (serializedParams) {
         const hashmarkIndex = url.indexOf("#");
         if (hashmarkIndex !== -1) url = url.slice(0, hashmarkIndex);
@@ -9660,32 +9685,37 @@ parcelHelpers.defineInteropFlag(exports);
 var _utilsJs = require("../utils.js");
 var _utilsJsDefault = parcelHelpers.interopDefault(_utilsJs);
 'use strict';
-/**
- * Create an Error with the specified message, config, error code, request and response.
- *
- * @param {string} message The error message.
- * @param {string} [code] The error code (for example, 'ECONNABORTED').
- * @param {Object} [config] The config.
- * @param {Object} [request] The request.
- * @param {Object} [response] The response.
- *
- * @returns {Error} The created error.
- */ function AxiosError(message, code, config, request, response) {
-    Error.call(this);
-    if (Error.captureStackTrace) Error.captureStackTrace(this, this.constructor);
-    else this.stack = new Error().stack;
-    this.message = message;
-    this.name = 'AxiosError';
-    code && (this.code = code);
-    config && (this.config = config);
-    request && (this.request = request);
-    if (response) {
-        this.response = response;
-        this.status = response.status ? response.status : null;
+class AxiosError extends Error {
+    static from(error, code, config, request, response, customProps) {
+        const axiosError = new AxiosError(error.message, code || error.code, config, request, response);
+        axiosError.cause = error;
+        axiosError.name = error.name;
+        customProps && Object.assign(axiosError, customProps);
+        return axiosError;
     }
-}
-(0, _utilsJsDefault.default).inherits(AxiosError, Error, {
-    toJSON: function toJSON() {
+    /**
+     * Create an Error with the specified message, config, error code, request and response.
+     *
+     * @param {string} message The error message.
+     * @param {string} [code] The error code (for example, 'ECONNABORTED').
+     * @param {Object} [config] The config.
+     * @param {Object} [request] The request.
+     * @param {Object} [response] The response.
+     *
+     * @returns {Error} The created error.
+     */ constructor(message, code, config, request, response){
+        super(message);
+        this.name = 'AxiosError';
+        this.isAxiosError = true;
+        code && (this.code = code);
+        config && (this.config = config);
+        request && (this.request = request);
+        if (response) {
+            this.response = response;
+            this.status = response.status;
+        }
+    }
+    toJSON() {
         return {
             // Standard
             message: this.message,
@@ -9704,52 +9734,20 @@ var _utilsJsDefault = parcelHelpers.interopDefault(_utilsJs);
             status: this.status
         };
     }
-});
-const prototype = AxiosError.prototype;
-const descriptors = {};
-[
-    'ERR_BAD_OPTION_VALUE',
-    'ERR_BAD_OPTION',
-    'ECONNABORTED',
-    'ETIMEDOUT',
-    'ERR_NETWORK',
-    'ERR_FR_TOO_MANY_REDIRECTS',
-    'ERR_DEPRECATED',
-    'ERR_BAD_RESPONSE',
-    'ERR_BAD_REQUEST',
-    'ERR_CANCELED',
-    'ERR_NOT_SUPPORT',
-    'ERR_INVALID_URL'
-].forEach((code)=>{
-    descriptors[code] = {
-        value: code
-    };
-});
-Object.defineProperties(AxiosError, descriptors);
-Object.defineProperty(prototype, 'isAxiosError', {
-    value: true
-});
-// eslint-disable-next-line func-names
-AxiosError.from = (error, code, config, request, response, customProps)=>{
-    const axiosError = Object.create(prototype);
-    (0, _utilsJsDefault.default).toFlatObject(error, axiosError, function filter(obj) {
-        return obj !== Error.prototype;
-    }, (prop)=>{
-        return prop !== 'isAxiosError';
-    });
-    const msg = error && error.message ? error.message : 'Error';
-    // Prefer explicit code; otherwise copy the low-level error's code (e.g. ECONNREFUSED)
-    const errCode = code == null && error ? error.code : code;
-    AxiosError.call(axiosError, msg, errCode, config, request, response);
-    // Chain the original error on the standard field; non-enumerable to avoid JSON noise
-    if (error && axiosError.cause == null) Object.defineProperty(axiosError, 'cause', {
-        value: error,
-        configurable: true
-    });
-    axiosError.name = error && error.name || 'Error';
-    customProps && Object.assign(axiosError, customProps);
-    return axiosError;
-};
+}
+// This can be changed to static properties as soon as the parser options in .eslint.cjs are updated.
+AxiosError.ERR_BAD_OPTION_VALUE = 'ERR_BAD_OPTION_VALUE';
+AxiosError.ERR_BAD_OPTION = 'ERR_BAD_OPTION';
+AxiosError.ECONNABORTED = 'ECONNABORTED';
+AxiosError.ETIMEDOUT = 'ETIMEDOUT';
+AxiosError.ERR_NETWORK = 'ERR_NETWORK';
+AxiosError.ERR_FR_TOO_MANY_REDIRECTS = 'ERR_FR_TOO_MANY_REDIRECTS';
+AxiosError.ERR_DEPRECATED = 'ERR_DEPRECATED';
+AxiosError.ERR_BAD_RESPONSE = 'ERR_BAD_RESPONSE';
+AxiosError.ERR_BAD_REQUEST = 'ERR_BAD_REQUEST';
+AxiosError.ERR_CANCELED = 'ERR_CANCELED';
+AxiosError.ERR_NOT_SUPPORT = 'ERR_NOT_SUPPORT';
+AxiosError.ERR_INVALID_URL = 'ERR_INVALID_URL';
 exports.default = AxiosError;
 
 },{"../utils.js":"jI6DP","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"dVGJ4":[function(require,module,exports,__globalThis) {
@@ -9761,7 +9759,7 @@ exports.default = null;
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"bt5wS":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-var _utilsJs = require("./../utils.js");
+var _utilsJs = require("../utils.js");
 var _utilsJsDefault = parcelHelpers.interopDefault(_utilsJs);
 'use strict';
 class InterceptorManager {
@@ -9773,6 +9771,7 @@ class InterceptorManager {
    *
    * @param {Function} fulfilled The function to handle `then` for a `Promise`
    * @param {Function} rejected The function to handle `reject` for a `Promise`
+   * @param {Object} options The options for the interceptor, synchronous and runWhen
    *
    * @return {Number} An ID used to remove interceptor later
    */ use(fulfilled, rejected, options) {
@@ -9817,7 +9816,7 @@ class InterceptorManager {
 }
 exports.default = InterceptorManager;
 
-},{"./../utils.js":"jI6DP","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"1p0aT":[function(require,module,exports,__globalThis) {
+},{"../utils.js":"jI6DP","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"1p0aT":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "default", ()=>dispatchRequest);
@@ -9878,7 +9877,7 @@ function dispatchRequest(config) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "default", ()=>transformData);
-var _utilsJs = require("./../utils.js");
+var _utilsJs = require("../utils.js");
 var _utilsJsDefault = parcelHelpers.interopDefault(_utilsJs);
 var _indexJs = require("../defaults/index.js");
 var _indexJsDefault = parcelHelpers.interopDefault(_indexJs);
@@ -9897,7 +9896,7 @@ function transformData(fns, response) {
     return data;
 }
 
-},{"./../utils.js":"jI6DP","../defaults/index.js":"9WXKx","../core/AxiosHeaders.js":"9EzTj","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"9WXKx":[function(require,module,exports,__globalThis) {
+},{"../utils.js":"jI6DP","../defaults/index.js":"9WXKx","../core/AxiosHeaders.js":"9EzTj","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"9WXKx":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _utilsJs = require("../utils.js");
@@ -10033,7 +10032,8 @@ parcelHelpers.defineInteropFlag(exports);
 exports.default = {
     silentJSONParsing: true,
     forcedJSONParsing: true,
-    clarifyTimeoutError: false
+    clarifyTimeoutError: false,
+    legacyInterceptorReqResOrdering: true
 };
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"keaer":[function(require,module,exports,__globalThis) {
@@ -10460,7 +10460,7 @@ exports.default = AxiosHeaders;
 },{"../utils.js":"jI6DP","../helpers/parseHeaders.js":"H8RrA","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"H8RrA":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-var _utilsJs = require("./../utils.js");
+var _utilsJs = require("../utils.js");
 var _utilsJsDefault = parcelHelpers.interopDefault(_utilsJs);
 'use strict';
 // RawAxiosHeaders whose duplicates are ignored by node
@@ -10517,7 +10517,7 @@ const ignoreDuplicateOf = (0, _utilsJsDefault.default).toObjectSet([
     return parsed;
 };
 
-},{"./../utils.js":"jI6DP","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"fkTUi":[function(require,module,exports,__globalThis) {
+},{"../utils.js":"jI6DP","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"fkTUi":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "default", ()=>isCancel);
@@ -10531,28 +10531,25 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _axiosErrorJs = require("../core/AxiosError.js");
 var _axiosErrorJsDefault = parcelHelpers.interopDefault(_axiosErrorJs);
-var _utilsJs = require("../utils.js");
-var _utilsJsDefault = parcelHelpers.interopDefault(_utilsJs);
 'use strict';
-/**
- * A `CanceledError` is an object that is thrown when an operation is canceled.
- *
- * @param {string=} message The message.
- * @param {Object=} config The config.
- * @param {Object=} request The request.
- *
- * @returns {CanceledError} The created error.
- */ function CanceledError(message, config, request) {
-    // eslint-disable-next-line no-eq-null,eqeqeq
-    (0, _axiosErrorJsDefault.default).call(this, message == null ? 'canceled' : message, (0, _axiosErrorJsDefault.default).ERR_CANCELED, config, request);
-    this.name = 'CanceledError';
+class CanceledError extends (0, _axiosErrorJsDefault.default) {
+    /**
+   * A `CanceledError` is an object that is thrown when an operation is canceled.
+   *
+   * @param {string=} message The message.
+   * @param {Object=} config The config.
+   * @param {Object=} request The request.
+   *
+   * @returns {CanceledError} The created error.
+   */ constructor(message, config, request){
+        super(message == null ? 'canceled' : message, (0, _axiosErrorJsDefault.default).ERR_CANCELED, config, request);
+        this.name = 'CanceledError';
+        this.__CANCEL__ = true;
+    }
 }
-(0, _utilsJsDefault.default).inherits(CanceledError, (0, _axiosErrorJsDefault.default), {
-    __CANCEL__: true
-});
 exports.default = CanceledError;
 
-},{"../core/AxiosError.js":"7z85x","../utils.js":"jI6DP","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"hI0HS":[function(require,module,exports,__globalThis) {
+},{"../core/AxiosError.js":"7z85x","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"hI0HS":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _utilsJs = require("../utils.js");
@@ -10657,9 +10654,9 @@ var _axiosErrorJsDefault = parcelHelpers.interopDefault(_axiosErrorJs);
 },{"../utils.js":"jI6DP","./http.js":"dVGJ4","./xhr.js":"ao6fA","./fetch.js":"d5PZl","../core/AxiosError.js":"7z85x","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"ao6fA":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-var _utilsJs = require("./../utils.js");
+var _utilsJs = require("../utils.js");
 var _utilsJsDefault = parcelHelpers.interopDefault(_utilsJs);
-var _settleJs = require("./../core/settle.js");
+var _settleJs = require("../core/settle.js");
 var _settleJsDefault = parcelHelpers.interopDefault(_settleJs);
 var _transitionalJs = require("../defaults/transitional.js");
 var _transitionalJsDefault = parcelHelpers.interopDefault(_transitionalJs);
@@ -10804,7 +10801,7 @@ exports.default = isXHRAdapterSupported && function(config) {
     });
 };
 
-},{"./../utils.js":"jI6DP","./../core/settle.js":"2vmJg","../defaults/transitional.js":"cKdyU","../core/AxiosError.js":"7z85x","../cancel/CanceledError.js":"9yG1c","../helpers/parseProtocol.js":"af3D4","../platform/index.js":"626Zd","../core/AxiosHeaders.js":"9EzTj","../helpers/progressEventReducer.js":"6rzPu","../helpers/resolveConfig.js":"3RDMa","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"2vmJg":[function(require,module,exports,__globalThis) {
+},{"../utils.js":"jI6DP","../core/settle.js":"2vmJg","../defaults/transitional.js":"cKdyU","../core/AxiosError.js":"7z85x","../cancel/CanceledError.js":"9yG1c","../helpers/parseProtocol.js":"af3D4","../platform/index.js":"626Zd","../core/AxiosHeaders.js":"9EzTj","../helpers/progressEventReducer.js":"6rzPu","../helpers/resolveConfig.js":"3RDMa","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"2vmJg":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "default", ()=>settle);
@@ -11027,7 +11024,7 @@ exports.default = (0, _indexJsDefault.default).hasStandardBrowserEnv ? ((origin,
 },{"../platform/index.js":"626Zd","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"hoVvn":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-var _utilsJs = require("./../utils.js");
+var _utilsJs = require("../utils.js");
 var _utilsJsDefault = parcelHelpers.interopDefault(_utilsJs);
 var _indexJs = require("../platform/index.js");
 var _indexJsDefault = parcelHelpers.interopDefault(_indexJs);
@@ -11062,7 +11059,7 @@ exports.default = (0, _indexJsDefault.default).hasStandardBrowserEnv ? // Standa
     remove () {}
 };
 
-},{"./../utils.js":"jI6DP","../platform/index.js":"626Zd","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"kg0Bk":[function(require,module,exports,__globalThis) {
+},{"../utils.js":"jI6DP","../platform/index.js":"626Zd","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"kg0Bk":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "default", ()=>buildFullPath);
@@ -11086,6 +11083,7 @@ function isAbsoluteURL(url) {
     // A URL is considered absolute if it begins with "<scheme>://" or "//" (protocol-relative URL).
     // RFC 3986 defines scheme name as a sequence of characters beginning with a letter and followed
     // by any combination of letters, digits, plus, period, or hyphen.
+    if (typeof url !== 'string') return false;
     return /^([a-z][a-z\d+\-.]*:)?\/\//i.test(url);
 }
 
@@ -11106,7 +11104,7 @@ var _utilsJs = require("../utils.js");
 var _utilsJsDefault = parcelHelpers.interopDefault(_utilsJs);
 var _axiosHeadersJs = require("./AxiosHeaders.js");
 var _axiosHeadersJsDefault = parcelHelpers.interopDefault(_axiosHeadersJs);
-'use strict';
+"use strict";
 const headersToObject = (thing)=>thing instanceof (0, _axiosHeadersJsDefault.default) ? {
         ...thing
     } : thing;
@@ -11122,7 +11120,6 @@ function mergeConfig(config1, config2) {
         else if ((0, _utilsJsDefault.default).isArray(source)) return source.slice();
         return source;
     }
-    // eslint-disable-next-line consistent-return
     function mergeDeepProperties(a, b, prop, caseless) {
         if (!(0, _utilsJsDefault.default).isUndefined(b)) return getMergedValue(a, b, prop, caseless);
         else if (!(0, _utilsJsDefault.default).isUndefined(a)) return getMergedValue(undefined, a, prop, caseless);
@@ -11176,7 +11173,8 @@ function mergeConfig(config1, config2) {
         ...config1,
         ...config2
     }), function computeConfigValue(prop) {
-        const merge = mergeMap[prop] || mergeDeepProperties;
+        if (prop === "__proto__" || prop === "constructor" || prop === "prototype") return;
+        const merge = (0, _utilsJsDefault.default).hasOwnProp(mergeMap, prop) ? mergeMap[prop] : mergeDeepProperties;
         const configValue = merge(config1[prop], config2[prop], prop);
         (0, _utilsJsDefault.default).isUndefined(configValue) && merge !== mergeDirectKeys || (config[prop] = configValue);
     });
@@ -11351,10 +11349,10 @@ const factory = (env)=>{
             });
         } catch (err) {
             unsubscribe && unsubscribe();
-            if (err && err.name === 'TypeError' && /Load failed|fetch/i.test(err.message)) throw Object.assign(new (0, _axiosErrorJsDefault.default)('Network Error', (0, _axiosErrorJsDefault.default).ERR_NETWORK, config, request), {
+            if (err && err.name === 'TypeError' && /Load failed|fetch/i.test(err.message)) throw Object.assign(new (0, _axiosErrorJsDefault.default)('Network Error', (0, _axiosErrorJsDefault.default).ERR_NETWORK, config, request, err && err.response), {
                 cause: err.cause || err
             });
-            throw (0, _axiosErrorJsDefault.default).from(err, err && err.code, config, request);
+            throw (0, _axiosErrorJsDefault.default).from(err, err && err.code, config, request, err && err.response);
         }
     };
 };
@@ -11403,7 +11401,7 @@ const composeSignals = (signals, timeout)=>{
         };
         let timer = timeout && setTimeout(()=>{
             timer = null;
-            onabort(new (0, _axiosErrorJsDefault.default)(`timeout ${timeout} of ms exceeded`, (0, _axiosErrorJsDefault.default).ETIMEDOUT));
+            onabort(new (0, _axiosErrorJsDefault.default)(`timeout of ${timeout}ms exceeded`, (0, _axiosErrorJsDefault.default).ETIMEDOUT));
         }, timeout);
         const unsubscribe = ()=>{
             if (signals) {
@@ -11586,7 +11584,7 @@ exports.default = {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "VERSION", ()=>VERSION);
-const VERSION = "1.13.2";
+const VERSION = "1.13.5";
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"kSqbX":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -11699,14 +11697,14 @@ function spread(callback) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "default", ()=>isAxiosError);
-var _utilsJs = require("./../utils.js");
+var _utilsJs = require("../utils.js");
 var _utilsJsDefault = parcelHelpers.interopDefault(_utilsJs);
 'use strict';
 function isAxiosError(payload) {
     return (0, _utilsJsDefault.default).isObject(payload) && payload.isAxiosError === true;
 }
 
-},{"./../utils.js":"jI6DP","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"7tr76":[function(require,module,exports,__globalThis) {
+},{"../utils.js":"jI6DP","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"7tr76":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 const HttpStatusCode = {
@@ -33416,6 +33414,7 @@ function loadPlugins() {
         safeImport(require("95cbfda1dacb984e")),
         safeImport(require("4406a412e631b4c2")),
         safeImport(require("4336b6b2011a3943")),
+        safeImport(require("9a8375d088be15fb")),
         safeImport(require("a5d24965e4527bfc")),
         safeImport(require("82d6c2774fae243f")),
         safeImport(require("779248971d4ee820")),
@@ -33426,7 +33425,7 @@ function loadPlugins() {
     return Promise.all(plugins);
 }
 
-},{"ea68c71bce484b63":"Wneyd","bb7100ef7768402e":"h25Tz","c8a599eab9003e7f":"gnNef","ee396b67347df231":"d0vjp","5f6cbb2944012b0f":"7t61C","b84dd777bb325cf1":"85mgd","c2ba6b18b8151d21":"awcKZ","d64d2a7528d44624":"7hpxv","9f5512dc0596184a":"iFGyc","4b5adcfbfc855b74":"4KwsC","5c301518a9c26313":"iq2cU","d816ae225c2ab1ad":"FTNXM","53ddbaae0002dcfb":"k9rw4","fc52d4c8c36bc18d":"c8YNj","47fb03a6b741f67f":"11kYL","4a4c341d5c7ed426":"8wJSd","7b01b5a572917b38":"bmyQc","1612af2b62f4c0a3":"b7EYR","beed4ed04c1cab89":"4Wapq","4d6ed4021b396bd3":"3OEue","7913f673e6d53237":"1KTZw","4098dfb20490fb50":"6MPFa","22f854ac869f52eb":"xefRW","1ad3675196a5c8f3":"2mxYo","a955497571196aa4":"2agui","a3e770e2afc86c98":"d8Le1","e6304bb85d6a6d90":"1hNfe","3bba9dfa8074586b":"gEOMO","7d0023d01aab58c8":"3d9Jm","37c4d9afaa8b4a52":"dQTlu","5abbe4913e45efb3":"5ruj3","8175efe9b73ee4f7":"aiwgR","82d0938a4a0d09eb":"fG57R","eec411b0f30748fb":"gCRN5","43374e17a0ef3fea":"7qvyP","95cbfda1dacb984e":"ave3M","4406a412e631b4c2":"1ZN0J","4336b6b2011a3943":"hg8l6","a5d24965e4527bfc":"lyZ7i","82d6c2774fae243f":"7K918","779248971d4ee820":"gqX3p","ef8fc96d66c126e6":"97EkP","5469d7d18905b206":"9mmrI","bec10797dede5343":"c2ehi","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"Wneyd":[function(require,module,exports,__globalThis) {
+},{"ea68c71bce484b63":"Wneyd","bb7100ef7768402e":"h25Tz","c8a599eab9003e7f":"gnNef","ee396b67347df231":"d0vjp","5f6cbb2944012b0f":"7t61C","b84dd777bb325cf1":"85mgd","c2ba6b18b8151d21":"awcKZ","d64d2a7528d44624":"7hpxv","9f5512dc0596184a":"iFGyc","4b5adcfbfc855b74":"4KwsC","5c301518a9c26313":"iq2cU","d816ae225c2ab1ad":"FTNXM","53ddbaae0002dcfb":"k9rw4","fc52d4c8c36bc18d":"c8YNj","47fb03a6b741f67f":"11kYL","4a4c341d5c7ed426":"8wJSd","7b01b5a572917b38":"bmyQc","1612af2b62f4c0a3":"b7EYR","beed4ed04c1cab89":"4Wapq","4d6ed4021b396bd3":"f5wzI","7913f673e6d53237":"1KTZw","4098dfb20490fb50":"6MPFa","22f854ac869f52eb":"dVPko","1ad3675196a5c8f3":"liUmV","a955497571196aa4":"2agui","a3e770e2afc86c98":"d8Le1","e6304bb85d6a6d90":"1hNfe","3bba9dfa8074586b":"gEOMO","7d0023d01aab58c8":"jVslK","37c4d9afaa8b4a52":"dQTlu","5abbe4913e45efb3":"5ruj3","8175efe9b73ee4f7":"aiwgR","82d0938a4a0d09eb":"fG57R","eec411b0f30748fb":"gCRN5","43374e17a0ef3fea":"7qvyP","95cbfda1dacb984e":"ave3M","4406a412e631b4c2":"1ZN0J","4336b6b2011a3943":"hg8l6","9a8375d088be15fb":"g7v91","a5d24965e4527bfc":"lyZ7i","82d6c2774fae243f":"7K918","779248971d4ee820":"gqX3p","ef8fc96d66c126e6":"97EkP","5469d7d18905b206":"kCnTD","bec10797dede5343":"c2ehi","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"Wneyd":[function(require,module,exports,__globalThis) {
 module.exports = Promise.all([
     import("7V1HE"),
     import("wsJF6"),
@@ -33586,10 +33585,11 @@ module.exports = Promise.all([
     import("7egWB")
 ]).then(()=>module.bundle.root('kGMaE'));
 
-},{}],"3OEue":[function(require,module,exports,__globalThis) {
+},{}],"f5wzI":[function(require,module,exports,__globalThis) {
 module.exports = Promise.all([
-    import("jPYIf"),
-    require("59f5accd46a1a7de")(import.meta.resolve("aYdVV")),
+    import("2AvFn"),
+    import("554py"),
+    require("a2ba64ea1e8a2238")(import.meta.resolve("aYdVV")),
     import("cKNiK"),
     import("jP44U"),
     import("krVo4"),
@@ -33600,7 +33600,7 @@ module.exports = Promise.all([
     import("ao8li")
 ]).then(()=>module.bundle.root('jYqr3'));
 
-},{"59f5accd46a1a7de":"jGGMa"}],"1KTZw":[function(require,module,exports,__globalThis) {
+},{"a2ba64ea1e8a2238":"jGGMa"}],"1KTZw":[function(require,module,exports,__globalThis) {
 module.exports = Promise.all([
     require("f9c0787ccfdfa942")(import.meta.resolve("3E0v5")),
     import("f1myU"),
@@ -33622,13 +33622,15 @@ module.exports = Promise.all([
     import("bWFXc")
 ]).then(()=>module.bundle.root('5AlIa'));
 
-},{"3dbcccafa9550ec3":"jGGMa"}],"xefRW":[function(require,module,exports,__globalThis) {
+},{"3dbcccafa9550ec3":"jGGMa"}],"dVPko":[function(require,module,exports,__globalThis) {
 module.exports = Promise.all([
     import("gIMSh"),
     import("l7H3h"),
-    import("hBGE8"),
-    require("a5d8fb4ae3cedf04")(import.meta.resolve("2sZwR")),
-    import("jPYIf"),
+    import("btIHg"),
+    import("IHu1w"),
+    require("aa370f8a823de933")(import.meta.resolve("2sZwR")),
+    import("2AvFn"),
+    import("554py"),
     import("cKNiK"),
     import("jP44U"),
     import("krVo4"),
@@ -33639,11 +33641,12 @@ module.exports = Promise.all([
     import("4BquF")
 ]).then(()=>module.bundle.root('82Vlz'));
 
-},{"a5d8fb4ae3cedf04":"jGGMa"}],"2mxYo":[function(require,module,exports,__globalThis) {
+},{"aa370f8a823de933":"jGGMa"}],"liUmV":[function(require,module,exports,__globalThis) {
 module.exports = Promise.all([
-    require("99f940c88cfb30a4")(import.meta.resolve("5LfiF")),
+    require("5c016023a1e6497c")(import.meta.resolve("5LfiF")),
     import("l7H3h"),
-    import("jPYIf"),
+    import("2AvFn"),
+    import("554py"),
     import("fESzN"),
     import("jP44U"),
     import("7V1HE"),
@@ -33653,7 +33656,7 @@ module.exports = Promise.all([
     import("gGmDD")
 ]).then(()=>module.bundle.root('frKwp'));
 
-},{"99f940c88cfb30a4":"jGGMa"}],"2agui":[function(require,module,exports,__globalThis) {
+},{"5c016023a1e6497c":"jGGMa"}],"2agui":[function(require,module,exports,__globalThis) {
 module.exports = Promise.all([
     import("cyFI9"),
     import("wsJF6"),
@@ -33682,21 +33685,25 @@ module.exports = Promise.all([
     import("iQX2F")
 ]).then(()=>module.bundle.root('fJBgo'));
 
-},{}],"3d9Jm":[function(require,module,exports,__globalThis) {
+},{}],"jVslK":[function(require,module,exports,__globalThis) {
 module.exports = Promise.all([
-    require("7b7335ade4fb1a16")(import.meta.resolve("hywYD")),
+    import("1XMCR"),
+    require("7d5c186a520b9d5f")(import.meta.resolve("hywYD")),
     import("gIMSh"),
     import("l7H3h"),
-    import("hBGE8"),
-    import("jPYIf"),
+    import("btIHg"),
+    import("IHu1w"),
+    import("2AvFn"),
+    import("554py"),
     import("f1myU"),
+    import("jP44U"),
     import("7V1HE"),
     import("cyFI9"),
     import("wsJF6"),
     import("9Yi1z")
 ]).then(()=>module.bundle.root('3h7ar'));
 
-},{"7b7335ade4fb1a16":"jGGMa"}],"dQTlu":[function(require,module,exports,__globalThis) {
+},{"7d5c186a520b9d5f":"jGGMa"}],"dQTlu":[function(require,module,exports,__globalThis) {
 module.exports = Promise.all([
     require("8da2c1333007d22f")(import.meta.resolve("eEodu")),
     import("cyFI9"),
@@ -33776,7 +33783,24 @@ module.exports = Promise.all([
     import("4m3pv")
 ]).then(()=>module.bundle.root('gFtD5'));
 
-},{}],"lyZ7i":[function(require,module,exports,__globalThis) {
+},{}],"g7v91":[function(require,module,exports,__globalThis) {
+module.exports = Promise.all([
+    import("4bAAJ"),
+    require("3fe746c6508114ed")(import.meta.resolve("jXOBQ")),
+    import("1XMCR"),
+    import("gIMSh"),
+    import("l7H3h"),
+    import("btIHg"),
+    import("2AvFn"),
+    import("cKNiK"),
+    import("jP44U"),
+    import("7V1HE"),
+    import("cyFI9"),
+    import("wsJF6"),
+    import("2Mab1")
+]).then(()=>module.bundle.root('6rjbb'));
+
+},{"3fe746c6508114ed":"jGGMa"}],"lyZ7i":[function(require,module,exports,__globalThis) {
 module.exports = Promise.all([
     import("cyFI9"),
     import("wsJF6"),
@@ -33806,12 +33830,14 @@ module.exports = Promise.all([
     import("8DnC4")
 ]).then(()=>module.bundle.root('e62zr'));
 
-},{"f7e78176e2e4ce91":"jGGMa"}],"9mmrI":[function(require,module,exports,__globalThis) {
+},{"f7e78176e2e4ce91":"jGGMa"}],"kCnTD":[function(require,module,exports,__globalThis) {
 module.exports = Promise.all([
-    require("345c59d3281c765")(import.meta.resolve("5VTUi")),
+    require("10bca8e561e19eae")(import.meta.resolve("5VTUi")),
+    import("4bAAJ"),
     import("gIMSh"),
     import("l7H3h"),
-    import("hBGE8"),
+    import("btIHg"),
+    import("IHu1w"),
     import("cKNiK"),
     import("jP44U"),
     import("7V1HE"),
@@ -33820,7 +33846,7 @@ module.exports = Promise.all([
     import("7kKev")
 ]).then(()=>module.bundle.root('f4luG'));
 
-},{"345c59d3281c765":"jGGMa"}],"c2ehi":[function(require,module,exports,__globalThis) {
+},{"10bca8e561e19eae":"jGGMa"}],"c2ehi":[function(require,module,exports,__globalThis) {
 module.exports = Promise.all([
     require("be948943b97a1390")(import.meta.resolve("exD4D")),
     import("7V1HE"),
@@ -33948,10 +33974,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("916fa259fe30666e").render;
     script.staticRenderFns = require("916fa259fe30666e").staticRenderFns;
-    script._scopeId = "data-v-25468c";
+    script._scopeId = "data-v-c94f51";
     script.__cssModules = require("56eb4e284f8b3894").default;
     require("beb4c03649748572").default(script);
-    script.__scopeId = 'data-v-25468c';
+    script.__scopeId = 'data-v-c94f51';
     script.__file = "SpinalRightSideBar.vue";
 };
 initialize();
@@ -34088,10 +34114,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("26c913c77b0247bb").render;
     script.staticRenderFns = require("26c913c77b0247bb").staticRenderFns;
-    script._scopeId = "data-v-acac21";
+    script._scopeId = "data-v-199bec";
     script.__cssModules = require("a72a18810bdcf0e8").default;
     require("e798b9c6491834ed").default(script);
-    script.__scopeId = 'data-v-acac21';
+    script.__scopeId = 'data-v-199bec';
     script.__file = "MainContent.vue";
 };
 initialize();
@@ -34166,10 +34192,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("2fe5242471f6f2a8").render;
     script.staticRenderFns = require("2fe5242471f6f2a8").staticRenderFns;
-    script._scopeId = "data-v-74ca6d";
+    script._scopeId = "data-v-9016ed";
     script.__cssModules = require("114ea14a046320d0").default;
     require("441825600126f0a0").default(script);
-    script.__scopeId = 'data-v-74ca6d';
+    script.__scopeId = 'data-v-9016ed';
     script.__file = "SpinalForgeViewerVue.vue";
 };
 initialize();
@@ -96047,10 +96073,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("bd101fdfcf8b51b7").render;
     script.staticRenderFns = require("bd101fdfcf8b51b7").staticRenderFns;
-    script._scopeId = "data-v-43c609";
+    script._scopeId = "data-v-73bdd7";
     script.__cssModules = require("5a85c2fafdd976b0").default;
     require("8fc68798d40df9d6").default(script);
-    script.__scopeId = 'data-v-43c609';
+    script.__scopeId = 'data-v-73bdd7';
     script.__file = "index.vue";
 };
 initialize();
@@ -100081,10 +100107,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("272043accf9dbab4").render;
     script.staticRenderFns = require("272043accf9dbab4").staticRenderFns;
-    script._scopeId = "data-v-0266c3";
+    script._scopeId = "data-v-22695b";
     script.__cssModules = require("ff3b138ad3d0ce8b").default;
     require("87f58cbb546e25cc").default(script);
-    script.__scopeId = 'data-v-0266c3';
+    script.__scopeId = 'data-v-22695b';
     script.__file = "index.vue";
 };
 initialize();
@@ -100190,10 +100216,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("b102bd0c122f01be").render;
     script.staticRenderFns = require("b102bd0c122f01be").staticRenderFns;
-    script._scopeId = "data-v-737f00";
+    script._scopeId = "data-v-2020de";
     script.__cssModules = require("5d5d7825bfe94295").default;
     require("7bbd150dcbefdb40").default(script);
-    script.__scopeId = 'data-v-737f00';
+    script.__scopeId = 'data-v-2020de';
     script.__file = "index.vue";
 };
 initialize();
@@ -100423,10 +100449,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("87c356fe0a95691d").render;
     script.staticRenderFns = require("87c356fe0a95691d").staticRenderFns;
-    script._scopeId = "data-v-566f19";
+    script._scopeId = "data-v-34a029";
     script.__cssModules = require("5dac050640d6e3d2").default;
     require("5c76aecf15b28e60").default(script);
-    script.__scopeId = 'data-v-566f19';
+    script.__scopeId = 'data-v-34a029';
     script.__file = "index.vue";
 };
 initialize();
@@ -100741,10 +100767,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("c11508286ecdc7f9").render;
     script.staticRenderFns = require("c11508286ecdc7f9").staticRenderFns;
-    script._scopeId = "data-v-26e0f5";
+    script._scopeId = "data-v-f69393";
     script.__cssModules = require("8559e5b9d2959314").default;
     require("d742ed1bf67287e").default(script);
-    script.__scopeId = 'data-v-26e0f5';
+    script.__scopeId = 'data-v-f69393';
     script.__file = "index.vue";
 };
 initialize();
@@ -101644,10 +101670,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("ea32684f08b557c2").render;
     script.staticRenderFns = require("ea32684f08b557c2").staticRenderFns;
-    script._scopeId = "data-v-15b1f2";
+    script._scopeId = "data-v-c2aa7e";
     script.__cssModules = require("9c850144cb82f45").default;
     require("5e3539a93558a705").default(script);
-    script.__scopeId = 'data-v-15b1f2';
+    script.__scopeId = 'data-v-c2aa7e';
     script.__file = "RangeShortcuts.vue";
 };
 initialize();
@@ -101902,10 +101928,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("424be3aa1ee5adee").render;
     script.staticRenderFns = require("424be3aa1ee5adee").staticRenderFns;
-    script._scopeId = "data-v-bbaa30";
+    script._scopeId = "data-v-8141d8";
     script.__cssModules = require("2f2c16a4dd2846ae").default;
     require("9bd7b542c538f936").default(script);
-    script.__scopeId = 'data-v-bbaa30';
+    script.__scopeId = 'data-v-8141d8';
     script.__file = "YearMonthSelector.vue";
 };
 initialize();
@@ -102094,10 +102120,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("937e71b61efbebe").render;
     script.staticRenderFns = require("937e71b61efbebe").staticRenderFns;
-    script._scopeId = "data-v-72fb88";
+    script._scopeId = "data-v-47f6fe";
     script.__cssModules = require("17b25bdefd5c75be").default;
     require("ddb482ec6966599").default(script);
-    script.__scopeId = 'data-v-72fb88';
+    script.__scopeId = 'data-v-47f6fe';
     script.__file = "WeekDays.vue";
 };
 initialize();
@@ -102562,10 +102588,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("a47c400461da77bb").render;
     script.staticRenderFns = require("a47c400461da77bb").staticRenderFns;
-    script._scopeId = "data-v-ddfc68";
+    script._scopeId = "data-v-ba3b5c";
     script.__cssModules = require("4324b2dee77e19b").default;
     require("751fe44336a7c3e7").default(script);
-    script.__scopeId = 'data-v-ddfc68';
+    script.__scopeId = 'data-v-ba3b5c';
     script.__file = "TimePicker.vue";
 };
 initialize();
@@ -103043,10 +103069,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("77bc5911373e968").render;
     script.staticRenderFns = require("77bc5911373e968").staticRenderFns;
-    script._scopeId = "data-v-51571a";
+    script._scopeId = "data-v-eeb5a9";
     script.__cssModules = require("1c0bd8dbeab9fe40").default;
     require("2bc0772985a81dfe").default(script);
-    script.__scopeId = 'data-v-51571a';
+    script.__scopeId = 'data-v-eeb5a9';
     script.__file = "HeaderPicker.vue";
 };
 initialize();
@@ -103307,10 +103333,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("1d782928a3ec2b42").render;
     script.staticRenderFns = require("1d782928a3ec2b42").staticRenderFns;
-    script._scopeId = "data-v-ecc9d9";
+    script._scopeId = "data-v-ebf2bc";
     script.__cssModules = require("e382118ef92455d3").default;
     require("bdabea3bbbc84f94").default(script);
-    script.__scopeId = 'data-v-ecc9d9';
+    script.__scopeId = 'data-v-ebf2bc';
     script.__file = "ButtonValidate.vue";
 };
 initialize();

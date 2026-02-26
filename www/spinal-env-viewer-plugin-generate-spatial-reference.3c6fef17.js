@@ -330,10 +330,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("cf0aeb7a2db2442").render;
     script.staticRenderFns = require("cf0aeb7a2db2442").staticRenderFns;
-    script._scopeId = "data-v-29fec1";
+    script._scopeId = "data-v-2fa6e2";
     script.__cssModules = require("deac2695f5dda173").default;
     require("45325a20062400ab").default(script);
-    script.__scopeId = 'data-v-29fec1';
+    script.__scopeId = 'data-v-2fa6e2';
     script.__file = "SelectModelModal.vue";
 };
 initialize();
@@ -474,6 +474,7 @@ var scriptExports = {
         async openDialogCenterPosInContextGeo () {
             this.showDialogCenterPos = true;
             this.floorsNames = [];
+            this.selectedFloorNames = [];
             const graph = (0, _spinalSpatialReferential.getGraph)();
             const context = await (0, _spinalSpatialReferential.getContextSpatial)(graph);
             const relationNames = [
@@ -485,7 +486,7 @@ var scriptExports = {
                 return node.info.type.get() === (0, _spinalEnvViewerContextGeographicService.FLOOR_TYPE);
             });
             for (const floorNode of floorNodes)this.floorsNames.push(floorNode.info.name.get());
-            this.selectedFloorNames = this.floorsNames.slice();
+        // this.selectedFloorNames = this.floorsNames.slice();
         },
         async setCenterPosInContextGeo () {
             this.showDialogCenterPos = false;
@@ -615,10 +616,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("dbee58c23ca58fbe").render;
     script.staticRenderFns = require("dbee58c23ca58fbe").staticRenderFns;
-    script._scopeId = "data-v-b8ec1f";
+    script._scopeId = "data-v-bf2d18";
     script.__cssModules = require("77934f7f04eaa300").default;
     require("ad040a605dea86fe").default(script);
-    script.__scopeId = 'data-v-b8ec1f';
+    script.__scopeId = 'data-v-bf2d18';
     script.__file = "BasicSelectModel.vue";
 };
 initialize();
@@ -1003,10 +1004,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("3dde13f7983352d7").render;
     script.staticRenderFns = require("3dde13f7983352d7").staticRenderFns;
-    script._scopeId = "data-v-0fa7a5";
+    script._scopeId = "data-v-333719";
     script.__cssModules = require("2e2dea8e206343c5").default;
     require("7819e45466f5d459").default(script);
-    script.__scopeId = 'data-v-0fa7a5';
+    script.__scopeId = 'data-v-333719';
     script.__file = "AdvencedSelectModel.vue";
 };
 initialize();
@@ -1158,10 +1159,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("ad90951ced3e18b1").render;
     script.staticRenderFns = require("ad90951ced3e18b1").staticRenderFns;
-    script._scopeId = "data-v-e32f67";
+    script._scopeId = "data-v-10af81";
     script.__cssModules = require("6bbdd55cc247d950").default;
     require("3c30f226f8b68e80").default(script);
-    script.__scopeId = 'data-v-e32f67';
+    script.__scopeId = 'data-v-10af81';
     script.__file = "showTestList.vue";
 };
 initialize();
@@ -1513,9 +1514,9 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("7926ce54eac87a8f").render;
     script.staticRenderFns = require("7926ce54eac87a8f").staticRenderFns;
-    script._scopeId = "data-v-379907";
+    script._scopeId = "data-v-7befcd";
     require("7b5f6cfe9455c7e1").default(script);
-    script.__scopeId = 'data-v-379907';
+    script.__scopeId = 'data-v-7befcd';
     script.__file = "BtnTooltip.vue";
 };
 initialize();
@@ -1835,9 +1836,9 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("cab1f9d9d64f27ae").render;
     script.staticRenderFns = require("cab1f9d9d64f27ae").staticRenderFns;
-    script._scopeId = "data-v-763721";
+    script._scopeId = "data-v-8d775f";
     require("7d546d397ae991cf").default(script);
-    script.__scopeId = 'data-v-763721';
+    script.__scopeId = 'data-v-8d775f';
     script.__file = "AdvenceSettings.vue";
 };
 initialize();
@@ -2000,10 +2001,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("6fc4eca86727e31a").render;
     script.staticRenderFns = require("6fc4eca86727e31a").staticRenderFns;
-    script._scopeId = "data-v-e0a7a2";
+    script._scopeId = "data-v-b24063";
     script.__cssModules = require("ec766ff4aaf1e79a").default;
     require("a58a4919c4c9145c").default(script);
-    script.__scopeId = 'data-v-e0a7a2';
+    script.__scopeId = 'data-v-b24063';
     script.__file = "DialogAddCat.vue";
 };
 initialize();
@@ -2642,9 +2643,9 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("bb7b4f4c9f1cd414").render;
     script.staticRenderFns = require("bb7b4f4c9f1cd414").staticRenderFns;
-    script._scopeId = "data-v-943d53";
+    script._scopeId = "data-v-73ba2e";
     require("22d93ec9b291d073").default(script);
-    script.__scopeId = 'data-v-943d53';
+    script.__scopeId = 'data-v-73ba2e';
     script.__file = "AdvenceSettingStructure.vue";
 };
 initialize();
@@ -3374,10 +3375,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("36a63cf3b4adc00b").render;
     script.staticRenderFns = require("36a63cf3b4adc00b").staticRenderFns;
-    script._scopeId = "data-v-f3aa04";
+    script._scopeId = "data-v-276c0d";
     script.__cssModules = require("4a1a94dee6b914e6").default;
     require("3fa5a73ea5c1ae8e").default(script);
-    script.__scopeId = 'data-v-f3aa04';
+    script.__scopeId = 'data-v-276c0d';
     script.__file = "SpatialDiffSettings.vue";
 };
 initialize();
@@ -3748,9 +3749,9 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("5ac3b00dec018d3b").render;
     script.staticRenderFns = require("5ac3b00dec018d3b").staticRenderFns;
-    script._scopeId = "data-v-34b1d6";
+    script._scopeId = "data-v-011d51";
     require("46130936a38e9a6b").default(script);
-    script.__scopeId = 'data-v-34b1d6';
+    script.__scopeId = 'data-v-011d51';
     script.__file = "SpinalTableDiffInfo.vue";
 };
 initialize();
@@ -3894,9 +3895,9 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("9363630113aadfc8").render;
     script.staticRenderFns = require("9363630113aadfc8").staticRenderFns;
-    script._scopeId = "data-v-93438f";
+    script._scopeId = "data-v-f62579";
     require("9b9390b922fef28f").default(script);
-    script.__scopeId = 'data-v-93438f';
+    script.__scopeId = 'data-v-f62579';
     script.__file = "SpinalTableDel.vue";
 };
 initialize();
@@ -4027,9 +4028,9 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("9561c198c80f025e").render;
     script.staticRenderFns = require("9561c198c80f025e").staticRenderFns;
-    script._scopeId = "data-v-beeda8";
+    script._scopeId = "data-v-27ccf2";
     require("d203fed6a4d00585").default(script);
-    script.__scopeId = 'data-v-beeda8';
+    script.__scopeId = 'data-v-27ccf2';
     script.__file = "SpinalTableRoomNew.vue";
 };
 initialize();
@@ -4120,10 +4121,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("147db5c02c23d8d4").render;
     script.staticRenderFns = require("147db5c02c23d8d4").staticRenderFns;
-    script._scopeId = "data-v-7a5fa5";
+    script._scopeId = "data-v-21c3cc";
     script.__cssModules = require("819ce40583937024").default;
     require("846df68aae200510").default(script);
-    script.__scopeId = 'data-v-7a5fa5';
+    script.__scopeId = 'data-v-21c3cc';
     script.__file = "SpinalRoomNew.vue";
 };
 initialize();
@@ -4196,10 +4197,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("c6062af9fa29609e").render;
     script.staticRenderFns = require("c6062af9fa29609e").staticRenderFns;
-    script._scopeId = "data-v-72e506";
+    script._scopeId = "data-v-a9c129";
     script.__cssModules = require("f0e78a4e9cbab728").default;
     require("8887e04c2577b111").default(script);
-    script.__scopeId = 'data-v-72e506';
+    script.__scopeId = 'data-v-a9c129';
     script.__file = "BtnGroupViewInViewer.vue";
 };
 initialize();
@@ -4638,10 +4639,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("a1572ede2ec05708").render;
     script.staticRenderFns = require("a1572ede2ec05708").staticRenderFns;
-    script._scopeId = "data-v-a5eb2f";
+    script._scopeId = "data-v-4b0e9d";
     script.__cssModules = require("64203b026dce6f49").default;
     require("4c3d058ae80b1210").default(script);
-    script.__scopeId = 'data-v-a5eb2f';
+    script.__scopeId = 'data-v-4b0e9d';
     script.__file = "SpinalTableRoomUpdate.vue";
 };
 initialize();
@@ -4716,10 +4717,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("a2d7eb7a8e4d8d").render;
     script.staticRenderFns = require("a2d7eb7a8e4d8d").staticRenderFns;
-    script._scopeId = "data-v-62c676";
+    script._scopeId = "data-v-582823";
     script.__cssModules = require("be9b1ce7f85cac4d").default;
     require("19184ddcfdf95881").default(script);
-    script.__scopeId = 'data-v-62c676';
+    script.__scopeId = 'data-v-582823';
     script.__file = "SpinalTableRoomUpdateDetails.vue";
 };
 initialize();
@@ -5111,9 +5112,9 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("6644a5d87911711a").render;
     script.staticRenderFns = require("6644a5d87911711a").staticRenderFns;
-    script._scopeId = "data-v-69928f";
+    script._scopeId = "data-v-70e0cf";
     require("4b04935ae051d55b").default(script);
-    script.__scopeId = 'data-v-69928f';
+    script.__scopeId = 'data-v-70e0cf';
     script.__file = "SpinalTableStructNew.vue";
 };
 initialize();
@@ -5955,6 +5956,20 @@ var render = function() {
                     ], 1),
                     _vm._v(" "),
                     _c('v-card-actions', [
+                        _c('v-btn', {
+                            attrs: {
+                                "color": "darken-1",
+                                "flat": "flat"
+                            },
+                            on: {
+                                "click": function($event) {
+                                    _vm.selectedModelModal.length === _vm.bimfiles.length ? _vm.selectedModelModal = [] : _vm.selectedModelModal = _vm.bimfiles.slice();
+                                }
+                            }
+                        }, [
+                            _vm._v("\n            " + _vm._s(_vm.selectedModelModal.length === _vm.bimfiles.length ? 'unselect all' : 'select all') + "\n          ")
+                        ]),
+                        _vm._v(" "),
                         _c('v-spacer'),
                         _vm._v(" "),
                         _c('v-btn', {
@@ -5988,7 +6003,7 @@ var render = function() {
             _vm._v(" "),
             _c('v-dialog', {
                 attrs: {
-                    "fill-width": ""
+                    "width": "500"
                 },
                 model: {
                     value: _vm.showDialogCenterPos,
@@ -6029,7 +6044,7 @@ var render = function() {
                                                     }
                                                 ],
                                                 attrs: {
-                                                    "value": tile.props.value,
+                                                    "value": _vm.selectedFloorNames.includes(item),
                                                     "label": item
                                                 }
                                             })
@@ -6048,6 +6063,20 @@ var render = function() {
                     ], 1),
                     _vm._v(" "),
                     _c('v-card-actions', [
+                        _c('v-btn', {
+                            attrs: {
+                                "color": "darken-1",
+                                "flat": "flat"
+                            },
+                            on: {
+                                "click": function($event) {
+                                    _vm.selectedFloorNames.length === _vm.floorsNames.length ? _vm.selectedFloorNames = [] : _vm.selectedFloorNames = _vm.floorsNames.slice();
+                                }
+                            }
+                        }, [
+                            _vm._v("\n            " + _vm._s(_vm.selectedFloorNames.length === _vm.floorsNames.length ? 'unselect all' : 'select all') + "\n          ")
+                        ]),
+                        _vm._v(" "),
                         _c('v-spacer'),
                         _vm._v(" "),
                         _c('v-btn', {
@@ -6143,10 +6172,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("767a9bbddfd07f99").render;
     script.staticRenderFns = require("767a9bbddfd07f99").staticRenderFns;
-    script._scopeId = "data-v-193e4a";
+    script._scopeId = "data-v-8b61b5";
     script.__cssModules = require("9d0f1833590e0c0b").default;
     require("6808993b12ec982").default(script);
-    script.__scopeId = 'data-v-193e4a';
+    script.__scopeId = 'data-v-8b61b5';
     script.__file = "ProjectObjectInContext.vue";
 };
 initialize();
@@ -6470,10 +6499,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("3ed887e590c64141").render;
     script.staticRenderFns = require("3ed887e590c64141").staticRenderFns;
-    script._scopeId = "data-v-c4e1ac";
+    script._scopeId = "data-v-be0fc4";
     script.__cssModules = require("c544968f9be3d70d").default;
     require("19d3c78000f22dde").default(script);
-    script.__scopeId = 'data-v-c4e1ac';
+    script.__scopeId = 'data-v-be0fc4';
     script.__file = "GroupConfig.vue";
 };
 initialize();
@@ -6549,9 +6578,9 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("cef261b3c2623ca0").render;
     script.staticRenderFns = require("cef261b3c2623ca0").staticRenderFns;
-    script._scopeId = "data-v-dd6bf7";
+    script._scopeId = "data-v-c24a86";
     require("39af4446494e8e95").default(script);
-    script.__scopeId = 'data-v-dd6bf7';
+    script.__scopeId = 'data-v-c24a86';
     script.__file = "AddAGroupConfig.vue";
 };
 initialize();
@@ -6709,9 +6738,9 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("73de4440da56012e").render;
     script.staticRenderFns = require("73de4440da56012e").staticRenderFns;
-    script._scopeId = "data-v-63935e";
+    script._scopeId = "data-v-06fb4b";
     require("c84d2ce81a049bdc").default(script);
-    script.__scopeId = 'data-v-63935e';
+    script.__scopeId = 'data-v-06fb4b';
     script.__file = "GroupConfigItemBtn.vue";
 };
 initialize();
@@ -7093,10 +7122,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("fb88a14bfe643078").render;
     script.staticRenderFns = require("fb88a14bfe643078").staticRenderFns;
-    script._scopeId = "data-v-28cc98";
+    script._scopeId = "data-v-933f53";
     script.__cssModules = require("9a114330b3c17ae0").default;
     require("793cb238d3286a53").default(script);
-    script.__scopeId = 'data-v-28cc98';
+    script.__scopeId = 'data-v-933f53';
     script.__file = "SelectedGroup.vue";
 };
 initialize();
@@ -7224,10 +7253,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("dc2ce155e7099b44").render;
     script.staticRenderFns = require("dc2ce155e7099b44").staticRenderFns;
-    script._scopeId = "data-v-1802bc";
+    script._scopeId = "data-v-d7e927";
     script.__cssModules = require("d4cffe5b050e49d2").default;
     require("95942f7ac33d1af0").default(script);
-    script.__scopeId = 'data-v-1802bc';
+    script.__scopeId = 'data-v-d7e927';
     script.__file = "AddAGroup.vue";
 };
 initialize();
@@ -7450,9 +7479,9 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("e091960448e77787").render;
     script.staticRenderFns = require("e091960448e77787").staticRenderFns;
-    script._scopeId = "data-v-9cfe97";
+    script._scopeId = "data-v-d4bf86";
     require("102b1524cac8b1f6").default(script);
-    script.__scopeId = 'data-v-9cfe97';
+    script.__scopeId = 'data-v-d4bf86';
     script.__file = "BimGroupsListHeaderBouttons.vue";
 };
 initialize();
@@ -7688,10 +7717,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("2433d421089c2f9b").render;
     script.staticRenderFns = require("2433d421089c2f9b").staticRenderFns;
-    script._scopeId = "data-v-04e0b0";
+    script._scopeId = "data-v-de9e31";
     script.__cssModules = require("a15c2408aca50823").default;
     require("7b3e9e68d9f2feb").default(script);
-    script.__scopeId = 'data-v-04e0b0';
+    script.__scopeId = 'data-v-de9e31';
     script.__file = "BimGroupsItemContent.vue";
 };
 initialize();
@@ -7860,10 +7889,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("25986ec6b4121bc").render;
     script.staticRenderFns = require("25986ec6b4121bc").staticRenderFns;
-    script._scopeId = "data-v-5a534c";
+    script._scopeId = "data-v-a8aed3";
     script.__cssModules = require("d9b0c33c97431722").default;
     require("5c1cbb1910592beb").default(script);
-    script.__scopeId = 'data-v-5a534c';
+    script.__scopeId = 'data-v-a8aed3';
     script.__file = "BimGroupsItemEdit.vue";
 };
 initialize();
@@ -7971,10 +8000,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("92c87ad29a40e2b3").render;
     script.staticRenderFns = require("92c87ad29a40e2b3").staticRenderFns;
-    script._scopeId = "data-v-8d1d12";
+    script._scopeId = "data-v-7c1283";
     script.__cssModules = require("e8d230a1be906695").default;
     require("8076d7254d7a949f").default(script);
-    script.__scopeId = 'data-v-8d1d12';
+    script.__scopeId = 'data-v-7c1283';
     script.__file = "BimGroupsItemEditOffset.vue";
 };
 initialize();
@@ -8850,10 +8879,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("c594e15d8284cd9b").render;
     script.staticRenderFns = require("c594e15d8284cd9b").staticRenderFns;
-    script._scopeId = "data-v-52b030";
+    script._scopeId = "data-v-7d4365";
     script.__cssModules = require("1f58f2970fac1e7b").default;
     require("a7af05c09bc8d8c9").default(script);
-    script.__scopeId = 'data-v-52b030';
+    script.__scopeId = 'data-v-7d4365';
     script.__file = "AssignFloor.vue";
 };
 initialize();
@@ -9343,10 +9372,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("9d035768641302f6").render;
     script.staticRenderFns = require("9d035768641302f6").staticRenderFns;
-    script._scopeId = "data-v-289f5a";
+    script._scopeId = "data-v-5c7bb6";
     script.__cssModules = require("29d92b5b2089ea39").default;
     require("1bfe16ae6bdf940").default(script);
-    script.__scopeId = 'data-v-289f5a';
+    script.__scopeId = 'data-v-5c7bb6';
     script.__file = "AssingView.vue";
 };
 initialize();
@@ -9427,10 +9456,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("b86cfd3fada2dc7a").render;
     script.staticRenderFns = require("b86cfd3fada2dc7a").staticRenderFns;
-    script._scopeId = "data-v-d2f2c7";
+    script._scopeId = "data-v-0b5d8a";
     script.__cssModules = require("579bd541f2ec37d8").default;
     require("d2dee664bba8d226").default(script);
-    script.__scopeId = 'data-v-d2f2c7';
+    script.__scopeId = 'data-v-0b5d8a';
     script.__file = "AssingDataView.vue";
 };
 initialize();
@@ -9529,10 +9558,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("8043542bd11e51be").render;
     script.staticRenderFns = require("8043542bd11e51be").staticRenderFns;
-    script._scopeId = "data-v-5560a9";
+    script._scopeId = "data-v-52292c";
     script.__cssModules = require("fb4c8d47e2298361").default;
     require("abb244c93fc2a724").default(script);
-    script.__scopeId = 'data-v-5560a9';
+    script.__scopeId = 'data-v-52292c';
     script.__file = "AssingDataViewList.vue";
 };
 initialize();
@@ -9629,10 +9658,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("17462c0befa24b04").render;
     script.staticRenderFns = require("17462c0befa24b04").staticRenderFns;
-    script._scopeId = "data-v-783ac9";
+    script._scopeId = "data-v-f8f298";
     script.__cssModules = require("260594d71246258a").default;
     require("3bd84b9af9144ee9").default(script);
-    script.__scopeId = 'data-v-783ac9';
+    script.__scopeId = 'data-v-f8f298';
     script.__file = "AssignDataViewRoomName.vue";
 };
 initialize();
@@ -11042,10 +11071,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("5bdc2be33592b255").render;
     script.staticRenderFns = require("5bdc2be33592b255").staticRenderFns;
-    script._scopeId = "data-v-16a148";
+    script._scopeId = "data-v-0e374b";
     script.__cssModules = require("5e94c97249626d9b").default;
     require("95f9cf92371054d2").default(script);
-    script.__scopeId = 'data-v-16a148';
+    script.__scopeId = 'data-v-0e374b';
     script.__file = "SpinalDiffViewer.vue";
 };
 initialize();
@@ -11131,10 +11160,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("519265e0c902e647").render;
     script.staticRenderFns = require("519265e0c902e647").staticRenderFns;
-    script._scopeId = "data-v-2f38dd";
+    script._scopeId = "data-v-618175";
     script.__cssModules = require("bbacf12dc2fd3d83").default;
     require("6ff32198bd7c2e93").default(script);
-    script.__scopeId = 'data-v-2f38dd';
+    script.__scopeId = 'data-v-618175';
     script.__file = "SpinalDiffFloorViewer.vue";
 };
 initialize();
@@ -11668,9 +11697,9 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("cc9bd09bff684564").render;
     script.staticRenderFns = require("cc9bd09bff684564").staticRenderFns;
-    script._scopeId = "data-v-aa1888";
+    script._scopeId = "data-v-73ba12";
     require("af7da5013f42ffaf").default(script);
-    script.__scopeId = 'data-v-aa1888';
+    script.__scopeId = 'data-v-73ba12';
     script.__file = "CmdRunViewer.vue";
 };
 initialize();
@@ -11785,10 +11814,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("63888420c3bb5afb").render;
     script.staticRenderFns = require("63888420c3bb5afb").staticRenderFns;
-    script._scopeId = "data-v-de44a9";
+    script._scopeId = "data-v-d41934";
     script.__cssModules = require("bab77301b9884030").default;
     require("f4b6b623a7769e2d").default(script);
-    script.__scopeId = 'data-v-de44a9';
+    script.__scopeId = 'data-v-d41934';
     script.__file = "CmdRunViewerGeo.vue";
 };
 initialize();
@@ -11906,10 +11935,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("b1518935342ae186").render;
     script.staticRenderFns = require("b1518935342ae186").staticRenderFns;
-    script._scopeId = "data-v-a61f7a";
+    script._scopeId = "data-v-147bc7";
     script.__cssModules = require("1f53f0213e11cd01").default;
     require("d651bfdd22ae5d64").default(script);
-    script.__scopeId = 'data-v-a61f7a';
+    script.__scopeId = 'data-v-147bc7';
     script.__file = "CmdRunViewerProjection.vue";
 };
 initialize();
@@ -12221,10 +12250,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("527aaf6c8ed0ff1b").render;
     script.staticRenderFns = require("527aaf6c8ed0ff1b").staticRenderFns;
-    script._scopeId = "data-v-45152e";
+    script._scopeId = "data-v-c40568";
     script.__cssModules = require("1c2d5ae62d500295").default;
     require("3e7c781798feedc9").default(script);
-    script.__scopeId = 'data-v-45152e';
+    script.__scopeId = 'data-v-c40568';
     script.__file = "SpinalMergeBimGeo.vue";
 };
 initialize();
