@@ -1,0 +1,32 @@
+#div-level[data-v-180bb9] {
+  display: flex;
+}
+
+#level-field[data-v-180bb9], #param-field[data-v-180bb9] {
+  margin-right: 20px;
+}
+
+.button-add-level[data-v-b83f77] {
+  width: 45%;
+}
+
+#launch-step[data-v-3e4885] {
+  text-align: center;
+}
+
+#progress-bar[data-v-3e4885] {
+  height: 20px;
+}
+
+div#steppers {
+  background-color: unset;
+}
+
+#steppers * {
+  box-sizing: border-box;
+}
+
+#context-name[data-v-e6e3e2] {
+  text-align: center;
+}
+/*# sourceMappingURL=spinal-env-viewer-plugin-generate_geographic_context.7df4c37c.css.map */

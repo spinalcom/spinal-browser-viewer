@@ -1,0 +1,57 @@
+.plugin-spinal-linker-legend[data-v-57c99e] {
+  cursor: pointer;
+  background-color: #212121;
+  height: 35px;
+}
+
+.plugin-spinal-linker-legend[data-v-57c99e]:hover {
+  background-color: #333;
+}
+
+.plugin-spinal-linker * {
+  box-sizing: border-box;
+}
+
+.plugin-spinal-linker .plugin-spinal-linker-toolbar .v-toolbar__content {
+  justify-content: space-between;
+  display: flex;
+}
+
+.plugin-spinal-linker .plugin-spinal-linker-layout .plugin-spinal-linker-treeview .v-treeview-node__label {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 50px;
+  display: block;
+  overflow: hidden;
+}
+
+.plugin-spinal-linker[data-v-e94f18] {
+  width: 100%;
+  height: calc(100% - 20px);
+  overflow: hidden;
+}
+
+.spinal-linker-label-name[data-v-e94f18] {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.plugin-spinal-linker-layout[data-v-e94f18] {
+  height: calc(100% - 99px);
+  display: block;
+  overflow: auto;
+}
+
+.plugin-spinal-linker-in-context-checkbox[data-v-e94f18], .plugin-spinal-linker-validate-relation-btn[data-v-e94f18] {
+  margin: 0;
+}
+
+.plugin-spinal-linker-legend-item[data-v-e94f18] {
+  padding: 2px 8px;
+}
+
+.plugin-spinal-linker-legend[data-v-e94f18] {
+  height: 31px;
+}
+/*# sourceMappingURL=spinal-env-viewer-plugin-spinal-linker.581b50f9.css.map */

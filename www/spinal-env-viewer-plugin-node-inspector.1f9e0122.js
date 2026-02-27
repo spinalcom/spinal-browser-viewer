@@ -1,0 +1,874 @@
+// modules are defined as an array
+// [ module function, map of requires ]
+//
+// map of requires is short require name -> numeric require
+//
+// anything defined in a previous bundle is accessed via the
+// orig method which is the require for previous bundles
+
+(function (
+  modules,
+  entry,
+  mainEntry,
+  parcelRequireName,
+  externals,
+  distDir,
+  publicUrl,
+  devServer
+) {
+  /* eslint-disable no-undef */
+  var globalObject =
+    typeof globalThis !== 'undefined'
+      ? globalThis
+      : typeof self !== 'undefined'
+      ? self
+      : typeof window !== 'undefined'
+      ? window
+      : typeof global !== 'undefined'
+      ? global
+      : {};
+  /* eslint-enable no-undef */
+
+  // Save the require from previous bundle to this closure if any
+  var previousRequire =
+    typeof globalObject[parcelRequireName] === 'function' &&
+    globalObject[parcelRequireName];
+
+  var importMap = previousRequire.i || {};
+  var cache = previousRequire.cache || {};
+  // Do not use `require` to prevent Webpack from trying to bundle this call
+  var nodeRequire =
+    typeof module !== 'undefined' &&
+    typeof module.require === 'function' &&
+    module.require.bind(module);
+
+  function newRequire(name, jumped) {
+    if (!cache[name]) {
+      if (!modules[name]) {
+        if (externals[name]) {
+          return externals[name];
+        }
+        // if we cannot find the module within our internal map or
+        // cache jump to the current global require ie. the last bundle
+        // that was added to the page.
+        var currentRequire =
+          typeof globalObject[parcelRequireName] === 'function' &&
+          globalObject[parcelRequireName];
+        if (!jumped && currentRequire) {
+          return currentRequire(name, true);
+        }
+
+        // If there are other bundles on this page the require from the
+        // previous one is saved to 'previousRequire'. Repeat this as
+        // many times as there are bundles until the module is found or
+        // we exhaust the require chain.
+        if (previousRequire) {
+          return previousRequire(name, true);
+        }
+
+        // Try the node require function if it exists.
+        if (nodeRequire && typeof name === 'string') {
+          return nodeRequire(name);
+        }
+
+        var err = new Error("Cannot find module '" + name + "'");
+        err.code = 'MODULE_NOT_FOUND';
+        throw err;
+      }
+
+      localRequire.resolve = resolve;
+      localRequire.cache = {};
+
+      var module = (cache[name] = new newRequire.Module(name));
+
+      modules[name][0].call(
+        module.exports,
+        localRequire,
+        module,
+        module.exports,
+        globalObject
+      );
+    }
+
+    return cache[name].exports;
+
+    function localRequire(x) {
+      var res = localRequire.resolve(x);
+      if (res === false) {
+        return {};
+      }
+      // Synthesize a module to follow re-exports.
+      if (Array.isArray(res)) {
+        var m = {__esModule: true};
+        res.forEach(function (v) {
+          var key = v[0];
+          var id = v[1];
+          var exp = v[2] || v[0];
+          var x = newRequire(id);
+          if (key === '*') {
+            Object.keys(x).forEach(function (key) {
+              if (
+                key === 'default' ||
+                key === '__esModule' ||
+                Object.prototype.hasOwnProperty.call(m, key)
+              ) {
+                return;
+              }
+
+              Object.defineProperty(m, key, {
+                enumerable: true,
+                get: function () {
+                  return x[key];
+                },
+              });
+            });
+          } else if (exp === '*') {
+            Object.defineProperty(m, key, {
+              enumerable: true,
+              value: x,
+            });
+          } else {
+            Object.defineProperty(m, key, {
+              enumerable: true,
+              get: function () {
+                if (exp === 'default') {
+                  return x.__esModule ? x.default : x;
+                }
+                return x[exp];
+              },
+            });
+          }
+        });
+        return m;
+      }
+      return newRequire(res);
+    }
+
+    function resolve(x) {
+      var id = modules[name][1][x];
+      return id != null ? id : x;
+    }
+  }
+
+  function Module(moduleName) {
+    this.id = moduleName;
+    this.bundle = newRequire;
+    this.require = nodeRequire;
+    this.exports = {};
+  }
+
+  newRequire.isParcelRequire = true;
+  newRequire.Module = Module;
+  newRequire.modules = modules;
+  newRequire.cache = cache;
+  newRequire.parent = previousRequire;
+  newRequire.distDir = distDir;
+  newRequire.publicUrl = publicUrl;
+  newRequire.devServer = devServer;
+  newRequire.i = importMap;
+  newRequire.register = function (id, exports) {
+    modules[id] = [
+      function (require, module) {
+        module.exports = exports;
+      },
+      {},
+    ];
+  };
+
+  // Only insert newRequire.load when it is actually used.
+  // The code in this file is linted against ES5, so dynamic import is not allowed.
+  // INSERT_LOAD_HERE
+
+  Object.defineProperty(newRequire, 'root', {
+    get: function () {
+      return globalObject[parcelRequireName];
+    },
+  });
+
+  globalObject[parcelRequireName] = newRequire;
+
+  for (var i = 0; i < entry.length; i++) {
+    newRequire(entry[i]);
+  }
+
+  if (mainEntry) {
+    // Expose entry point to Node, AMD or browser globals
+    // Based on https://github.com/ForbesLindesay/umd/blob/master/template.js
+    var mainExports = newRequire(mainEntry);
+
+    // CommonJS
+    if (typeof exports === 'object' && typeof module !== 'undefined') {
+      module.exports = mainExports;
+
+      // RequireJS
+    } else if (typeof define === 'function' && define.amd) {
+      define(function () {
+        return mainExports;
+      });
+    }
+  }
+})({"4NaUM":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+var _vue = require("vue");
+var _vueDefault = parcelHelpers.interopDefault(_vue);
+var _spinalEnvViewerContextMenuService = require("spinal-env-viewer-context-menu-service");
+var _spinalEnvViewerPanelManagerService = require("spinal-env-viewer-panel-manager-service");
+var _nodeInspectorModalVue = require("./src/node-inspector-modal.vue");
+var _nodeInspectorModalVueDefault = parcelHelpers.interopDefault(_nodeInspectorModalVue);
+var _nodeInspectorButton = require("./src/button/NodeInspectorButton");
+const sideBarName = "GraphManagerSideBar";
+const circularMenu = "circularMenu";
+(0, _spinalEnvViewerContextMenuService.spinalContextMenuService).registerApp(sideBarName, new (0, _nodeInspectorButton.NodeInspectorButton)(), [
+    7
+]);
+(0, _spinalEnvViewerContextMenuService.spinalContextMenuService).registerApp(circularMenu, new (0, _nodeInspectorButton.NodeInspectorButton)(), [
+    7
+]);
+(0, _spinalEnvViewerPanelManagerService.SpinalMountExtention).mount({
+    name: 'plugin-node-inspector',
+    vueMountComponent: (0, _vueDefault.default).extend((0, _nodeInspectorModalVueDefault.default)),
+    parentContainer: document.body
+});
+
+},{"vue":"hO3OD","spinal-env-viewer-context-menu-service":"3h19D","spinal-env-viewer-panel-manager-service":"egTXY","./src/node-inspector-modal.vue":"6TdJn","./src/button/NodeInspectorButton":"5A0L5","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"egTXY":[function(require,module,exports,__globalThis) {
+/*
+ * Copyright 2018 SpinalCom - www.spinalcom.com
+ *
+ * This file is part of SpinalCore.
+ *
+ * Please read all of the following terms and conditions
+ * of the Free Software license Agreement ("Agreement")
+ * carefully.
+ *
+ * This Agreement is a legally binding contract between
+ * the Licensee (as defined below) and SpinalCom that
+ * sets forth the terms and conditions that govern your
+ * use of the Program. By installing and/or using the
+ * Program, you agree to abide by all the terms and
+ * conditions stated or referenced herein.
+ *
+ * If you do not agree to abide by these terms and
+ * conditions, do not demonstrate your acceptance and do
+ * not install or use the Program.
+ * You should have received a copy of the license along
+ * with this file. If not, see
+ * <http://resources.spinalcom.com/licenses.pdf>.
+ */ var global = arguments[3];
+const G_root = typeof window == "undefined" ? global : window;
+const SpinalPanelManagerService = require("8b71a79dcc12420e");
+const SpinalPanelApp = require("e47c36529e942a76");
+if (typeof G_root.spinal === "undefined") G_root.spinal = {};
+if (typeof G_root.spinal.spinalPanelManagerService === "undefined") G_root.spinal.spinalPanelManagerService = new SpinalPanelManagerService();
+const SpinalMountExtention = require("cfd4c6200ba55765")(G_root.spinal.spinalPanelManagerService, SpinalPanelApp);
+module.exports = {
+    spinalPanelManagerService: G_root.spinal.spinalPanelManagerService,
+    SpinalPanelApp,
+    SpinalMountExtention,
+    install (Vue) {
+        Vue.prototype.$spinalPanelManagerService = G_root.spinal.spinalPanelManagerService;
+    }
+};
+
+},{"8b71a79dcc12420e":"iFBrU","e47c36529e942a76":"637DX","cfd4c6200ba55765":"3DhXk"}],"iFBrU":[function(require,module,exports,__globalThis) {
+/*
+ * Copyright 2018 SpinalCom - www.spinalcom.com
+ *
+ * This file is part of SpinalCore.
+ *
+ * Please read all of the following terms and conditions
+ * of the Free Software license Agreement ("Agreement")
+ * carefully.
+ *
+ * This Agreement is a legally binding contract between
+ * the Licensee (as defined below) and SpinalCom that
+ * sets forth the terms and conditions that govern your
+ * use of the Program. By installing and/or using the
+ * Program, you agree to abide by all the terms and
+ * conditions stated or referenced herein.
+ *
+ * If you do not agree to abide by these terms and
+ * conditions, do not demonstrate your acceptance and do
+ * not install or use the Program.
+ * You should have received a copy of the license along
+ * with this file. If not, see
+ * <http://resources.spinalcom.com/licenses.pdf>.
+ */ /**
+ *  Containter like service to register and get applications relative to a hookname
+ *
+ * @property {object} panels key = panelName, value = an instance of SpinalPanelApp
+ * @class SpinalPanelManagerService
+ */ class SpinalPanelManagerService {
+    /**
+   *Creates an instance of SpinalPanelManagerService.
+   * @memberof SpinalPanelManagerService
+   */ constructor(){
+        this.panels = {};
+    }
+    /**
+   * method to register an Panel Application
+   *
+   * @param {string} panelName the name of the panel
+   * @param {SpinalPanelApp} spinalPanelApp the application
+   * @memberof SpinalPanelManagerService
+   */ registerPanel(panelName, spinalPanelApp) {
+        this.panels[panelName] = spinalPanelApp;
+    }
+    /**
+   *
+   *
+   * @param {*} panelName
+   * @param {*} option
+   * @returns {bool}
+   * @memberof SpinalPanelManagerService
+   */ openPanel(panelName, option) {
+        if (typeof this.panels[panelName] !== "undefined") return this.panels[panelName].openPanel(option);
+        return false;
+    }
+    /**
+   *
+   *
+   * @param {*} panelName
+   * @param {*} option
+   * @returns {bool}
+   * @memberof SpinalPanelManagerService
+   */ closePanel(panelName, option) {
+        if (typeof this.panels[panelName] !== "undefined") return this.panels[panelName].closePanel(option);
+        return false;
+    }
+    /**
+   *
+   *
+   * @param {*} panelName
+   * @param {*} option
+   * @returns {bool}
+   * @memberof SpinalPanelManagerService
+   */ tooglePanel(panelName, option) {
+        if (typeof this.panels[panelName] !== "undefined") return this.panels[panelName].tooglePanel(option);
+        return false;
+    }
+}
+module.exports = SpinalPanelManagerService;
+
+},{}],"637DX":[function(require,module,exports,__globalThis) {
+/*
+ * Copyright 2018 SpinalCom - www.spinalcom.com
+ *
+ * This file is part of SpinalCore.
+ *
+ * Please read all of the following terms and conditions
+ * of the Free Software license Agreement ("Agreement")
+ * carefully.
+ *
+ * This Agreement is a legally binding contract between
+ * the Licensee (as defined below) and SpinalCom that
+ * sets forth the terms and conditions that govern your
+ * use of the Program. By installing and/or using the
+ * Program, you agree to abide by all the terms and
+ * conditions stated or referenced herein.
+ *
+ * If you do not agree to abide by these terms and
+ * conditions, do not demonstrate your acceptance and do
+ * not install or use the Program.
+ * You should have received a copy of the license along
+ * with this file. If not, see
+ * <http://resources.spinalcom.com/licenses.pdf>.
+ */ /**
+ * Base interface like class of a panel
+ *
+ * @class SpinalPanelApp
+ */ class SpinalPanelApp {
+    constructor(){}
+    openPanel(option) {}
+    closePanel(option) {}
+    tooglePanel(option) {}
+}
+module.exports = SpinalPanelApp;
+
+},{}],"3DhXk":[function(require,module,exports,__globalThis) {
+/*
+ * Copyright 2018 SpinalCom - www.spinalcom.com
+ *
+ * This file is part of SpinalCore.
+ *
+ * Please read all of the following terms and conditions
+ * of the Free Software license Agreement ("Agreement")
+ * carefully.
+ *
+ * This Agreement is a legally binding contract between
+ * the Licensee (as defined below) and SpinalCom that
+ * sets forth the terms and conditions that govern your
+ * use of the Program. By installing and/or using the
+ * Program, you agree to abide by all the terms and
+ * conditions stated or referenced herein.
+ *
+ * If you do not agree to abide by these terms and
+ * conditions, do not demonstrate your acceptance and do
+ * not install or use the Program.
+ * You should have received a copy of the license along
+ * with this file. If not, see
+ * <http://resources.spinalcom.com/licenses.pdf>.
+ */ function configInit(option) {
+    const cfg = {};
+    if (!option.vueMountComponent) throw new Error("mount : missing option vueMountComponent");
+    cfg.name = option.name || "SpinalMount";
+    cfg.vueMountComponent = option.vueMountComponent;
+    cfg.parentContainer = option.parentContainer || document.body;
+    return cfg;
+}
+function getDialog() {
+    if (!this.dialog) {
+        this.dialog = document.createElement("div");
+        const _compo = document.createElement("div");
+        this.dialog.className = "spinal-modal-container";
+        this.cfg.parentContainer.appendChild(this.dialog);
+        this.dialog.appendChild(_compo);
+        this.compoment = new this.cfg.vueMountComponent({
+            propsData: {
+                onFinised: this.onFinised.bind(this)
+            }
+        }).$mount(_compo);
+    }
+    return this.dialog;
+}
+/**
+ *
+ * @param {*} spinalPanelManagerService
+ * @param {*} SpinalPanelApp
+ * @returns {object} { mount }
+ */ module.exports = function(spinalPanelManagerService, SpinalPanelApp) {
+    return {
+        /**
+```js
+{
+  name: "myCustomDialogName",
+  vueMountComponent: Vue.extend(aVueCompomentDialog),
+  parentContainer: document.body
+}```
+     *
+     * @param {*} option
+     */ mount (option) {
+            let cfg = configInit(option);
+            const SpinalMount = class extends SpinalPanelApp {
+                constructor(){
+                    super();
+                    this.cfg = cfg;
+                    this.dialog = null;
+                    this.compoment = null;
+                }
+                openPanel(opt) {
+                    getDialog.call(this);
+                    this.compoment.opened(opt);
+                }
+                closePanel(opt) {
+                    if (this.dialog !== null) {
+                        this.compoment.removed(opt);
+                        this.dialog.remove();
+                        this.dialog = null;
+                        this.compoment = null;
+                    }
+                }
+                tooglePanel(opt) {
+                    if (this.dialog !== null) this.closePanel(opt);
+                    else this.openPanel(opt);
+                }
+                /**
+         * called when dialog closed by the dialog itself
+         */ onFinised(closeResult) {
+                    this.closePanel(closeResult);
+                }
+            };
+            let SpinalMountInstance = new SpinalMount();
+            spinalPanelManagerService.registerPanel(cfg.name, SpinalMountInstance);
+        }
+    };
+};
+
+},{}],"6TdJn":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+let script;
+let initialize = ()=>{
+    script = require("a17d6a0a5fd933f6");
+    if (script.__esModule) script = script.default;
+    script.render = require("1c34bb601c14db2e").render;
+    script.staticRenderFns = require("1c34bb601c14db2e").staticRenderFns;
+    script._scopeId = "data-v-0cde43";
+    script.__cssModules = require("86cb022f1af5adb9").default;
+    require("4a6a41709bbb4ccf").default(script);
+    script.__scopeId = 'data-v-0cde43';
+    script.__file = "node-inspector-modal.vue";
+};
+initialize();
+exports.default = script;
+
+},{"a17d6a0a5fd933f6":"6lJvM","1c34bb601c14db2e":"e2XU2","86cb022f1af5adb9":"e6rKC","4a6a41709bbb4ccf":"afoS1","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"6lJvM":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _spinalEnvViewerVueComponentsLib = require("spinal-env-viewer-vue-components-lib");
+var _spinalEnvViewerGraphService = require("spinal-env-viewer-graph-service");
+var _spinalCoreConnectorjsType = require("spinal-core-connectorjs_type");
+var _reorderUtils = require("./reorderUtils");
+var scriptExports = {
+    name: "NodeInspectorModal",
+    components: {
+        NodeInspector: (0, _spinalEnvViewerVueComponentsLib.NodeInspector)
+    },
+    data: function() {
+        return {
+            inspectedNode: {},
+            relationNames: [],
+            defaultRelationName: "",
+            childInfo: [],
+            childInfoBkp: [],
+            editMode: false,
+            display: false
+        };
+    },
+    computed: {
+        name: function() {
+            if (this.inspectedNode.hasOwnProperty("name")) return this.inspectedNode.name;
+            return "";
+        }
+    },
+    watch: {
+        inspectedNode: {
+            handler: function(value) {
+                if (value.hasOwnProperty("_server_id")) {
+                    this.relationNames = this.getRelationNames(value);
+                    if (this.relationNames.length > 0) this.defaultRelationName = this.relationNames[0];
+                    return this.getChildren(this.defaultRelationName);
+                }
+            },
+            immediate: true
+        }
+    },
+    methods: {
+        getInfo (node) {
+            const item = {
+                _server_id: node._server_id
+            };
+            if (node.info.name) item.name = node.info.name.get();
+            if (node.info.id) item.id = node.info.id.get();
+            return item;
+        },
+        getInfoFromRef (nodeRef) {
+            const realNode = (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(nodeRef.id.get());
+            const item = {
+                _server_id: realNode._server_id
+            };
+            if (realNode.info.name) item.name = realNode.info.name.get();
+            if (realNode.info.id) item.id = realNode.info.id.get();
+            return item;
+        },
+        getRelationNames (inspectedNode) {
+            const node = (0, _spinalCoreConnectorjsType.FileSystem)._objects[inspectedNode._server_id];
+            return node.getRelationNames();
+        },
+        opened: function(option) {
+            this.inspectedNode = this.getInfoFromRef(option.selectedNode);
+            this.display = true;
+        },
+        closed: function() {},
+        removeFromGraph: function(id) {
+            (0, _spinalEnvViewerGraphService.SpinalGraphService).removeFromGraph(id.get());
+            for(let i = 0; i < this.childInfo.length; i++){
+                const child = this.childInfo[i];
+                if (child.id.get() == event.get()) this.childInfo.splice(i);
+            }
+        },
+        removeFromParent: function(id) {
+            console.log("removeFromParent NYI", id);
+        // SpinalGraphService.removeFromGraph(id.get());
+        // for (let i = 0; i < this.childInfo.length; i++) {
+        //   const child = this.childInfo[i];
+        //   if (child.id.get() == event.get()) this.childInfo.splice(i);
+        // }
+        },
+        async getChildren (relationName) {
+            const realNode = (0, _spinalCoreConnectorjsType.FileSystem)._objects[this.inspectedNode._server_id];
+            const children = await realNode.getChildren([
+                relationName
+            ]);
+            this.childInfo = children.map((node)=>{
+                const item = {
+                    _server_id: node._server_id
+                };
+                if (node.info.name) item.name = node.info.name.get();
+                if (node.info.id) item.id = node.info.id.get();
+                return item;
+            });
+        },
+        cancelBtn () {
+            this.editMode = false;
+            // this.childInfo = this.childInfoBkp;
+            this.$refs.nodeInspector.reset();
+        },
+        validBtn () {
+            this.editMode = false;
+            const realNode = (0, _spinalCoreConnectorjsType.FileSystem)._objects[this.inspectedNode._server_id];
+            console.log(realNode);
+            const sortedArray = this.$refs.nodeInspector.returnSort();
+            const relationName = this.$refs.nodeInspector.relationName;
+            (0, _reorderUtils.reorderChildren)(realNode, relationName, sortedArray);
+        // this.childInfo = data;
+        },
+        startEditBtn () {
+            this.editMode = true;
+        // this.$refs.nodeInspector.
+        // this.childInfoBkp = this.childInfo.concat();
+        }
+    }
+};
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
+exports.default = options; // parcel transformer vue2 compiler hack
+
+},{"spinal-env-viewer-vue-components-lib":"ahGkG","spinal-env-viewer-graph-service":"9LAk7","spinal-core-connectorjs_type":"1A32E","./reorderUtils":"13z7f","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"13z7f":[function(require,module,exports,__globalThis) {
+/*
+ * Copyright 2021 SpinalCom - www.spinalcom.com
+ *
+ * This file is part of SpinalCore.
+ *
+ * Please read all of the following terms and conditions
+ * of the Free Software license Agreement ("Agreement")
+ * carefully.
+ *
+ * This Agreement is a legally binding contract between
+ * the Licensee (as defined below) and SpinalCom that
+ * sets forth the terms and conditions that govern your
+ * use of the Program. By installing and/or using the
+ * Program, you agree to abide by all the terms and
+ * conditions stated or referenced herein.
+ *
+ * If you do not agree to abide by these terms and
+ * conditions, do not demonstrate your acceptance and do
+ * not install or use the Program.
+ * You should have received a copy of the license along
+ * with this file. If not, see
+ * <http://resources.spinalcom.com/licenses.pdf>.
+ */ /* eslint-disable no-await-in-loop */ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+/**
+ * @param {SpinalNode} node
+ * @param {string} relationName
+ * @param {{id: string, name: string, _server_id: number}[] } orderArr
+ */ parcelHelpers.export(exports, "reorderChildren", ()=>reorderChildren);
+var _spinalEnvViewerGraphService = require("spinal-env-viewer-graph-service");
+async function reorderChildren(node, relationName, orderArr) {
+    for (const [relationType, map] of node.children){
+        for (const [relName, relation] of map)if (relName === relationName) {
+            if (relationType === "Ref") reorderRef(relation, orderArr);
+            else if (relationType === "PtrLst") await reorderPtrLst(relation, orderArr);
+            else if (relationType === "LstPtr") await reorderLstPtr(relation, orderArr);
+        }
+    }
+}
+function reorderRef(relation, orderArr) {
+    const arr = [];
+    for (const item of orderArr)for(let i = 0; i < relation.children.length; i++){
+        const lstChild = relation.children[i];
+        if (item._server_id === lstChild._server_id) {
+            arr.push(lstChild);
+            break;
+        }
+    }
+    relation.children.clear();
+    arr.forEach((itm)=>relation.children.push(itm));
+}
+async function reorderPtrLst(relation, orderArr) {
+    const arr = [];
+    const children = await relation.children.load();
+    for (const item of orderArr)for(let i = 0; i < children.length; i++){
+        const lstChild = children[i];
+        if (item._server_id === lstChild._server_id) {
+            arr.push(lstChild);
+            break;
+        }
+    }
+    children.clear();
+    relation.children.info.ids.clear();
+    arr.forEach((itm)=>{
+        relation.children.info.ids.push(itm.info.id.get());
+        children.push(itm);
+    });
+}
+async function reorderLstPtr(relation, orderArr) {
+    const arr = [];
+    for (const item of orderArr)for(let i = 0; i < relation.children.length; i++){
+        const lstChild = relation.children[i];
+        const child = await lstChild.load();
+        if (item._server_id === child._server_id) {
+            arr.push(lstChild);
+            break;
+        }
+    }
+    relation.children.clear();
+    arr.forEach((itm)=>relation.children.push(itm));
+}
+
+},{"spinal-env-viewer-graph-service":"9LAk7","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"e2XU2":[function(require,module,exports,__globalThis) {
+var render = function() {
+    var _vm = this;
+    var _h = _vm.$createElement;
+    var _c = _vm._self._c || _h;
+    return _c('md-dialog', {
+        staticStyle: {
+            "min-width": "50vw"
+        },
+        attrs: {
+            "md-active": _vm.display
+        }
+    }, [
+        _c('md-dialog-title', [
+            _vm._v(_vm._s(_vm.name))
+        ]),
+        _vm._v(" "),
+        _c('node-inspector', {
+            ref: "nodeInspector",
+            staticClass: "node-inspector",
+            attrs: {
+                "edit-mode": _vm.editMode,
+                "child-info": _vm.childInfo,
+                "relation-names": _vm.relationNames,
+                "default-relation-name": _vm.defaultRelationName
+            },
+            on: {
+                "get-children": function($event) {
+                    return _vm.getChildren($event);
+                },
+                "remove-from-graph": function($event) {
+                    return _vm.removeFromGraph($event);
+                },
+                "remove-from-parent": function($event) {
+                    return _vm.removeFromParent($event);
+                }
+            }
+        }),
+        _vm._v(" "),
+        _c('md-dialog-actions', {
+            staticStyle: {
+                "justify-content": "space-between"
+            }
+        }, [
+            _vm.editMode === false ? _c('md-button', {
+                staticClass: "md-fab md-mini md-primary",
+                staticStyle: {
+                    "min-width": "0"
+                },
+                on: {
+                    "click": _vm.startEditBtn
+                }
+            }, [
+                _c('md-icon', [
+                    _vm._v("edit")
+                ])
+            ], 1) : _c('div', [
+                _c('md-button', {
+                    staticClass: "md-fab md-mini",
+                    staticStyle: {
+                        "min-width": "0"
+                    },
+                    on: {
+                        "click": _vm.cancelBtn
+                    }
+                }, [
+                    _c('md-icon', [
+                        _vm._v("cancel")
+                    ])
+                ], 1),
+                _vm._v(" "),
+                _c('md-button', {
+                    staticClass: "md-fab md-mini md-primary",
+                    staticStyle: {
+                        "min-width": "0"
+                    },
+                    on: {
+                        "click": _vm.validBtn
+                    }
+                }, [
+                    _c('md-icon', [
+                        _vm._v("check")
+                    ])
+                ], 1)
+            ], 1),
+            _vm._v(" "),
+            _c('md-button', {
+                staticClass: "md-primary",
+                on: {
+                    "click": function($event) {
+                        _vm.display = false;
+                    }
+                }
+            }, [
+                _vm._v("\n      close\n    ")
+            ])
+        ], 1)
+    ], 1);
+};
+var staticRenderFns = [];
+exports.render = render;
+exports.staticRenderFns = staticRenderFns;
+
+},{}],"e6rKC":[function() {},{}],"afoS1":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+let NOOP = ()=>{};
+exports.default = (script)=>{};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"5A0L5":[function(require,module,exports,__globalThis) {
+/*
+ * Copyright 2021 SpinalCom - www.spinalcom.com
+ *
+ * This file is part of SpinalCore.
+ *
+ * Please read all of the following terms and conditions
+ * of the Free Software license Agreement ("Agreement")
+ * carefully.
+ *
+ * This Agreement is a legally binding contract between
+ * the Licensee (as defined below) and SpinalCom that
+ * sets forth the terms and conditions that govern your
+ * use of the Program. By installing and/or using the
+ * Program, you agree to abide by all the terms and
+ * conditions stated or referenced herein.
+ *
+ * If you do not agree to abide by these terms and
+ * conditions, do not demonstrate your acceptance and do
+ * not install or use the Program.
+ * You should have received a copy of the license along
+ * with this file. If not, see
+ * <http://resources.spinalcom.com/licenses.pdf>.
+ */ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "NodeInspectorButton", ()=>NodeInspectorButton);
+var _spinalEnvViewerContextMenuService = require("spinal-env-viewer-context-menu-service");
+var _spinalEnvViewerPanelManagerService = require("spinal-env-viewer-panel-manager-service");
+var _spinalEnvViewerGraphService = require("spinal-env-viewer-graph-service");
+class NodeInspectorButton extends (0, _spinalEnvViewerContextMenuService.SpinalContextApp) {
+    constructor(){
+        super("Node Inspector", "Open NodeInspector", {
+            icon: "crop_free",
+            icon_type: "in",
+            backgroundColor: "#ffebf8"
+        });
+    }
+    isShown(option) {
+        if (option.hasOwnProperty('selectedNode')) return Promise.resolve(true);
+        if (option.exist || option.hasOwnProperty('selectedNode')) return Promise.resolve(true);
+        else return Promise.resolve(-1);
+    }
+    action(option) {
+        let selectedNode = option.selectedNode;
+        if (option.selectedNode instanceof (0, _spinalEnvViewerGraphService.SpinalNode)) {
+            (0, _spinalEnvViewerGraphService.SpinalGraphService)._addNode(option.selectedNode);
+            selectedNode = (0, _spinalEnvViewerGraphService.SpinalGraphService).getInfo(option.selectedNode.getId());
+        }
+        const param = {
+            selectedNode: selectedNode
+        };
+        (0, _spinalEnvViewerPanelManagerService.spinalPanelManagerService).openPanel("plugin-node-inspector", param);
+    }
+}
+
+},{"spinal-env-viewer-context-menu-service":"3h19D","spinal-env-viewer-panel-manager-service":"egTXY","spinal-env-viewer-graph-service":"9LAk7","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}]},[], null, "parcelRequire02e5", {})
+
+//# sourceMappingURL=spinal-env-viewer-plugin-node-inspector.1f9e0122.js.map

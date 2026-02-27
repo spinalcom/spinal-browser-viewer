@@ -1,0 +1,78 @@
+.subContent[data-v-1b3b7c] {
+  width: 100%;
+  height: 100%;
+}
+
+.subContent .title[data-v-1b3b7c] {
+  border-bottom: 1px dashed gray;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 10%;
+  padding: 0 15px;
+  display: flex;
+}
+
+.subContent .container[data-v-1b3b7c] {
+  width: 100%;
+  height: 90%;
+  overflow: hidden auto;
+  padding: 0 !important;
+}
+
+.subContent .container .list-item[data-v-1b3b7c] {
+  border-bottom: 1px solid gray;
+}
+
+.subContent .container .list-item .md-list-item-text[data-v-1b3b7c] {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 100%;
+  display: block;
+  overflow: hidden;
+}
+
+.subContent .container .list-item.selected[data-v-1b3b7c] {
+  background-color: #448aff;
+}
+
+.dialogApp[data-v-455a98] {
+  width: 50%;
+  height: 100%;
+}
+
+.dialogApp .content[data-v-455a98] {
+  justify-content: space-between;
+  align-items: stretch;
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.dialogApp .content .section[data-v-455a98] {
+  border: 1px solid gray;
+  border-radius: 4% 4% 0 0;
+  width: 50%;
+  padding: 15px;
+}
+
+.dialogApp[data-v-b89160] {
+  width: 50%;
+  height: 100%;
+}
+
+.dialogApp .content[data-v-b89160] {
+  justify-content: space-between;
+  align-items: stretch;
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.dialogApp .content .section[data-v-b89160] {
+  border: 1px solid gray;
+  border-radius: 4% 4% 0 0;
+  width: 50%;
+  padding: 15px;
+}
+/*# sourceMappingURL=spinal-env-viewer-plugin-upload.4b01a6e7.css.map */

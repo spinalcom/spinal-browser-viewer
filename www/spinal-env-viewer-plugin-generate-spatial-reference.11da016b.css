@@ -1,0 +1,658 @@
+.building-select[data-v-bf2d18] {
+  align-items: flex-end;
+}
+
+.showTestListContainer, .showTestListContainer * {
+  color: #fff;
+  text-decoration: none !important;
+}
+
+.action-btn[data-v-10af81] {
+  flex-wrap: wrap;
+}
+
+.spinal-model-gen-context-dialog-edit-cat {
+  z-index: 99999;
+}
+
+.advenced-select-model-container {
+  height: 100%;
+  overflow-y: auto;
+}
+
+.spinal-scrollbar::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+.spinal-scrollbar::-webkit-scrollbar-thumb {
+  background: #a9a9a9e6;
+  border-radius: 5px;
+}
+
+.spinal-scrollbar::-webkit-scrollbar-track {
+  border-radius: 5px;
+  box-shadow: inset 0 0 3px #0000004d;
+}
+
+.test-popover[data-v-333719] {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow-y: auto;
+}
+
+.BtnGroupViewInViewer .v-btn {
+  margin: 2px 0;
+}
+
+.BtnGroupViewInViewer .v-btn:last-child {
+  margin-right: 2px;
+}
+
+.BtnGroupViewInViewer .v-btn:first-of-type {
+  margin-left: 2px;
+}
+
+.spinal-diff-room-new-container[data-v-21c3cc] {
+  flex-wrap: nowrap;
+  align-items: center;
+  display: flex;
+}
+
+.spinal-diff-room-new-container div[data-v-21c3cc]:first-child {
+  flex-grow: 1;
+}
+
+.update-basic-info[data-v-582823] {
+  text-align: left;
+  padding: 0 16px;
+}
+
+.update-basic-info > p[data-v-582823] {
+  user-select: text;
+  margin-bottom: 0;
+}
+
+.update-basic-info[data-v-4b0e9d] {
+  text-align: left;
+  padding: 0 16px;
+}
+
+.update-basic-info > p[data-v-4b0e9d] {
+  margin-bottom: 0;
+}
+
+.spatial-diff-settings[data-v-276c0d] {
+  height: 100%;
+  position: relative;
+}
+
+.spatial-diff-settings-header[data-v-276c0d] {
+  background-color: #222;
+  display: flex;
+}
+
+.spatial-diff-settings-body[data-v-276c0d] {
+  user-select: text;
+  height: calc(100% - 50px);
+  position: relative;
+  overflow: auto;
+}
+
+.spinal-md-select[data-v-276c0d] {
+  align-items: flex-end;
+}
+
+.spatial-diff-settings-title-container[data-v-276c0d] {
+  flex-grow: 1;
+  margin-right: 16px;
+}
+
+.plugin-graph-viewer[data-v-276c0d] {
+  position: relative;
+}
+
+.spinal-diff-room-delete-container[data-v-276c0d] {
+  flex-direction: column;
+  align-items: stretch;
+  display: flex;
+}
+
+.gen-spatial-body[data-v-2fa6e2] {
+  height: calc(100% - 17px);
+  position: relative;
+}
+
+.spinal-modal-progress-bar[data-v-2fa6e2] {
+  z-index: 1;
+  margin: 0;
+  position: absolute;
+  bottom: 2px;
+}
+
+.spinal-modal-gen-spatial-tab[data-v-2fa6e2], .spinal-modal-progress-bar[data-v-2fa6e2] {
+  background: #707070aa;
+}
+
+.spinal-modal-gen-spatial-btn-footer[data-v-2fa6e2] {
+  background: #222a;
+}
+
+.spinal-modal-gen-spatial-tab-item[data-v-2fa6e2] {
+  max-height: calc(100vh - 325px);
+  overflow-y: auto;
+}
+
+.gen-spatial-body > .application--wrap {
+  height: 100%;
+  min-height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.gen-spatial-body * {
+  box-sizing: border-box;
+}
+
+.gen-spatial-container, .gen-spatial-container > .v-tabs {
+  height: 100%;
+  position: relative;
+}
+
+.gen-spatial-container > .v-tabs > .v-window {
+  height: calc(100% - 50px);
+  position: relative;
+  overflow: auto;
+}
+
+.gen-spatial-container > .v-tabs > .v-window::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+.gen-spatial-container > .v-tabs > .v-window::-webkit-scrollbar-thumb {
+  background: #a9a9a9e6;
+  border-radius: 5px;
+}
+
+.gen-spatial-container > .v-tabs > .v-window::-webkit-scrollbar-track {
+  border-radius: 5px;
+  box-shadow: inset 0 0 3px #0000004d;
+}
+
+.spinal-modal-gen-spatial-tab-item > .v-window__container, .gen-spatial-container > .v-tabs > .v-window > .v-window__container > .v-window-item {
+  height: 100%;
+  position: relative;
+}
+
+.gen-spatial-container > .v-tabs > .v-tabs__bar {
+  background-color: #2e2e2e;
+}
+
+.gen-spatial-container .v-window > .v-window__container {
+  height: 100%;
+}
+
+.geolocate-group-config-container[data-v-be0fc4] {
+  flex-direction: column;
+  height: 100%;
+  display: flex;
+}
+
+.geolocate-group-config-header[data-v-be0fc4] {
+  position: relative;
+  overflow: auto;
+}
+
+.geolocate-group-config-main[data-v-be0fc4] {
+  height: calc(100% - 48px);
+  position: relative;
+  overflow: auto;
+}
+
+.geolocate-group-config-card[data-v-be0fc4], .geolocate-group-config-card-content[data-v-be0fc4] {
+  height: 100%;
+}
+
+.geolocate-group-config-card-item-checkbox[data-v-be0fc4]:first-child {
+  margin-right: 16px;
+}
+
+.geolocate-group-config-card-item-progressbar[data-v-be0fc4] {
+  z-index: 1;
+  margin: 0;
+  position: absolute;
+  bottom: 0;
+}
+
+.dialog-add-a-group[data-v-d7e927] {
+  z-index: 99;
+}
+
+.dbid-list-item-action-btn[data-v-de9e31] {
+  flex-direction: row;
+}
+
+.spinal-bim-groups-item-content[data-v-de9e31] {
+  text-align: center;
+  width: 100%;
+}
+
+.spinal-bim-groups-item-content .v-list__tile {
+  padding-left: 26px;
+}
+
+.bim-groups-item-edit-offset[data-v-7c1283], .bim-groups-item-edit-offset [data-v-7c1283] {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.bim-groups-item-edit-offset-color[data-v-7c1283] {
+  cursor: pointer;
+  border-radius: 3px;
+  width: 34px;
+  height: 36px;
+  margin-right: 8px;
+  box-shadow: 0 3px 1px -2px #0003, 0 2px 2px #00000024, 0 1px 5px #0000001f;
+}
+
+.bim-groups-item-edit[data-v-a8aed3] {
+  opacity: 1;
+  z-index: 2;
+  background-color: #222;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  overflow: hidden;
+}
+
+.bim-groups-item-edit-container[data-v-a8aed3] {
+  height: calc(100% - 56px);
+  position: relative;
+  overflow: auto;
+}
+
+.bim-groups-edit-name[data-v-a8aed3] {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+.bim-groups-item-edit-transi-enter-active[data-v-a8aed3] {
+  transition: all .5s cubic-bezier(.55, 0, .1, 1);
+}
+
+.bim-groups-item-edit-transi-enter[data-v-a8aed3], .bim-groups-item-edit-transi-leave-to[data-v-a8aed3] {
+  opacity: 0;
+  min-width: unset;
+  transform: translateX(-1em);
+}
+
+.bim-groups-item-edit-transi-enter-to[data-v-a8aed3], .bim-groups-item-edit-transi-leave-to[data-v-a8aed3] {
+  opacity: 1;
+  min-width: unset;
+  transform: translateX(0);
+}
+
+.bim-groups-edit-content .v-expansion-panel__header {
+  flex-direction: row-reverse;
+  padding: 0 5px 0 0;
+}
+
+.bim-groups-edit-content .v-expansion-panel__header:hover {
+  background-color: #19191933;
+}
+
+.bim-groups-edit-content .v-expansion-panel__header .v-expansion-panel__header__icon {
+  margin: 0 5px;
+}
+
+.bim-groups-edit-content .v-expansion-panel__header .bim-groups-item-header {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+}
+
+.geolocate-selected-groupe-container[data-v-933f53] {
+  flex-direction: column;
+  height: 100%;
+  display: flex;
+}
+
+.geolocate-selected-groupe-header[data-v-933f53] {
+  position: relative;
+  overflow: auto;
+}
+
+.geolocate-selected-groupe-main[data-v-933f53] {
+  height: calc(100% - 48px);
+  position: relative;
+  overflow: auto;
+}
+
+.geolocate-groupe-card[data-v-933f53], .geolocate-groupe-card-content[data-v-933f53] {
+  height: 100%;
+}
+
+.spinal-project-item-group-item-title-container[data-v-933f53] {
+  position: relative;
+}
+
+.spinal-project-item-group-item-title[data-v-933f53] {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+  overflow: hidden;
+}
+
+.spinal-project-item-group-item-arrow-container[data-v-933f53] {
+  flex-direction: column;
+  height: 48px;
+  display: flex;
+  position: absolute;
+  left: 0;
+}
+
+.spinal-project-item-group-item-arrow-container > button[data-v-933f53] {
+  height: 24px;
+  min-width: unset;
+  margin: 0;
+  padding: 0;
+}
+
+.spinal-project-item-group-progressbar[data-v-933f53] {
+  z-index: 1;
+  width: 100%;
+  margin: 0;
+  position: absolute;
+  bottom: 7px;
+  left: 0;
+}
+
+.spinal-project-item-group-item-content > .v-list__tile {
+  padding-left: unset !important;
+}
+
+.spinal-project-item-group-item .spinal-project-item-group-item-container > .v-list__tile {
+  padding-right: 0;
+}
+
+.spinal-project-item-group-item-container > .v-list__tile {
+  padding-left: 32px;
+  padding-right: 0;
+}
+
+.project-bimobj-assignfloor-layout[data-v-7d4365] {
+  max-height: calc(100vh - 250px);
+}
+
+.project-bimobj-assignfloor-layout > .project-bimobj-assignfloor-flex[data-v-7d4365] {
+  max-height: 100%;
+  overflow: auto;
+}
+
+.geolocate-bimObj-body[data-v-8b61b5] {
+  height: calc(100% - 17px);
+  position: relative;
+}
+
+.geolocate-bimObj-container[data-v-8b61b5] {
+  height: 100%;
+}
+
+.geolocate-bimObj-progressbar[data-v-8b61b5] {
+  z-index: 1;
+  margin: 0;
+  position: absolute;
+  bottom: 0;
+}
+
+.geolocate-bimObj-verif-card[data-v-8b61b5] {
+  height: 100%;
+}
+
+.geolocate-bimObj-card-verif-content[data-v-8b61b5] {
+  height: calc(100% - 36px);
+  overflow: auto;
+}
+
+.geolocate-bimObj-body > .application--wrap {
+  height: 100%;
+  min-height: 100%;
+}
+
+.geolocate-bimObj-body * {
+  box-sizing: border-box;
+}
+
+.AssignDataViewRoomName[data-v-f8f298]:hover {
+  background-color: #363636;
+}
+
+.assingDataSelected[data-v-52292c] {
+  background-color: #365bab !important;
+}
+
+.assingDataitem [data-v-52292c] {
+  color: #fff !important;
+  text-decoration: none !important;
+}
+
+.AssingDataViewList-container[data-v-52292c] {
+  height: 100%;
+  overflow: auto;
+}
+
+.AssingDataViewList-container .v-list__tile__action {
+  min-width: 36px;
+}
+
+.AssingDataView-vtabs[data-v-0b5d8a] {
+  height: 100%;
+}
+
+.AssingDataView-vtabs :hover {
+  text-decoration: none !important;
+}
+
+.AssingDataView-vtabs .v-window {
+  height: calc(100% - 48px);
+  position: relative;
+}
+
+.AssingDataView-vtabs .v-window .v-window__container, .AssingDataView-vtabs .AssingDataView-tab-container {
+  height: 100%;
+}
+
+.manual-assign-projection-body[data-v-5c7bb6] {
+  height: calc(100% - 17px);
+  position: relative;
+}
+
+.manual-assign-projection-container[data-v-5c7bb6] {
+  flex-direction: row;
+  height: calc(100% - 48px);
+  display: flex;
+  position: relative;
+}
+
+.manual-assign-projection-container > div[data-v-5c7bb6] {
+  width: 50%;
+  min-width: 200px;
+  height: 100%;
+  overflow: auto;
+}
+
+.manual-assign-projection-treeview-container[data-v-5c7bb6] {
+  height: calc(100% - 48px);
+  overflow: auto;
+}
+
+.manual-assign-projection-spatial-container[data-v-5c7bb6] {
+  margin: 0 8px;
+}
+
+.manual-assign-projection-body > .application--wrap {
+  height: 100%;
+  min-height: 100%;
+}
+
+.manual-assign-projection-body * {
+  box-sizing: border-box;
+}
+
+.manual-assign-projection-treeview-item-active {
+  color: #000;
+  background-color: #e3db00 !important;
+}
+
+.spinal-list-tile-title[data-v-618175] {
+  color: #fff;
+}
+
+.spinal-item-tile[data-v-618175] {
+  position: relative;
+}
+
+.spinal-subitem-tile > a {
+  padding-left: 24px !important;
+}
+
+.spinal-item-tile .v-list__tile__action {
+  min-width: 32px;
+}
+
+.spinal-item-tile > a {
+  padding: 0 8px;
+  text-decoration: none !important;
+}
+
+.spinal-item-tile .v-list__tile__action > button i {
+  color: #fff;
+}
+
+.spinal-item-tile.spinal-item-tile-update .v-list__tile__action > button i {
+  color: #71b3ff;
+}
+
+.spinal-item-tile.spinal-item-tile-create .v-list__tile__action > button i {
+  color: #49c750;
+}
+
+.spinal-item-tile.spinal-item-tile-delete .v-list__tile__action > button i {
+  color: #ff9090;
+}
+
+.SpinalDiffViewer-content .v-list__group__header .v-list__group__header__append-icon {
+  padding: 0 8px;
+}
+
+.SpinalDiffViewer-container[data-v-0e374b] {
+  background-color: #424242;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.SpinalDiffViewer-header[data-v-0e374b] {
+  background-color: #222;
+  display: flex;
+}
+
+.SpinalDiffViewer-content[data-v-0e374b] {
+  height: calc(100% - 60px);
+  overflow: auto;
+}
+
+.plugin-graph-viewer {
+  position: relative;
+}
+
+.plugin-graph-viewer > .spinal-modal-container {
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.command-run-progress-bar[data-v-d41934], .command-run-progress-bar[data-v-147bc7] {
+  margin: 2px 0;
+}
+
+.SpinalMergeBimGeo-main[data-v-c40568] {
+  height: calc(100% - 17px);
+  position: relative;
+}
+
+.SpinalMergeBimGeo-container[data-v-c40568] {
+  flex-direction: row;
+  height: calc(100% - 42px);
+  display: flex;
+  position: relative;
+}
+
+.SpinalMergeBimGeo-content-left[data-v-c40568] {
+  border-right: 1px solid #737374;
+  width: 50%;
+}
+
+.SpinalMergeBimGeo-content-right[data-v-c40568] {
+  border-left: 1px solid #737374;
+  width: 50%;
+}
+
+.SpinalMergeBimGeo-action-bar[data-v-c40568] {
+  height: 42px;
+  display: flex;
+  position: relative;
+}
+
+.SpinalMergeBimGeo-content-header[data-v-c40568] {
+  text-align: center;
+  height: 40px;
+  padding: 8px 8px 0;
+}
+
+.SpinalMergeBimGeo-content[data-v-c40568] {
+  border: 1px solid #fff;
+  height: calc(100% - 40px);
+  margin: 0 8px;
+  padding: 8px;
+}
+
+.SpinalMergeBimGeo-tree-button[data-v-c40568] {
+  margin: 0 8px;
+}
+
+.SpinalMergeBimGeo-main * {
+  box-sizing: border-box;
+}
+
+.SpinalMergeBimGeo-scrollbar {
+  overflow: auto;
+}
+
+.SpinalMergeBimGeo-scrollbar::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+.SpinalMergeBimGeo-scrollbar::-webkit-scrollbar-thumb {
+  background: #a9a9a9e6;
+  border-radius: 5px;
+}
+
+.SpinalMergeBimGeo-scrollbar::-webkit-scrollbar-track {
+  border-radius: 5px;
+  box-shadow: inset 0 0 3px #0000004d;
+}
+
+.SpinalMergeBimGeo-selection-active {
+  background-color: #365bab !important;
+}
+/*# sourceMappingURL=spinal-env-viewer-plugin-generate-spatial-reference.11da016b.css.map */
