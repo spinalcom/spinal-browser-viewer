@@ -1263,10 +1263,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("8342ac9fe6817fab").render;
     script.staticRenderFns = require("8342ac9fe6817fab").staticRenderFns;
-    script._scopeId = "data-v-72d8c8";
+    script._scopeId = "data-v-d61a4d";
     script.__cssModules = require("ba00d089cce7ce18").default;
     require("b369ded47c2d75ca").default(script);
-    script.__scopeId = 'data-v-72d8c8';
+    script.__scopeId = 'data-v-d61a4d';
     script.__file = "dashboardPanel.vue";
 };
 initialize();
@@ -1460,10 +1460,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("db2919c59d661c2a").render;
     script.staticRenderFns = require("db2919c59d661c2a").staticRenderFns;
-    script._scopeId = "data-v-8399ed";
+    script._scopeId = "data-v-1d8036";
     script.__cssModules = require("91ee5acf6f7647ed").default;
     require("f9ac4f49cb6aff10").default(script);
-    script.__scopeId = 'data-v-8399ed';
+    script.__scopeId = 'data-v-1d8036';
     script.__file = "header.vue";
 };
 initialize();
@@ -1564,10 +1564,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("a3d54f798cbe62a1").render;
     script.staticRenderFns = require("a3d54f798cbe62a1").staticRenderFns;
-    script._scopeId = "data-v-e5bd07";
+    script._scopeId = "data-v-f04c82";
     script.__cssModules = require("4f8c49180ce3de16").default;
     require("1af07f834d5d1387").default(script);
-    script.__scopeId = 'data-v-e5bd07';
+    script.__scopeId = 'data-v-f04c82';
     script.__file = "content.vue";
 };
 initialize();
@@ -1650,10 +1650,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("ce2889f887aa73fa").render;
     script.staticRenderFns = require("ce2889f887aa73fa").staticRenderFns;
-    script._scopeId = "data-v-3f968a";
+    script._scopeId = "data-v-632771";
     script.__cssModules = require("cc2ca880c38d9a12").default;
     require("d138e1ab6b75660b").default(script);
-    script.__scopeId = 'data-v-3f968a';
+    script.__scopeId = 'data-v-632771';
     script.__file = "tab-template.vue";
 };
 initialize();
@@ -1748,10 +1748,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("3ad56f9388ee7e94").render;
     script.staticRenderFns = require("3ad56f9388ee7e94").staticRenderFns;
-    script._scopeId = "data-v-9c3ebe";
+    script._scopeId = "data-v-eb3071";
     script.__cssModules = require("8049ded07650e544").default;
     require("beec4daa45a20276").default(script);
-    script.__scopeId = 'data-v-9c3ebe';
+    script.__scopeId = 'data-v-eb3071';
     script.__file = "endpoint.vue";
 };
 initialize();
@@ -1773,36 +1773,36 @@ var _spinalModelBmsnetworkDefault = parcelHelpers.interopDefault(_spinalModelBms
 const { spinalPanelManagerService } = require("360f243e2383d6c3");
 const spinalServiceTimeseries = new (0, _spinalModelTimeseries.SpinalServiceTimeseries)();
 var scriptExports = {
-    name: 'endpoint-component',
+    name: "endpoint-component",
     props: [
-        'endpointId',
-        'endpointSelected',
-        'isControlPoint'
+        "endpointId",
+        "endpointSelected",
+        "isControlPoint"
     ],
     components: {
-        'popover-component': (0, _popoverVueDefault.default)
+        "popover-component": (0, _popoverVueDefault.default)
     },
     data () {
         this.iconsItems = [
             {
-                title: 'open Graph Panel',
+                title: "open Graph Panel",
                 clickMethod: this.openGraphPanel,
-                iconName: 'show_chart'
+                iconName: "show_chart"
             },
             {
-                title: 'Documentation',
+                title: "Documentation",
                 clickMethod: this.openDocumentationPanel,
-                iconName: 'folder'
+                iconName: "folder"
             },
             {
-                title: 'Delete',
+                title: "Delete",
                 clickMethod: this.deleteEndpoint,
-                iconName: 'delete'
+                iconName: "delete"
             },
             {
-                title: 'Download',
+                title: "Download",
                 clickMethod: this.download,
-                iconName: 'file_download'
+                iconName: "file_download"
             }
         ];
         this.bindId;
@@ -1820,7 +1820,7 @@ var scriptExports = {
     },
     methods: {
         selectEndpoint () {
-            this.$emit('select', this.endpointId);
+            this.$emit("select", this.endpointId);
         },
         async download () {
             //console.log("Hello from download\n");
@@ -1829,15 +1829,15 @@ var scriptExports = {
                 let getTSvar = await spinalServiceTimeseries.getTimeSeries(this.endpointNode.info.id);
                 //console.log(getTSvar);
                 if (getTSvar) {
-                    console.log('defined endpoint timeseries');
+                    console.log("defined endpoint timeseries");
                     let getInter = await spinalServiceTimeseries.getFromIntervalTime(getTSvar);
                     this.timeseriesItems = getInter;
-                    let nodeTitle = spinalPanelManagerService.panels.spinal_dashboard_panel.panel.title.innerText.split(':');
+                    let nodeTitle = spinalPanelManagerService.panels.spinal_dashboard_panel.panel.title.innerText.split(":");
                     //let splitArray = nodeTitle.split(":");
-                    let excelFileName = nodeTitle[nodeTitle.length - 1] + '_' + this.endpointNode.info.name.get();
-                    let getUnit = await (0, _spinalEnvViewerPluginDocumentationService.attributeService).getAttributesByCategory(this.endpointNode, 'default', 'unit');
+                    let excelFileName = nodeTitle[nodeTitle.length - 1] + "_" + this.endpointNode.info.name.get();
+                    let getUnit = await (0, _spinalEnvViewerPluginDocumentationService.attributeService).getAttributesByCategory(this.endpointNode, "default", "unit");
                     const filename = `${excelFileName}.xlsx`.trim();
-                    console.log('this is unit: ', getUnit[0].value.get());
+                    console.log("this is unit: ", getUnit[0].value.get());
                     let unit = getUnit[0].value.get();
                     for (let el of this.timeseriesItems){
                         el.date = new Date(el.date);
@@ -1846,28 +1846,28 @@ var scriptExports = {
                     console.log(this.timeseriesItems);
                     const data = (0, _xlsx.utils).json_to_sheet(this.timeseriesItems);
                     const wb = (0, _xlsx.utils).book_new();
-                    (0, _xlsx.utils).book_append_sheet(wb, data, 'endpoint_controlpoint');
+                    (0, _xlsx.utils).book_append_sheet(wb, data, "endpoint_controlpoint");
                     (0, _xlsx.writeFile)(wb, filename);
-                } else console.log('undefined endpoint timeseries');
+                } else console.log("undefined endpoint timeseries");
             //console.log(getInter);
             }
         /* let parentEndpoint = await SpinalGraphService.getRealNode(
-        this.endpointId
-      ).getParents();
-      console.log("this is parent: \n");
-      console.log(parentEndpoint[0].info.name);
-      let parentOfParent = await parentEndpoint[0].getParents();
-      for (let par of parentOfParent) {
-        if (par) {
-          if (par.info.type == "geographicFloor") {
-            console.log("this is floor wanted : \n");
-            console.log(par.info.name.get());
-          }
+      this.endpointId
+    ).getParents();
+    console.log("this is parent: \n");
+    console.log(parentEndpoint[0].info.name);
+    let parentOfParent = await parentEndpoint[0].getParents();
+    for (let par of parentOfParent) {
+      if (par) {
+        if (par.info.type == "geographicFloor") {
+          console.log("this is floor wanted : \n");
+          console.log(par.info.name.get());
         }
-      } */ },
+      }
+    } */ },
         openGraphPanel () {
             console.log(this.endpointNode);
-            spinalPanelManagerService.openPanel('endpoint_chart_viewer', {
+            spinalPanelManagerService.openPanel("endpoint_chart_viewer", {
                 selectedNode: (0, _spinalEnvViewerGraphService.SpinalGraphService).getInfo(this.endpointId)
             });
         },
@@ -1878,31 +1878,33 @@ var scriptExports = {
                 info: realNode.info
             };
             paramSent.selectedNode.id = realNode.info.id;
-            spinalPanelManagerService.openPanel('panel-documentation', paramSent);
+            spinalPanelManagerService.openPanel("panel-documentation", paramSent);
         },
         bindEndpointElement () {
             this.bindId = this.endpointElement.bind(()=>{
                 this.endpoint = this.endpointElement.get();
             });
         },
-        async update (value) {
-            const p = this.$refs['popover'];
+        async update ({ value, priority }) {
+            const p = this.$refs["popover"];
             const popovers = Array.isArray(p) ? p : [
                 p
             ];
             try {
                 const id = this.endpointId;
-                const spinalPilot = await (0, _pilotageUtilitiesDefault.default).sendUpdateRequest(id, this.endpointNode, value);
-                console.log("spinalPilot", spinalPilot);
-                if (spinalPilot) this.bindState(spinalPilot, popovers, value);
-                else {
-                    const changed = await this.changeEndpointValueInGraph(this.endpointElement.currentValue, value);
-                    if (changed) {
-                        popovers.map((el)=>el.setSuccessMode());
-                        this.endpointNode.info.mod_attr('directModificationDate', Date.now());
-                    // await this.SaveTimeSeries(value);
-                    } else popovers.map((el)=>el.setErrorMode());
+                // try to update value through spinalPilot, if endpoint is binded to a pilot, otherwise update directly in graph
+                const spinalPilot = await (0, _pilotageUtilitiesDefault.default).sendUpdateRequest(id, this.endpointNode, value, priority);
+                // if spinalPilot is defined, it means that the endpoint is linked to an organ
+                // in this case, we bind the update process to the spinalPilot state
+                if (spinalPilot) {
+                    this.bindState(spinalPilot, popovers, value);
+                    return;
                 }
+                const changed = await this.changeEndpointValueInGraph(this.endpointElement.currentValue, value);
+                if (changed) {
+                    popovers.map((el)=>el.setSuccessMode());
+                    this.endpointNode.info.directModificationDate && this.endpointNode.info.directModificationDate.set(Date.now());
+                } else popovers.map((el)=>el.setErrorMode());
             } catch (error) {
                 console.error(error);
                 popovers.map((el)=>el.setErrorMode());
@@ -1911,19 +1913,16 @@ var scriptExports = {
         bindState (spinalPilot, popovers, value) {
             const bindId = spinalPilot.state.bind(async ()=>{
                 switch(spinalPilot.state.get()){
-                    case 'success':
+                    case "success":
                         const changed = await this.changeEndpointValueInGraph(this.endpointElement.currentValue, value);
                         if (changed) {
                             popovers.map((el)=>el.setSuccessMode());
                             if (this.endpointNode.info.directModificationDate) this.endpointNode.info.directModificationDate.set(Date.now());
-                            else this.endpointNode.info.add_attr({
-                                directModificationDate: Date.now()
-                            });
                         } else popovers.map((el)=>el.setErrorMode());
                         spinalPilot.state.unbind(bindId);
                         await spinalPilot.removeFromGraph();
                         break;
-                    case 'error':
+                    case "error":
                         popovers.map((el)=>el.setErrorMode());
                         spinalPilot.state.unbind(bindId);
                         await spinalPilot.removeFromGraph();
@@ -1935,7 +1934,7 @@ var scriptExports = {
         },
         async changeEndpointValueInGraph (endpointValueModel, newValue) {
             if (!isNaN(newValue)) newValue = Number(newValue);
-            if (typeof newValue === 'string' && (endpointValueModel instanceof Val || endpointValueModel instanceof Bool)) return false;
+            if (typeof newValue === "string" && (endpointValueModel instanceof Val || endpointValueModel instanceof Bool)) return false;
             const saveTimeSeries = this.getSaveTimeSeries();
             const node = (0, _spinalEnvViewerGraphService.SpinalGraphService).getInfo(this.endpointId);
             const networkService = new (0, _spinalModelBmsnetworkDefault.default)(saveTimeSeries);
@@ -1951,12 +1950,12 @@ var scriptExports = {
         // return endpointValueModel.set(newValue);
         },
         deleteEndpoint () {
-            spinalPanelManagerService.openPanel('deleteEndpointDialog', {
-                title: 'This endpoint will be removed from graph',
+            spinalPanelManagerService.openPanel("deleteEndpointDialog", {
+                title: "This endpoint will be removed from graph",
                 message: "You won't be able to revert this!",
                 callback: async ()=>{
                     await (0, _spinalEnvViewerGraphService.SpinalGraphService).removeFromGraph(this.endpointId);
-                    this.$emit('removed', this.endpointId);
+                    this.$emit("removed", this.endpointId);
                 }
             });
         },
@@ -1978,7 +1977,7 @@ var scriptExports = {
             return argCurrentValue;
         },
         formatUnit (argUnit) {
-            return argUnit && argUnit.length > 0 ? argUnit : '-';
+            return argUnit && argUnit.length > 0 ? argUnit : "-";
         }
     },
     beforeDestroy () {
@@ -2088,13 +2087,13 @@ exports.default = {
         }
         return [];
     },
-    async sendUpdateRequest (nodeId, endpointNode, value) {
+    async sendUpdateRequest (nodeId, endpointNode, value, priority) {
         const [organNode] = await this.getEndpointOrgan(nodeId);
         const devices = await this.getDevices(nodeId);
         if (organNode && devices && devices.length > 0) switch(organNode.getType().get()){
             case 0, _spinalModelBacnet.BACNET_ORGAN_TYPE:
-                const organ = await organNode.getElement();
-                return this.sendBacnetRequest(organ, endpointNode, devices, value);
+                // const organ = await organNode.getElement();
+                return this.sendBacnetRequest(organNode, endpointNode, devices, value, priority);
             case 0, _spinalModelOpcua.OPCUA_ORGAN_TYPE:
                 return this.sendOPCUARequest(organNode, endpointNode, value, devices);
             case 0, _spinalModelSnmp.SNMP_ORGAN_TYPE:
@@ -2103,7 +2102,7 @@ exports.default = {
                 break;
         }
     },
-    async sendBacnetRequest (organ, endpointNode, devices, value) {
+    async sendBacnetRequest (organNode, endpointNode, devices, value, priority = 16) {
         const endpointElement = await endpointNode.getElement();
         const requests = devices.map((device)=>{
             return {
@@ -2114,22 +2113,23 @@ exports.default = {
                     type: endpointElement.typeId.get(),
                     instance: endpointElement.id.get()
                 },
-                value: value
+                value: value,
+                priority
             };
         });
-        const spinalPilot = new (0, _spinalModelBacnet.SpinalPilotModel)(organ, requests);
+        const spinalPilot = new (0, _spinalModelBacnet.SpinalPilotModel)(organNode, requests);
         await spinalPilot.addToGraph(endpointNode);
         return spinalPilot;
     },
-    async sendOPCUARequest (organ, endpointNode, value, devices) {
+    async sendOPCUARequest (organNode, endpointNode, value, devices) {
         // const [network] = await this.getNetwork(endpointNode.getId().get())
         const request = devices.map((device)=>({
                 nodeId: endpointNode.info.idNetwork && endpointNode.info.idNetwork.get(),
                 path: endpointNode.info.path && endpointNode.info.path.get(),
-                value,
-                networkInfo: device.info.server && device.info.server.get() || {}
+                networkInfo: device.info.server && device.info.server.get() || {},
+                value
             }));
-        const spinalPilot = new (0, _spinalModelOpcua.SpinalOPCUAPilot)(organ, request);
+        const spinalPilot = new (0, _spinalModelOpcua.SpinalOPCUAPilot)(organNode, request);
         await spinalPilot.addToGraph(endpointNode);
         return spinalPilot;
     },
@@ -2138,12 +2138,12 @@ exports.default = {
         const endpointElement = await endpointNode.getElement();
         const request = devices.map((device)=>({
                 oid: endpointElement.id && endpointElement.id.get(),
-                value,
                 type: endpointElement.dataType && endpointElement.dataType.get(),
-                address: deviceElement.address && deviceElement.address.get()
+                address: deviceElement.address && deviceElement.address.get(),
+                value
             }));
         const spinalPilot = new (0, _spinalModelSnmp.SpinalSNMPPilot)(organNode, request);
-        spinalPilot.addToGraph(endpointNode);
+        await spinalPilot.addToGraph(endpointNode);
         return spinalPilot;
     }
 };
@@ -2157,10 +2157,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("bc10d94d6011ecc1").render;
     script.staticRenderFns = require("bc10d94d6011ecc1").staticRenderFns;
-    script._scopeId = "data-v-0dd6b6";
+    script._scopeId = "data-v-b5940a";
     script.__cssModules = require("a5a76c02b1139875").default;
     require("926a1105409fd131").default(script);
-    script.__scopeId = 'data-v-0dd6b6';
+    script.__scopeId = 'data-v-b5940a';
     script.__file = "popover.vue";
 };
 initialize();
@@ -2203,7 +2203,8 @@ var scriptExports = {
         };
         return {
             data: {
-                value: undefined
+                value: undefined,
+                priority: 16
             },
             type: undefined,
             state: this.STATES.normal
@@ -2218,7 +2219,10 @@ var scriptExports = {
     methods: {
         update () {
             this.state = this.STATES.processing;
-            this.$emit("update", this.data.value);
+            this.$emit("update", {
+                value: this.data.value,
+                priority: this.data.priority
+            });
         },
         setNormalMode () {
             this.state = this.STATES.normal;
@@ -2252,10 +2256,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("85b6a011e5a3ea82").render;
     script.staticRenderFns = require("85b6a011e5a3ea82").staticRenderFns;
-    script._scopeId = "data-v-153c4c";
+    script._scopeId = "data-v-7faec2";
     script.__cssModules = require("b14a61dac6c555f0").default;
     require("eea605f974e7bc40").default(script);
-    script.__scopeId = 'data-v-153c4c';
+    script.__scopeId = 'data-v-7faec2';
     script.__file = "boolean.vue";
 };
 initialize();
@@ -2295,43 +2299,66 @@ var render = function() {
             staticClass: "content"
         }, [
             _c('div', {
-                staticClass: "inactive"
+                staticClass: "radio"
             }, [
-                _c('md-radio', {
-                    attrs: {
-                        "value": false
-                    },
-                    model: {
-                        value: _vm.data.value,
-                        callback: function($$v) {
-                            _vm.$set(_vm.data, "value", $$v);
-                        },
-                        expression: "data.value"
-                    }
+                _c('div', {
+                    staticClass: "inactive"
                 }, [
-                    _vm._v("OFF")
-                ])
-            ], 1),
+                    _c('md-radio', {
+                        attrs: {
+                            "value": false
+                        },
+                        model: {
+                            value: _vm.data.value,
+                            callback: function($$v) {
+                                _vm.$set(_vm.data, "value", $$v);
+                            },
+                            expression: "data.value"
+                        }
+                    }, [
+                        _vm._v("OFF")
+                    ])
+                ], 1),
+                _vm._v(" "),
+                _c('div', {
+                    staticClass: "active"
+                }, [
+                    _c('md-radio', {
+                        attrs: {
+                            "value": true
+                        },
+                        model: {
+                            value: _vm.data.value,
+                            callback: function($$v) {
+                                _vm.$set(_vm.data, "value", $$v);
+                            },
+                            expression: "data.value"
+                        }
+                    }, [
+                        _vm._v("ON")
+                    ])
+                ], 1)
+            ]),
             _vm._v(" "),
-            _c('div', {
-                staticClass: "active"
-            }, [
-                _c('md-radio', {
+            _c('md-field', [
+                _c('label', [
+                    _vm._v("priority")
+                ]),
+                _vm._v(" "),
+                _c('md-input', {
                     attrs: {
-                        "value": true
+                        "type": "number"
                     },
                     model: {
-                        value: _vm.data.value,
+                        value: _vm.data.priority,
                         callback: function($$v) {
-                            _vm.$set(_vm.data, "value", $$v);
+                            _vm.$set(_vm.data, "priority", $$v);
                         },
-                        expression: "data.value"
+                        expression: "data.priority"
                     }
-                }, [
-                    _vm._v("ON")
-                ])
+                })
             ], 1)
-        ])
+        ], 1)
     ]);
 };
 var staticRenderFns = [];
@@ -2353,10 +2380,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("540615f667526a64").render;
     script.staticRenderFns = require("540615f667526a64").staticRenderFns;
-    script._scopeId = "data-v-87c031";
+    script._scopeId = "data-v-ab603c";
     script.__cssModules = require("6eb22d1b1cc22b3b").default;
     require("ea0a21cc95033fe").default(script);
-    script.__scopeId = 'data-v-87c031';
+    script.__scopeId = 'data-v-ab603c';
     script.__file = "text.vue";
 };
 initialize();
@@ -2368,7 +2395,7 @@ parcelHelpers.defineInteropFlag(exports);
 var _vueSliderComponent = require("vue-slider-component");
 var _vueSliderComponentDefault = parcelHelpers.interopDefault(_vueSliderComponent);
 var scriptExports = {
-    name: "numberComponent",
+    name: "textComponent",
     components: {
         "vue-slider": (0, _vueSliderComponentDefault.default)
     },
@@ -5014,22 +5041,45 @@ var render = function() {
     return _c('div', {
         staticClass: "data-content"
     }, [
-        _c('md-field', [
-            _c('label', [
-                _vm._v("value")
-            ]),
-            _vm._v(" "),
-            _c('md-input', {
-                model: {
-                    value: _vm.data.value,
-                    callback: function($$v) {
-                        _vm.$set(_vm.data, "value", $$v);
+        _c('div', [
+            _c('md-field', [
+                _c('label', [
+                    _vm._v("value")
+                ]),
+                _vm._v(" "),
+                _c('md-input', {
+                    model: {
+                        value: _vm.data.value,
+                        callback: function($$v) {
+                            _vm.$set(_vm.data, "value", $$v);
+                        },
+                        expression: "data.value"
+                    }
+                })
+            ], 1)
+        ], 1),
+        _vm._v(" "),
+        _c('div', [
+            _c('md-field', [
+                _c('label', [
+                    _vm._v("priority")
+                ]),
+                _vm._v(" "),
+                _c('md-input', {
+                    attrs: {
+                        "type": "number"
                     },
-                    expression: "data.value"
-                }
-            })
+                    model: {
+                        value: _vm.data.priority,
+                        callback: function($$v) {
+                            _vm.$set(_vm.data, "priority", $$v);
+                        },
+                        expression: "data.priority"
+                    }
+                })
+            ], 1)
         ], 1)
-    ], 1);
+    ]);
 };
 var staticRenderFns = [];
 exports.render = render;
@@ -37100,10 +37150,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("e991fee296b70642").render;
     script.staticRenderFns = require("e991fee296b70642").staticRenderFns;
-    script._scopeId = "data-v-09203b";
+    script._scopeId = "data-v-bcc0db";
     script.__cssModules = require("a7657671d02a9bc9").default;
     require("2a7abb4e56d36289").default(script);
-    script.__scopeId = 'data-v-09203b';
+    script.__scopeId = 'data-v-bcc0db';
     script.__file = "unlinkBmsNodePanel.vue";
 };
 initialize();
@@ -37534,9 +37584,9 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("87dd900c24f17cf8").render;
     script.staticRenderFns = require("87dd900c24f17cf8").staticRenderFns;
-    script._scopeId = "data-v-a83b02";
+    script._scopeId = "data-v-410303";
     require("6c346950b5a6d10c").default(script);
-    script.__scopeId = 'data-v-a83b02';
+    script.__scopeId = 'data-v-410303';
     script.__file = "confirmDialog.vue";
 };
 initialize();

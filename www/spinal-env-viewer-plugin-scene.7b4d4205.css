@@ -1,24 +1,24 @@
-.scene-manager[data-v-1089d1] {
+.scene-manager[data-v-ea31ad] {
   overflow: hidden;
 }
 
-.scene-manager-vue[data-v-1089d1] {
+.scene-manager-vue[data-v-ea31ad] {
   width: 100%;
   height: calc(100% - 20px);
   overflow: hidden;
 }
 
-.scene-manager-vue [data-v-1089d1] {
+.scene-manager-vue [data-v-ea31ad] {
   box-sizing: border-box;
 }
 
-.associated-model[data-v-1089d1] {
+.associated-model[data-v-ea31ad] {
   border: 1px solid #808080b3;
   margin: 10px;
   padding: 10px;
 }
 
-.associated-model-item[data-v-1089d1] {
+.associated-model-item[data-v-ea31ad] {
   text-align: start;
   border: 1px solid #808080a3;
   align-content: center;
@@ -28,24 +28,24 @@
   display: flex;
 }
 
-.open-bim-file-selector-fab[data-v-1089d1] {
+.open-bim-file-selector-fab[data-v-ea31ad] {
   position: absolute;
   bottom: 10px;
   right: 0;
 }
 
-.bim-file-selector[data-v-1089d1] {
+.bim-file-selector[data-v-ea31ad] {
   border: 1px solid #808080a3;
   margin: 10px;
   position: relative;
 }
 
-.bim-file-selector-header[data-v-1089d1] {
+.bim-file-selector-header[data-v-ea31ad] {
   justify-content: flex-end;
   display: flex;
 }
 
-.bim-file-selector-item[data-v-1089d1] {
+.bim-file-selector-item[data-v-ea31ad] {
   border: 1px solid #808080a3;
   align-content: center;
   align-items: center;
@@ -54,16 +54,16 @@
   display: flex;
 }
 
-.bim-file-selector-body[data-v-1089d1] {
+.bim-file-selector-body[data-v-ea31ad] {
   margin: 8px;
 }
 
-ul[data-v-1089d1] {
+ul[data-v-ea31ad] {
   padding: unset;
   list-style: none;
 }
 
-.associated-model-item-name[data-v-1089d1] {
+.associated-model-item-name[data-v-ea31ad] {
   text-overflow: ellipsis;
   width: 80%;
   margin: 0;

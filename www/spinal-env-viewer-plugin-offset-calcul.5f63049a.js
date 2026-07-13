@@ -816,10 +816,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("31a0280bc206c20").render;
     script.staticRenderFns = require("31a0280bc206c20").staticRenderFns;
-    script._scopeId = "data-v-6d2f29";
+    script._scopeId = "data-v-facaf5";
     script.__cssModules = require("152581c4396cdf5f").default;
     require("3ab065731430a6de").default(script);
-    script.__scopeId = 'data-v-6d2f29';
+    script.__scopeId = 'data-v-facaf5';
     script.__file = "config.vue";
 };
 initialize();

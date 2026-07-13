@@ -1,4 +1,4 @@
-.loading[data-v-b23bde] {
+.loading[data-v-5739f1] {
   justify-content: center;
   align-items: center;
   width: 100%;
@@ -6,38 +6,38 @@
   display: flex;
 }
 
-.content[data-v-b23bde] {
+.content[data-v-5739f1] {
   width: 100%;
   height: 400px;
 }
 
-.content .header[data-v-b23bde] {
+.content .header[data-v-5739f1] {
   width: 100%;
   height: 50px;
   margin: 15px 0;
   display: flex;
 }
 
-.content .networks_container[data-v-b23bde] {
+.content .networks_container[data-v-5739f1] {
   width: 100%;
   height: 340px;
   padding: 5px 0;
   overflow: hidden auto;
 }
 
-.content .networks_container .network_list[data-v-b23bde] {
+.content .networks_container .network_list[data-v-5739f1] {
   align-items: center;
   width: 100%;
   height: 50px;
   display: flex;
 }
 
-.content .networks_container .network_list .name[data-v-b23bde], .content .networks_container .network_list .address[data-v-b23bde], .content .networks_container .network_list .uploadMib[data-v-b23bde] {
+.content .networks_container .network_list .name[data-v-5739f1], .content .networks_container .network_list .address[data-v-5739f1], .content .networks_container .network_list .uploadMib[data-v-5739f1] {
   width: calc(33% - 20px);
   margin: 3px;
 }
 
-.content .networks_container .network_list .action[data-v-b23bde] {
+.content .networks_container .network_list .action[data-v-5739f1] {
   width: 50px;
 }
 
@@ -46,12 +46,12 @@
   width: 20px;
 }
 
-.error_content[data-v-cd78d1] {
+.error_content[data-v-31dede] {
   align-items: center;
   display: flex;
 }
 
-.progress_info[data-v-cd78d1] {
+.progress_info[data-v-31dede] {
   margin: 10px;
   width: 100% !important;
 }
@@ -112,38 +112,38 @@
   padding-right: 0 !important;
 }
 
-._panel_container[data-v-22db5a] {
+._panel_container[data-v-156e3f] {
   width: 100%;
   height: calc(100% - 15px);
 }
 
-._panel_container .header[data-v-22db5a] {
+._panel_container .header[data-v-156e3f] {
   border: 1px solid gray;
   width: 99%;
   height: 50px;
   margin: auto;
 }
 
-._panel_container .listDiv[data-v-22db5a] {
+._panel_container .listDiv[data-v-156e3f] {
   background: none;
   width: 100%;
   height: calc(100% - 50px);
 }
 
-._panel_container .listDiv .subtypes[data-v-22db5a] {
+._panel_container .listDiv .subtypes[data-v-156e3f] {
   font-size: .8em;
   font-weight: bold;
 }
 
-._panel_container .listDiv .Monitored[data-v-22db5a] {
+._panel_container .listDiv .Monitored[data-v-156e3f] {
   color: green !important;
 }
 
-._panel_container .listDiv .Stopped[data-v-22db5a] {
+._panel_container .listDiv .Stopped[data-v-156e3f] {
   color: red !important;
 }
 
-._panel_container .header[data-v-22db5a] {
+._panel_container .header[data-v-156e3f] {
   justify-content: flex-end;
   align-items: center;
   display: flex;
@@ -157,16 +157,16 @@
   display: contents;
 }
 
-.generateContainer[data-v-6f974a] {
+.generateContainer[data-v-9dc49a] {
   width: 300px;
   height: 260px;
 }
 
-.generateContainer .title[data-v-6f974a] {
+.generateContainer .title[data-v-9dc49a] {
   text-align: center;
 }
 
-.generateContainer .dialog_content[data-v-6f974a] {
+.generateContainer .dialog_content[data-v-9dc49a] {
   justify-content: center;
   align-items: center;
   display: flex;
@@ -201,25 +201,25 @@
   display: flex;
 }
 
-.tableToolbar[data-v-4ad07d] {
+.tableToolbar[data-v-d04026] {
   flex-direction: column;
   display: flex;
 }
 
-.firstBar[data-v-4ad07d] {
+.firstBar[data-v-d04026] {
   justify-content: space-between;
   align-items: center;
   width: 100%;
   display: flex;
 }
 
-.secondBar[data-v-4ad07d] {
+.secondBar[data-v-d04026] {
   justify-content: flex-end;
   width: 100%;
   display: flex;
 }
 
-.toolbarMdfield[data-v-4ad07d] {
+.toolbarMdfield[data-v-d04026] {
   width: calc(50% - 20px);
 }
 
@@ -227,23 +227,23 @@
   text-align: center;
 }
 
-.configContainer[data-v-4c4f61] {
+.configContainer[data-v-6a3ac4] {
   width: 100%;
   height: 100%;
 }
 
-.configContainer .title[data-v-4c4f61] {
+.configContainer .title[data-v-6a3ac4] {
   text-align: center;
   font-size: 24px;
   font-weight: bold;
 }
 
-.configContainer .dialogContent[data-v-4c4f61] {
+.configContainer .dialogContent[data-v-6a3ac4] {
   width: 100%;
   height: 100%;
 }
 
-.configContainer .loading[data-v-4c4f61] {
+.configContainer .loading[data-v-6a3ac4] {
   justify-content: center;
   align-items: center;
   width: 100%;

@@ -448,10 +448,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("70c64d8d3c820305").render;
     script.staticRenderFns = require("70c64d8d3c820305").staticRenderFns;
-    script._scopeId = "data-v-a41f24";
+    script._scopeId = "data-v-d56c56";
     script.__cssModules = require("943c9ee8baa12b5c").default;
     require("df6e1cb3a78e64fa").default(script);
-    script.__scopeId = 'data-v-a41f24';
+    script.__scopeId = 'data-v-d56c56';
     script.__file = "circularMenu.vue";
 };
 initialize();

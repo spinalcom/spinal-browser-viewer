@@ -314,10 +314,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("334e410359e39538").render;
     script.staticRenderFns = require("334e410359e39538").staticRenderFns;
-    script._scopeId = "data-v-cad18a";
+    script._scopeId = "data-v-7f8522";
     script.__cssModules = require("fe6cdee010c4175d").default;
     require("5fc14a2872370e0c").default(script);
-    script.__scopeId = 'data-v-cad18a';
+    script.__scopeId = 'data-v-7f8522';
     script.__file = "deletePanel.vue";
 };
 initialize();
@@ -327,6 +327,7 @@ exports.default = script;
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerGraphService = require("spinal-env-viewer-graph-service");
+var _spinalModelBmsnetwork = require("spinal-model-bmsnetwork");
 var scriptExports = {
     name: 'dialogComponent',
     props: [
@@ -367,37 +368,46 @@ var scriptExports = {
             }
             this.showDialog = false;
         },
-        deleteNode () {
-            let node = (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(this.selectedNode.id.get());
-            node.removeFromGraph();
+        deleteNode (node) {
+            node = node || (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(this.selectedNode.id.get());
+            return node.removeFromGraph().then(async (result)=>{
+                if (node.getType().get() === (0, _spinalModelBmsnetwork.SpinalBmsDevice).nodeTypeName) await this.clearBmsDevice(node);
+            });
         },
         deleteChildren () {
             let node = (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(this.selectedNode.id.get());
             node.getChildren().then((children)=>{
                 this.applyFilter(children).then((filteredChildren)=>{
+                    const promises = [];
                     const strFilteredChildren = this.applyStrFilter(filteredChildren);
-                    for (const child of strFilteredChildren)child.removeFromGraph();
+                    for (const child of strFilteredChildren)promises.push(this.deleteNode(child));
+                    return Promise.all(promises);
                 });
             });
         },
         deleteNodeAndChildren () {
             let node = (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(this.selectedNode.id.get());
+            const promises = [];
             node.getChildren().then((children)=>{
                 this.applyFilter(children).then((filteredChildren)=>{
                     const strFilteredChildren = this.applyStrFilter(filteredChildren);
-                    for (const child of strFilteredChildren)child.removeFromGraph();
+                    for (const child of strFilteredChildren)promises.push(this.deleteNode(child));
                 });
             });
-            node.removeFromGraph();
+            return Promise.all(promises).then(()=>{
+                return this.deleteNode(node);
+            });
         },
         deleteAllNodesOfSameTypeInSameContext () {
             let node = (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(this.selectedNode.id.get());
-            (0, _spinalEnvViewerGraphService.SpinalGraphService).findInContextByType(this.selectedContext.id.get(), this.selectedContext.id.get(), node.getType().get()).then((models)=>{
+            return (0, _spinalEnvViewerGraphService.SpinalGraphService).findInContextByType(this.selectedContext.id.get(), this.selectedContext.id.get(), node.getType().get()).then((models)=>{
+                const promises = [];
                 const nodes = models.map((m)=>(0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(m.id.get()));
                 console.log('nodes :', nodes);
                 const strFilteredNodes = this.applyStrFilter(nodes);
                 for (const filteredNode of strFilteredNodes)//let realNode = SpinalGraphService.getRealNode(node.id.get());
-                filteredNode.removeFromGraph();
+                promises.push(this.deleteNode(filteredNode));
+                return Promise.all(promises);
             });
         },
         deleteRelationWithParentInContext () {
@@ -527,13 +537,19 @@ var scriptExports = {
                 closeResult,
                 inputValue: this.inputValue
             });
+        },
+        async clearBmsDevice (node) {
+            if (node.getType().get() !== (0, _spinalModelBmsnetwork.SpinalBmsDevice).nodeTypeName) return;
+            if (!node.info || !node.info.listener) return;
+            const listenerModel = node.info.listener.load && await node.info.listener.load();
+            if (listenerModel && typeof listenerModel.removeFromGraph === "function") await listenerModel.removeFromGraph();
         }
     }
 };
 var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"spinal-env-viewer-graph-service":"9LAk7","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"brsX4":[function(require,module,exports,__globalThis) {
+},{"spinal-env-viewer-graph-service":"9LAk7","spinal-model-bmsnetwork":"haihS","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"brsX4":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
@@ -883,9 +899,9 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("f3110c23e293571").render;
     script.staticRenderFns = require("f3110c23e293571").staticRenderFns;
-    script._scopeId = "data-v-05961a";
+    script._scopeId = "data-v-781f82";
     require("34246a61773a2dd").default(script);
-    script.__scopeId = 'data-v-05961a';
+    script.__scopeId = 'data-v-781f82';
     script.__file = "renamePanel.vue";
 };
 initialize();
@@ -1019,9 +1035,9 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("c2e0446d1649305f").render;
     script.staticRenderFns = require("c2e0446d1649305f").staticRenderFns;
-    script._scopeId = "data-v-c5d837";
+    script._scopeId = "data-v-f56ac5";
     require("430b9d4c9288cc6f").default(script);
-    script.__scopeId = 'data-v-c5d837';
+    script.__scopeId = 'data-v-f56ac5';
     script.__file = "researchPanel.vue";
 };
 initialize();
@@ -1167,10 +1183,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("842bb3afc6cfcb4e").render;
     script.staticRenderFns = require("842bb3afc6cfcb4e").staticRenderFns;
-    script._scopeId = "data-v-764f2f";
+    script._scopeId = "data-v-bf2d9a";
     script.__cssModules = require("b5e6ccc8de18c740").default;
     require("8313894fa4a0eef6").default(script);
-    script.__scopeId = 'data-v-764f2f';
+    script.__scopeId = 'data-v-bf2d9a';
     script.__file = "colorDialog.vue";
 };
 initialize();

@@ -780,10 +780,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("2bb2a8999f597104").render;
     script.staticRenderFns = require("2bb2a8999f597104").staticRenderFns;
-    script._scopeId = "data-v-4a3a6c";
+    script._scopeId = "data-v-ce5558";
     script.__cssModules = require("1475d2a9522ce925").default;
     require("9a123931a7d2f9c").default(script);
-    script.__scopeId = 'data-v-4a3a6c';
+    script.__scopeId = 'data-v-ce5558';
     script.__file = "LinkEndpointTimeseriesToControlPoint.vue";
 };
 initialize();
@@ -937,7 +937,11 @@ var _spinalTimeSerieInst = require("./SpinalTimeSerieInst");
 var _spinalEnvViewerGraphService = require("spinal-env-viewer-graph-service");
 const NODE_HAS_CP_RELATIONTION_NAME = 'hasControlPoints';
 const CP_HAS_EP_RELATIONTION_NAME = 'hasBmsEndpoint';
-const NODE_HAS_EP_RELATIONTION_NAME = 'hasBmsEndpoint';
+const NODE_FIND_EP_RELATIONTIONS_NAME = [
+    'hasBmsDevice',
+    'hasBmsEndpoint',
+    'hasBmsEndpointGroup'
+];
 const HAS_TIME_SERIES_RELATIONTION_NAME = 'hasTimeSeries';
 async function StartLinkTSEndpointToCP(ids, context, cpProfileName, cpFilterPattern, useCPRegexp, endpointFilterRegexpPattern) {
     const nodes = await loadNodeLeafFromIds(ids, context);
@@ -969,16 +973,15 @@ async function StartLinkTSEndpointToCP(ids, context, cpProfileName, cpFilterPatt
         }));
     }
 }
+async function getEndpoint(node, endpointFilterRegexpPattern) {
+    const regex = new RegExp(endpointFilterRegexpPattern);
+    for await (const item of node.visitChildren(NODE_FIND_EP_RELATIONTIONS_NAME)){
+        const name = item.info.name.get();
+        if (regex.test(name)) return item;
+    }
+}
 async function handleLoadEP(node, endpointFilterRegexpPattern) {
-    const endpoints = await node.getChildren([
-        NODE_HAS_EP_RELATIONTION_NAME
-    ]);
-    // find endpoints matching filter
-    const endpoint = endpoints.find((ep)=>{
-        const name = ep.info.name.get();
-        const regex = new RegExp(endpointFilterRegexpPattern);
-        return regex.test(name);
-    });
+    const endpoint = await getEndpoint(node, endpointFilterRegexpPattern);
     if (endpoint === undefined) throw new Error(`no endpoint matching filter ${endpointFilterRegexpPattern} for node [${node._server_id}] ${node.info.name.get()}`);
     const tsService = (0, _spinalTimeSerieInst.getSpinalTimeSerieInst)();
     (0, _spinalEnvViewerGraphService.SpinalGraphService)._addNode(endpoint);

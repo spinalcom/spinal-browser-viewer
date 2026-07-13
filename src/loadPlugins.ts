@@ -120,6 +120,7 @@ export function loadPlugins() {
         'spinal-env-viewer-plugin-link_endpoint_timeseries_to_control_point'
       )
     ),
+    safeImport(import('spinal-env-viewer-plugin-device-organizer')),
 
     // add plugins ex:
     // safeImport(import('spinal-env-viewer-plugin-attribute-manager')),

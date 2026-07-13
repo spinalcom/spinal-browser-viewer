@@ -6480,10 +6480,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("8a4954974a3e2a08").render;
     script.staticRenderFns = require("8a4954974a3e2a08").staticRenderFns;
-    script._scopeId = "data-v-aadfa6";
+    script._scopeId = "data-v-e30921";
     script.__cssModules = require("f5f81ab60053088e").default;
     require("7e9898e9b122e745").default(script);
-    script.__scopeId = 'data-v-aadfa6';
+    script.__scopeId = 'data-v-e30921';
     script.__file = "App.vue";
 };
 initialize();
@@ -6534,10 +6534,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("f15864c5c5402877").render;
     script.staticRenderFns = require("f15864c5c5402877").staticRenderFns;
-    script._scopeId = "data-v-c4aef8";
+    script._scopeId = "data-v-5d934f";
     script.__cssModules = require("860cf64167baff16").default;
     require("2931b2c99cae818c").default(script);
-    script.__scopeId = 'data-v-c4aef8';
+    script.__scopeId = 'data-v-5d934f';
     script.__file = "SpinalHeader.vue";
 };
 initialize();
@@ -6886,6 +6886,7 @@ exports.default = SpinalSystem;
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "default", ()=>(0, _axiosJsDefault.default));
+parcelHelpers.export(exports, "create", ()=>create);
 parcelHelpers.export(exports, "Axios", ()=>Axios);
 parcelHelpers.export(exports, "AxiosError", ()=>AxiosError);
 parcelHelpers.export(exports, "CanceledError", ()=>CanceledError);
@@ -6907,7 +6908,7 @@ var _axiosJsDefault = parcelHelpers.interopDefault(_axiosJs);
 // This module is intended to unwrap Axios default export as named.
 // Keep top-level export same with static properties
 // so that it can keep same with es module or cjs
-const { Axios, AxiosError, CanceledError, isCancel, CancelToken, VERSION, all, Cancel, isAxiosError, spread, toFormData, AxiosHeaders, HttpStatusCode, formToJSON, getAdapter, mergeConfig } = (0, _axiosJsDefault.default);
+const { Axios, AxiosError, CanceledError, isCancel, CancelToken, VERSION, all, Cancel, isAxiosError, spread, toFormData, AxiosHeaders, HttpStatusCode, formToJSON, getAdapter, mergeConfig, create } = (0, _axiosJsDefault.default);
 
 },{"./lib/axios.js":"le7Ue","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"le7Ue":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -7006,7 +7007,7 @@ parcelHelpers.defineInteropFlag(exports);
 var _bindJs = require("./helpers/bind.js");
 var _bindJsDefault = parcelHelpers.interopDefault(_bindJs);
 var global = arguments[3];
-"use strict";
+'use strict';
 // utils is a library of generic helper functions non-specific to axios
 const { toString } = Object.prototype;
 const { getPrototypeOf } = Object;
@@ -7033,7 +7034,7 @@ const typeOfTest = (type)=>(thing)=>typeof thing === type;
  * @param {*} val The value to test
  *
  * @returns {boolean} True if the value is undefined, otherwise false
- */ const isUndefined = typeOfTest("undefined");
+ */ const isUndefined = typeOfTest('undefined');
 /**
  * Determine if a value is a Buffer
  *
@@ -7049,7 +7050,7 @@ const typeOfTest = (type)=>(thing)=>typeof thing === type;
  * @param {*} val The value to test
  *
  * @returns {boolean} True if value is an ArrayBuffer, otherwise false
- */ const isArrayBuffer = kindOfTest("ArrayBuffer");
+ */ const isArrayBuffer = kindOfTest('ArrayBuffer');
 /**
  * Determine if a value is a view on an ArrayBuffer
  *
@@ -7058,7 +7059,7 @@ const typeOfTest = (type)=>(thing)=>typeof thing === type;
  * @returns {boolean} True if value is a view on an ArrayBuffer, otherwise false
  */ function isArrayBufferView(val) {
     let result;
-    if (typeof ArrayBuffer !== "undefined" && ArrayBuffer.isView) result = ArrayBuffer.isView(val);
+    if (typeof ArrayBuffer !== 'undefined' && ArrayBuffer.isView) result = ArrayBuffer.isView(val);
     else result = val && val.buffer && isArrayBuffer(val.buffer);
     return result;
 }
@@ -7068,27 +7069,27 @@ const typeOfTest = (type)=>(thing)=>typeof thing === type;
  * @param {*} val The value to test
  *
  * @returns {boolean} True if value is a String, otherwise false
- */ const isString = typeOfTest("string");
+ */ const isString = typeOfTest('string');
 /**
  * Determine if a value is a Function
  *
  * @param {*} val The value to test
  * @returns {boolean} True if value is a Function, otherwise false
- */ const isFunction = typeOfTest("function");
+ */ const isFunction = typeOfTest('function');
 /**
  * Determine if a value is a Number
  *
  * @param {*} val The value to test
  *
  * @returns {boolean} True if value is a Number, otherwise false
- */ const isNumber = typeOfTest("number");
+ */ const isNumber = typeOfTest('number');
 /**
  * Determine if a value is an Object
  *
  * @param {*} thing The value to test
  *
  * @returns {boolean} True if value is an Object, otherwise false
- */ const isObject = (thing)=>thing !== null && typeof thing === "object";
+ */ const isObject = (thing)=>thing !== null && typeof thing === 'object';
 /**
  * Determine if a value is a Boolean
  *
@@ -7102,7 +7103,7 @@ const typeOfTest = (type)=>(thing)=>typeof thing === type;
  *
  * @returns {boolean} True if value is a plain Object, otherwise false
  */ const isPlainObject = (val)=>{
-    if (kindOf(val) !== "object") return false;
+    if (kindOf(val) !== 'object') return false;
     const prototype = getPrototypeOf(val);
     return (prototype === null || prototype === Object.prototype || Object.getPrototypeOf(prototype) === null) && !(toStringTag in val) && !(iterator in val);
 };
@@ -7128,28 +7129,49 @@ const typeOfTest = (type)=>(thing)=>typeof thing === type;
  * @param {*} val The value to test
  *
  * @returns {boolean} True if value is a Date, otherwise false
- */ const isDate = kindOfTest("Date");
+ */ const isDate = kindOfTest('Date');
 /**
  * Determine if a value is a File
  *
  * @param {*} val The value to test
  *
  * @returns {boolean} True if value is a File, otherwise false
- */ const isFile = kindOfTest("File");
+ */ const isFile = kindOfTest('File');
+/**
+ * Determine if a value is a React Native Blob
+ * React Native "blob": an object with a `uri` attribute. Optionally, it can
+ * also have a `name` and `type` attribute to specify filename and content type
+ *
+ * @see https://github.com/facebook/react-native/blob/26684cf3adf4094eb6c405d345a75bf8c7c0bf88/Libraries/Network/FormData.js#L68-L71
+ *
+ * @param {*} value The value to test
+ *
+ * @returns {boolean} True if value is a React Native Blob, otherwise false
+ */ const isReactNativeBlob = (value)=>{
+    return !!(value && typeof value.uri !== 'undefined');
+};
+/**
+ * Determine if environment is React Native
+ * ReactNative `FormData` has a non-standard `getParts()` method
+ *
+ * @param {*} formData The formData to test
+ *
+ * @returns {boolean} True if environment is React Native, otherwise false
+ */ const isReactNative = (formData)=>formData && typeof formData.getParts !== 'undefined';
 /**
  * Determine if a value is a Blob
  *
  * @param {*} val The value to test
  *
  * @returns {boolean} True if value is a Blob, otherwise false
- */ const isBlob = kindOfTest("Blob");
+ */ const isBlob = kindOfTest('Blob');
 /**
  * Determine if a value is a FileList
  *
  * @param {*} val The value to test
  *
- * @returns {boolean} True if value is a File, otherwise false
- */ const isFileList = kindOfTest("FileList");
+ * @returns {boolean} True if value is a FileList, otherwise false
+ */ const isFileList = kindOfTest('FileList');
 /**
  * Determine if a value is a Stream
  *
@@ -7163,10 +7185,25 @@ const typeOfTest = (type)=>(thing)=>typeof thing === type;
  * @param {*} thing The value to test
  *
  * @returns {boolean} True if value is an FormData, otherwise false
- */ const isFormData = (thing)=>{
-    let kind;
-    return thing && (typeof FormData === "function" && thing instanceof FormData || isFunction(thing.append) && ((kind = kindOf(thing)) === "formdata" || // detect form-data instance
-    kind === "object" && isFunction(thing.toString) && thing.toString() === "[object FormData]"));
+ */ function getGlobal() {
+    if (typeof globalThis !== 'undefined') return globalThis;
+    if (typeof self !== 'undefined') return self;
+    if (typeof window !== 'undefined') return window;
+    if (typeof global !== 'undefined') return global;
+    return {};
+}
+const G = getGlobal();
+const FormDataCtor = typeof G.FormData !== 'undefined' ? G.FormData : undefined;
+const isFormData = (thing)=>{
+    if (!thing) return false;
+    if (FormDataCtor && thing instanceof FormDataCtor) return true;
+    // Reject plain objects inheriting directly from Object.prototype so prototype-pollution gadgets can't spoof FormData.
+    const proto = getPrototypeOf(thing);
+    if (!proto || proto === Object.prototype) return false;
+    if (!isFunction(thing.append)) return false;
+    const kind = kindOf(thing);
+    return kind === 'formdata' || // detect form-data instance
+    kind === 'object' && isFunction(thing.toString) && thing.toString() === '[object FormData]';
 };
 /**
  * Determine if a value is a URLSearchParams object
@@ -7174,12 +7211,12 @@ const typeOfTest = (type)=>(thing)=>typeof thing === type;
  * @param {*} val The value to test
  *
  * @returns {boolean} True if value is a URLSearchParams object, otherwise false
- */ const isURLSearchParams = kindOfTest("URLSearchParams");
+ */ const isURLSearchParams = kindOfTest('URLSearchParams');
 const [isReadableStream, isRequest, isResponse, isHeaders] = [
-    "ReadableStream",
-    "Request",
-    "Response",
-    "Headers"
+    'ReadableStream',
+    'Request',
+    'Response',
+    'Headers'
 ].map(kindOfTest);
 /**
  * Trim excess whitespace off the beginning and end of a string
@@ -7187,7 +7224,9 @@ const [isReadableStream, isRequest, isResponse, isHeaders] = [
  * @param {String} str The String to trim
  *
  * @returns {String} The String freed of excess whitespace
- */ const trim = (str)=>str.trim ? str.trim() : str.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, "");
+ */ const trim = (str)=>{
+    return str.trim ? str.trim() : str.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, '');
+};
 /**
  * Iterate over an Array or an Object invoking a function for each item.
  *
@@ -7205,11 +7244,11 @@ const [isReadableStream, isRequest, isResponse, isHeaders] = [
  * @returns {any}
  */ function forEach(obj, fn, { allOwnKeys = false } = {}) {
     // Don't bother if no value provided
-    if (obj === null || typeof obj === "undefined") return;
+    if (obj === null || typeof obj === 'undefined') return;
     let i;
     let l;
     // Force an array if not already something iterable
-    if (typeof obj !== "object") /*eslint no-param-reassign:0*/ obj = [
+    if (typeof obj !== 'object') /*eslint no-param-reassign:0*/ obj = [
         obj
     ];
     if (isArray(obj)) // Iterate over array values
@@ -7227,7 +7266,14 @@ const [isReadableStream, isRequest, isResponse, isHeaders] = [
         }
     }
 }
-function findKey(obj, key) {
+/**
+ * Finds a key in an object, case-insensitive, returning the actual key name.
+ * Returns null if the object is a Buffer or if no match is found.
+ *
+ * @param {Object} obj - The object to search.
+ * @param {string} key - The key to find (case-insensitive).
+ * @returns {?string} The actual key name if found, otherwise null.
+ */ function findKey(obj, key) {
     if (isBuffer(obj)) return null;
     key = key.toLowerCase();
     const keys = Object.keys(obj);
@@ -7240,8 +7286,8 @@ function findKey(obj, key) {
     return null;
 }
 const _global = (()=>{
-    /*eslint no-undef:0*/ if (typeof globalThis !== "undefined") return globalThis;
-    return typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : global;
+    /*eslint no-undef:0*/ if (typeof globalThis !== 'undefined') return globalThis;
+    return typeof self !== 'undefined' ? self : typeof window !== 'undefined' ? window : global;
 })();
 const isContextDefined = (context)=>!isUndefined(context) && context !== _global;
 /**
@@ -7261,19 +7307,23 @@ const isContextDefined = (context)=>!isUndefined(context) && context !== _global
  * @param {Object} obj1 Object to merge
  *
  * @returns {Object} Result of all merge properties
- */ function merge() {
+ */ function merge(...objs) {
     const { caseless, skipUndefined } = isContextDefined(this) && this || {};
     const result = {};
     const assignValue = (val, key)=>{
         // Skip dangerous property names to prevent prototype pollution
-        if (key === "__proto__" || key === "constructor" || key === "prototype") return;
+        if (key === '__proto__' || key === 'constructor' || key === 'prototype') return;
         const targetKey = caseless && findKey(result, key) || key;
-        if (isPlainObject(result[targetKey]) && isPlainObject(val)) result[targetKey] = merge(result[targetKey], val);
+        // Read via own-prop only — a bare `result[targetKey]` walks the prototype
+        // chain, so a polluted Object.prototype value could surface here and get
+        // copied into the merged result.
+        const existing = hasOwnProperty(result, targetKey) ? result[targetKey] : undefined;
+        if (isPlainObject(existing) && isPlainObject(val)) result[targetKey] = merge(existing, val);
         else if (isPlainObject(val)) result[targetKey] = merge({}, val);
         else if (isArray(val)) result[targetKey] = val.slice();
         else if (!skipUndefined || !isUndefined(val)) result[targetKey] = val;
     };
-    for(let i = 0, l = arguments.length; i < l; i++)arguments[i] && forEach(arguments[i], assignValue);
+    for(let i = 0, l = objs.length; i < l; i++)objs[i] && forEach(objs[i], assignValue);
     return result;
 }
 /**
@@ -7289,12 +7339,16 @@ const isContextDefined = (context)=>!isUndefined(context) && context !== _global
  */ const extend = (a, b, thisArg, { allOwnKeys } = {})=>{
     forEach(b, (val, key)=>{
         if (thisArg && isFunction(val)) Object.defineProperty(a, key, {
+            // Null-proto descriptor so a polluted Object.prototype.get cannot
+            // hijack defineProperty's accessor-vs-data resolution.
+            __proto__: null,
             value: (0, _bindJsDefault.default)(val, thisArg),
             writable: true,
             enumerable: true,
             configurable: true
         });
         else Object.defineProperty(a, key, {
+            __proto__: null,
             value: val,
             writable: true,
             enumerable: true,
@@ -7325,13 +7379,15 @@ const isContextDefined = (context)=>!isUndefined(context) && context !== _global
  * @returns {void}
  */ const inherits = (constructor, superConstructor, props, descriptors)=>{
     constructor.prototype = Object.create(superConstructor.prototype, descriptors);
-    Object.defineProperty(constructor.prototype, "constructor", {
+    Object.defineProperty(constructor.prototype, 'constructor', {
+        __proto__: null,
         value: constructor,
         writable: true,
         enumerable: false,
         configurable: true
     });
-    Object.defineProperty(constructor, "super", {
+    Object.defineProperty(constructor, 'super', {
+        __proto__: null,
         value: superConstructor.prototype
     });
     props && Object.assign(constructor.prototype, props);
@@ -7409,7 +7465,7 @@ const isTypedArray = ((TypedArray)=>{
     return (thing)=>{
         return TypedArray && thing instanceof TypedArray;
     };
-})(typeof Uint8Array !== "undefined" && getPrototypeOf(Uint8Array));
+})(typeof Uint8Array !== 'undefined' && getPrototypeOf(Uint8Array));
 /**
  * For each entry in the object, call the function with the key and value.
  *
@@ -7439,7 +7495,7 @@ const isTypedArray = ((TypedArray)=>{
     while((matches = regExp.exec(str)) !== null)arr.push(matches);
     return arr;
 };
-/* Checking if the kindOfTest function returns true when passed an HTMLFormElement. */ const isHTMLForm = kindOfTest("HTMLFormElement");
+/* Checking if the kindOfTest function returns true when passed an HTMLFormElement. */ const isHTMLForm = kindOfTest('HTMLFormElement');
 const toCamelCase = (str)=>{
     return str.toLowerCase().replace(/[-_\s]([a-z\d])(\w*)/g, function replacer(m, p1, p2) {
         return p1.toUpperCase() + p2;
@@ -7452,7 +7508,7 @@ const toCamelCase = (str)=>{
  * @param {*} val The value to test
  *
  * @returns {boolean} True if value is a RegExp object, otherwise false
- */ const isRegExp = kindOfTest("RegExp");
+ */ const isRegExp = kindOfTest('RegExp');
 const reduceDescriptors = (obj, reducer)=>{
     const descriptors = Object.getOwnPropertyDescriptors(obj);
     const reducedDescriptors = {};
@@ -7469,14 +7525,14 @@ const reduceDescriptors = (obj, reducer)=>{
     reduceDescriptors(obj, (descriptor, name)=>{
         // skip restricted props in strict mode
         if (isFunction(obj) && [
-            "arguments",
-            "caller",
-            "callee"
-        ].indexOf(name) !== -1) return false;
+            'arguments',
+            'caller',
+            'callee'
+        ].includes(name)) return false;
         const value = obj[name];
         if (!isFunction(value)) return;
         descriptor.enumerable = false;
-        if ("writable" in descriptor) {
+        if ('writable' in descriptor) {
             descriptor.writable = false;
             return;
         }
@@ -7485,7 +7541,14 @@ const reduceDescriptors = (obj, reducer)=>{
         };
     });
 };
-const toObjectSet = (arrayOrString, delimiter)=>{
+/**
+ * Converts an array or a delimited string into an object set with values as keys and true as values.
+ * Useful for fast membership checks.
+ *
+ * @param {Array|string} arrayOrString - The array or string to convert.
+ * @param {string} delimiter - The delimiter to use if input is a string.
+ * @returns {Object} An object with keys from the array or string, values set to true.
+ */ const toObjectSet = (arrayOrString, delimiter)=>{
     const obj = {};
     const define = (arr)=>{
         arr.forEach((value)=>{
@@ -7506,47 +7569,75 @@ const toFiniteNumber = (value, defaultValue)=>{
  *
  * @returns {boolean}
  */ function isSpecCompliantForm(thing) {
-    return !!(thing && isFunction(thing.append) && thing[toStringTag] === "FormData" && thing[iterator]);
+    return !!(thing && isFunction(thing.append) && thing[toStringTag] === 'FormData' && thing[iterator]);
 }
-const toJSONObject = (obj)=>{
-    const stack = new Array(10);
-    const visit = (source, i)=>{
+/**
+ * Recursively converts an object to a JSON-compatible object, handling circular references and Buffers.
+ *
+ * @param {Object} obj - The object to convert.
+ * @returns {Object} The JSON-compatible object.
+ */ const toJSONObject = (obj)=>{
+    const visited = new WeakSet();
+    const visit = (source)=>{
         if (isObject(source)) {
-            if (stack.indexOf(source) >= 0) return;
+            if (visited.has(source)) return;
             //Buffer check
             if (isBuffer(source)) return source;
-            if (!("toJSON" in source)) {
-                stack[i] = source;
+            if (!('toJSON' in source)) {
+                // add-on descent / delete-on-ascent: preserves path semantics, so DAG nodes serialise at every occurrence (see #7230).
+                visited.add(source);
                 const target = isArray(source) ? [] : {};
                 forEach(source, (value, key)=>{
-                    const reducedValue = visit(value, i + 1);
+                    const reducedValue = visit(value);
                     !isUndefined(reducedValue) && (target[key] = reducedValue);
                 });
-                stack[i] = undefined;
+                visited.delete(source);
                 return target;
             }
         }
         return source;
     };
-    return visit(obj, 0);
+    return visit(obj);
 };
-const isAsyncFn = kindOfTest("AsyncFunction");
-const isThenable = (thing)=>thing && (isObject(thing) || isFunction(thing)) && isFunction(thing.then) && isFunction(thing.catch);
+/**
+ * Determines if a value is an async function.
+ *
+ * @param {*} thing - The value to test.
+ * @returns {boolean} True if value is an async function, otherwise false.
+ */ const isAsyncFn = kindOfTest('AsyncFunction');
+/**
+ * Determines if a value is thenable (has then and catch methods).
+ *
+ * @param {*} thing - The value to test.
+ * @returns {boolean} True if value is thenable, otherwise false.
+ */ const isThenable = (thing)=>thing && (isObject(thing) || isFunction(thing)) && isFunction(thing.then) && isFunction(thing.catch);
 // original code
 // https://github.com/DigitalBrainJS/AxiosPromise/blob/16deab13710ec09779922131f3fa5954320f83ab/lib/utils.js#L11-L34
-const _setImmediate = ((setImmediateSupported, postMessageSupported)=>{
+/**
+ * Provides a cross-platform setImmediate implementation.
+ * Uses native setImmediate if available, otherwise falls back to postMessage or setTimeout.
+ *
+ * @param {boolean} setImmediateSupported - Whether setImmediate is supported.
+ * @param {boolean} postMessageSupported - Whether postMessage is supported.
+ * @returns {Function} A function to schedule a callback asynchronously.
+ */ const _setImmediate = ((setImmediateSupported, postMessageSupported)=>{
     if (setImmediateSupported) return setImmediate;
     return postMessageSupported ? ((token, callbacks)=>{
-        _global.addEventListener("message", ({ source, data })=>{
+        _global.addEventListener('message', ({ source, data })=>{
             if (source === _global && data === token) callbacks.length && callbacks.shift()();
         }, false);
         return (cb)=>{
             callbacks.push(cb);
-            _global.postMessage(token, "*");
+            _global.postMessage(token, '*');
         };
     })(`axios@${Math.random()}`, []) : (cb)=>setTimeout(cb);
-})(typeof setImmediate === "function", isFunction(_global.postMessage));
-const asap = typeof queueMicrotask !== "undefined" ? queueMicrotask.bind(_global) : _setImmediate;
+})(typeof setImmediate === 'function', isFunction(_global.postMessage));
+/**
+ * Schedules a microtask or asynchronous callback as soon as possible.
+ * Uses queueMicrotask if available, otherwise falls back to process.nextTick or _setImmediate.
+ *
+ * @type {Function}
+ */ const asap = typeof queueMicrotask !== 'undefined' ? queueMicrotask.bind(_global) : _setImmediate;
 // *********************
 const isIterable = (thing)=>thing != null && isFunction(thing[iterator]);
 exports.default = {
@@ -7568,6 +7659,8 @@ exports.default = {
     isUndefined,
     isDate,
     isFile,
+    isReactNativeBlob,
+    isReactNative,
     isBlob,
     isRegExp,
     isFunction,
@@ -7672,10 +7765,19 @@ const validators = (0, _validatorJsDefault.default).validators;
                 let dummy = {};
                 Error.captureStackTrace ? Error.captureStackTrace(dummy) : dummy = new Error();
                 // slice off the Error: ... line
-                const stack = dummy.stack ? dummy.stack.replace(/^.+\n/, '') : '';
+                const stack = (()=>{
+                    if (!dummy.stack) return '';
+                    const firstNewlineIndex = dummy.stack.indexOf('\n');
+                    return firstNewlineIndex === -1 ? '' : dummy.stack.slice(firstNewlineIndex + 1);
+                })();
                 try {
                     if (!err.stack) err.stack = stack;
-                    else if (stack && !String(err.stack).endsWith(stack.replace(/^.+\n.+\n/, ''))) err.stack += '\n' + stack;
+                    else if (stack) {
+                        const firstNewlineIndex = stack.indexOf('\n');
+                        const secondNewlineIndex = firstNewlineIndex === -1 ? -1 : stack.indexOf('\n', firstNewlineIndex + 1);
+                        const stackWithoutTwoTopLines = secondNewlineIndex === -1 ? '' : stack.slice(secondNewlineIndex + 1);
+                        if (!String(err.stack).endsWith(stackWithoutTwoTopLines)) err.stack += '\n' + stack;
+                    }
                 } catch (e) {
                 // ignore the case where "stack" is an un-writable property
                 }
@@ -7725,6 +7827,7 @@ const validators = (0, _validatorJsDefault.default).validators;
             'post',
             'put',
             'patch',
+            'query',
             'common'
         ], (method)=>{
             delete headers[method];
@@ -7806,9 +7909,10 @@ const validators = (0, _validatorJsDefault.default).validators;
 (0, _utilsJsDefault.default).forEach([
     'post',
     'put',
-    'patch'
+    'patch',
+    'query'
 ], function forEachMethodWithData(method) {
-    /*eslint func-names:0*/ function generateHTTPMethod(isForm) {
+    function generateHTTPMethod(isForm) {
         return function httpMethod(url, data, config) {
             return this.request((0, _mergeConfigJsDefault.default)(config || {}, {
                 method,
@@ -7821,27 +7925,30 @@ const validators = (0, _validatorJsDefault.default).validators;
         };
     }
     Axios.prototype[method] = generateHTTPMethod();
-    Axios.prototype[method + 'Form'] = generateHTTPMethod(true);
+    // QUERY is a safe/idempotent read method; multipart form bodies don't fit
+    // its semantics, so no queryForm shorthand is generated.
+    if (method !== 'query') Axios.prototype[method + 'Form'] = generateHTTPMethod(true);
 });
 exports.default = Axios;
 
 },{"../utils.js":"jI6DP","../helpers/buildURL.js":"3CNaw","./InterceptorManager.js":"bt5wS","./dispatchRequest.js":"1p0aT","./mergeConfig.js":"311Mu","./buildFullPath.js":"kg0Bk","../helpers/validator.js":"9wnyh","./AxiosHeaders.js":"9EzTj","../defaults/transitional.js":"cKdyU","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"3CNaw":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
+/**
+ * It replaces URL-encoded forms of `:`, `$`, `,`, and spaces with
+ * their plain counterparts (`:`, `$`, `,`, `+`).
+ *
+ * @param {string} val The value to be encoded.
+ *
+ * @returns {string} The encoded value.
+ */ parcelHelpers.export(exports, "encode", ()=>encode);
 parcelHelpers.export(exports, "default", ()=>buildURL);
 var _utilsJs = require("../utils.js");
 var _utilsJsDefault = parcelHelpers.interopDefault(_utilsJs);
 var _axiosURLSearchParamsJs = require("../helpers/AxiosURLSearchParams.js");
 var _axiosURLSearchParamsJsDefault = parcelHelpers.interopDefault(_axiosURLSearchParamsJs);
 'use strict';
-/**
- * It replaces all instances of the characters `:`, `$`, `,`, `+`, `[`, and `]` with their
- * URI encoded counterparts
- *
- * @param {string} val The value to be encoded.
- *
- * @returns {string} The encoded value.
- */ function encode(val) {
+function encode(val) {
     return encodeURIComponent(val).replace(/%3A/gi, ':').replace(/%24/g, '$').replace(/%2C/gi, ',').replace(/%20/g, '+');
 }
 function buildURL(url, params, options) {
@@ -7855,7 +7962,7 @@ function buildURL(url, params, options) {
     if (serializeFn) serializedParams = serializeFn(params, _options);
     else serializedParams = (0, _utilsJsDefault.default).isURLSearchParams(params) ? params.toString() : new (0, _axiosURLSearchParamsJsDefault.default)(params, _options).toString(_encode);
     if (serializedParams) {
-        const hashmarkIndex = url.indexOf("#");
+        const hashmarkIndex = url.indexOf('#');
         if (hashmarkIndex !== -1) url = url.slice(0, hashmarkIndex);
         url += (url.indexOf('?') === -1 ? '?' : '&') + serializedParams;
     }
@@ -7882,10 +7989,9 @@ var _toFormDataJsDefault = parcelHelpers.interopDefault(_toFormDataJs);
         '(': '%28',
         ')': '%29',
         '~': '%7E',
-        '%20': '+',
-        '%00': '\x00'
+        '%20': '+'
     };
-    return encodeURIComponent(str).replace(/[!'()~]|%20|%00/g, function replacer(match) {
+    return encodeURIComponent(str).replace(/[!'()~]|%20/g, function replacer(match) {
         return charMap[match];
     });
 }
@@ -8014,6 +8120,7 @@ const predicates = (0, _utilsJsDefault.default).toFlatObject((0, _utilsJsDefault
     const dots = options.dots;
     const indexes = options.indexes;
     const _Blob = options.Blob || typeof Blob !== 'undefined' && Blob;
+    const maxDepth = options.maxDepth === undefined ? 100 : options.maxDepth;
     const useBlob = _Blob && (0, _utilsJsDefault.default).isSpecCompliantForm(formData);
     if (!(0, _utilsJsDefault.default).isFunction(visitor)) throw new TypeError('visitor must be a function');
     function convertValue(value) {
@@ -8037,6 +8144,10 @@ const predicates = (0, _utilsJsDefault.default).toFlatObject((0, _utilsJsDefault
    * @returns {boolean} return true to visit the each prop of the value recursively
    */ function defaultVisitor(value, key, path) {
         let arr = value;
+        if ((0, _utilsJsDefault.default).isReactNative(formData) && (0, _utilsJsDefault.default).isReactNativeBlob(value)) {
+            formData.append(renderKey(path, key, dots), convertValue(value));
+            return false;
+        }
         if (value && !path && typeof value === 'object') {
             if ((0, _utilsJsDefault.default).endsWith(key, '{}')) {
                 // eslint-disable-next-line no-param-reassign
@@ -8065,15 +8176,16 @@ const predicates = (0, _utilsJsDefault.default).toFlatObject((0, _utilsJsDefault
         convertValue,
         isVisitable
     });
-    function build(value, path) {
+    function build(value, path, depth = 0) {
         if ((0, _utilsJsDefault.default).isUndefined(value)) return;
+        if (depth > maxDepth) throw new (0, _axiosErrorJsDefault.default)('Object is too deeply nested (' + depth + ' levels). Max depth: ' + maxDepth, (0, _axiosErrorJsDefault.default).ERR_FORM_DATA_DEPTH_EXCEEDED);
         if (stack.indexOf(value) !== -1) throw Error('Circular reference detected in ' + path.join('.'));
         stack.push(value);
         (0, _utilsJsDefault.default).forEach(value, function each(el, key) {
             const result = !((0, _utilsJsDefault.default).isUndefined(el) || el === null) && visitor.call(formData, el, (0, _utilsJsDefault.default).isString(key) ? key.trim() : key, path, exposedHelpers);
             if (result === true) build(el, path ? path.concat(key) : [
                 key
-            ]);
+            ], depth + 1);
         });
         stack.pop();
     }
@@ -9684,27 +9796,88 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _utilsJs = require("../utils.js");
 var _utilsJsDefault = parcelHelpers.interopDefault(_utilsJs);
+var _axiosHeadersJs = require("./AxiosHeaders.js");
+var _axiosHeadersJsDefault = parcelHelpers.interopDefault(_axiosHeadersJs);
 'use strict';
+const REDACTED = '[REDACTED ****]';
+function hasOwnOrPrototypeToJSON(source) {
+    if ((0, _utilsJsDefault.default).hasOwnProp(source, 'toJSON')) return true;
+    let prototype = Object.getPrototypeOf(source);
+    while(prototype && prototype !== Object.prototype){
+        if ((0, _utilsJsDefault.default).hasOwnProp(prototype, 'toJSON')) return true;
+        prototype = Object.getPrototypeOf(prototype);
+    }
+    return false;
+}
+// Build a plain-object snapshot of `config` and replace the value of any key
+// (case-insensitive) listed in `redactKeys` with REDACTED. Walks through arrays
+// and AxiosHeaders, and short-circuits on circular references.
+function redactConfig(config, redactKeys) {
+    const lowerKeys = new Set(redactKeys.map((k)=>String(k).toLowerCase()));
+    const seen = [];
+    const visit = (source)=>{
+        if (source === null || typeof source !== 'object') return source;
+        if ((0, _utilsJsDefault.default).isBuffer(source)) return source;
+        if (seen.indexOf(source) !== -1) return undefined;
+        if (source instanceof (0, _axiosHeadersJsDefault.default)) source = source.toJSON();
+        seen.push(source);
+        let result;
+        if ((0, _utilsJsDefault.default).isArray(source)) {
+            result = [];
+            source.forEach((v, i)=>{
+                const reducedValue = visit(v);
+                if (!(0, _utilsJsDefault.default).isUndefined(reducedValue)) result[i] = reducedValue;
+            });
+        } else {
+            if (!(0, _utilsJsDefault.default).isPlainObject(source) && hasOwnOrPrototypeToJSON(source)) {
+                seen.pop();
+                return source;
+            }
+            result = Object.create(null);
+            for (const [key, value] of Object.entries(source)){
+                const reducedValue = lowerKeys.has(key.toLowerCase()) ? REDACTED : visit(value);
+                if (!(0, _utilsJsDefault.default).isUndefined(reducedValue)) result[key] = reducedValue;
+            }
+        }
+        seen.pop();
+        return result;
+    };
+    return visit(config);
+}
 class AxiosError extends Error {
     static from(error, code, config, request, response, customProps) {
         const axiosError = new AxiosError(error.message, code || error.code, config, request, response);
         axiosError.cause = error;
         axiosError.name = error.name;
+        // Preserve status from the original error if not already set from response
+        if (error.status != null && axiosError.status == null) axiosError.status = error.status;
         customProps && Object.assign(axiosError, customProps);
         return axiosError;
     }
     /**
-     * Create an Error with the specified message, config, error code, request and response.
-     *
-     * @param {string} message The error message.
-     * @param {string} [code] The error code (for example, 'ECONNABORTED').
-     * @param {Object} [config] The config.
-     * @param {Object} [request] The request.
-     * @param {Object} [response] The response.
-     *
-     * @returns {Error} The created error.
-     */ constructor(message, code, config, request, response){
+   * Create an Error with the specified message, config, error code, request and response.
+   *
+   * @param {string} message The error message.
+   * @param {string} [code] The error code (for example, 'ECONNABORTED').
+   * @param {Object} [config] The config.
+   * @param {Object} [request] The request.
+   * @param {Object} [response] The response.
+   *
+   * @returns {Error} The created error.
+   */ constructor(message, code, config, request, response){
         super(message);
+        // Make message enumerable to maintain backward compatibility
+        // The native Error constructor sets message as non-enumerable,
+        // but axios < v1.13.3 had it as enumerable
+        Object.defineProperty(this, 'message', {
+            // Null-proto descriptor so a polluted Object.prototype.get cannot turn
+            // this data descriptor into an accessor descriptor on the way in.
+            __proto__: null,
+            value: message,
+            enumerable: true,
+            writable: true,
+            configurable: true
+        });
         this.name = 'AxiosError';
         this.isAxiosError = true;
         code && (this.code = code);
@@ -9716,6 +9889,13 @@ class AxiosError extends Error {
         }
     }
     toJSON() {
+        // Opt-in redaction: when the request config carries a `redact` array, the
+        // value of any matching key (case-insensitive, at any depth) is replaced
+        // with REDACTED in the serialized snapshot. Undefined or empty leaves the
+        // existing serialization behavior unchanged.
+        const config = this.config;
+        const redactKeys = config && (0, _utilsJsDefault.default).hasOwnProp(config, 'redact') ? config.redact : undefined;
+        const serializedConfig = (0, _utilsJsDefault.default).isArray(redactKeys) && redactKeys.length > 0 ? redactConfig(config, redactKeys) : (0, _utilsJsDefault.default).toJSONObject(config);
         return {
             // Standard
             message: this.message,
@@ -9729,7 +9909,7 @@ class AxiosError extends Error {
             columnNumber: this.columnNumber,
             stack: this.stack,
             // Axios
-            config: (0, _utilsJsDefault.default).toJSONObject(this.config),
+            config: serializedConfig,
             code: this.code,
             status: this.status
         };
@@ -9740,6 +9920,7 @@ AxiosError.ERR_BAD_OPTION_VALUE = 'ERR_BAD_OPTION_VALUE';
 AxiosError.ERR_BAD_OPTION = 'ERR_BAD_OPTION';
 AxiosError.ECONNABORTED = 'ECONNABORTED';
 AxiosError.ETIMEDOUT = 'ETIMEDOUT';
+AxiosError.ECONNREFUSED = 'ECONNREFUSED';
 AxiosError.ERR_NETWORK = 'ERR_NETWORK';
 AxiosError.ERR_FR_TOO_MANY_REDIRECTS = 'ERR_FR_TOO_MANY_REDIRECTS';
 AxiosError.ERR_DEPRECATED = 'ERR_DEPRECATED';
@@ -9748,7 +9929,334 @@ AxiosError.ERR_BAD_REQUEST = 'ERR_BAD_REQUEST';
 AxiosError.ERR_CANCELED = 'ERR_CANCELED';
 AxiosError.ERR_NOT_SUPPORT = 'ERR_NOT_SUPPORT';
 AxiosError.ERR_INVALID_URL = 'ERR_INVALID_URL';
+AxiosError.ERR_FORM_DATA_DEPTH_EXCEEDED = 'ERR_FORM_DATA_DEPTH_EXCEEDED';
 exports.default = AxiosError;
+
+},{"../utils.js":"jI6DP","./AxiosHeaders.js":"9EzTj","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"9EzTj":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _utilsJs = require("../utils.js");
+var _utilsJsDefault = parcelHelpers.interopDefault(_utilsJs);
+var _parseHeadersJs = require("../helpers/parseHeaders.js");
+var _parseHeadersJsDefault = parcelHelpers.interopDefault(_parseHeadersJs);
+var _sanitizeHeaderValueJs = require("../helpers/sanitizeHeaderValue.js");
+'use strict';
+const $internals = Symbol('internals');
+function normalizeHeader(header) {
+    return header && String(header).trim().toLowerCase();
+}
+function normalizeValue(value) {
+    if (value === false || value == null) return value;
+    return (0, _utilsJsDefault.default).isArray(value) ? value.map(normalizeValue) : (0, _sanitizeHeaderValueJs.sanitizeHeaderValue)(String(value));
+}
+function parseTokens(str) {
+    const tokens = Object.create(null);
+    const tokensRE = /([^\s,;=]+)\s*(?:=\s*([^,;]+))?/g;
+    let match;
+    while(match = tokensRE.exec(str))tokens[match[1]] = match[2];
+    return tokens;
+}
+const isValidHeaderName = (str)=>/^[-_a-zA-Z0-9^`|~,!#$%&'*+.]+$/.test(str.trim());
+function matchHeaderValue(context, value, header, filter, isHeaderNameFilter) {
+    if ((0, _utilsJsDefault.default).isFunction(filter)) return filter.call(this, value, header);
+    if (isHeaderNameFilter) value = header;
+    if (!(0, _utilsJsDefault.default).isString(value)) return;
+    if ((0, _utilsJsDefault.default).isString(filter)) return value.indexOf(filter) !== -1;
+    if ((0, _utilsJsDefault.default).isRegExp(filter)) return filter.test(value);
+}
+function formatHeader(header) {
+    return header.trim().toLowerCase().replace(/([a-z\d])(\w*)/g, (w, char, str)=>{
+        return char.toUpperCase() + str;
+    });
+}
+function buildAccessors(obj, header) {
+    const accessorName = (0, _utilsJsDefault.default).toCamelCase(' ' + header);
+    [
+        'get',
+        'set',
+        'has'
+    ].forEach((methodName)=>{
+        Object.defineProperty(obj, methodName + accessorName, {
+            // Null-proto descriptor so a polluted Object.prototype.get cannot turn
+            // this data descriptor into an accessor descriptor on the way in.
+            __proto__: null,
+            value: function(arg1, arg2, arg3) {
+                return this[methodName].call(this, header, arg1, arg2, arg3);
+            },
+            configurable: true
+        });
+    });
+}
+class AxiosHeaders {
+    constructor(headers){
+        headers && this.set(headers);
+    }
+    set(header, valueOrRewrite, rewrite) {
+        const self = this;
+        function setHeader(_value, _header, _rewrite) {
+            const lHeader = normalizeHeader(_header);
+            if (!lHeader) throw new Error('header name must be a non-empty string');
+            const key = (0, _utilsJsDefault.default).findKey(self, lHeader);
+            if (!key || self[key] === undefined || _rewrite === true || _rewrite === undefined && self[key] !== false) self[key || _header] = normalizeValue(_value);
+        }
+        const setHeaders = (headers, _rewrite)=>(0, _utilsJsDefault.default).forEach(headers, (_value, _header)=>setHeader(_value, _header, _rewrite));
+        if ((0, _utilsJsDefault.default).isPlainObject(header) || header instanceof this.constructor) setHeaders(header, valueOrRewrite);
+        else if ((0, _utilsJsDefault.default).isString(header) && (header = header.trim()) && !isValidHeaderName(header)) setHeaders((0, _parseHeadersJsDefault.default)(header), valueOrRewrite);
+        else if ((0, _utilsJsDefault.default).isObject(header) && (0, _utilsJsDefault.default).isIterable(header)) {
+            let obj = {}, dest, key;
+            for (const entry of header){
+                if (!(0, _utilsJsDefault.default).isArray(entry)) throw TypeError('Object iterator must return a key-value pair');
+                obj[key = entry[0]] = (dest = obj[key]) ? (0, _utilsJsDefault.default).isArray(dest) ? [
+                    ...dest,
+                    entry[1]
+                ] : [
+                    dest,
+                    entry[1]
+                ] : entry[1];
+            }
+            setHeaders(obj, valueOrRewrite);
+        } else header != null && setHeader(valueOrRewrite, header, rewrite);
+        return this;
+    }
+    get(header, parser) {
+        header = normalizeHeader(header);
+        if (header) {
+            const key = (0, _utilsJsDefault.default).findKey(this, header);
+            if (key) {
+                const value = this[key];
+                if (!parser) return value;
+                if (parser === true) return parseTokens(value);
+                if ((0, _utilsJsDefault.default).isFunction(parser)) return parser.call(this, value, key);
+                if ((0, _utilsJsDefault.default).isRegExp(parser)) return parser.exec(value);
+                throw new TypeError('parser must be boolean|regexp|function');
+            }
+        }
+    }
+    has(header, matcher) {
+        header = normalizeHeader(header);
+        if (header) {
+            const key = (0, _utilsJsDefault.default).findKey(this, header);
+            return !!(key && this[key] !== undefined && (!matcher || matchHeaderValue(this, this[key], key, matcher)));
+        }
+        return false;
+    }
+    delete(header, matcher) {
+        const self = this;
+        let deleted = false;
+        function deleteHeader(_header) {
+            _header = normalizeHeader(_header);
+            if (_header) {
+                const key = (0, _utilsJsDefault.default).findKey(self, _header);
+                if (key && (!matcher || matchHeaderValue(self, self[key], key, matcher))) {
+                    delete self[key];
+                    deleted = true;
+                }
+            }
+        }
+        if ((0, _utilsJsDefault.default).isArray(header)) header.forEach(deleteHeader);
+        else deleteHeader(header);
+        return deleted;
+    }
+    clear(matcher) {
+        const keys = Object.keys(this);
+        let i = keys.length;
+        let deleted = false;
+        while(i--){
+            const key = keys[i];
+            if (!matcher || matchHeaderValue(this, this[key], key, matcher, true)) {
+                delete this[key];
+                deleted = true;
+            }
+        }
+        return deleted;
+    }
+    normalize(format) {
+        const self = this;
+        const headers = {};
+        (0, _utilsJsDefault.default).forEach(this, (value, header)=>{
+            const key = (0, _utilsJsDefault.default).findKey(headers, header);
+            if (key) {
+                self[key] = normalizeValue(value);
+                delete self[header];
+                return;
+            }
+            const normalized = format ? formatHeader(header) : String(header).trim();
+            if (normalized !== header) delete self[header];
+            self[normalized] = normalizeValue(value);
+            headers[normalized] = true;
+        });
+        return this;
+    }
+    concat(...targets) {
+        return this.constructor.concat(this, ...targets);
+    }
+    toJSON(asStrings) {
+        const obj = Object.create(null);
+        (0, _utilsJsDefault.default).forEach(this, (value, header)=>{
+            value != null && value !== false && (obj[header] = asStrings && (0, _utilsJsDefault.default).isArray(value) ? value.join(', ') : value);
+        });
+        return obj;
+    }
+    [Symbol.iterator]() {
+        return Object.entries(this.toJSON())[Symbol.iterator]();
+    }
+    toString() {
+        return Object.entries(this.toJSON()).map(([header, value])=>header + ': ' + value).join('\n');
+    }
+    getSetCookie() {
+        return this.get('set-cookie') || [];
+    }
+    get [Symbol.toStringTag]() {
+        return 'AxiosHeaders';
+    }
+    static from(thing) {
+        return thing instanceof this ? thing : new this(thing);
+    }
+    static concat(first, ...targets) {
+        const computed = new this(first);
+        targets.forEach((target)=>computed.set(target));
+        return computed;
+    }
+    static accessor(header) {
+        const internals = this[$internals] = this[$internals] = {
+            accessors: {}
+        };
+        const accessors = internals.accessors;
+        const prototype = this.prototype;
+        function defineAccessor(_header) {
+            const lHeader = normalizeHeader(_header);
+            if (!accessors[lHeader]) {
+                buildAccessors(prototype, _header);
+                accessors[lHeader] = true;
+            }
+        }
+        (0, _utilsJsDefault.default).isArray(header) ? header.forEach(defineAccessor) : defineAccessor(header);
+        return this;
+    }
+}
+AxiosHeaders.accessor([
+    'Content-Type',
+    'Content-Length',
+    'Accept',
+    'Accept-Encoding',
+    'User-Agent',
+    'Authorization'
+]);
+// reserved names hotfix
+(0, _utilsJsDefault.default).reduceDescriptors(AxiosHeaders.prototype, ({ value }, key)=>{
+    let mapped = key[0].toUpperCase() + key.slice(1); // map `set` => `Set`
+    return {
+        get: ()=>value,
+        set (headerValue) {
+            this[mapped] = headerValue;
+        }
+    };
+});
+(0, _utilsJsDefault.default).freezeMethods(AxiosHeaders);
+exports.default = AxiosHeaders;
+
+},{"../utils.js":"jI6DP","../helpers/parseHeaders.js":"H8RrA","../helpers/sanitizeHeaderValue.js":"hgIfL","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"H8RrA":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _utilsJs = require("../utils.js");
+var _utilsJsDefault = parcelHelpers.interopDefault(_utilsJs);
+'use strict';
+// RawAxiosHeaders whose duplicates are ignored by node
+// c.f. https://nodejs.org/api/http.html#http_message_headers
+const ignoreDuplicateOf = (0, _utilsJsDefault.default).toObjectSet([
+    'age',
+    'authorization',
+    'content-length',
+    'content-type',
+    'etag',
+    'expires',
+    'from',
+    'host',
+    'if-modified-since',
+    'if-unmodified-since',
+    'last-modified',
+    'location',
+    'max-forwards',
+    'proxy-authorization',
+    'referer',
+    'retry-after',
+    'user-agent'
+]);
+/**
+ * Parse headers into an object
+ *
+ * ```
+ * Date: Wed, 27 Aug 2014 08:58:49 GMT
+ * Content-Type: application/json
+ * Connection: keep-alive
+ * Transfer-Encoding: chunked
+ * ```
+ *
+ * @param {String} rawHeaders Headers needing to be parsed
+ *
+ * @returns {Object} Headers parsed into an object
+ */ exports.default = (rawHeaders)=>{
+    const parsed = {};
+    let key;
+    let val;
+    let i;
+    rawHeaders && rawHeaders.split('\n').forEach(function parser(line) {
+        i = line.indexOf(':');
+        key = line.substring(0, i).trim().toLowerCase();
+        val = line.substring(i + 1).trim();
+        if (!key || parsed[key] && ignoreDuplicateOf[key]) return;
+        if (key === 'set-cookie') {
+            if (parsed[key]) parsed[key].push(val);
+            else parsed[key] = [
+                val
+            ];
+        } else parsed[key] = parsed[key] ? parsed[key] + ', ' + val : val;
+    });
+    return parsed;
+};
+
+},{"../utils.js":"jI6DP","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"hgIfL":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "sanitizeHeaderValue", ()=>sanitizeHeaderValue);
+parcelHelpers.export(exports, "sanitizeByteStringHeaderValue", ()=>sanitizeByteStringHeaderValue);
+parcelHelpers.export(exports, "toByteStringHeaderObject", ()=>toByteStringHeaderObject);
+var _utilsJs = require("../utils.js");
+var _utilsJsDefault = parcelHelpers.interopDefault(_utilsJs);
+'use strict';
+function trimSPorHTAB(str) {
+    let start = 0;
+    let end = str.length;
+    while(start < end){
+        const code = str.charCodeAt(start);
+        if (code !== 0x09 && code !== 0x20) break;
+        start += 1;
+    }
+    while(end > start){
+        const code = str.charCodeAt(end - 1);
+        if (code !== 0x09 && code !== 0x20) break;
+        end -= 1;
+    }
+    return start === 0 && end === str.length ? str : str.slice(start, end);
+}
+// The control-code ranges are intentional: header sanitization strips C0/DEL bytes.
+// eslint-disable-next-line no-control-regex
+const INVALID_UNICODE_HEADER_VALUE_CHARS = new RegExp('[\\u0000-\\u0008\\u000a-\\u001f\\u007f]+', 'g');
+// eslint-disable-next-line no-control-regex
+const INVALID_BYTE_STRING_HEADER_VALUE_CHARS = new RegExp('[^\\u0009\\u0020-\\u007e\\u0080-\\u00ff]+', 'g');
+function sanitizeValue(value, invalidChars) {
+    if ((0, _utilsJsDefault.default).isArray(value)) return value.map((item)=>sanitizeValue(item, invalidChars));
+    return trimSPorHTAB(String(value).replace(invalidChars, ''));
+}
+const sanitizeHeaderValue = (value)=>sanitizeValue(value, INVALID_UNICODE_HEADER_VALUE_CHARS);
+const sanitizeByteStringHeaderValue = (value)=>sanitizeValue(value, INVALID_BYTE_STRING_HEADER_VALUE_CHARS);
+function toByteStringHeaderObject(headers) {
+    const byteStringHeaders = Object.create(null);
+    (0, _utilsJsDefault.default).forEach(headers.toJSON(), (value, header)=>{
+        byteStringHeaders[header] = sanitizeByteStringHeaderValue(value);
+    });
+    return byteStringHeaders;
+}
 
 },{"../utils.js":"jI6DP","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"dVGJ4":[function(require,module,exports,__globalThis) {
 // eslint-disable-next-line strict
@@ -9856,8 +10364,15 @@ function dispatchRequest(config) {
     const adapter = (0, _adaptersJsDefault.default).getAdapter(config.adapter || (0, _indexJsDefault.default).adapter, config);
     return adapter(config).then(function onAdapterResolution(response) {
         throwIfCancellationRequested(config);
-        // Transform response data
-        response.data = (0, _transformDataJsDefault.default).call(config, config.transformResponse, response);
+        // Expose the current response on config so that transformResponse can
+        // attach it to any AxiosError it throws (e.g. on JSON parse failure).
+        // We clean it up afterwards to avoid polluting the config object.
+        config.response = response;
+        try {
+            response.data = (0, _transformDataJsDefault.default).call(config, config.transformResponse, response);
+        } finally{
+            delete config.response;
+        }
         response.headers = (0, _axiosHeadersJsDefault.default).from(response.headers);
         return response;
     }, function onAdapterRejection(reason) {
@@ -9865,7 +10380,12 @@ function dispatchRequest(config) {
             throwIfCancellationRequested(config);
             // Transform response data
             if (reason && reason.response) {
-                reason.response.data = (0, _transformDataJsDefault.default).call(config, config.transformResponse, reason.response);
+                config.response = reason.response;
+                try {
+                    reason.response.data = (0, _transformDataJsDefault.default).call(config, config.transformResponse, reason.response);
+                } finally{
+                    delete config.response;
+                }
                 reason.response.headers = (0, _axiosHeadersJsDefault.default).from(reason.response.headers);
             }
         }
@@ -9914,6 +10434,7 @@ var _indexJsDefault = parcelHelpers.interopDefault(_indexJs);
 var _formDataToJSONJs = require("../helpers/formDataToJSON.js");
 var _formDataToJSONJsDefault = parcelHelpers.interopDefault(_formDataToJSONJs);
 'use strict';
+const own = (obj, key)=>obj != null && (0, _utilsJsDefault.default).hasOwnProp(obj, key) ? obj[key] : undefined;
 /**
  * It takes a string, tries to parse it, and if it fails, it returns the stringified version
  * of the input
@@ -9955,12 +10476,14 @@ const defaults = {
             }
             let isFileList;
             if (isObjectPayload) {
-                if (contentType.indexOf('application/x-www-form-urlencoded') > -1) return (0, _toURLEncodedFormJsDefault.default)(data, this.formSerializer).toString();
+                const formSerializer = own(this, 'formSerializer');
+                if (contentType.indexOf('application/x-www-form-urlencoded') > -1) return (0, _toURLEncodedFormJsDefault.default)(data, formSerializer).toString();
                 if ((isFileList = (0, _utilsJsDefault.default).isFileList(data)) || contentType.indexOf('multipart/form-data') > -1) {
-                    const _FormData = this.env && this.env.FormData;
+                    const env = own(this, 'env');
+                    const _FormData = env && env.FormData;
                     return (0, _toFormDataJsDefault.default)(isFileList ? {
                         'files[]': data
-                    } : data, _FormData && new _FormData(), this.formSerializer);
+                    } : data, _FormData && new _FormData(), formSerializer);
                 }
             }
             if (isObjectPayload || hasJSONContentType) {
@@ -9972,18 +10495,19 @@ const defaults = {
     ],
     transformResponse: [
         function transformResponse(data) {
-            const transitional = this.transitional || defaults.transitional;
+            const transitional = own(this, 'transitional') || defaults.transitional;
             const forcedJSONParsing = transitional && transitional.forcedJSONParsing;
-            const JSONRequested = this.responseType === 'json';
+            const responseType = own(this, 'responseType');
+            const JSONRequested = responseType === 'json';
             if ((0, _utilsJsDefault.default).isResponse(data) || (0, _utilsJsDefault.default).isReadableStream(data)) return data;
-            if (data && (0, _utilsJsDefault.default).isString(data) && (forcedJSONParsing && !this.responseType || JSONRequested)) {
+            if (data && (0, _utilsJsDefault.default).isString(data) && (forcedJSONParsing && !responseType || JSONRequested)) {
                 const silentJSONParsing = transitional && transitional.silentJSONParsing;
                 const strictJSONParsing = !silentJSONParsing && JSONRequested;
                 try {
-                    return JSON.parse(data, this.parseReviver);
+                    return JSON.parse(data, own(this, 'parseReviver'));
                 } catch (e) {
                     if (strictJSONParsing) {
-                        if (e.name === 'SyntaxError') throw (0, _axiosErrorJsDefault.default).from(e, (0, _axiosErrorJsDefault.default).ERR_BAD_RESPONSE, this, null, this.response);
+                        if (e.name === 'SyntaxError') throw (0, _axiosErrorJsDefault.default).from(e, (0, _axiosErrorJsDefault.default).ERR_BAD_RESPONSE, this, null, own(this, 'response'));
                         throw e;
                     }
                 }
@@ -10008,7 +10532,7 @@ const defaults = {
     },
     headers: {
         common: {
-            'Accept': 'application/json, text/plain, */*',
+            Accept: 'application/json, text/plain, */*',
             'Content-Type': undefined
         }
     }
@@ -10019,7 +10543,8 @@ const defaults = {
     'head',
     'post',
     'put',
-    'patch'
+    'patch',
+    'query'
 ], (method)=>{
     defaults.headers[method] = {};
 });
@@ -10215,14 +10740,14 @@ var _utilsJsDefault = parcelHelpers.interopDefault(_utilsJs);
         const isLast = index >= path.length;
         name = !name && (0, _utilsJsDefault.default).isArray(target) ? target.length : name;
         if (isLast) {
-            if ((0, _utilsJsDefault.default).hasOwnProp(target, name)) target[name] = [
+            if ((0, _utilsJsDefault.default).hasOwnProp(target, name)) target[name] = (0, _utilsJsDefault.default).isArray(target[name]) ? target[name].concat(value) : [
                 target[name],
                 value
             ];
             else target[name] = value;
             return !isNumericKey;
         }
-        if (!target[name] || !(0, _utilsJsDefault.default).isObject(target[name])) target[name] = [];
+        if (!(0, _utilsJsDefault.default).hasOwnProp(target, name) || !(0, _utilsJsDefault.default).isObject(target[name])) target[name] = [];
         const result = buildPath(path, value, target[name], index);
         if (result && (0, _utilsJsDefault.default).isArray(target[name])) target[name] = arrayToObject(target[name]);
         return !isNumericKey;
@@ -10237,285 +10762,6 @@ var _utilsJsDefault = parcelHelpers.interopDefault(_utilsJs);
     return null;
 }
 exports.default = formDataToJSON;
-
-},{"../utils.js":"jI6DP","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"9EzTj":[function(require,module,exports,__globalThis) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _utilsJs = require("../utils.js");
-var _utilsJsDefault = parcelHelpers.interopDefault(_utilsJs);
-var _parseHeadersJs = require("../helpers/parseHeaders.js");
-var _parseHeadersJsDefault = parcelHelpers.interopDefault(_parseHeadersJs);
-'use strict';
-const $internals = Symbol('internals');
-function normalizeHeader(header) {
-    return header && String(header).trim().toLowerCase();
-}
-function normalizeValue(value) {
-    if (value === false || value == null) return value;
-    return (0, _utilsJsDefault.default).isArray(value) ? value.map(normalizeValue) : String(value);
-}
-function parseTokens(str) {
-    const tokens = Object.create(null);
-    const tokensRE = /([^\s,;=]+)\s*(?:=\s*([^,;]+))?/g;
-    let match;
-    while(match = tokensRE.exec(str))tokens[match[1]] = match[2];
-    return tokens;
-}
-const isValidHeaderName = (str)=>/^[-_a-zA-Z0-9^`|~,!#$%&'*+.]+$/.test(str.trim());
-function matchHeaderValue(context, value, header, filter, isHeaderNameFilter) {
-    if ((0, _utilsJsDefault.default).isFunction(filter)) return filter.call(this, value, header);
-    if (isHeaderNameFilter) value = header;
-    if (!(0, _utilsJsDefault.default).isString(value)) return;
-    if ((0, _utilsJsDefault.default).isString(filter)) return value.indexOf(filter) !== -1;
-    if ((0, _utilsJsDefault.default).isRegExp(filter)) return filter.test(value);
-}
-function formatHeader(header) {
-    return header.trim().toLowerCase().replace(/([a-z\d])(\w*)/g, (w, char, str)=>{
-        return char.toUpperCase() + str;
-    });
-}
-function buildAccessors(obj, header) {
-    const accessorName = (0, _utilsJsDefault.default).toCamelCase(' ' + header);
-    [
-        'get',
-        'set',
-        'has'
-    ].forEach((methodName)=>{
-        Object.defineProperty(obj, methodName + accessorName, {
-            value: function(arg1, arg2, arg3) {
-                return this[methodName].call(this, header, arg1, arg2, arg3);
-            },
-            configurable: true
-        });
-    });
-}
-class AxiosHeaders {
-    constructor(headers){
-        headers && this.set(headers);
-    }
-    set(header, valueOrRewrite, rewrite) {
-        const self = this;
-        function setHeader(_value, _header, _rewrite) {
-            const lHeader = normalizeHeader(_header);
-            if (!lHeader) throw new Error('header name must be a non-empty string');
-            const key = (0, _utilsJsDefault.default).findKey(self, lHeader);
-            if (!key || self[key] === undefined || _rewrite === true || _rewrite === undefined && self[key] !== false) self[key || _header] = normalizeValue(_value);
-        }
-        const setHeaders = (headers, _rewrite)=>(0, _utilsJsDefault.default).forEach(headers, (_value, _header)=>setHeader(_value, _header, _rewrite));
-        if ((0, _utilsJsDefault.default).isPlainObject(header) || header instanceof this.constructor) setHeaders(header, valueOrRewrite);
-        else if ((0, _utilsJsDefault.default).isString(header) && (header = header.trim()) && !isValidHeaderName(header)) setHeaders((0, _parseHeadersJsDefault.default)(header), valueOrRewrite);
-        else if ((0, _utilsJsDefault.default).isObject(header) && (0, _utilsJsDefault.default).isIterable(header)) {
-            let obj = {}, dest, key;
-            for (const entry of header){
-                if (!(0, _utilsJsDefault.default).isArray(entry)) throw TypeError('Object iterator must return a key-value pair');
-                obj[key = entry[0]] = (dest = obj[key]) ? (0, _utilsJsDefault.default).isArray(dest) ? [
-                    ...dest,
-                    entry[1]
-                ] : [
-                    dest,
-                    entry[1]
-                ] : entry[1];
-            }
-            setHeaders(obj, valueOrRewrite);
-        } else header != null && setHeader(valueOrRewrite, header, rewrite);
-        return this;
-    }
-    get(header, parser) {
-        header = normalizeHeader(header);
-        if (header) {
-            const key = (0, _utilsJsDefault.default).findKey(this, header);
-            if (key) {
-                const value = this[key];
-                if (!parser) return value;
-                if (parser === true) return parseTokens(value);
-                if ((0, _utilsJsDefault.default).isFunction(parser)) return parser.call(this, value, key);
-                if ((0, _utilsJsDefault.default).isRegExp(parser)) return parser.exec(value);
-                throw new TypeError('parser must be boolean|regexp|function');
-            }
-        }
-    }
-    has(header, matcher) {
-        header = normalizeHeader(header);
-        if (header) {
-            const key = (0, _utilsJsDefault.default).findKey(this, header);
-            return !!(key && this[key] !== undefined && (!matcher || matchHeaderValue(this, this[key], key, matcher)));
-        }
-        return false;
-    }
-    delete(header, matcher) {
-        const self = this;
-        let deleted = false;
-        function deleteHeader(_header) {
-            _header = normalizeHeader(_header);
-            if (_header) {
-                const key = (0, _utilsJsDefault.default).findKey(self, _header);
-                if (key && (!matcher || matchHeaderValue(self, self[key], key, matcher))) {
-                    delete self[key];
-                    deleted = true;
-                }
-            }
-        }
-        if ((0, _utilsJsDefault.default).isArray(header)) header.forEach(deleteHeader);
-        else deleteHeader(header);
-        return deleted;
-    }
-    clear(matcher) {
-        const keys = Object.keys(this);
-        let i = keys.length;
-        let deleted = false;
-        while(i--){
-            const key = keys[i];
-            if (!matcher || matchHeaderValue(this, this[key], key, matcher, true)) {
-                delete this[key];
-                deleted = true;
-            }
-        }
-        return deleted;
-    }
-    normalize(format) {
-        const self = this;
-        const headers = {};
-        (0, _utilsJsDefault.default).forEach(this, (value, header)=>{
-            const key = (0, _utilsJsDefault.default).findKey(headers, header);
-            if (key) {
-                self[key] = normalizeValue(value);
-                delete self[header];
-                return;
-            }
-            const normalized = format ? formatHeader(header) : String(header).trim();
-            if (normalized !== header) delete self[header];
-            self[normalized] = normalizeValue(value);
-            headers[normalized] = true;
-        });
-        return this;
-    }
-    concat(...targets) {
-        return this.constructor.concat(this, ...targets);
-    }
-    toJSON(asStrings) {
-        const obj = Object.create(null);
-        (0, _utilsJsDefault.default).forEach(this, (value, header)=>{
-            value != null && value !== false && (obj[header] = asStrings && (0, _utilsJsDefault.default).isArray(value) ? value.join(', ') : value);
-        });
-        return obj;
-    }
-    [Symbol.iterator]() {
-        return Object.entries(this.toJSON())[Symbol.iterator]();
-    }
-    toString() {
-        return Object.entries(this.toJSON()).map(([header, value])=>header + ': ' + value).join('\n');
-    }
-    getSetCookie() {
-        return this.get("set-cookie") || [];
-    }
-    get [Symbol.toStringTag]() {
-        return 'AxiosHeaders';
-    }
-    static from(thing) {
-        return thing instanceof this ? thing : new this(thing);
-    }
-    static concat(first, ...targets) {
-        const computed = new this(first);
-        targets.forEach((target)=>computed.set(target));
-        return computed;
-    }
-    static accessor(header) {
-        const internals = this[$internals] = this[$internals] = {
-            accessors: {}
-        };
-        const accessors = internals.accessors;
-        const prototype = this.prototype;
-        function defineAccessor(_header) {
-            const lHeader = normalizeHeader(_header);
-            if (!accessors[lHeader]) {
-                buildAccessors(prototype, _header);
-                accessors[lHeader] = true;
-            }
-        }
-        (0, _utilsJsDefault.default).isArray(header) ? header.forEach(defineAccessor) : defineAccessor(header);
-        return this;
-    }
-}
-AxiosHeaders.accessor([
-    'Content-Type',
-    'Content-Length',
-    'Accept',
-    'Accept-Encoding',
-    'User-Agent',
-    'Authorization'
-]);
-// reserved names hotfix
-(0, _utilsJsDefault.default).reduceDescriptors(AxiosHeaders.prototype, ({ value }, key)=>{
-    let mapped = key[0].toUpperCase() + key.slice(1); // map `set` => `Set`
-    return {
-        get: ()=>value,
-        set (headerValue) {
-            this[mapped] = headerValue;
-        }
-    };
-});
-(0, _utilsJsDefault.default).freezeMethods(AxiosHeaders);
-exports.default = AxiosHeaders;
-
-},{"../utils.js":"jI6DP","../helpers/parseHeaders.js":"H8RrA","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"H8RrA":[function(require,module,exports,__globalThis) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _utilsJs = require("../utils.js");
-var _utilsJsDefault = parcelHelpers.interopDefault(_utilsJs);
-'use strict';
-// RawAxiosHeaders whose duplicates are ignored by node
-// c.f. https://nodejs.org/api/http.html#http_message_headers
-const ignoreDuplicateOf = (0, _utilsJsDefault.default).toObjectSet([
-    'age',
-    'authorization',
-    'content-length',
-    'content-type',
-    'etag',
-    'expires',
-    'from',
-    'host',
-    'if-modified-since',
-    'if-unmodified-since',
-    'last-modified',
-    'location',
-    'max-forwards',
-    'proxy-authorization',
-    'referer',
-    'retry-after',
-    'user-agent'
-]);
-/**
- * Parse headers into an object
- *
- * ```
- * Date: Wed, 27 Aug 2014 08:58:49 GMT
- * Content-Type: application/json
- * Connection: keep-alive
- * Transfer-Encoding: chunked
- * ```
- *
- * @param {String} rawHeaders Headers needing to be parsed
- *
- * @returns {Object} Headers parsed into an object
- */ exports.default = (rawHeaders)=>{
-    const parsed = {};
-    let key;
-    let val;
-    let i;
-    rawHeaders && rawHeaders.split('\n').forEach(function parser(line) {
-        i = line.indexOf(':');
-        key = line.substring(0, i).trim().toLowerCase();
-        val = line.substring(i + 1).trim();
-        if (!key || parsed[key] && ignoreDuplicateOf[key]) return;
-        if (key === 'set-cookie') {
-            if (parsed[key]) parsed[key].push(val);
-            else parsed[key] = [
-                val
-            ];
-        } else parsed[key] = parsed[key] ? parsed[key] + ', ' + val : val;
-    });
-    return parsed;
-};
 
 },{"../utils.js":"jI6DP","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"fkTUi":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -10567,7 +10813,7 @@ var _axiosErrorJsDefault = parcelHelpers.interopDefault(_axiosErrorJs);
  * - `http` for Node.js
  * - `xhr` for browsers
  * - `fetch` for fetch API-based requests
- * 
+ *
  * @type {Object<string, Function|Object>}
  */ const knownAdapters = {
     http: (0, _httpJsDefault.default),
@@ -10580,26 +10826,30 @@ var _axiosErrorJsDefault = parcelHelpers.interopDefault(_axiosErrorJs);
 (0, _utilsJsDefault.default).forEach(knownAdapters, (fn, value)=>{
     if (fn) {
         try {
+            // Null-proto descriptors so a polluted Object.prototype.get cannot turn
+            // these data descriptors into accessor descriptors on the way in.
             Object.defineProperty(fn, 'name', {
+                __proto__: null,
                 value
             });
         } catch (e) {
         // eslint-disable-next-line no-empty
         }
         Object.defineProperty(fn, 'adapterName', {
+            __proto__: null,
             value
         });
     }
 });
 /**
  * Render a rejection reason string for unknown or unsupported adapters
- * 
+ *
  * @param {string} reason
  * @returns {string}
  */ const renderReason = (reason)=>`- ${reason}`;
 /**
  * Check if the adapter is resolved (function, null, or false)
- * 
+ *
  * @param {Function|null|false} adapter
  * @returns {boolean}
  */ const isResolvedHandle = (adapter)=>(0, _utilsJsDefault.default).isFunction(adapter) || adapter === null || adapter === false;
@@ -10607,7 +10857,7 @@ var _axiosErrorJsDefault = parcelHelpers.interopDefault(_axiosErrorJs);
  * Get the first suitable adapter from the provided list.
  * Tries each adapter in order until a supported one is found.
  * Throws an AxiosError if no adapter is suitable.
- * 
+ *
  * @param {Array<string|Function>|string|Function} adapters - Adapter(s) by name or function.
  * @param {Object} config - Axios request configuration
  * @throws {AxiosError} If no suitable adapter is available
@@ -10673,6 +10923,7 @@ var _axiosHeadersJsDefault = parcelHelpers.interopDefault(_axiosHeadersJs);
 var _progressEventReducerJs = require("../helpers/progressEventReducer.js");
 var _resolveConfigJs = require("../helpers/resolveConfig.js");
 var _resolveConfigJsDefault = parcelHelpers.interopDefault(_resolveConfigJs);
+var _sanitizeHeaderValueJs = require("../helpers/sanitizeHeaderValue.js");
 const isXHRAdapterSupported = typeof XMLHttpRequest !== 'undefined';
 exports.default = isXHRAdapterSupported && function(config) {
     return new Promise(function dispatchXhrRequest(resolve, reject) {
@@ -10725,7 +10976,7 @@ exports.default = isXHRAdapterSupported && function(config) {
             // handled by onerror instead
             // With one exception: request that using file: protocol, most browsers
             // will return status as 0 even though it's a successful request
-            if (request.status === 0 && !(request.responseURL && request.responseURL.indexOf('file:') === 0)) return;
+            if (request.status === 0 && !(request.responseURL && request.responseURL.startsWith('file:'))) return;
             // readystate handler is calling before onerror or ontimeout handlers,
             // so we should call onloadend on the next 'tick'
             setTimeout(onloadend);
@@ -10734,6 +10985,7 @@ exports.default = isXHRAdapterSupported && function(config) {
         request.onabort = function handleAbort() {
             if (!request) return;
             reject(new (0, _axiosErrorJsDefault.default)('Request aborted', (0, _axiosErrorJsDefault.default).ECONNABORTED, config, request));
+            done();
             // Clean up request
             request = null;
         };
@@ -10747,6 +10999,7 @@ exports.default = isXHRAdapterSupported && function(config) {
             // attach the underlying event for consumers who want details
             err.event = event || null;
             reject(err);
+            done();
             request = null;
         };
         // Handle timeout
@@ -10755,13 +11008,14 @@ exports.default = isXHRAdapterSupported && function(config) {
             const transitional = _config.transitional || (0, _transitionalJsDefault.default);
             if (_config.timeoutErrorMessage) timeoutErrorMessage = _config.timeoutErrorMessage;
             reject(new (0, _axiosErrorJsDefault.default)(timeoutErrorMessage, transitional.clarifyTimeoutError ? (0, _axiosErrorJsDefault.default).ETIMEDOUT : (0, _axiosErrorJsDefault.default).ECONNABORTED, config, request));
+            done();
             // Clean up request
             request = null;
         };
         // Remove Content-Type if data is undefined
         requestData === undefined && requestHeaders.setContentType(null);
         // Add headers to the request
-        if ('setRequestHeader' in request) (0, _utilsJsDefault.default).forEach(requestHeaders.toJSON(), function setRequestHeader(val, key) {
+        if ('setRequestHeader' in request) (0, _utilsJsDefault.default).forEach((0, _sanitizeHeaderValueJs.toByteStringHeaderObject)(requestHeaders), function setRequestHeader(val, key) {
             request.setRequestHeader(key, val);
         });
         // Add withCredentials to request if needed
@@ -10786,13 +11040,14 @@ exports.default = isXHRAdapterSupported && function(config) {
                 if (!request) return;
                 reject(!cancel || cancel.type ? new (0, _canceledErrorJsDefault.default)(null, config, request) : cancel);
                 request.abort();
+                done();
                 request = null;
             };
             _config.cancelToken && _config.cancelToken.subscribe(onCanceled);
             if (_config.signal) _config.signal.aborted ? onCanceled() : _config.signal.addEventListener('abort', onCanceled);
         }
         const protocol = (0, _parseProtocolJsDefault.default)(_config.url);
-        if (protocol && (0, _indexJsDefault.default).protocols.indexOf(protocol) === -1) {
+        if (protocol && !(0, _indexJsDefault.default).protocols.includes(protocol)) {
             reject(new (0, _axiosErrorJsDefault.default)('Unsupported protocol ' + protocol + ':', (0, _axiosErrorJsDefault.default).ERR_BAD_REQUEST, config));
             return;
         }
@@ -10801,7 +11056,7 @@ exports.default = isXHRAdapterSupported && function(config) {
     });
 };
 
-},{"../utils.js":"jI6DP","../core/settle.js":"2vmJg","../defaults/transitional.js":"cKdyU","../core/AxiosError.js":"7z85x","../cancel/CanceledError.js":"9yG1c","../helpers/parseProtocol.js":"af3D4","../platform/index.js":"626Zd","../core/AxiosHeaders.js":"9EzTj","../helpers/progressEventReducer.js":"6rzPu","../helpers/resolveConfig.js":"3RDMa","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"2vmJg":[function(require,module,exports,__globalThis) {
+},{"../utils.js":"jI6DP","../core/settle.js":"2vmJg","../defaults/transitional.js":"cKdyU","../core/AxiosError.js":"7z85x","../cancel/CanceledError.js":"9yG1c","../helpers/parseProtocol.js":"af3D4","../platform/index.js":"626Zd","../core/AxiosHeaders.js":"9EzTj","../helpers/progressEventReducer.js":"6rzPu","../helpers/resolveConfig.js":"3RDMa","../helpers/sanitizeHeaderValue.js":"hgIfL","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"2vmJg":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "default", ()=>settle);
@@ -10811,10 +11066,7 @@ var _axiosErrorJsDefault = parcelHelpers.interopDefault(_axiosErrorJs);
 function settle(resolve, reject, response) {
     const validateStatus = response.config.validateStatus;
     if (!response.status || !validateStatus || validateStatus(response.status)) resolve(response);
-    else reject(new (0, _axiosErrorJsDefault.default)('Request failed with status code ' + response.status, [
-        (0, _axiosErrorJsDefault.default).ERR_BAD_REQUEST,
-        (0, _axiosErrorJsDefault.default).ERR_BAD_RESPONSE
-    ][Math.floor(response.status / 100) - 4], response.config, response.request, response));
+    else reject(new (0, _axiosErrorJsDefault.default)('Request failed with status code ' + response.status, response.status >= 400 && response.status < 500 ? (0, _axiosErrorJsDefault.default).ERR_BAD_REQUEST : (0, _axiosErrorJsDefault.default).ERR_BAD_RESPONSE, response.config, response.request, response));
 }
 
 },{"./AxiosError.js":"7z85x","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"af3D4":[function(require,module,exports,__globalThis) {
@@ -10823,7 +11075,7 @@ parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "default", ()=>parseProtocol);
 'use strict';
 function parseProtocol(url) {
-    const match = /^([-+\w]{1,25})(:?\/\/|:)/.exec(url);
+    const match = /^([-+\w]{1,25}):(?:\/\/)?/.exec(url);
     return match && match[1] || '';
 }
 
@@ -10843,19 +11095,20 @@ const progressEventReducer = (listener, isDownloadStream, freq = 3)=>{
     let bytesNotified = 0;
     const _speedometer = (0, _speedometerJsDefault.default)(50, 250);
     return (0, _throttleJsDefault.default)((e)=>{
-        const loaded = e.loaded;
+        if (!e || typeof e.loaded !== 'number') return;
+        const rawLoaded = e.loaded;
         const total = e.lengthComputable ? e.total : undefined;
-        const progressBytes = loaded - bytesNotified;
+        const loaded = total != null ? Math.min(rawLoaded, total) : rawLoaded;
+        const progressBytes = Math.max(0, loaded - bytesNotified);
         const rate = _speedometer(progressBytes);
-        const inRange = loaded <= total;
-        bytesNotified = loaded;
+        bytesNotified = Math.max(bytesNotified, loaded);
         const data = {
             loaded,
             total,
             progress: total ? loaded / total : undefined,
             bytes: progressBytes,
             rate: rate ? rate : undefined,
-            estimated: rate && total && inRange ? (total - loaded) / rate : undefined,
+            estimated: rate && total ? (total - loaded) / rate : undefined,
             event: e,
             lengthComputable: total != null,
             [isDownloadStream ? 'download' : 'upload']: true
@@ -10975,35 +11228,60 @@ var _axiosHeadersJs = require("../core/AxiosHeaders.js");
 var _axiosHeadersJsDefault = parcelHelpers.interopDefault(_axiosHeadersJs);
 var _buildURLJs = require("./buildURL.js");
 var _buildURLJsDefault = parcelHelpers.interopDefault(_buildURLJs);
+const FORM_DATA_CONTENT_HEADERS = [
+    'content-type',
+    'content-length'
+];
+function setFormDataHeaders(headers, formHeaders, policy) {
+    if (policy !== 'content-only') {
+        headers.set(formHeaders);
+        return;
+    }
+    Object.entries(formHeaders).forEach(([key, val])=>{
+        if (FORM_DATA_CONTENT_HEADERS.includes(key.toLowerCase())) headers.set(key, val);
+    });
+}
+/**
+ * Encode a UTF-8 string to a Latin-1 byte string for use with btoa().
+ * This is a modern replacement for the deprecated unescape(encodeURIComponent(str)) pattern.
+ *
+ * @param {string} str The string to encode
+ *
+ * @returns {string} UTF-8 bytes as a Latin-1 string
+ */ const encodeUTF8 = (str)=>encodeURIComponent(str).replace(/%([0-9A-F]{2})/gi, (_, hex)=>String.fromCharCode(parseInt(hex, 16)));
 exports.default = (config)=>{
     const newConfig = (0, _mergeConfigJsDefault.default)({}, config);
-    let { data, withXSRFToken, xsrfHeaderName, xsrfCookieName, headers, auth } = newConfig;
+    // Read only own properties to prevent prototype pollution gadgets
+    // (e.g. Object.prototype.baseURL = 'https://evil.com').
+    const own = (key)=>(0, _utilsJsDefault.default).hasOwnProp(newConfig, key) ? newConfig[key] : undefined;
+    const data = own('data');
+    let withXSRFToken = own('withXSRFToken');
+    const xsrfHeaderName = own('xsrfHeaderName');
+    const xsrfCookieName = own('xsrfCookieName');
+    let headers = own('headers');
+    const auth = own('auth');
+    const baseURL = own('baseURL');
+    const allowAbsoluteUrls = own('allowAbsoluteUrls');
+    const url = own('url');
     newConfig.headers = headers = (0, _axiosHeadersJsDefault.default).from(headers);
-    newConfig.url = (0, _buildURLJsDefault.default)((0, _buildFullPathJsDefault.default)(newConfig.baseURL, newConfig.url, newConfig.allowAbsoluteUrls), config.params, config.paramsSerializer);
+    newConfig.url = (0, _buildURLJsDefault.default)((0, _buildFullPathJsDefault.default)(baseURL, url, allowAbsoluteUrls), config.params, config.paramsSerializer);
     // HTTP basic authentication
-    if (auth) headers.set('Authorization', 'Basic ' + btoa((auth.username || '') + ':' + (auth.password ? unescape(encodeURIComponent(auth.password)) : '')));
+    if (auth) headers.set('Authorization', 'Basic ' + btoa((auth.username || '') + ':' + (auth.password ? encodeUTF8(auth.password) : '')));
     if ((0, _utilsJsDefault.default).isFormData(data)) {
         if ((0, _indexJsDefault.default).hasStandardBrowserEnv || (0, _indexJsDefault.default).hasStandardBrowserWebWorkerEnv) headers.setContentType(undefined); // browser handles it
-        else if ((0, _utilsJsDefault.default).isFunction(data.getHeaders)) {
-            // Node.js FormData (like form-data package)
-            const formHeaders = data.getHeaders();
-            // Only set safe headers to avoid overwriting security headers
-            const allowedHeaders = [
-                'content-type',
-                'content-length'
-            ];
-            Object.entries(formHeaders).forEach(([key, val])=>{
-                if (allowedHeaders.includes(key.toLowerCase())) headers.set(key, val);
-            });
-        }
+        else if ((0, _utilsJsDefault.default).isFunction(data.getHeaders)) // Node.js FormData (like form-data package)
+        setFormDataHeaders(headers, data.getHeaders(), own('formDataHeaderPolicy'));
     }
     // Add xsrf header
     // This is only done if running in a standard browser environment.
     // Specifically not if we're in a web worker, or react-native.
     if ((0, _indexJsDefault.default).hasStandardBrowserEnv) {
-        withXSRFToken && (0, _utilsJsDefault.default).isFunction(withXSRFToken) && (withXSRFToken = withXSRFToken(newConfig));
-        if (withXSRFToken || withXSRFToken !== false && (0, _isURLSameOriginJsDefault.default)(newConfig.url)) {
-            // Add xsrf header
+        if ((0, _utilsJsDefault.default).isFunction(withXSRFToken)) withXSRFToken = withXSRFToken(newConfig);
+        // Strict boolean check — prevents proto-pollution gadgets (e.g. Object.prototype.withXSRFToken = 1)
+        // and misconfigurations (e.g. "false") from short-circuiting the same-origin check and leaking
+        // the XSRF token cross-origin.
+        const shouldSendXSRF = withXSRFToken === true || withXSRFToken == null && (0, _isURLSameOriginJsDefault.default)(newConfig.url);
+        if (shouldSendXSRF) {
             const xsrfValue = xsrfHeaderName && xsrfCookieName && (0, _cookiesJsDefault.default).read(xsrfCookieName);
             if (xsrfValue) headers.set(xsrfHeaderName, xsrfValue);
         }
@@ -11028,8 +11306,7 @@ var _utilsJs = require("../utils.js");
 var _utilsJsDefault = parcelHelpers.interopDefault(_utilsJs);
 var _indexJs = require("../platform/index.js");
 var _indexJsDefault = parcelHelpers.interopDefault(_indexJs);
-exports.default = (0, _indexJsDefault.default).hasStandardBrowserEnv ? // Standard browser envs support document.cookie
-{
+exports.default = (0, _indexJsDefault.default).hasStandardBrowserEnv ? {
     write (name, value, expires, path, domain, secure, sameSite) {
         if (typeof document === 'undefined') return;
         const cookie = [
@@ -11044,14 +11321,23 @@ exports.default = (0, _indexJsDefault.default).hasStandardBrowserEnv ? // Standa
     },
     read (name) {
         if (typeof document === 'undefined') return null;
-        const match = document.cookie.match(new RegExp('(?:^|; )' + name + '=([^;]*)'));
-        return match ? decodeURIComponent(match[1]) : null;
+        // Match name=value by splitting on the semicolon separator instead of building a
+        // RegExp from `name` — interpolating an unescaped string into a RegExp would let
+        // metacharacters (e.g. `.+?` in an attacker-influenced cookie name) cause ReDoS or
+        // match the wrong cookie. Browsers may serialize cookie pairs as either ";" or
+        // "; ", so ignore optional whitespace before each cookie name.
+        const cookies = document.cookie.split(';');
+        for(let i = 0; i < cookies.length; i++){
+            const cookie = cookies[i].replace(/^\s+/, '');
+            const eq = cookie.indexOf('=');
+            if (eq !== -1 && cookie.slice(0, eq) === name) return decodeURIComponent(cookie.slice(eq + 1));
+        }
+        return null;
     },
     remove (name) {
         this.write(name, '', Date.now() - 86400000, '/');
     }
-} : // Non-standard browser env (web workers, react-native) lack needed support.
-{
+} : {
     write () {},
     read () {
         return null;
@@ -11070,7 +11356,7 @@ var _combineURLsJsDefault = parcelHelpers.interopDefault(_combineURLsJs);
 'use strict';
 function buildFullPath(baseURL, requestedURL, allowAbsoluteUrls) {
     let isRelativeUrl = !(0, _isAbsoluteURLJsDefault.default)(requestedURL);
-    if (baseURL && (isRelativeUrl || allowAbsoluteUrls == false)) return (0, _combineURLsJsDefault.default)(baseURL, requestedURL);
+    if (baseURL && (isRelativeUrl || allowAbsoluteUrls === false)) return (0, _combineURLsJsDefault.default)(baseURL, requestedURL);
     return requestedURL;
 }
 
@@ -11104,14 +11390,27 @@ var _utilsJs = require("../utils.js");
 var _utilsJsDefault = parcelHelpers.interopDefault(_utilsJs);
 var _axiosHeadersJs = require("./AxiosHeaders.js");
 var _axiosHeadersJsDefault = parcelHelpers.interopDefault(_axiosHeadersJs);
-"use strict";
+'use strict';
 const headersToObject = (thing)=>thing instanceof (0, _axiosHeadersJsDefault.default) ? {
         ...thing
     } : thing;
 function mergeConfig(config1, config2) {
     // eslint-disable-next-line no-param-reassign
     config2 = config2 || {};
-    const config = {};
+    // Use a null-prototype object so that downstream reads such as `config.auth`
+    // or `config.baseURL` cannot inherit polluted values from Object.prototype.
+    // `hasOwnProperty` is restored as a non-enumerable own slot to preserve
+    // ergonomics for user code that relies on it.
+    const config = Object.create(null);
+    Object.defineProperty(config, 'hasOwnProperty', {
+        // Null-proto descriptor so a polluted Object.prototype.get cannot turn
+        // this data descriptor into an accessor descriptor on the way in.
+        __proto__: null,
+        value: Object.prototype.hasOwnProperty,
+        enumerable: false,
+        writable: true,
+        configurable: true
+    });
     function getMergedValue(target, source, prop, caseless) {
         if ((0, _utilsJsDefault.default).isPlainObject(target) && (0, _utilsJsDefault.default).isPlainObject(source)) return (0, _utilsJsDefault.default).merge.call({
             caseless
@@ -11135,8 +11434,8 @@ function mergeConfig(config1, config2) {
     }
     // eslint-disable-next-line consistent-return
     function mergeDirectKeys(a, b, prop) {
-        if (prop in config2) return getMergedValue(a, b);
-        else if (prop in config1) return getMergedValue(undefined, a);
+        if ((0, _utilsJsDefault.default).hasOwnProp(config2, prop)) return getMergedValue(a, b);
+        else if ((0, _utilsJsDefault.default).hasOwnProp(config1, prop)) return getMergedValue(undefined, a);
     }
     const mergeMap = {
         url: valueFromConfig2,
@@ -11165,6 +11464,7 @@ function mergeConfig(config1, config2) {
         httpsAgent: defaultToConfig2,
         cancelToken: defaultToConfig2,
         socketPath: defaultToConfig2,
+        allowedSocketPaths: defaultToConfig2,
         responseEncoding: defaultToConfig2,
         validateStatus: mergeDirectKeys,
         headers: (a, b, prop)=>mergeDeepProperties(headersToObject(a), headersToObject(b), prop, true)
@@ -11173,9 +11473,11 @@ function mergeConfig(config1, config2) {
         ...config1,
         ...config2
     }), function computeConfigValue(prop) {
-        if (prop === "__proto__" || prop === "constructor" || prop === "prototype") return;
+        if (prop === '__proto__' || prop === 'constructor' || prop === 'prototype') return;
         const merge = (0, _utilsJsDefault.default).hasOwnProp(mergeMap, prop) ? mergeMap[prop] : mergeDeepProperties;
-        const configValue = merge(config1[prop], config2[prop], prop);
+        const a = (0, _utilsJsDefault.default).hasOwnProp(config1, prop) ? config1[prop] : undefined;
+        const b = (0, _utilsJsDefault.default).hasOwnProp(config2, prop) ? config2[prop] : undefined;
+        const configValue = merge(a, b, prop);
         (0, _utilsJsDefault.default).isUndefined(configValue) && merge !== mergeDirectKeys || (config[prop] = configValue);
     });
     return config;
@@ -11201,13 +11503,12 @@ var _resolveConfigJs = require("../helpers/resolveConfig.js");
 var _resolveConfigJsDefault = parcelHelpers.interopDefault(_resolveConfigJs);
 var _settleJs = require("../core/settle.js");
 var _settleJsDefault = parcelHelpers.interopDefault(_settleJs);
+var _estimateDataURLDecodedBytesJs = require("../helpers/estimateDataURLDecodedBytes.js");
+var _estimateDataURLDecodedBytesJsDefault = parcelHelpers.interopDefault(_estimateDataURLDecodedBytesJs);
+var _dataJs = require("../env/data.js");
+var _sanitizeHeaderValueJs = require("../helpers/sanitizeHeaderValue.js");
 const DEFAULT_CHUNK_SIZE = 65536;
 const { isFunction } = (0, _utilsJsDefault.default);
-const globalFetchAPI = (({ Request, Response })=>({
-        Request,
-        Response
-    }))((0, _utilsJsDefault.default).global);
-const { ReadableStream, TextEncoder } = (0, _utilsJsDefault.default).global;
 const test = (fn, ...args)=>{
     try {
         return !!fn(...args);
@@ -11216,9 +11517,14 @@ const test = (fn, ...args)=>{
     }
 };
 const factory = (env)=>{
+    const globalObject = (0, _utilsJsDefault.default).global !== undefined && (0, _utilsJsDefault.default).global !== null ? (0, _utilsJsDefault.default).global : globalThis;
+    const { ReadableStream, TextEncoder } = globalObject;
     env = (0, _utilsJsDefault.default).merge.call({
         skipUndefined: true
-    }, globalFetchAPI, env);
+    }, {
+        Request: globalObject.Request,
+        Response: globalObject.Response
+    }, env);
     const { fetch: envFetch, Request, Response } = env;
     const isFetchSupported = envFetch ? isFunction(envFetch) : typeof fetch === 'function';
     const isRequestSupported = isFunction(Request);
@@ -11228,14 +11534,16 @@ const factory = (env)=>{
     const encodeText = isFetchSupported && (typeof TextEncoder === 'function' ? ((encoder)=>(str)=>encoder.encode(str))(new TextEncoder()) : async (str)=>new Uint8Array(await new Request(str).arrayBuffer()));
     const supportsRequestStream = isRequestSupported && isReadableStreamSupported && test(()=>{
         let duplexAccessed = false;
-        const hasContentType = new Request((0, _indexJsDefault.default).origin, {
+        const request = new Request((0, _indexJsDefault.default).origin, {
             body: new ReadableStream(),
             method: 'POST',
             get duplex () {
                 duplexAccessed = true;
                 return 'half';
             }
-        }).headers.has('Content-Type');
+        });
+        const hasContentType = request.headers.has('Content-Type');
+        if (request.body != null) request.body.cancel();
         return duplexAccessed && !hasContentType;
     });
     const supportsResponseStream = isResponseSupported && isReadableStreamSupported && test(()=>(0, _utilsJsDefault.default).isReadableStream(new Response('').body));
@@ -11276,7 +11584,9 @@ const factory = (env)=>{
         return length == null ? getBodyLength(body) : length;
     };
     return async (config)=>{
-        let { url, method, data, signal, cancelToken, timeout, onDownloadProgress, onUploadProgress, responseType, headers, withCredentials = 'same-origin', fetchOptions } = (0, _resolveConfigJsDefault.default)(config);
+        let { url, method, data, signal, cancelToken, timeout, onDownloadProgress, onUploadProgress, responseType, headers, withCredentials = 'same-origin', fetchOptions, maxContentLength, maxBodyLength } = (0, _resolveConfigJsDefault.default)(config);
+        const hasMaxContentLength = (0, _utilsJsDefault.default).isNumber(maxContentLength) && maxContentLength > -1;
+        const hasMaxBodyLength = (0, _utilsJsDefault.default).isNumber(maxBodyLength) && maxBodyLength > -1;
         let _fetch = envFetch || fetch;
         responseType = responseType ? (responseType + '').toLowerCase() : 'text';
         let composedSignal = (0, _composeSignalsJsDefault.default)([
@@ -11289,11 +11599,26 @@ const factory = (env)=>{
         });
         let requestContentLength;
         try {
+            // Enforce maxContentLength for data: URLs up-front so we never materialize
+            // an oversized payload. The HTTP adapter applies the same check (see http.js
+            // "if (protocol === 'data:')" branch).
+            if (hasMaxContentLength && typeof url === 'string' && url.startsWith('data:')) {
+                const estimated = (0, _estimateDataURLDecodedBytesJsDefault.default)(url);
+                if (estimated > maxContentLength) throw new (0, _axiosErrorJsDefault.default)('maxContentLength size of ' + maxContentLength + ' exceeded', (0, _axiosErrorJsDefault.default).ERR_BAD_RESPONSE, config, request);
+            }
+            // Enforce maxBodyLength against the outbound request body before dispatch.
+            // Mirrors http.js behavior (ERR_BAD_REQUEST / 'Request body larger than
+            // maxBodyLength limit'). Skip when the body length cannot be determined
+            // (e.g. a live ReadableStream supplied by the caller).
+            if (hasMaxBodyLength && method !== 'get' && method !== 'head') {
+                const outboundLength = await resolveBodyLength(headers, data);
+                if (typeof outboundLength === 'number' && isFinite(outboundLength) && outboundLength > maxBodyLength) throw new (0, _axiosErrorJsDefault.default)('Request body larger than maxBodyLength limit', (0, _axiosErrorJsDefault.default).ERR_BAD_REQUEST, config, request);
+            }
             if (onUploadProgress && supportsRequestStream && method !== 'get' && method !== 'head' && (requestContentLength = await resolveBodyLength(headers, data)) !== 0) {
                 let _request = new Request(url, {
                     method: 'POST',
                     body: data,
-                    duplex: "half"
+                    duplex: 'half'
                 });
                 let contentTypeHeader;
                 if ((0, _utilsJsDefault.default).isFormData(data) && (contentTypeHeader = _request.headers.get('content-type'))) headers.setContentType(contentTypeHeader);
@@ -11305,20 +11630,34 @@ const factory = (env)=>{
             if (!(0, _utilsJsDefault.default).isString(withCredentials)) withCredentials = withCredentials ? 'include' : 'omit';
             // Cloudflare Workers throws when credentials are defined
             // see https://github.com/cloudflare/workerd/issues/902
-            const isCredentialsSupported = isRequestSupported && "credentials" in Request.prototype;
+            const isCredentialsSupported = isRequestSupported && 'credentials' in Request.prototype;
+            // If data is FormData and Content-Type is multipart/form-data without boundary,
+            // delete it so fetch can set it correctly with the boundary
+            if ((0, _utilsJsDefault.default).isFormData(data)) {
+                const contentType = headers.getContentType();
+                if (contentType && /^multipart\/form-data/i.test(contentType) && !/boundary=/i.test(contentType)) headers.delete('content-type');
+            }
+            // Set User-Agent header if not already set (fetch defaults to 'node' in Node.js)
+            headers.set('User-Agent', 'axios/' + (0, _dataJs.VERSION), false);
             const resolvedOptions = {
                 ...fetchOptions,
                 signal: composedSignal,
                 method: method.toUpperCase(),
-                headers: headers.normalize().toJSON(),
+                headers: (0, _sanitizeHeaderValueJs.toByteStringHeaderObject)(headers.normalize()),
                 body: data,
-                duplex: "half",
+                duplex: 'half',
                 credentials: isCredentialsSupported ? withCredentials : undefined
             };
             request = isRequestSupported && new Request(url, resolvedOptions);
             let response = await (isRequestSupported ? _fetch(request, fetchOptions) : _fetch(url, resolvedOptions));
+            // Cheap pre-check: if the server honestly declares a content-length that
+            // already exceeds the cap, reject before we start streaming.
+            if (hasMaxContentLength) {
+                const declaredLength = (0, _utilsJsDefault.default).toFiniteNumber(response.headers.get('content-length'));
+                if (declaredLength != null && declaredLength > maxContentLength) throw new (0, _axiosErrorJsDefault.default)('maxContentLength size of ' + maxContentLength + ' exceeded', (0, _axiosErrorJsDefault.default).ERR_BAD_RESPONSE, config, request);
+            }
             const isStreamResponse = supportsResponseStream && (responseType === 'stream' || responseType === 'response');
-            if (supportsResponseStream && (onDownloadProgress || isStreamResponse && unsubscribe)) {
+            if (supportsResponseStream && response.body && (onDownloadProgress || hasMaxContentLength || isStreamResponse && unsubscribe)) {
                 const options = {};
                 [
                     'status',
@@ -11329,13 +11668,33 @@ const factory = (env)=>{
                 });
                 const responseContentLength = (0, _utilsJsDefault.default).toFiniteNumber(response.headers.get('content-length'));
                 const [onProgress, flush] = onDownloadProgress && (0, _progressEventReducerJs.progressEventDecorator)(responseContentLength, (0, _progressEventReducerJs.progressEventReducer)((0, _progressEventReducerJs.asyncDecorator)(onDownloadProgress), true)) || [];
-                response = new Response((0, _trackStreamJs.trackStream)(response.body, DEFAULT_CHUNK_SIZE, onProgress, ()=>{
+                let bytesRead = 0;
+                const onChunkProgress = (loadedBytes)=>{
+                    if (hasMaxContentLength) {
+                        bytesRead = loadedBytes;
+                        if (bytesRead > maxContentLength) throw new (0, _axiosErrorJsDefault.default)('maxContentLength size of ' + maxContentLength + ' exceeded', (0, _axiosErrorJsDefault.default).ERR_BAD_RESPONSE, config, request);
+                    }
+                    onProgress && onProgress(loadedBytes);
+                };
+                response = new Response((0, _trackStreamJs.trackStream)(response.body, DEFAULT_CHUNK_SIZE, onChunkProgress, ()=>{
                     flush && flush();
                     unsubscribe && unsubscribe();
                 }), options);
             }
             responseType = responseType || 'text';
             let responseData = await resolvers[(0, _utilsJsDefault.default).findKey(resolvers, responseType) || 'text'](response, config);
+            // Fallback enforcement for environments without ReadableStream support
+            // (legacy runtimes). Detect materialized size from typed output; skip
+            // streams/Response passthrough since the user will read those themselves.
+            if (hasMaxContentLength && !supportsResponseStream && !isStreamResponse) {
+                let materializedSize;
+                if (responseData != null) {
+                    if (typeof responseData.byteLength === 'number') materializedSize = responseData.byteLength;
+                    else if (typeof responseData.size === 'number') materializedSize = responseData.size;
+                    else if (typeof responseData === 'string') materializedSize = typeof TextEncoder === 'function' ? new TextEncoder().encode(responseData).byteLength : responseData.length;
+                }
+                if (typeof materializedSize === 'number' && materializedSize > maxContentLength) throw new (0, _axiosErrorJsDefault.default)('maxContentLength size of ' + maxContentLength + ' exceeded', (0, _axiosErrorJsDefault.default).ERR_BAD_RESPONSE, config, request);
+            }
             !isStreamResponse && unsubscribe && unsubscribe();
             return await new Promise((resolve, reject)=>{
                 (0, _settleJsDefault.default)(resolve, reject, {
@@ -11349,6 +11708,16 @@ const factory = (env)=>{
             });
         } catch (err) {
             unsubscribe && unsubscribe();
+            // Safari can surface fetch aborts as a DOMException-like object whose
+            // branded getters throw. Prefer our composed signal reason before reading
+            // the caught error, preserving timeout vs cancellation semantics.
+            if (composedSignal && composedSignal.aborted && composedSignal.reason instanceof (0, _axiosErrorJsDefault.default)) {
+                const canceledError = composedSignal.reason;
+                canceledError.config = config;
+                request && (canceledError.request = request);
+                err !== canceledError && (canceledError.cause = err);
+                throw canceledError;
+            }
             if (err && err.name === 'TypeError' && /Load failed|fetch/i.test(err.message)) throw Object.assign(new (0, _axiosErrorJsDefault.default)('Network Error', (0, _axiosErrorJsDefault.default).ERR_NETWORK, config, request, err && err.response), {
                 cause: err.cause || err
             });
@@ -11377,7 +11746,7 @@ const getFetch = (config)=>{
 const adapter = getFetch();
 exports.default = adapter;
 
-},{"../platform/index.js":"626Zd","../utils.js":"jI6DP","../core/AxiosError.js":"7z85x","../helpers/composeSignals.js":"fy9c7","../helpers/trackStream.js":"6dI08","../core/AxiosHeaders.js":"9EzTj","../helpers/progressEventReducer.js":"6rzPu","../helpers/resolveConfig.js":"3RDMa","../core/settle.js":"2vmJg","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"fy9c7":[function(require,module,exports,__globalThis) {
+},{"../platform/index.js":"626Zd","../utils.js":"jI6DP","../core/AxiosError.js":"7z85x","../helpers/composeSignals.js":"fy9c7","../helpers/trackStream.js":"6dI08","../core/AxiosHeaders.js":"9EzTj","../helpers/progressEventReducer.js":"6rzPu","../helpers/resolveConfig.js":"3RDMa","../core/settle.js":"2vmJg","../helpers/estimateDataURLDecodedBytes.js":"918ps","../env/data.js":"9SLyZ","../helpers/sanitizeHeaderValue.js":"hgIfL","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"fy9c7":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _canceledErrorJs = require("../cancel/CanceledError.js");
@@ -11387,37 +11756,35 @@ var _axiosErrorJsDefault = parcelHelpers.interopDefault(_axiosErrorJs);
 var _utilsJs = require("../utils.js");
 var _utilsJsDefault = parcelHelpers.interopDefault(_utilsJs);
 const composeSignals = (signals, timeout)=>{
-    const { length } = signals = signals ? signals.filter(Boolean) : [];
-    if (timeout || length) {
-        let controller = new AbortController();
-        let aborted;
-        const onabort = function(reason) {
-            if (!aborted) {
-                aborted = true;
-                unsubscribe();
-                const err = reason instanceof Error ? reason : this.reason;
-                controller.abort(err instanceof (0, _axiosErrorJsDefault.default) ? err : new (0, _canceledErrorJsDefault.default)(err instanceof Error ? err.message : err));
-            }
-        };
-        let timer = timeout && setTimeout(()=>{
-            timer = null;
-            onabort(new (0, _axiosErrorJsDefault.default)(`timeout of ${timeout}ms exceeded`, (0, _axiosErrorJsDefault.default).ETIMEDOUT));
-        }, timeout);
-        const unsubscribe = ()=>{
-            if (signals) {
-                timer && clearTimeout(timer);
-                timer = null;
-                signals.forEach((signal)=>{
-                    signal.unsubscribe ? signal.unsubscribe(onabort) : signal.removeEventListener('abort', onabort);
-                });
-                signals = null;
-            }
-        };
-        signals.forEach((signal)=>signal.addEventListener('abort', onabort));
-        const { signal } = controller;
-        signal.unsubscribe = ()=>(0, _utilsJsDefault.default).asap(unsubscribe);
-        return signal;
-    }
+    signals = signals ? signals.filter(Boolean) : [];
+    if (!timeout && !signals.length) return;
+    const controller = new AbortController();
+    let aborted = false;
+    const onabort = function(reason) {
+        if (!aborted) {
+            aborted = true;
+            unsubscribe();
+            const err = reason instanceof Error ? reason : this.reason;
+            controller.abort(err instanceof (0, _axiosErrorJsDefault.default) ? err : new (0, _canceledErrorJsDefault.default)(err instanceof Error ? err.message : err));
+        }
+    };
+    let timer = timeout && setTimeout(()=>{
+        timer = null;
+        onabort(new (0, _axiosErrorJsDefault.default)(`timeout of ${timeout}ms exceeded`, (0, _axiosErrorJsDefault.default).ETIMEDOUT));
+    }, timeout);
+    const unsubscribe = ()=>{
+        if (!signals) return;
+        timer && clearTimeout(timer);
+        timer = null;
+        signals.forEach((signal)=>{
+            signal.unsubscribe ? signal.unsubscribe(onabort) : signal.removeEventListener('abort', onabort);
+        });
+        signals = null;
+    };
+    signals.forEach((signal)=>signal.addEventListener('abort', onabort));
+    const { signal } = controller;
+    signal.unsubscribe = ()=>(0, _utilsJsDefault.default).asap(unsubscribe);
+    return signal;
 };
 exports.default = composeSignals;
 
@@ -11499,6 +11866,88 @@ const trackStream = (stream, chunkSize, onProgress, onFinish)=>{
     });
 };
 
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"918ps":[function(require,module,exports,__globalThis) {
+/**
+ * Estimate decoded byte length of a data:// URL *without* allocating large buffers.
+ * - For base64: compute exact decoded size using length and padding;
+ *               handle %XX at the character-count level (no string allocation).
+ * - For non-base64: use UTF-8 byteLength of the encoded body as a safe upper bound.
+ *
+ * @param {string} url
+ * @returns {number}
+ */ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>estimateDataURLDecodedBytes);
+var Buffer = require("620f4bc93a83451b").Buffer;
+function estimateDataURLDecodedBytes(url) {
+    if (!url || typeof url !== 'string') return 0;
+    if (!url.startsWith('data:')) return 0;
+    const comma = url.indexOf(',');
+    if (comma < 0) return 0;
+    const meta = url.slice(5, comma);
+    const body = url.slice(comma + 1);
+    const isBase64 = /;base64/i.test(meta);
+    if (isBase64) {
+        let effectiveLen = body.length;
+        const len = body.length; // cache length
+        for(let i = 0; i < len; i++)if (body.charCodeAt(i) === 37 /* '%' */  && i + 2 < len) {
+            const a = body.charCodeAt(i + 1);
+            const b = body.charCodeAt(i + 2);
+            const isHex = (a >= 48 && a <= 57 || a >= 65 && a <= 70 || a >= 97 && a <= 102) && (b >= 48 && b <= 57 || b >= 65 && b <= 70 || b >= 97 && b <= 102);
+            if (isHex) {
+                effectiveLen -= 2;
+                i += 2;
+            }
+        }
+        let pad = 0;
+        let idx = len - 1;
+        const tailIsPct3D = (j)=>j >= 2 && body.charCodeAt(j - 2) === 37 && // '%'
+            body.charCodeAt(j - 1) === 51 && // '3'
+            (body.charCodeAt(j) === 68 || body.charCodeAt(j) === 100); // 'D' or 'd'
+        if (idx >= 0) {
+            if (body.charCodeAt(idx) === 61 /* '=' */ ) {
+                pad++;
+                idx--;
+            } else if (tailIsPct3D(idx)) {
+                pad++;
+                idx -= 3;
+            }
+        }
+        if (pad === 1 && idx >= 0) {
+            if (body.charCodeAt(idx) === 61 /* '=' */ ) pad++;
+            else if (tailIsPct3D(idx)) pad++;
+        }
+        const groups = Math.floor(effectiveLen / 4);
+        const bytes = groups * 3 - (pad || 0);
+        return bytes > 0 ? bytes : 0;
+    }
+    if (typeof Buffer !== 'undefined' && typeof Buffer.byteLength === 'function') return Buffer.byteLength(body, 'utf8');
+    // Compute UTF-8 byte length directly from UTF-16 code units without allocating
+    // a byte buffer (TextEncoder.encode would defeat the DoS guard on large bodies).
+    // Using body.length here would undercount non-ASCII (e.g. '€' is 1 code unit
+    // but 3 UTF-8 bytes).
+    let bytes = 0;
+    for(let i = 0, len = body.length; i < len; i++){
+        const c = body.charCodeAt(i);
+        if (c < 0x80) bytes += 1;
+        else if (c < 0x800) bytes += 2;
+        else if (c >= 0xd800 && c <= 0xdbff && i + 1 < len) {
+            const next = body.charCodeAt(i + 1);
+            if (next >= 0xdc00 && next <= 0xdfff) {
+                bytes += 4;
+                i++;
+            } else bytes += 3;
+        } else bytes += 3;
+    }
+    return bytes;
+}
+
+},{"620f4bc93a83451b":"bCaf4","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"9SLyZ":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "VERSION", ()=>VERSION);
+const VERSION = "1.16.1";
+
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"9wnyh":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
@@ -11531,7 +11980,7 @@ const deprecatedWarnings = {};
  * @returns {function}
  */ validators.transitional = function transitional(validator, version, message) {
     function formatMessage(opt, desc) {
-        return '[Axios v' + (0, _dataJs.VERSION) + '] Transitional option \'' + opt + '\'' + desc + (message ? '. ' + message : '');
+        return '[Axios v' + (0, _dataJs.VERSION) + "] Transitional option '" + opt + "'" + desc + (message ? '. ' + message : '');
     }
     // eslint-disable-next-line func-names
     return (value, opt, opts)=>{
@@ -11565,7 +12014,9 @@ validators.spelling = function spelling(correctSpelling) {
     let i = keys.length;
     while(i-- > 0){
         const opt = keys[i];
-        const validator = schema[opt];
+        // Use hasOwnProperty so a polluted Object.prototype.<opt> cannot supply
+        // a non-function validator and cause a TypeError.
+        const validator = Object.prototype.hasOwnProperty.call(schema, opt) ? schema[opt] : undefined;
         if (validator) {
             const value = options[opt];
             const result = value === undefined || validator(value, opt, options);
@@ -11580,13 +12031,7 @@ exports.default = {
     validators
 };
 
-},{"../env/data.js":"9SLyZ","../core/AxiosError.js":"7z85x","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"9SLyZ":[function(require,module,exports,__globalThis) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "VERSION", ()=>VERSION);
-const VERSION = "1.13.5";
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"kSqbX":[function(require,module,exports,__globalThis) {
+},{"../env/data.js":"9SLyZ","../core/AxiosError.js":"7z85x","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"kSqbX":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _canceledErrorJs = require("./CanceledError.js");
@@ -33420,12 +33865,13 @@ function loadPlugins() {
         safeImport(require("779248971d4ee820")),
         safeImport(require("ef8fc96d66c126e6")),
         safeImport(require("5469d7d18905b206")),
-        safeImport(require("bec10797dede5343"))
+        safeImport(require("bec10797dede5343")),
+        safeImport(require("2ebde0595500e9f5"))
     ];
     return Promise.all(plugins);
 }
 
-},{"ea68c71bce484b63":"Wneyd","bb7100ef7768402e":"h25Tz","c8a599eab9003e7f":"gnNef","ee396b67347df231":"d0vjp","5f6cbb2944012b0f":"7t61C","b84dd777bb325cf1":"85mgd","c2ba6b18b8151d21":"awcKZ","d64d2a7528d44624":"7hpxv","9f5512dc0596184a":"iFGyc","4b5adcfbfc855b74":"4KwsC","5c301518a9c26313":"iq2cU","d816ae225c2ab1ad":"FTNXM","53ddbaae0002dcfb":"k9rw4","fc52d4c8c36bc18d":"c8YNj","47fb03a6b741f67f":"11kYL","4a4c341d5c7ed426":"8wJSd","7b01b5a572917b38":"bmyQc","1612af2b62f4c0a3":"b7EYR","beed4ed04c1cab89":"4Wapq","4d6ed4021b396bd3":"f5wzI","7913f673e6d53237":"1KTZw","4098dfb20490fb50":"6MPFa","22f854ac869f52eb":"dVPko","1ad3675196a5c8f3":"liUmV","a955497571196aa4":"2agui","a3e770e2afc86c98":"d8Le1","e6304bb85d6a6d90":"1hNfe","3bba9dfa8074586b":"gEOMO","7d0023d01aab58c8":"jVslK","37c4d9afaa8b4a52":"dQTlu","5abbe4913e45efb3":"5ruj3","8175efe9b73ee4f7":"aiwgR","82d0938a4a0d09eb":"fG57R","eec411b0f30748fb":"gCRN5","43374e17a0ef3fea":"7qvyP","95cbfda1dacb984e":"ave3M","4406a412e631b4c2":"1ZN0J","4336b6b2011a3943":"hg8l6","9a8375d088be15fb":"g7v91","a5d24965e4527bfc":"lyZ7i","82d6c2774fae243f":"7K918","779248971d4ee820":"gqX3p","ef8fc96d66c126e6":"97EkP","5469d7d18905b206":"kCnTD","bec10797dede5343":"c2ehi","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"Wneyd":[function(require,module,exports,__globalThis) {
+},{"ea68c71bce484b63":"Wneyd","bb7100ef7768402e":"h25Tz","c8a599eab9003e7f":"gnNef","ee396b67347df231":"d0vjp","5f6cbb2944012b0f":"7t61C","b84dd777bb325cf1":"85mgd","c2ba6b18b8151d21":"awcKZ","d64d2a7528d44624":"7hpxv","9f5512dc0596184a":"iFGyc","4b5adcfbfc855b74":"4KwsC","5c301518a9c26313":"iq2cU","d816ae225c2ab1ad":"FTNXM","53ddbaae0002dcfb":"k9rw4","fc52d4c8c36bc18d":"c8YNj","47fb03a6b741f67f":"11kYL","4a4c341d5c7ed426":"8wJSd","7b01b5a572917b38":"bmyQc","1612af2b62f4c0a3":"b7EYR","beed4ed04c1cab89":"4Wapq","4d6ed4021b396bd3":"ayFt5","7913f673e6d53237":"1KTZw","4098dfb20490fb50":"6MPFa","22f854ac869f52eb":"4wazW","1ad3675196a5c8f3":"5Howb","a955497571196aa4":"2agui","a3e770e2afc86c98":"d8Le1","e6304bb85d6a6d90":"1hNfe","3bba9dfa8074586b":"gEOMO","7d0023d01aab58c8":"7ARrN","37c4d9afaa8b4a52":"dQTlu","5abbe4913e45efb3":"5ruj3","8175efe9b73ee4f7":"aiwgR","82d0938a4a0d09eb":"fG57R","eec411b0f30748fb":"gCRN5","43374e17a0ef3fea":"7qvyP","95cbfda1dacb984e":"ave3M","4406a412e631b4c2":"1ZN0J","4336b6b2011a3943":"hg8l6","9a8375d088be15fb":"9Wcsr","a5d24965e4527bfc":"lyZ7i","82d6c2774fae243f":"7K918","779248971d4ee820":"gqX3p","ef8fc96d66c126e6":"97EkP","5469d7d18905b206":"enLR7","bec10797dede5343":"c2ehi","2ebde0595500e9f5":"l4Y9i","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"Wneyd":[function(require,module,exports,__globalThis) {
 module.exports = Promise.all([
     import("7V1HE"),
     import("wsJF6"),
@@ -33585,11 +34031,12 @@ module.exports = Promise.all([
     import("7egWB")
 ]).then(()=>module.bundle.root('kGMaE'));
 
-},{}],"f5wzI":[function(require,module,exports,__globalThis) {
+},{}],"ayFt5":[function(require,module,exports,__globalThis) {
 module.exports = Promise.all([
-    import("2AvFn"),
-    import("554py"),
-    require("a2ba64ea1e8a2238")(import.meta.resolve("aYdVV")),
+    import("gIMSh"),
+    import("hIB4s"),
+    import("aoXSw"),
+    require("53098c4355cbd0da")(import.meta.resolve("aYdVV")),
     import("cKNiK"),
     import("jP44U"),
     import("krVo4"),
@@ -33600,7 +34047,7 @@ module.exports = Promise.all([
     import("ao8li")
 ]).then(()=>module.bundle.root('jYqr3'));
 
-},{"a2ba64ea1e8a2238":"jGGMa"}],"1KTZw":[function(require,module,exports,__globalThis) {
+},{"53098c4355cbd0da":"jGGMa"}],"1KTZw":[function(require,module,exports,__globalThis) {
 module.exports = Promise.all([
     require("f9c0787ccfdfa942")(import.meta.resolve("3E0v5")),
     import("f1myU"),
@@ -33622,15 +34069,14 @@ module.exports = Promise.all([
     import("bWFXc")
 ]).then(()=>module.bundle.root('5AlIa'));
 
-},{"3dbcccafa9550ec3":"jGGMa"}],"dVPko":[function(require,module,exports,__globalThis) {
+},{"3dbcccafa9550ec3":"jGGMa"}],"4wazW":[function(require,module,exports,__globalThis) {
 module.exports = Promise.all([
+    import("2WuKd"),
+    import("8mzNY"),
+    require("75d8ae1905ee48e5")(import.meta.resolve("2sZwR")),
     import("gIMSh"),
-    import("l7H3h"),
-    import("btIHg"),
-    import("IHu1w"),
-    require("aa370f8a823de933")(import.meta.resolve("2sZwR")),
-    import("2AvFn"),
-    import("554py"),
+    import("hIB4s"),
+    import("aoXSw"),
     import("cKNiK"),
     import("jP44U"),
     import("krVo4"),
@@ -33641,12 +34087,12 @@ module.exports = Promise.all([
     import("4BquF")
 ]).then(()=>module.bundle.root('82Vlz'));
 
-},{"aa370f8a823de933":"jGGMa"}],"liUmV":[function(require,module,exports,__globalThis) {
+},{"75d8ae1905ee48e5":"jGGMa"}],"5Howb":[function(require,module,exports,__globalThis) {
 module.exports = Promise.all([
-    require("5c016023a1e6497c")(import.meta.resolve("5LfiF")),
-    import("l7H3h"),
-    import("2AvFn"),
-    import("554py"),
+    require("b98fc5e261c83559")(import.meta.resolve("5LfiF")),
+    import("gIMSh"),
+    import("hIB4s"),
+    import("aoXSw"),
     import("fESzN"),
     import("jP44U"),
     import("7V1HE"),
@@ -33656,7 +34102,7 @@ module.exports = Promise.all([
     import("gGmDD")
 ]).then(()=>module.bundle.root('frKwp'));
 
-},{"5c016023a1e6497c":"jGGMa"}],"2agui":[function(require,module,exports,__globalThis) {
+},{"b98fc5e261c83559":"jGGMa"}],"2agui":[function(require,module,exports,__globalThis) {
 module.exports = Promise.all([
     import("cyFI9"),
     import("wsJF6"),
@@ -33685,16 +34131,14 @@ module.exports = Promise.all([
     import("iQX2F")
 ]).then(()=>module.bundle.root('fJBgo'));
 
-},{}],"jVslK":[function(require,module,exports,__globalThis) {
+},{}],"7ARrN":[function(require,module,exports,__globalThis) {
 module.exports = Promise.all([
-    import("1XMCR"),
-    require("7d5c186a520b9d5f")(import.meta.resolve("hywYD")),
+    require("4ec9267e9d169a82")(import.meta.resolve("hywYD")),
+    import("2WuKd"),
+    import("8mzNY"),
     import("gIMSh"),
-    import("l7H3h"),
-    import("btIHg"),
-    import("IHu1w"),
-    import("2AvFn"),
-    import("554py"),
+    import("hIB4s"),
+    import("aoXSw"),
     import("f1myU"),
     import("jP44U"),
     import("7V1HE"),
@@ -33703,7 +34147,7 @@ module.exports = Promise.all([
     import("9Yi1z")
 ]).then(()=>module.bundle.root('3h7ar'));
 
-},{"7d5c186a520b9d5f":"jGGMa"}],"dQTlu":[function(require,module,exports,__globalThis) {
+},{"4ec9267e9d169a82":"jGGMa"}],"dQTlu":[function(require,module,exports,__globalThis) {
 module.exports = Promise.all([
     require("8da2c1333007d22f")(import.meta.resolve("eEodu")),
     import("cyFI9"),
@@ -33783,15 +34227,13 @@ module.exports = Promise.all([
     import("4m3pv")
 ]).then(()=>module.bundle.root('gFtD5'));
 
-},{}],"g7v91":[function(require,module,exports,__globalThis) {
+},{}],"9Wcsr":[function(require,module,exports,__globalThis) {
 module.exports = Promise.all([
-    import("4bAAJ"),
-    require("3fe746c6508114ed")(import.meta.resolve("jXOBQ")),
-    import("1XMCR"),
+    import("fCDCw"),
+    require("2db17e6ba6c90101")(import.meta.resolve("jXOBQ")),
+    import("2WuKd"),
     import("gIMSh"),
-    import("l7H3h"),
-    import("btIHg"),
-    import("2AvFn"),
+    import("hIB4s"),
     import("cKNiK"),
     import("jP44U"),
     import("7V1HE"),
@@ -33800,7 +34242,7 @@ module.exports = Promise.all([
     import("2Mab1")
 ]).then(()=>module.bundle.root('6rjbb'));
 
-},{"3fe746c6508114ed":"jGGMa"}],"lyZ7i":[function(require,module,exports,__globalThis) {
+},{"2db17e6ba6c90101":"jGGMa"}],"lyZ7i":[function(require,module,exports,__globalThis) {
 module.exports = Promise.all([
     import("cyFI9"),
     import("wsJF6"),
@@ -33830,14 +34272,12 @@ module.exports = Promise.all([
     import("8DnC4")
 ]).then(()=>module.bundle.root('e62zr'));
 
-},{"f7e78176e2e4ce91":"jGGMa"}],"kCnTD":[function(require,module,exports,__globalThis) {
+},{"f7e78176e2e4ce91":"jGGMa"}],"enLR7":[function(require,module,exports,__globalThis) {
 module.exports = Promise.all([
-    require("10bca8e561e19eae")(import.meta.resolve("5VTUi")),
-    import("4bAAJ"),
+    require("15caddfb0c5e5f29")(import.meta.resolve("5VTUi")),
+    import("8mzNY"),
     import("gIMSh"),
-    import("l7H3h"),
-    import("btIHg"),
-    import("IHu1w"),
+    import("hIB4s"),
     import("cKNiK"),
     import("jP44U"),
     import("7V1HE"),
@@ -33846,7 +34286,7 @@ module.exports = Promise.all([
     import("7kKev")
 ]).then(()=>module.bundle.root('f4luG'));
 
-},{"10bca8e561e19eae":"jGGMa"}],"c2ehi":[function(require,module,exports,__globalThis) {
+},{"15caddfb0c5e5f29":"jGGMa"}],"c2ehi":[function(require,module,exports,__globalThis) {
 module.exports = Promise.all([
     require("be948943b97a1390")(import.meta.resolve("exD4D")),
     import("7V1HE"),
@@ -33855,7 +34295,22 @@ module.exports = Promise.all([
     import("g06DB")
 ]).then(()=>module.bundle.root('aeSh6'));
 
-},{"be948943b97a1390":"jGGMa"}],"gGFOY":[function(require,module,exports,__globalThis) {
+},{"be948943b97a1390":"jGGMa"}],"l4Y9i":[function(require,module,exports,__globalThis) {
+module.exports = Promise.all([
+    require("ee7a88b9231ee70")(import.meta.resolve("7EflI")),
+    import("fCDCw"),
+    import("8mzNY"),
+    import("gIMSh"),
+    import("hIB4s"),
+    import("aoXSw"),
+    import("jP44U"),
+    import("7V1HE"),
+    import("cyFI9"),
+    import("wsJF6"),
+    import("b7NyO")
+]).then(()=>module.bundle.root('jxQie'));
+
+},{"ee7a88b9231ee70":"jGGMa"}],"gGFOY":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
  * 
@@ -33974,10 +34429,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("916fa259fe30666e").render;
     script.staticRenderFns = require("916fa259fe30666e").staticRenderFns;
-    script._scopeId = "data-v-c94f51";
+    script._scopeId = "data-v-25468c";
     script.__cssModules = require("56eb4e284f8b3894").default;
     require("beb4c03649748572").default(script);
-    script.__scopeId = 'data-v-c94f51';
+    script.__scopeId = 'data-v-25468c';
     script.__file = "SpinalRightSideBar.vue";
 };
 initialize();
@@ -34114,10 +34569,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("26c913c77b0247bb").render;
     script.staticRenderFns = require("26c913c77b0247bb").staticRenderFns;
-    script._scopeId = "data-v-199bec";
+    script._scopeId = "data-v-acac21";
     script.__cssModules = require("a72a18810bdcf0e8").default;
     require("e798b9c6491834ed").default(script);
-    script.__scopeId = 'data-v-199bec';
+    script.__scopeId = 'data-v-acac21';
     script.__file = "MainContent.vue";
 };
 initialize();
@@ -34192,10 +34647,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("2fe5242471f6f2a8").render;
     script.staticRenderFns = require("2fe5242471f6f2a8").staticRenderFns;
-    script._scopeId = "data-v-9016ed";
+    script._scopeId = "data-v-74ca6d";
     script.__cssModules = require("114ea14a046320d0").default;
     require("441825600126f0a0").default(script);
-    script.__scopeId = 'data-v-9016ed';
+    script.__scopeId = 'data-v-74ca6d';
     script.__file = "SpinalForgeViewerVue.vue";
 };
 initialize();
@@ -94248,7 +94703,7 @@ module.exports = setCacheAdd;
  * @name has
  * @memberOf SetCache
  * @param {*} value The value to search for.
- * @returns {number} Returns `true` if `value` is found, else `false`.
+ * @returns {boolean} Returns `true` if `value` is found, else `false`.
  */ function setCacheHas(value) {
     return this.__data__.has(value);
 }
@@ -96073,10 +96528,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("bd101fdfcf8b51b7").render;
     script.staticRenderFns = require("bd101fdfcf8b51b7").staticRenderFns;
-    script._scopeId = "data-v-73bdd7";
+    script._scopeId = "data-v-43c609";
     script.__cssModules = require("5a85c2fafdd976b0").default;
     require("8fc68798d40df9d6").default(script);
-    script.__scopeId = 'data-v-73bdd7';
+    script.__scopeId = 'data-v-43c609';
     script.__file = "index.vue";
 };
 initialize();
@@ -100107,10 +100562,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("272043accf9dbab4").render;
     script.staticRenderFns = require("272043accf9dbab4").staticRenderFns;
-    script._scopeId = "data-v-22695b";
+    script._scopeId = "data-v-0266c3";
     script.__cssModules = require("ff3b138ad3d0ce8b").default;
     require("87f58cbb546e25cc").default(script);
-    script.__scopeId = 'data-v-22695b';
+    script.__scopeId = 'data-v-0266c3';
     script.__file = "index.vue";
 };
 initialize();
@@ -100216,10 +100671,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("b102bd0c122f01be").render;
     script.staticRenderFns = require("b102bd0c122f01be").staticRenderFns;
-    script._scopeId = "data-v-2020de";
+    script._scopeId = "data-v-737f00";
     script.__cssModules = require("5d5d7825bfe94295").default;
     require("7bbd150dcbefdb40").default(script);
-    script.__scopeId = 'data-v-2020de';
+    script.__scopeId = 'data-v-737f00';
     script.__file = "index.vue";
 };
 initialize();
@@ -100449,10 +100904,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("87c356fe0a95691d").render;
     script.staticRenderFns = require("87c356fe0a95691d").staticRenderFns;
-    script._scopeId = "data-v-34a029";
+    script._scopeId = "data-v-566f19";
     script.__cssModules = require("5dac050640d6e3d2").default;
     require("5c76aecf15b28e60").default(script);
-    script.__scopeId = 'data-v-34a029';
+    script.__scopeId = 'data-v-566f19';
     script.__file = "index.vue";
 };
 initialize();
@@ -100767,10 +101222,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("c11508286ecdc7f9").render;
     script.staticRenderFns = require("c11508286ecdc7f9").staticRenderFns;
-    script._scopeId = "data-v-f69393";
+    script._scopeId = "data-v-26e0f5";
     script.__cssModules = require("8559e5b9d2959314").default;
     require("d742ed1bf67287e").default(script);
-    script.__scopeId = 'data-v-f69393';
+    script.__scopeId = 'data-v-26e0f5';
     script.__file = "index.vue";
 };
 initialize();
@@ -101670,10 +102125,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("ea32684f08b557c2").render;
     script.staticRenderFns = require("ea32684f08b557c2").staticRenderFns;
-    script._scopeId = "data-v-c2aa7e";
+    script._scopeId = "data-v-15b1f2";
     script.__cssModules = require("9c850144cb82f45").default;
     require("5e3539a93558a705").default(script);
-    script.__scopeId = 'data-v-c2aa7e';
+    script.__scopeId = 'data-v-15b1f2';
     script.__file = "RangeShortcuts.vue";
 };
 initialize();
@@ -101928,10 +102383,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("424be3aa1ee5adee").render;
     script.staticRenderFns = require("424be3aa1ee5adee").staticRenderFns;
-    script._scopeId = "data-v-8141d8";
+    script._scopeId = "data-v-bbaa30";
     script.__cssModules = require("2f2c16a4dd2846ae").default;
     require("9bd7b542c538f936").default(script);
-    script.__scopeId = 'data-v-8141d8';
+    script.__scopeId = 'data-v-bbaa30';
     script.__file = "YearMonthSelector.vue";
 };
 initialize();
@@ -102120,10 +102575,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("937e71b61efbebe").render;
     script.staticRenderFns = require("937e71b61efbebe").staticRenderFns;
-    script._scopeId = "data-v-47f6fe";
+    script._scopeId = "data-v-72fb88";
     script.__cssModules = require("17b25bdefd5c75be").default;
     require("ddb482ec6966599").default(script);
-    script.__scopeId = 'data-v-47f6fe';
+    script.__scopeId = 'data-v-72fb88';
     script.__file = "WeekDays.vue";
 };
 initialize();
@@ -102588,10 +103043,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("a47c400461da77bb").render;
     script.staticRenderFns = require("a47c400461da77bb").staticRenderFns;
-    script._scopeId = "data-v-ba3b5c";
+    script._scopeId = "data-v-ddfc68";
     script.__cssModules = require("4324b2dee77e19b").default;
     require("751fe44336a7c3e7").default(script);
-    script.__scopeId = 'data-v-ba3b5c';
+    script.__scopeId = 'data-v-ddfc68';
     script.__file = "TimePicker.vue";
 };
 initialize();
@@ -103069,10 +103524,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("77bc5911373e968").render;
     script.staticRenderFns = require("77bc5911373e968").staticRenderFns;
-    script._scopeId = "data-v-eeb5a9";
+    script._scopeId = "data-v-51571a";
     script.__cssModules = require("1c0bd8dbeab9fe40").default;
     require("2bc0772985a81dfe").default(script);
-    script.__scopeId = 'data-v-eeb5a9';
+    script.__scopeId = 'data-v-51571a';
     script.__file = "HeaderPicker.vue";
 };
 initialize();
@@ -103333,10 +103788,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("1d782928a3ec2b42").render;
     script.staticRenderFns = require("1d782928a3ec2b42").staticRenderFns;
-    script._scopeId = "data-v-ebf2bc";
+    script._scopeId = "data-v-ecc9d9";
     script.__cssModules = require("e382118ef92455d3").default;
     require("bdabea3bbbc84f94").default(script);
-    script.__scopeId = 'data-v-ebf2bc';
+    script.__scopeId = 'data-v-ecc9d9';
     script.__file = "ButtonValidate.vue";
 };
 initialize();

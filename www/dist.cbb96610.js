@@ -402,7 +402,7 @@ class GroupManagerService {
         return __awaiter(this, void 0, void 0, function*() {
             const contexts = yield this._getContexts(graph);
             let contextFound = contexts.find((context)=>context.name.get() === contextName);
-            if (typeof contextFound !== "undefined") return Promise.resolve(spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(contextFound.id.get()));
+            if (typeof contextFound !== 'undefined') return Promise.resolve(spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(contextFound.id.get()));
             return spinal_env_viewer_graph_service_1.SpinalGraphService.addContext(contextName, `${childrenType}${constants_1.CONTEXTGROUP_TYPE_END}`, new spinal_core_connectorjs_type_1.Model({
                 name: contextName,
                 childType: childrenType
@@ -419,7 +419,7 @@ class GroupManagerService {
             let allGroupContexts = contexts.filter((el)=>{
                 return el.type.includes(constants_1.CONTEXTGROUP_TYPE_END);
             });
-            if (typeof childType === "undefined") return allGroupContexts;
+            if (typeof childType === 'undefined') return allGroupContexts;
             const oldType = this._getOldTypes(childType);
             return allGroupContexts.filter((el)=>{
                 return el.type.includes(childType) || el.type === oldType;
@@ -439,16 +439,17 @@ class GroupManagerService {
         return exports.spinalGroup.getGroups(nodeId);
     }
     linkElementToGroup(contextId, groupId, elementId) {
-        var _a;
         return __awaiter(this, void 0, void 0, function*() {
+            var _a;
             const category = yield this.getGroupCategory(groupId);
+            if (typeof category === 'undefined') throw new Error('Group has no category');
             const group = yield this.elementIsInCategorie(category.id.get(), elementId);
             const result = {
                 old_group: (_a = group === null || group === void 0 ? void 0 : group.id) === null || _a === void 0 ? void 0 : _a.get(),
                 newGroup: groupId
             };
             if (result.old_group === result.newGroup) return result;
-            if (typeof group !== "undefined") {
+            if (typeof group !== 'undefined') {
                 yield this.unLinkElementToGroup(group.id.get(), elementId);
                 result.old_group = group.id.get();
             }
@@ -497,10 +498,10 @@ class GroupManagerService {
         return exports.spinalGroup._isGroup(type);
     }
     isRoomsGroup(type) {
-        return type == `${spinal_env_viewer_context_geographic_service_1.default.constants.ROOM_TYPE}${constants_1.GROUP_TYPE_END}` || constants_1.OLD_CONTEXTS_TYPES.ROOMS_GROUP_CONTEXT.replace("Context", "") == type || type === constants_1.OLD_GROUPS_TYPES.ROOMS_GROUP;
+        return type == `${spinal_env_viewer_context_geographic_service_1.default.constants.ROOM_TYPE}${constants_1.GROUP_TYPE_END}` || constants_1.OLD_CONTEXTS_TYPES.ROOMS_GROUP_CONTEXT.replace('Context', '') == type || type === constants_1.OLD_GROUPS_TYPES.ROOMS_GROUP;
     }
     isEquipementGroup(type) {
-        return type == `${spinal_env_viewer_context_geographic_service_1.default.constants.EQUIPMENT_TYPE}${constants_1.GROUP_TYPE_END}` || constants_1.OLD_CONTEXTS_TYPES.EQUIPMENTS_GROUP_CONTEXT.replace("Context", "") == type || type === constants_1.OLD_GROUPS_TYPES.EQUIPMENTS_GROUP;
+        return type == `${spinal_env_viewer_context_geographic_service_1.default.constants.EQUIPMENT_TYPE}${constants_1.GROUP_TYPE_END}` || constants_1.OLD_CONTEXTS_TYPES.EQUIPMENTS_GROUP_CONTEXT.replace('Context', '') == type || type === constants_1.OLD_GROUPS_TYPES.EQUIPMENTS_GROUP;
     }
     checkGroupType(groupType, childrenType) {
         return `${childrenType}${constants_1.GROUP_TYPE_END}` === groupType;
@@ -515,8 +516,22 @@ class GroupManagerService {
         return exports.spinalGroup.updateGroup(categoryId, newInfo);
     }
     getChildrenType(type) {
-        if (this.isContext(type)) return type.replace(constants_1.CONTEXTGROUP_TYPE_END, "");
-        if (this.isGroup(type)) return type.replace(constants_1.GROUP_TYPE_END, "");
+        if (this.isContext(type)) return type.replace(constants_1.CONTEXTGROUP_TYPE_END, '');
+        if (this.isGroup(type)) return type.replace(constants_1.GROUP_TYPE_END, '');
+        return undefined;
+    }
+    deleteGroupFromGraph(groupId) {
+        return exports.spinalGroup.deleteGroupFromGraph(groupId);
+    }
+    deleteCategoryFromGraph(categoryId) {
+        return exports.spinalCategory.deleteCategoryFromGraph(categoryId, exports.spinalGroup);
+    }
+    deleteContextFromGraph(contextId) {
+        return __awaiter(this, void 0, void 0, function*() {
+            const categories = yield exports.spinalCategory.getCategories(contextId);
+            for (const category of categories)yield this.deleteCategoryFromGraph(category.id.get());
+            yield spinal_env_viewer_graph_service_1.SpinalGraphService.removeFromGraph(contextId);
+        });
     }
     ////////////////////////////////////////////////////////////////////
     //                      PRIVATES                                  //
@@ -2690,7 +2705,7 @@ class NoteService {
         //   noteNode.info.name.set(`message-${Date.now()}`);
         //   noteNode.info.type.set(NOTE_TYPE);
         // }
-        await this.createAttribute(noteNode, spinalNote);
+        // await this.createAttribute(noteNode, spinalNote);
         await this.addNoteToContext(noteNode, noteContextId, noteGroupId);
         return noteNode;
     }
@@ -2743,7 +2758,7 @@ class NoteService {
             spinalNode.info.name.set(`message-${Date.now()}`);
             spinalNode.info.type.set(constants_1.NOTE_TYPE);
         }
-        await this.createAttribute(spinalNode, spinalNote);
+        // await this.createAttribute(spinalNode, spinalNote);
         spinal_env_viewer_graph_service_1.SpinalGraphService._addNode(spinalNode);
         let contextId = noteContextId;
         let groupId = noteGroupId;
@@ -5471,8 +5486,8 @@ class SpinalGroup {
         this.CATEGORY_TO_GROUP_RELATION = constants_1.CATEGORY_TO_GROUP_RELATION;
         this.RELATION_BEGIN = constants_1.GROUP_RELATION_BEGIN;
     }
-    addGroup(contextId, categoryId, groupName, groupColor, groupIcon = "3d_rotation") {
-        return __awaiter(this, void 0, void 0, function*() {
+    addGroup(contextId_1, categoryId_1, groupName_1, groupColor_1) {
+        return __awaiter(this, arguments, void 0, function*(contextId, categoryId, groupName, groupColor, groupIcon = '3d_rotation') {
             const groupFound = yield this._groupNameExist(categoryId, groupName);
             if (groupFound) return spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(groupFound.id.get());
             let contextInfo = spinal_env_viewer_graph_service_1.SpinalGraphService.getInfo(contextId);
@@ -5480,7 +5495,7 @@ class SpinalGroup {
                 let info = {
                     name: groupName,
                     type: `${this._getChildrenType(contextInfo.type.get())}Group`,
-                    color: groupColor ? groupColor : "#000000",
+                    color: groupColor ? groupColor : '#000000',
                     icon: groupIcon
                 };
                 let childId = spinal_env_viewer_graph_service_1.SpinalGraphService.createNode(info, new spinal_core_connectorjs_type_1.Model({
@@ -5518,8 +5533,8 @@ class SpinalGroup {
             }
             if (!result) {
                 const groupInfo = spinal_env_viewer_graph_service_1.SpinalGraphService.getInfo(groupId);
-                relationName = this._getGroupRelation(groupInfo.type.get());
-                return spinal_env_viewer_graph_service_1.SpinalGraphService.removeChild(groupId, elementId, relationName, spinal_env_viewer_graph_service_1.SPINAL_RELATION_PTR_LST_TYPE);
+                const relationName = this._getGroupRelation(groupInfo.type.get());
+                if (relationName) return spinal_env_viewer_graph_service_1.SpinalGraphService.removeChild(groupId, elementId, relationName, spinal_env_viewer_graph_service_1.SPINAL_RELATION_PTR_LST_TYPE);
             }
         });
     }
@@ -5530,22 +5545,23 @@ class SpinalGroup {
             `${this.RELATION_BEGIN}${type}`
         ];
         const tempRel = this._getGroupRelation(groupInfo.type.get());
-        if (typeof tempRel !== "undefined") relationNames.push(tempRel);
+        if (typeof tempRel !== 'undefined') relationNames.push(tempRel);
         return spinal_env_viewer_graph_service_1.SpinalGraphService.getChildren(groupId, relationNames);
     }
     getGroups(nodeId) {
-        let nodeInfo = spinal_env_viewer_graph_service_1.SpinalGraphService.getInfo(nodeId);
-        if (this._isGroup(nodeInfo.type.get())) return Promise.resolve([
-            nodeInfo
-        ]);
-        let relations = [
-            constants_1.CONTEXT_TO_CATEGORY_RELATION,
-            constants_1.CATEGORY_TO_GROUP_RELATION
-        ];
-        return spinal_env_viewer_graph_service_1.SpinalGraphService.findNodes(nodeId, relations, (node)=>{
-            let argType = node.getType().get();
-            return this._isGroup(argType);
-        }).then((res)=>{
+        return __awaiter(this, void 0, void 0, function*() {
+            let nodeInfo = spinal_env_viewer_graph_service_1.SpinalGraphService.getInfo(nodeId);
+            if (this._isGroup(nodeInfo.type.get())) return Promise.resolve([
+                nodeInfo
+            ]);
+            let relations = [
+                constants_1.CONTEXT_TO_CATEGORY_RELATION,
+                constants_1.CATEGORY_TO_GROUP_RELATION
+            ];
+            const res = yield spinal_env_viewer_graph_service_1.SpinalGraphService.findNodes(nodeId, relations, (node)=>{
+                let argType = node.getType().get();
+                return this._isGroup(argType);
+            });
             return res.map((el)=>{
                 spinal_env_viewer_graph_service_1.SpinalGraphService._addNode(el);
                 return spinal_env_viewer_graph_service_1.SpinalGraphService.getInfo(el.getId().get());
@@ -5556,6 +5572,7 @@ class SpinalGroup {
         return __awaiter(this, void 0, void 0, function*() {
             const parents = yield spinal_env_viewer_graph_service_1.SpinalGraphService.getParents(groupId, this.CATEGORY_TO_GROUP_RELATION);
             if (parents.length > 0) return parents[0];
+            return undefined;
         });
     }
     updateGroup(groupId, newInfo) {
@@ -5569,6 +5586,21 @@ class SpinalGroup {
                 });
             }
             return spinal_env_viewer_graph_service_1.SpinalGraphService.getInfo(realNode.getId().get());
+        });
+    }
+    deleteGroupFromGraph(groupId) {
+        return __awaiter(this, void 0, void 0, function*() {
+            const controlPointProfiles = yield this.loadControlPointProfileLinked(groupId);
+            if (!controlPointProfiles) return;
+            const unlinkPromises = [];
+            for (const controlPointProfile of controlPointProfiles){
+                spinal_env_viewer_graph_service_1.SpinalGraphService._addNode(controlPointProfile);
+                unlinkPromises.push(this.unLinkControlPointToGroup(groupId, controlPointProfile.info.id.get()));
+            }
+            yield Promise.all(unlinkPromises);
+            const group = spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(groupId);
+            yield group.removeFromGraph();
+            controlPointProfiles.clear();
         });
     }
     _isGroup(type) {
@@ -5587,8 +5619,8 @@ class SpinalGroup {
         else if (elementType.toLowerCase() === constants_1.OLD_CONTEXTS_TYPES.EQUIPMENTS_GROUP_CONTEXT.toLowerCase() || elementType.toLowerCase() === constants_1.OLD_GROUPS_TYPES.EQUIPMENTS_GROUP.toLowerCase()) return spinal_env_viewer_context_geographic_service_1.default.constants.EQUIPMENT_TYPE;
         else if (elementType.toLowerCase() === constants_1.OLD_CONTEXTS_TYPES.ENDPOINTS_GROUP_CONTEXT.toLowerCase() || elementType.toLowerCase() === constants_1.OLD_GROUPS_TYPES.ENDPOINT_GROUP.toLowerCase()) return spinal_model_bmsnetwork_1.SpinalBmsEndpoint.nodeTypeName;
         else {
-            if (/GroupContext$/.test(elementType)) return elementType.replace("GroupContext", "");
-            else if (/Group$/.test(elementType)) return elementType.replace("Group", "");
+            if (/GroupContext$/.test(elementType)) return elementType.replace('GroupContext', '');
+            else if (/Group$/.test(elementType)) return elementType.replace('Group', '');
             throw new Error(`${elementType} is not a group element type`);
         }
     }
@@ -5606,22 +5638,44 @@ class SpinalGroup {
                 const name = group.name.get();
                 if (name === groupName) return group;
             }
+            return undefined;
         });
     }
     _getGroupRelation(type) {
-        let relationName;
         switch(type.toLowerCase()){
             case constants_1.OLD_GROUPS_TYPES.ROOMS_GROUP.toLowerCase():
-                relationName = constants_1.OLD_RELATIONS_TYPES.GROUP_TO_ROOMS_RELATION;
-                break;
+                return constants_1.OLD_RELATIONS_TYPES.GROUP_TO_ROOMS_RELATION;
             case constants_1.OLD_GROUPS_TYPES.EQUIPMENTS_GROUP.toLowerCase():
-                relationName = constants_1.OLD_RELATIONS_TYPES.GROUP_TO_EQUIPMENTS_RELATION;
-                break;
-            case constants_1.OLD_GROUPS_TYPES.EQUIPMENTS_GROUP.toLowerCase():
-                relationName = constants_1.OLD_RELATIONS_TYPES.GROUP_TO_ENDPOINT_RELATION;
-                break;
+                return constants_1.OLD_RELATIONS_TYPES.GROUP_TO_EQUIPMENTS_RELATION;
+            case constants_1.OLD_GROUPS_TYPES.ENDPOINT_GROUP.toLowerCase():
+                return constants_1.OLD_RELATIONS_TYPES.GROUP_TO_ENDPOINT_RELATION;
         }
-        return relationName;
+        return undefined;
+    }
+    loadControlPointProfileLinked(grpNodeId) {
+        return __awaiter(this, void 0, void 0, function*() {
+            var _a;
+            const realNode = spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(grpNodeId);
+            if (!realNode || !realNode.info || !realNode.info.linkedItems) return;
+            return (_a = realNode.info.linkedItems) === null || _a === void 0 ? void 0 : _a.load();
+        });
+    }
+    unLinkControlPointToGroup(groupId, controlPointProfileId) {
+        return __awaiter(this, void 0, void 0, function*() {
+            const controlPointProfile = spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(controlPointProfileId);
+            if (!controlPointProfile) return;
+            const groupChildren = yield this.getElementsLinkedToGroup(groupId);
+            for (const grpChild of groupChildren){
+                const grpChildNode = spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(grpChild.id.get());
+                if (!grpChildNode) continue;
+                const controlPoints = yield grpChildNode.getChildren('hasControlPoint');
+                const controlPoint = controlPoints.find((cp)=>{
+                    var _a;
+                    return ((_a = cp.info.referenceId) === null || _a === void 0 ? void 0 : _a.get()) === controlPointProfile.info.id.get();
+                });
+                if (controlPoint) yield grpChildNode.removeChild(controlPoint, 'hasControlPoint', spinal_env_viewer_graph_service_1.SPINAL_RELATION_LST_PTR_TYPE);
+            }
+        });
     }
 }
 exports.default = SpinalGroup;
@@ -5704,29 +5758,32 @@ class SpinalCategory {
         });
     }
     getCategories(nodeId) {
-        let nodeInfo = spinal_env_viewer_graph_service_1.SpinalGraphService.getInfo(nodeId);
-        if (this._isCategory(nodeInfo.type.get())) return Promise.resolve([
-            nodeInfo
-        ]);
-        else if (this._isContext(nodeInfo.type.get())) return spinal_env_viewer_graph_service_1.SpinalGraphService.getChildren(nodeId, [
-            this.CONTEXT_TO_CATEGORY_RELATION
-        ]);
-        else return this._getRelationRefs(nodeId).then((refs)=>{
-            let promises = refs.map((node)=>{
-                return node.parent.load();
-            });
-            return Promise.all(promises).then((parents)=>{
+        return __awaiter(this, void 0, void 0, function*() {
+            let nodeInfo = spinal_env_viewer_graph_service_1.SpinalGraphService.getInfo(nodeId);
+            if (this._isCategory(nodeInfo.type.get())) return Promise.resolve([
+                nodeInfo
+            ]);
+            else if (this._isContext(nodeInfo.type.get())) return spinal_env_viewer_graph_service_1.SpinalGraphService.getChildren(nodeId, [
+                this.CONTEXT_TO_CATEGORY_RELATION
+            ]);
+            else {
+                const refs = yield this._getRelationRefs(nodeId);
+                let promises = refs.map((node)=>{
+                    return node.parent.load();
+                });
+                const parents = yield Promise.all(promises);
                 return parents.map((el)=>{
                     return spinal_env_viewer_graph_service_1.SpinalGraphService.getInfo(el.getId().get());
                 });
-            });
+            }
         });
     }
     elementIsInCategorie(categoryId, elementId) {
-        const realNode = spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(categoryId);
-        return realNode.getChildren([
-            constants_1.CATEGORY_TO_GROUP_RELATION
-        ]).then((children)=>{
+        return __awaiter(this, void 0, void 0, function*() {
+            const realNode = spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(categoryId);
+            const children = yield realNode.getChildren([
+                constants_1.CATEGORY_TO_GROUP_RELATION
+            ]);
             let itemFound = children.find((child)=>{
                 const childrenIds = child.getChildrenIds();
                 return childrenIds.find((el)=>{
@@ -5751,6 +5808,13 @@ class SpinalCategory {
                 });
             }
             return realNode;
+        });
+    }
+    deleteCategoryFromGraph(categoryId, spinalGroup) {
+        return __awaiter(this, void 0, void 0, function*() {
+            const groups = yield spinalGroup.getGroups(categoryId);
+            for (const group of groups)yield spinalGroup.deleteGroupFromGraph(group.id.get());
+            yield spinal_env_viewer_graph_service_1.SpinalGraphService.removeFromGraph(categoryId);
         });
     }
     ////////////////////////////////////////////////////////////////////
@@ -5781,6 +5845,7 @@ class SpinalCategory {
                 const name = category.name.get();
                 if (name === categoryName) return category;
             }
+            return undefined;
         });
     }
 }

@@ -215,6 +215,7 @@ var _panels = require("./vue/panels"); // import spinalNetworkTreeService from "
  //   spinalNetworkTreeService
  // }
  // export default spinalNetworkTreeService;
+console.log("spinal-env-viewer-plugin-network-tree loaded 2");
 
 },{"./buttons":"2mxMB","./vue/dialogs":"kfWGv","./vue/panels":"5wrwt"}],"2mxMB":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -782,33 +783,51 @@ class ClearAutomateContent extends (0, _spinalEnvViewerContextMenuService.Spinal
         if (contextType === (0, _spinalEnvViewerPluginNetworkTreeService.CONSTANTS).CONTEXT_TYPE) return Promise.resolve(true);
         return Promise.resolve(-1);
     }
-    action(option) {
+    async action(option) {
         // spinalPanelManagerService.openPanel("generateAutomateContextPanel", {
         //    context: option.context.get(),
         //    selectedNode: option.selectedNode.get()
         // });
         const contextId = option.context.id.get();
         const nodeId = option.selectedNode.id.get();
-        removeRelation(contextId, nodeId);
+        const node = (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(nodeId);
+        const context = (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(contextId);
+        const found = [
+            node
+        ];
+        while(found.length > 0){
+            const currentNode = found.shift();
+            const children = await currentNode.getChildrenInContext(context);
+            await removeRelation(currentNode, children);
+            // const children = await currentNode.getChildrenInContext(context);
+            found.push(...children);
+        }
+        console.log("network tree content cleared");
     }
 }
-const removeRelation = async (contextId, nodeId)=>{
-    const realNode = (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(nodeId);
-    // if (realNode.hasRelation(spinalNetworkTreeService.constants.NETWORK_BIMOJECT_RELATION, SPINAL_RELATION_PTR_LST_TYPE)) {
-    //    const children = await SpinalGraphService.getChildrenInContext(nodeId, contextId);
-    //    await realNode.removeRelation(spinalNetworkTreeService.constants.NETWORK_BIMOJECT_RELATION, SPINAL_RELATION_PTR_LST_TYPE);
-    //    return children.map(el => {
-    //       return removeRelation(contextId, el.id.get());
-    //    })
-    // }
-    if (realNode.hasRelation((0, _spinalEnvViewerPluginNetworkTreeService.CONSTANTS).NETWORK_BIMOJECT_RELATION, (0, _spinalEnvViewerGraphService.SPINAL_RELATION_PTR_LST_TYPE))) {
-        const children = await (0, _spinalEnvViewerGraphService.SpinalGraphService).getChildrenInContext(nodeId, contextId);
-        await realNode.removeRelation((0, _spinalEnvViewerPluginNetworkTreeService.CONSTANTS).NETWORK_BIMOJECT_RELATION, (0, _spinalEnvViewerGraphService.SPINAL_RELATION_PTR_LST_TYPE));
-        return children.map((el)=>{
-            return removeRelation(contextId, el.id.get());
-        });
-    }
-};
+function removeRelation(parent, children) {
+    if (children.length === 0) return;
+    if (!Array.isArray(children)) children = [
+        children
+    ];
+    const promises = children.map((child)=>{
+        const relation = [
+            (0, _spinalEnvViewerPluginNetworkTreeService.CONSTANTS).NETWORK_BIMOJECT_RELATION,
+            (0, _spinalEnvViewerPluginNetworkTreeService.CONSTANTS).NETWORK_RELATION
+        ].find((el)=>parent.hasRelation(el, (0, _spinalEnvViewerGraphService.SPINAL_RELATION_PTR_LST_TYPE)));
+        if (relation) return parent.removeChild(child, relation, (0, _spinalEnvViewerGraphService.SPINAL_RELATION_PTR_LST_TYPE));
+    });
+    return Promise.all(promises);
+}
+// const removeRelation = async (contextId, nodeId) => {
+//    const realNode = SpinalGraphService.getRealNode(nodeId);
+//    const relation = [CONSTANTS.NETWORK_BIMOJECT_RELATION, CONSTANTS.NETWORK_RELATION].find(el => realNode.hasRelation(el, SPINAL_RELATION_PTR_LST_TYPE));
+//    if (relation) {
+//       const children = await SpinalGraphService.getChildrenInContext(nodeId, contextId);
+//       await realNode.removeRelation(relation, SPINAL_RELATION_PTR_LST_TYPE);
+//       return children.map(el => { return removeRelation(contextId, el.id.get()) })
+//    }
+// }
 const clearAutomateContent = new ClearAutomateContent();
 (0, _spinalEnvViewerContextMenuService.spinalContextMenuService).registerApp(SIDEBAR, clearAutomateContent, [
     3
@@ -1094,9 +1113,9 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("730a130575b76379").render;
     script.staticRenderFns = require("730a130575b76379").staticRenderFns;
-    script._scopeId = "data-v-68018c";
+    script._scopeId = "data-v-1d6e0b";
     require("eab508ee32b20141").default(script);
-    script.__scopeId = 'data-v-68018c';
+    script.__scopeId = 'data-v-1d6e0b';
     script.__file = "dialog.vue";
 };
 initialize();
@@ -1246,10 +1265,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("8297c01292c7cd77").render;
     script.staticRenderFns = require("8297c01292c7cd77").staticRenderFns;
-    script._scopeId = "data-v-48488f";
+    script._scopeId = "data-v-e284e2";
     script.__cssModules = require("4183691c538b8910").default;
     require("394bd612ede59e08").default(script);
-    script.__scopeId = 'data-v-48488f';
+    script.__scopeId = 'data-v-e284e2';
     script.__file = "linkAutomateToProfil.vue";
 };
 initialize();
@@ -1320,7 +1339,7 @@ var scriptExports = {
             // this.automates = option.automates;
             this.pageSelected = this.PAGES.loading;
             this.callback = option.callback;
-            Promise.all([
+            return Promise.all([
                 this.getAllData(),
                 this.getAutomates(option.contextId, option.nodeId)
             ]).then(([data, automates])=>{
@@ -1463,6 +1482,7 @@ var scriptExports = {
             return (0, _spinalEnvViewerPluginNetworkTreeService.LinkNetworkTreeService).createMaps(this.physicalParams.automates, virtualItems).then((resultMap)=>{
                 this.resultMaps = resultMap;
                 this.linkResult = Array.from(resultMap.values());
+                console.log(this.linkResult);
             });
         },
         /** */ editAutomateLinks (res) {
@@ -1508,15 +1528,15 @@ var scriptExports = {
         /* Update */ updateProfils () {
             this.categories = [];
             if (this.contextSelected) {
-                let val = this.data.find((el)=>el.id === this.contextSelected);
-                if (val) this.profils = val.profils;
+                let contextFound = this.data.find((el)=>el.id === this.contextSelected);
+                if (contextFound) this.profils = contextFound.profils;
             }
         },
         updateDevices () {
             this.devices = [];
             if (this.profilSelected) {
-                let val = this.profils.find((el)=>el.id === this.profilSelected);
-                if (val) this.devices = val.devices;
+                let profileFound = this.profils.find((el)=>el.id === this.profilSelected);
+                if (profileFound) this.devices = profileFound.devices;
             }
         }
     },
@@ -1791,10 +1811,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("e23aef5cfec5827d").render;
     script.staticRenderFns = require("e23aef5cfec5827d").staticRenderFns;
-    script._scopeId = "data-v-fb754f";
+    script._scopeId = "data-v-be9878";
     script.__cssModules = require("eb83d506f7a51bb1").default;
     require("d7700fef2c73b7d").default(script);
-    script.__scopeId = 'data-v-fb754f';
+    script.__scopeId = 'data-v-be9878';
     script.__file = "LinkComponent.vue";
 };
 initialize();
@@ -1849,10 +1869,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("d2b20b9299ffa2b6").render;
     script.staticRenderFns = require("d2b20b9299ffa2b6").staticRenderFns;
-    script._scopeId = "data-v-9581a3";
+    script._scopeId = "data-v-4913a4";
     script.__cssModules = require("19ba773085da12d1").default;
     require("85e321a035b77700").default(script);
-    script.__scopeId = 'data-v-9581a3';
+    script.__scopeId = 'data-v-4913a4';
     script.__file = "linkToGroupTemplate.vue";
 };
 initialize();
@@ -2014,10 +2034,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("2f46b156e55c5b92").render;
     script.staticRenderFns = require("2f46b156e55c5b92").staticRenderFns;
-    script._scopeId = "data-v-9e5c05";
+    script._scopeId = "data-v-4e3681";
     script.__cssModules = require("fc49dcf1962cf8d8").default;
     require("5081cad7ebe99d6c").default(script);
-    script.__scopeId = 'data-v-9e5c05';
+    script.__scopeId = 'data-v-4e3681';
     script.__file = "resultComponent.vue";
 };
 initialize();
@@ -2328,10 +2348,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("8fccbbab8a37de33").render;
     script.staticRenderFns = require("8fccbbab8a37de33").staticRenderFns;
-    script._scopeId = "data-v-583298";
+    script._scopeId = "data-v-3b500b";
     script.__cssModules = require("6b29dfe7366b61ba").default;
     require("2ede9cda74297d80").default(script);
-    script.__scopeId = 'data-v-583298';
+    script.__scopeId = 'data-v-3b500b';
     script.__file = "confirmUnlikProfil.vue";
 };
 initialize();
@@ -2614,10 +2634,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("6a76f32260b50b06").render;
     script.staticRenderFns = require("6a76f32260b50b06").staticRenderFns;
-    script._scopeId = "data-v-14b1e9";
+    script._scopeId = "data-v-4eecf3";
     script.__cssModules = require("63a5c1aa2c3acc54").default;
     require("396da377d6c5f9cd").default(script);
-    script.__scopeId = 'data-v-14b1e9';
+    script.__scopeId = 'data-v-4eecf3';
     script.__file = "editLinksDialog.vue";
 };
 initialize();
@@ -2689,10 +2709,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("2a61a6547201adc3").render;
     script.staticRenderFns = require("2a61a6547201adc3").staticRenderFns;
-    script._scopeId = "data-v-6c422f";
+    script._scopeId = "data-v-ffbf85";
     script.__cssModules = require("68955a3498ac5c38").default;
     require("ec37eaeda824b53e").default(script);
-    script.__scopeId = 'data-v-6c422f';
+    script.__scopeId = 'data-v-ffbf85';
     script.__file = "editLinks.vue";
 };
 initialize();
@@ -2765,8 +2785,9 @@ exports.default = {
                 },
                 ...validList
             ];
-            profileItemList.splice(automateIndice, 1);
-            automateItemList.splice(profileIndice, 1);
+            // commented to avoid deleting items from the list before saving the link
+            // profileItemList.splice(profileIndice, 1);
+            automateItemList.splice(automateIndice, 1);
             return validList;
         }
     },
@@ -2774,17 +2795,15 @@ exports.default = {
         let indice = validList.findIndex((item)=>item.automateItem.id === automateItemId && item.profileItem.id === profileItemId);
         if (indice != -1) {
             const found = validList[indice];
-            if (found) return {
-                invalidAutomateItems: [
+            if (found) {
+                invalidAutomateItems = [
                     found.automateItem,
                     ...invalidAutomateItems
-                ],
-                invalidProfileItems: [
-                    found.profileItem,
-                    ...invalidProfileItems
-                ],
-                validList: validList.filter((item)=>item.automateItem.id != automateItemId && item.profileItem.id != profileItemId)
-            };
+                ];
+                // commented because we already have the profile item in the list of profile items
+                // invalidProfileItems = [found.profileItem, ...invalidProfileItems];
+                validList = validList.filter((item)=>item.automateItem.id != automateItemId && item.profileItem.id != profileItemId);
+            }
         }
         return {
             invalidAutomateItems,
@@ -3112,10 +3131,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("728ba785e63f9703").render;
     script.staticRenderFns = require("728ba785e63f9703").staticRenderFns;
-    script._scopeId = "data-v-fe1475";
+    script._scopeId = "data-v-c4601c";
     script.__cssModules = require("732a8e6188d94707").default;
     require("f0677dc836896c62").default(script);
-    script.__scopeId = 'data-v-fe1475';
+    script.__scopeId = 'data-v-c4601c';
     script.__file = "personalizedAttributeDialog.vue";
 };
 initialize();
@@ -3226,10 +3245,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("6cf183a77759acb8").render;
     script.staticRenderFns = require("6cf183a77759acb8").staticRenderFns;
-    script._scopeId = "data-v-0c321c";
+    script._scopeId = "data-v-787510";
     script.__cssModules = require("9fe5f60dbadd6d9f").default;
     require("ba29e279f3f9e303").default(script);
-    script.__scopeId = 'data-v-0c321c';
+    script.__scopeId = 'data-v-787510';
     script.__file = "SpinalCodeMirror.vue";
 };
 initialize();
@@ -19051,10 +19070,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("d8c4f1237e014116").render;
     script.staticRenderFns = require("d8c4f1237e014116").staticRenderFns;
-    script._scopeId = "data-v-f3e914";
+    script._scopeId = "data-v-b4b423";
     script.__cssModules = require("54b9128f4b62bdbe").default;
     require("9d41ccc06d40f597").default(script);
-    script.__scopeId = 'data-v-f3e914';
+    script.__scopeId = 'data-v-b4b423';
     script.__file = "personalizeNamingConvention.vue";
 };
 initialize();
@@ -19217,10 +19236,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("5d1d6b1e34c98bbc").render;
     script.staticRenderFns = require("5d1d6b1e34c98bbc").staticRenderFns;
-    script._scopeId = "data-v-56e6d5";
+    script._scopeId = "data-v-60f96f";
     script.__cssModules = require("563e79239cd0905").default;
     require("5d4605d094161727").default(script);
-    script.__scopeId = 'data-v-56e6d5';
+    script.__scopeId = 'data-v-60f96f';
     script.__file = "linkToGtbDialog.vue";
 };
 initialize();
@@ -19822,10 +19841,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("dd29c38949f2f735").render;
     script.staticRenderFns = require("dd29c38949f2f735").staticRenderFns;
-    script._scopeId = "data-v-11d7ad";
+    script._scopeId = "data-v-555609";
     script.__cssModules = require("3966c533931dbc3f").default;
     require("5532f6928b5262dc").default(script);
-    script.__scopeId = 'data-v-11d7ad';
+    script.__scopeId = 'data-v-555609';
     script.__file = "confirmLinkToGTB.vue";
 };
 initialize();
@@ -19893,10 +19912,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("298ed84a989a440a").render;
     script.staticRenderFns = require("298ed84a989a440a").staticRenderFns;
-    script._scopeId = "data-v-cfcb4f";
+    script._scopeId = "data-v-079095";
     script.__cssModules = require("4fc3099cf12646ad").default;
     require("e60a990dc63c6143").default(script);
-    script.__scopeId = 'data-v-cfcb4f';
+    script.__scopeId = 'data-v-079095';
     script.__file = "configuration.vue";
 };
 initialize();
@@ -20642,10 +20661,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("84571788a217ffac").render;
     script.staticRenderFns = require("84571788a217ffac").staticRenderFns;
-    script._scopeId = "data-v-34db89";
+    script._scopeId = "data-v-44dddf";
     script.__cssModules = require("8c19a545434bfbe3").default;
     require("ac78cafaf4bc9de5").default(script);
-    script.__scopeId = 'data-v-34db89';
+    script.__scopeId = 'data-v-44dddf';
     script.__file = "generateAutomateContext.vue";
 };
 initialize();
@@ -20770,10 +20789,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("298ffae9827df5fb").render;
     script.staticRenderFns = require("298ffae9827df5fb").staticRenderFns;
-    script._scopeId = "data-v-e7c390";
+    script._scopeId = "data-v-fb7293";
     script.__cssModules = require("63e6991408ee2d15").default;
     require("3626fe00e4bce521").default(script);
-    script.__scopeId = 'data-v-e7c390';
+    script.__scopeId = 'data-v-fb7293';
     script.__file = "configurationStep.vue";
 };
 initialize();
@@ -20992,10 +21011,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("509024ffde84d942").render;
     script.staticRenderFns = require("509024ffde84d942").staticRenderFns;
-    script._scopeId = "data-v-af4967";
+    script._scopeId = "data-v-b8d3b7";
     script.__cssModules = require("e1f1ebbd48ff2d2a").default;
     require("3bb7ddc847b19957").default(script);
-    script.__scopeId = 'data-v-af4967';
+    script.__scopeId = 'data-v-b8d3b7';
     script.__file = "launchStep.vue";
 };
 initialize();
@@ -21005,6 +21024,7 @@ exports.default = script;
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerGraphService = require("spinal-env-viewer-graph-service");
+var _spinalEnvViewerContextGeographicService = require("spinal-env-viewer-context-geographic-service");
 // // import { SpinalGraphService } from "spinal-env-viewer-graph-service";
 // import generateAutomateService from "../../../js/generateAutomateService";
 // import spinalNetworkTreeService from "../../../services/index";
@@ -21043,7 +21063,7 @@ var scriptExports = {
             dontCreateEmptyAutomate: true,
             classify: {
                 class: true,
-                by: "Niveau"
+                by: "Level"
             }
         };
     },
@@ -21059,11 +21079,6 @@ var scriptExports = {
                     this.appState = this.STATES.normal;
                     this.$emit("verified");
                 });
-            // this.automatesVerificationResult = result.automatesProperties;
-            // this.equipementsVerificationResult = result.equipementsProperties;
-            //    this.verified = true;
-            //    this.appState = this.STATES.normal;
-            //    this.$emit("verified");
             });
         },
         async launchGeneration () {
@@ -21071,23 +21086,21 @@ var scriptExports = {
             let tree = [
                 ...this.tree
             ];
-            // if (this.dontCreateEmptyAutomate) {
-            // 	tree = this.tree.filter((el) => el.children.length > 0);
-            // }
+            console.log(tree);
             const Listelength = tree.length;
             let isError = false;
             while(!isError && tree.length > 0){
                 const item = tree.shift();
+                console.log(item);
                 // skip if the item is empty and dontCreateEmptyAutomate is true
                 if (this.dontCreateEmptyAutomate && item.children.length === 0) continue;
                 try {
                     if (item) {
                         const parentId = await this.getOrCreateParentId(this.contextId, this.selectedNodeId, item);
                         await (0, _spinalEnvViewerPluginNetworkTreeService.GenerateNetworkTreeService)._createNodes(this.contextId, item, parentId);
-                        if (this.isClassifyByLevel()) await this.linkToFloor(parentId);
-                    // this.percent = Math.floor((100 * (Listelength - tree.length)) / Listelength);
                     }
                 } catch (error) {
+                    console.error("Error creating network tree:", item);
                     console.error(error);
                     isError = true;
                 }
@@ -21099,21 +21112,19 @@ var scriptExports = {
             this.appState = this.STATES.success;
         },
         isClassifyByLevel () {
-            return this.classify.class && this.classify.by && this.classify.by.trim().length > 0;
-        // const possibleAttributes = ["niveau", "level", "floor", "etage"];
-        // return this.classify.class && possibleAttributes.includes(this.classify.by.toLowerCase());
+            // return this.classify.class && this.classify.by && this.classify.by.trim().length > 0;
+            const possibleAttributes = [
+                "niveau",
+                "level",
+                "floor",
+                "etage"
+            ];
+            return this.classify.class && this.classify.by && possibleAttributes.includes(this.classify.by.trim().toLowerCase());
         },
-        async linkToFloor (automateGroupId) {
-            if (this.floorsInGraph == null) this.floorsInGraph = await this.getFloorsInGraph();
-            const automateGroupInfo = (0, _spinalEnvViewerGraphService.SpinalGraphService).getInfo(automateGroupId);
-            const floorFound = this.floorsInGraph[automateGroupInfo.name.get()];
-            if (floorFound) {
-                (0, _spinalEnvViewerGraphService.SpinalGraphService)._addNode(floorFound);
-                const floorId = floorFound.getId().get();
-                await (0, _spinalEnvViewerGraphService.SpinalGraphService).addChild(floorId, automateGroupId, "hasNetworkTree", (0, _spinalEnvViewerGraphService.SPINAL_RELATION_PTR_LST_TYPE)).catch((error)=>{
-                    console.error("Error linking automate group to floor:", error);
-                });
-            }
+        async linkNetworkNodeToFloor (automateGroupId, floorNodeId) {
+            await (0, _spinalEnvViewerGraphService.SpinalGraphService).addChild(floorNodeId, automateGroupId, "hasNetworkTree", (0, _spinalEnvViewerGraphService.SPINAL_RELATION_PTR_LST_TYPE)).catch((error)=>{
+                console.error("Error linking automate group to floor:", error);
+            });
         },
         async getFloorsInGraph () {
             const contexts = await (0, _spinalEnvViewerGraphService.SpinalGraphService).getContextWithType("geographicContext");
@@ -21129,23 +21140,45 @@ var scriptExports = {
                 return acc;
             }, {});
         },
-        async getOrCreateParentId (contextId, nodeId, item) {
-            if (!this.classify.class) return nodeId;
-            const val = this.classify.by;
-            // const found = item.properties.find(
-            //    (el) => el.attributeName == val || el.displayName == val
-            // );
-            const found = await (0, _spinalEnvViewerPluginNetworkTreeService.AttributesUtilities).findAttribute(item.model, item.dbId, val);
-            const parentName = found && found.displayValue ? found.displayValue : "Others";
-            const children = await (0, _spinalEnvViewerGraphService.SpinalGraphService).getChildren(nodeId, [
-                // spinalNetworkTreeService.constants.NETWORK_RELATION,
+        async getOrCreateParentId (contextId, networkId, item) {
+            // if not classify, return the network node id
+            if (!this.classify.class) return networkId;
+            // if not classify by level, classify by attribute
+            if (!this.isClassifyByLevel()) {
+                const classifyBy = this.classify.by;
+                return this.getParentByAttributeName(item.model, item.dbId, contextId, networkId, classifyBy);
+            }
+            // classify by level
+            const floorNode = await this.getFloorNode(item);
+            const parentName = floorNode ? floorNode.getName().get() : "Others";
+            const nodeId = await this.createOrGetNetworkName(contextId, networkId, parentName);
+            if (floorNode) {
+                (0, _spinalEnvViewerGraphService.SpinalGraphService)._addNode(floorNode);
+                await this.linkNetworkNodeToFloor(nodeId, floorNode.getId().get()); // link the network node to the floor
+            }
+            return nodeId;
+        },
+        async getParentByAttributeName (model, dbId, contextId, networkId, attributeName) {
+            const attributeFound = await (0, _spinalEnvViewerPluginNetworkTreeService.AttributesUtilities).findAttribute(model, dbId, attributeName);
+            const parentName = attributeFound && attributeFound.displayValue || "Others";
+            return this.createOrGetNetworkName(contextId, networkId, parentName);
+        },
+        async createOrGetNetworkName (contextId, networkId, parentName) {
+            const parentAlreadyExisting = await (0, _spinalEnvViewerGraphService.SpinalGraphService).getChildren(networkId, [
                 (0, _spinalEnvViewerPluginNetworkTreeService.CONSTANTS).NETWORK_RELATION
             ]);
-            const parentFound = children.find((el)=>el.name.get() == parentName);
+            const parentFound = parentAlreadyExisting.find((el)=>el.name.get() == parentName);
             if (parentFound) return parentFound.id.get();
-            const parent = await (0, _spinalEnvViewerPluginNetworkTreeService.NetworkTreeService).addNetwork(parentName, nodeId, contextId);
+            const parent = await (0, _spinalEnvViewerPluginNetworkTreeService.NetworkTreeService).addNetwork(parentName, networkId, contextId);
             (0, _spinalEnvViewerGraphService.SpinalGraphService)._addNode(parent);
             return parent.getId().get();
+        },
+        async getFloorNode (item) {
+            // GenerateNetworkTreeService._createBimObjectNode is private but we use it here to avoid code duplication.
+            // it creates or retrieve a BIM object node and returns it.
+            const bimObjectNodeId = await (0, _spinalEnvViewerPluginNetworkTreeService.GenerateNetworkTreeService)._createBimObjectNode(item);
+            const realNode = (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(bimObjectNodeId);
+            return realNode.findOneParent((0, _spinalEnvViewerContextGeographicService.GEOGRAPHIC_RELATIONS), (node)=>node.getType().get() === (0, _spinalEnvViewerContextGeographicService.FLOOR_TYPE));
         },
         _displayResult (result) {
             this.appState = result;
@@ -21187,7 +21220,7 @@ var scriptExports = {
 var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"spinal-env-viewer-graph-service":"9LAk7","spinal-env-viewer-plugin-network-tree-service":"aaFv2","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"5m4LC":[function(require,module,exports,__globalThis) {
+},{"spinal-env-viewer-graph-service":"9LAk7","spinal-env-viewer-context-geographic-service":"RdCQo","spinal-env-viewer-plugin-network-tree-service":"aaFv2","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"5m4LC":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
@@ -21207,7 +21240,7 @@ var render = function() {
                     "click": _vm.launchVerification
                 }
             }, [
-                _vm._v("\n\t\t\t\tVerify\n\t\t\t")
+                _vm._v("\n\t\t\tVerify\n\t\t")
             ]) : _vm.verified ? _c('div', {
                 staticClass: "content-items"
             }, [
@@ -21222,7 +21255,7 @@ var render = function() {
                             }
                         }
                     }, [
-                        _vm._v("\n\t\t\t\t\t\tValid item(s) :\n\t\t\t\t\t\t" + _vm._s(_vm.validItems.length) + "\n\t\t\t\t\t")
+                        _vm._v("\n\t\t\t\t\tValid item(s) :\n\t\t\t\t\t" + _vm._s(_vm.validItems.length) + "\n\t\t\t\t")
                     ]),
                     _vm._v(" "),
                     _c('md-button', {
@@ -21233,7 +21266,7 @@ var render = function() {
                             }
                         }
                     }, [
-                        _vm._v("\n\t\t\t\t\t\tinvalid item(s) :\n\t\t\t\t\t\t" + _vm._s(_vm.invalidItems.length) + "\n\t\t\t\t\t")
+                        _vm._v("\n\t\t\t\t\tinvalid item(s) :\n\t\t\t\t\t" + _vm._s(_vm.invalidItems.length) + "\n\t\t\t\t")
                     ])
                 ], 1),
                 _vm._v(" "),
@@ -21253,31 +21286,8 @@ var render = function() {
                                 expression: "classify.class"
                             }
                         }, [
-                            _vm._v("Classify controllers By")
+                            _vm._v("\n\t\t\t\t\t\tClassify controllers By Level\n\t\t\t\t\t")
                         ])
-                    ], 1),
-                    _vm._v(" "),
-                    _c('div', {
-                        staticClass: "input"
-                    }, [
-                        _c('md-field', [
-                            _c('label', [
-                                _vm._v("Attribute name")
-                            ]),
-                            _vm._v(" "),
-                            _c('md-input', {
-                                attrs: {
-                                    "disabled": !_vm.classify.class
-                                },
-                                model: {
-                                    value: _vm.classify.by,
-                                    callback: function($$v) {
-                                        _vm.$set(_vm.classify, "by", $$v);
-                                    },
-                                    expression: "classify.by"
-                                }
-                            })
-                        ], 1)
                     ], 1)
                 ]),
                 _vm._v(" "),
@@ -21294,7 +21304,7 @@ var render = function() {
                             expression: "dontCreateEmptyAutomate"
                         }
                     }, [
-                        _vm._v("Don't create Controllers which do\n\t\t\t\t\t\tnot control\n\t\t\t\t\t\tequipment")
+                        _vm._v("Don't create Controllers which do\n\t\t\t\t\tnot control\n\t\t\t\t\tequipment")
                     ])
                 ], 1),
                 _vm._v(" "),
@@ -21310,7 +21320,7 @@ var render = function() {
                             "click": _vm.launchGeneration
                         }
                     }, [
-                        _vm._v("Launch\n\t\t\t\t\t\tGeneration")
+                        _vm._v("\n\t\t\t\t\tLaunch Generation\n\t\t\t\t")
                     ])
                 ], 1)
             ]) : _vm._e()
@@ -21376,10 +21386,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("d5265ceeb04784b6").render;
     script.staticRenderFns = require("d5265ceeb04784b6").staticRenderFns;
-    script._scopeId = "data-v-e3ea80";
+    script._scopeId = "data-v-f6c77a";
     script.__cssModules = require("128777ec4a20de93").default;
     require("c3f3ab1734951b35").default(script);
-    script.__scopeId = 'data-v-e3ea80';
+    script.__scopeId = 'data-v-f6c77a';
     script.__file = "selectionStep.vue";
 };
 initialize();
@@ -21830,10 +21840,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("9ada1ab7bb26b167").render;
     script.staticRenderFns = require("9ada1ab7bb26b167").staticRenderFns;
-    script._scopeId = "data-v-1d00cd";
+    script._scopeId = "data-v-4734bd";
     script.__cssModules = require("f01c2045c9b63151").default;
     require("73039832046f2ac6").default(script);
-    script.__scopeId = 'data-v-1d00cd';
+    script.__scopeId = 'data-v-4734bd';
     script.__file = "namingConventionStep.vue";
 };
 initialize();
@@ -22101,10 +22111,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("cb8cca1d6aee716d").render;
     script.staticRenderFns = require("cb8cca1d6aee716d").staticRenderFns;
-    script._scopeId = "data-v-9ab44a";
+    script._scopeId = "data-v-2abcd3";
     script.__cssModules = require("21e70be1bfe1ac20").default;
     require("b2d7151347fe9d59").default(script);
-    script.__scopeId = 'data-v-9ab44a';
+    script.__scopeId = 'data-v-2abcd3';
     script.__file = "detailPanel.vue";
 };
 initialize();

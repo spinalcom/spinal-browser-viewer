@@ -852,10 +852,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("a5ccfac00491f9b2").render;
     script.staticRenderFns = require("a5ccfac00491f9b2").staticRenderFns;
-    script._scopeId = "data-v-ab0a84";
+    script._scopeId = "data-v-dc168b";
     script.__cssModules = require("39f1efa6a6607cb7").default;
     require("b48db937e412e408").default(script);
-    script.__scopeId = 'data-v-ab0a84';
+    script.__scopeId = 'data-v-dc168b';
     script.__file = "CompareVersion.vue";
 };
 initialize();
@@ -1135,10 +1135,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("d24d158d12707fdc").render;
     script.staticRenderFns = require("d24d158d12707fdc").staticRenderFns;
-    script._scopeId = "data-v-781d82";
+    script._scopeId = "data-v-5e6e84";
     script.__cssModules = require("5bcd0c568d57a77f").default;
     require("8448ac052d6cc8").default(script);
-    script.__scopeId = 'data-v-781d82';
+    script.__scopeId = 'data-v-5e6e84';
     script.__file = "DbIdsSelector.vue";
 };
 initialize();

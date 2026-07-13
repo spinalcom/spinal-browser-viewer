@@ -104,8 +104,8 @@
     "spinal-env-viewer-plugin-upload": "spinal-env-viewer-plugin-upload",
     "spinal-env-viewer-plugin-snmp-manager": "spinal-env-viewer-plugin-snmp-manager",
     "spinal-model-snmp": "spinal-model-snmp",
-    "spinal-env-viewer-plugin-bacnet-manager": "spinal-env-viewer-plugin-bacnet-manager@without_load_type",
-    "spinal-model-bacnet": "spinal-model-bacnet@without_load_type",
+    "spinal-env-viewer-plugin-bacnet-manager": "spinal-env-viewer-plugin-bacnet-manager",
+    "spinal-model-bacnet": "spinal-model-bacnet",
     "spinal-env-viewer-plugin-device_profile": "spinal-env-viewer-plugin-device_profile",
     "spinal-env-viewer-task-service": "spinal-env-viewer-task-service",
     "spinal-env-viewer-plugin-event-emitter": "spinal-env-viewer-plugin-event-emitter",
@@ -125,6 +125,7 @@
     "spinal-env-viewer-plugin-offset-calcul": "spinal-env-viewer-plugin-offset-calcul",
     "spinal-env-viewer-plugin-opcua-manager": "spinal-env-viewer-plugin-opcua-manager",
     "spinal-env-viewer-plugin-link_endpoint_timeseries_to_control_point": "spinal-env-viewer-plugin-link_endpoint_timeseries_to_control_point",
-    "spinal-connector-service": "spinal-connector-service"
+    "spinal-connector-service": "spinal-connector-service",
+    "spinal-env-viewer-plugin-device-organizer": "spinal-env-viewer-plugin-device-organizer"
   }
 }

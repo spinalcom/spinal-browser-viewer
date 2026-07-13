@@ -1,6 +1,6 @@
 {
   "spinal-model-bacnet": {
-    "forceCommit": "without_load_type",
+    "forceCommit": "",
     "found": {
       "without_load_type": [
         "spinal-browser-viewer"

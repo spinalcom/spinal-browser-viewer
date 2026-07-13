@@ -564,10 +564,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("ec9e9d020d7f4bcb").render;
     script.staticRenderFns = require("ec9e9d020d7f4bcb").staticRenderFns;
-    script._scopeId = "data-v-eb543c";
+    script._scopeId = "data-v-4c8161";
     script.__cssModules = require("10daee165ae01077").default;
     require("af8ebc840a21556").default(script);
-    script.__scopeId = 'data-v-eb543c';
+    script.__scopeId = 'data-v-4c8161';
     script.__file = "createContext.vue";
 };
 initialize();
@@ -956,6 +956,10 @@ exports.default = [
     {
         name: "Analytics group",
         type: "Analytic" // spinalAnalyticService.nodeType
+    },
+    {
+        name: "Documentary Group",
+        type: "Documentary"
     }
 ];
 
@@ -1082,9 +1086,9 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("c24a548c376729f2").render;
     script.staticRenderFns = require("c24a548c376729f2").staticRenderFns;
-    script._scopeId = "data-v-78bdb3";
+    script._scopeId = "data-v-723a9b";
     require("566b53e63bcecc4").default(script);
-    script.__scopeId = 'data-v-78bdb3';
+    script.__scopeId = 'data-v-723a9b';
     script.__file = "createCategory.vue";
 };
 initialize();
@@ -1176,10 +1180,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("2c5c5bcba6efac90").render;
     script.staticRenderFns = require("2c5c5bcba6efac90").staticRenderFns;
-    script._scopeId = "data-v-ca9472";
+    script._scopeId = "data-v-8bf9bc";
     script.__cssModules = require("22ba047d630f6c4c").default;
     require("a39638afa74bb65a").default(script);
-    script.__scopeId = 'data-v-ca9472';
+    script.__scopeId = 'data-v-8bf9bc';
     script.__file = "iconsComponents.vue";
 };
 initialize();
@@ -1191,7 +1195,7 @@ parcelHelpers.defineInteropFlag(exports);
 var _iconsJson = require("../../../js/icons.json");
 var _iconsJsonDefault = parcelHelpers.interopDefault(_iconsJson);
 var scriptExports = {
-    name: "iconComponent",
+    name: 'iconComponent',
     props: {
         selected: {
             type: String
@@ -1203,25 +1207,25 @@ var scriptExports = {
         return {
             iconsDisplayed: Object.values((0, _iconsJsonDefault.default)),
             iconSelected: null,
-            categorySelected: "none",
+            categorySelected: 'none',
             icons: []
         };
     },
     mounted () {
-        if (typeof this.selected !== "undefined") this.iconSelected = this.selected;
+        if (typeof this.selected !== 'undefined') this.iconSelected = this.selected;
     },
     methods: {
         filterIcons () {
-            let category = this.categorySelected !== "none" ? this.categorySelected : undefined;
+            let category = this.categorySelected !== 'none' ? this.categorySelected : undefined;
             this.iconsDisplayed = this.getIconsByCategory(category);
         },
         getAllCategories () {
             return this.allIcons.map((el)=>el.name);
         },
         getIconsByCategory (categoryName) {
-            if (typeof categoryName !== "undefined") {
+            if (typeof categoryName !== 'undefined') {
                 let category = this.allIcons.find((el)=>el.name === categoryName);
-                if (typeof category !== "undefined") return [
+                if (typeof category !== 'undefined') return [
                     category
                 ];
             } else return this.allIcons;
@@ -1229,7 +1233,7 @@ var scriptExports = {
         },
         selectIcon (icon) {
             this.iconSelected = icon;
-            this.$emit("selectIcon", icon);
+            this.$emit('selectIcon', icon);
         },
         isSelected (icon) {
             return this.iconSelected === icon;
@@ -1260,6 +1264,9 @@ var scriptExports = {
         },
         selected () {
             this.iconSelected = this.selected;
+        },
+        iconSelected () {
+            this.$emit('selectIcon', this.iconSelected);
         }
     }
 };
@@ -1426,10 +1433,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("565b25f65fb50be1").render;
     script.staticRenderFns = require("565b25f65fb50be1").staticRenderFns;
-    script._scopeId = "data-v-44f9f6";
+    script._scopeId = "data-v-dbad64";
     script.__cssModules = require("dfec2539a3c6a60d").default;
     require("4fcc7787d455ff8c").default(script);
-    script.__scopeId = 'data-v-44f9f6';
+    script.__scopeId = 'data-v-dbad64';
     script.__file = "createGroup.vue";
 };
 initialize();
@@ -1640,9 +1647,9 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("edb82ec5d75c9aea").render;
     script.staticRenderFns = require("edb82ec5d75c9aea").staticRenderFns;
-    script._scopeId = "data-v-360c57";
+    script._scopeId = "data-v-b71f9f";
     require("18cf439fff259c3d").default(script);
-    script.__scopeId = 'data-v-360c57';
+    script.__scopeId = 'data-v-b71f9f';
     script.__file = "colorDialog.vue";
 };
 initialize();
@@ -1794,10 +1801,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("1ffc53427c81334f").render;
     script.staticRenderFns = require("1ffc53427c81334f").staticRenderFns;
-    script._scopeId = "data-v-1501ca";
+    script._scopeId = "data-v-1bc108";
     script.__cssModules = require("f5d381085ce37970").default;
     require("bb38bc8fb4edb5f1").default(script);
-    script.__scopeId = 'data-v-1501ca';
+    script.__scopeId = 'data-v-1bc108';
     script.__file = "linkToGroup.vue";
 };
 initialize();
@@ -2587,10 +2594,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("d3e3bb1a42a53864").render;
     script.staticRenderFns = require("d3e3bb1a42a53864").staticRenderFns;
-    script._scopeId = "data-v-1f1b38";
+    script._scopeId = "data-v-41b24f";
     script.__cssModules = require("bbad7ba8c9eb4c4e").default;
     require("7f9fb0dbfa4624e0").default(script);
-    script.__scopeId = 'data-v-1f1b38';
+    script.__scopeId = 'data-v-41b24f';
     script.__file = "linkToGroupTemplate.vue";
 };
 initialize();
@@ -2826,9 +2833,9 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("dc271c33c0bf3514").render;
     script.staticRenderFns = require("dc271c33c0bf3514").staticRenderFns;
-    script._scopeId = "data-v-7e9212";
+    script._scopeId = "data-v-7ab04c";
     require("b7c5eb87c99319e2").default(script);
-    script.__scopeId = 'data-v-7e9212';
+    script.__scopeId = 'data-v-7ab04c';
     script.__file = "selectTypeDialog.vue";
 };
 initialize();
@@ -2983,10 +2990,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("ef1a3b5139486e9f").render;
     script.staticRenderFns = require("ef1a3b5139486e9f").staticRenderFns;
-    script._scopeId = "data-v-e048a9";
+    script._scopeId = "data-v-f6298b";
     script.__cssModules = require("70cf4367fed8ec93").default;
     require("614b327400410b36").default(script);
-    script.__scopeId = 'data-v-e048a9';
+    script.__scopeId = 'data-v-f6298b';
     script.__file = "linkBimObjectToGroup.vue";
 };
 initialize();
@@ -3599,10 +3606,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("88141901a7166c42").render;
     script.staticRenderFns = require("88141901a7166c42").staticRenderFns;
-    script._scopeId = "data-v-6edecf";
+    script._scopeId = "data-v-44b74a";
     script.__cssModules = require("6bf14fe62dd069af").default;
     require("804cc20effe081a0").default(script);
-    script.__scopeId = 'data-v-6edecf';
+    script.__scopeId = 'data-v-44b74a';
     script.__file = "linkerDialog.vue";
 };
 initialize();
@@ -5531,10 +5538,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("a55057304c009daf").render;
     script.staticRenderFns = require("a55057304c009daf").staticRenderFns;
-    script._scopeId = "data-v-23d0bd";
+    script._scopeId = "data-v-1938f5";
     script.__cssModules = require("2d5e0ae9625d8820").default;
     require("47789b8c34c4f055").default(script);
-    script.__scopeId = 'data-v-23d0bd';
+    script.__scopeId = 'data-v-1938f5';
     script.__file = "globalLinkerPanel.vue";
 };
 initialize();
@@ -5745,55 +5752,6 @@ module.exports = {
 };
 
 },{"bae9fe1938ea9bca":"9LAk7","e509c984e0dbbabc":"1A32E","bd6e938e9e366621":"htQY9","8ccff7ee81184cc0":"gmxoN","9d5fcd89d492a04c":"lzCVv"}],"htQY9":[function(require,module,exports,__globalThis) {
-// ////////////////////////////////////////////////////
-// // ROOMS
-// ////////////////////////////////////////////////////
-// const ROOMS_GROUP_CONTEXT = "RoomsGroupContext";
-// const ROOMS_GROUP = "RoomsGroup";
-// const ROOMS_GROUP_RELATION = "hasRoomsGroup";
-// const ROOMS_TO_ELEMENT_RELATION = "groupHasRooms";
-// const ROOMS_CATEGORY = "Rooms_category";
-// const ROOMS_CATEGORY_RELATION = "hasRoomsCategory";
-// ///////////////////////////////////////////////////////
-// // BimObject
-// ///////////////////////////////////////////////////////
-// const EQUIPMENTS_GROUP_CONTEXT = "EquipmentGroupContext";
-// const EQUIPMENTS_GROUP = "EquipmentGroup";
-// const EQUIPMENTS_GROUP_RELATION = "hasEquipmentsGroup";
-// const EQUIPMENTS_TO_ELEMENT_RELATION = "groupHasEquipments";
-// const EQUIPMENTS_CATEGORY = "Equipment_category";
-// const EQUIPMENTS_CATEGORY_RELATION = "hasEquipmentsCategory";
-// const typeLst = [
-//   ROOMS_GROUP_CONTEXT,
-//   ROOMS_GROUP,
-//   ROOMS_CATEGORY,
-//   EQUIPMENTS_GROUP_CONTEXT,
-//   EQUIPMENTS_GROUP,
-//   EQUIPMENTS_CATEGORY
-// ]
-// const TYPE_AND_RELATION = new Map();
-// TYPE_AND_RELATION.set(ROOMS_GROUP_CONTEXT, ROOMS_CATEGORY_RELATION)
-// TYPE_AND_RELATION.set(ROOMS_GROUP, ROOMS_TO_ELEMENT_RELATION)
-// TYPE_AND_RELATION.set(ROOMS_CATEGORY, ROOMS_GROUP_RELATION)
-// TYPE_AND_RELATION.set(EQUIPMENTS_GROUP_CONTEXT, EQUIPMENTS_CATEGORY_RELATION)
-// TYPE_AND_RELATION.set(EQUIPMENTS_GROUP, EQUIPMENTS_TO_ELEMENT_RELATION)
-// TYPE_AND_RELATION.set(EQUIPMENTS_CATEGORY, EQUIPMENTS_GROUP_RELATION)
-// const CONTEXT_TYPE = "groupingContext";
-// const CATEGORY_TYPE = "groupingCategory";
-// ///////////////////////////////////////////
-// //            Groups Types               //
-// ///////////////////////////////////////////
-// const ROOMS_GROUP = "roomsGroup";
-// const EQUIPMENTS_GROUP = "equipmentGroup";
-// const ENDPOINT_GROUP = "endpointGroup"
-// ///////////////////////////////////////////
-// //            Relations                  //
-// ///////////////////////////////////////////
-// const CONTEXT_TO_CATEGORY_RELATION = "hasCategory";
-// const CATEGORY_TO_GROUP_RELATION = "hasGroup";
-// const GROUP_TO_ROOMS_RELATION = "groupHasRooms";
-// const GROUP_TO_EQUIPMENTS_RELATION = "groupHasEquipments";
-// const GROUP_TO_ENDPOINT_RELATION = "groupHasEndpoints";
 class GroupServiceConstants {
     constructor(){
         ///////////////////////////////////////
@@ -5872,9 +5830,9 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("2ddff52a76ece8f1").render;
     script.staticRenderFns = require("2ddff52a76ece8f1").staticRenderFns;
-    script._scopeId = "data-v-1aa3b4";
+    script._scopeId = "data-v-81dc41";
     require("211e7debea324207").default(script);
-    script.__scopeId = 'data-v-1aa3b4';
+    script.__scopeId = 'data-v-81dc41';
     script.__file = "tableComponent.vue";
 };
 initialize();
@@ -5939,9 +5897,9 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("2a29d62e4ae31698").render;
     script.staticRenderFns = require("2a29d62e4ae31698").staticRenderFns;
-    script._scopeId = "data-v-b9cc02";
+    script._scopeId = "data-v-8f7d79";
     require("bcc156f3ffc00546").default(script);
-    script.__scopeId = 'data-v-b9cc02';
+    script.__scopeId = 'data-v-8f7d79';
     script.__file = "checkBoxComponent.vue";
 };
 initialize();
@@ -6632,15 +6590,13 @@ class Edit extends (0, _spinalEnvViewerContextMenuService.SpinalContextApp) {
             edit: true,
             title: `Edit ${option.selectedNode.name.get()}`,
             contextId: option.context.id.get(),
-            selectedNode: option.selectedNode
+            selectedNode: option.selectedNode,
+            iconSelected: option.selectedNode.icon ? option.selectedNode.icon.get() : undefined
         };
         if ((0, _spinalEnvViewerPluginGroupManagerService.groupManagerService).isGroup(type)) {
             params["color"] = option.selectedNode.color ? option.selectedNode.color.get() : "#000000";
             (0, _spinalEnvViewerPanelManagerService.spinalPanelManagerService).openPanel("createGroupDialog", params);
-        } else if ((0, _spinalEnvViewerPluginGroupManagerService.groupManagerService).isCategory(type)) {
-            params["iconSelected"] = option.selectedNode.icon ? option.selectedNode.icon.get() : undefined;
-            (0, _spinalEnvViewerPanelManagerService.spinalPanelManagerService).openPanel("createCategoryDialog", params);
-        }
+        } else if ((0, _spinalEnvViewerPluginGroupManagerService.groupManagerService).isCategory(type)) (0, _spinalEnvViewerPanelManagerService.spinalPanelManagerService).openPanel("createCategoryDialog", params);
     }
 }
 const edit = new Edit();

@@ -7432,10 +7432,10 @@ function updateBimObjectFromBimFileId(bimFileId, model, updateBimobjectsName, up
         const promises = [];
         for (const bimobj of bimobjs)if (bimobj.info.bimFileId.get() === bimFileId) {
             const dbid = map[bimobj.info.externalId.get()];
-            if (updateBimobjectsDbid) {
-                if (dbid) bimobj.info.dbid.set(dbid);
-                else bimobj.info.dbid.set(-1);
-            } else if (updateBimobjectsName && dbid) promises.push(updateName(model, dbid, bimobj));
+            if (dbid) {
+                if (updateBimobjectsDbid) bimobj.info.dbid.set(dbid);
+                if (updateBimobjectsName) updateName(model, dbid, bimobj);
+            } else bimobj.info.dbid.set(-1);
         }
         // 20s timeout
         yield Promise.race([
@@ -10078,7 +10078,7 @@ function trimUndefinedRecursivelyLoop(object, tracks) {
 }
 
 },{}],"tRTNN":[function(require,module,exports,__globalThis) {
-/*! pako 2.1.0 https://github.com/nodeca/pako @license (MIT AND Zlib) */ // (C) 1995-2013 Jean-loup Gailly and Mark Adler
+/*! pako 2.2.0 https://github.com/nodeca/pako @license (MIT AND Zlib) */ // (C) 1995-2013 Jean-loup Gailly and Mark Adler
 // (C) 2014-2017 Vitaly Puzrin and Andrey Tupitsin
 //
 // This software is provided 'as-is', without any express or implied
@@ -11160,7 +11160,7 @@ var constants$2 = {
 //   misrepresented as being the original software.
 // 3. This notice may not be removed or altered from any source distribution.
 const { _tr_init, _tr_stored_block, _tr_flush_block, _tr_tally, _tr_align } = trees;
-/* Public constants ==========================================================*/ /* ===========================================================================*/ const { Z_NO_FLUSH: Z_NO_FLUSH$2, Z_PARTIAL_FLUSH, Z_FULL_FLUSH: Z_FULL_FLUSH$1, Z_FINISH: Z_FINISH$3, Z_BLOCK: Z_BLOCK$1, Z_OK: Z_OK$3, Z_STREAM_END: Z_STREAM_END$3, Z_STREAM_ERROR: Z_STREAM_ERROR$2, Z_DATA_ERROR: Z_DATA_ERROR$2, Z_BUF_ERROR: Z_BUF_ERROR$1, Z_DEFAULT_COMPRESSION: Z_DEFAULT_COMPRESSION$1, Z_FILTERED, Z_HUFFMAN_ONLY, Z_RLE, Z_FIXED, Z_DEFAULT_STRATEGY: Z_DEFAULT_STRATEGY$1, Z_UNKNOWN, Z_DEFLATED: Z_DEFLATED$2 } = constants$2;
+/* Public constants ==========================================================*/ /* ===========================================================================*/ const { Z_NO_FLUSH: Z_NO_FLUSH$2, Z_PARTIAL_FLUSH, Z_FULL_FLUSH: Z_FULL_FLUSH$1, Z_FINISH: Z_FINISH$3, Z_BLOCK: Z_BLOCK$1, Z_OK: Z_OK$3, Z_STREAM_END: Z_STREAM_END$3, Z_STREAM_ERROR: Z_STREAM_ERROR$2, Z_DATA_ERROR: Z_DATA_ERROR$2, Z_BUF_ERROR: Z_BUF_ERROR$2, Z_DEFAULT_COMPRESSION: Z_DEFAULT_COMPRESSION$1, Z_FILTERED, Z_HUFFMAN_ONLY, Z_RLE, Z_FIXED, Z_DEFAULT_STRATEGY: Z_DEFAULT_STRATEGY$1, Z_UNKNOWN, Z_DEFLATED: Z_DEFLATED$2 } = constants$2;
 /*============================================================================*/ const MAX_MEM_LEVEL = 9;
 /* Maximum value for memLevel in deflateInit2 */ const MAX_WBITS$1 = 15;
 /* 32K LZ77 window */ const DEF_MEM_LEVEL = 8;
@@ -11226,11 +11226,30 @@ const zero = (buf)=>{
      */ }while (--n);
 //#endif
 };
-/* eslint-disable new-cap */ let HASH_ZLIB = (s, prev, data)=>(prev << s.hash_shift ^ data) & s.hash_mask;
-// This hash causes less collisions, https://github.com/nodeca/pako/issues/135
-// But breaks binary compatibility
-//let HASH_FAST = (s, prev, data) => ((prev << 8) + (prev >> 8) + (data << 4)) & s.hash_mask;
-let HASH = HASH_ZLIB;
+/* eslint-disable new-cap */ let HASH = (s, prev, data)=>(prev << s.hash_shift ^ data) & s.hash_mask;
+/* ===========================================================================
+ * Insert string str in the dictionary and set match_head to the previous head
+ * of the hash chain (the most recent string with same hash key). Return
+ * the previous length of the hash chain.
+ * IN  assertion: all calls to INSERT_STRING are made with consecutive input
+ *    characters and the first MIN_MATCH bytes of str are valid (except for
+ *    the last MIN_MATCH-1 bytes of the input file).
+ */ const INSERT_STRING = (s, str)=>{
+    let h;
+    if (s.legacy_hash) /* UPDATE_HASH(s, s->ins_h, s->window[(str) + (MIN_MATCH-1)]); */ h = s.ins_h = HASH(s, s.ins_h, s.window[str + MIN_MATCH - 1]);
+    else {
+        // ANZAC++ hash: reads 4 bytes, matches node.js zlib output (legacyHash
+        // restores classic zlib hash). Faster, with fewer collisions.
+        const w = s.window;
+        // Read 4 bytes little-endian. Math.imul reproduces C uint32 overflow in
+        // `(value * 66521 + 66521) >> 16` exactly.
+        const value = w[str] | w[str + 1] << 8 | w[str + 2] << 16 | w[str + 3] << 24;
+        h = s.ins_h = Math.imul(value, 66521) + 66521 >>> 16 & s.hash_mask;
+    }
+    const hash_head = s.prev[str & s.w_mask] = s.head[h];
+    s.head[h] = str;
+    return hash_head;
+};
 /* =========================================================================
  * Flush as much pending output as possible. All deflate() output, except for
  * some deflate_stored() output, goes through this function so some
@@ -11408,7 +11427,17 @@ const put_byte = (s, b)=>{
      */ //Assert(more >= 2, "more < 2");
         n = read_buf(s.strm, s.window, s.strstart + s.lookahead, more);
         s.lookahead += n;
-        /* Initialize the hash value now that we have some input: */ if (s.lookahead + s.insert >= MIN_MATCH) {
+        /* Initialize the hash value now that we have some input: */ if (!s.legacy_hash) /* The 4-byte hash reads one extra byte, so it needs one more available. */ {
+            if (s.lookahead + s.insert > MIN_MATCH) {
+                str = s.strstart - s.insert;
+                while(s.insert){
+                    INSERT_STRING(s, str);
+                    str++;
+                    s.insert--;
+                    if (s.lookahead + s.insert <= MIN_MATCH) break;
+                }
+            }
+        } else if (s.lookahead + s.insert >= MIN_MATCH) {
             str = s.strstart - s.insert;
             s.ins_h = s.window[str];
             /* UPDATE_HASH(s, s->ins_h, s->window[str + 1]); */ s.ins_h = HASH(s, s.ins_h, s.window[str + 1]);
@@ -11416,9 +11445,7 @@ const put_byte = (s, b)=>{
             //        Call update_hash() MIN_MATCH-3 more times
             //#endif
             while(s.insert){
-                /* UPDATE_HASH(s, s->ins_h, s->window[str + MIN_MATCH-1]); */ s.ins_h = HASH(s, s.ins_h, s.window[str + MIN_MATCH - 1]);
-                s.prev[str & s.w_mask] = s.head[s.ins_h];
-                s.head[s.ins_h] = str;
+                INSERT_STRING(s, str);
                 str++;
                 s.insert--;
                 if (s.lookahead + s.insert < MIN_MATCH) break;
@@ -11625,11 +11652,7 @@ const put_byte = (s, b)=>{
         /* Insert the string window[strstart .. strstart+2] in the
      * dictionary, and set hash_head to the head of the hash chain:
      */ hash_head = 0 /*NIL*/ ;
-        if (s.lookahead >= MIN_MATCH) {
-            /*** INSERT_STRING(s, s.strstart, hash_head); ***/ s.ins_h = HASH(s, s.ins_h, s.window[s.strstart + MIN_MATCH - 1]);
-            hash_head = s.prev[s.strstart & s.w_mask] = s.head[s.ins_h];
-            s.head[s.ins_h] = s.strstart;
-        /***/ }
+        if (s.lookahead >= MIN_MATCH) hash_head = INSERT_STRING(s, s.strstart);
         /* Find the longest match, discarding those <= prev_length.
      * At this point we have always match_length < MIN_MATCH
      */ if (hash_head !== 0 /*NIL*/  && s.strstart - hash_head <= s.w_size - MIN_LOOKAHEAD) /* To simplify the code, we prevent matches with the string
@@ -11647,24 +11670,24 @@ const put_byte = (s, b)=>{
                 s.match_length--; /* string at strstart already in table */ 
                 do {
                     s.strstart++;
-                    /*** INSERT_STRING(s, s.strstart, hash_head); ***/ s.ins_h = HASH(s, s.ins_h, s.window[s.strstart + MIN_MATCH - 1]);
-                    hash_head = s.prev[s.strstart & s.w_mask] = s.head[s.ins_h];
-                    s.head[s.ins_h] = s.strstart;
-                /***/ /* strstart never exceeds WSIZE-MAX_MATCH, so there are
+                    hash_head = INSERT_STRING(s, s.strstart);
+                /* strstart never exceeds WSIZE-MAX_MATCH, so there are
            * always MIN_MATCH bytes ahead.
            */ }while (--s.match_length !== 0);
                 s.strstart++;
             } else {
                 s.strstart += s.match_length;
                 s.match_length = 0;
-                s.ins_h = s.window[s.strstart];
-                /* UPDATE_HASH(s, s.ins_h, s.window[s.strstart+1]); */ s.ins_h = HASH(s, s.ins_h, s.window[s.strstart + 1]);
-            //#if MIN_MATCH != 3
-            //                Call UPDATE_HASH() MIN_MATCH-3 more times
-            //#endif
-            /* If lookahead < MIN_MATCH, ins_h is garbage, but it does not
-         * matter since it will be recomputed at next deflate call.
-         */ }
+                if (s.legacy_hash) {
+                    s.ins_h = s.window[s.strstart];
+                    /* UPDATE_HASH(s, s.ins_h, s.window[s.strstart+1]); */ s.ins_h = HASH(s, s.ins_h, s.window[s.strstart + 1]);
+                //#if MIN_MATCH != 3
+                //                Call UPDATE_HASH() MIN_MATCH-3 more times
+                //#endif
+                /* If lookahead < MIN_MATCH, ins_h is garbage, but it does not
+           * matter since it will be recomputed at next deflate call.
+           */ }
+            }
         } else {
             /* No match, output a literal byte */ //Tracevv((stderr,"%c", s.window[s.strstart]));
             /*** _tr_tally_lit(s, s.window[s.strstart], bflush); ***/ bflush = _tr_tally(s, 0, s.window[s.strstart]);
@@ -11710,11 +11733,7 @@ const put_byte = (s, b)=>{
         /* Insert the string window[strstart .. strstart+2] in the
      * dictionary, and set hash_head to the head of the hash chain:
      */ hash_head = 0 /*NIL*/ ;
-        if (s.lookahead >= MIN_MATCH) {
-            /*** INSERT_STRING(s, s.strstart, hash_head); ***/ s.ins_h = HASH(s, s.ins_h, s.window[s.strstart + MIN_MATCH - 1]);
-            hash_head = s.prev[s.strstart & s.w_mask] = s.head[s.ins_h];
-            s.head[s.ins_h] = s.strstart;
-        /***/ }
+        if (s.lookahead >= MIN_MATCH) hash_head = INSERT_STRING(s, s.strstart);
         /* Find the longest match, discarding those <= prev_length.
      */ s.prev_length = s.match_length;
         s.prev_match = s.match_start;
@@ -11741,11 +11760,7 @@ const put_byte = (s, b)=>{
        * the hash table.
        */ s.lookahead -= s.prev_length - 1;
             s.prev_length -= 2;
-            do if (++s.strstart <= max_insert) {
-                /*** INSERT_STRING(s, s.strstart, hash_head); ***/ s.ins_h = HASH(s, s.ins_h, s.window[s.strstart + MIN_MATCH - 1]);
-                hash_head = s.prev[s.strstart & s.w_mask] = s.head[s.ins_h];
-                s.head[s.ins_h] = s.strstart;
-            /***/ }
+            do if (++s.strstart <= max_insert) hash_head = INSERT_STRING(s, s.strstart);
             while (--s.prev_length !== 0);
             s.match_available = 0;
             s.match_length = MIN_MATCH - 1;
@@ -11957,6 +11972,7 @@ function DeflateState() {
    * An index in this array is thus a window index modulo 32K.
    */ this.head = null; /* Heads of the hash chains or NIL. */ 
     this.ins_h = 0; /* hash index of string to be inserted */ 
+    this.legacy_hash = 0; /* use classic zlib hash instead of default ANZAC++ */ 
     this.hash_size = 0; /* number of elements in hash table */ 
     this.hash_bits = 0; /* log2(hash_size) */ 
     this.hash_mask = 0; /* hash_size-1 */ 
@@ -12096,7 +12112,7 @@ const deflateSetHeader = (strm, head)=>{
     strm.state.gzhead = head;
     return Z_OK$3;
 };
-const deflateInit2 = (strm, level, method, windowBits, memLevel, strategy)=>{
+const deflateInit2 = (strm, level, method, windowBits, memLevel, strategy, legacyHash)=>{
     if (!strm) return Z_STREAM_ERROR$2;
     let wrap = 1;
     if (level === Z_DEFAULT_COMPRESSION$1) level = 6;
@@ -12118,7 +12134,9 @@ const deflateInit2 = (strm, level, method, windowBits, memLevel, strategy)=>{
     s.w_bits = windowBits;
     s.w_size = 1 << s.w_bits;
     s.w_mask = s.w_size - 1;
+    s.legacy_hash = legacyHash ? 1 : 0;
     s.hash_bits = memLevel + 7;
+    /* ANZAC++ hash needs >= 15 hash bits to span its 4 read bytes. */ if (!s.legacy_hash && s.hash_bits < 15) s.hash_bits = 15;
     s.hash_size = 1 << s.hash_bits;
     s.hash_mask = s.hash_size - 1;
     s.hash_shift = ~~((s.hash_bits + MIN_MATCH - 1) / MIN_MATCH);
@@ -12186,7 +12204,7 @@ const deflateInit = (strm, level)=>{
 /* ========================================================================= */ const deflate$2 = (strm, flush)=>{
     if (deflateStateCheck(strm) || flush > Z_BLOCK$1 || flush < 0) return strm ? err(strm, Z_STREAM_ERROR$2) : Z_STREAM_ERROR$2;
     const s = strm.state;
-    if (!strm.output || strm.avail_in !== 0 && !strm.input || s.status === FINISH_STATE && flush !== Z_FINISH$3) return err(strm, strm.avail_out === 0 ? Z_BUF_ERROR$1 : Z_STREAM_ERROR$2);
+    if (!strm.output || strm.avail_in !== 0 && !strm.input || s.status === FINISH_STATE && flush !== Z_FINISH$3) return err(strm, strm.avail_out === 0 ? Z_BUF_ERROR$2 : Z_STREAM_ERROR$2);
     const old_flush = s.last_flush;
     s.last_flush = flush;
     /* Flush as much pending output as possible */ if (s.pending !== 0) {
@@ -12203,8 +12221,8 @@ const deflateInit = (strm, level)=>{
     /* Make sure there is something to do and avoid duplicate consecutive
      * flushes. For repeated and useless calls with Z_FINISH, we keep
      * returning Z_STREAM_END instead of Z_BUF_ERROR.
-     */ } else if (strm.avail_in === 0 && rank(flush) <= rank(old_flush) && flush !== Z_FINISH$3) return err(strm, Z_BUF_ERROR$1);
-    /* User must not provide more input after the first FINISH: */ if (s.status === FINISH_STATE && strm.avail_in !== 0) return err(strm, Z_BUF_ERROR$1);
+     */ } else if (strm.avail_in === 0 && rank(flush) <= rank(old_flush) && flush !== Z_FINISH$3) return err(strm, Z_BUF_ERROR$2);
+    /* User must not provide more input after the first FINISH: */ if (s.status === FINISH_STATE && strm.avail_in !== 0) return err(strm, Z_BUF_ERROR$2);
     /* Write the header */ if (s.status === INIT_STATE && s.wrap === 0) s.status = BUSY_STATE;
     if (s.status === INIT_STATE) {
         /* zlib header */ let header = Z_DEFLATED$2 + (s.w_bits - 8 << 4) << 8;
@@ -12476,9 +12494,7 @@ const deflateEnd = (strm)=>{
         let str = s.strstart;
         let n = s.lookahead - (MIN_MATCH - 1);
         do {
-            /* UPDATE_HASH(s, s->ins_h, s->window[str + MIN_MATCH-1]); */ s.ins_h = HASH(s, s.ins_h, s.window[str + MIN_MATCH - 1]);
-            s.prev[str & s.w_mask] = s.head[s.ins_h];
-            s.head[s.ins_h] = str;
+            INSERT_STRING(s, str);
             str++;
         }while (--n);
         s.strstart = str;
@@ -12573,7 +12589,7 @@ try {
 // because max possible codepoint is 0x10ffff
 const _utf8len = new Uint8Array(256);
 for(let q = 0; q < 256; q++)_utf8len[q] = q >= 252 ? 6 : q >= 248 ? 5 : q >= 240 ? 4 : q >= 224 ? 3 : q >= 192 ? 2 : 1;
-_utf8len[254] = _utf8len[254] = 1; // Invalid sequence start
+_utf8len[254] = _utf8len[255] = 1; // Invalid sequence start
 // convert string to array (typed, when possible)
 var string2buf = (str)=>{
     if (typeof TextEncoder === 'function' && TextEncoder.prototype.encode) return new TextEncoder().encode(str);
@@ -12735,7 +12751,16 @@ function ZStream() {
 var zstream = ZStream;
 const toString$1 = Object.prototype.toString;
 /* Public constants ==========================================================*/ /* ===========================================================================*/ const { Z_NO_FLUSH: Z_NO_FLUSH$1, Z_SYNC_FLUSH, Z_FULL_FLUSH, Z_FINISH: Z_FINISH$2, Z_OK: Z_OK$2, Z_STREAM_END: Z_STREAM_END$2, Z_DEFAULT_COMPRESSION, Z_DEFAULT_STRATEGY, Z_DEFLATED: Z_DEFLATED$1 } = constants$2;
-/* ===========================================================================*/ /**
+/* ===========================================================================*/ const defaultOptions$1 = {
+    level: Z_DEFAULT_COMPRESSION,
+    method: Z_DEFLATED$1,
+    chunkSize: 16384,
+    windowBits: 15,
+    memLevel: 8,
+    strategy: Z_DEFAULT_STRATEGY,
+    legacyHash: true
+};
+/**
  * class Deflate
  *
  * Generic JS-style wrapper for zlib calls. If you don't need
@@ -12778,6 +12803,10 @@ const toString$1 = Object.prototype.toString;
  * [http://zlib.net/manual.html#Advanced](http://zlib.net/manual.html#Advanced)
  * for more information on these.
  *
+ * - `legacyHash` (Boolean) - use the classic zlib hash (default), which matches
+ *   canonical zlib output byte-for-byte. Set to `false` to use the faster
+ *   ANZAC++ hash, which matches recent (chromium) node.js output instead.
+ *
  * Additional options, for internal needs:
  *
  * - `chunkSize` - size of generated data chunks (16K by default)
@@ -12809,14 +12838,7 @@ const toString$1 = Object.prototype.toString;
  * console.log(deflate.result);
  * ```
  **/ function Deflate$1(options) {
-    this.options = common.assign({
-        level: Z_DEFAULT_COMPRESSION,
-        method: Z_DEFLATED$1,
-        chunkSize: 16384,
-        windowBits: 15,
-        memLevel: 8,
-        strategy: Z_DEFAULT_STRATEGY
-    }, options || {});
+    this.options = common.assign({}, defaultOptions$1, options || {});
     let opt = this.options;
     if (opt.raw && opt.windowBits > 0) opt.windowBits = -opt.windowBits;
     else if (opt.gzip && opt.windowBits > 0 && opt.windowBits < 16) opt.windowBits += 16;
@@ -12826,7 +12848,7 @@ const toString$1 = Object.prototype.toString;
     this.chunks = []; // chunks of compressed data
     this.strm = new zstream();
     this.strm.avail_out = 0;
-    let status = deflate_1$2.deflateInit2(this.strm, opt.level, opt.method, opt.windowBits, opt.memLevel, opt.strategy);
+    let status = deflate_1$2.deflateInit2(this.strm, opt.level, opt.method, opt.windowBits, opt.memLevel, opt.strategy, opt.legacyHash);
     if (status !== Z_OK$2) throw new Error(messages[status]);
     if (opt.header) deflate_1$2.deflateSetHeader(this.strm, opt.header);
     if (opt.dictionary) {
@@ -13375,8 +13397,8 @@ const lext = new Uint8Array([
     21,
     21,
     16,
-    72,
-    78
+    199,
+    75
 ]);
 const dbase = new Uint16Array([
     /* Distance codes 0..29 base */ 1,
@@ -13667,7 +13689,7 @@ var inftrees = inflate_table;
 const CODES = 0;
 const LENS = 1;
 const DISTS = 2;
-/* Public constants ==========================================================*/ /* ===========================================================================*/ const { Z_FINISH: Z_FINISH$1, Z_BLOCK, Z_TREES, Z_OK: Z_OK$1, Z_STREAM_END: Z_STREAM_END$1, Z_NEED_DICT: Z_NEED_DICT$1, Z_STREAM_ERROR: Z_STREAM_ERROR$1, Z_DATA_ERROR: Z_DATA_ERROR$1, Z_MEM_ERROR: Z_MEM_ERROR$1, Z_BUF_ERROR, Z_DEFLATED } = constants$2;
+/* Public constants ==========================================================*/ /* ===========================================================================*/ const { Z_FINISH: Z_FINISH$1, Z_BLOCK, Z_TREES, Z_OK: Z_OK$1, Z_STREAM_END: Z_STREAM_END$1, Z_NEED_DICT: Z_NEED_DICT$1, Z_STREAM_ERROR: Z_STREAM_ERROR$1, Z_DATA_ERROR: Z_DATA_ERROR$1, Z_MEM_ERROR: Z_MEM_ERROR$1, Z_BUF_ERROR: Z_BUF_ERROR$1, Z_DEFLATED } = constants$2;
 /* STATES ====================================================================*/ /* ===========================================================================*/ const HEAD = 16180; /* i: waiting for magic header */ 
 const FLAGS = 16181; /* i: waiting for method and flags (gzip) */ 
 const TIME = 16182; /* i: waiting for modification time (gzip) */ 
@@ -13874,11 +13896,11 @@ const fixedtables = (state)=>{
  */ const updatewindow = (strm, src, end, copy)=>{
     let dist;
     const state = strm.state;
-    /* if it hasn't been done already, allocate space for the window */ if (state.window === null) {
+    /* if it hasn't been done already, allocate space for the window */ if (state.window === null) state.window = new Uint8Array(1 << state.wbits);
+    /* if window not in use yet, initialize */ if (state.wsize === 0) {
         state.wsize = 1 << state.wbits;
         state.wnext = 0;
         state.whave = 0;
-        state.window = new Uint8Array(state.wsize);
     }
     /* copy state->wsize or less output bytes into the circular window */ if (copy >= state.wsize) {
         state.window.set(src.subarray(end - state.wsize, end), 0);
@@ -14862,7 +14884,7 @@ const inflate$2 = (strm, flush)=>{
     state.total += _out;
     if (state.wrap & 4 && _out) strm.adler = state.check = /*UPDATE_CHECK(state.check, strm.next_out - _out, _out);*/ state.flags ? crc32_1(state.check, output, _out, strm.next_out - _out) : adler32_1(state.check, output, _out, strm.next_out - _out);
     strm.data_type = state.bits + (state.last ? 64 : 0) + (state.mode === TYPE ? 128 : 0) + (state.mode === LEN_ || state.mode === COPY_ ? 256 : 0);
-    if ((_in === 0 && _out === 0 || flush === Z_FINISH$1) && ret === Z_OK$1) ret = Z_BUF_ERROR;
+    if ((_in === 0 && _out === 0 || flush === Z_FINISH$1) && ret === Z_OK$1) ret = Z_BUF_ERROR$1;
     return ret;
 };
 const inflateEnd = (strm)=>{
@@ -14975,8 +14997,13 @@ function GZheader() {
 }
 var gzheader = GZheader;
 const toString = Object.prototype.toString;
-/* Public constants ==========================================================*/ /* ===========================================================================*/ const { Z_NO_FLUSH, Z_FINISH, Z_OK, Z_STREAM_END, Z_NEED_DICT, Z_STREAM_ERROR, Z_DATA_ERROR, Z_MEM_ERROR } = constants$2;
-/* ===========================================================================*/ /**
+/* Public constants ==========================================================*/ /* ===========================================================================*/ const { Z_NO_FLUSH, Z_FINISH, Z_OK, Z_STREAM_END, Z_NEED_DICT, Z_STREAM_ERROR, Z_DATA_ERROR, Z_MEM_ERROR, Z_BUF_ERROR } = constants$2;
+/* ===========================================================================*/ const defaultOptions = {
+    chunkSize: 65536,
+    windowBits: 15,
+    to: ''
+};
+/**
  * class Inflate
  *
  * Generic JS-style wrapper for zlib calls. If you don't need
@@ -15042,11 +15069,7 @@ const toString = Object.prototype.toString;
  * console.log(inflate.result);
  * ```
  **/ function Inflate$1(options) {
-    this.options = common.assign({
-        chunkSize: 65536,
-        windowBits: 15,
-        to: ''
-    }, options || {});
+    this.options = common.assign({}, defaultOptions, options || {});
     const opt = this.options;
     // Force window size for `raw` data, if not set directly,
     // because we have no header for autodetect.
@@ -15134,8 +15157,16 @@ const toString = Object.prototype.toString;
             else if (status === Z_DATA_ERROR) // Replace code with more verbose
             status = Z_NEED_DICT;
         }
-        // Skip snyc markers if more data follows and not raw mode
-        while(strm.avail_in > 0 && status === Z_STREAM_END && strm.state.wrap > 0 && data[strm.next_in] !== 0){
+        // Only the gzip format defines concatenated members (RFC 1952: a gzip file
+        // is "a series of members"). A zlib stream (RFC 1950) ends after its
+        // ADLER32, and a raw DEFLATE stream (RFC 1951) ends after its final block -
+        // neither format allows anything to follow, so bytes after the end are not
+        // ours to interpret and must be left in the input. Restart decoding only
+        // for a gzip member: `state.flags` is non-zero only once a gzip header has
+        // actually been decoded (it stays 0 for a zlib member, even when the format
+        // was auto-detected and the gzip bit of `wrap` is set). A trailing zero
+        // byte is padding, not the start of a member (no member can begin with 0).
+        while(strm.avail_in > 0 && status === Z_STREAM_END && strm.state.wrap & 2 && strm.state.flags !== 0 && strm.input[strm.next_in] !== 0){
             inflate_1$2.inflateReset(strm);
             status = inflate_1$2.inflate(strm, _flush_mode);
         }
@@ -15151,8 +15182,10 @@ const toString = Object.prototype.toString;
         // Remember real `avail_out` value, because we may patch out buffer content
         // to align utf8 strings boundaries.
         last_avail_out = strm.avail_out;
-        if (strm.next_out) {
-            if (strm.avail_out === 0 || status === Z_STREAM_END) {
+        if (strm.next_out) // Flush output if buffer is full, stream ended, or an explicit flush was
+        // requested (e.g. Z_SYNC_FLUSH) - to push out the tail, same as node's zlib.
+        {
+            if (strm.avail_out === 0 || status === Z_STREAM_END || _flush_mode > 0) {
                 if (this.options.to === 'string') {
                     let next_out_utf8 = strings.utf8border(strm.output, strm.next_out);
                     let tail = strm.next_out - next_out_utf8;
@@ -15162,11 +15195,22 @@ const toString = Object.prototype.toString;
                     strm.avail_out = chunkSize - tail;
                     if (tail) strm.output.set(strm.output.subarray(next_out_utf8, next_out_utf8 + tail), 0);
                     this.onData(utf8str);
-                } else this.onData(strm.output.length === strm.next_out ? strm.output : strm.output.subarray(0, strm.next_out));
+                } else {
+                    this.onData(strm.output.length === strm.next_out ? strm.output : strm.output.subarray(0, strm.next_out));
+                    // Force a fresh output buffer on next iteration / next push, so the
+                    // already emitted tail is not sent again.
+                    strm.avail_out = 0;
+                    strm.next_out = 0;
+                }
             }
         }
-        // Must repeat iteration if out buffer is full
-        if (status === Z_OK && last_avail_out === 0) continue;
+        // A full output buffer means there may be more to produce - allocate a new
+        // one and call inflate again. The status depends on the flush mode: with
+        // Z_NO_FLUSH a full buffer is reported as Z_OK, but with Z_FINISH the same
+        // situation is reported as Z_BUF_ERROR ("could not make progress now",
+        // non-fatal) even though output is still pending. Both must continue; the
+        // distinction that matters is purely "was the output buffer exhausted".
+        if ((status === Z_OK || status === Z_BUF_ERROR) && last_avail_out === 0) continue;
         // Finalize if end of stream reached.
         if (status === Z_STREAM_END) {
             status = inflate_1$2.inflateEnd(this.strm);
@@ -15174,7 +15218,23 @@ const toString = Object.prototype.toString;
             this.ended = true;
             return true;
         }
-        if (strm.avail_in === 0) break;
+        if (strm.avail_in === 0) {
+            // Input is exhausted. If the caller declared this the end of the stream
+            // (Z_FINISH) but we never saw Z_STREAM_END, the compressed data ended
+            // before its terminating marker - i.e. it is truncated/incomplete. That
+            // is an error: returning the partial output as success would be
+            // indistinguishable from a complete decode, hiding the data loss. Report
+            // it via Z_BUF_ERROR. (Reached only when the output buffer still had room
+            // - a full buffer is handled by the `continue` above - so this genuinely
+            // means "ran out of input", not "ran out of output".)
+            if (_flush_mode === Z_FINISH) {
+                status = inflate_1$2.inflateEnd(this.strm);
+                this.onEnd(status === Z_OK ? Z_BUF_ERROR : status);
+                this.ended = true;
+                return false;
+            }
+            break;
+        }
     }
     return true;
 };
@@ -15246,7 +15306,7 @@ const toString = Object.prototype.toString;
  * ```
  **/ function inflate$1(input, options) {
     const inflator = new Inflate$1(options);
-    inflator.push(input);
+    inflator.push(input, true);
     // That will never happens, if you don't cheat with options :)
     if (inflator.err) throw inflator.msg || messages[inflator.err];
     return inflator.result;

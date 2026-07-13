@@ -404,7 +404,9 @@ class GenerateNetworkTreeService {
     }
     static createTree(automates, equipments, attrConfig) {
         return __awaiter(this, void 0, void 0, function*() {
-            return this._getTreeArray(automates, equipments, attrConfig).then(({ tree, valids, invalids })=>__awaiter(this, void 0, void 0, function*() {
+            return this._getTreeArray(automates, equipments, attrConfig).then((_a)=>__awaiter(this, [
+                    _a
+                ], void 0, function*({ tree, valids, invalids }) {
                     const treeL = yield this._TransformArrayToTree(tree);
                     return {
                         tree: treeL,
@@ -541,8 +543,8 @@ class GenerateNetworkTreeService {
             return obj;
         });
     }
-    static _createBimObjectNode({ dbId, model, color, isAutomate }) {
-        return __awaiter(this, void 0, void 0, function*() {
+    static _createBimObjectNode(_a) {
+        return __awaiter(this, arguments, void 0, function*({ dbId, model, color, isAutomate }) {
             const element = yield this._getBimObjectName({
                 dbId,
                 model
@@ -884,29 +886,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 exports.LinkBmsDeviceService = void 0;
-/*
- * Copyright 2021 SpinalCom - www.spinalcom.com
- *
- * This file is part of SpinalCore.
- *
- * Please read all of the following terms and conditions
- * of the Free Software license Agreement ("Agreement")
- * carefully.
- *
- * This Agreement is a legally binding contract between
- * the Licensee (as defined below) and SpinalCom that
- * sets forth the terms and conditions that govern your
- * use of the Program. By installing and/or using the
- * Program, you agree to abide by all the terms and
- * conditions stated or referenced herein.
- *
- * If you do not agree to abide by these terms and
- * conditions, do not demonstrate your acceptance and do
- * not install or use the Program.
- * You should have received a copy of the license along
- * with this file. If not, see
- * <http://resources.spinalcom.com/licenses.pdf>.
- */ const LinkNetworkTreeService_1 = require("c49223db7fcf8f6c");
+const LinkNetworkTreeService_1 = require("c49223db7fcf8f6c");
 const spinal_env_viewer_graph_service_1 = require("27d5ae572643552a");
 const spinal_model_bmsnetwork_1 = require("ffbf1d891d79f107");
 const constants_1 = require("1645e6c9fa70261a");
@@ -1325,8 +1305,8 @@ class LinkNetworkTreeService {
     }
     ////
     // supprimer un profil d'un automate
-    static unLinkDeviceToProfil(automateId, argProfilId, removeAlsoBmsDevice = false) {
-        return __awaiter(this, void 0, void 0, function*() {
+    static unLinkDeviceToProfil(automateId_1, argProfilId_1) {
+        return __awaiter(this, arguments, void 0, function*(automateId, argProfilId, removeAlsoBmsDevice = false) {
             let profilId = argProfilId;
             if (typeof profilId === "undefined") profilId = yield this.getProfilLinked(automateId);
             if (!profilId) return;
@@ -1360,8 +1340,8 @@ class LinkNetworkTreeService {
         });
     }
     static getDeviceAndProfilData(automateId, argProfilId) {
-        var _a;
         return __awaiter(this, void 0, void 0, function*() {
+            var _a;
             const automateInfo = ((_a = spinal_env_viewer_graph_service_1.SpinalGraphService.getInfo(automateId)) === null || _a === void 0 ? void 0 : _a.get()) || {};
             const res = {
                 valids: [],
@@ -1382,7 +1362,9 @@ class LinkNetworkTreeService {
     static _getAutomateItemsMap(automateId, profilId) {
         const bimDeviceMap = new Map();
         return this.getDeviceAndProfilData(automateId, profilId).then((result)=>{
-            const promises = result.valids.map(({ automateItem, profileItem })=>__awaiter(this, void 0, void 0, function*() {
+            const promises = result.valids.map((_a)=>__awaiter(this, [
+                    _a
+                ], void 0, function*({ automateItem, profileItem }) {
                     const attrs = yield DeviceProfileUtilities_1.DeviceProfileUtilities.getMeasures(profileItem.id);
                     for (const attr of attrs){
                         attr.parentId = automateItem.id;
@@ -1402,7 +1384,6 @@ class LinkNetworkTreeService {
     //                              private                                           //
     ////////////////////////////////////////////////////////////////////////////////////
     static _getFormatedValues(automateInfo, virtualAutomates) {
-        // const devicesModels = await (SpinalGraphService.getChildren(automateId,[NETWORK_BIMOJECT_RELATION]))
         return Promise.all([
             this._getAutomateItems(automateInfo.id),
             this._formatVirtualAutomates(virtualAutomates)
@@ -1413,27 +1394,24 @@ class LinkNetworkTreeService {
                 invalidProfileItems: [],
                 automate: automateInfo
             };
-            // let remainingItems = JSON.parse(JSON.stringify(items))
             for (const device of devices){
-                // let index;
-                // const found = remainingItems.find((el, i) => {
-                //    if (el.namingConvention && el.namingConvention === device.namingConvention) {
-                //       index = i;
-                //       return true;
-                //    }
-                //    return false;
-                // });
-                let found = profilItemsObj[device.namingConvention];
+                const namingConvention = device.namingConvention;
+                if (!namingConvention) {
+                    res.invalidAutomateItems.push(device);
+                    continue;
+                }
+                let found = profilItemsObj[namingConvention];
                 if (found) {
-                    // remainingItems.splice(index, 1);
-                    delete profilItemsObj[device.namingConvention];
+                    // comment the line bellow to allow multiple automate items to be linked to the same profil item if they have the same naming convention
+                    // delete profilItemsObj[device.namingConvention]; 
                     res.valids.push({
                         automateItem: device,
                         profileItem: found
                     });
+                    console.log("found", device.name, found.name);
                 } else res.invalidAutomateItems.push(device);
             }
-            // res.invalidProfileItems = remainingItems;
+            // 
             res.invalidProfileItems = Object.keys(profilItemsObj).map((key)=>profilItemsObj[key]);
             return res;
         });
@@ -1728,8 +1706,8 @@ class DeviceProfileUtilities {
         });
     }
     static getMeasures(nodeId) {
-        var _a, _b, _c, _d;
         return __awaiter(this, void 0, void 0, function*() {
+            var _a, _b, _c, _d;
             const supervisions = yield spinal_env_viewer_graph_service_1.SpinalGraphService.getChildren(nodeId, [
                 this.ITEMS_TO_SUPERVISION
             ]);
@@ -1955,7 +1933,6 @@ class DeviceProfileUtilities {
         });
     }
 }
-exports.default = DeviceProfileUtilities;
 exports.DeviceProfileUtilities = DeviceProfileUtilities;
 DeviceProfileUtilities.DEVICE_PROFILE_CONTEXT_NAME = "deviceProfileContext";
 DeviceProfileUtilities.CONTEXT_TO_ITEM_LIST_RELATION = "hasItemList";
@@ -1985,6 +1962,7 @@ DeviceProfileUtilities.BACNET_VALUES_TYPES = [
 ];
 DeviceProfileUtilities.SUPERVISION_INTERVAL_TIME_TYPE = "supervisionIntervalTime";
 DeviceProfileUtilities.profilsMaps = new Map();
+exports.default = DeviceProfileUtilities;
 
 },{"dba72514572786bf":"9LAk7","9b1ce72b9cae0f1b":"1xTSd","a47236d49b9e2276":"cP9kK","cfad510cfc9c0eca":"iFTr6","28dca8e196fabfb8":"dQoCE","3cb1190d12e3a4ba":"LUhzz"}],"1xTSd":[function(require,module,exports,__globalThis) {
 "use strict";

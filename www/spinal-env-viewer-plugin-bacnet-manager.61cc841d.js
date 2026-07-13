@@ -211,12 +211,14 @@
 var _buttons = require("./buttons");
 var _panels = require("./vue/panels");
 var _dialogs = require("./vue/dialogs");
+console.log("hello world");
 
 },{"./buttons":"7erVV","./vue/panels":"Uvsmz","./vue/dialogs":"aC6cU"}],"7erVV":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "discoverNetworkBtn", ()=>(0, _discoverBtnDefault.default));
 parcelHelpers.export(exports, "createNetworkContext", ()=>(0, _createNetworkContextDefault.default));
+parcelHelpers.export(exports, "createSubNetworkBtn", ()=>(0, _createSubNetworkDefault.default));
 parcelHelpers.export(exports, "addOrganBtn", ()=>// startBtn,
     // stopBtn,
     // editTimeIntervalBtn,
@@ -250,8 +252,10 @@ var _monitoring = require("./bacnet/monitoring");
 var _monitoringDefault = parcelHelpers.interopDefault(_monitoring);
 var _organBacnetMonitor = require("./bacnet/organBacnetMonitor");
 var _organBacnetMonitorDefault = parcelHelpers.interopDefault(_organBacnetMonitor);
+var _createSubNetwork = require("./bacnet/createSubNetwork");
+var _createSubNetworkDefault = parcelHelpers.interopDefault(_createSubNetwork);
 
-},{"./bacnet/discoverBtn":"ebWJT","./bacnet/locateBimObject":"6W1hs","./viewer/createNetworkContext":"2wNNn","./viewer/addOrgan":"hC72P","./viewer/linkProfil":"7KKuG","./viewer/unLinkProfil":"iT6G7","./bacnet/createBacnetValue":"kIucr","./bacnet/monitoring":"jwfGD","./bacnet/organBacnetMonitor":"jxEdq","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"ebWJT":[function(require,module,exports,__globalThis) {
+},{"./bacnet/discoverBtn":"ebWJT","./bacnet/locateBimObject":"6W1hs","./viewer/createNetworkContext":"2wNNn","./viewer/addOrgan":"hC72P","./viewer/linkProfil":"7KKuG","./viewer/unLinkProfil":"iT6G7","./bacnet/createBacnetValue":"kIucr","./bacnet/monitoring":"jwfGD","./bacnet/organBacnetMonitor":"jxEdq","./bacnet/createSubNetwork":"bHGa3","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"ebWJT":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerContextMenuService = require("spinal-env-viewer-context-menu-service");
@@ -273,17 +277,22 @@ class DiscoverNetworkBtn extends (0, _spinalEnvViewerContextMenuService.SpinalCo
     }
     async isShown(option) {
         const typeSelected = option.selectedNode.type.get();
+        if (typeSelected === (0, _spinalModelBacnet.BACNET_ORGAN_TYPE)) return true;
+        if (typeSelected !== (0, _spinalModelBmsnetwork.SpinalBmsNetwork).nodeTypeName) return -1;
         const id = option.selectedNode.id.get();
         const contextId = option.context.id.get();
-        if (typeSelected === (0, _spinalModelBacnet.BACNET_ORGAN_TYPE)) return true;
-        if (typeSelected === (0, _spinalModelBmsnetwork.SpinalBmsNetwork).nodeTypeName) {
-            const organ = await (0, _utilitiesDefault.default).getOrgan(id, contextId);
-            return organ && organ.type.get() == (0, _spinalModelBacnet.BACNET_ORGAN_TYPE) ? true : -1;
-        }
-        return -1;
+        const node = (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(id);
+        const context = (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(contextId);
+        const organ = await (0, _utilitiesDefault.default).getOrgan(node, context);
+        return organ && organ.getType().get() == (0, _spinalModelBacnet.BACNET_ORGAN_TYPE) ? true : -1;
     }
     action(option) {
-        spinalPanelManagerService.openPanel("discoverNetworkPanel", option);
+        const params = {
+            graph: (0, _spinalEnvViewerGraphService.SpinalGraphService).getGraph(),
+            context: (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(option.context.id.get()),
+            organ: (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(option.selectedNode.id.get())
+        };
+        spinalPanelManagerService.openPanel("discoverNetworkPanel", params);
     }
 }
 const discoverNetworkBtn = new DiscoverNetworkBtn();
@@ -554,17 +563,21 @@ var _spinalEnvViewerPluginDocumentationService = require("spinal-env-viewer-plug
 var _spinalModelBacnet = require("spinal-model-bacnet");
 var _spinalModelGraph = require("spinal-model-graph");
 var _spinalEnvViewerPluginNetworkTreeService = require("spinal-env-viewer-plugin-network-tree-service");
+var _spinalCoreConnectorjs = require("spinal-core-connectorjs");
 const bacnet = require("40db74c829e45c23");
 class Utils {
-    static async getBmsDevices(contextId, id) {
-        const info = (0, _spinalEnvViewerGraphService.SpinalGraphService).getInfo(id);
-        if (info.type.get() === (0, _spinalModelBmsnetwork.SpinalBmsDevice).nodeTypeName) return [
-            info
+    static async getBmsDevices(context, selectedNode) {
+        const type = selectedNode.getType().get();
+        // if it's a device we return it directly
+        if (type === (0, _spinalModelBmsnetwork.SpinalBmsDevice).nodeTypeName) return [
+            selectedNode
         ];
-        if (info.type.get() === (0, _spinalModelBmsnetwork.SpinalBmsNetwork).nodeTypeName) return (0, _spinalEnvViewerGraphService.SpinalGraphService).getChildren(id, [
+        // if it's a network we return its children
+        if (type === (0, _spinalModelBmsnetwork.SpinalBmsNetwork).nodeTypeName) return selectedNode.getChildren([
             (0, _spinalModelBmsnetwork.SpinalBmsDevice).relationName
         ]);
-        return (0, _spinalEnvViewerGraphService.SpinalGraphService).findInContext(id, contextId, (node)=>{
+        // else we try to find the device in the context
+        return selectedNode.findInContext(context, (node)=>{
             if (node.getType().get() === (0, _spinalModelBmsnetwork.SpinalBmsDevice).nodeTypeName) {
                 (0, _spinalEnvViewerGraphService.SpinalGraphService)._addNode(node);
                 return true;
@@ -572,86 +585,52 @@ class Utils {
             return false;
         });
     }
-    static async getNetwork(id, contextId) {
-        const realNode = (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(id);
-        if (!realNode) return;
-        if (realNode.getType().get() === (0, _spinalModelBmsnetwork.SpinalBmsNetwork).nodeTypeName) return realNode;
-        return realNode.getParents([
+    static async getNetwork(node, context) {
+        const nodeType = node.getType().get();
+        // if it's a network we return it directly
+        if (nodeType === (0, _spinalModelBmsnetwork.SpinalBmsNetwork).nodeTypeName) return node;
+        // if it's a device we try to find its parent network in the context
+        return node.getParents([
             (0, _spinalModelBmsnetwork.SpinalBmsDevice).relationName
         ]).then((parents)=>{
-            const found = parents.find((el)=>{
-                if (el && el.contextIds) return el.contextIds[contextId];
+            const networkFound = parents.find((el)=>{
+                if (el && el.contextIds) return el.contextIds[context.getId().get()];
+                return false;
             });
-            if (found) (0, _spinalEnvViewerGraphService.SpinalGraphService)._addNode(found);
-            return found;
+            if (networkFound) (0, _spinalEnvViewerGraphService.SpinalGraphService)._addNode(networkFound);
+            return networkFound;
         });
     }
-    static getOrgan(networkId, contextId) {
-        const realNode = (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(networkId);
-        return realNode.getParents([
+    static getOrgan(network, context) {
+        return network.getParents([
             (0, _spinalModelBmsnetwork.SpinalBmsNetwork).relationName
         ]).then((parents)=>{
-            const found = parents.find((el)=>{
-                if (el && el.contextIds) return el.contextIds[contextId];
-            });
-            if (found) return found.getElement();
+            const contextId = context.getId().get();
+            return parents.find((parent)=>!!(parent && parent.contextIds && parent.contextIds[contextId]));
         });
     }
-    static getModel(deviceId) {
-        const realNode = (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(deviceId);
-        if (!realNode) return Promise.resolve(-1);
+    static getListenerModel(device) {
+        if (!device) return Promise.resolve(-1);
         return new Promise((resolve)=>{
-            if (realNode.info.listener) return realNode.info.listener.load((data)=>resolve(data));
+            if (device.info.listener) return device.info.listener.load((data)=>resolve(data));
             resolve(-1);
         });
     }
-    // static async startMonitoring(
-    //   graph,
-    //   contextId,
-    //   deviceId,
-    //   networkId,
-    //   argModel,
-    //   argMonitor,
-    //   organModel
-    // ) {
-    //   try {
-    //     if (!this.hasProfilLinked(deviceId)) return -1;
-    //     // const context = SpinalGraphService.getRealNode(contextId);
-    //     // const realNode = SpinalGraphService.getRealNode(deviceId);
-    //     const model =
-    //       argModel && argModel !== -1 ? argModel : await this.getModel(deviceId);
-    //     const monitor =
-    //       argMonitor || (await this.getMonitoringInfo(deviceId, contextId));
-    //     // console.log(model, monitor);
-    //     // return this.createOrGetListenerModel(
-    //     //   graph,
-    //     //   contextId,
-    //     //   deviceId,
-    //     //   networkId,
-    //     //   model,
-    //     //   monitor,
-    //     //   organModel
-    //     // );
-    //   } catch (error) {
-    //     console.error(error);
-    //   }
-    // }
     static async stopMonitoring(deviceId, argModel) {
         try {
             if (!this.hasProfilLinked(deviceId)) return -1;
-            // const realNode = SpinalGraphService.getRealNode(deviceId);
             const model = argModel && argModel !== -1 ? argModel : await this.getModel(deviceId);
             if (model != -1) model.listen.set(false);
-        } catch (error) {}
+        } catch (error) {
+            console.error(error);
+        }
     }
     static async getProfilIntervals(profilId) {
         const intervalsNodes = await (0, _spinalEnvViewerPluginNetworkTreeService.DeviceProfileUtilities).getIntervalNodes(profilId);
-        const promises = intervalsNodes.map(async (el)=>{
-            return {
+        const promises = intervalsNodes.map(async (el)=>({
                 monitoring: await this.getSharedAttribute(el),
                 children: await this.getEndpointsObjectIds(el)
-            };
-        });
+            }));
         return Promise.all(promises).then((result)=>{
             return result;
         }).catch((err)=>{
@@ -659,39 +638,9 @@ class Utils {
             return [];
         });
     }
-    // static async getMonitoringInfo(deviceId, contextId) {
-    // const profil = await this.getProfilLinkedToDevice(deviceId);
-    // const intervalsNodes = await DeviceProfileUtilities.getIntervalNodes(
-    //   profil.id
-    // );
-    // const promises = intervalsNodes.map(async (el) => {
-    //   return {
-    //     monitoring: await this.getSharedAttribute(el),
-    //     children: await this.getEndpointsObjectIds(
-    //       el,
-    //       profilContext.getId().get()
-    //     ),
-    //   };
-    // });
-    // return Promise.all(promises).then((result) => {
-    //   const data = result.map(({ monitoring, children }) => {
-    //     return {
-    //       monitoring: monitoring.Monitoring,
-    //       interval: monitoring.IntervalTime,
-    //       children,
-    //     };
-    //   });
-    //   const profilNode = SpinalGraphService.getRealNode(profil.id);
-    //   return new SpinalMonitorInfoModel(profilNode, data);
-    // });
-    // }
     static async getSharedAttribute(intervalNode) {
         const realNode = (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(intervalNode.id.get());
         const attrs = await (0, _spinalEnvViewerPluginDocumentationService.serviceDocumentation).getAttributesByCategory(realNode, "Supervision");
-        // const cat = await serviceDocumentation.getCategoryByName(
-        //   realNode,
-        //   "Supervision"
-        // );
         const obj = {};
         for(let i = 0; i < attrs.length; i++){
             const element = attrs[i];
@@ -739,37 +688,64 @@ class Utils {
         if (realNode.hasRelation("hasBacnetProfile", (0, _spinalModelGraph.SPINAL_RELATION_LST_PTR_TYPE))) return true;
         return false;
     }
-    static getProfilLinkedToDevice(deviceId) {
-        return (0, _spinalEnvViewerGraphService.SpinalGraphService).getChildren(deviceId, [
+    static async getProfilLinkedToDevice(device) {
+        const profiles = await device.getChildren([
             "hasBacnetProfile"
-        ]).then((result)=>{
-            const [profil] = result;
-            if (profil) return profil.get();
-        // return result.map((el) => el.get());
+        ]);
+        if (profiles.length === 0) return;
+        return profiles[0];
+    // return SpinalGraphService.getChildren(device.id.get(), ["hasBacnetProfile"]).then((profils) => {
+    //   const profil = profils[0];
+    //   if (profil) {
+    //     const profilId = profil.id.get();
+    //     return SpinalGraphService.getRealNode(profilId);
+    //   }
+    //   // return result.map((el) => el.get());
+    // });
+    }
+    static async createOrModifyListenerModel(graph, context, network, listenerModel, profile, organNode, deviceNode) {
+        console.log("createOrModifyListenerModel", {
+            listenerModel
         });
+        if (listenerModel && listenerModel != -1) return this._modListenerModel(listenerModel, profile);
+        return this._createListenerModel(graph, context, network, organNode, deviceNode, profile);
     }
-    static async createOrModifyListenerModel(graph, context, network, listenerModel, monitoringInfo, organModel, deviceNode) {
-        if (listenerModel && listenerModel != -1) return this._modListenerModel(listenerModel, monitoringInfo);
-        return this._createListenerModel(graph, context, network, organModel, deviceNode, monitoringInfo);
+    static _modListenerModel(listenerModel, newProfile) {
+        if (!newProfile) return;
+        if (listenerModel.profile) listenerModel.rem_attr("profile");
+        listenerModel.add_attr({
+            profile: new (0, _spinalCoreConnectorjs.Pbr)(newProfile)
+        });
+        return listenerModel;
+    // if (!monitoringInfo) {
+    //   listenerModel.monitored.set(false);
+    //   return -1;
+    // }
+    // if (listenerModel.monitor)
+    //   listenerModel.mod_attr("monitor", monitoringInfo);
+    // else {
+    //   listenerModel.add_attr({
+    //     monitor: monitoringInfo,
+    //   });
+    // }
+    // listenerModel.monitored.set(true);
+    // return listenerModel;
     }
-    static _modListenerModel(listenerModel, monitoringInfo) {
-        if (!monitoringInfo) {
-            listenerModel.listen.set(false);
+    static async _createListenerModel(graph, context, network, organ, deviceNode, profile) {
+        if (!graph || !context || !organ || !network || !deviceNode || !profile) {
+            console.error("Missing parameters to create listener model", {
+                graph,
+                context,
+                organ,
+                network,
+                deviceNode,
+                profile
+            });
             return -1;
         }
-        if (listenerModel.monitor) listenerModel.mod_attr("monitor", monitoringInfo);
-        else listenerModel.add_attr({
-            monitor: monitoringInfo
-        });
-        listenerModel.listen.set(true);
-        return listenerModel;
-    }
-    static async _createListenerModel(graph, context, network, organ, deviceNode, monitoringInfo) {
-        const spinalListener = new (0, _spinalModelBacnet.SpinalListenerModel)(graph, context, network, deviceNode, organ, monitoringInfo);
+        const spinalListener = new (0, _spinalModelBacnet.SpinalListenerModel)(graph, context, organ, network, deviceNode, profile);
+        console.log("spinalListener", spinalListener);
         await spinalListener.addToGraph();
-        // deviceNode.info.add_attr({
-        //   listener: new Ptr(spinalListener),
-        // });
         return spinalListener;
     }
     static waitModelReady(model) {
@@ -799,7 +775,7 @@ class Utils {
 }
 exports.default = Utils;
 
-},{"spinal-model-bmsnetwork":"haihS","spinal-env-viewer-graph-service":"9LAk7","spinal-env-viewer-plugin-documentation-service":"cP9kK","spinal-model-bacnet":"aS2yR","spinal-model-graph":"b87gp","40db74c829e45c23":"dQoCE","spinal-env-viewer-plugin-network-tree-service":"aaFv2","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"6W1hs":[function(require,module,exports,__globalThis) {
+},{"spinal-model-bmsnetwork":"haihS","spinal-env-viewer-graph-service":"9LAk7","spinal-env-viewer-plugin-documentation-service":"cP9kK","spinal-model-bacnet":"aS2yR","spinal-model-graph":"b87gp","40db74c829e45c23":"dQoCE","spinal-env-viewer-plugin-network-tree-service":"aaFv2","spinal-core-connectorjs":"cQPh9","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"6W1hs":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerContextMenuService = require("spinal-env-viewer-context-menu-service");
@@ -1153,6 +1129,18 @@ const SENSOR_TYPES = [
         checked: true,
         value: ObjectTypes.OBJECT_MULTI_STATE_VALUE,
         id: ObjectTypes.OBJECT_MULTI_STATE_VALUE
+    },
+    {
+        name: "BITSTRING VALUE",
+        checked: true,
+        value: ObjectTypes.OBJECT_BITSTRING_VALUE,
+        id: ObjectTypes.OBJECT_BITSTRING_VALUE
+    },
+    {
+        name: "LOOP",
+        checked: true,
+        value: ObjectTypes.OBJECT_LOOP,
+        id: ObjectTypes.OBJECT_LOOP
     }
 ];
 
@@ -1177,17 +1165,17 @@ class LinkProfilToBmsDevice extends (0, _spinalEnvViewerContextMenuService.Spina
         });
     }
     async isShown(option) {
-        const id = option.selectedNode.id.get();
         const type = option.selectedNode.type.get();
-        const contextId = option.context.id.get();
         if (type === (0, _spinalModelBacnet.BACNET_ORGAN_TYPE)) return true;
-        let network = type === (0, _spinalModelBmsnetwork.SpinalBmsNetwork).nodeTypeName ? (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(id) : type === (0, _spinalModelBmsnetwork.SpinalBmsDevice).nodeTypeName && await (0, _utilitiesDefault.default).getNetwork(id, contextId);
-        if (network) {
-            const networkId = network.getId().get();
-            const organ = await (0, _utilitiesDefault.default).getOrgan(networkId, contextId);
-            return organ && organ.type.get() === (0, _spinalModelBacnet.BACNET_ORGAN_TYPE) ? true : -1;
-        }
-        return -1;
+        if (type !== (0, _spinalModelBmsnetwork.SpinalBmsDevice).nodeTypeName && type !== (0, _spinalModelBmsnetwork.SpinalBmsNetwork).nodeTypeName) return -1;
+        const id = option.selectedNode.id.get();
+        const contextId = option.context.id.get();
+        const node = (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(id);
+        const context = (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(contextId);
+        let network = await (0, _utilitiesDefault.default).getNetwork(node, context);
+        if (!network) return -1;
+        const organ = await (0, _utilitiesDefault.default).getOrgan(network, context);
+        return organ && organ.getType().get() === (0, _spinalModelBacnet.BACNET_ORGAN_TYPE) ? true : -1;
     }
     async action(option) {
         const bmsContextId = option.context.id.get();
@@ -1226,17 +1214,17 @@ class UnLinkProfilToBmsDevice extends (0, _spinalEnvViewerContextMenuService.Spi
         });
     }
     async isShown(option) {
-        const id = option.selectedNode.id.get();
         const type = option.selectedNode.type.get();
-        const contextId = option.context.id.get();
         if (type === (0, _spinalModelBacnet.BACNET_ORGAN_TYPE)) return true;
-        let network = type === (0, _spinalModelBmsnetwork.SpinalBmsNetwork).nodeTypeName ? (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(id) : type === (0, _spinalModelBmsnetwork.SpinalBmsDevice).nodeTypeName && await (0, _utilitiesDefault.default).getNetwork(id, contextId);
-        if (network) {
-            const networkId = network.getId().get();
-            const organ = await (0, _utilitiesDefault.default).getOrgan(networkId, contextId);
-            return organ && organ.type.get() === (0, _spinalModelBacnet.BACNET_ORGAN_TYPE) ? true : -1;
-        }
-        return -1;
+        if (type !== (0, _spinalModelBmsnetwork.SpinalBmsDevice).nodeTypeName && type !== (0, _spinalModelBmsnetwork.SpinalBmsNetwork).nodeTypeName) return -1;
+        const id = option.selectedNode.id.get();
+        const contextId = option.context.id.get();
+        const node = (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(id);
+        const context = (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(contextId);
+        let network = await (0, _utilitiesDefault.default).getNetwork(node, context);
+        if (!network) return -1;
+        const organ = await (0, _utilitiesDefault.default).getOrgan(network, context);
+        return organ && organ.getType().get() === (0, _spinalModelBacnet.BACNET_ORGAN_TYPE) ? true : -1;
     }
     async action(option) {
         const bmsContextId = option.context.id.get();
@@ -1269,42 +1257,33 @@ const icon = require("9b80ad328241b0ca");
 class CreateBacnetValue extends (0, _spinalEnvViewerContextMenuService.SpinalContextApp) {
     constructor(){
         super("Get all bacnet values", "This button allows to get all bacnet values", {
-            icon: icon,
-            icon_type: "src",
+            // icon: icon,
+            icon: "all_inbox",
+            icon_type: "in",
             backgroundColor: "#FF0000",
             fontColor: "#FFFFFF"
         });
     }
     async isShown(option) {
-        const id = option.selectedNode.id.get();
         const type = option.selectedNode.type.get();
+        if (type !== (0, _spinalModelBmsnetwork.SpinalBmsDevice).nodeTypeName && type !== (0, _spinalModelBmsnetwork.SpinalBmsNetwork).nodeTypeName) return -1;
+        const nodeId = option.selectedNode.id.get();
         const contextId = option.context.id.get();
-        let network = type === (0, _spinalModelBmsnetwork.SpinalBmsNetwork).nodeTypeName ? (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(id) : type === (0, _spinalModelBmsnetwork.SpinalBmsDevice).nodeTypeName && await (0, _utilitiesDefault.default).getNetwork(id, contextId);
+        const node = (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(nodeId);
+        const context = (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(contextId);
+        let network = await (0, _utilitiesDefault.default).getNetwork(node, context);
         if (network) {
-            const networkId = network.getId().get();
-            const organ = await (0, _utilitiesDefault.default).getOrgan(networkId, contextId);
-            return organ && organ.type.get() === (0, _spinalModelBacnet.BACNET_ORGAN_TYPE) ? true : -1;
+            const organ = await (0, _utilitiesDefault.default).getOrgan(network, context);
+            return organ && organ.getType().get() === (0, _spinalModelBacnet.BACNET_ORGAN_TYPE) ? true : -1;
         }
         return -1;
-    // if(type === SpinalBmsNetwork.nodeTypeName) {
-    //    network = option.selectedNode;
-    // } else if(type === SpinalBmsDevice.nodeTypeName) {
-    //    network = await utilities.getOrgan(id, contextId);
-    // }
-    // if(type === SpinalBmsNetwork.nodeTypeName || type === SpinalBmsDevice.nodeTypeName) {
-    //    const network = await getNetwork(id,type,contextId);
-    //    if(network) {
-    //       const parents = await SpinalGraphService.getParents(id,[SpinalBmsNetwork.relationName]);
-    //       const found = parents.find(el => el.id.get() === BACNET_ORGAN_TYPE);
-    //       return found || -1;
-    //    }
-    // }
-    // return  -1;
     }
     async action(option) {
+        const nodeId = option.selectedNode.id.get();
+        const contextId = option.context.id.get();
         spinalPanelManagerService.openPanel("getBacnetValueDialog", {
-            selectedNode: option.selectedNode.get(),
-            context: option.context.get(),
+            selectedNode: (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(nodeId),
+            context: (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(contextId),
             graph: option.graph
         });
     }
@@ -1360,31 +1339,23 @@ class ManageMonitoring extends (0, _spinalEnvViewerContextMenuService.SpinalCont
         });
     }
     async isShown(option) {
-        const id = option.selectedNode.id.get();
         const type = option.selectedNode.type.get();
+        if (type !== (0, _spinalModelBmsnetwork.SpinalBmsDevice).nodeTypeName && type !== (0, _spinalModelBmsnetwork.SpinalBmsNetwork).nodeTypeName) return -1;
+        const id = option.selectedNode.id.get();
         const contextId = option.context.id.get();
-        let network = type === (0, _spinalModelBmsnetwork.SpinalBmsNetwork).nodeTypeName ? (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(id) : type === (0, _spinalModelBmsnetwork.SpinalBmsDevice).nodeTypeName && await (0, _utilitiesDefault.default).getNetwork(id, contextId);
-        if (network) {
-            const networkId = network.getId().get();
-            const organ = await (0, _utilitiesDefault.default).getOrgan(networkId, contextId);
-            return organ && organ.type.get() == (0, _spinalModelBacnet.BACNET_ORGAN_TYPE) ? true : -1;
-        }
-        return -1;
-    // const type = option.selectedNode.type.get();
-    // if (type === SpinalBmsNetwork.nodeTypeName) {
-    //    return true;
-    // } else if (type === SpinalBmsDevice.nodeTypeName) {
-    //    const realNode = SpinalGraphService.getRealNode(option.selectedNode.id.get())
-    //    const model = await utilities.getModel(realNode);
-    //    if (model && model !== -1 && model.listen && model.listen.get()) return -1;
-    //    return true;
-    // }
-    // return -1;
+        const node = (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(id);
+        const context = (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(contextId);
+        let network = await (0, _utilitiesDefault.default).getNetwork(node, context);
+        if (!network) return -1;
+        const organ = await (0, _utilitiesDefault.default).getOrgan(network, context);
+        return organ && organ.getType().get() == (0, _spinalModelBacnet.BACNET_ORGAN_TYPE) ? true : -1;
     }
     async action(option) {
+        const nodeId = option.selectedNode.id.get();
+        const contextId = option.context.id.get();
         spinalPanelManagerService.openPanel("manageDevicesPanel", {
-            selectedNode: option.selectedNode.get(),
-            context: option.context.get(),
+            selectedNode: (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(nodeId),
+            context: (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(contextId),
             graph: option.graph
         });
     }
@@ -1428,7 +1399,42 @@ const monitorConnectorBtn = new MonitorConnectorBtn();
 ]);
 exports.default = monitorConnectorBtn;
 
-},{"spinal-env-viewer-context-menu-service":"3h19D","cfd9eb86170d935a":"egTXY","spinal-model-bacnet":"aS2yR","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"Uvsmz":[function(require,module,exports,__globalThis) {
+},{"spinal-env-viewer-context-menu-service":"3h19D","cfd9eb86170d935a":"egTXY","spinal-model-bacnet":"aS2yR","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"bHGa3":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _spinalEnvViewerContextMenuService = require("spinal-env-viewer-context-menu-service");
+var _spinalEnvViewerGraphService = require("spinal-env-viewer-graph-service");
+var _spinalModelBacnet = require("spinal-model-bacnet");
+var _spinalModelBmsnetwork = require("spinal-model-bmsnetwork");
+var _utilities = require("../../js/utilities");
+var _utilitiesDefault = parcelHelpers.interopDefault(_utilities);
+const { spinalPanelManagerService } = require("92fb1aee902993f8");
+const SIDEBAR = "GraphManagerSideBar";
+class CreateSubNetworkBtn extends (0, _spinalEnvViewerContextMenuService.SpinalContextApp) {
+    constructor(){
+        super("Create BMS subnetwork", "This button allows to create new sub network", {
+            icon: "add",
+            icon_type: "in",
+            backgroundColor: "#FF0000",
+            fontColor: "#FFFFFF"
+        });
+    }
+    async isShown(option) {
+        const typeSelected = option.selectedNode.type.get();
+        const result = typeSelected === (0, _spinalModelBacnet.BACNET_ORGAN_TYPE) ? true : -1;
+        return Promise.resolve(result);
+    }
+    action(option) {
+        spinalPanelManagerService.openPanel("createSubNetworkDialog", option);
+    }
+}
+const createSubNetworkBtn = new CreateSubNetworkBtn();
+(0, _spinalEnvViewerContextMenuService.spinalContextMenuService).registerApp(SIDEBAR, createSubNetworkBtn, [
+    3
+]);
+exports.default = createSubNetworkBtn;
+
+},{"spinal-env-viewer-context-menu-service":"3h19D","spinal-env-viewer-graph-service":"9LAk7","92fb1aee902993f8":"egTXY","spinal-model-bacnet":"aS2yR","spinal-model-bmsnetwork":"haihS","../../js/utilities":"3CjaB","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"Uvsmz":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _vue = require("vue");
 var _vueDefault = parcelHelpers.interopDefault(_vue);
@@ -1758,10 +1764,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("e2263ce344eab292").render;
     script.staticRenderFns = require("e2263ce344eab292").staticRenderFns;
-    script._scopeId = "data-v-44d203";
+    script._scopeId = "data-v-a71540";
     script.__cssModules = require("372f8adcd6d836c0").default;
     require("f23cc47c9b65abad").default(script);
-    script.__scopeId = 'data-v-44d203';
+    script.__scopeId = 'data-v-a71540';
     script.__file = "discoverNetworkPanel.vue";
 };
 initialize();
@@ -1771,12 +1777,11 @@ exports.default = script;
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalModelBacnet = require("spinal-model-bacnet");
-var _spinalEnvViewerGraphService = require("spinal-env-viewer-graph-service");
 var _constants = require("../../js/constants");
 var _discoverTableVue = require("../components/discoverTable.vue");
 var _discoverTableVueDefault = parcelHelpers.interopDefault(_discoverTableVue);
+var _spinalConnectorService = require("spinal-connector-service");
 // import { STATES } from "../../js/stateEnum";
-// import { SpinalDisoverModel } from "../../model/SpinalDiscoverModel";
 var _broadcastTemplateVue = require("../components/broadcastTemplate.vue");
 var _broadcastTemplateVueDefault = parcelHelpers.interopDefault(_broadcastTemplateVue);
 var _unicastTemplateVue = require("../components/unicastTemplate.vue");
@@ -1789,20 +1794,20 @@ var scriptExports = {
         "unicast-template": (0, _unicastTemplateVueDefault.default)
     },
     data () {
-        this.STATES = (0, _spinalModelBacnet.STATES);
+        this.STATES = (0, _spinalConnectorService.STATES);
         this.spinalDiscover;
         this.context;
         this.graph;
         this.organ;
         this.devicesBindProcess;
         return {
-            state: (0, _spinalModelBacnet.STATES).reseted,
+            state: (0, _spinalConnectorService.STATES).initial,
             devices: [],
             selected: [],
             network: {
                 useBroadcast: true,
                 address: "255.255.255.255",
-                port: 47808,
+                port: "47808",
                 name: "",
                 type: (0, _constants.NETWORK_TYPE),
                 ips: [
@@ -1816,69 +1821,44 @@ var scriptExports = {
         };
     },
     methods: {
-        async opened (params) {
-            this.graph = params.graph;
-            this.context = params.context.get();
-            this.organ = await this.getOrganModel(params.selectedNode.id.get());
-            if (typeof this.spinalDiscover !== "undefined") {
-                this.spinalDiscover = undefined;
-                this.state = (0, _spinalModelBacnet.STATES).reseted;
-            }
+        async opened ({ graph, context, organ }) {
+            this.graph = graph;
+            this.context = context;
+            this.organ = organ;
+            if (typeof this.spinalDiscover !== "undefined") this.reInitDevice();
         },
         closed () {},
+        reInitDevice () {
+            this.spinalDiscover = undefined;
+            this.state = (0, _spinalConnectorService.STATES).initial;
+        },
+        // Discover the network and get the devices found
         async discover () {
-            if (typeof this.spinalDiscover === "undefined") {
-                this.spinalDiscover = new (0, _spinalModelBacnet.SpinalDisoverModel)(this.graph, this.context, this.network, this.organ);
-                // console.log(this.spinalDiscover);
+            if (!this.spinalDiscover) {
+                this.spinalDiscover = new (0, _spinalModelBacnet.SpinalDiscoverModel)(this.graph, this.context, this.organ, this.network);
                 await this.spinalDiscover.addToGraph();
+                this._bindDevice();
             }
-            this.spinalDiscover.setDiscoveringMode();
-            this.getDevicesFound();
+            this.spinalDiscover.setDiscoveringState();
         },
-        createNodes () {
+        async createNodes () {
             console.log("creating...");
-            this.spinalDiscover.devices.set(this.selected);
-            // this.spinalDiscover.state.set(STATES.creating);
-            this.spinalDiscover.setCreatingMode();
+            await this.spinalDiscover.setTreeToCreate(this.selected);
+            this.spinalDiscover.setCreatingState();
         },
-        getDevicesFound () {
-            this.devicesBindProcess = this.spinalDiscover.state.bind(()=>{
+        _bindDevice () {
+            this.devicesBindProcess = this.spinalDiscover.state.bind(async ()=>{
                 console.log(this.spinalDiscover.state.get());
                 this.state = this.spinalDiscover.state.get();
-                if (this.state === (0, _spinalModelBacnet.STATES).discovered) this.devices = this.spinalDiscover.devices.get();
-                else if (this.state === (0, _spinalModelBacnet.STATES).created) this.spinalDiscover = undefined;
-            // switch (this.spinalDiscover.state.get()) {
-            //    case STATES.discovered:
-            //       this.state = STATES.discovered;
-            //       this.devices = this.spinalDiscover.devices.get();
-            //       break;
-            //    case STATES.timeout:
-            //       this.state = STATES.timeout;
-            //       break;
-            //    case STATES.discovering:
-            //       this.state = STATES.discovering;
-            //       break;
-            //    case STATES.creating:
-            //       this.state = STATES.creating;
-            //       break;
-            //    case STATES.created:
-            //       this.state = STATES.created;
-            //       break;
-            //    case STATES.error:
-            //       this.state = STATES.error;
-            //    case STATES.reseted:
-            //       this.state = STATES.reseted;
-            //       break;
-            //    default:
-            //       break;
-            // }
-            // // this.devices = this.graph.info.discover.devices.get();
+                if (this.state === (0, _spinalConnectorService.STATES).discovered) // getDevices found in server
+                this.devices = await this.spinalDiscover.getTreeDiscovered();
+                else if (this.state === (0, _spinalConnectorService.STATES).created) // reset all data
+                this.spinalDiscover = undefined;
             });
         },
-        getOrganModel (nodeId) {
-            const realNode = (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(nodeId);
-            return realNode.getElement();
-        },
+        // getOrganModel(nodeId) {
+        //   return realNode.getElement();
+        // },
         ModContextAttr (context) {
             if (context.name) context.name.set(this.context.name);
             else context.add_attr({
@@ -1902,14 +1882,14 @@ var scriptExports = {
         selectDevice (devices) {
             this.selected = devices;
         },
-        stopDiscovering () {
-            if (this.spinalDiscover) {
-                this.spinalDiscover.setResetedMode();
-                this.spinalDiscover.remove().then(()=>{
-                    this.spinalDiscover = undefined;
-                    this.state = (0, _spinalModelBacnet.STATES).reseted;
-                });
-            } else this.state = (0, _spinalModelBacnet.STATES).reseted;
+        async stopDiscovering () {
+            if (!this.spinalDiscover) {
+                this.state = (0, _spinalConnectorService.STATES).initial;
+                return;
+            }
+            this.spinalDiscover.changeState((0, _spinalConnectorService.STATES).cancelled);
+            await this.spinalDiscover.removeFromGraph();
+            this.reInitDevice();
         }
     },
     watch: {
@@ -1927,13 +1907,13 @@ var scriptExports = {
         }
     },
     beforeDestroy () {
-        this.spinalDiscover.remove(this.graph);
+        if (this.spinalDiscover) this.spinalDiscover.removeFromGraph();
     }
 };
 var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"spinal-model-bacnet":"aS2yR","spinal-env-viewer-graph-service":"9LAk7","../../js/constants":"4PgYf","../components/discoverTable.vue":"aEbTU","../components/broadcastTemplate.vue":"5xSe7","../components/unicastTemplate.vue":"cVwQ2","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"aEbTU":[function(require,module,exports,__globalThis) {
+},{"spinal-model-bacnet":"aS2yR","../../js/constants":"4PgYf","../components/discoverTable.vue":"aEbTU","spinal-connector-service":"42AUb","../components/broadcastTemplate.vue":"5xSe7","../components/unicastTemplate.vue":"cVwQ2","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"aEbTU":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -1942,10 +1922,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("a75c31bffdc133ff").render;
     script.staticRenderFns = require("a75c31bffdc133ff").staticRenderFns;
-    script._scopeId = "data-v-eec57d";
+    script._scopeId = "data-v-200797";
     script.__cssModules = require("811dadbef7f09b1f").default;
     require("3ee63649eb8d7e2a").default(script);
-    script.__scopeId = 'data-v-eec57d';
+    script.__scopeId = 'data-v-200797';
     script.__file = "discoverTable.vue";
 };
 initialize();
@@ -1966,19 +1946,19 @@ var scriptExports = {
     data () {
         this.STATES = (0, _stateEnum.STATES);
         return {
-            label: "Discover network to find devices",
-            show: (0, _stateEnum.STATES).reseted
+            label: (0, _stateEnum.DISCOVER_MESSAGES)[(0, _stateEnum.STATES).initial],
+            show: (0, _stateEnum.STATES).initial
         };
     },
     methods: {
         disabledBtn () {
+            // if the name is empty
             if (this.network.name.trim().length === 0) return true;
-            if (this.network.useBroadcast) {
-                if (this.network.address.length === 0) return true;
-                if (this.network.port.length === 0) return true;
-            } else {
-                if (this.network.ips.length === 0) return true;
-            }
+            // if the broadcast is used and the address or the port is empty
+            if (this.network.useBroadcast && this.network.address.trim().length === 0 || this.network.port.trim().length === 0) return true;
+            // if the broadcast is not used and the ips list is empty
+            if (this.network.ips.length === 0) return true;
+            // else
             return false;
         },
         onSelect (items) {
@@ -1996,16 +1976,16 @@ var scriptExports = {
             this.show = this.state;
             switch(this.state){
                 case (0, _stateEnum.STATES).reseted:
-                    this.label = "Discover network to find devices";
+                    this.label = (0, _stateEnum.DISCOVER_MESSAGES)[(0, _stateEnum.STATES).reseted];
                     break;
                 case (0, _stateEnum.STATES).discovering:
-                    this.label = "Discovering";
+                    this.label = (0, _stateEnum.DISCOVER_MESSAGES)[(0, _stateEnum.STATES).discovering];
                     break;
                 case (0, _stateEnum.STATES).timeout:
-                    this.label = "Timeout, no device found !";
+                    this.label = (0, _stateEnum.DISCOVER_MESSAGES)[(0, _stateEnum.STATES).timeout];
                     break;
                 case (0, _stateEnum.STATES).error:
-                    this.label = "oups !";
+                    this.label = (0, _stateEnum.DISCOVER_MESSAGES)[(0, _stateEnum.STATES).error];
                     break;
                 default:
                     break;
@@ -2021,13 +2001,34 @@ exports.default = options; // parcel transformer vue2 compiler hack
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "STATES", ()=>STATES);
+parcelHelpers.export(exports, "DISCOVER_MESSAGES", ()=>DISCOVER_MESSAGES);
 const STATES = Object.freeze({
-    reseted: 0,
-    discovering: 1,
-    discovered: 2,
-    timeout: 3,
-    creating: 4,
-    created: 5
+    initial: "initial",
+    readyToDiscover: "readyToDiscover",
+    discovering: "discovering",
+    discovered: "discovered",
+    readyToCreate: "readyToCreate",
+    creating: "creating",
+    created: "created",
+    error: "error",
+    timeout: "timeout",
+    cancelled: "cancelled",
+    pending: "pending",
+    stopped: "stopped"
+});
+const DISCOVER_MESSAGES = Object.freeze({
+    [STATES.initial]: "Discover network to find devices",
+    [STATES.readyToDiscover]: "Discover network to find devices",
+    [STATES.discovering]: "Discovering devices on the network...",
+    [STATES.discovered]: "Devices discovered successfully.",
+    [STATES.readyToCreate]: "Ready to create devices in SpinalHub.",
+    [STATES.creating]: "Creating devices in SpinalHub...",
+    [STATES.created]: "Devices created successfully in SpinalHub.",
+    [STATES.error]: "An error occurred during the discovery process.",
+    [STATES.timeout]: "Discovery timed out. Please try again.",
+    [STATES.cancelled]: "Discovery cancelled.",
+    [STATES.pending]: "Discovery pending...",
+    [STATES.stopped]: "Discovery stopped."
 });
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"3fDCA":[function(require,module,exports,__globalThis) {
@@ -2110,7 +2111,7 @@ var render = function() {
         _c('div', {
             staticClass: "buttons"
         }, [
-            _vm.show === _vm.STATES.reseted ? _c('md-button', {
+            _vm.show === _vm.STATES.initial ? _c('md-button', {
                 staticClass: "md-primary md-raised",
                 attrs: {
                     "disabled": _vm.disabledBtn()
@@ -2126,7 +2127,7 @@ var render = function() {
                     "click": _vm.discover
                 }
             }, [
-                _vm._v("Retry")
+                _vm._v("Retry ")
             ]) : _vm.show === _vm.STATES.discovering ? _c('div', {
                 staticClass: "loading"
             }, [
@@ -2171,10 +2172,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("413bfea7c12fbf64").render;
     script.staticRenderFns = require("413bfea7c12fbf64").staticRenderFns;
-    script._scopeId = "data-v-3557ad";
+    script._scopeId = "data-v-33e255";
     script.__cssModules = require("db6a92b4d2fd51fe").default;
     require("72a7abf8a785774c").default(script);
-    script.__scopeId = 'data-v-3557ad';
+    script.__scopeId = 'data-v-33e255';
     script.__file = "broadcastTemplate.vue";
 };
 initialize();
@@ -2295,10 +2296,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("48aaebf7f305c6cc").render;
     script.staticRenderFns = require("48aaebf7f305c6cc").staticRenderFns;
-    script._scopeId = "data-v-89ad7a";
+    script._scopeId = "data-v-51f223";
     script.__cssModules = require("d49f9fd48ec05e0a").default;
     require("49f8ff11f7301386").default(script);
-    script.__scopeId = 'data-v-89ad7a';
+    script.__scopeId = 'data-v-51f223';
     script.__file = "unicastTemplate.vue";
 };
 initialize();
@@ -2420,10 +2421,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("38362424ce08389d").render;
     script.staticRenderFns = require("38362424ce08389d").staticRenderFns;
-    script._scopeId = "data-v-5df309";
+    script._scopeId = "data-v-36c975";
     script.__cssModules = require("735bf0f4d25649bc").default;
     require("459d2290f0fd3879").default(script);
-    script.__scopeId = 'data-v-5df309';
+    script.__scopeId = 'data-v-36c975';
     script.__file = "inputData.vue";
 };
 initialize();
@@ -2761,7 +2762,17 @@ var render = function() {
                             staticClass: "md-size-5x"
                         }, [
                             _vm._v("check")
-                        ]) : _c('md-button', {
+                        ]) : _vm.state === _vm.STATES.error ? _c('div', [
+                            _vm._v("\n            Something went wrong during the creation of the network, please\n            "),
+                            _c('md-button', {
+                                staticClass: "md-dense md-primary",
+                                on: {
+                                    "click": _vm.createNodes
+                                }
+                            }, [
+                                _vm._v("\n              try again\n            ")
+                            ])
+                        ], 1) : _c('md-button', {
                             attrs: {
                                 "disabled": _vm.selected.length === 0
                             },
@@ -2769,7 +2780,7 @@ var render = function() {
                                 "click": _vm.createNodes
                             }
                         }, [
-                            _vm._v("Create Network")
+                            _vm._v("\n            Create Network\n          ")
                         ])
                     ], 1)
                 ])
@@ -2796,10 +2807,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("bcae731aec7df64").render;
     script.staticRenderFns = require("bcae731aec7df64").staticRenderFns;
-    script._scopeId = "data-v-a1440b";
+    script._scopeId = "data-v-93b9f6";
     script.__cssModules = require("955b23c6bb66b669").default;
     require("d22ce6fd9ba531").default(script);
-    script.__scopeId = 'data-v-a1440b';
+    script.__scopeId = 'data-v-93b9f6';
     script.__file = "manageDevicesPanel.vue";
 };
 initialize();
@@ -2844,21 +2855,17 @@ var scriptExports = {
     methods: {
         async opened ({ context, graph, selectedNode }) {
             this.pageSelected = this.PAGES.loading;
-            this.setPanelTitle(selectedNode.name);
+            this.setPanelTitle(selectedNode.getName().get()); // change panel title
             (0, _monitorState.monitorState).clear();
             try {
-                const [nodeId, contextId] = [
-                    selectedNode.id,
-                    context.id
-                ];
                 this.context = context;
                 this.graph = graph;
                 this.selectedNode = selectedNode;
-                await (0, _monitorState.monitorState).init(graph, contextId, nodeId);
-                const { devices, profilIds } = await this.getBmsDevices(contextId, nodeId);
-                this.devices = devices;
-                await this.saveProfilIds(profilIds);
-                console.log((0, _monitorState.monitorState));
+                this.network = await (0, _utilitiesDefault.default).getNetwork(this.selectedNode, this.context);
+                this.organ = await (0, _utilitiesDefault.default).getOrgan(this.network, this.context);
+                this.devices = await this.getBmsDevices(context, selectedNode);
+                // await this.saveProfilIds(profilIds);
+                // console.log(monitorState);
                 this.pageSelected = this.PAGES.selection;
             } catch (error) {
                 console.error(error);
@@ -2866,127 +2873,77 @@ var scriptExports = {
             }
         },
         closed () {},
-        async getBmsDevices (contextId, id) {
-            return (0, _utilitiesDefault.default).getBmsDevices(contextId, id).then((devices)=>{
-                const profilIds = new Set([]);
-                const promises = devices.map(async (el)=>{
-                    const res = el.get();
-                    const profile = await (0, _utilitiesDefault.default).getProfilLinkedToDevice(res.id);
-                    if (profile) {
-                        const { id } = profile;
-                        res.profilId = id;
-                        profilIds.add(id);
-                    }
-                    return res;
-                });
-                return Promise.all(promises).then((devices)=>{
-                    return {
-                        devices,
-                        profilIds: Array.from(profilIds)
-                    };
-                }).catch((err)=>{});
+        async getBmsDevices (context, selectedNode) {
+            const devices = await (0, _utilitiesDefault.default).getBmsDevices(context, selectedNode);
+            const promises = devices.map(async (device)=>{
+                const profile = await (0, _utilitiesDefault.default).getProfilLinkedToDevice(device);
+                return {
+                    device,
+                    profile
+                };
             });
+            return Promise.all(promises);
         },
-        saveProfilIds (profilIds) {
-            const promises = profilIds.map((id)=>(0, _monitorState.monitorState).addProfile(id));
-            return Promise.resolve(promises);
+        // saveProfilIds(profilIds) {
+        //   const promises = profilIds.map((id) => monitorState.addProfile(id));
+        //   return Promise.resolve(promises);
+        // },
+        getReferences () {
+            return this.devices.reduce((acc, { device })=>{
+                const deviceId = device.getId().get();
+                const reference = this.$refs[deviceId] ? this.$refs[deviceId][0] : null;
+                if (reference) acc.push(reference);
+                return acc;
+            }, []);
         },
-        //////////////////////////////////////////    ////              CLIKS                       //////////////////////////////////////////
         async startAllMonitoring () {
-            // const length = this.devices.length;
-            // this.devices.forEach((device) => {
-            //   const deviceId = device.id;
-            //   const [ref] = this.$refs[deviceId];
-            //   if (ref) {
-            //     ref.startMonitoring();
-            //   }
-            // });
-            const references = this.devices.map((el)=>this.$refs[el.id] ? this.$refs[el.id][0] : undefined).filter((el)=>!!el).map((ref)=>{
-                return async ()=>{
+            const references = this.getReferences();
+            const promisesFunc = [];
+            // we create an array of functions to execute them in batch to avoid freezing the UI
+            for (const ref of references){
+                const func = async ()=>{
                     const model = await ref.startMonitoring();
                     await (0, _utilitiesDefault.default).waitModelReady(model);
                 };
-            });
-            await (0, _utilitiesDefault.default).consumeBatch(references, 30);
-        // while (references.length > 0) {
-        //   const model = await ref.startMonitoring();
-        //   await utilities.waitModelReady(model);
-        //   // await this.execFunction(refs, (ref) => ref.startMonitoring());
-        //   // delay(2000);
-        // }
+                promisesFunc.push(func);
+            }
+            // execute them in batch to avoid freezing the UI
+            await (0, _utilitiesDefault.default).consumeBatch(promisesFunc, 30);
         },
         async restartAllMonitoring () {
-            const references = this.devices.map((el)=>this.$refs[el.id] ? this.$refs[el.id][0] : undefined).filter((el)=>!!el).map((ref)=>{
-                return async ()=>{
+            const references = this.getReferences();
+            const promisesFunc = [];
+            for (const ref of references){
+                const func = async ()=>{
                     const model = await ref.restartMonitoring();
                     await (0, _utilitiesDefault.default).waitModelReady(model);
                 };
-            });
-            await (0, _utilitiesDefault.default).consumeBatch(references, 30);
-        // const length = this.devices.length;
-        // this.devices.forEach((device) => {
-        //   const deviceId = device.id;
-        //   const [ref] = this.$refs[deviceId];
-        //   if (ref) {
-        //     ref.restartMonitoring();
-        //   }
-        // });
-        // const references = this.devices
-        //   .map((el) => (this.$refs[el.id] ? this.$refs[el.id][0] : undefined))
-        //   .filter((el) => !!el);
-        // while (references.length > 0) {
-        //   const refs = references.splice(0, 10);
-        //   await this.execFunction(refs, (ref) => ref.restartMonitoring());
-        //   // delay(2000);
-        // }
-        // for (const device of this.devices) {
-        //   const deviceId = device.id;
-        //   const [ref] = this.$refs[deviceId];
-        //   if (ref) {
-        //     await ref.restartMonitoring();
-        //   }
-        // }
+                promisesFunc.push(func);
+            }
+            await (0, _utilitiesDefault.default).consumeBatch(promisesFunc, 30);
         },
         async stopAllMonitoring () {
-            // this.devices.forEach((device) => {
-            //   const deviceId = device.id;
-            //   const [ref] = this.$refs[deviceId];
-            //   if (ref) {
-            //     ref.stopMonitoring();
-            //   }
-            // });
-            const references = this.devices.map((el)=>this.$refs[el.id] ? this.$refs[el.id][0] : undefined).filter((el)=>!!el);
-            while(references.length > 0){
-                const refs = references.splice(0, 10);
-                await this.execFunction(refs, (ref)=>ref.stopMonitoring());
+            const references = this.getReferences();
+            const promisesFunc = [];
+            for (const ref of references){
+                const func = async ()=>{
+                    const model = await ref.stopMonitoring();
+                    await (0, _utilitiesDefault.default).waitModelReady(model);
+                };
+                promisesFunc.push(func);
             }
-        // for (const device of this.devices) {
-        //   const deviceId = device.id;
-        //   const [ref] = this.$refs[deviceId];
-        //   if (ref) {
-        //     await ref.stopMonitoring();
-        //   }
-        // }
+            await (0, _utilitiesDefault.default).consumeBatch(promisesFunc, 30);
         },
         changeTimeSeries (value) {
-            this.devices.forEach((device)=>{
-                const deviceId = device.id;
+            for (const { device } of this.devices){
+                const deviceId = device.getId().get();
                 const [ref] = this.$refs[deviceId];
                 if (ref) ref.updateTimeSeries(value);
-            });
-        // const length = this.devices.length;
-        // let index = 0;
-        // while (index <= length - 1) {
-        //    const deviceId = this.devices[index].id;
-        //    const [ref] = this.$refs[deviceId];
-        //    if (ref) {
-        //       ref.updateTimeSeries(value);
-        //    }
-        //    index++;
-        // }
+            }
         },
         setPanelTitle (title) {
-            spinalPanelManagerService.panels.manageDevicesPanel.panel.setTitle(`Manage devices monitoring : ${title}`);
+            const titlePrefix = "Manage devices monitoring";
+            spinalPanelManagerService.panels.manageDevicesPanel.panel.setTitle(`${titlePrefix} : ${title}`);
         },
         execFunction (array, callback) {
             const promises = array.map((el)=>callback(el));
@@ -3006,10 +2963,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("bbbc21ee7c85d8cb").render;
     script.staticRenderFns = require("bbbc21ee7c85d8cb").staticRenderFns;
-    script._scopeId = "data-v-b5b757";
+    script._scopeId = "data-v-56a517";
     script.__cssModules = require("6c32ba0c29ff1e91").default;
     require("76225a832cfcf91a").default(script);
-    script.__scopeId = 'data-v-b5b757';
+    script.__scopeId = 'data-v-56a517';
     script.__file = "devicemonitor.vue";
 };
 initialize();
@@ -3027,93 +2984,88 @@ var scriptExports = {
         device: {
             required: true
         },
-        // context: { required: true },
-        // graph: { required: true },
-        profilId: {
-            type: String,
-            required: false
+        context: {
+            required: true
+        },
+        graph: {
+            required: true
+        },
+        profile: {
+            required: true
+        },
+        network: {
+            required: true
+        },
+        organ: {
+            required: true
         }
     },
     data () {
         return {
             saveTimeSeries: false,
-            model: undefined
+            listenerModel: undefined
         };
     },
     async created () {
-        this.model = await (0, _utilitiesDefault.default).getModel(this.device.id);
-        if (this.model && this.model.saveTimeSeries) this.saveTimeSeries = this.model.saveTimeSeries.get();
+        this.listenerModel = await (0, _utilitiesDefault.default).getListenerModel(this.device);
+        if (this.listenerModel && this.listenerModel.saveTimeSeries) this.saveTimeSeries = this.listenerModel.saveTimeSeries.get();
     },
     methods: {
         async startMonitoring () {
-            this.model = await (0, _monitorState.monitorState).startMonitoring(this.device.id, this.profilId, this.model);
-            return this.model;
-        // const deviceId = this.device.id;
-        // const contextId = this.context.id;
-        // await utilities.startMonitoring(this.graph, contextId, deviceId);
-        // if (!this.model || this.model === -1) {
-        //   const realNode = SpinalGraphService.getRealNode(this.device.id);
-        //   this.model = await utilities.getModel(realNode);
-        // }
+            const model = await (0, _utilitiesDefault.default).createOrModifyListenerModel(this.graph, this.context, this.network, this.listenerModel, this.profile, this.organ, this.device);
+            this.listenerModel = model;
+            this.listenerModel.monitored.set(true);
+            return this.listenerModel;
         },
         stopMonitoring () {
-            return (0, _monitorState.monitorState).stopMonitoring(this.device.id, this.profilId, this.model);
-        // if (this.model != -1 && this.model.listen) {
-        //    this.model.listen.set(false);
-        // }
-        // return utilities.stopMonitoring(this.device.id);
+            if (this.listenerModel && this.listenerModel.monitored) this.listenerModel.monitored.set(false);
+            return this.listenerModel;
         },
         async restartMonitoring () {
+            // stop the listener
             await this.stopMonitoring();
-            return new Promise((resolve)=>{
-                setTimeout(async ()=>{
-                    this.model = await this.startMonitoring();
-                    resolve(this.model);
-                }, 1500);
-            });
-        // if (!utilities.hasProfilLinked(this.device.id)) return -1;
-        // await utilities.stopMonitoring(this.device.id);
-        // return new Promise((resolve, reject) => {
-        //   setTimeout(async () => {
-        //     await this.startMonitoring();
-        //     resolve(true);
-        //   }, 1500);
-        // });
+            // wait for the listener to stop and clean the model
+            await this.wait(1500);
+            // start the listener
+            this.listenerModel = await this.startMonitoring();
+            return this.listenerModel;
         },
         updateTimeSeries (value) {
             this.saveTimeSeries = value;
         },
-        //////////////////////////////////////////    ////              DISABLED                    //////////////////////////////////////////
+        wait (ms) {
+            return new Promise((resolve)=>setTimeout(resolve, ms));
+        },
         disabledRestart () {
-            const model = this.model;
-            return !this.profilId || !(model && model !== -1 && model.listen && model.listen.get());
+            if (!this.listenerModel || this.listenerModel == -1 || !this.profile) return true;
+            if (!this.listenerModel.monitored || !this.listenerModel.monitored.get()) return true;
+            return false;
         },
         disabledStart () {
-            if (!this.hasProfil) return true;
-            const model = this.model;
-            return model && model !== -1 && model.listen && model.listen.get();
+            if (!this.profile) return true;
+            return this.listenerModel && this.listenerModel !== -1 && this.listenerModel.monitored && this.listenerModel.monitored.get();
         },
         disabledStop () {
-            const model = this.model;
-            return !this.hasProfil || !(model && model !== -1 && model.listen && model.listen.get());
+            if (!this.listenerModel || this.listenerModel == -1 || !this.profile) return true;
+            if (!this.listenerModel.monitored || !this.listenerModel.monitored.get()) return true;
+            return false;
         }
     },
     computed: {
         state () {
-            return this.model && this.model.listen && this.model.listen.get() ? "Running" : "Stopped";
-        },
-        hasProfil () {
-            return this.profilId;
+            return this.listenerModel && this.listenerModel.monitored && this.listenerModel.monitored.get() ? "Running" : "Stopped";
         }
     },
     watch: {
         saveTimeSeries () {
-            if (this.model && this.model !== -1) {
-                if (this.model.saveTimeSeries) this.model.saveTimeSeries.set(this.saveTimeSeries);
-                else this.model.add_attr({
-                    saveTimeSeries: this.saveTimeSeries
-                });
+            if (!this.listenerModel || this.listenerModel === -1) return;
+            if (this.listenerModel.saveTimeSeries) {
+                this.listenerModel.saveTimeSeries.set(this.saveTimeSeries);
+                return;
             }
+            this.listenerModel.add_attr({
+                saveTimeSeries: this.saveTimeSeries
+            });
         }
     }
 };
@@ -3137,25 +3089,24 @@ class MonitorSate {
         this.graph;
         this.context;
     }
-    async init(graph, contextId, nodeId) {
+    async init(graph, context, node) {
         this.graph = graph;
-        this.context = (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(contextId);
-        this.network = await (0, _utilitiesDefault.default).getNetwork(nodeId, contextId);
-        const networkId = this.network.getId().get();
-        this.organ = await (0, _utilitiesDefault.default).getOrgan(networkId, contextId);
+        this.context = context;
+        this.network = await (0, _utilitiesDefault.default).getNetwork(node, context);
+        this.organ = await (0, _utilitiesDefault.default).getOrgan(this.network, context);
     }
-    async startMonitoring(deviceId, profilId, argModel) {
+    async startMonitoring(deviceId, profilId, listenerModel) {
         if (!profilId) return -1;
-        const infoMonit = this.profils.get(profilId);
-        if (!infoMonit) return -1;
-        const model = await this.getModel(deviceId, argModel);
+        // const infoMonit = this.profils.get(profilId);
+        // if (!infoMonit) return -1;
+        const model = await this.getListenerModel(deviceId, listenerModel);
         const deviceNode = (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(deviceId);
         return (0, _utilitiesDefault.default).createOrModifyListenerModel(this.graph, this.context, this.network, model, infoMonit, this.organ, deviceNode);
     }
     async stopMonitoring(deviceId, profilId, argModel) {
         try {
             if (!profilId) return -1;
-            const model = await this.getModel(deviceId, argModel);
+            const model = await this.getListenerModel(deviceId, argModel);
             if (model != -1 && model.listen) model.listen.set(false);
         } catch (error) {}
     }
@@ -3187,8 +3138,8 @@ class MonitorSate {
             return;
         });
     }
-    async getModel(deviceId, argModel) {
-        return argModel && argModel !== -1 ? argModel : await (0, _utilitiesDefault.default).getModel(deviceId);
+    async getListenerModel(deviceId, listenerModel) {
+        return listenerModel && listenerModel !== -1 ? listenerModel : await (0, _utilitiesDefault.default).getModel(deviceId);
     }
     clear() {
         this.network = null;
@@ -3217,7 +3168,7 @@ var render = function() {
             ],
             staticClass: "name"
         }, [
-            _vm._v("\n    " + _vm._s(_vm.device.name) + "\n  ")
+            _vm._v("\n    " + _vm._s(_vm.device.getName().get()) + "\n  ")
         ]),
         _vm._v(" "),
         _c('div', {
@@ -3433,16 +3384,18 @@ var render = function() {
             _vm._v(" "),
             _c('div', {
                 staticClass: "devices_list"
-            }, _vm._l(_vm.devices, function(device) {
+            }, _vm._l(_vm.devices, function(item) {
                 return _c('device-monitoring', {
-                    key: device.id,
-                    ref: device.id,
+                    key: item.device.getId().get(),
+                    ref: item.device.getId().get(),
                     refInFor: true,
                     attrs: {
-                        "device": device,
-                        "profilId": device.profilId,
+                        "device": item.device,
+                        "profile": item.profile,
                         "context": _vm.context,
-                        "graph": _vm.graph
+                        "graph": _vm.graph,
+                        "network": _vm.network,
+                        "organ": _vm.organ
                     }
                 });
             }), 1)
@@ -3484,10 +3437,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("90372c007399affc").render;
     script.staticRenderFns = require("90372c007399affc").staticRenderFns;
-    script._scopeId = "data-v-7fd1d0";
+    script._scopeId = "data-v-6ffe52";
     script.__cssModules = require("995961c387093d46").default;
     require("d3ce8c39d9b0a1af").default(script);
-    script.__scopeId = 'data-v-7fd1d0';
+    script.__scopeId = 'data-v-6ffe52';
     script.__file = "monitorConnectorPanel.vue";
 };
 initialize();
@@ -3512,7 +3465,6 @@ var scriptExports = {
             this.contextId = contextId;
             this.nodeId = nodeId;
             this.organs = await this.getOrganModel(nodeId);
-        // console.log("organModel", this.organModel);
         },
         closed () {},
         getOrganModel (nodeIds) {
@@ -3521,11 +3473,12 @@ var scriptExports = {
             ];
             const promises = nodeIds.map((nodeId)=>{
                 const realNode = (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(nodeId);
-                return realNode.getElement();
+                return realNode.getElement(true);
             });
-            return Promise.all(promises);
+            return Promise.all(promises).then((result)=>result.filter((el)=>!!el));
         },
         restartOrgan (organ) {
+            console.log(`Restarting organ ${organ.name.get()}...`);
             organ.restart.set(true);
         }
     }
@@ -3596,8 +3549,15 @@ var _linkToBimAutomateVue = require("./linkToBimAutomate.vue");
 var _linkToBimAutomateVueDefault = parcelHelpers.interopDefault(_linkToBimAutomateVue);
 var _getBacnetValueVue = require("./getBacnetValue.vue");
 var _getBacnetValueVueDefault = parcelHelpers.interopDefault(_getBacnetValueVue);
+var _createSubNetworkVue = require("./createSubNetwork.vue");
+var _createSubNetworkVueDefault = parcelHelpers.interopDefault(_createSubNetworkVue);
 const { SpinalMountExtention } = require("76d5c96468647d9e");
 const dialogs = [
+    {
+        name: "createSubNetworkDialog",
+        vueMountComponent: (0, _vueDefault.default).extend((0, _createSubNetworkVueDefault.default)),
+        parentContainer: document.body
+    },
     {
         name: "createGTBNetworkContextDialog",
         vueMountComponent: (0, _vueDefault.default).extend((0, _createContextVueDefault.default)),
@@ -3636,7 +3596,7 @@ const dialogs = [
 ];
 for(let index = 0; index < dialogs.length; index++)SpinalMountExtention.mount(dialogs[index]);
 
-},{"vue":"hO3OD","./createContext.vue":"8lkK9","./modifyTimeInterval.vue":"cuDXV","./addOrgan.vue":"ag1qf","./linkToProfilDialog.vue":"59M9x","./unLinkToProfilDialog.vue":"7Xp2X","./linkToBimAutomate.vue":"hZhA9","./getBacnetValue.vue":"fh2ep","76d5c96468647d9e":"egTXY","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"8lkK9":[function(require,module,exports,__globalThis) {
+},{"vue":"hO3OD","./createContext.vue":"8lkK9","./modifyTimeInterval.vue":"cuDXV","./addOrgan.vue":"ag1qf","./linkToProfilDialog.vue":"59M9x","./unLinkToProfilDialog.vue":"7Xp2X","./linkToBimAutomate.vue":"hZhA9","./getBacnetValue.vue":"fh2ep","./createSubNetwork.vue":"5dc0j","76d5c96468647d9e":"egTXY","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"8lkK9":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -3645,9 +3605,9 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("7d256a1c33e857ba").render;
     script.staticRenderFns = require("7d256a1c33e857ba").staticRenderFns;
-    script._scopeId = "data-v-fceb1d";
+    script._scopeId = "data-v-285993";
     require("7c2776adf2f3798").default(script);
-    script.__scopeId = 'data-v-fceb1d';
+    script.__scopeId = 'data-v-285993';
     script.__file = "createContext.vue";
 };
 initialize();
@@ -3783,9 +3743,9 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("5a48dc79ff8855ce").render;
     script.staticRenderFns = require("5a48dc79ff8855ce").staticRenderFns;
-    script._scopeId = "data-v-46e418";
+    script._scopeId = "data-v-f326ad";
     require("e7a9e02b7beb91e0").default(script);
-    script.__scopeId = 'data-v-46e418';
+    script.__scopeId = 'data-v-f326ad';
     script.__file = "modifyTimeInterval.vue";
 };
 initialize();
@@ -3922,10 +3882,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("3290696c40eba60a").render;
     script.staticRenderFns = require("3290696c40eba60a").staticRenderFns;
-    script._scopeId = "data-v-08d048";
+    script._scopeId = "data-v-34706f";
     script.__cssModules = require("aaef6c94ebf77e79").default;
     require("cc861b6fd94e552e").default(script);
-    script.__scopeId = 'data-v-08d048';
+    script.__scopeId = 'data-v-34706f';
     script.__file = "addOrgan.vue";
 };
 initialize();
@@ -4015,6 +3975,7 @@ var _spinalEnvViewerGraphService = require("spinal-env-viewer-graph-service");
 var _spinalModelBacnet = require("spinal-model-bacnet");
 var _spinalModelBmsnetwork = require("spinal-model-bmsnetwork");
 var _spinalModelOpcua = require("spinal-model-opcua");
+var _spinalModelSnmp = require("spinal-model-snmp");
 class SpinalBacnetPluginService {
     constructor(){}
     static getOrgans(connection) {
@@ -4039,24 +4000,14 @@ class SpinalBacnetPluginService {
     }
     static addToReference(organServerId, contextId) {
         const organModel = (0, _spinalCoreConnectorjsType.FileSystem)._objects[organServerId];
-        if (organModel) {
-            const nodeId = (0, _spinalEnvViewerGraphService.SpinalGraphService).createNode({
-                name: organModel.name.get(),
-                networkName: organModel.name.get(),
-                type: organModel.type.get()
-            }, organModel);
-            const realNode = (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(nodeId);
-            organModel.addReference(contextId, realNode);
-            return (0, _spinalEnvViewerGraphService.SpinalGraphService).addChildInContext(contextId, nodeId, contextId, (0, _spinalModelBacnet.SpinalOrganConfigModel).CONTEXT_TO_ORGAN_RELATION, (0, _spinalEnvViewerGraphService.SPINAL_RELATION_PTR_LST_TYPE));
-        }
+        const context = (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(contextId);
+        if (organModel && context) return organModel.linkOrganToContext(context);
         return Promise.reject("No model found for this server_id");
     }
     static removeToReference(organServerId, contextId) {
         const organModel = (0, _spinalCoreConnectorjsType.FileSystem)._objects[organServerId];
-        if (organModel) return organModel.removeReference(contextId).then((node)=>{
-            const childId = node.getId().get();
-            (0, _spinalEnvViewerGraphService.SpinalGraphService).removeChild(contextId, childId, (0, _spinalModelBacnet.SpinalOrganConfigModel).CONTEXT_TO_ORGAN_RELATION, (0, _spinalEnvViewerGraphService.SPINAL_RELATION_PTR_LST_TYPE));
-        });
+        const context = (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(contextId);
+        if (organModel && context) return organModel.unlinkOrganFromContext(context);
         throw new Error("No model found for this server_id");
     }
     static isReferencedInContext(organServerId, contextId) {
@@ -4067,8 +4018,15 @@ class SpinalBacnetPluginService {
     static getFileModel(file) {
         return new Promise((resolve, reject)=>{
             file.load(async (x)=>{
-                if (x instanceof (0, _spinalModelBacnet.SpinalOrganConfigModel) || x instanceof (0, _spinalModelOpcua.SpinalOrganOPCUA)) return resolve(x);
-                if (x.type && (x.type.get() === (0, _spinalModelBacnet.SpinalOrganConfigModel).TYPE || x.type.get() === (0, _spinalModelOpcua.SpinalOrganOPCUA).TYPE)) return resolve(x);
+                // if the model is already loaded
+                if (x instanceof (0, _spinalModelBacnet.SpinalOrganConfigModel) || x instanceof (0, _spinalModelOpcua.SpinalOrganOPCUA) || x instanceof (0, _spinalModelSnmp.SpinalOrganSNMP)) return resolve(x);
+                // 
+                const types = [
+                    (0, _spinalModelBacnet.SpinalOrganConfigModel).TYPE,
+                    (0, _spinalModelOpcua.SpinalOrganOPCUA).TYPE,
+                    (0, _spinalModelSnmp.SpinalOrganSNMP).TYPE
+                ];
+                if (x.type && types.includes(x.type.get())) return resolve(x);
                 x.element.ptr.load((el)=>resolve(el));
             //   const element = await x.getElement();
             //   resolve(element);
@@ -4128,7 +4086,7 @@ class SpinalBacnetPluginService {
     }
 }
 
-},{"spinal-core-connectorjs_type":"1A32E","spinal-env-viewer-graph-service":"9LAk7","spinal-model-bacnet":"aS2yR","spinal-model-bmsnetwork":"haihS","spinal-model-opcua":"l0Ztm","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"lKtiq":[function(require,module,exports,__globalThis) {
+},{"spinal-core-connectorjs_type":"1A32E","spinal-env-viewer-graph-service":"9LAk7","spinal-model-bacnet":"aS2yR","spinal-model-bmsnetwork":"haihS","spinal-model-opcua":"l0Ztm","spinal-model-snmp":"coTUC","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"lKtiq":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -4137,10 +4095,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("803429d367b8aa4e").render;
     script.staticRenderFns = require("803429d367b8aa4e").staticRenderFns;
-    script._scopeId = "data-v-36b806";
+    script._scopeId = "data-v-993186";
     script.__cssModules = require("40daf4825fb4d2a0").default;
     require("e11be307a172863e").default(script);
-    script.__scopeId = 'data-v-36b806';
+    script.__scopeId = 'data-v-993186';
     script.__file = "addOrganBtn.vue";
 };
 initialize();
@@ -4162,11 +4120,10 @@ var scriptExports = {
             isLinked: false
         };
     },
-    mounted () {
-        (0, _service.SpinalBacnetPluginService).isReferencedInContext(this.server_id, this.contextId).then((isLinked)=>{
-            this.isFound = true;
-            this.isLinked = isLinked;
-        });
+    async mounted () {
+        const isLinked = await (0, _service.SpinalBacnetPluginService).isReferencedInContext(this.server_id, this.contextId);
+        this.isFound = true; // if no error occurs, set isFound to true
+        this.isLinked = isLinked;
     },
     methods: {
         createAndLinkNode () {
@@ -4374,10 +4331,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("54e520255fb227c").render;
     script.staticRenderFns = require("54e520255fb227c").staticRenderFns;
-    script._scopeId = "data-v-3c2dd1";
+    script._scopeId = "data-v-1f48c5";
     script.__cssModules = require("591634ea586ff87f").default;
     require("ab78e55ba16dab66").default(script);
-    script.__scopeId = 'data-v-3c2dd1';
+    script.__scopeId = 'data-v-1f48c5';
     script.__file = "linkToProfilDialog.vue";
 };
 initialize();
@@ -4551,10 +4508,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("a8bf472a76c5d484").render;
     script.staticRenderFns = require("a8bf472a76c5d484").staticRenderFns;
-    script._scopeId = "data-v-81aa3c";
+    script._scopeId = "data-v-4d965b";
     script.__cssModules = require("f7c2c507f74a08eb").default;
     require("565dcd725b7286f8").default(script);
-    script.__scopeId = 'data-v-81aa3c';
+    script.__scopeId = 'data-v-4d965b';
     script.__file = "LinkComponent.vue";
 };
 initialize();
@@ -4605,10 +4562,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("9571f73afe1c7de4").render;
     script.staticRenderFns = require("9571f73afe1c7de4").staticRenderFns;
-    script._scopeId = "data-v-cec0ff";
+    script._scopeId = "data-v-3f2e9e";
     script.__cssModules = require("31a715c74a902764").default;
     require("d28a797b5215928e").default(script);
-    script.__scopeId = 'data-v-cec0ff';
+    script.__scopeId = 'data-v-3f2e9e';
     script.__file = "linkToGroupTemplate.vue";
 };
 initialize();
@@ -4897,10 +4854,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("d3d4493ae206228a").render;
     script.staticRenderFns = require("d3d4493ae206228a").staticRenderFns;
-    script._scopeId = "data-v-264643";
+    script._scopeId = "data-v-06c728";
     script.__cssModules = require("a23d99b305902eba").default;
     require("3de9178dc2a3475d").default(script);
-    script.__scopeId = 'data-v-264643';
+    script.__scopeId = 'data-v-06c728';
     script.__file = "unLinkToProfilDialog.vue";
 };
 initialize();
@@ -5165,10 +5122,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("6b84499cac638edd").render;
     script.staticRenderFns = require("6b84499cac638edd").staticRenderFns;
-    script._scopeId = "data-v-2968e3";
+    script._scopeId = "data-v-879002";
     script.__cssModules = require("a77c1ac2732ecf98").default;
     require("e2a7740d25284eb3").default(script);
-    script.__scopeId = 'data-v-2968e3';
+    script.__scopeId = 'data-v-879002';
     script.__file = "linkToBimAutomate.vue";
 };
 initialize();
@@ -5288,10 +5245,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("b8433ab0cef0c538").render;
     script.staticRenderFns = require("b8433ab0cef0c538").staticRenderFns;
-    script._scopeId = "data-v-020021";
+    script._scopeId = "data-v-f16541";
     script.__cssModules = require("a0eba56f6f51b97").default;
     require("ed4ef9afd91df934").default(script);
-    script.__scopeId = 'data-v-020021';
+    script.__scopeId = 'data-v-f16541';
     script.__file = "getBacnetValue.vue";
 };
 initialize();
@@ -5320,38 +5277,33 @@ var scriptExports = {
             error: 4
         };
         this.MESSAGES = (0, _constants.MESSAGES);
+        this.context = null;
+        this.graph = null;
+        this.selectedNode = null;
+        this.network = null;
         return {
-            sensor_types: Object.assign([], (0, _constants.SENSOR_TYPES)),
-            useFragment: false,
+            sensor_types: [
+                ...(0, _constants.SENSOR_TYPES)
+            ],
             pageSelected: this.PAGES.creation,
             showDialog: true,
-            nodes: undefined,
-            context: undefined,
-            graph: undefined,
-            network: undefined
+            devices: []
         };
     },
     methods: {
         async opened (option) {
             this.pageSelected = this.PAGES.loading;
-            const { selectedNode, context, graph } = option;
-            this.context = (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(context.id);
-            this.graph = graph;
-            let devices = await this.getBmsDevices(context.id, selectedNode.id);
-            this.nodes = devices.map((el)=>({
-                    info: el.get(),
-                    progress: -1,
-                    message: this.MESSAGES.wait
-                }));
-            this.network = await this._getNetwork(context.id, selectedNode.id);
-            // if (option.networkId) {
-            //    this.network = SpinalGraphService.getRealNode(option.networkId);
-            // } else {
-            //    this.network = await this._getNetwork(
-            //       option.contextId,
-            //       option.nodeId
-            //    );
-            // }
+            this.context = option.context;
+            this.graph = option.graph;
+            this.selectedNode = option.selectedNode;
+            const promises = [
+                (0, _utilitiesDefault.default).getNetwork(this.selectedNode, this.context),
+                this.getBmsDevices(this.context, this.selectedNode)
+            ];
+            const [network, devices] = await Promise.all(promises);
+            this.network = network;
+            this.devices = devices;
+            // this.network = await this._getNetwork(this.context, this.selectedNode);
             this.pageSelected = this.PAGES.selection;
         },
         removed (save) {
@@ -5364,101 +5316,96 @@ var scriptExports = {
             if (found) return false;
             return true;
         },
-        async getBacnetValue () {
-            this.pageSelected = this.PAGES.creation;
-            const sensors = this.sensor_types.filter((el)=>el.checked).map((el)=>el.value);
-            const iterator = [
-                ...this.nodes
-            ];
-            const organ = await this._getOrgan(this.network);
-            this.createValue(iterator, sensors, organ);
-        },
-        createValue (iterator, sensors, organ) {
-            console.log("inside createValue...", iterator, sensors, organ);
-            const value = iterator.shift();
-            if (value && this.showDialog) {
-                // const value = next.value;
-                const realNode = (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(value.info.id);
-                const model = new (0, _spinalModelBacnet.SpinalBacnetValueModel)(this.graph, this.context, organ, this.network, realNode, sensors);
-                console.log("model", model);
-                model.addToGraph();
-                let progressProcess;
-                const modelProcess = model.state.bind(()=>{
-                    switch(model.state.get()){
-                        case "recover":
-                            console.log("recovering...");
-                            value.message = this.MESSAGES.recover;
-                            value.progress = -1;
-                            break;
-                        case "progress":
-                            console.log("progress...");
-                            progressProcess = model.progress.bind(()=>{
-                                value.progress = model.progress.get();
-                            });
-                            break;
-                        case "success":
-                        case "error":
-                            console.log("success or error");
-                            model.state.unbind(modelProcess);
-                            model.progress.unbind(progressProcess);
-                            value.message = this.MESSAGES[model.state.get()];
-                            value.progress = -1;
-                            this.createValue(iterator, sensors, organ);
-                            break;
-                        default:
-                            break;
-                    }
-                // if (model.state.get() === "success") {
-                //    model.state.unbind(modelProcess);
-                //    value.message = this.MESSAGES.success;
-                //    value.progress = -1;
-                //    this.createValue(iterator, iterator.next(), sensors);
-                // } else if (model.state.get() === "error") {
-                //    model.state.unbind(modelProcess);
-                //    value.message = this.MESSAGES.error;
-                //    value.progress = -1;
-                //    this.createValue(iterator, iterator.next(), sensors);
-                // }
-                });
-            }
+        getSensorSelected () {
+            return this.sensor_types.reduce((list, sensor)=>{
+                if (sensor.checked) list.push(sensor.value);
+                return list;
+            }, []);
         },
         closeDialog (closeResult) {
             if (typeof this.onFinised === "function") this.onFinised(closeResult);
         },
-        async _getNetwork (contextId, nodeId) {
-            const info = (0, _spinalEnvViewerGraphService.SpinalGraphService).getInfo(nodeId);
-            if (info.type.get() === (0, _spinalModelBmsnetwork.SpinalBmsNetwork).nodeTypeName) {
-                const parents = await (0, _spinalEnvViewerGraphService.SpinalGraphService).getParents(nodeId, [
-                    (0, _spinalModelBmsnetwork.SpinalBmsNetwork).relationName
-                ]);
-                const organ = parents.find((el)=>el.type.get() === (0, _spinalModelBacnet.SpinalOrganConfigModel).TYPE);
-                // console.log("organ", organ);
-                if (organ) return (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(organ.id.get());
-            } else {
-                const networks = await (0, _spinalEnvViewerGraphService.SpinalGraphService).getChildrenInContext(contextId, contextId);
-                const parentId = await this._getParent(nodeId);
-                for (const network of networks){
-                    const id = network.id.get();
-                    const childId = (0, _spinalEnvViewerGraphService.SpinalGraphService).getChildrenIds(id);
-                    if (childId.indexOf(parentId) !== -1) return (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(id);
-                }
-            }
-        },
-        _getOrgan (network) {
-            if (network) return network.getElement();
-        },
-        async getBmsDevices (contextId, id) {
-            const info = (0, _spinalEnvViewerGraphService.SpinalGraphService).getInfo(id);
-            if (info.type.get() === (0, _spinalModelBmsnetwork.SpinalBmsDevice).nodeTypeName) return [
-                info
+        async getAllBacnetValues () {
+            this.pageSelected = this.PAGES.creation;
+            const sensors = this.getSensorSelected();
+            const devices = [
+                ...this.devices
             ];
-            return (0, _spinalEnvViewerGraphService.SpinalGraphService).findInContext(id, contextId, (node)=>{
-                if (node.getType().get() === (0, _spinalModelBmsnetwork.SpinalBmsDevice).nodeTypeName) {
-                    (0, _spinalEnvViewerGraphService.SpinalGraphService)._addNode(node);
-                    return true;
-                }
-                return false;
+            const organ = await (0, _utilitiesDefault.default).getOrgan(this.network, this.context);
+            this.getBacnetVal(devices, sensors, organ);
+        },
+        async getBacnetVal (devices, sensors, organ) {
+            while(devices.length > 0 && this.showDialog){
+                const device = devices.shift();
+                const listenerModel = new (0, _spinalModelBacnet.SpinalBacnetValueModel)(this.graph, this.context, organ, this.network, device.node, sensors);
+                await listenerModel.addToGraph();
+                // bind the listener state to update the progress and message of the device
+                // this function wait until the process is finished (success or error) before going to the next device
+                await this.bindListenerState(listenerModel, device);
+            }
+        // const value = next.value;
+        },
+        bindListenerState (model, device) {
+            return new Promise((resolve)=>{
+                let progressProcess, modelProcess;
+                modelProcess = model.state.bind(()=>{
+                    const state = model.state.get();
+                    switch(state){
+                        case (0, _spinalModelBacnet.BACNET_VALUES_STATE).recover:
+                            device.message = this.MESSAGES.recover;
+                            device.progress = -1;
+                            break;
+                        case (0, _spinalModelBacnet.BACNET_VALUES_STATE).progress:
+                            progressProcess = model.progress.bind(()=>device.progress = model.progress.get());
+                            break;
+                        case (0, _spinalModelBacnet.BACNET_VALUES_STATE).success:
+                        case (0, _spinalModelBacnet.BACNET_VALUES_STATE).error:
+                            model.state.unbind(modelProcess);
+                            model.progress.unbind(progressProcess);
+                            device.message = this.MESSAGES[state];
+                            device.progress = -1;
+                            resolve(state === (0, _spinalModelBacnet.BACNET_VALUES_STATE).success);
+                            break;
+                    }
+                });
             });
+        },
+        // async _getNetwork(context, startNode) {
+        // const info = SpinalGraphService.getInfo(nodeId);
+        // const nodeType = info.type.get();
+        // if (nodeType === SpinalBmsNetwork.nodeTypeName) {
+        //    const parents = await SpinalGraphService.getParents(nodeId, [SpinalBmsNetwork.relationName]);
+        //    const organ = parents.find((parent) => parent.type.get() === SpinalOrganConfigModel.TYPE);
+        //    // console.log("organ", organ);
+        //    if (organ) return SpinalGraphService.getRealNode(organ.id.get());
+        // } else {
+        //    const networks = await SpinalGraphService.getChildrenInContext(
+        //       contextId,
+        //       contextId
+        //    );
+        //    const parentId = await this._getParent(nodeId);
+        //    for (const network of networks) {
+        //       const id = network.id.get();
+        //       const childId = SpinalGraphService.getChildrenIds(id);
+        //       if (childId.indexOf(parentId) !== -1) {
+        //          return SpinalGraphService.getRealNode(id);
+        //       }
+        //    }
+        // }
+        // },
+        // _getOrgan(network) {
+        //    if (network) {
+        //       return network.getElement();
+        //    }
+        // },
+        async getBmsDevices (context, startNode) {
+            let devices = await (0, _utilitiesDefault.default).getBmsDevices(context, startNode);
+            return devices.map((device)=>({
+                    info: device.info.get(),
+                    progress: -1,
+                    message: this.MESSAGES.wait,
+                    node: device
+                }));
         },
         async _getParent (nodeId) {
             const realNode = (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(nodeId);
@@ -5501,7 +5448,7 @@ var render = function() {
         _c('md-dialog-title', {
             staticClass: "dialogTitle"
         }, [
-            _vm._v("Get Bacnet Value")
+            _vm._v("Get Bacnet Values")
         ]),
         _vm._v(" "),
         _c('md-dialog-content', {
@@ -5523,19 +5470,15 @@ var render = function() {
                             },
                             expression: "item.checked"
                         }
-                    }),
-                    _vm._v(" "),
-                    _c('span', {
-                        staticClass: "md-list-item-text"
                     }, [
-                        _vm._v(_vm._s(item.name))
+                        _vm._v("\n               " + _vm._s(item.name) + "\n            ")
                     ])
                 ], 1);
             }), 0) : _vm.pageSelected === _vm.PAGES.creation ? _c('div', {
                 staticClass: "devicesProgress"
-            }, _vm._l(_vm.nodes, function(device) {
+            }, _vm._l(_vm.devices, function(device) {
                 return _c('div', {
-                    key: device.id,
+                    key: device.info.id,
                     staticClass: "device"
                 }, [
                     _c('div', {
@@ -5574,31 +5517,23 @@ var render = function() {
                         ])
                     ])
                 ]);
-            }), 0) : _vm.pageSelected === _vm.PAGES.loading ? _c('div', {
+            }), 0) : _c('div', {
                 staticClass: "state"
             }, [
-                _c('md-progress-spinner', {
+                _vm.pageSelected === _vm.PAGES.loading ? _c('md-progress-spinner', {
                     attrs: {
-                        "md-mode": "indeterminate"
+                        "md-mode": " indeterminate"
                     }
-                })
-            ], 1) : _vm.pageSelected === _vm.PAGES.success ? _c('div', {
-                staticClass: "state"
-            }, [
-                _c('md-icon', {
+                }) : _vm.pageSelected === _vm.PAGES.success ? _c('md-icon', {
                     staticClass: "md-size-5x"
                 }, [
                     _vm._v("done")
-                ])
-            ], 1) : _vm.pageSelected === _vm.PAGES.error ? _c('div', {
-                staticClass: "state"
-            }, [
-                _c('md-icon', {
+                ]) : _vm.pageSelected === _vm.PAGES.error ? _c('md-icon', {
                     staticClass: "md-size-5x"
                 }, [
                     _vm._v("error_outline")
-                ])
-            ], 1) : _vm._e()
+                ]) : _vm._e()
+            ], 1)
         ]),
         _vm._v(" "),
         _c('md-dialog-actions', [
@@ -5619,7 +5554,7 @@ var render = function() {
                     "disabled": _vm.disabled()
                 },
                 on: {
-                    "click": _vm.getBacnetValue
+                    "click": _vm.getAllBacnetValues
                 }
             }, [
                 _vm._v("GET Bacnet")
@@ -5632,6 +5567,159 @@ exports.render = render;
 exports.staticRenderFns = staticRenderFns;
 
 },{}],"8Pe8I":[function() {},{}],"54ci1":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+let NOOP = ()=>{};
+exports.default = (script)=>{};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"5dc0j":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+let script;
+let initialize = ()=>{
+    script = require("b157274393aacb4c");
+    if (script.__esModule) script = script.default;
+    script.render = require("f2f2cda092b0cf31").render;
+    script.staticRenderFns = require("f2f2cda092b0cf31").staticRenderFns;
+    script._scopeId = "data-v-cc9b9a";
+    script.__cssModules = require("a66b6d722a0fcece").default;
+    require("585bbb68201dd434").default(script);
+    script.__scopeId = 'data-v-cc9b9a';
+    script.__file = "createSubNetwork.vue";
+};
+initialize();
+exports.default = script;
+
+},{"b157274393aacb4c":"3Kpuh","f2f2cda092b0cf31":"8uReE","a66b6d722a0fcece":"3bMbt","585bbb68201dd434":"jrYmH","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"3Kpuh":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _spinalEnvViewerGraphService = require("spinal-env-viewer-graph-service");
+var _spinalModelBmsnetwork = require("spinal-model-bmsnetwork");
+var scriptExports = {
+    name: "createSubNetworkDialog",
+    props: [
+        "onFinised"
+    ],
+    data () {
+        return {
+            showDialog: true,
+            inputValue: "",
+            selectedNode: null,
+            context: null,
+            loading: false
+        };
+    },
+    methods: {
+        opened ({ selectedNode, context }) {
+            this.selectedNode = selectedNode;
+            this.context = context;
+        },
+        async removed (option) {
+            if (option.closeResult && option.inputValue.trim().length > 0) {
+                const parentId = this.selectedNode.id.get();
+                const contextId = this.context.id.get();
+                const info = {
+                    name: option.inputValue.trim(),
+                    type: (0, _spinalModelBmsnetwork.SpinalBmsNetwork).nodeTypeName
+                };
+                const subnetwork = new (0, _spinalModelBmsnetwork.SpinalBmsNetwork)(info.name, info.type);
+                const nodeId = (0, _spinalEnvViewerGraphService.SpinalGraphService).createNode(info, subnetwork);
+                this.loading = true;
+                await (0, _spinalEnvViewerGraphService.SpinalGraphService).addChildInContext(parentId, nodeId, contextId, (0, _spinalModelBmsnetwork.SpinalBmsNetwork).relationName, (0, _spinalEnvViewerGraphService.SPINAL_RELATION_PTR_LST_TYPE));
+            }
+            this.showDialog = false;
+        },
+        closeDialog (closeResult) {
+            if (typeof this.onFinised === "function") this.onFinised({
+                closeResult,
+                inputValue: this.inputValue
+            });
+        }
+    }
+};
+var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
+exports.default = options; // parcel transformer vue2 compiler hack
+
+},{"spinal-env-viewer-graph-service":"9LAk7","spinal-model-bmsnetwork":"haihS","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"8uReE":[function(require,module,exports,__globalThis) {
+var render = function() {
+    var _vm = this;
+    var _h = _vm.$createElement;
+    var _c = _vm._self._c || _h;
+    return _c('md-dialog', {
+        attrs: {
+            "md-active": _vm.showDialog
+        },
+        on: {
+            "update:mdActive": function($event) {
+                _vm.showDialog = $event;
+            },
+            "update:md-active": function($event) {
+                _vm.showDialog = $event;
+            },
+            "md-closed": function($event) {
+                return _vm.closeDialog(false);
+            }
+        }
+    }, [
+        _c('md-dialog-title', [
+            _vm._v("Create BMS subnetwork")
+        ]),
+        _vm._v(" "),
+        _c('md-dialog-content', [
+            !_vm.loading ? _c('md-field', [
+                _c('label', [
+                    _vm._v("Subnetwork Name")
+                ]),
+                _vm._v(" "),
+                _c('md-input', {
+                    model: {
+                        value: _vm.inputValue,
+                        callback: function($$v) {
+                            _vm.inputValue = $$v;
+                        },
+                        expression: "inputValue"
+                    }
+                })
+            ], 1) : _c('md-progress-spinner', {
+                attrs: {
+                    "md-mode": "indeterminate"
+                }
+            })
+        ], 1),
+        _vm._v(" "),
+        _c('md-dialog-actions', [
+            _c('md-button', {
+                staticClass: "md-primary",
+                on: {
+                    "click": function($event) {
+                        return _vm.closeDialog(false);
+                    }
+                }
+            }, [
+                _vm._v("Close")
+            ]),
+            _vm._v(" "),
+            _c('md-button', {
+                staticClass: "md-primary",
+                attrs: {
+                    "disabled": !(_vm.inputValue.trim().length > 0)
+                },
+                on: {
+                    "click": function($event) {
+                        return _vm.closeDialog(true);
+                    }
+                }
+            }, [
+                _vm._v("Save")
+            ])
+        ], 1)
+    ], 1);
+};
+var staticRenderFns = [];
+exports.render = render;
+exports.staticRenderFns = staticRenderFns;
+
+},{}],"3bMbt":[function() {},{}],"jrYmH":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};

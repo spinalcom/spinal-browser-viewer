@@ -1,19 +1,19 @@
-.plugin-LinkEndpointToControlPoint[data-v-4a3a6c] {
+.plugin-LinkEndpointToControlPoint[data-v-ce5558] {
   height: calc(100% - 20px);
 }
 
-.plugin-LinkEndpointToControlPoint-layout[data-v-4a3a6c] {
+.plugin-LinkEndpointToControlPoint-layout[data-v-ce5558] {
   height: calc(100% - 30px);
 }
 
-.plugin-LinkEndpointToControlPoint-flex[data-v-4a3a6c] {
+.plugin-LinkEndpointToControlPoint-flex[data-v-ce5558] {
   border: 1px solid #c4c4c4;
   width: calc(50% - 2px);
   height: 100%;
   overflow: auto;
 }
 
-.plugin-LinkEndpointToControlPoint-controls[data-v-4a3a6c] {
+.plugin-LinkEndpointToControlPoint-controls[data-v-ce5558] {
   width: calc(50% - 18px);
   height: calc(100% - 16px);
   padding: 8px;

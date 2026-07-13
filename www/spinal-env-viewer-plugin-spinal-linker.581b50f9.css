@@ -1,10 +1,10 @@
-.plugin-spinal-linker-legend[data-v-57c99e] {
+.plugin-spinal-linker-legend[data-v-20a9bf] {
   cursor: pointer;
   background-color: #212121;
   height: 35px;
 }
 
-.plugin-spinal-linker-legend[data-v-57c99e]:hover {
+.plugin-spinal-linker-legend[data-v-20a9bf]:hover {
   background-color: #333;
 }
 
@@ -25,33 +25,33 @@
   overflow: hidden;
 }
 
-.plugin-spinal-linker[data-v-e94f18] {
+.plugin-spinal-linker[data-v-f0d48e] {
   width: 100%;
   height: calc(100% - 20px);
   overflow: hidden;
 }
 
-.spinal-linker-label-name[data-v-e94f18] {
+.spinal-linker-label-name[data-v-f0d48e] {
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
 }
 
-.plugin-spinal-linker-layout[data-v-e94f18] {
+.plugin-spinal-linker-layout[data-v-f0d48e] {
   height: calc(100% - 99px);
   display: block;
   overflow: auto;
 }
 
-.plugin-spinal-linker-in-context-checkbox[data-v-e94f18], .plugin-spinal-linker-validate-relation-btn[data-v-e94f18] {
+.plugin-spinal-linker-in-context-checkbox[data-v-f0d48e], .plugin-spinal-linker-validate-relation-btn[data-v-f0d48e] {
   margin: 0;
 }
 
-.plugin-spinal-linker-legend-item[data-v-e94f18] {
+.plugin-spinal-linker-legend-item[data-v-f0d48e] {
   padding: 2px 8px;
 }
 
-.plugin-spinal-linker-legend[data-v-e94f18] {
+.plugin-spinal-linker-legend[data-v-f0d48e] {
   height: 31px;
 }
 /*# sourceMappingURL=spinal-env-viewer-plugin-spinal-linker.581b50f9.css.map */

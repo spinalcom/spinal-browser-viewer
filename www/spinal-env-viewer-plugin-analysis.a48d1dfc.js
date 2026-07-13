@@ -521,7 +521,7 @@ function getDialog() {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.ALGORITHMS = exports.algos = exports.isGChatOrganCardResult = exports.isGChatMessageResult = exports.isResultSuccess = exports.CONSTANTS = exports.TrackingMethodModel = exports.AnalyticModel = exports.spinalAnalyticOutputManagerService = exports.spinalAnalyticInputManagerService = exports.spinalAnalyticNodeManagerService = exports.spinalAnalyticExecutionService = void 0;
+exports.VERSION = exports.ALGORITHMS = exports.algos = exports.isGChatOrganCardResult = exports.isGChatMessageResult = exports.isResultSuccess = exports.CONSTANTS = exports.TrackingMethodModel = exports.AnalyticModel = exports.spinalAnalyticOutputManagerService = exports.spinalAnalyticInputManagerService = exports.spinalAnalyticNodeManagerService = exports.spinalAnalyticExecutionService = void 0;
 const AnalyticModel_1 = require("bd4f04811876fe06");
 Object.defineProperty(exports, "AnalyticModel", {
     enumerable: true,
@@ -534,6 +534,13 @@ Object.defineProperty(exports, "TrackingMethodModel", {
     enumerable: true,
     get: function() {
         return TrackingMethodModel_1.TrackingMethodModel;
+    }
+});
+const version_1 = require("50bd3ece572be55d");
+Object.defineProperty(exports, "VERSION", {
+    enumerable: true,
+    get: function() {
+        return version_1.VERSION;
     }
 });
 const IAnalyticResult_1 = require("75545a2a14e5f4c1");
@@ -580,7 +587,7 @@ const spinalAnalyticExecutionService = new AnalyticExecutionManagerService_1.def
 exports.spinalAnalyticExecutionService = spinalAnalyticExecutionService;
 exports.default = spinalAnalyticExecutionService;
 
-},{"bd4f04811876fe06":"94N05","346b732d03dffb52":"7svXi","75545a2a14e5f4c1":"3tfRS","15091bfe302456c3":"5MX1w","b5cbb7d75b37f0f9":"eRZCB","1b7c8aae456a9e13":"lbwPG","a9537eec833b1ee7":"6eh2j","7650e6cdfbebff7a":"6sI4H","42b8c086105a42c":"iZwq9"}],"94N05":[function(require,module,exports,__globalThis) {
+},{"bd4f04811876fe06":"94N05","346b732d03dffb52":"7svXi","50bd3ece572be55d":"9wEug","75545a2a14e5f4c1":"3tfRS","15091bfe302456c3":"5MX1w","b5cbb7d75b37f0f9":"eRZCB","1b7c8aae456a9e13":"lbwPG","a9537eec833b1ee7":"6eh2j","7650e6cdfbebff7a":"6sI4H","42b8c086105a42c":"iZwq9"}],"94N05":[function(require,module,exports,__globalThis) {
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -614,7 +621,15 @@ exports.TrackingMethodModel = TrackingMethodModel;
 spinal_core_connectorjs_type_1.spinalCore.register_models(TrackingMethodModel);
 exports.default = TrackingMethodModel;
 
-},{"1b149d1bd23ef12c":"1A32E"}],"3tfRS":[function(require,module,exports,__globalThis) {
+},{"1b149d1bd23ef12c":"1A32E"}],"9wEug":[function(require,module,exports,__globalThis) {
+"use strict";
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.VERSION = void 0;
+exports.VERSION = '3.3.0';
+
+},{}],"3tfRS":[function(require,module,exports,__globalThis) {
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -803,7 +818,7 @@ var ENTITY_TYPES;
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.ALGORITHMS = exports.EXIT = exports.RANDOM_BOOLEAN = exports.RANDOM_BOOLEAN_NUMBER = exports.RANDOM_INTEGER = exports.RANDOM_NUMBER = exports.SUBTRACT_BY = exports.SUM = exports.SUBTRACT = exports.CURRENT_EPOCH_TIME = exports.CONV_NUMBER_TO_BOOLEAN = exports.CONV_BOOLEAN_TO_NUMBER = exports.IS_EMPTY = exports.EQUAL_TO = exports.STANDARD_DEVIATION = exports.DIFFERENCE_THRESHOLD = exports.NOT = exports.OR = exports.AND = exports.TIMESERIES_EDGE_SUBSTRACT = exports.TIMESERIES_SUM = exports.TIMESERIES_IS_EMPTY = exports.TIMESERIES_BOOLEAN_RATE = exports.TIMESERIES_TIME_WEIGHTED_AVERAGE = exports.TIMESERIES_AVERAGE = exports.TIMESERIES_THRESHOLD_ZSCORE = exports.AVERAGE = exports.THRESHOLD_BETWEEN_OUT = exports.THRESHOLD_BETWEEN_IN = exports.THRESHOLD_BELOW = exports.THRESHOLD_ABOVE = exports.MULTIPLY = exports.MULTIPLY_BY = exports.DIVIDE_BY = exports.DIVIDE = exports.COPY = exports.PUTVALUE = void 0;
+exports.ALGORITHMS = exports.ROUND_NUMBER = exports.CEIL_NUMBER = exports.FLOOR_NUMBER = exports.EXIT = exports.RANDOM_BOOLEAN = exports.RANDOM_BOOLEAN_NUMBER = exports.RANDOM_INTEGER = exports.RANDOM_NUMBER = exports.SUBTRACT_BY = exports.SUM = exports.SUBTRACT = exports.CURRENT_EPOCH_TIME = exports.CONV_NUMBER_TO_BOOLEAN = exports.CONV_BOOLEAN_TO_NUMBER = exports.IS_EMPTY = exports.EQUAL_TO = exports.STANDARD_DEVIATION = exports.DIFFERENCE_THRESHOLD = exports.NOT = exports.OR = exports.AND = exports.TIMESERIES_EDGE_SUBSTRACT = exports.TIMESERIES_SUM = exports.TIMESERIES_IS_EMPTY = exports.TIMESERIES_BOOLEAN_RATE = exports.TIMESERIES_TIME_WEIGHTED_AVERAGE = exports.TIMESERIES_MIN_VALUE = exports.TIMESERIES_MAX_VALUE = exports.TIMESERIES_AVERAGE = exports.TIMESERIES_THRESHOLD_ZSCORE = exports.AVERAGE = exports.THRESHOLD_BETWEEN_OUT = exports.THRESHOLD_BETWEEN_IN = exports.THRESHOLD_BELOW = exports.THRESHOLD_ABOVE = exports.MULTIPLY = exports.MULTIPLY_BY = exports.DIVIDE_BY = exports.DIVIDE = exports.COPY = exports.PUTVALUE = void 0;
 class Algorithm {
     constructor(name, description, inputTypes, outputType, requiredParams, run){
         this.name = name;
@@ -1013,6 +1028,20 @@ exports.TIMESERIES_AVERAGE = new Algorithm('TIMESERIES_AVERAGE', 'This algorithm
     const dataInput = input.reduce((acc, curr)=>acc.concat(...curr), []);
     if (dataInput.length === 0) throw new Error('Timeseries is empty');
     return dataInput.reduce((acc, current)=>acc + current.value, 0) / dataInput.length;
+});
+exports.TIMESERIES_MAX_VALUE = new Algorithm('TIMESERIES_MAX_VALUE', 'This algorithm returns the maximum value of the timeseries', [
+    'Timeseries'
+], 'number', [], (input)=>{
+    const dataInput = input.reduce((acc, curr)=>acc.concat(...curr), []);
+    if (dataInput.length === 0) throw new Error('Timeseries is empty');
+    return dataInput.reduce((max, current)=>Math.max(max, current.value), -Infinity);
+});
+exports.TIMESERIES_MIN_VALUE = new Algorithm('TIMESERIES_MIN_VALUE', 'This algorithm returns the minimum value of the timeseries', [
+    'Timeseries'
+], 'number', [], (input)=>{
+    const dataInput = input.reduce((acc, curr)=>acc.concat(...curr), []);
+    if (dataInput.length === 0) throw new Error('Timeseries is empty');
+    return dataInput.reduce((min, current)=>Math.min(min, current.value), Infinity);
 });
 exports.TIMESERIES_TIME_WEIGHTED_AVERAGE = new Algorithm('TIMESERIES_TIME_WEIGHTED_AVERAGE', 'This algorithm calculates the time-weighted average value of a timeseries. It takes into account the time intervals between successive data points to compute the average.', [
     'Timeseries'
@@ -1259,6 +1288,27 @@ exports.EXIT = new Algorithm('EXIT', 'This algorithm is used to stop the executi
     if (flat.length === 0) throw new Error('No input provided');
     return flat[0];
 });
+exports.FLOOR_NUMBER = new Algorithm('FLOOR_NUMBER', 'This algorithm returns the largest integer less than or equal to a given number', [
+    'number'
+], 'number', [], (input)=>{
+    const flat = input.flat(Infinity);
+    if (flat.length === 0) throw new Error('No input provided');
+    return Math.floor(flat[0]);
+});
+exports.CEIL_NUMBER = new Algorithm('CEIL_NUMBER', 'This algorithm returns the smallest integer greater than or equal to a given number', [
+    'number'
+], 'number', [], (input)=>{
+    const flat = input.flat(Infinity);
+    if (flat.length === 0) throw new Error('No input provided');
+    return Math.ceil(flat[0]);
+});
+exports.ROUND_NUMBER = new Algorithm('ROUND_NUMBER', 'This algorithm returns the value of a number rounded to the nearest integer', [
+    'number'
+], 'number', [], (input)=>{
+    const flat = input.flat(Infinity);
+    if (flat.length === 0) throw new Error('No input provided');
+    return Math.round(flat[0]);
+});
 exports.ALGORITHMS = {
     PUTVALUE: exports.PUTVALUE,
     COPY: exports.COPY,
@@ -1274,6 +1324,8 @@ exports.ALGORITHMS = {
     TIMESERIES_THRESHOLD_ZSCORE: exports.TIMESERIES_THRESHOLD_ZSCORE,
     TIMESERIES_IS_EMPTY: exports.TIMESERIES_IS_EMPTY,
     TIMESERIES_AVERAGE: exports.TIMESERIES_AVERAGE,
+    TIMESERIES_MAX_VALUE: exports.TIMESERIES_MAX_VALUE,
+    TIMESERIES_MIN_VALUE: exports.TIMESERIES_MIN_VALUE,
     TIMESERIES_TIME_WEIGHTED_AVERAGE: exports.TIMESERIES_TIME_WEIGHTED_AVERAGE,
     TIMESERIES_SUM: exports.TIMESERIES_SUM,
     TIMESERIES_BOOLEAN_RATE: exports.TIMESERIES_BOOLEAN_RATE,
@@ -1295,7 +1347,10 @@ exports.ALGORITHMS = {
     RANDOM_BOOLEAN_NUMBER: exports.RANDOM_BOOLEAN_NUMBER,
     RANDOM_BOOLEAN: exports.RANDOM_BOOLEAN,
     RANDOM_INTEGER: exports.RANDOM_INTEGER,
-    EXIT: exports.EXIT
+    EXIT: exports.EXIT,
+    FLOOR_NUMBER: exports.FLOOR_NUMBER,
+    CEIL_NUMBER: exports.CEIL_NUMBER,
+    ROUND_NUMBER: exports.ROUND_NUMBER
 };
 
 },{}],"lbwPG":[function(require,module,exports,__globalThis) {
@@ -8931,6 +8986,7 @@ const InputsModel_1 = require("a5ef27f319369412");
 const OutputsModel_1 = require("a05d0a34f760483e");
 const spinal_env_viewer_plugin_documentation_service_1 = require("bb4c818c4c0b9f78");
 const utils_1 = require("5e5277095b4cb738");
+const version_1 = require("e47d9341ea099c34");
 class AnalyticNodeManagerService {
     // eslint-disable-next-line @typescript-eslint/no-empty-function
     constructor(){}
@@ -8971,6 +9027,9 @@ class AnalyticNodeManagerService {
             }
             return spinal_env_viewer_graph_service_1.SpinalGraphService.addContext(contextName, CONSTANTS.CONTEXT_TYPE, undefined).then((context)=>{
                 const contextId = context.getId().get();
+                spinal_env_viewer_plugin_documentation_service_1.attributeService.createOrUpdateAttrsAndCategories(context, "metadata", {
+                    version: version_1.VERSION
+                });
                 return spinal_env_viewer_graph_service_1.SpinalGraphService.getInfo(contextId);
             });
         });
@@ -9028,8 +9087,10 @@ class AnalyticNodeManagerService {
             if (!context) return undefined;
             const contextNode = spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(context.id.get());
             const entities = yield contextNode.getChildren(CONSTANTS.CONTEXT_TO_ENTITY_RELATION);
-            const entitiesModels = entities.map((el)=>spinal_env_viewer_graph_service_1.SpinalGraphService.getInfo(el.info.id.get()));
-            return entitiesModels.find((entity)=>entity.name.get() === entityName);
+            const foundEntityNode = entities.find((el)=>el.getName().get() === entityName);
+            if (!foundEntityNode) return undefined;
+            spinal_env_viewer_graph_service_1.SpinalGraphService._addNode(foundEntityNode);
+            return spinal_env_viewer_graph_service_1.SpinalGraphService.getInfo(foundEntityNode.getId().get());
         });
     }
     /**
@@ -9127,34 +9188,46 @@ class AnalyticNodeManagerService {
             if (!trackingMethod) throw new Error('No tracking method node found');
             if (!followedEntity) throw new Error('No followed entity node found');
             if (!entity) throw new Error('No entity node found');
-            const configNode = spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(config.id.get());
-            const trackingMethodNode = spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(trackingMethod.id.get());
-            const configCategoryAttributes = (yield spinal_env_viewer_plugin_documentation_service_1.attributeService.getCategory(configNode)).map((el)=>{
-                return el.nameCat;
-            });
-            const trackingMethodCategoryAttributes = (yield spinal_env_viewer_plugin_documentation_service_1.attributeService.getCategory(trackingMethodNode)).map((el)=>{
-                return el.nameCat;
-            });
-            const configInfo = {};
-            const trackingMethodInfo = {};
-            for (const cat of configCategoryAttributes){
-                const attributes = yield spinal_env_viewer_plugin_documentation_service_1.attributeService.getAttributesByCategory(configNode, cat);
-                configInfo[cat] = attributes;
-            }
-            for (const cat of trackingMethodCategoryAttributes){
-                const attributes = yield spinal_env_viewer_plugin_documentation_service_1.attributeService.getAttributesByCategory(trackingMethodNode, cat);
-                trackingMethodInfo[cat] = attributes;
-            }
-            const analyticDetails = spinal_env_viewer_graph_service_1.SpinalGraphService.getInfo(analyticId);
-            const followedEntityId = followedEntity.id.get();
-            const res = {
-                entityNodeInfo: entity,
-                analyticName: analyticDetails.name.get(),
-                config: configInfo,
-                trackingMethod: trackingMethodInfo,
-                followedEntityId
+            // Config node
+            const analyticConfigAttributes = yield this.getAllCategoriesAndAttributesFromNode(config.id.get());
+            // Anchor node 
+            const analyticAnchorNode = spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(followedEntity.id.get());
+            const inputAttributes = yield this.getAllCategoriesAndAttributesFromNode(trackingMethod.id.get());
+            return {
+                id: analyticNode._server_id,
+                name: analyticNode.getName().get(),
+                type: analyticNode.getType().get(),
+                analyticOnEntityName: entity.name.get(),
+                analyticOnEntityType: entity.entityType.get(),
+                config: analyticConfigAttributes,
+                inputs: inputAttributes,
+                anchor: {
+                    id: analyticAnchorNode._server_id,
+                    name: analyticAnchorNode.getName().get(),
+                    type: analyticAnchorNode.getType().get()
+                }
             };
-            return res;
+        });
+    }
+    createAnalytic(analyticDetails, contextNode) {
+        return __awaiter(this, void 0, void 0, function*() {
+            const entity = yield this.getEntity(contextNode.getName().get(), analyticDetails.analyticOnEntityName);
+            if (!entity) throw new Error(`Entity ${analyticDetails.analyticOnEntityName} not found in context ${contextNode.getName().get()}`);
+            const analyticInfo = {
+                name: analyticDetails.name,
+                description: ''
+            };
+            const anchorNode = spinal_env_viewer_graph_service_1.SpinalGraphService.getRealNode(analyticDetails.anchor.id);
+            spinal_env_viewer_graph_service_1.SpinalGraphService._addNode(anchorNode);
+            const analyticNodeRef = yield this.addAnalytic(analyticInfo, contextNode.getId().get(), entity.id.get()); // also creates inputs/outputs nodes
+            const configRef = yield this.addConfig(analyticDetails.config, analyticNodeRef.id.get(), contextNode.getId().get());
+            //const configNode = SpinalGraphService.getRealNode(configRef.id.get());
+            //await this.addAttributesToNode(configNode, analyticDetails.config);
+            const trackingMethodRef = yield this.addInputTrackingMethod(analyticDetails.inputs, contextNode.getId().get(), analyticNodeRef.id.get());
+            //const trackingMethodNode = SpinalGraphService.getRealNode(trackingMethodRef.id.get());
+            //await this.addAttributesToNode(trackingMethodNode, analyticDetails.inputs);
+            yield this.addInputLinkToFollowedEntity(contextNode.getId().get(), analyticNodeRef.id.get(), anchorNode.getId().get());
+            return this.getAnalyticDetails(analyticNodeRef.id.get());
         });
     }
     // #endregion ANALYTIC
@@ -9437,16 +9510,9 @@ class AnalyticNodeManagerService {
     }
     // #endregion FOLLOWED ENTITY
     // #region NODE DOCUMENTATION
-    /**
-     * Adds the specified attributes to the node with the specified ID.
-     * @async
-     * @param {SpinalNode<any>} node - The node to which to add the attributes.
-     * @param {INodeDocumentation} attributes - An array of objects representing the attributes to add to the node.
-     * @returns {Promise<void>} A Promise that resolves when the attributes have been added.
-     * @memberof AnalyticService
-     */ addAttributesToNode(node, attributes) {
+    addAttributesToNode(node, attributes) {
         return __awaiter(this, void 0, void 0, function*() {
-            for (const categoryName of Object.keys(attributes))for (const attribute of attributes[categoryName])yield spinal_env_viewer_plugin_documentation_service_1.default.addAttributeByCategoryName(node, categoryName, attribute.name, attribute.value, attribute.type, '');
+            for (const categoryName of Object.keys(attributes))spinal_env_viewer_plugin_documentation_service_1.attributeService.createOrUpdateAttrsAndCategories(node, categoryName, Object.assign({}, attributes[categoryName]));
         });
     }
     getAttributesFromNode(nodeId, category) {
@@ -9531,7 +9597,7 @@ class AnalyticNodeManagerService {
 }
 exports.default = AnalyticNodeManagerService;
 
-},{"c3a59c8970091084":"9LAk7","6c67449c51cd01":"5MX1w","d5f7a1fec079d05c":"elokR","94b49308811f97f8":"94N05","4521602391679e75":"7svXi","105589ec012d945b":"j9nPO","a5ef27f319369412":"g1mvO","a05d0a34f760483e":"2bE7q","bb4c818c4c0b9f78":"cP9kK","5e5277095b4cb738":"1cC3y"}],"elokR":[function(require,module,exports,__globalThis) {
+},{"c3a59c8970091084":"9LAk7","6c67449c51cd01":"5MX1w","d5f7a1fec079d05c":"elokR","94b49308811f97f8":"94N05","4521602391679e75":"7svXi","105589ec012d945b":"j9nPO","a5ef27f319369412":"g1mvO","a05d0a34f760483e":"2bE7q","bb4c818c4c0b9f78":"cP9kK","5e5277095b4cb738":"1cC3y","e47d9341ea099c34":"9wEug"}],"elokR":[function(require,module,exports,__globalThis) {
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -11043,7 +11109,7 @@ var stringify = function stringify(object, prefix, generateArrayPrefix, commaRou
         return value;
     });
     if (obj === null) {
-        if (strictNullHandling) return encoder && !encodeValuesOnly ? encoder(prefix, defaults.encoder, charset, 'key', format) : prefix;
+        if (strictNullHandling) return formatter(encoder && !encodeValuesOnly ? encoder(prefix, defaults.encoder, charset, 'key', format) : prefix);
         obj = '';
     }
     if (isNonNullishPrimitive(obj) || utils.isBuffer(obj)) {
@@ -11062,7 +11128,9 @@ var stringify = function stringify(object, prefix, generateArrayPrefix, commaRou
     var objKeys;
     if (generateArrayPrefix === 'comma' && isArray(obj)) {
         // we need to join elements in
-        if (encodeValuesOnly && encoder) obj = utils.maybeMap(obj, encoder);
+        if (encodeValuesOnly && encoder) obj = utils.maybeMap(obj, function(v) {
+            return v == null ? v : encoder(v);
+        });
         objKeys = [
             {
                 value: obj.length > 0 ? obj.join(',') || null : void 0
@@ -11153,6 +11221,7 @@ module.exports = function(object, opts) {
     var sideChannel = getSideChannel();
     for(var i = 0; i < objKeys.length; ++i){
         var key = objKeys[i];
+        if (typeof key === 'undefined' || key === null) continue;
         var value = obj[key];
         if (options.skipNulls && value === null) continue;
         pushToArray(keys, stringify(value, key, generateArrayPrefix, commaRoundTrip, options.allowEmptyArrays, options.strictNullHandling, options.skipNulls, options.encodeDotInKeys, options.encode ? options.encoder : null, options.filter, options.sort, options.allowDots, options.serializeDate, options.format, options.formatter, options.encodeValuesOnly, options.charset, sideChannel));
@@ -11161,9 +11230,9 @@ module.exports = function(object, opts) {
     var prefix = options.addQueryPrefix === true ? '?' : '';
     if (options.charsetSentinel) {
         if (options.charset === 'iso-8859-1') // encodeURIComponent('&#10003;'), the "numeric entity" representation of a checkmark
-        prefix += 'utf8=%26%2310003%3B&';
+        prefix += 'utf8=%26%2310003%3B' + options.delimiter;
         else // encodeURIComponent('✓')
-        prefix += 'utf8=%E2%9C%93&';
+        prefix += 'utf8=%E2%9C%93' + options.delimiter;
     }
     return joined.length > 0 ? prefix + joined : '';
 };
@@ -11180,7 +11249,10 @@ var makeChannel = getSideChannelWeakMap || getSideChannelMap || getSideChannelLi
     /** @typedef {ReturnType<typeof getSideChannel>} Channel */ /** @type {Channel | undefined} */ var $channelData;
     /** @type {Channel} */ var channel = {
         assert: function(key) {
-            if (!channel.has(key)) throw new $TypeError('Side channel does not contain ' + inspect(key));
+            if (!channel.has(key)) {
+                var keyDesc = key && Object(key) === key ? 'the given object key' : inspect(key);
+                throw new $TypeError('Side channel does not contain ' + keyDesc);
+            }
         },
         'delete': function(key) {
             return !!$channelData && $channelData['delete'](key);
@@ -11196,7 +11268,6 @@ var makeChannel = getSideChannelWeakMap || getSideChannelMap || getSideChannelLi
             $channelData.set(key, value);
         }
     };
-    // @ts-expect-error TODO: figure out why this is erroring
     return channel;
 };
 
@@ -11656,9 +11727,8 @@ var listDelete = function(objects, key) {
             if (!channel.has(key)) throw new $TypeError('Side channel does not contain ' + inspect(key));
         },
         'delete': function(key) {
-            var root = $o && $o.next;
             var deletedNode = listDelete($o, key);
-            if (deletedNode && root && root === deletedNode) $o = void 0;
+            if (deletedNode && $o && !$o.next) $o = void 0;
             return !!deletedNode;
         },
         get: function(key) {
@@ -11676,7 +11746,6 @@ var listDelete = function(objects, key) {
             listSet(/** @type {NonNullable<typeof $o>} */ $o, key, value);
         }
     };
-    // @ts-expect-error TODO: figure out why this is erroring
     return channel;
 };
 
@@ -11781,6 +11850,7 @@ var $WeakMap = GetIntrinsic('%WeakMap%', true);
 'use strict';
 var formats = require("7adf3674f81a2c87");
 var getSideChannel = require("9d37e4d02d129a0");
+var defineProperty = require("60842e1c0bd9db9f");
 var has = Object.prototype.hasOwnProperty;
 var isArray = Array.isArray;
 // Track objects created from arrayLimit overflow using side-channel
@@ -11822,12 +11892,24 @@ var arrayToObject = function arrayToObject(source, options) {
     for(var i = 0; i < source.length; ++i)if (typeof source[i] !== 'undefined') obj[i] = source[i];
     return obj;
 };
+var setProperty = function setProperty(obj, key, value) {
+    if (key === '__proto__' && defineProperty) defineProperty(obj, key, {
+        configurable: true,
+        enumerable: true,
+        value: value,
+        writable: true
+    });
+    else obj[key] = value;
+};
 var merge = function merge(target, source, options) {
     /* eslint no-param-reassign: 0 */ if (!source) return target;
     if (typeof source !== 'object' && typeof source !== 'function') {
         if (isArray(target)) {
             var nextIndex = target.length;
-            if (options && typeof options.arrayLimit === 'number' && nextIndex > options.arrayLimit) return markOverflow(arrayToObject(target.concat(source), options), nextIndex);
+            if (options && typeof options.arrayLimit === 'number' && nextIndex >= options.arrayLimit) {
+                if (options.throwOnLimitExceeded) throw new RangeError('Array limit exceeded. Only ' + options.arrayLimit + ' element' + (options.arrayLimit === 1 ? '' : 's') + ' allowed in an array.');
+                return markOverflow(arrayToObject(target.concat(source), options), nextIndex);
+            }
             target[nextIndex] = source;
         } else if (target && typeof target === 'object') {
             if (isOverflow(target)) {
@@ -11865,7 +11947,10 @@ var merge = function merge(target, source, options) {
         var combined = [
             target
         ].concat(source);
-        if (options && typeof options.arrayLimit === 'number' && combined.length > options.arrayLimit) return markOverflow(arrayToObject(combined, options), combined.length - 1);
+        if (options && typeof options.arrayLimit === 'number' && combined.length > options.arrayLimit) {
+            if (options.throwOnLimitExceeded) throw new RangeError('Array limit exceeded. Only ' + options.arrayLimit + ' element' + (options.arrayLimit === 1 ? '' : 's') + ' allowed in an array.');
+            return markOverflow(arrayToObject(combined, options), combined.length - 1);
+        }
         return combined;
     }
     var mergeTarget = target;
@@ -11878,12 +11963,16 @@ var merge = function merge(target, source, options) {
                 else target[target.length] = item;
             } else target[i] = item;
         });
+        if (options && typeof options.arrayLimit === 'number' && target.length > options.arrayLimit) {
+            if (options.throwOnLimitExceeded) throw new RangeError('Array limit exceeded. Only ' + options.arrayLimit + ' element' + (options.arrayLimit === 1 ? '' : 's') + ' allowed in an array.');
+            return markOverflow(arrayToObject(target, options), target.length - 1);
+        }
         return target;
     }
     return Object.keys(source).reduce(function(acc, key) {
         var value = source[key];
-        if (has.call(acc, key)) acc[key] = merge(acc[key], value, options);
-        else acc[key] = value;
+        if (has.call(acc, key)) setProperty(acc, key, merge(acc[key], value, options));
+        else setProperty(acc, key, value);
         if (isOverflow(source) && !isOverflow(acc)) markOverflow(acc, getMaxIndex(source));
         if (isOverflow(acc)) {
             var keyNum = parseInt(key, 10);
@@ -11894,7 +11983,7 @@ var merge = function merge(target, source, options) {
 };
 var assign = function assignSingleSource(target, source) {
     return Object.keys(source).reduce(function(acc, key) {
-        acc[key] = source[key];
+        setProperty(acc, key, source[key]);
         return acc;
     }, target);
 };
@@ -11923,6 +12012,13 @@ var limit = 1024;
     var out = '';
     for(var j = 0; j < string.length; j += limit){
         var segment = string.length >= limit ? string.slice(j, j + limit) : string;
+        if (j + limit < string.length) {
+            var last = segment.charCodeAt(segment.length - 1);
+            if (last >= 0xD800 && last <= 0xDBFF) {
+                segment = segment.slice(0, -1);
+                j -= 1;
+            }
+        }
         var arr = [];
         for(var i = 0; i < segment.length; ++i){
             var c = segment.charCodeAt(i);
@@ -11967,7 +12063,7 @@ var compact = function compact(value) {
             prop: 'o'
         }
     ];
-    var refs = [];
+    var refs = getSideChannel();
     for(var i = 0; i < queue.length; ++i){
         var item = queue[i];
         var obj = item.obj[item.prop];
@@ -11975,12 +12071,12 @@ var compact = function compact(value) {
         for(var j = 0; j < keys.length; ++j){
             var key = keys[j];
             var val = obj[key];
-            if (typeof val === 'object' && val !== null && refs.indexOf(val) === -1) {
+            if (typeof val === 'object' && val !== null && !refs.has(val)) {
                 queue[queue.length] = {
                     obj: obj,
                     prop: key
                 };
-                refs[refs.length] = val;
+                refs.set(val, true);
             }
         }
     }
@@ -11994,18 +12090,22 @@ var isBuffer = function isBuffer(obj) {
     if (!obj || typeof obj !== 'object') return false;
     return !!(obj.constructor && obj.constructor.isBuffer && obj.constructor.isBuffer(obj));
 };
-var combine = function combine(a, b, arrayLimit, plainObjects) {
+var combine = function combine(a, b, arrayLimit, plainObjects, throwOnLimitExceeded) {
     // If 'a' is already an overflow object, add to it
     if (isOverflow(a)) {
+        if (throwOnLimitExceeded) throw new RangeError('Array limit exceeded. Only ' + arrayLimit + ' element' + (arrayLimit === 1 ? '' : 's') + ' allowed in an array.');
         var newIndex = getMaxIndex(a) + 1;
         a[newIndex] = b;
         setMaxIndex(a, newIndex);
         return a;
     }
     var result = [].concat(a, b);
-    if (result.length > arrayLimit) return markOverflow(arrayToObject(result, {
-        plainObjects: plainObjects
-    }), result.length - 1);
+    if (result.length > arrayLimit) {
+        if (throwOnLimitExceeded) throw new RangeError('Array limit exceeded. Only ' + arrayLimit + ' element' + (arrayLimit === 1 ? '' : 's') + ' allowed in an array.');
+        return markOverflow(arrayToObject(result, {
+            plainObjects: plainObjects
+        }), result.length - 1);
+    }
     return result;
 };
 var maybeMap = function maybeMap(val, fn) {
@@ -12031,7 +12131,7 @@ module.exports = {
     merge: merge
 };
 
-},{"7adf3674f81a2c87":"85SVc","9d37e4d02d129a0":"eaiEg"}],"85SVc":[function(require,module,exports,__globalThis) {
+},{"7adf3674f81a2c87":"85SVc","9d37e4d02d129a0":"eaiEg","60842e1c0bd9db9f":"lLFQB"}],"85SVc":[function(require,module,exports,__globalThis) {
 'use strict';
 var replace = String.prototype.replace;
 var percentTwenties = /%20/g;
@@ -12087,8 +12187,19 @@ var interpretNumericEntities = function(str) {
         return String.fromCharCode(parseInt(numberStr, 10));
     });
 };
-var parseArrayValue = function(val, options, currentArrayLength) {
-    if (val && typeof val === 'string' && options.comma && val.indexOf(',') > -1) return val.split(',');
+var parseArrayValue = function(val, options, currentArrayLength, isFlatArrayValue) {
+    if (val && typeof val === 'string' && options.comma && val.indexOf(',') > -1) {
+        if (isFlatArrayValue && options.throwOnLimitExceeded) {
+            var commaCount = 0;
+            var commaIndex = val.indexOf(',');
+            while(commaIndex > -1){
+                commaCount += 1;
+                if (commaCount >= options.arrayLimit) throw new RangeError('Array limit exceeded. Only ' + options.arrayLimit + ' element' + (options.arrayLimit === 1 ? '' : 's') + ' allowed in an array.');
+                commaIndex = val.indexOf(',', commaIndex + 1);
+            }
+        }
+        return val.split(',');
+    }
     if (options.throwOnLimitExceeded && currentArrayLength >= options.arrayLimit) throw new RangeError('Array limit exceeded. Only ' + options.arrayLimit + ' element' + (options.arrayLimit === 1 ? '' : 's') + ' allowed in an array.');
     return val;
 };
@@ -12107,8 +12218,8 @@ var parseValues = function parseQueryStringValues(str, options) {
     var cleanStr = options.ignoreQueryPrefix ? str.replace(/^\?/, '') : str;
     cleanStr = cleanStr.replace(/%5B/gi, '[').replace(/%5D/gi, ']');
     var limit = options.parameterLimit === Infinity ? void 0 : options.parameterLimit;
-    var parts = cleanStr.split(options.delimiter, options.throwOnLimitExceeded ? limit + 1 : limit);
-    if (options.throwOnLimitExceeded && parts.length > limit) throw new RangeError('Parameter limit exceeded. Only ' + limit + ' parameter' + (limit === 1 ? '' : 's') + ' allowed.');
+    var parts = cleanStr.split(options.delimiter, options.throwOnLimitExceeded && typeof limit !== 'undefined' ? limit + 1 : limit);
+    if (options.throwOnLimitExceeded && typeof limit !== 'undefined' && parts.length > limit) throw new RangeError('Parameter limit exceeded. Only ' + limit + ' parameter' + (limit === 1 ? '' : 's') + ' allowed.');
     var skipIndex = -1; // Keep track of where the utf8 sentinel was found
     var i;
     var charset = options.charset;
@@ -12132,7 +12243,7 @@ var parseValues = function parseQueryStringValues(str, options) {
             val = options.strictNullHandling ? null : '';
         } else {
             key = options.decoder(part.slice(0, pos), defaults.decoder, charset, 'key');
-            if (key !== null) val = utils.maybeMap(parseArrayValue(part.slice(pos + 1), options, isArray(obj[key]) ? obj[key].length : 0), function(encodedVal) {
+            if (key !== null) val = utils.maybeMap(parseArrayValue(part.slice(pos + 1), options, isArray(obj[key]) ? obj[key].length : 0, part.indexOf('[]=') === -1), function(encodedVal) {
                 return options.decoder(encodedVal, defaults.decoder, charset, 'value');
             });
         }
@@ -12140,13 +12251,10 @@ var parseValues = function parseQueryStringValues(str, options) {
         if (part.indexOf('[]=') > -1) val = isArray(val) ? [
             val
         ] : val;
-        if (options.comma && isArray(val) && val.length > options.arrayLimit) {
-            if (options.throwOnLimitExceeded) throw new RangeError('Array limit exceeded. Only ' + options.arrayLimit + ' element' + (options.arrayLimit === 1 ? '' : 's') + ' allowed in an array.');
-            val = utils.combine([], val, options.arrayLimit, options.plainObjects);
-        }
+        if (options.comma && isArray(val) && val.length > options.arrayLimit) val = utils.combine([], val, options.arrayLimit, options.plainObjects, options.throwOnLimitExceeded);
         if (key !== null) {
             var existing = has.call(obj, key);
-            if (existing && (options.duplicates === 'combine' || part.indexOf('[]=') > -1)) obj[key] = utils.combine(obj[key], val, options.arrayLimit, options.plainObjects);
+            if (existing && (options.duplicates === 'combine' || part.indexOf('[]=') > -1)) obj[key] = utils.combine(obj[key], val, options.arrayLimit, options.plainObjects, options.throwOnLimitExceeded);
             else if (!existing || options.duplicates === 'last') obj[key] = val;
         }
     }
@@ -12165,7 +12273,7 @@ var parseObject = function(chain, val, options, valuesParsed) {
         if (root === '[]' && options.parseArrays) {
             if (utils.isOverflow(leaf)) // leaf is already an overflow object, preserve it
             obj = leaf;
-            else obj = options.allowEmptyArrays && (leaf === '' || options.strictNullHandling && leaf === null) ? [] : utils.combine([], leaf, options.arrayLimit, options.plainObjects);
+            else obj = options.allowEmptyArrays && (leaf === '' || options.strictNullHandling && leaf === null) ? [] : utils.combine([], leaf, options.arrayLimit, options.plainObjects, options.throwOnLimitExceeded);
         } else {
             obj = options.plainObjects ? {
                 __proto__: null
@@ -12190,8 +12298,11 @@ var parseObject = function(chain, val, options, valuesParsed) {
     }
     return leaf;
 };
-var splitKeyIntoSegments = function splitKeyIntoSegments(givenKey, options) {
-    var key = options.allowDots ? givenKey.replace(/\.([^.[]+)/g, '[$1]') : givenKey;
+// Split a key like "a[b][c[]]" into ['a', '[b]', '[c[]]'] while preserving
+// qs parse semantics for depth/prototype guards.
+var splitKeyIntoSegments = function splitKeyIntoSegments(originalKey, options) {
+    var key = options.allowDots ? originalKey.replace(/\.([^.[]+)/g, '[$1]') : originalKey;
+    // depth <= 0 keeps the whole key as one segment
     if (options.depth <= 0) {
         if (!options.plainObjects && has.call(Object.prototype, key)) {
             if (!options.allowPrototypes) return;
@@ -12200,31 +12311,53 @@ var splitKeyIntoSegments = function splitKeyIntoSegments(givenKey, options) {
             key
         ];
     }
-    var brackets = /(\[[^[\]]*])/;
-    var child = /(\[[^[\]]*])/g;
-    var segment = brackets.exec(key);
-    var parent = segment ? key.slice(0, segment.index) : key;
-    var keys = [];
+    var segments = [];
+    // parent before the first '[' (may be empty if key starts with '[')
+    var first = key.indexOf('[');
+    var parent = first >= 0 ? key.slice(0, first) : key;
     if (parent) {
         if (!options.plainObjects && has.call(Object.prototype, parent)) {
             if (!options.allowPrototypes) return;
         }
-        keys[keys.length] = parent;
+        segments[segments.length] = parent;
     }
-    var i = 0;
-    while((segment = child.exec(key)) !== null && i < options.depth){
-        i += 1;
-        var segmentContent = segment[1].slice(1, -1);
-        if (!options.plainObjects && has.call(Object.prototype, segmentContent)) {
-            if (!options.allowPrototypes) return;
+    var n = key.length;
+    var open = first;
+    var collected = 0;
+    while(open >= 0 && collected < options.depth){
+        var level = 1;
+        var i = open + 1;
+        var close = -1;
+        // balance nested '[' and ']' inside this bracket group using a nesting level counter
+        while(i < n && close < 0){
+            var cu = key.charCodeAt(i);
+            if (cu === 0x5B) level += 1;
+            else if (cu === 0x5D) {
+                level -= 1;
+                if (level === 0) close = i; // found matching close; loop will exit by condition
+            }
+            i += 1;
         }
-        keys[keys.length] = segment[1];
+        if (close < 0) {
+            // Unterminated group: wrap the raw remainder in one bracket pair so it stays
+            // a single literal segment (e.g. "[[]b" -> "[[]b]"); we do not infer missing ']'.
+            segments[segments.length] = '[' + key.slice(open) + ']';
+            return segments;
+        }
+        var seg = key.slice(open, close + 1);
+        // prototype guard for the content of this group
+        var content = seg.slice(1, -1);
+        if (!options.plainObjects && has.call(Object.prototype, content) && !options.allowPrototypes) return;
+        segments[segments.length] = seg;
+        collected += 1;
+        // find the next '[' after this balanced group
+        open = key.indexOf('[', close + 1);
     }
-    if (segment) {
+    if (open >= 0) {
         if (options.strictDepth === true) throw new RangeError('Input depth exceeded depth option of ' + options.depth + ' and strictDepth is true');
-        keys[keys.length] = '[' + key.slice(segment.index) + ']';
+        segments[segments.length] = '[' + key.slice(open) + ']';
     }
-    return keys;
+    return segments;
 };
 var parseKeys = function parseQueryStringKeys(givenKey, val, options, valuesParsed) {
     if (!givenKey) return;
@@ -12526,10 +12659,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("79603633ea371214").render;
     script.staticRenderFns = require("79603633ea371214").staticRenderFns;
-    script._scopeId = "data-v-3415f1";
+    script._scopeId = "data-v-f50035";
     script.__cssModules = require("c9d76c18c5788e98").default;
     require("4764d454bdec37fa").default(script);
-    script.__scopeId = 'data-v-3415f1';
+    script.__scopeId = 'data-v-f50035';
     script.__file = "createContextDialog.vue";
 };
 initialize();
@@ -12701,10 +12834,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("148f7f85916fa99f").render;
     script.staticRenderFns = require("148f7f85916fa99f").staticRenderFns;
-    script._scopeId = "data-v-137aed";
+    script._scopeId = "data-v-1da401";
     script.__cssModules = require("18d6b8a71ffa0673").default;
     require("765c69e92bfcf808").default(script);
-    script.__scopeId = 'data-v-137aed';
+    script.__scopeId = 'data-v-1da401';
     script.__file = "sortable-list.vue";
 };
 initialize();
@@ -12766,10 +12899,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("43addf22ab5ff52b").render;
     script.staticRenderFns = require("43addf22ab5ff52b").staticRenderFns;
-    script._scopeId = "data-v-d051ef";
+    script._scopeId = "data-v-99ff4b";
     script.__cssModules = require("b5151400238568ba").default;
     require("dc4f3bfb5f2f9a3e").default(script);
-    script.__scopeId = 'data-v-d051ef';
+    script.__scopeId = 'data-v-99ff4b';
     script.__file = "addItemsPopover.vue";
 };
 initialize();
@@ -13219,10 +13352,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("d65a7c438c4cbc2b").render;
     script.staticRenderFns = require("d65a7c438c4cbc2b").staticRenderFns;
-    script._scopeId = "data-v-745301";
+    script._scopeId = "data-v-216d9a";
     script.__cssModules = require("f4102860c351f73e").default;
     require("e6f886d3ba47a944").default(script);
-    script.__scopeId = 'data-v-745301';
+    script.__scopeId = 'data-v-216d9a';
     script.__file = "createEntityDialog.vue";
 };
 initialize();
@@ -13424,10 +13557,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("627298b955099f43").render;
     script.staticRenderFns = require("627298b955099f43").staticRenderFns;
-    script._scopeId = "data-v-e6abd0";
+    script._scopeId = "data-v-2ec450";
     script.__cssModules = require("cc43dd29276c16a3").default;
     require("8a421bcfa6ff918c").default(script);
-    script.__scopeId = 'data-v-e6abd0';
+    script.__scopeId = 'data-v-2ec450';
     script.__file = "createAnalyticDialog.vue";
 };
 initialize();
@@ -13976,9 +14109,9 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("a2886d4834b780f6").render;
     script.staticRenderFns = require("a2886d4834b780f6").staticRenderFns;
-    script._scopeId = "data-v-c4e794";
+    script._scopeId = "data-v-cc0acf";
     require("2e65fd3ada512a11").default(script);
-    script.__scopeId = 'data-v-c4e794';
+    script.__scopeId = 'data-v-cc0acf';
     script.__file = "analyticName.vue";
 };
 initialize();
@@ -14213,9 +14346,9 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("df91edfc020a44ec").render;
     script.staticRenderFns = require("df91edfc020a44ec").staticRenderFns;
-    script._scopeId = "data-v-a1f15f";
+    script._scopeId = "data-v-8cd933";
     require("a9d15aa6691f2297").default(script);
-    script.__scopeId = 'data-v-a1f15f';
+    script.__scopeId = 'data-v-8cd933';
     script.__file = "followedEntity.vue";
 };
 initialize();
@@ -14293,10 +14426,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("fc571b523ea36ce0").render;
     script.staticRenderFns = require("fc571b523ea36ce0").staticRenderFns;
-    script._scopeId = "data-v-56c21c";
+    script._scopeId = "data-v-8a87fc";
     script.__cssModules = require("aec4895752613f80").default;
     require("ebf5fd019ba261a1").default(script);
-    script.__scopeId = 'data-v-56c21c';
+    script.__scopeId = 'data-v-8a87fc';
     script.__file = "linkToEntity.vue";
 };
 initialize();
@@ -14952,10 +15085,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("5966b8a4206d51fe").render;
     script.staticRenderFns = require("5966b8a4206d51fe").staticRenderFns;
-    script._scopeId = "data-v-6d7dcc";
+    script._scopeId = "data-v-99f33a";
     script.__cssModules = require("935875a4c72e9f38").default;
     require("30fc33d99f7ca241").default(script);
-    script.__scopeId = 'data-v-6d7dcc';
+    script.__scopeId = 'data-v-99f33a';
     script.__file = "linkerTemplate.vue";
 };
 initialize();
@@ -15183,10 +15316,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("c11d4a91a08d9ceb").render;
     script.staticRenderFns = require("c11d4a91a08d9ceb").staticRenderFns;
-    script._scopeId = "data-v-2202c0";
+    script._scopeId = "data-v-f24325";
     script.__cssModules = require("2c27762d2d96d6b4").default;
     require("79d30b5f3442688a").default(script);
-    script.__scopeId = 'data-v-2202c0';
+    script.__scopeId = 'data-v-f24325';
     script.__file = "linkToSpatialEntity.vue";
 };
 initialize();
@@ -15421,10 +15554,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("ebd8d57fe5144b69").render;
     script.staticRenderFns = require("ebd8d57fe5144b69").staticRenderFns;
-    script._scopeId = "data-v-94e949";
+    script._scopeId = "data-v-142b1a";
     script.__cssModules = require("6adae82734d05a29").default;
     require("328ff90a8667f2ff").default(script);
-    script.__scopeId = 'data-v-94e949';
+    script.__scopeId = 'data-v-142b1a';
     script.__file = "linkToContext.vue";
 };
 initialize();
@@ -15688,10 +15821,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("fb86fb1561a4eb5b").render;
     script.staticRenderFns = require("fb86fb1561a4eb5b").staticRenderFns;
-    script._scopeId = "data-v-52cab7";
+    script._scopeId = "data-v-e40a92";
     script.__cssModules = require("f37bf822f7eef2d8").default;
     require("d131062c24ad9ae5").default(script);
-    script.__scopeId = 'data-v-52cab7';
+    script.__scopeId = 'data-v-e40a92';
     script.__file = "inputConfiguration.vue";
 };
 initialize();
@@ -15841,10 +15974,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("174e7b05869e11a9").render;
     script.staticRenderFns = require("174e7b05869e11a9").staticRenderFns;
-    script._scopeId = "data-v-9023b4";
+    script._scopeId = "data-v-ef1b06";
     script.__cssModules = require("1288094a95e27ca4").default;
     require("7368bf4ac5988e14").default(script);
-    script.__scopeId = 'data-v-9023b4';
+    script.__scopeId = 'data-v-ef1b06';
     script.__file = "previewDialog.vue";
 };
 initialize();
@@ -16253,10 +16386,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("49da852768d78444").render;
     script.staticRenderFns = require("49da852768d78444").staticRenderFns;
-    script._scopeId = "data-v-52e2a8";
+    script._scopeId = "data-v-554f4d";
     script.__cssModules = require("b39680976e629309").default;
     require("c3be97543a3ed817").default(script);
-    script.__scopeId = 'data-v-52e2a8';
+    script.__scopeId = 'data-v-554f4d';
     script.__file = "triggerConfiguration.vue";
 };
 initialize();
@@ -16333,10 +16466,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("c4b4fddc6076f5c").render;
     script.staticRenderFns = require("c4b4fddc6076f5c").staticRenderFns;
-    script._scopeId = "data-v-50a753";
+    script._scopeId = "data-v-1aee9f";
     script.__cssModules = require("1bb6326be9835e1").default;
     require("634f54cafa2b3756").default(script);
-    script.__scopeId = 'data-v-50a753';
+    script.__scopeId = 'data-v-1aee9f';
     script.__file = "cronHelpDialog.vue";
 };
 initialize();
@@ -16728,10 +16861,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("ac88efc713ea1b8e").render;
     script.staticRenderFns = require("ac88efc713ea1b8e").staticRenderFns;
-    script._scopeId = "data-v-84a9e7";
+    script._scopeId = "data-v-605333";
     script.__cssModules = require("ee766329a47d2e89").default;
     require("615b599c90b8c4dd").default(script);
-    script.__scopeId = 'data-v-84a9e7';
+    script.__scopeId = 'data-v-605333';
     script.__file = "algorithmConfiguration.vue";
 };
 initialize();
@@ -16932,9 +17065,9 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("dd38818ea3b69c13").render;
     script.staticRenderFns = require("dd38818ea3b69c13").staticRenderFns;
-    script._scopeId = "data-v-815eb4";
+    script._scopeId = "data-v-0e819e";
     require("a00646bce0539e1e").default(script);
-    script.__scopeId = 'data-v-815eb4';
+    script.__scopeId = 'data-v-0e819e';
     script.__file = "resultConfiguration.vue";
 };
 initialize();
@@ -17539,10 +17672,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("7c58b3461bf9c840").render;
     script.staticRenderFns = require("7c58b3461bf9c840").staticRenderFns;
-    script._scopeId = "data-v-419292";
+    script._scopeId = "data-v-bbdec2";
     script.__cssModules = require("a117151e03e8bca0").default;
     require("52ee573fb9bbe7f9").default(script);
-    script.__scopeId = 'data-v-419292';
+    script.__scopeId = 'data-v-bbdec2';
     script.__file = "IODependencies.vue";
 };
 initialize();
@@ -17609,10 +17742,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("3f4905037d909310").render;
     script.staticRenderFns = require("3f4905037d909310").staticRenderFns;
-    script._scopeId = "data-v-05b195";
+    script._scopeId = "data-v-ceecef";
     script.__cssModules = require("cc903ab60d3a7548").default;
     require("c950a0cfb7a97d39").default(script);
-    script.__scopeId = 'data-v-05b195';
+    script.__scopeId = 'data-v-ceecef';
     script.__file = "inputSelectionTable.vue";
 };
 initialize();
@@ -18108,9 +18241,9 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("c82c8a04709c5c39").render;
     script.staticRenderFns = require("c82c8a04709c5c39").staticRenderFns;
-    script._scopeId = "data-v-9a0e1a";
+    script._scopeId = "data-v-ba85a8";
     require("7bdb5b575d989e53").default(script);
-    script.__scopeId = 'data-v-9a0e1a';
+    script.__scopeId = 'data-v-ba85a8';
     script.__file = "configuration.vue";
 };
 initialize();
@@ -18632,10 +18765,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("b92ecc6f89af854c").render;
     script.staticRenderFns = require("b92ecc6f89af854c").staticRenderFns;
-    script._scopeId = "data-v-9d1c7c";
+    script._scopeId = "data-v-dbe495";
     script.__cssModules = require("f78316d3492726cb").default;
     require("c88d640afaf2a223").default(script);
-    script.__scopeId = 'data-v-9d1c7c';
+    script.__scopeId = 'data-v-dbe495';
     script.__file = "summary.vue";
 };
 initialize();
@@ -19125,10 +19258,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("3fdf391e9c73cd5").render;
     script.staticRenderFns = require("3fdf391e9c73cd5").staticRenderFns;
-    script._scopeId = "data-v-03c1c9";
+    script._scopeId = "data-v-19c5d7";
     script.__cssModules = require("f93af72822295694").default;
     require("217d35c413f75cf6").default(script);
-    script.__scopeId = 'data-v-03c1c9';
+    script.__scopeId = 'data-v-19c5d7';
     script.__file = "modifyAnalyticDialog.vue";
 };
 initialize();

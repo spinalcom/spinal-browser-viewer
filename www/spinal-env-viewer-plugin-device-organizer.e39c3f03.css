@@ -1,0 +1,48 @@
+.title[data-v-b4533a] {
+  text-align: center;
+}
+
+.dialogContainer[data-v-b4533a] {
+  justify-content: space-around;
+  margin: auto;
+  display: flex;
+  width: calc(100% - 30px) !important;
+  height: calc(100% - 30px) !important;
+}
+
+.dialogContainer .content[data-v-b4533a] {
+  border: 1px solid gray;
+  border-radius: 5px;
+  width: calc(50% - 10px);
+  height: calc(100% - 2px);
+}
+
+.dialogContainer .content .title[data-v-b4533a] {
+  text-transform: capitalize;
+  border-bottom: 1px solid gray;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 40px;
+  display: flex;
+}
+
+.dialogContainer .content .list[data-v-b4533a] {
+  width: 100%;
+  height: calc(100% - 40px);
+  overflow: auto;
+}
+
+.selectDevice[data-v-b4533a] {
+  height: 100%;
+  overflow: auto;
+}
+
+.selected[data-v-b4533a] {
+  background-color: #00f;
+}
+
+.dialogContent[data-v-939d74] {
+  min-width: 400px;
+}
+/*# sourceMappingURL=spinal-env-viewer-plugin-device-organizer.e39c3f03.css.map */

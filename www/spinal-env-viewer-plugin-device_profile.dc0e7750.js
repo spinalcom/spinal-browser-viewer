@@ -921,10 +921,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("88fd1f67f96321cd").render;
     script.staticRenderFns = require("88fd1f67f96321cd").staticRenderFns;
-    script._scopeId = "data-v-559772";
+    script._scopeId = "data-v-8e8477";
     script.__cssModules = require("bb60b98095020f65").default;
     require("e01e91ef773d855").default(script);
-    script.__scopeId = 'data-v-559772';
+    script.__scopeId = 'data-v-8e8477';
     script.__file = "addDevices.vue";
 };
 initialize();
@@ -996,20 +996,20 @@ exports.default = options; // parcel transformer vue2 compiler hack
 },{"spinal-model-graph":"b87gp","spinal-env-viewer-graph-service":"9LAk7","../build/DeviceHelper":"hLZpu","../FileExplorer":"f5b6J","bfa6e76c77c3189b":"dXUyc","71648ea7bcc10d87":"eoH60","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"hLZpu":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2020 SpinalCom - www.spinalcom.com
- * 
+ *
  * This file is part of SpinalCore.
- * 
+ *
  * Please read all of the following terms and conditions
  * of the Free Software license Agreement ("Agreement")
  * carefully.
- * 
+ *
  * This Agreement is a legally binding contract between
  * the Licensee (as defined below) and SpinalCom that
  * sets forth the terms and conditions that govern your
  * use of the Program. By installing and/or using the
  * Program, you agree to abide by all the terms and
  * conditions stated or referenced herein.
- * 
+ *
  * If you do not agree to abide by these terms and
  * conditions, do not demonstrate your acceptance and do
  * not install or use the Program.
@@ -1293,7 +1293,7 @@ class DeviceHelper {
         } else console.log("Cr\xe9ation des BacnetValues d\xe9j\xe0 effectu\xe9e");
     }
     static async generateBacNetValuesFromDiscovery(parentNodeId, parentContextId, deviceSelectedId, networkSelectedId, contextSelectedId) {
-        // Get node 1 
+        // Get node 1
         const selectedDeviceNode = (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(deviceSelectedId);
         // Get context 1
         const context1 = (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(contextSelectedId);
@@ -1320,7 +1320,7 @@ class DeviceHelper {
         for (const child of childrenToAdd){
             const childNodeConfig = DeviceHelper.setChildNodeConfiguration(child.info.typeNetwork.get(), child.info.type.get());
             const n = new (0, _spinalEnvViewerGraphService.SpinalNode)(childNodeConfig[2], childNodeConfig[1]);
-            prom.push(node2.addChildInContext(n, childNodeConfig[0], 'PtrLst', context2));
+            prom.push(node2.addChildInContext(n, childNodeConfig[0], "PtrLst", context2));
             prom.push(DeviceHelper.linkChildren(n, child, context1, context2, childNodeConfig[3]));
         }
         return Promise.all(prom);
@@ -1333,7 +1333,7 @@ class DeviceHelper {
                 return m[1].toUpperCase();
             });
             const grandChildNode = new (0, _spinalEnvViewerGraphService.SpinalNode)(grandChild.info.name.get(), grandChildType);
-            prom.push(n.addChildInContext(grandChildNode, rel2, 'PtrLst', context2));
+            prom.push(n.addChildInContext(grandChildNode, rel2, "PtrLst", context2));
             //prom.push(DeviceHelper.getAttributeFromNode(grandChild));
             //console.log(DeviceHelper.getAttributeByLabelAndCategory(grandChild));
             let attributeObj = {
@@ -1352,80 +1352,80 @@ class DeviceHelper {
     }
     static setChildNodeConfiguration(bacnetType, nodeType) {
         let combine = bacnetType + "-" + nodeType;
-        let relationName = '';
-        let typeName = '';
-        let name = '';
-        let grandChildRelation = '';
+        let relationName = "";
+        let typeName = "";
+        let name = "";
+        let grandChildRelation = "";
         let resTab = [];
         switch(combine){
             case "analog_value-BmsEndpointGroup":
                 relationName = "hasAnalogValues";
-                typeName = 'analogValues';
-                name = 'Analog Values';
-                grandChildRelation = 'hasAnalogValue';
+                typeName = "analogValues";
+                name = "Analog Values";
+                grandChildRelation = "hasAnalogValue";
                 resTab.push(relationName, typeName, name, grandChildRelation);
                 break;
             case "analog_input-BmsEndpointGroup":
-                relationName = 'hasAnalogInputs';
-                typeName = 'analogInputs';
-                name = 'Analog Input';
-                grandChildRelation = 'hasAnalogInput';
+                relationName = "hasAnalogInputs";
+                typeName = "analogInputs";
+                name = "Analog Input";
+                grandChildRelation = "hasAnalogInput";
                 resTab.push(relationName, typeName, name, grandChildRelation);
                 break;
             case "analog_output-BmsEndpointGroup":
                 relationName = "hasAnalogOutputs";
-                typeName = 'analogOutputs';
-                name = 'Analog Output';
-                grandChildRelation = 'hasAnalogOutput';
+                typeName = "analogOutputs";
+                name = "Analog Output";
+                grandChildRelation = "hasAnalogOutput";
                 resTab.push(relationName, typeName, name, grandChildRelation);
                 break;
             case "multi_state_output-BmsEndpointGroup":
                 relationName = "hasMultiStateOutputs";
-                typeName = 'multiStateOutputs';
-                name = 'Multi State Output';
-                grandChildRelation = 'hasMultiStateOutput';
+                typeName = "multiStateOutputs";
+                name = "Multi State Output";
+                grandChildRelation = "hasMultiStateOutput";
                 resTab.push(relationName, typeName, name, grandChildRelation);
                 break;
             case "multi_state_input-BmsEndpointGroup":
                 relationName = "hasMultiStateInputs";
-                typeName = 'multiStateInputs';
-                name = 'Multi State Input';
-                grandChildRelation = 'hasMultiStateInput';
+                typeName = "multiStateInputs";
+                name = "Multi State Input";
+                grandChildRelation = "hasMultiStateInput";
                 resTab.push(relationName, typeName, name, grandChildRelation);
                 break;
             case "multi_state_value-BmsEndpointGroup":
                 relationName = "hasMultiStateValues";
-                typeName = 'multiStateValues';
-                name = 'Multi-State Value';
-                grandChildRelation = 'hasMultiStateValue';
+                typeName = "multiStateValues";
+                name = "Multi-State Value";
+                grandChildRelation = "hasMultiStateValue";
                 resTab.push(relationName, typeName, name, grandChildRelation);
                 break;
             case "binary_value-BmsEndpointGroup":
                 relationName = "hasBinaryValues";
-                typeName = 'binaryValues';
-                name = 'Binary Values';
-                grandChildRelation = 'hasBinaryValue';
+                typeName = "binaryValues";
+                name = "Binary Values";
+                grandChildRelation = "hasBinaryValue";
                 resTab.push(relationName, typeName, name, grandChildRelation);
                 break;
             case "binary_output-BmsEndpointGroup":
                 relationName = "hasBinaryOutputs";
-                typeName = 'binaryOutputs';
-                name = 'Binary Output';
-                grandChildRelation = 'hasBinaryOutput';
+                typeName = "binaryOutputs";
+                name = "Binary Output";
+                grandChildRelation = "hasBinaryOutput";
                 resTab.push(relationName, typeName, name, grandChildRelation);
                 break;
             case "binary_input-BmsEndpointGroup":
                 relationName = "hasBinaryInputs";
-                typeName = 'binaryInputs';
-                name = 'Binary Input';
-                grandChildRelation = 'hasBinaryInput';
+                typeName = "binaryInputs";
+                name = "Binary Input";
+                grandChildRelation = "hasBinaryInput";
                 resTab.push(relationName, typeName, name, grandChildRelation);
                 break;
             case "network_value-BmsEndpointGroup":
                 relationName = "hasNetworkValues";
-                typeName = 'networkValues';
-                name = 'Network Values';
-                grandChildRelation = 'hasNetworkValue';
+                typeName = "networkValues";
+                name = "Network Values";
+                grandChildRelation = "hasNetworkValue";
                 resTab.push(relationName, typeName, name, grandChildRelation);
                 break;
             default:
@@ -1503,7 +1503,7 @@ class DeviceHelper {
         });
         console.log("blob");
         console.log(blobDataToExport);
-        var link = document.createElement('a');
+        var link = document.createElement("a");
         link.href = window.URL.createObjectURL(blobDataToExport);
         link.download = "item_list.json";
         link.click();
@@ -1551,7 +1551,7 @@ class DeviceHelper {
         ], {
             type: ".json"
         });
-        var link = document.createElement('a');
+        var link = document.createElement("a");
         link.href = window.URL.createObjectURL(blobDataToExport);
         link.download = "item_list.json";
         link.click();
@@ -1799,17 +1799,19 @@ class DeviceHelper {
         };
     }
     static async itemDetailInputOutput(selectedNode) {
-        var tab = new Object();
+        var tab = {
+            NetworkValue: [],
+            AnalogValue: [],
+            BinaryValue: [],
+            MultiStateValue: [],
+            AnalogInput: [],
+            BinaryInput: [],
+            MultiStateInput: [],
+            AnalogOutput: [],
+            BitString: [],
+            others: []
+        };
         var idx = "";
-        tab.NetworkValue = [];
-        tab.AnalogValue = [];
-        tab.BinaryValue = [];
-        tab.MultiStateValue = [];
-        tab.AnalogInput = [];
-        tab.BinaryInput = [];
-        tab.MultiStateInput = [];
-        tab.AnalogOutput = [];
-        tab.others = [];
         var tempTab = tab;
         var parent1 = await (0, _spinalEnvViewerGraphService.SpinalGraphService).getParents(selectedNode.id, "hasItem");
         var nodeParent1 = await (0, _spinalEnvViewerGraphService.SpinalGraphService).getNodeAsync(parent1[0].id._data);
@@ -1823,37 +1825,41 @@ class DeviceHelper {
             console.log(valueNode);
             var title = "undefined";
             switch(valueNode.type._data){
-                case 'networkValues':
+                case "networkValues":
                     tempTab = tab.NetworkValue;
                     title = "NV_";
                     break;
-                case 'analogValues':
+                case "analogValues":
                     tempTab = tab.AnalogValue;
                     title = "AV_";
                     break;
-                case 'binaryValues':
+                case "binaryValues":
                     tempTab = tab.BinaryValue;
                     title = "BV_";
                     break;
-                case 'multiStateValues':
+                case "multiStateValues":
                     tempTab = tab.MultiStateValue;
                     title = "MSV_";
                     break;
-                case 'analogInputs':
+                case "analogInputs":
                     tempTab = tab.AnalogInput;
                     title = "AI_";
                     break;
-                case 'analogOutputs':
+                case "analogOutputs":
                     tempTab = tab.AnalogOutput;
                     title = "AO_";
                     break;
-                case 'binaryInputs':
+                case "binaryInputs":
                     tempTab = tab.BinaryInput;
                     title = "BI_";
                     break;
-                case 'multiStateInputs':
+                case "multiStateInputs":
                     tempTab = tab.MultiStateInput;
                     title = "MSI_";
+                    break;
+                case "bitStringValues":
+                    tempTab = tab.BitString;
+                    title = "BSV_";
                     break;
                 default:
                     console.log("default");
@@ -1948,7 +1954,7 @@ class DeviceHelper {
                 let tabLinks = tab[elt].links;
                 let item_name = tab[elt].name._data;
                 let item_type;
-                let prefix = item_name.split('_')[0];
+                let prefix = item_name.split("_")[0];
                 if (prefix == "FC") item_type = "Fan Coil";
                 else if (prefix == "L") item_type = "Lamp";
                 else if (prefix == "B") item_type = "Blind";
@@ -2093,10 +2099,10 @@ class DeviceHelper {
     ////////////////////////////// ITEM SUPERVISION FUNCTIONS ///////////////////////////
     /////////////////////////////////////////////////////////////////////////////////////
     static getTitle(title) {
-        let titleReturned = '';
+        let titleReturned = "";
         title = title[0].toUpperCase() + title.slice(1);
         for(let i = 0; i < title.length; i++)if (title[i] === title[i].toUpperCase() && title[i] !== title[i].toLowerCase()) titleReturned += title[i];
-        titleReturned += '_';
+        titleReturned += "_";
         return titleReturned;
     }
     static async itemSupervisionInputOutput(parentId) {
@@ -2108,7 +2114,7 @@ class DeviceHelper {
             let childNode = (0, _spinalEnvViewerGraphService.SpinalGraphService).getRealNode(child.id.get());
             let bacnetTypesNode = await childNode.getChildrenInContext(this.context);
             for (let bacnetType of bacnetTypesNode){
-                if (bacnetType.info.type != 'networkValues') {
+                if (bacnetType.info.type != "networkValues") {
                     let bacnetValues = await bacnetType.getChildrenInContext(this.context);
                     if (bacnetValues.length != 0) {
                         let title = DeviceHelper.getTitle(bacnetType.info.type.get());
@@ -2400,7 +2406,7 @@ class DeviceHelper {
     //       if(tab[elt].intervalTime != savedTab[elt].intervalTime){
     //         if(tab[elt].intervalTime == null || tab[elt].intervalTime == "null"){
     //           //clear
-    //           let parent = await SpinalGraphService.getParents(tab[elt].nodeId, "hasIntervalTime");  
+    //           let parent = await SpinalGraphService.getParents(tab[elt].nodeId, "hasIntervalTime");
     //           if(parent.length !=0){
     //             await this.clearLinksOneByOne(parent[0].id.get(), tab[elt].nodeId, "hasIntervalTime", SPINAL_RELATION_PTR_LST_TYPE);
     //             spinalEventEmitter.emit("deviceProfileContext-ChangeMonitoring", {
@@ -2679,7 +2685,9 @@ const endpointTypes = Object.freeze({
     13: "Multi State Input",
     14: "Multi State Output",
     19: "Multi-State Value",
-    55: "Binary Lighting output"
+    55: "Binary Lighting output",
+    12: "Loop",
+    39: "Bit_String"
 });
 const bacnetGroupInfo = Object.freeze({
     "Analog Input": {
@@ -2751,6 +2759,20 @@ const bacnetGroupInfo = Object.freeze({
         childType: "binaryLightingOutput",
         parentRelationName: "hasBinaryLightingOutputs",
         childRelationName: "hasBinaryLightingOutput"
+    },
+    "Loop": {
+        id: 12,
+        nodeType: "loopValues",
+        childType: "loopValue",
+        parentRelationName: "hasLoopValues",
+        childRelationName: "hasLoopValue"
+    },
+    "Bit_String": {
+        id: 39,
+        nodeType: "bitStringValues",
+        childType: "bitStringValue",
+        parentRelationName: "hasBitStringValues",
+        childRelationName: "hasBitStringValue"
     }
 }); // export const spinalNodeTypes = Object.freeze({
  //     "Analog Input": "analogInput",
@@ -6791,9 +6813,13 @@ var Buffer = require("e8399c94bace2e95").Buffer;
         clearBuffers(parser);
         parser.q = parser.c = '';
         parser.bufferCheckPosition = sax.MAX_BUFFER_LENGTH;
+        parser.encoding = null;
         parser.opt = opt || {};
         parser.opt.lowercase = parser.opt.lowercase || parser.opt.lowercasetags;
         parser.looseCase = parser.opt.lowercase ? 'toLowerCase' : 'toUpperCase';
+        parser.opt.maxEntityCount = parser.opt.maxEntityCount || 512;
+        parser.opt.maxEntityDepth = parser.opt.maxEntityDepth || 4;
+        parser.entityCount = parser.entityDepth = 0;
         parser.tags = [];
         parser.closed = parser.closedRoot = parser.sawRoot = false;
         parser.tag = parser.error = null;
@@ -6899,6 +6925,22 @@ var Buffer = require("e8399c94bace2e95").Buffer;
     function createStream(strict, opt) {
         return new SAXStream(strict, opt);
     }
+    function determineBufferEncoding(data, isEnd) {
+        // BOM-based detection is the most reliable signal when present.
+        if (data.length >= 2) {
+            if (data[0] === 0xff && data[1] === 0xfe) return 'utf-16le';
+            if (data[0] === 0xfe && data[1] === 0xff) return 'utf-16be';
+        }
+        if (data.length >= 3 && data[0] === 0xef && data[1] === 0xbb && data[2] === 0xbf) return 'utf8';
+        if (data.length >= 4) {
+            // XML documents without a BOM still start with "<?xml", which is enough
+            // to distinguish UTF-16LE/BE from UTF-8 by looking at the zero bytes.
+            if (data[0] === 0x3c && data[1] === 0x00 && data[2] === 0x3f && data[3] === 0x00) return 'utf-16le';
+            if (data[0] === 0x00 && data[1] === 0x3c && data[2] === 0x00 && data[3] === 0x3f) return 'utf-16be';
+            return 'utf8';
+        }
+        return isEnd ? 'utf8' : null;
+    }
     function SAXStream(strict, opt) {
         if (!(this instanceof SAXStream)) return new SAXStream(strict, opt);
         Stream.apply(this);
@@ -6916,6 +6958,7 @@ var Buffer = require("e8399c94bace2e95").Buffer;
             me._parser.error = null;
         };
         this._decoder = null;
+        this._decoderBuffer = null;
         streamWraps.forEach(function(ev) {
             Object.defineProperty(me, 'on' + ev, {
                 get: function() {
@@ -6939,12 +6982,43 @@ var Buffer = require("e8399c94bace2e95").Buffer;
             value: SAXStream
         }
     });
+    SAXStream.prototype._decodeBuffer = function(data, isEnd) {
+        if (this._decoderBuffer) {
+            // Keep incomplete leading bytes until we have enough data to infer the
+            // stream encoding, then decode the buffered prefix together with the next chunk.
+            data = Buffer.concat([
+                this._decoderBuffer,
+                data
+            ]);
+            this._decoderBuffer = null;
+        }
+        if (!this._decoder) {
+            var encoding = determineBufferEncoding(data, isEnd);
+            if (!encoding) {
+                // A very short first chunk may not contain enough bytes to detect the
+                // encoding yet, so defer decoding until the next write/end call.
+                this._decoderBuffer = data;
+                return '';
+            }
+            // Store the detected transport encoding so strict mode can compare it
+            // with the optional encoding declared in the XML prolog later on.
+            this._parser.encoding = encoding;
+            this._decoder = new TextDecoder(encoding);
+        }
+        return this._decoder.decode(data, {
+            stream: !isEnd
+        });
+    };
     SAXStream.prototype.write = function(data) {
-        if (typeof Buffer === 'function' && typeof Buffer.isBuffer === 'function' && Buffer.isBuffer(data)) {
-            if (!this._decoder) this._decoder = new TextDecoder('utf8');
-            data = this._decoder.decode(data, {
-                stream: true
-            });
+        if (typeof Buffer === 'function' && typeof Buffer.isBuffer === 'function' && Buffer.isBuffer(data)) data = this._decodeBuffer(data, false);
+        else if (this._decoderBuffer) {
+            // Flush any buffered binary prefix before handling a string chunk.
+            // This only matters if the caller mixes Buffer and string writes (used in test).
+            var remaining = this._decodeBuffer(Buffer.alloc(0), true);
+            if (remaining) {
+                this._parser.write(remaining);
+                this.emit('data', remaining);
+            }
         }
         this._parser.write(data.toString());
         this.emit('data', data);
@@ -6953,7 +7027,13 @@ var Buffer = require("e8399c94bace2e95").Buffer;
     SAXStream.prototype.end = function(chunk) {
         if (chunk && chunk.length) this.write(chunk);
         // Flush any remaining decoded data from the TextDecoder
-        if (this._decoder) {
+        if (this._decoderBuffer) {
+            var finalChunk = this._decodeBuffer(Buffer.alloc(0), true);
+            if (finalChunk) {
+                this._parser.write(finalChunk);
+                this.emit('data', finalChunk);
+            }
+        } else if (this._decoder) {
             var remaining = this._decoder.decode();
             if (remaining) {
                 this._parser.write(remaining);
@@ -7320,6 +7400,26 @@ var Buffer = require("e8399c94bace2e95").Buffer;
     S = sax.STATE;
     function emit(parser, event, data) {
         parser[event] && parser[event](data);
+    }
+    function getDeclaredEncoding(body) {
+        var match = body && body.match(/(?:^|\s)encoding\s*=\s*(['"])([^'"]+)\1/i);
+        return match ? match[2] : null;
+    }
+    function normalizeEncodingName(encoding) {
+        if (!encoding) return null;
+        return encoding.toLowerCase().replace(/[^a-z0-9]/g, '');
+    }
+    function encodingsMatch(detectedEncoding, declaredEncoding) {
+        const detected = normalizeEncodingName(detectedEncoding);
+        const declared = normalizeEncodingName(declaredEncoding);
+        if (!detected || !declared) return true;
+        if (declared === 'utf16') return detected === 'utf16le' || detected === 'utf16be';
+        return detected === declared;
+    }
+    function validateXmlDeclarationEncoding(parser, data) {
+        if (!parser.strict || !parser.encoding || !data || data.name !== 'xml') return;
+        var declaredEncoding = getDeclaredEncoding(data.body);
+        if (declaredEncoding && !encodingsMatch(parser.encoding, declaredEncoding)) strictFail(parser, 'XML declaration encoding ' + declaredEncoding + ' does not match detected stream encoding ' + parser.encoding.toUpperCase());
     }
     function emitNode(parser, nodeType, data) {
         if (parser.textNode) closeText(parser);
@@ -7831,10 +7931,12 @@ var Buffer = require("e8399c94bace2e95").Buffer;
                     continue;
                 case S.PROC_INST_ENDING:
                     if (c === '>') {
-                        emitNode(parser, 'onprocessinginstruction', {
+                        const procInstEndData = {
                             name: parser.procInstName,
                             body: parser.procInstBody
-                        });
+                        };
+                        validateXmlDeclarationEncoding(parser, procInstEndData);
+                        emitNode(parser, 'onprocessinginstruction', procInstEndData);
                         parser.procInstName = parser.procInstBody = '';
                         parser.state = S.TEXT;
                     } else {
@@ -7996,9 +8098,12 @@ var Buffer = require("e8399c94bace2e95").Buffer;
                     if (c === ';') {
                         var parsedEntity = parseEntity(parser);
                         if (parser.opt.unparsedEntities && !Object.values(sax.XML_ENTITIES).includes(parsedEntity)) {
+                            if ((parser.entityCount += 1) > parser.opt.maxEntityCount) error(parser, 'Parsed entity count exceeds max entity count');
+                            if ((parser.entityDepth += 1) > parser.opt.maxEntityDepth) error(parser, 'Parsed entity depth exceeds max entity depth');
                             parser.entity = '';
                             parser.state = returnState;
                             parser.write(parsedEntity);
+                            parser.entityDepth -= 1;
                         } else {
                             parser[buffer] += parsedEntity;
                             parser.entity = '';
@@ -8409,10 +8514,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("4c8fb8d05c9c9f57").render;
     script.staticRenderFns = require("4c8fb8d05c9c9f57").staticRenderFns;
-    script._scopeId = "data-v-003efd";
+    script._scopeId = "data-v-e2d137";
     script.__cssModules = require("234bec5758f896dd").default;
     require("2011a440eee41cc7").default(script);
-    script.__scopeId = 'data-v-003efd';
+    script.__scopeId = 'data-v-e2d137';
     script.__file = "addDeviceProfiles.vue";
 };
 initialize();
@@ -8563,10 +8668,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("9bf3bc0da4475b32").render;
     script.staticRenderFns = require("9bf3bc0da4475b32").staticRenderFns;
-    script._scopeId = "data-v-e338ff";
+    script._scopeId = "data-v-787e84";
     script.__cssModules = require("f268865a932ec739").default;
     require("1bc64a3f4626a812").default(script);
-    script.__scopeId = 'data-v-e338ff';
+    script.__scopeId = 'data-v-787e84';
     script.__file = "itemList.vue";
 };
 initialize();
@@ -9274,10 +9379,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("ee7747d7af65f7a8").render;
     script.staticRenderFns = require("ee7747d7af65f7a8").staticRenderFns;
-    script._scopeId = "data-v-7257ce";
+    script._scopeId = "data-v-92b614";
     script.__cssModules = require("f74438b2ff4a5f66").default;
     require("40ceb47cf7f1dd75").default(script);
-    script.__scopeId = 'data-v-7257ce';
+    script.__scopeId = 'data-v-92b614';
     script.__file = "ItemDetail.vue";
 };
 initialize();
@@ -9341,16 +9446,43 @@ var scriptExports = {
         // console.log("end logs");
         },
         arrangeTabs: async function() {
-            // inputs
-            for(var elt in this.ioTab.NetworkValue)this.chooseBetweenTables(this.ioTab.NetworkValue[elt], this.inputsId, this.inputTab, this.selectedInputs, this.backupInput);
-            for(var elt in this.ioTab.AnalogInput)this.chooseBetweenTables(this.ioTab.AnalogInput[elt], this.inputsId, this.inputTab, this.selectedInputs, this.backupInput);
-            for(var elt in this.ioTab.BinaryInput)this.chooseBetweenTables(this.ioTab.BinaryInput[elt], this.inputsId, this.inputTab, this.selectedInputs, this.backupInput);
-            for(var elt in this.ioTab.MultiStateInput)this.chooseBetweenTables(this.ioTab.MultiStateInput[elt], this.inputsId, this.inputTab, this.selectedInputs, this.backupInput);
-            // outputs
-            for(var elt in this.ioTab.BinaryValue)this.chooseBetweenTables(this.ioTab.BinaryValue[elt], this.outputsId, this.outputTab, this.selectedOutputs, this.backupOutput);
-            for(var elt in this.ioTab.AnalogValue)this.chooseBetweenTables(this.ioTab.AnalogValue[elt], this.outputsId, this.outputTab, this.selectedOutputs, this.backupOutput);
-            for(var elt in this.ioTab.MultiStateValue)this.chooseBetweenTables(this.ioTab.MultiStateValue[elt], this.outputsId, this.outputTab, this.selectedOutputs, this.backupOutput);
-            for(var elt in this.ioTab.AnalogOutput)this.chooseBetweenTables(this.ioTab.AnalogOutput[elt], this.outputsId, this.outputTab, this.selectedOutputs, this.backupOutput);
+            for(var key in this.ioTab){
+                if (key === "others") continue;
+                const values = this.ioTab[key];
+                for(var elt in values){
+                    const list = key.toLowerCase().includes("input") ? this.inputTab : this.outputTab;
+                    const id = key.toLowerCase().includes("input") ? this.inputsId : this.outputsId;
+                    const backup = key.toLowerCase().includes("input") ? this.backupInput : this.backupOutput;
+                    const selected = key.toLowerCase().includes("input") ? this.selectedInputs : this.selectedOutputs;
+                    this.chooseBetweenTables(values[elt], id, list, selected, backup);
+                }
+            }
+            // // inputs
+            // for (var elt in this.ioTab.NetworkValue) {
+            //   this.chooseBetweenTables(this.ioTab.NetworkValue[elt], this.inputsId, this.inputTab, this.selectedInputs, this.backupInput);
+            // }
+            // for (var elt in this.ioTab.AnalogInput) {
+            //   this.chooseBetweenTables(this.ioTab.AnalogInput[elt], this.inputsId, this.inputTab, this.selectedInputs, this.backupInput);
+            // }
+            // for (var elt in this.ioTab.BinaryInput) {
+            //   this.chooseBetweenTables(this.ioTab.BinaryInput[elt], this.inputsId, this.inputTab, this.selectedInputs, this.backupInput);
+            // }
+            // for (var elt in this.ioTab.MultiStateInput) {
+            //   this.chooseBetweenTables(this.ioTab.MultiStateInput[elt], this.inputsId, this.inputTab, this.selectedInputs, this.backupInput);
+            // }
+            // // outputs
+            // for (var elt in this.ioTab.BinaryValue) {
+            //   this.chooseBetweenTables(this.ioTab.BinaryValue[elt], this.outputsId, this.outputTab, this.selectedOutputs, this.backupOutput);
+            // }
+            // for (var elt in this.ioTab.AnalogValue) {
+            //   this.chooseBetweenTables(this.ioTab.AnalogValue[elt], this.outputsId, this.outputTab, this.selectedOutputs, this.backupOutput);
+            // }
+            // for (var elt in this.ioTab.MultiStateValue) {
+            //   this.chooseBetweenTables(this.ioTab.MultiStateValue[elt], this.outputsId, this.outputTab, this.selectedOutputs, this.backupOutput);
+            // }
+            // for (var elt in this.ioTab.AnalogOutput) {
+            //   this.chooseBetweenTables(this.ioTab.AnalogOutput[elt], this.outputsId, this.outputTab, this.selectedOutputs, this.backupOutput);
+            // }
             this.saveInputTab = this.inputTab;
             this.saveOutputTab = this.outputTab;
         // this.backupInput = this.inputTab;
@@ -9540,7 +9672,7 @@ var render = function() {
                             staticClass: "infos-details2"
                         }, [
                             _c('md-content', [
-                                _vm._v(" Master  ")
+                                _vm._v(" Master ")
                             ]),
                             _vm._v(" "),
                             _c('md-checkbox', {
@@ -9577,7 +9709,7 @@ var render = function() {
                                         _c('span', {
                                             staticClass: "md-title"
                                         }, [
-                                            _vm._v("\n                      Linked BacnetValues (Input)\n                    ")
+                                            _vm._v("\n                    Linked BacnetValues (Input)\n                  ")
                                         ]),
                                         _vm._v(" "),
                                         _c('v-spacer'),
@@ -9624,7 +9756,7 @@ var render = function() {
                                                                 "md-sort-by": "title"
                                                             }
                                                         }, [
-                                                            _vm._v(_vm._s(item.title) + "\n                      ")
+                                                            _vm._v(_vm._s(item.title) + "\n                    ")
                                                         ]),
                                                         _vm._v(" "),
                                                         _c('md-table-cell', {
@@ -9633,7 +9765,7 @@ var render = function() {
                                                                 "md-sort-by": "name"
                                                             }
                                                         }, [
-                                                            _vm._v(_vm._s(item.name) + "\n                      ")
+                                                            _vm._v(_vm._s(item.name) + "\n                    ")
                                                         ]),
                                                         _vm._v(" "),
                                                         _c('md-table-cell', {
@@ -9642,7 +9774,7 @@ var render = function() {
                                                                 "md-sort-by": "idx"
                                                             }
                                                         }, [
-                                                            _vm._v(_vm._s(item.idx) + "\n                      ")
+                                                            _vm._v(_vm._s(item.idx) + "\n                    ")
                                                         ])
                                                     ], 1);
                                                 }
@@ -9731,7 +9863,7 @@ var render = function() {
                                                                 "md-sort-by": "title"
                                                             }
                                                         }, [
-                                                            _vm._v(_vm._s(item.title) + "\n                      ")
+                                                            _vm._v(_vm._s(item.title) + "\n                    ")
                                                         ]),
                                                         _vm._v(" "),
                                                         _c('md-table-cell', {
@@ -9740,7 +9872,7 @@ var render = function() {
                                                                 "md-sort-by": "name"
                                                             }
                                                         }, [
-                                                            _vm._v(_vm._s(item.name) + "\n                      ")
+                                                            _vm._v(_vm._s(item.name) + "\n                    ")
                                                         ]),
                                                         _vm._v(" "),
                                                         _c('md-table-cell', {
@@ -9749,7 +9881,7 @@ var render = function() {
                                                                 "md-sort-by": "idx"
                                                             }
                                                         }, [
-                                                            _vm._v(_vm._s(item.idx) + "\n                      ")
+                                                            _vm._v(_vm._s(item.idx) + "\n                    ")
                                                         ])
                                                     ], 1);
                                                 }
@@ -9783,7 +9915,7 @@ var render = function() {
                                         _c('span', {
                                             staticClass: "md-title"
                                         }, [
-                                            _vm._v("\n                      Linked BacnetValues (Output)\n                    ")
+                                            _vm._v("\n                    Linked BacnetValues (Output)\n                  ")
                                         ]),
                                         _vm._v(" "),
                                         _c('v-spacer'),
@@ -9830,7 +9962,7 @@ var render = function() {
                                                                 "md-sort-by": "title"
                                                             }
                                                         }, [
-                                                            _vm._v(_vm._s(item.title) + "\n                      ")
+                                                            _vm._v(_vm._s(item.title) + "\n                    ")
                                                         ]),
                                                         _vm._v(" "),
                                                         _c('md-table-cell', {
@@ -9839,7 +9971,7 @@ var render = function() {
                                                                 "md-sort-by": "name"
                                                             }
                                                         }, [
-                                                            _vm._v(_vm._s(item.name) + "\n                      ")
+                                                            _vm._v(_vm._s(item.name) + "\n                    ")
                                                         ]),
                                                         _vm._v(" "),
                                                         _c('md-table-cell', {
@@ -9848,7 +9980,7 @@ var render = function() {
                                                                 "md-sort-by": "idx"
                                                             }
                                                         }, [
-                                                            _vm._v(_vm._s(item.idx) + "\n                      ")
+                                                            _vm._v(_vm._s(item.idx) + "\n                    ")
                                                         ])
                                                     ], 1);
                                                 }
@@ -9928,7 +10060,7 @@ var render = function() {
                                                                 "md-sort-by": "title"
                                                             }
                                                         }, [
-                                                            _vm._v(_vm._s(item.title) + "\n                      ")
+                                                            _vm._v(_vm._s(item.title) + "\n                    ")
                                                         ]),
                                                         _vm._v(" "),
                                                         _c('md-table-cell', {
@@ -9937,7 +10069,7 @@ var render = function() {
                                                                 "md-sort-by": "name"
                                                             }
                                                         }, [
-                                                            _vm._v(_vm._s(item.name) + "\n                      ")
+                                                            _vm._v(_vm._s(item.name) + "\n                    ")
                                                         ]),
                                                         _vm._v(" "),
                                                         _c('md-table-cell', {
@@ -9946,7 +10078,7 @@ var render = function() {
                                                                 "md-sort-by": "idx"
                                                             }
                                                         }, [
-                                                            _vm._v(_vm._s(item.idx) + "\n                      ")
+                                                            _vm._v(_vm._s(item.idx) + "\n                    ")
                                                         ])
                                                     ], 1);
                                                 }
@@ -9977,7 +10109,7 @@ var render = function() {
                                 "click": _vm.onCancel
                             }
                         }, [
-                            _vm._v("Annuler\n            ")
+                            _vm._v("Annuler\n          ")
                         ]),
                         _vm._v(" "),
                         _c('v-btn', {
@@ -9989,7 +10121,7 @@ var render = function() {
                                 "click": _vm.onSave
                             }
                         }, [
-                            _vm._v("Valider\n            ")
+                            _vm._v("Valider\n          ")
                         ])
                     ], 1)
                 ], 1)
@@ -10016,10 +10148,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("37df58208c28b650").render;
     script.staticRenderFns = require("37df58208c28b650").staticRenderFns;
-    script._scopeId = "data-v-c63626";
+    script._scopeId = "data-v-0ab1f4";
     script.__cssModules = require("9cd3138b72d16212").default;
     require("da62ef87d9c627cf").default(script);
-    script.__scopeId = 'data-v-c63626';
+    script.__scopeId = 'data-v-0ab1f4';
     script.__file = "monitoringDetails.vue";
 };
 initialize();
@@ -10376,10 +10508,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("1ea9d8efdc1ba6da").render;
     script.staticRenderFns = require("1ea9d8efdc1ba6da").staticRenderFns;
-    script._scopeId = "data-v-a58993";
+    script._scopeId = "data-v-b2d8ff";
     script.__cssModules = require("7b8c4eeb3551659b").default;
     require("ffc63e92c991ad68").default(script);
-    script.__scopeId = 'data-v-a58993';
+    script.__scopeId = 'data-v-b2d8ff';
     script.__file = "itemSupervision.vue";
 };
 initialize();
@@ -11380,10 +11512,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("1ca31e4d192d6554").render;
     script.staticRenderFns = require("1ca31e4d192d6554").staticRenderFns;
-    script._scopeId = "data-v-1ffe44";
+    script._scopeId = "data-v-782e4d";
     script.__cssModules = require("db1f7abccf9fd12d").default;
     require("8207fadf98624cb2").default(script);
-    script.__scopeId = 'data-v-1ffe44';
+    script.__scopeId = 'data-v-782e4d';
     script.__file = "globalSupervision.vue";
 };
 initialize();
@@ -12110,10 +12242,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("9a97313b3d3843b").render;
     script.staticRenderFns = require("9a97313b3d3843b").staticRenderFns;
-    script._scopeId = "data-v-e9dcc9";
+    script._scopeId = "data-v-11009b";
     script.__cssModules = require("1c71f49a4fc7bfc4").default;
     require("bc75e9340295c677").default(script);
-    script.__scopeId = 'data-v-e9dcc9';
+    script.__scopeId = 'data-v-11009b';
     script.__file = "ShowBacnetValue.vue";
 };
 initialize();
@@ -12322,10 +12454,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("82e784f8b4a3d93a").render;
     script.staticRenderFns = require("82e784f8b4a3d93a").staticRenderFns;
-    script._scopeId = "data-v-e7b848";
+    script._scopeId = "data-v-abb49f";
     script.__cssModules = require("f8f23141d193d9e5").default;
     require("e6a757ef2435c199").default(script);
-    script.__scopeId = 'data-v-e7b848';
+    script.__scopeId = 'data-v-abb49f';
     script.__file = "LinkComponent.vue";
 };
 initialize();
@@ -12380,10 +12512,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("a2a8744b69190f7d").render;
     script.staticRenderFns = require("a2a8744b69190f7d").staticRenderFns;
-    script._scopeId = "data-v-fa2645";
+    script._scopeId = "data-v-583248";
     script.__cssModules = require("7022ba685a82b2a1").default;
     require("c940503956cc622d").default(script);
-    script.__scopeId = 'data-v-fa2645';
+    script.__scopeId = 'data-v-583248';
     script.__file = "linkToGroupTemplate.vue";
 };
 initialize();
@@ -12656,10 +12788,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("9676fccf61ee5e64").render;
     script.staticRenderFns = require("9676fccf61ee5e64").staticRenderFns;
-    script._scopeId = "data-v-528881";
+    script._scopeId = "data-v-e7c78a";
     script.__cssModules = require("fe1bba2623e362fa").default;
     require("f4b0df95f01c4ce5").default(script);
-    script.__scopeId = 'data-v-528881';
+    script.__scopeId = 'data-v-e7c78a';
     script.__file = "updateDeviceProfile.vue";
 };
 initialize();
@@ -12963,10 +13095,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("64fb54adf010bf85").render;
     script.staticRenderFns = require("64fb54adf010bf85").staticRenderFns;
-    script._scopeId = "data-v-a74a11";
+    script._scopeId = "data-v-497c83";
     script.__cssModules = require("a8018f52f799be35").default;
     require("5693cad0be57e6fa").default(script);
-    script.__scopeId = 'data-v-a74a11';
+    script.__scopeId = 'data-v-497c83';
     script.__file = "selectItemsComponent.vue";
 };
 initialize();
