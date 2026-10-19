@@ -461,6 +461,7 @@ const constants_1 = require("a3794d0ee1b1e9f9");
 const spinal_model_graph_1 = require("92c188376a2bd383");
 const ModelsInfo_1 = require("695f4246e3189a01");
 const functions_1 = require("60e49e101ad4ab5b");
+const lifecycle_1 = require("16b7a4569bf4b149");
 /**
  * Represents an Organ model in the Spinal framework, managing references and collections of models
  * for discovery, pilot, and listener functionalities. This class extends the base `Model` class and
@@ -548,6 +549,16 @@ const functions_1 = require("60e49e101ad4ab5b");
     isReferencedInContext(contextId) {
         return typeof this.references[contextId] !== "undefined";
     }
+    getAllContextIds() {
+        return this.references._attribute_names || [];
+    }
+    getReferenceByContext(contextId) {
+        return __awaiter(this, void 0, void 0, function*() {
+            if (!this.isReferencedInContext(contextId)) return null;
+            const node = yield (0, functions_1.loadPtr)(this.references[contextId]);
+            return node || null;
+        });
+    }
     addReference(contextId, spinalNode) {
         const refFound = this.references[contextId];
         if (refFound) this.references.rem_attr(contextId);
@@ -555,6 +566,20 @@ const functions_1 = require("60e49e101ad4ab5b");
             [contextId]: new spinal_core_connectorjs_1.Ptr(spinalNode)
         });
         return spinalNode;
+    }
+    getAllReferences() {
+        return __awaiter(this, void 0, void 0, function*() {
+            const contextIds = this.getAllContextIds();
+            const promises = contextIds.map((contextId)=>__awaiter(this, void 0, void 0, function*() {
+                    const node = yield this.getReferenceByContext(contextId);
+                    return [
+                        contextId,
+                        node
+                    ];
+                }));
+            const entries = yield Promise.all(promises);
+            return Object.fromEntries(entries);
+        });
     }
     removeReference(contextId) {
         if (this.isReferencedInContext(contextId)) this.references.rem_attr(contextId);
@@ -568,6 +593,22 @@ const functions_1 = require("60e49e101ad4ab5b");
         });
         if (!this.listener) this.add_attr({
             listener: new ModelsInfo_1.default()
+        });
+    }
+    checkOrganDataValidity() {
+        return __awaiter(this, void 0, void 0, function*() {
+            try {
+                this._checkModelValidity();
+                yield this._checkListenerValidity();
+            } catch (error) {
+                return {
+                    valid: false,
+                    message: error.message
+                };
+            }
+            return {
+                valid: true
+            };
         });
     }
     ////////////// ADD MODELS //////////////
@@ -628,6 +669,22 @@ const functions_1 = require("60e49e101ad4ab5b");
         if (!this.listener) return Promise.resolve([]);
         return this.listener.consumeModels();
     }
+    _checkModelValidity() {
+        if (!(this.discover instanceof ModelsInfo_1.default)) throw `"Discover" property on organ Model is not valid`;
+        if (!(this.listener instanceof ModelsInfo_1.default)) throw `"Listener" property on organ Model is not valid`;
+        if (!(this.pilot instanceof ModelsInfo_1.default)) throw `"Pilot" property on organ Model is not valid`;
+        return true;
+    }
+    _checkListenerValidity() {
+        return __awaiter(this, void 0, void 0, function*() {
+            const listenerModels = yield this.getListenerModelFromGraph();
+            const devices = yield (0, lifecycle_1.getOrganDeviceNode)(this);
+            const deviceListeners = yield (0, lifecycle_1.getDeviceListener)(Object.values(devices).flat());
+            const comparisonResult = yield (0, lifecycle_1._compareDeviceListeners)(Array.from(listenerModels || []), deviceListeners);
+            if (!comparisonResult.valid) throw comparisonResult.message;
+            return true;
+        });
+    }
 }
 exports.SpinalOrganModel = SpinalOrganModel;
 spinal_core_connectorjs_1.spinalCore.register_models([
@@ -635,7 +692,7 @@ spinal_core_connectorjs_1.spinalCore.register_models([
 ]);
 exports.default = SpinalOrganModel;
 
-},{"295137aa8ae27b9b":"cQPh9","a3794d0ee1b1e9f9":"6eHD2","92c188376a2bd383":"b87gp","695f4246e3189a01":"jqz7b","60e49e101ad4ab5b":"kgd7D"}],"6eHD2":[function(require,module,exports,__globalThis) {
+},{"295137aa8ae27b9b":"cQPh9","a3794d0ee1b1e9f9":"6eHD2","92c188376a2bd383":"b87gp","695f4246e3189a01":"jqz7b","60e49e101ad4ab5b":"kgd7D","16b7a4569bf4b149":"cDGa7"}],"6eHD2":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2021 SpinalCom - www.spinalcom.com
@@ -1054,7 +1111,184 @@ const denyList = new Set([
 // TODO: Use `error?.code` when targeting Node.js 14
 module.exports = (error)=>!denyList.has(error && error.code);
 
-},{}],"4Yvuj":[function(require,module,exports,__globalThis) {
+},{}],"cDGa7":[function(require,module,exports,__globalThis) {
+"use strict";
+var __awaiter = this && this.__awaiter || function(thisArg, _arguments, P, generator) {
+    function adopt(value) {
+        return value instanceof P ? value : new P(function(resolve) {
+            resolve(value);
+        });
+    }
+    return new (P || (P = Promise))(function(resolve, reject) {
+        function fulfilled(value) {
+            try {
+                step(generator.next(value));
+            } catch (e) {
+                reject(e);
+            }
+        }
+        function rejected(value) {
+            try {
+                step(generator["throw"](value));
+            } catch (e) {
+                reject(e);
+            }
+        }
+        function step(result) {
+            result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected);
+        }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports._compareDeviceListeners = exports.getDeviceListener = exports.findDevices = exports.getOrganDeviceNode = exports.createOrganConfigFile = exports.getOrganConfig = void 0;
+const models_1 = require("5ebb1ed036a5db6e");
+const constants_1 = require("ea71aa2cede4fd2d");
+const spinal_core_connectorjs_1 = require("20b8d8f3d6e9846e");
+const spinal_model_bmsnetwork_1 = require("2a1875772b9dd219");
+// import * as pm2 from "pm2";
+function getOrganConfig(spinalConnection, filePath) {
+    return new Promise((resolve)=>{
+        const { folderPath, fileName } = getFileInfoByPath(filePath);
+        spinalConnection.load_or_make_dir(`${folderPath}`, (directory)=>__awaiter(this, void 0, void 0, function*() {
+                for(let index = 0; index < directory.length; index++){
+                    const element = directory[index];
+                    const elementName = element.name.get().toLowerCase();
+                    if (elementName === fileName.toLowerCase() || elementName === `${fileName}.conf`.toLowerCase()) {
+                        const organ = yield loadConfigModel(element);
+                        return resolve(organ);
+                    }
+                }
+                resolve(null);
+            }));
+    });
+}
+exports.getOrganConfig = getOrganConfig;
+function createOrganConfigFile(spinalConnection, organInfo) {
+    return new Promise((resolve, reject)=>{
+        if (!organInfo.name) return reject(new Error("Organ name is required"));
+        if (!organInfo.type) organInfo.type = constants_1.DEFAULT_ORGAN_TYPE;
+        if (!organInfo.path) organInfo.path = `${constants_1.DEFAULT_PATH}/${organInfo.name}`;
+        if (!organInfo.model) organInfo.model = new models_1.SpinalOrganModel(organInfo.name, organInfo.type);
+        let { folderPath, fileName } = getFileInfoByPath(organInfo.path);
+        if (fileName.toLowerCase().endsWith(".conf")) fileName = fileName.replace(/\.conf$/i, ""); // Remove .conf extension if present
+        spinalConnection.load_or_make_dir(`${folderPath}`, (directory)=>__awaiter(this, void 0, void 0, function*() {
+                const file = new spinal_core_connectorjs_1.File(`${fileName}.conf`.toLowerCase(), organInfo.model, undefined);
+                directory.push(file);
+                return resolve(organInfo.model);
+            }));
+    });
+}
+exports.createOrganConfigFile = createOrganConfigFile;
+function getOrganDeviceNode(organ) {
+    return __awaiter(this, void 0, void 0, function*() {
+        const nodeRefs = yield organ.getAllReferences();
+        const promises = Object.keys(nodeRefs).map((contextId)=>__awaiter(this, void 0, void 0, function*() {
+                const node = nodeRefs[contextId];
+                const devices = yield findDevices(node);
+                return [
+                    contextId,
+                    devices
+                ];
+            }));
+        const results = yield Promise.all(promises);
+        return Object.fromEntries(results);
+    });
+}
+exports.getOrganDeviceNode = getOrganDeviceNode;
+function findDevices(parentNode) {
+    return __awaiter(this, void 0, void 0, function*() {
+        const relations = [
+            spinal_model_bmsnetwork_1.SpinalBmsNetwork.relationName,
+            spinal_model_bmsnetwork_1.SpinalBmsDevice.relationName
+        ];
+        const queue = [
+            parentNode
+        ];
+        const devices = [];
+        while(queue.length > 0){
+            const node = queue.shift();
+            const children = yield node.getChildren(relations);
+            for (const child of children){
+                if (child.getType().get() === spinal_model_bmsnetwork_1.SpinalBmsDevice.nodeTypeName) {
+                    devices.push(child);
+                    continue;
+                }
+                queue.push(child);
+            }
+        }
+        return devices;
+    });
+}
+exports.findDevices = findDevices;
+function getDeviceListener(devices) {
+    return __awaiter(this, void 0, void 0, function*() {
+        const obj = {};
+        const promises = devices.map((device)=>__awaiter(this, void 0, void 0, function*() {
+                var _a;
+                const listener = yield (_a = device.info.listener) === null || _a === void 0 ? void 0 : _a.load();
+                return listener;
+            }));
+        return Promise.all(promises).then((listeners)=>listeners.filter((listener)=>listener !== undefined));
+    });
+}
+exports.getDeviceListener = getDeviceListener;
+function _compareDeviceListeners(listenerModels, deviceListeners) {
+    return __awaiter(this, void 0, void 0, function*() {
+        if (listenerModels.length !== deviceListeners.length) return {
+            valid: false,
+            message: "Listener models count does not match the number of device listeners"
+        };
+        const listenersObj = listenerModels.reduce((acc, listener)=>{
+            const key = listener._server_id;
+            acc[key] = listener;
+            return acc;
+        }, {});
+        for (const listener of deviceListeners){
+            const key = listener._server_id;
+            if (!listenersObj[key]) return {
+                valid: false,
+                message: `Device listener with server ID ${key} does not have a corresponding listener model`
+            };
+        }
+        return {
+            valid: true
+        };
+    });
+}
+exports._compareDeviceListeners = _compareDeviceListeners;
+// export function getPm2Instance(name: string): Promise<pm2.ProcessDescription | undefined> {
+//     return new Promise((resolve, reject) => {
+//         pm2.connect((err) => {
+//             if (err) return resolve(undefined);
+//             pm2.list((err, apps) => {
+//                 if (err) {
+//                     return resolve(undefined);
+//                 }
+//                 const instance = apps.find(app => app.name === name);
+//                 resolve(instance);
+//             });
+//         });
+//     });
+// }
+function loadConfigModel(element) {
+    return new Promise((resolve)=>{
+        element.load((organ)=>resolve(organ));
+    });
+}
+function getFileInfoByPath(filePath) {
+    const pathParts = filePath.split("/");
+    const fileName = pathParts.pop() || "";
+    const folderPath = pathParts.join("/");
+    return {
+        folderPath,
+        fileName
+    };
+}
+
+},{"5ebb1ed036a5db6e":"fJ4Cq","ea71aa2cede4fd2d":"6eHD2","20b8d8f3d6e9846e":"cQPh9","2a1875772b9dd219":"haihS"}],"4Yvuj":[function(require,module,exports,__globalThis) {
 "use strict";
 var __awaiter = this && this.__awaiter || function(thisArg, _arguments, P, generator) {
     function adopt(value) {
@@ -12986,106 +13220,7 @@ exports.SpinalConnectorService = SpinalConnectorService;
 SpinalConnectorService._instance = null;
 exports.default = SpinalConnectorService;
 
-},{"78400c4bc7a66c9d":"6eHD2","fe28f62d31f89736":"cDGa7"}],"cDGa7":[function(require,module,exports,__globalThis) {
-"use strict";
-var __awaiter = this && this.__awaiter || function(thisArg, _arguments, P, generator) {
-    function adopt(value) {
-        return value instanceof P ? value : new P(function(resolve) {
-            resolve(value);
-        });
-    }
-    return new (P || (P = Promise))(function(resolve, reject) {
-        function fulfilled(value) {
-            try {
-                step(generator.next(value));
-            } catch (e) {
-                reject(e);
-            }
-        }
-        function rejected(value) {
-            try {
-                step(generator["throw"](value));
-            } catch (e) {
-                reject(e);
-            }
-        }
-        function step(result) {
-            result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected);
-        }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.createOrganConfigFile = exports.getOrganConfig = void 0;
-const models_1 = require("5ebb1ed036a5db6e");
-const constants_1 = require("ea71aa2cede4fd2d");
-const spinal_core_connectorjs_1 = require("20b8d8f3d6e9846e");
-// import * as pm2 from "pm2";
-function getOrganConfig(spinalConnection, filePath) {
-    return new Promise((resolve)=>{
-        const { folderPath, fileName } = getFileInfoByPath(filePath);
-        spinalConnection.load_or_make_dir(`${folderPath}`, (directory)=>__awaiter(this, void 0, void 0, function*() {
-                for(let index = 0; index < directory.length; index++){
-                    const element = directory[index];
-                    const elementName = element.name.get().toLowerCase();
-                    if (elementName === fileName.toLowerCase() || elementName === `${fileName}.conf`.toLowerCase()) {
-                        const organ = yield loadConfigModel(element);
-                        return resolve(organ);
-                    }
-                }
-                resolve(null);
-            }));
-    });
-}
-exports.getOrganConfig = getOrganConfig;
-function createOrganConfigFile(spinalConnection, organInfo) {
-    return new Promise((resolve, reject)=>{
-        if (!organInfo.name) return reject(new Error("Organ name is required"));
-        if (!organInfo.type) organInfo.type = constants_1.DEFAULT_ORGAN_TYPE;
-        if (!organInfo.path) organInfo.path = `${constants_1.DEFAULT_PATH}/${organInfo.name}`;
-        if (!organInfo.model) organInfo.model = new models_1.SpinalOrganModel(organInfo.name, organInfo.type);
-        let { folderPath, fileName } = getFileInfoByPath(organInfo.path);
-        if (fileName.toLowerCase().endsWith(".conf")) fileName = fileName.replace(/\.conf$/i, ""); // Remove .conf extension if present
-        spinalConnection.load_or_make_dir(`${folderPath}`, (directory)=>__awaiter(this, void 0, void 0, function*() {
-                const file = new spinal_core_connectorjs_1.File(`${fileName}.conf`.toLowerCase(), organInfo.model, undefined);
-                directory.push(file);
-                return resolve(organInfo.model);
-            }));
-    });
-}
-exports.createOrganConfigFile = createOrganConfigFile;
-// export function getPm2Instance(name: string): Promise<pm2.ProcessDescription | undefined> {
-//     return new Promise((resolve, reject) => {
-//         pm2.connect((err) => {
-//             if (err) return resolve(undefined);
-//             pm2.list((err, apps) => {
-//                 if (err) {
-//                     return resolve(undefined);
-//                 }
-//                 const instance = apps.find(app => app.name === name);
-//                 resolve(instance);
-//             });
-//         });
-//     });
-// }
-function loadConfigModel(element) {
-    return new Promise((resolve)=>{
-        element.load((organ)=>resolve(organ));
-    });
-}
-function getFileInfoByPath(filePath) {
-    const pathParts = filePath.split("/");
-    const fileName = pathParts.pop() || "";
-    const folderPath = pathParts.join("/");
-    return {
-        folderPath,
-        fileName
-    };
-}
-
-},{"5ebb1ed036a5db6e":"fJ4Cq","ea71aa2cede4fd2d":"6eHD2","20b8d8f3d6e9846e":"cQPh9"}],"Rya9r":[function(require,module,exports,__globalThis) {
+},{"78400c4bc7a66c9d":"6eHD2","fe28f62d31f89736":"cDGa7"}],"Rya9r":[function(require,module,exports,__globalThis) {
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -13257,4 +13392,4 @@ exports.default = SpinalQueue;
 
 },{"307e15d769f7c597":"LUhzz","5bfaebbfed98bb9f":"1Gpx3","a70b1ee7c9d40f63":"6eHD2"}]},[], null, "parcelRequire02e5", {})
 
-//# sourceMappingURL=spinal-env-viewer-plugin-network-tree.ea6d8c84.js.map
+//# sourceMappingURL=spinal-env-viewer-plugin-network-tree.3a35bce5.js.map

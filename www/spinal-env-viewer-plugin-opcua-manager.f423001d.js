@@ -1186,10 +1186,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("3c6e9617d0856cb7").render;
     script.staticRenderFns = require("3c6e9617d0856cb7").staticRenderFns;
-    script._scopeId = "data-v-280258";
+    script._scopeId = "data-v-67ef0c";
     script.__cssModules = require("4675aad10368dd21").default;
     require("3eae7c394cbdc25f").default(script);
-    script.__scopeId = 'data-v-280258';
+    script.__scopeId = 'data-v-67ef0c';
     script.__file = "configProfileDialog.vue";
 };
 initialize();
@@ -1514,10 +1514,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("af42d418a90756a4").render;
     script.staticRenderFns = require("af42d418a90756a4").staticRenderFns;
-    script._scopeId = "data-v-a7a6db";
+    script._scopeId = "data-v-1cb26b";
     script.__cssModules = require("6f43f164eb143127").default;
     require("8a20888b732a3c0f").default(script);
-    script.__scopeId = 'data-v-a7a6db';
+    script.__scopeId = 'data-v-1cb26b';
     script.__file = "addIntervalDialog.vue";
 };
 initialize();
@@ -1981,10 +1981,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("9e3f0bb323f514f8").render;
     script.staticRenderFns = require("9e3f0bb323f514f8").staticRenderFns;
-    script._scopeId = "data-v-e9b8ba";
+    script._scopeId = "data-v-a92da2";
     script.__cssModules = require("44aad752a85bb641").default;
     require("d004ecba6dc36cf3").default(script);
-    script.__scopeId = 'data-v-e9b8ba';
+    script.__scopeId = 'data-v-a92da2';
     script.__file = "generateProfileDialog.vue";
 };
 initialize();
@@ -2162,10 +2162,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("5f81d60bbef82506").render;
     script.staticRenderFns = require("5f81d60bbef82506").staticRenderFns;
-    script._scopeId = "data-v-b5be24";
+    script._scopeId = "data-v-a027f8";
     script.__cssModules = require("d3b708c6f284ba38").default;
     require("3fae280dbf8ce6b5").default(script);
-    script.__scopeId = 'data-v-b5be24';
+    script.__scopeId = 'data-v-a027f8';
     script.__file = "linkProfileToDevice.vue";
 };
 initialize();
@@ -2366,10 +2366,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("de17f37516cede6").render;
     script.staticRenderFns = require("de17f37516cede6").staticRenderFns;
-    script._scopeId = "data-v-960945";
+    script._scopeId = "data-v-c5c880";
     script.__cssModules = require("b15d9b7931bf2f8d").default;
     require("9ec5493c05c46d68").default(script);
-    script.__scopeId = 'data-v-960945';
+    script.__scopeId = 'data-v-c5c880';
     script.__file = "createSubNetwork.vue";
 };
 initialize();
@@ -2827,10 +2827,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("e29db6379f4cac99").render;
     script.staticRenderFns = require("e29db6379f4cac99").staticRenderFns;
-    script._scopeId = "data-v-68ab1d";
+    script._scopeId = "data-v-f64c6f";
     script.__cssModules = require("794d49231631dfd9").default;
     require("5b15e73ec4c202d0").default(script);
-    script.__scopeId = 'data-v-68ab1d';
+    script.__scopeId = 'data-v-f64c6f';
     script.__file = "discoverOPCUAPanel.vue";
 };
 initialize();
@@ -3178,10 +3178,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("b10ea1762a54179d").render;
     script.staticRenderFns = require("b10ea1762a54179d").staticRenderFns;
-    script._scopeId = "data-v-5bbab3";
+    script._scopeId = "data-v-f8c499";
     script.__cssModules = require("131f3c4c639d40e8").default;
     require("196d509c90a31d91").default(script);
-    script.__scopeId = 'data-v-5bbab3';
+    script.__scopeId = 'data-v-f8c499';
     script.__file = "server_info.vue";
 };
 initialize();
@@ -3427,10 +3427,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("fa02a0d97f6e46e3").render;
     script.staticRenderFns = require("fa02a0d97f6e46e3").staticRenderFns;
-    script._scopeId = "data-v-3f10b3";
+    script._scopeId = "data-v-e17501";
     script.__cssModules = require("1cbc197419e91a07").default;
     require("6db0bc8fd1cbb77a").default(script);
-    script.__scopeId = 'data-v-3f10b3';
+    script.__scopeId = 'data-v-e17501';
     script.__file = "selectEntryPoint.vue";
 };
 initialize();
@@ -3561,10 +3561,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("ad6fca520a5f9e9f").render;
     script.staticRenderFns = require("ad6fca520a5f9e9f").staticRenderFns;
-    script._scopeId = "data-v-60384b";
+    script._scopeId = "data-v-6a89d7";
     script.__cssModules = require("e0fd744effd812f5").default;
     require("6f84041052ac13fb").default(script);
-    script.__scopeId = 'data-v-60384b';
+    script.__scopeId = 'data-v-6a89d7';
     script.__file = "discoverDevice.vue";
 };
 initialize();
@@ -19937,580 +19937,633 @@ var treeAriaAttr = {
     return TreeView;
 }((0, _ej2Base.Component));
 
-},{"@syncfusion/ej2-base":"jouLx","@syncfusion/ej2-data":[["DataManager","s69wZ"],["Query","60VOS"]],"@syncfusion/ej2-lists":"5xX2f","@syncfusion/ej2-buttons":"a8dM5","@syncfusion/ej2-inputs":"jx2zU","@syncfusion/ej2-popups":"lQDnv","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"s69wZ":[function(require,module,exports,__globalThis) {
+},{"@syncfusion/ej2-base":"jouLx","@syncfusion/ej2-data":[["Query","60VOS"],["DataManager","s69wZ"]],"@syncfusion/ej2-lists":"5xX2f","@syncfusion/ej2-buttons":"a8dM5","@syncfusion/ej2-inputs":"jx2zU","@syncfusion/ej2-popups":"lQDnv","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"60VOS":[function(require,module,exports,__globalThis) {
 /* eslint-disable valid-jsdoc */ /* eslint-disable security/detect-object-injection */ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "DataManager", ()=>DataManager);
-parcelHelpers.export(exports, "Deferred", ()=>Deferred);
-var _ej2Base = require("@syncfusion/ej2-base");
+parcelHelpers.export(exports, "Query", ()=>Query);
+parcelHelpers.export(exports, "Predicate", ()=>Predicate);
 var _util = require("./util");
-var _query = require("./query");
-var _adaptors = require("./adaptors");
+var _ej2Base = require("@syncfusion/ej2-base");
 /**
- * DataManager is used to manage and manipulate relational data.
- */ var DataManager = /** @class */ function() {
+ * Query class is used to build query which is used by the DataManager to communicate with datasource.
+ */ var Query = /** @class */ function() {
     /**
-     * Constructor for DataManager class
+     * Constructor for Query class.
      *
-     * @param {DataOptions|JSON[]} dataSource?
-     * @param {Query} query?
-     * @param {AdaptorOptions|string} adaptor?
-     * @param dataSource
-     * @param query
-     * @param adaptor
+     * @param {string|string[]} from?
+     * @param from
      * @hidden
-     */ function DataManager(dataSource, query, adaptor) {
-        var _this = this;
-        /** @hidden */ this.dateParse = true;
-        /** @hidden */ this.timeZoneHandling = true;
-        this.persistQuery = {};
-        this.isInitialLoad = false;
-        this.requests = [];
-        this.isInitialLoad = true;
-        if (!dataSource && !this.dataSource) dataSource = [];
-        adaptor = adaptor || dataSource.adaptor;
-        if (dataSource && dataSource.timeZoneHandling === false) this.timeZoneHandling = dataSource.timeZoneHandling;
-        var data;
-        if (dataSource instanceof Array) data = {
-            json: dataSource,
-            offline: true
-        };
-        else if (typeof dataSource === 'object') {
-            if (!dataSource.json) dataSource.json = [];
-            if (!dataSource.enablePersistence) dataSource.enablePersistence = false;
-            if (!dataSource.id) dataSource.id = '';
-            if (!dataSource.ignoreOnPersist) dataSource.ignoreOnPersist = [];
-            data = {
-                url: dataSource.url,
-                insertUrl: dataSource.insertUrl,
-                removeUrl: dataSource.removeUrl,
-                updateUrl: dataSource.updateUrl,
-                crudUrl: dataSource.crudUrl,
-                batchUrl: dataSource.batchUrl,
-                json: dataSource.json,
-                headers: dataSource.headers,
-                accept: dataSource.accept,
-                data: dataSource.data,
-                timeTillExpiration: dataSource.timeTillExpiration,
-                cachingPageSize: dataSource.cachingPageSize,
-                enableCaching: dataSource.enableCaching,
-                requestType: dataSource.requestType,
-                key: dataSource.key,
-                crossDomain: dataSource.crossDomain,
-                jsonp: dataSource.jsonp,
-                dataType: dataSource.dataType,
-                offline: dataSource.offline !== undefined ? dataSource.offline : dataSource.adaptor instanceof (0, _adaptors.RemoteSaveAdaptor) || dataSource.adaptor instanceof (0, _adaptors.CustomDataAdaptor) ? false : dataSource.url ? false : true,
-                requiresFormat: dataSource.requiresFormat,
-                enablePersistence: dataSource.enablePersistence,
-                id: dataSource.id,
-                ignoreOnPersist: dataSource.ignoreOnPersist
-            };
-        } else (0, _util.DataUtil).throwError('DataManager: Invalid arguments');
-        if (data.requiresFormat === undefined && !(0, _util.DataUtil).isCors()) data.requiresFormat = (0, _ej2Base.isNullOrUndefined)(data.crossDomain) ? true : data.crossDomain;
-        if (data.dataType === undefined) data.dataType = 'json';
-        this.dataSource = data;
-        this.defaultQuery = query;
-        if (this.dataSource.enablePersistence && this.dataSource.id) window.addEventListener('unload', this.setPersistData.bind(this));
-        if (data.url && data.offline && !data.json.length) {
-            this.isDataAvailable = false;
-            this.adaptor = adaptor || new (0, _adaptors.ODataAdaptor)();
-            this.dataSource.offline = false;
-            this.ready = this.executeQuery(query || new (0, _query.Query)());
-            this.ready.then(function(e) {
-                _this.dataSource.offline = true;
-                _this.isDataAvailable = true;
-                data.json = e.result;
-                _this.adaptor = new (0, _adaptors.JsonAdaptor)();
-            });
-        } else this.adaptor = data.offline ? new (0, _adaptors.JsonAdaptor)() : new (0, _adaptors.ODataAdaptor)();
-        if (!data.jsonp && this.adaptor instanceof (0, _adaptors.ODataAdaptor)) data.jsonp = 'callback';
-        this.adaptor = adaptor || this.adaptor;
-        if (data.enableCaching) this.adaptor = new (0, _adaptors.CacheAdaptor)(this.adaptor, data.timeTillExpiration, data.cachingPageSize);
+     */ function Query(from) {
+        /** @hidden */ this.subQuery = null;
+        /** @hidden */ this.isChild = false;
+        /** @hidden */ this.distincts = [];
+        this.queries = [];
+        this.key = '';
+        this.fKey = '';
+        if (typeof from === 'string') this.fromTable = from;
+        else if (from && from instanceof Array) this.lookups = from;
+        this.expands = [];
+        this.sortedColumns = [];
+        this.groupedColumns = [];
+        this.subQuery = null;
+        this.isChild = false;
+        this.params = [];
+        this.lazyLoad = [];
         return this;
     }
     /**
-     * Get the queries maintained in the persisted state.
-     * @param {string} id - The identifier of the persisted query to retrieve.
-     * @returns {object} The persisted data object.
-     */ DataManager.prototype.getPersistedData = function(id) {
-        var persistedData = localStorage.getItem(id || this.dataSource.id);
-        return JSON.parse(persistedData);
-    };
-    /**
-    * Set the queries to be maintained in the persisted state.
-    * @param {Event} e - The event parameter that triggers the setPersistData method.
-    * @param {string} id - The identifier of the persisted query to set.
-    * @param {object} persistData - The data to be persisted.
-    * @returns {void} .
-    */ DataManager.prototype.setPersistData = function(e, id, persistData) {
-        localStorage.setItem(id || this.dataSource.id, JSON.stringify(persistData || this.persistQuery));
-    };
-    DataManager.prototype.setPersistQuery = function(query) {
-        var _this = this;
-        var persistedQuery = this.getPersistedData();
-        if (this.isInitialLoad && persistedQuery && Object.keys(persistedQuery).length) {
-            this.persistQuery = persistedQuery;
-            this.persistQuery.queries = this.persistQuery.queries.filter(function(query) {
-                if (_this.dataSource.ignoreOnPersist && _this.dataSource.ignoreOnPersist.length) {
-                    if (query.fn && _this.dataSource.ignoreOnPersist.some(function(keyword) {
-                        return query.fn === keyword;
-                    })) return false; // Exclude the matching query
-                }
-                if (query.fn === 'onWhere') {
-                    var e = query.e;
-                    if (e && e.isComplex && e.predicates instanceof Array) {
-                        var allPredicates = e.predicates.map(function(predicateObj) {
-                            if (predicateObj.predicates && predicateObj.predicates instanceof Array) {
-                                // Process nested predicate array
-                                var nestedPredicates = predicateObj.predicates.map(function(nestedPredicate) {
-                                    var field = nestedPredicate.field, operator = nestedPredicate.operator, value = nestedPredicate.value, ignoreCase = nestedPredicate.ignoreCase, ignoreAccent = nestedPredicate.ignoreAccent, matchCase = nestedPredicate.matchCase;
-                                    return new (0, _query.Predicate)(field, operator, value, ignoreCase, ignoreAccent, matchCase);
-                                });
-                                return predicateObj.condition === 'and' ? (0, _query.Predicate).and(nestedPredicates) : (0, _query.Predicate).or(nestedPredicates);
-                            } else {
-                                // Process individual predicate
-                                var field = predicateObj.field, operator = predicateObj.operator, value = predicateObj.value, ignoreCase = predicateObj.ignoreCase, ignoreAccent = predicateObj.ignoreAccent, matchCase = predicateObj.matchCase;
-                                return new (0, _query.Predicate)(field, operator, value, ignoreCase, ignoreAccent, matchCase);
-                            }
-                        });
-                        query.e = new (0, _query.Predicate)(allPredicates[0], e.condition, allPredicates.slice(1));
-                    }
-                }
-                return true; // Keep all other queries
-            });
-            var newQuery = (0, _ej2Base.extend)(new (0, _query.Query)(), this.persistQuery);
-            this.isInitialLoad = false;
-            return newQuery;
-        } else {
-            this.persistQuery = query;
-            this.isInitialLoad = false;
-            return query;
-        }
-    };
-    /**
-     * Overrides DataManager's default query with given query.
+     * Sets the primary key.
      *
-     * @param  {Query} query - Defines the new default query.
-     */ DataManager.prototype.setDefaultQuery = function(query) {
-        this.defaultQuery = query;
+     * @param  {string} field - Defines the column field.
+     */ Query.prototype.setKey = function(field) {
+        this.key = field;
         return this;
     };
     /**
-     * Executes the given query with local data source.
+     * Sets default DataManager to execute query.
      *
-     * @param  {Query} query - Defines the query to retrieve data.
-     */ DataManager.prototype.executeLocal = function(query) {
-        if (!this.defaultQuery && !(query instanceof (0, _query.Query))) (0, _util.DataUtil).throwError('DataManager - executeLocal() : A query is required to execute');
-        if (!this.dataSource.json) (0, _util.DataUtil).throwError('DataManager - executeLocal() : Json data is required to execute');
-        if (this.dataSource.enablePersistence && this.dataSource.id) query = this.setPersistQuery(query);
-        query = query || this.defaultQuery;
-        var result = this.adaptor.processQuery(this, query);
-        if (query.subQuery) {
-            var from = query.subQuery.fromTable;
-            var lookup = query.subQuery.lookups;
-            var res = query.isCountRequired ? result.result : result;
-            if (lookup && lookup instanceof Array) (0, _util.DataUtil).buildHierarchy(query.subQuery.fKey, from, res, lookup, query.subQuery.key);
-            for(var j = 0; j < res.length; j++)if (res[j][from] instanceof Array) {
-                res[j] = (0, _ej2Base.extend)({}, {}, res[j]);
-                res[j][from] = this.adaptor.processResponse(query.subQuery.using(new DataManager(res[j][from].slice(0))).executeLocal(), this, query);
-            }
-        }
-        return this.adaptor.processResponse(result, this, query);
+     * @param  {DataManager} dataManager - Defines the DataManager.
+     */ Query.prototype.using = function(dataManager) {
+        this.dataManager = dataManager;
+        return this;
     };
     /**
-     * Executes the given query with either local or remote data source.
-     * It will be executed as asynchronously and returns Promise object which will be resolved or rejected after action completed.
+     * Executes query with the given DataManager.
      *
-     * @param  {Query|Function} query - Defines the query to retrieve data.
-     * @param  {Function} done - Defines the callback function and triggers when the Promise is resolved.
-     * @param  {Function} fail - Defines the callback function and triggers when the Promise is rejected.
-     * @param  {Function} always - Defines the callback function and triggers when the Promise is resolved or rejected.
-     */ DataManager.prototype.executeQuery = function(query, done, fail, always) {
-        var _this = this;
-        var makeRequest = 'makeRequest';
-        if (this.dataSource.enablePersistence && this.dataSource.id) query = this.setPersistQuery(query);
-        if (typeof query === 'function') {
-            always = fail;
-            fail = done;
-            done = query;
-            query = null;
-        }
-        if (!query) query = this.defaultQuery;
-        if (!(query instanceof (0, _query.Query))) (0, _util.DataUtil).throwError('DataManager - executeQuery() : A query is required to execute');
-        var deffered = new Deferred();
-        var args = {
-            query: query
-        };
-        if (!this.dataSource.offline && this.dataSource.url !== undefined && this.dataSource.url !== '' || !(0, _ej2Base.isNullOrUndefined)(this.adaptor[makeRequest]) || this.isCustomDataAdaptor(this.adaptor)) {
-            var result = this.adaptor.processQuery(this, query);
-            if (!(0, _ej2Base.isNullOrUndefined)(this.adaptor[makeRequest])) this.adaptor[makeRequest](result, deffered, args, query);
-            else if (!(0, _ej2Base.isNullOrUndefined)(result.url) || this.isCustomDataAdaptor(this.adaptor)) {
-                this.requests = [];
-                this.makeRequest(result, deffered, args, query);
-            } else {
-                args = DataManager.getDeferedArgs(query, result, args);
-                deffered.resolve(args);
-            }
-        } else DataManager.nextTick(function() {
-            var res = _this.executeLocal(query);
-            args = DataManager.getDeferedArgs(query, res, args);
-            deffered.resolve(args);
+     * @param  {DataManager} dataManager - Defines the DataManager.
+     * @param  {Function} done - Defines the success callback.
+     * @param  {Function} fail - Defines the failure callback.
+     * @param  {Function} always - Defines the callback which will be invoked on either success or failure.
+     *
+     * <pre>
+     * let dataManager: DataManager = new DataManager([{ ID: '10' }, { ID: '2' }, { ID: '1' }, { ID: '20' }]);
+     * let query: Query = new Query();
+     * query.sortBy('ID', (x: string, y: string): number => { return parseInt(x, 10) - parseInt(y, 10) });
+     * let promise: Promise< Object > = query.execute(dataManager);
+     * promise.then((e: { result: Object }) => { });
+     * </pre>
+     */ Query.prototype.execute = function(dataManager, done, fail, always) {
+        dataManager = dataManager || this.dataManager;
+        if (dataManager) return dataManager.executeQuery(this, done, fail, always);
+        return (0, _util.DataUtil).throwError('Query - execute() : dataManager needs to be is set using "using" function or should be passed as argument');
+    };
+    /**
+     * Executes query with the local datasource.
+     *
+     * @param  {DataManager} dataManager - Defines the DataManager.
+     */ Query.prototype.executeLocal = function(dataManager) {
+        dataManager = dataManager || this.dataManager;
+        if (dataManager) return dataManager.executeLocal(this);
+        return (0, _util.DataUtil).throwError('Query - executeLocal() : dataManager needs to be is set using "using" function or should be passed as argument');
+    };
+    /**
+     * Creates deep copy of the Query object.
+     */ Query.prototype.clone = function() {
+        var cloned = new Query();
+        cloned.queries = this.queries.slice(0);
+        cloned.key = this.key;
+        cloned.isChild = this.isChild;
+        cloned.dataManager = this.dataManager;
+        cloned.fromTable = this.fromTable;
+        cloned.params = this.params.slice(0);
+        cloned.expands = this.expands.slice(0);
+        cloned.sortedColumns = this.sortedColumns.slice(0);
+        cloned.groupedColumns = this.groupedColumns.slice(0);
+        cloned.subQuerySelector = this.subQuerySelector;
+        cloned.subQuery = this.subQuery;
+        cloned.fKey = this.fKey;
+        cloned.isCountRequired = this.isCountRequired;
+        cloned.distincts = this.distincts.slice(0);
+        cloned.lazyLoad = this.lazyLoad.slice(0);
+        return cloned;
+    };
+    /**
+     * Specifies the name of table to retrieve data in query execution.
+     *
+     * @param  {string} tableName - Defines the table name.
+     */ Query.prototype.from = function(tableName) {
+        this.fromTable = tableName;
+        return this;
+    };
+    /**
+     * Adds additional parameter which will be sent along with the request which will be generated while DataManager execute.
+     *
+     * @param  {string} key - Defines the key of additional parameter.
+     * @param  {Function|string} value - Defines the value for the key.
+     */ Query.prototype.addParams = function(key, value) {
+        if (typeof value === 'function') this.params.push({
+            key: key,
+            fn: value
         });
-        if (done || fail) deffered.promise.then(done, fail);
-        if (always) deffered.promise.then(always, always);
-        return deffered.promise;
+        else this.params.push({
+            key: key,
+            value: value
+        });
+        return this;
     };
-    DataManager.getDeferedArgs = function(query, result, args) {
-        if (query.isCountRequired) {
-            args.result = result.result;
-            args.count = result.count;
-            args.aggregates = result.aggregates;
-        } else args.result = result;
-        return args;
+    /**
+     * @param fields
+     * @hidden
+     */ Query.prototype.distinct = function(fields) {
+        if (typeof fields === 'string') this.distincts = [].slice.call([
+            fields
+        ], 0);
+        else this.distincts = fields.slice(0);
+        return this;
     };
-    DataManager.nextTick = function(fn) {
-        /* eslint-disable @typescript-eslint/no-explicit-any */ // tslint:disable-next-line:no-any
-        (window.setImmediate || window.setTimeout)(fn, 0);
-    /* eslint-enable @typescript-eslint/no-explicit-any */ };
-    DataManager.prototype.extendRequest = function(url, fnSuccess, fnFail) {
-        return (0, _ej2Base.extend)({}, {
-            type: 'GET',
-            dataType: this.dataSource.dataType,
-            crossDomain: this.dataSource.crossDomain,
-            jsonp: this.dataSource.jsonp,
-            cache: true,
-            processData: false,
-            onSuccess: fnSuccess,
-            onFailure: fnFail
-        }, url);
+    /**
+     * Expands the related table.
+     *
+     * @param  {string|Object[]} tables
+     */ Query.prototype.expand = function(tables) {
+        if (typeof tables === 'string') this.expands = [].slice.call([
+            tables
+        ], 0);
+        else this.expands = tables.slice(0);
+        return this;
     };
-    // tslint:disable-next-line:max-func-body-length
-    DataManager.prototype.makeRequest = function(url, deffered, args, query) {
-        var _this = this;
-        var isSelector = !!query.subQuerySelector;
-        var fnFail = function(e) {
-            args.error = e;
-            deffered.reject(args);
-        };
-        var process = function(data, count, xhr, request, actual, aggregates, virtualSelectRecords) {
-            args.xhr = xhr;
-            args.count = count ? parseInt(count.toString(), 10) : 0;
-            args.result = data;
-            args.request = request;
-            args.aggregates = aggregates;
-            args.actual = actual;
-            args.virtualSelectRecords = virtualSelectRecords;
-            deffered.resolve(args);
-        };
-        var fnQueryChild = function(data, selector) {
-            var subDeffer = new Deferred();
-            var childArgs = {
-                parent: args
-            };
-            query.subQuery.isChild = true;
-            var subUrl = _this.adaptor.processQuery(_this, query.subQuery, data ? _this.adaptor.processResponse(data) : selector);
-            var childReq = _this.makeRequest(subUrl, subDeffer, childArgs, query.subQuery);
-            if (!isSelector) subDeffer.then(function(subData) {
-                if (data) {
-                    (0, _util.DataUtil).buildHierarchy(query.subQuery.fKey, query.subQuery.fromTable, data, subData, query.subQuery.key);
-                    process(data, subData.count, subData.xhr);
+    /**
+     * Filter data with given filter criteria.
+     *
+     * @param {string|Predicate} fieldName - Defines the column field or Predicate.
+     * @param {string} operator - Defines the operator how to filter data.
+     * @param {string|number|boolean} value - Defines the values to match with data.
+     * @param {boolean} ignoreCase - If ignore case set to false, then filter data with exact match or else
+     * filter data with case insensitive.
+     * @param ignoreAccent
+     * @param matchCase
+     */ Query.prototype.where = function(fieldName, operator, value, ignoreCase, ignoreAccent, matchCase) {
+        operator = operator ? operator.toLowerCase() : null;
+        var predicate = null;
+        if (typeof fieldName === 'string') predicate = new Predicate(fieldName, operator, value, ignoreCase, ignoreAccent, matchCase);
+        else if (fieldName instanceof Predicate) predicate = fieldName;
+        this.queries.push({
+            fn: 'onWhere',
+            e: predicate
+        });
+        return this;
+    };
+    /**
+     * Search data with given search criteria.
+     *
+     * @param {string|number|boolean} searchKey - Defines the search key.
+     * @param {string|string[]} fieldNames - Defines the collection of column fields.
+     * @param {string} operator - Defines the operator how to search data.
+     * @param {boolean} ignoreCase - If ignore case set to false, then filter data with exact match or else
+     * filter data with case insensitive.
+     * @param ignoreAccent
+     */ Query.prototype.search = function(searchKey, fieldNames, operator, ignoreCase, ignoreAccent) {
+        if (typeof fieldNames === 'string') fieldNames = [
+            fieldNames
+        ];
+        if (!operator || operator === 'none') operator = 'contains';
+        var comparer = (0, _util.DataUtil).fnOperators[operator];
+        this.queries.push({
+            fn: 'onSearch',
+            e: {
+                fieldNames: fieldNames,
+                operator: operator,
+                searchKey: searchKey,
+                ignoreCase: ignoreCase,
+                ignoreAccent: ignoreAccent,
+                comparer: comparer
+            }
+        });
+        return this;
+    };
+    /**
+     * Sort the data with given sort criteria.
+     * By default, sort direction is ascending.
+     *
+     * @param {string|string[]} fieldName - Defines the single or collection of column fields.
+     * @param {string|Function} comparer - Defines the sort direction or custom sort comparer function.
+     * @param isFromGroup
+     */ Query.prototype.sortBy = function(fieldName, comparer, isFromGroup) {
+        return this.sortByForeignKey(fieldName, comparer, isFromGroup);
+    };
+    /**
+     * Sort the data with given sort criteria.
+     * By default, sort direction is ascending.
+     *
+     * @param {string|string[]} fieldName - Defines the single or collection of column fields.
+     * @param {string|Function} comparer - Defines the sort direction or custom sort comparer function.
+     * @param isFromGroup
+     * @param {string} direction - Defines the sort direction .
+     */ Query.prototype.sortByForeignKey = function(fieldName, comparer, isFromGroup, direction) {
+        var order = !(0, _ej2Base.isNullOrUndefined)(direction) ? direction : 'ascending';
+        var sorts;
+        var temp;
+        if (typeof fieldName === 'string' && (0, _util.DataUtil).endsWith(fieldName.toLowerCase(), ' desc')) {
+            fieldName = fieldName.replace(/ desc$/i, '');
+            comparer = 'descending';
+        }
+        if (!comparer || typeof comparer === 'string') {
+            order = comparer ? comparer.toLowerCase() : 'ascending';
+            comparer = (0, _util.DataUtil).fnSort(comparer);
+        }
+        if (isFromGroup) {
+            sorts = Query.filterQueries(this.queries, 'onSortBy');
+            for(var i = 0; i < sorts.length; i++){
+                temp = sorts[i].e.fieldName;
+                if (typeof temp === 'string') {
+                    if (temp === fieldName) return this;
+                } else if (temp instanceof Array) for(var j = 0; j < temp.length; j++){
+                    if (temp[j] === fieldName || fieldName.toLowerCase() === temp[j] + ' desc') return this;
                 }
-            }, fnFail);
-            return childReq;
-        };
-        var fnSuccess = function(data, request) {
-            if (_this.isGraphQLAdaptor(_this.adaptor)) {
-                // tslint:disable-next-line:no-string-literal
-                if (!(0, _ej2Base.isNullOrUndefined)(data['errors'])) // tslint:disable-next-line:no-string-literal
-                return fnFail(data['errors'], request);
-            }
-            if (_this.isCustomDataAdaptor(_this.adaptor)) request = (0, _ej2Base.extend)({}, _this.fetchReqOption, request);
-            if (request.contentType.indexOf('xml') === -1 && _this.dateParse) data = (0, _util.DataUtil).parse.parseJson(data);
-            var result = _this.adaptor.processResponse(data, _this, query, request.fetchRequest, request);
-            var count = 0;
-            var aggregates = null;
-            var virtualSelectRecords = 'virtualSelectRecords';
-            var virtualRecords = data[virtualSelectRecords];
-            if (query.isCountRequired) {
-                count = result.count;
-                aggregates = result.aggregates;
-                result = result.result;
-            }
-            if (!query.subQuery) {
-                process(result, count, request.fetchRequest, request.type, data, aggregates, virtualRecords);
-                return;
-            }
-            if (!isSelector) fnQueryChild(result, request);
-        };
-        var req = this.extendRequest(url, fnSuccess, fnFail);
-        if (!this.isCustomDataAdaptor(this.adaptor)) {
-            var fetch_1 = new (0, _ej2Base.Fetch)(req);
-            fetch_1.beforeSend = function() {
-                _this.beforeSend(fetch_1.fetchRequest, fetch_1);
-            };
-            req = fetch_1.send();
-            req.catch(function(e) {
-                return true;
-            }); // to handle failure remote requests.
-            this.requests.push(fetch_1);
-        } else {
-            this.fetchReqOption = req;
-            var request = req;
-            this.adaptor.options.getData({
-                data: request.data,
-                onSuccess: request.onSuccess,
-                onFailure: request.onFailure
-            });
-        }
-        if (isSelector) {
-            var promise = void 0;
-            var res = query.subQuerySelector.call(this, {
-                query: query.subQuery,
-                parent: query
-            });
-            if (res && res.length) {
-                promise = Promise.all([
-                    req,
-                    fnQueryChild(null, res)
-                ]);
-                promise.then(function() {
-                    var args = [];
-                    for(var _i = 0; _i < arguments.length; _i++)args[_i] = arguments[_i];
-                    var result = args[0];
-                    var pResult = _this.adaptor.processResponse(result[0], _this, query, _this.requests[0].fetchRequest, _this.requests[0]);
-                    var count = 0;
-                    if (query.isCountRequired) {
-                        count = pResult.count;
-                        pResult = pResult.result;
-                    }
-                    var cResult = _this.adaptor.processResponse(result[1], _this, query.subQuery, _this.requests[1].fetchRequest, _this.requests[1]);
-                    count = 0;
-                    if (query.subQuery.isCountRequired) {
-                        count = cResult.count;
-                        cResult = cResult.result;
-                    }
-                    (0, _util.DataUtil).buildHierarchy(query.subQuery.fKey, query.subQuery.fromTable, pResult, cResult, query.subQuery.key);
-                    isSelector = false;
-                    process(pResult, count, _this.requests[0].fetchRequest);
-                });
-            } else isSelector = false;
-        }
-        return req;
-    };
-    DataManager.prototype.beforeSend = function(request, settings) {
-        this.adaptor.beforeSend(this, request, settings);
-        var headers = this.dataSource.headers;
-        var props;
-        for(var i = 0; headers && i < headers.length; i++){
-            props = [];
-            var keys = Object.keys(headers[i]);
-            for(var _i = 0, keys_1 = keys; _i < keys_1.length; _i++){
-                var prop = keys_1[_i];
-                props.push(prop);
-                request.headers.set(prop, headers[i][prop]);
             }
         }
+        this.queries.push({
+            fn: 'onSortBy',
+            e: {
+                fieldName: fieldName,
+                comparer: comparer,
+                direction: order
+            }
+        });
+        return this;
     };
     /**
-     * Save bulk changes to the given table name.
-     * User can add a new record, edit an existing record, and delete a record at the same time.
-     * If the datasource from remote, then updated in a single post.
+     * Sorts data in descending order.
      *
-     * @param {Object} changes - Defines the CrudOptions.
-     * @param {string} key - Defines the column field.
-     * @param {string|Query} tableName - Defines the table name.
-     * @param {Query} query - Sets default query for the DataManager.
-     * @param original
-     */ DataManager.prototype.saveChanges = function(changes, key, tableName, query, original) {
-        var _this = this;
-        if (tableName instanceof (0, _query.Query)) {
-            query = tableName;
-            tableName = null;
-        }
-        var args = {
-            url: tableName,
-            key: key || this.dataSource.key
-        };
-        var req = this.adaptor.batchRequest(this, changes, args, query || new (0, _query.Query)(), original);
-        var dofetchRequest = 'dofetchRequest';
-        if (this.dataSource.offline) return req;
-        if (!(0, _ej2Base.isNullOrUndefined)(this.adaptor[dofetchRequest])) return this.adaptor[dofetchRequest](req);
-        else if (!this.isCustomDataAdaptor(this.adaptor)) {
-            var deff_1 = new Deferred();
-            var fetch_2 = new (0, _ej2Base.Fetch)(req);
-            fetch_2.beforeSend = function() {
-                _this.beforeSend(fetch_2.fetchRequest, fetch_2);
-            };
-            fetch_2.onSuccess = function(data, request) {
-                if (_this.isGraphQLAdaptor(_this.adaptor)) // tslint:disable-next-line:no-string-literal
-                {
-                    if (!(0, _ej2Base.isNullOrUndefined)(data['errors'])) // tslint:disable-next-line:no-string-literal
-                    fetch_2.onFailure(JSON.stringify(data['errors']));
-                }
-                deff_1.resolve(_this.adaptor.processResponse(data, _this, null, request.fetchRequest, request, changes, args));
-            };
-            fetch_2.onFailure = function(e) {
-                deff_1.reject([
-                    {
-                        error: e
-                    }
-                ]);
-            };
-            fetch_2.send().catch(function(e) {
-                return true;
-            }); // to handle the failure requests.
-            return deff_1.promise;
-        } else return this.dofetchRequest(req, this.adaptor.options.batchUpdate);
+     * @param  {string} fieldName - Defines the column field.
+     */ Query.prototype.sortByDesc = function(fieldName) {
+        return this.sortBy(fieldName, 'descending');
     };
     /**
-     * Inserts new record in the given table.
+     * Groups data with the given field name.
      *
-     * @param {Object} data - Defines the data to insert.
-     * @param {string|Query} tableName - Defines the table name.
-     * @param {Query} query - Sets default query for the DataManager.
-     * @param position
-     */ DataManager.prototype.insert = function(data, tableName, query, position) {
-        if (tableName instanceof (0, _query.Query)) {
-            query = tableName;
-            tableName = null;
-        }
-        var req = this.adaptor.insert(this, data, tableName, query, position);
-        var dofetchRequest = 'dofetchRequest';
-        if (this.dataSource.offline) return req;
-        if (!(0, _ej2Base.isNullOrUndefined)(this.adaptor[dofetchRequest])) return this.adaptor[dofetchRequest](req);
-        else return this.dofetchRequest(req, this.adaptor.options.addRecord);
-    };
-    /**
-     * Removes data from the table with the given key.
-     *
-     * @param  {string} keyField - Defines the column field.
-     * @param  {Object} value - Defines the value to find the data in the specified column.
-     * @param  {string|Query} tableName - Defines the table name
-     * @param  {Query} query - Sets default query for the DataManager.
-     */ DataManager.prototype.remove = function(keyField, value, tableName, query) {
-        if (typeof value === 'object') value = (0, _util.DataUtil).getObject(keyField, value);
-        if (tableName instanceof (0, _query.Query)) {
-            query = tableName;
-            tableName = null;
-        }
-        var res = this.adaptor.remove(this, keyField, value, tableName, query);
-        var dofetchRequest = 'dofetchRequest';
-        if (this.dataSource.offline) return res;
-        if (!(0, _ej2Base.isNullOrUndefined)(this.adaptor[dofetchRequest])) return this.adaptor[dofetchRequest](res);
-        else {
-            var remove = this.adaptor.options.deleteRecord;
-            return this.dofetchRequest(res, remove);
-        }
-    };
-    /**
-     * Updates existing record in the given table.
-     *
-     * @param {string} keyField - Defines the column field.
-     * @param {Object} value - Defines the value to find the data in the specified column.
-     * @param {string|Query} tableName - Defines the table name
-     * @param {Query} query - Sets default query for the DataManager.
-     * @param original
-     */ DataManager.prototype.update = function(keyField, value, tableName, query, original) {
-        if (tableName instanceof (0, _query.Query)) {
-            query = tableName;
-            tableName = null;
-        }
-        var res = this.adaptor.update(this, keyField, value, tableName, query, original);
-        var dofetchRequest = 'dofetchRequest';
-        if (this.dataSource.offline) return res;
-        if (!(0, _ej2Base.isNullOrUndefined)(this.adaptor[dofetchRequest])) return this.adaptor[dofetchRequest](res);
-        else {
-            var update = this.adaptor.options.updateRecord;
-            return this.dofetchRequest(res, update);
-        }
-    };
-    DataManager.prototype.isCustomDataAdaptor = function(dataSource) {
-        return this.adaptor.getModuleName && this.adaptor.getModuleName() === 'CustomDataAdaptor';
-    };
-    DataManager.prototype.isGraphQLAdaptor = function(dataSource) {
-        return this.adaptor.getModuleName && this.adaptor.getModuleName() === 'GraphQLAdaptor';
-    };
-    DataManager.prototype.successFunc = function(record, request) {
-        if (this.isGraphQLAdaptor(this.adaptor)) {
-            var data = JSON.parse(record);
-            // tslint:disable-next-line:no-string-literal
-            if (!(0, _ej2Base.isNullOrUndefined)(data['errors'])) // tslint:disable-next-line:no-string-literal
-            this.failureFunc(JSON.stringify(data['errors']));
-        }
-        if (this.isCustomDataAdaptor(this.adaptor)) request = (0, _ej2Base.extend)({}, this.fetchReqOption, request);
-        try {
-            (0, _util.DataUtil).parse.parseJson(record);
-        } catch (e) {
-            record = [];
-        }
-        record = this.adaptor.processResponse((0, _util.DataUtil).parse.parseJson(record), this, null, request.fetchRequest, request);
-        this.fetchDeffered.resolve(record);
-    };
-    DataManager.prototype.failureFunc = function(e) {
-        this.fetchDeffered.reject([
-            {
-                error: e
+     * @param {string} fieldName - Defines the column field.
+     * @param fn
+     * @param format
+     */ Query.prototype.group = function(fieldName, fn, format) {
+        this.sortBy(fieldName, null, true);
+        this.queries.push({
+            fn: 'onGroup',
+            e: {
+                fieldName: fieldName,
+                comparer: fn ? fn : null,
+                format: format ? format : null
             }
-        ]);
+        });
+        return this;
     };
-    DataManager.prototype.dofetchRequest = function(res, fetchFunc) {
-        var _this = this;
-        res = (0, _ej2Base.extend)({}, {
-            type: 'POST',
-            contentType: 'application/json; charset=utf-8',
-            processData: false
-        }, res);
-        this.fetchDeffered = new Deferred();
-        if (!this.isCustomDataAdaptor(this.adaptor)) {
-            var fetch_3 = new (0, _ej2Base.Fetch)(res);
-            fetch_3.beforeSend = function() {
-                _this.beforeSend(fetch_3.fetchRequest, fetch_3);
-            };
-            fetch_3.onSuccess = this.successFunc.bind(this);
-            fetch_3.onFailure = this.failureFunc.bind(this);
-            fetch_3.send().catch(function(e) {
-                return true;
-            }); // to handle the failure requests.
-        } else {
-            this.fetchReqOption = res;
-            fetchFunc.call(this, {
-                data: res.data,
-                onSuccess: this.successFunc.bind(this),
-                onFailure: this.failureFunc.bind(this)
-            });
-        }
-        return this.fetchDeffered.promise;
+    /**
+     * Gets data based on the given page index and size.
+     *
+     * @param  {number} pageIndex - Defines the current page index.
+     * @param  {number} pageSize - Defines the no of records per page.
+     */ Query.prototype.page = function(pageIndex, pageSize) {
+        this.queries.push({
+            fn: 'onPage',
+            e: {
+                pageIndex: pageIndex,
+                pageSize: pageSize
+            }
+        });
+        return this;
     };
-    DataManager.prototype.clearPersistence = function() {
-        window.removeEventListener('unload', this.setPersistData.bind(this));
-        this.dataSource.enablePersistence = false;
-        this.persistQuery = {};
-        window.localStorage.setItem(this.dataSource.id, '[]');
+    /**
+     * Gets data based on the given start and end index.
+     *
+     * @param  {number} start - Defines the start index of the datasource.
+     * @param  {number} end - Defines the end index of the datasource.
+     */ Query.prototype.range = function(start, end) {
+        this.queries.push({
+            fn: 'onRange',
+            e: {
+                start: start,
+                end: end
+            }
+        });
+        return this;
     };
-    return DataManager;
+    /**
+     * Gets data from the top of the data source based on given number of records count.
+     *
+     * @param  {number} nos - Defines the no of records to retrieve from datasource.
+     */ Query.prototype.take = function(nos) {
+        this.queries.push({
+            fn: 'onTake',
+            e: {
+                nos: nos
+            }
+        });
+        return this;
+    };
+    /**
+     * Skips data with given number of records count from the top of the data source.
+     *
+     * @param  {number} nos - Defines the no of records skip in the datasource.
+     */ Query.prototype.skip = function(nos) {
+        this.queries.push({
+            fn: 'onSkip',
+            e: {
+                nos: nos
+            }
+        });
+        return this;
+    };
+    /**
+     * Selects specified columns from the data source.
+     *
+     * @param  {string|string[]} fieldNames - Defines the collection of column fields.
+     */ Query.prototype.select = function(fieldNames) {
+        if (typeof fieldNames === 'string') fieldNames = [].slice.call([
+            fieldNames
+        ], 0);
+        this.queries.push({
+            fn: 'onSelect',
+            e: {
+                fieldNames: fieldNames
+            }
+        });
+        return this;
+    };
+    /**
+     * Gets the records in hierarchical relationship from two tables. It requires the foreign key to relate two tables.
+     *
+     * @param  {Query} query - Defines the query to relate two tables.
+     * @param  {Function} selectorFn - Defines the custom function to select records.
+     */ Query.prototype.hierarchy = function(query, selectorFn) {
+        this.subQuerySelector = selectorFn;
+        this.subQuery = query;
+        return this;
+    };
+    /**
+     * Sets the foreign key which is used to get data from the related table.
+     *
+     * @param  {string} key - Defines the foreign key.
+     */ Query.prototype.foreignKey = function(key) {
+        this.fKey = key;
+        return this;
+    };
+    /**
+     * It is used to get total number of records in the DataManager execution result.
+     */ Query.prototype.requiresCount = function() {
+        this.isCountRequired = true;
+        return this;
+    };
+    //type - sum, avg, min, max
+    /**
+     * Aggregate the data with given type and field name.
+     *
+     * @param  {string} type - Defines the aggregate type.
+     * @param  {string} field - Defines the column field to aggregate.
+     */ Query.prototype.aggregate = function(type, field) {
+        this.queries.push({
+            fn: 'onAggregates',
+            e: {
+                field: field,
+                type: type
+            }
+        });
+        return this;
+    };
+    /**
+     * Pass array of filterColumn query for performing filter operation.
+     *
+     * @param  {QueryOptions[]} queries
+     * @param  {string} name
+     * @hidden
+     */ Query.filterQueries = function(queries, name) {
+        return queries.filter(function(q) {
+            return q.fn === name;
+        });
+    };
+    /**
+     * To get the list of queries which is already filtered in current data source.
+     *
+     * @param  {Object[]} queries
+     * @param  {string[]} singles
+     * @hidden
+     */ Query.filterQueryLists = function(queries, singles) {
+        var filtered = queries.filter(function(q) {
+            return singles.indexOf(q.fn) !== -1;
+        });
+        var res = {};
+        for(var i = 0; i < filtered.length; i++)if (!res[filtered[i].fn]) res[filtered[i].fn] = filtered[i].e;
+        return res;
+    };
+    return Query;
 }();
 /**
- * Deferred is used to handle asynchronous operation.
- */ var Deferred = /** @class */ function() {
-    function Deferred() {
-        var _this = this;
-        /**
-         * Promise is an object that represents a value that may not be available yet, but will be resolved at some point in the future.
-         */ this.promise = new Promise(function(resolve, reject) {
-            _this.resolve = resolve;
-            _this.reject = reject;
-        });
-        /**
-         * Defines the callback function triggers when the Deferred object is resolved.
-         */ this.then = this.promise.then.bind(this.promise);
-        /**
-         * Defines the callback function triggers when the Deferred object is rejected.
-         */ this.catch = this.promise.catch.bind(this.promise);
+ * Predicate class is used to generate complex filter criteria.
+ * This will be used by DataManager to perform multiple filtering operation.
+ */ var Predicate = /** @class */ function() {
+    /**
+     * Constructor for Predicate class.
+     *
+     * @param {string|Predicate} field
+     * @param {string} operator
+     * @param {string|number|boolean|Predicate|Predicate[]} value
+     * @param {boolean=false} ignoreCase
+     * @param ignoreAccent
+     * @param {boolean} matchCase
+     * @hidden
+     */ function Predicate(field, operator, value, ignoreCase, ignoreAccent, matchCase) {
+        if (ignoreCase === void 0) ignoreCase = false;
+        /** @hidden */ this.ignoreAccent = false;
+        /** @hidden */ this.isComplex = false;
+        if (typeof field === 'string') {
+            this.field = field;
+            this.operator = operator.toLowerCase();
+            this.value = value;
+            this.matchCase = matchCase;
+            this.ignoreCase = ignoreCase;
+            this.ignoreAccent = ignoreAccent;
+            this.isComplex = false;
+            this.comparer = (0, _util.DataUtil).fnOperators.processOperator(this.operator);
+        } else if (field instanceof Predicate && value instanceof Predicate || value instanceof Array) {
+            this.isComplex = true;
+            this.condition = operator.toLowerCase();
+            this.predicates = [
+                field
+            ];
+            this.matchCase = field.matchCase;
+            this.ignoreCase = field.ignoreCase;
+            this.ignoreAccent = field.ignoreAccent;
+            if (value instanceof Array) [].push.apply(this.predicates, value);
+            else this.predicates.push(value);
+        }
+        return this;
     }
-    return Deferred;
+    /**
+     * Adds n-number of new predicates on existing predicate with “and” condition.
+     *
+     * @param  {Object[]} args - Defines the collection of predicates.
+     */ Predicate.and = function() {
+        var args = [];
+        for(var _i = 0; _i < arguments.length; _i++)args[_i] = arguments[_i];
+        return Predicate.combinePredicates([].slice.call(args, 0), 'and');
+    };
+    /**
+     * Adds new predicate on existing predicate with “and” condition.
+     *
+     * @param {string} field - Defines the column field.
+     * @param {string} operator - Defines the operator how to filter data.
+     * @param {string} value - Defines the values to match with data.
+     * @param {boolean} ignoreCase? - If ignore case set to false, then filter data with exact match or else
+     * filter data with case insensitive.
+     * @param ignoreCase
+     * @param ignoreAccent
+     */ Predicate.prototype.and = function(field, operator, value, ignoreCase, ignoreAccent) {
+        return Predicate.combine(this, field, operator, value, 'and', ignoreCase, ignoreAccent);
+    };
+    /**
+     * Adds n-number of new predicates on existing predicate with “or” condition.
+     *
+     * @param  {Object[]} args - Defines the collection of predicates.
+     */ Predicate.or = function() {
+        var args = [];
+        for(var _i = 0; _i < arguments.length; _i++)args[_i] = arguments[_i];
+        return Predicate.combinePredicates([].slice.call(args, 0), 'or');
+    };
+    /**
+     * Adds new predicate on existing predicate with “or” condition.
+     *
+     * @param {string} field - Defines the column field.
+     * @param {string} operator - Defines the operator how to filter data.
+     * @param {string} value - Defines the values to match with data.
+     * @param {boolean} ignoreCase? - If ignore case set to false, then filter data with exact match or else
+     * filter data with case insensitive.
+     * @param ignoreCase
+     * @param ignoreAccent
+     */ Predicate.prototype.or = function(field, operator, value, ignoreCase, ignoreAccent) {
+        return Predicate.combine(this, field, operator, value, 'or', ignoreCase, ignoreAccent);
+    };
+    /**
+     * Adds n-number of new predicates on existing predicate with “and not” condition.
+     *
+     * @param  {Object[]} args - Defines the collection of predicates.
+     */ Predicate.ornot = function() {
+        var args = [];
+        for(var _i = 0; _i < arguments.length; _i++)args[_i] = arguments[_i];
+        return Predicate.combinePredicates([].slice.call(args, 0), 'or not');
+    };
+    /**
+     * Adds new predicate on existing predicate with “and not” condition.
+     *
+     * @param {string} field - Defines the column field.
+     * @param {string} operator - Defines the operator how to filter data.
+     * @param {string} value - Defines the values to match with data.
+     * @param {boolean} ignoreCase? - If ignore case set to false, then filter data with exact match or else
+     * filter data with case insensitive.
+     * @param ignoreCase
+     * @param ignoreAccent
+     */ Predicate.prototype.ornot = function(field, operator, value, ignoreCase, ignoreAccent) {
+        return Predicate.combine(this, field, operator, value, 'ornot', ignoreCase, ignoreAccent);
+    };
+    /**
+     * Adds n-number of new predicates on existing predicate with “and not” condition.
+     *
+     * @param  {Object[]} args - Defines the collection of predicates.
+     */ Predicate.andnot = function() {
+        var args = [];
+        for(var _i = 0; _i < arguments.length; _i++)args[_i] = arguments[_i];
+        return Predicate.combinePredicates([].slice.call(args, 0), 'and not');
+    };
+    /**
+     * Adds new predicate on existing predicate with “and not” condition.
+     *
+     * @param {string} field - Defines the column field.
+     * @param {string} operator - Defines the operator how to filter data.
+     * @param {string} value - Defines the values to match with data.
+     * @param {boolean} ignoreCase? - If ignore case set to false, then filter data with exact match or else
+     * filter data with case insensitive.
+     * @param ignoreCase
+     * @param ignoreAccent
+     */ Predicate.prototype.andnot = function(field, operator, value, ignoreCase, ignoreAccent) {
+        return Predicate.combine(this, field, operator, value, 'andnot', ignoreCase, ignoreAccent);
+    };
+    /**
+     * Converts plain JavaScript object to Predicate object.
+     *
+     * @param  {Predicate[]|Predicate} json - Defines single or collection of Predicate.
+     */ Predicate.fromJson = function(json) {
+        if (json instanceof Array) {
+            var res = [];
+            for(var i = 0, len = json.length; i < len; i++)res.push(this.fromJSONData(json[i]));
+            return res;
+        }
+        var pred = json;
+        return this.fromJSONData(pred);
+    };
+    /**
+     * Validate the record based on the predicates.
+     *
+     * @param  {Object} record - Defines the datasource record.
+     */ Predicate.prototype.validate = function(record) {
+        var predicate = this.predicates ? this.predicates : [];
+        var ret;
+        var isAnd;
+        if (!this.isComplex && this.comparer) {
+            if (this.condition && this.condition.indexOf('not') !== -1) {
+                this.condition = this.condition.split('not')[0] === '' ? undefined : this.condition.split('not')[0];
+                return !this.comparer.call(this, (0, _util.DataUtil).getObject(this.field, record), this.value, this.ignoreCase, this.ignoreAccent);
+            } else return this.comparer.call(this, (0, _util.DataUtil).getObject(this.field, record), this.value, this.ignoreCase, this.ignoreAccent);
+        }
+        if (this.condition && this.condition.indexOf('not') !== -1) isAnd = this.condition.indexOf('and') !== -1;
+        else isAnd = this.condition === 'and';
+        for(var i = 0; i < predicate.length; i++){
+            if (i > 0 && this.condition && this.condition.indexOf('not') !== -1) predicate[i].condition = predicate[i].condition ? predicate[i].condition + 'not' : 'not';
+            ret = predicate[i].validate(record);
+            if (isAnd) {
+                if (!ret) return false;
+            } else {
+                if (ret) return true;
+            }
+        }
+        return isAnd;
+    };
+    /**
+     * Converts predicates to plain JavaScript.
+     * This method is uses Json stringify when serializing Predicate object.
+     */ Predicate.prototype.toJson = function() {
+        var predicates;
+        var p;
+        if (this.isComplex) {
+            predicates = [];
+            p = this.predicates;
+            for(var i = 0; i < p.length; i++)predicates.push(p[i].toJson());
+        }
+        return {
+            isComplex: this.isComplex,
+            field: this.field,
+            operator: this.operator,
+            value: this.value,
+            ignoreCase: this.ignoreCase,
+            ignoreAccent: this.ignoreAccent,
+            condition: this.condition,
+            predicates: predicates,
+            matchCase: this.matchCase
+        };
+    };
+    Predicate.combinePredicates = function(predicates, operator) {
+        if (predicates.length === 1) {
+            if (!(predicates[0] instanceof Array)) return predicates[0];
+            predicates = predicates[0];
+        }
+        return new Predicate(predicates[0], operator, predicates.slice(1));
+    };
+    Predicate.combine = function(pred, field, operator, value, condition, ignoreCase, ignoreAccent) {
+        if (field instanceof Predicate) return Predicate[condition](pred, field);
+        if (typeof field === 'string') return Predicate[condition](pred, new Predicate(field, operator, value, ignoreCase, ignoreAccent));
+        return (0, _util.DataUtil).throwError('Predicate - ' + condition + ' : invalid arguments');
+    };
+    Predicate.fromJSONData = function(json) {
+        var preds = json.predicates || [];
+        var len = preds.length;
+        var predicates = [];
+        var result;
+        for(var i = 0; i < len; i++)predicates.push(this.fromJSONData(preds[i]));
+        if (!json.isComplex) result = new Predicate(json.field, json.operator, json.value, json.ignoreCase, json.ignoreAccent);
+        else result = new Predicate(predicates[0], json.condition, predicates.slice(1));
+        return result;
+    };
+    return Predicate;
 }();
 
-},{"@syncfusion/ej2-base":"jouLx","./util":"gxRLw","./query":"60VOS","./adaptors":"jWOD4","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"gxRLw":[function(require,module,exports,__globalThis) {
+},{"./util":"gxRLw","@syncfusion/ej2-base":"jouLx","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"gxRLw":[function(require,module,exports,__globalThis) {
 /* eslint-disable valid-jsdoc */ /* eslint-disable security/detect-object-injection */ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "DataUtil", ()=>DataUtil);
@@ -22580,633 +22633,580 @@ var consts = {
     return DataUtil;
 }();
 
-},{"@syncfusion/ej2-base":"jouLx","./manager":"s69wZ","./query":"60VOS","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"60VOS":[function(require,module,exports,__globalThis) {
+},{"@syncfusion/ej2-base":"jouLx","./manager":"s69wZ","./query":"60VOS","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"s69wZ":[function(require,module,exports,__globalThis) {
 /* eslint-disable valid-jsdoc */ /* eslint-disable security/detect-object-injection */ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "Query", ()=>Query);
-parcelHelpers.export(exports, "Predicate", ()=>Predicate);
-var _util = require("./util");
+parcelHelpers.export(exports, "DataManager", ()=>DataManager);
+parcelHelpers.export(exports, "Deferred", ()=>Deferred);
 var _ej2Base = require("@syncfusion/ej2-base");
+var _util = require("./util");
+var _query = require("./query");
+var _adaptors = require("./adaptors");
 /**
- * Query class is used to build query which is used by the DataManager to communicate with datasource.
- */ var Query = /** @class */ function() {
+ * DataManager is used to manage and manipulate relational data.
+ */ var DataManager = /** @class */ function() {
     /**
-     * Constructor for Query class.
+     * Constructor for DataManager class
      *
-     * @param {string|string[]} from?
-     * @param from
+     * @param {DataOptions|JSON[]} dataSource?
+     * @param {Query} query?
+     * @param {AdaptorOptions|string} adaptor?
+     * @param dataSource
+     * @param query
+     * @param adaptor
      * @hidden
-     */ function Query(from) {
-        /** @hidden */ this.subQuery = null;
-        /** @hidden */ this.isChild = false;
-        /** @hidden */ this.distincts = [];
-        this.queries = [];
-        this.key = '';
-        this.fKey = '';
-        if (typeof from === 'string') this.fromTable = from;
-        else if (from && from instanceof Array) this.lookups = from;
-        this.expands = [];
-        this.sortedColumns = [];
-        this.groupedColumns = [];
-        this.subQuery = null;
-        this.isChild = false;
-        this.params = [];
-        this.lazyLoad = [];
+     */ function DataManager(dataSource, query, adaptor) {
+        var _this = this;
+        /** @hidden */ this.dateParse = true;
+        /** @hidden */ this.timeZoneHandling = true;
+        this.persistQuery = {};
+        this.isInitialLoad = false;
+        this.requests = [];
+        this.isInitialLoad = true;
+        if (!dataSource && !this.dataSource) dataSource = [];
+        adaptor = adaptor || dataSource.adaptor;
+        if (dataSource && dataSource.timeZoneHandling === false) this.timeZoneHandling = dataSource.timeZoneHandling;
+        var data;
+        if (dataSource instanceof Array) data = {
+            json: dataSource,
+            offline: true
+        };
+        else if (typeof dataSource === 'object') {
+            if (!dataSource.json) dataSource.json = [];
+            if (!dataSource.enablePersistence) dataSource.enablePersistence = false;
+            if (!dataSource.id) dataSource.id = '';
+            if (!dataSource.ignoreOnPersist) dataSource.ignoreOnPersist = [];
+            data = {
+                url: dataSource.url,
+                insertUrl: dataSource.insertUrl,
+                removeUrl: dataSource.removeUrl,
+                updateUrl: dataSource.updateUrl,
+                crudUrl: dataSource.crudUrl,
+                batchUrl: dataSource.batchUrl,
+                json: dataSource.json,
+                headers: dataSource.headers,
+                accept: dataSource.accept,
+                data: dataSource.data,
+                timeTillExpiration: dataSource.timeTillExpiration,
+                cachingPageSize: dataSource.cachingPageSize,
+                enableCaching: dataSource.enableCaching,
+                requestType: dataSource.requestType,
+                key: dataSource.key,
+                crossDomain: dataSource.crossDomain,
+                jsonp: dataSource.jsonp,
+                dataType: dataSource.dataType,
+                offline: dataSource.offline !== undefined ? dataSource.offline : dataSource.adaptor instanceof (0, _adaptors.RemoteSaveAdaptor) || dataSource.adaptor instanceof (0, _adaptors.CustomDataAdaptor) ? false : dataSource.url ? false : true,
+                requiresFormat: dataSource.requiresFormat,
+                enablePersistence: dataSource.enablePersistence,
+                id: dataSource.id,
+                ignoreOnPersist: dataSource.ignoreOnPersist
+            };
+        } else (0, _util.DataUtil).throwError('DataManager: Invalid arguments');
+        if (data.requiresFormat === undefined && !(0, _util.DataUtil).isCors()) data.requiresFormat = (0, _ej2Base.isNullOrUndefined)(data.crossDomain) ? true : data.crossDomain;
+        if (data.dataType === undefined) data.dataType = 'json';
+        this.dataSource = data;
+        this.defaultQuery = query;
+        if (this.dataSource.enablePersistence && this.dataSource.id) window.addEventListener('unload', this.setPersistData.bind(this));
+        if (data.url && data.offline && !data.json.length) {
+            this.isDataAvailable = false;
+            this.adaptor = adaptor || new (0, _adaptors.ODataAdaptor)();
+            this.dataSource.offline = false;
+            this.ready = this.executeQuery(query || new (0, _query.Query)());
+            this.ready.then(function(e) {
+                _this.dataSource.offline = true;
+                _this.isDataAvailable = true;
+                data.json = e.result;
+                _this.adaptor = new (0, _adaptors.JsonAdaptor)();
+            });
+        } else this.adaptor = data.offline ? new (0, _adaptors.JsonAdaptor)() : new (0, _adaptors.ODataAdaptor)();
+        if (!data.jsonp && this.adaptor instanceof (0, _adaptors.ODataAdaptor)) data.jsonp = 'callback';
+        this.adaptor = adaptor || this.adaptor;
+        if (data.enableCaching) this.adaptor = new (0, _adaptors.CacheAdaptor)(this.adaptor, data.timeTillExpiration, data.cachingPageSize);
         return this;
     }
     /**
-     * Sets the primary key.
-     *
-     * @param  {string} field - Defines the column field.
-     */ Query.prototype.setKey = function(field) {
-        this.key = field;
-        return this;
+     * Get the queries maintained in the persisted state.
+     * @param {string} id - The identifier of the persisted query to retrieve.
+     * @returns {object} The persisted data object.
+     */ DataManager.prototype.getPersistedData = function(id) {
+        var persistedData = localStorage.getItem(id || this.dataSource.id);
+        return JSON.parse(persistedData);
     };
     /**
-     * Sets default DataManager to execute query.
-     *
-     * @param  {DataManager} dataManager - Defines the DataManager.
-     */ Query.prototype.using = function(dataManager) {
-        this.dataManager = dataManager;
-        return this;
+    * Set the queries to be maintained in the persisted state.
+    * @param {Event} e - The event parameter that triggers the setPersistData method.
+    * @param {string} id - The identifier of the persisted query to set.
+    * @param {object} persistData - The data to be persisted.
+    * @returns {void} .
+    */ DataManager.prototype.setPersistData = function(e, id, persistData) {
+        localStorage.setItem(id || this.dataSource.id, JSON.stringify(persistData || this.persistQuery));
     };
-    /**
-     * Executes query with the given DataManager.
-     *
-     * @param  {DataManager} dataManager - Defines the DataManager.
-     * @param  {Function} done - Defines the success callback.
-     * @param  {Function} fail - Defines the failure callback.
-     * @param  {Function} always - Defines the callback which will be invoked on either success or failure.
-     *
-     * <pre>
-     * let dataManager: DataManager = new DataManager([{ ID: '10' }, { ID: '2' }, { ID: '1' }, { ID: '20' }]);
-     * let query: Query = new Query();
-     * query.sortBy('ID', (x: string, y: string): number => { return parseInt(x, 10) - parseInt(y, 10) });
-     * let promise: Promise< Object > = query.execute(dataManager);
-     * promise.then((e: { result: Object }) => { });
-     * </pre>
-     */ Query.prototype.execute = function(dataManager, done, fail, always) {
-        dataManager = dataManager || this.dataManager;
-        if (dataManager) return dataManager.executeQuery(this, done, fail, always);
-        return (0, _util.DataUtil).throwError('Query - execute() : dataManager needs to be is set using "using" function or should be passed as argument');
-    };
-    /**
-     * Executes query with the local datasource.
-     *
-     * @param  {DataManager} dataManager - Defines the DataManager.
-     */ Query.prototype.executeLocal = function(dataManager) {
-        dataManager = dataManager || this.dataManager;
-        if (dataManager) return dataManager.executeLocal(this);
-        return (0, _util.DataUtil).throwError('Query - executeLocal() : dataManager needs to be is set using "using" function or should be passed as argument');
-    };
-    /**
-     * Creates deep copy of the Query object.
-     */ Query.prototype.clone = function() {
-        var cloned = new Query();
-        cloned.queries = this.queries.slice(0);
-        cloned.key = this.key;
-        cloned.isChild = this.isChild;
-        cloned.dataManager = this.dataManager;
-        cloned.fromTable = this.fromTable;
-        cloned.params = this.params.slice(0);
-        cloned.expands = this.expands.slice(0);
-        cloned.sortedColumns = this.sortedColumns.slice(0);
-        cloned.groupedColumns = this.groupedColumns.slice(0);
-        cloned.subQuerySelector = this.subQuerySelector;
-        cloned.subQuery = this.subQuery;
-        cloned.fKey = this.fKey;
-        cloned.isCountRequired = this.isCountRequired;
-        cloned.distincts = this.distincts.slice(0);
-        cloned.lazyLoad = this.lazyLoad.slice(0);
-        return cloned;
-    };
-    /**
-     * Specifies the name of table to retrieve data in query execution.
-     *
-     * @param  {string} tableName - Defines the table name.
-     */ Query.prototype.from = function(tableName) {
-        this.fromTable = tableName;
-        return this;
-    };
-    /**
-     * Adds additional parameter which will be sent along with the request which will be generated while DataManager execute.
-     *
-     * @param  {string} key - Defines the key of additional parameter.
-     * @param  {Function|string} value - Defines the value for the key.
-     */ Query.prototype.addParams = function(key, value) {
-        if (typeof value === 'function') this.params.push({
-            key: key,
-            fn: value
-        });
-        else this.params.push({
-            key: key,
-            value: value
-        });
-        return this;
-    };
-    /**
-     * @param fields
-     * @hidden
-     */ Query.prototype.distinct = function(fields) {
-        if (typeof fields === 'string') this.distincts = [].slice.call([
-            fields
-        ], 0);
-        else this.distincts = fields.slice(0);
-        return this;
-    };
-    /**
-     * Expands the related table.
-     *
-     * @param  {string|Object[]} tables
-     */ Query.prototype.expand = function(tables) {
-        if (typeof tables === 'string') this.expands = [].slice.call([
-            tables
-        ], 0);
-        else this.expands = tables.slice(0);
-        return this;
-    };
-    /**
-     * Filter data with given filter criteria.
-     *
-     * @param {string|Predicate} fieldName - Defines the column field or Predicate.
-     * @param {string} operator - Defines the operator how to filter data.
-     * @param {string|number|boolean} value - Defines the values to match with data.
-     * @param {boolean} ignoreCase - If ignore case set to false, then filter data with exact match or else
-     * filter data with case insensitive.
-     * @param ignoreAccent
-     * @param matchCase
-     */ Query.prototype.where = function(fieldName, operator, value, ignoreCase, ignoreAccent, matchCase) {
-        operator = operator ? operator.toLowerCase() : null;
-        var predicate = null;
-        if (typeof fieldName === 'string') predicate = new Predicate(fieldName, operator, value, ignoreCase, ignoreAccent, matchCase);
-        else if (fieldName instanceof Predicate) predicate = fieldName;
-        this.queries.push({
-            fn: 'onWhere',
-            e: predicate
-        });
-        return this;
-    };
-    /**
-     * Search data with given search criteria.
-     *
-     * @param {string|number|boolean} searchKey - Defines the search key.
-     * @param {string|string[]} fieldNames - Defines the collection of column fields.
-     * @param {string} operator - Defines the operator how to search data.
-     * @param {boolean} ignoreCase - If ignore case set to false, then filter data with exact match or else
-     * filter data with case insensitive.
-     * @param ignoreAccent
-     */ Query.prototype.search = function(searchKey, fieldNames, operator, ignoreCase, ignoreAccent) {
-        if (typeof fieldNames === 'string') fieldNames = [
-            fieldNames
-        ];
-        if (!operator || operator === 'none') operator = 'contains';
-        var comparer = (0, _util.DataUtil).fnOperators[operator];
-        this.queries.push({
-            fn: 'onSearch',
-            e: {
-                fieldNames: fieldNames,
-                operator: operator,
-                searchKey: searchKey,
-                ignoreCase: ignoreCase,
-                ignoreAccent: ignoreAccent,
-                comparer: comparer
-            }
-        });
-        return this;
-    };
-    /**
-     * Sort the data with given sort criteria.
-     * By default, sort direction is ascending.
-     *
-     * @param {string|string[]} fieldName - Defines the single or collection of column fields.
-     * @param {string|Function} comparer - Defines the sort direction or custom sort comparer function.
-     * @param isFromGroup
-     */ Query.prototype.sortBy = function(fieldName, comparer, isFromGroup) {
-        return this.sortByForeignKey(fieldName, comparer, isFromGroup);
-    };
-    /**
-     * Sort the data with given sort criteria.
-     * By default, sort direction is ascending.
-     *
-     * @param {string|string[]} fieldName - Defines the single or collection of column fields.
-     * @param {string|Function} comparer - Defines the sort direction or custom sort comparer function.
-     * @param isFromGroup
-     * @param {string} direction - Defines the sort direction .
-     */ Query.prototype.sortByForeignKey = function(fieldName, comparer, isFromGroup, direction) {
-        var order = !(0, _ej2Base.isNullOrUndefined)(direction) ? direction : 'ascending';
-        var sorts;
-        var temp;
-        if (typeof fieldName === 'string' && (0, _util.DataUtil).endsWith(fieldName.toLowerCase(), ' desc')) {
-            fieldName = fieldName.replace(/ desc$/i, '');
-            comparer = 'descending';
-        }
-        if (!comparer || typeof comparer === 'string') {
-            order = comparer ? comparer.toLowerCase() : 'ascending';
-            comparer = (0, _util.DataUtil).fnSort(comparer);
-        }
-        if (isFromGroup) {
-            sorts = Query.filterQueries(this.queries, 'onSortBy');
-            for(var i = 0; i < sorts.length; i++){
-                temp = sorts[i].e.fieldName;
-                if (typeof temp === 'string') {
-                    if (temp === fieldName) return this;
-                } else if (temp instanceof Array) for(var j = 0; j < temp.length; j++){
-                    if (temp[j] === fieldName || fieldName.toLowerCase() === temp[j] + ' desc') return this;
+    DataManager.prototype.setPersistQuery = function(query) {
+        var _this = this;
+        var persistedQuery = this.getPersistedData();
+        if (this.isInitialLoad && persistedQuery && Object.keys(persistedQuery).length) {
+            this.persistQuery = persistedQuery;
+            this.persistQuery.queries = this.persistQuery.queries.filter(function(query) {
+                if (_this.dataSource.ignoreOnPersist && _this.dataSource.ignoreOnPersist.length) {
+                    if (query.fn && _this.dataSource.ignoreOnPersist.some(function(keyword) {
+                        return query.fn === keyword;
+                    })) return false; // Exclude the matching query
                 }
+                if (query.fn === 'onWhere') {
+                    var e = query.e;
+                    if (e && e.isComplex && e.predicates instanceof Array) {
+                        var allPredicates = e.predicates.map(function(predicateObj) {
+                            if (predicateObj.predicates && predicateObj.predicates instanceof Array) {
+                                // Process nested predicate array
+                                var nestedPredicates = predicateObj.predicates.map(function(nestedPredicate) {
+                                    var field = nestedPredicate.field, operator = nestedPredicate.operator, value = nestedPredicate.value, ignoreCase = nestedPredicate.ignoreCase, ignoreAccent = nestedPredicate.ignoreAccent, matchCase = nestedPredicate.matchCase;
+                                    return new (0, _query.Predicate)(field, operator, value, ignoreCase, ignoreAccent, matchCase);
+                                });
+                                return predicateObj.condition === 'and' ? (0, _query.Predicate).and(nestedPredicates) : (0, _query.Predicate).or(nestedPredicates);
+                            } else {
+                                // Process individual predicate
+                                var field = predicateObj.field, operator = predicateObj.operator, value = predicateObj.value, ignoreCase = predicateObj.ignoreCase, ignoreAccent = predicateObj.ignoreAccent, matchCase = predicateObj.matchCase;
+                                return new (0, _query.Predicate)(field, operator, value, ignoreCase, ignoreAccent, matchCase);
+                            }
+                        });
+                        query.e = new (0, _query.Predicate)(allPredicates[0], e.condition, allPredicates.slice(1));
+                    }
+                }
+                return true; // Keep all other queries
+            });
+            var newQuery = (0, _ej2Base.extend)(new (0, _query.Query)(), this.persistQuery);
+            this.isInitialLoad = false;
+            return newQuery;
+        } else {
+            this.persistQuery = query;
+            this.isInitialLoad = false;
+            return query;
+        }
+    };
+    /**
+     * Overrides DataManager's default query with given query.
+     *
+     * @param  {Query} query - Defines the new default query.
+     */ DataManager.prototype.setDefaultQuery = function(query) {
+        this.defaultQuery = query;
+        return this;
+    };
+    /**
+     * Executes the given query with local data source.
+     *
+     * @param  {Query} query - Defines the query to retrieve data.
+     */ DataManager.prototype.executeLocal = function(query) {
+        if (!this.defaultQuery && !(query instanceof (0, _query.Query))) (0, _util.DataUtil).throwError('DataManager - executeLocal() : A query is required to execute');
+        if (!this.dataSource.json) (0, _util.DataUtil).throwError('DataManager - executeLocal() : Json data is required to execute');
+        if (this.dataSource.enablePersistence && this.dataSource.id) query = this.setPersistQuery(query);
+        query = query || this.defaultQuery;
+        var result = this.adaptor.processQuery(this, query);
+        if (query.subQuery) {
+            var from = query.subQuery.fromTable;
+            var lookup = query.subQuery.lookups;
+            var res = query.isCountRequired ? result.result : result;
+            if (lookup && lookup instanceof Array) (0, _util.DataUtil).buildHierarchy(query.subQuery.fKey, from, res, lookup, query.subQuery.key);
+            for(var j = 0; j < res.length; j++)if (res[j][from] instanceof Array) {
+                res[j] = (0, _ej2Base.extend)({}, {}, res[j]);
+                res[j][from] = this.adaptor.processResponse(query.subQuery.using(new DataManager(res[j][from].slice(0))).executeLocal(), this, query);
             }
         }
-        this.queries.push({
-            fn: 'onSortBy',
-            e: {
-                fieldName: fieldName,
-                comparer: comparer,
-                direction: order
+        return this.adaptor.processResponse(result, this, query);
+    };
+    /**
+     * Executes the given query with either local or remote data source.
+     * It will be executed as asynchronously and returns Promise object which will be resolved or rejected after action completed.
+     *
+     * @param  {Query|Function} query - Defines the query to retrieve data.
+     * @param  {Function} done - Defines the callback function and triggers when the Promise is resolved.
+     * @param  {Function} fail - Defines the callback function and triggers when the Promise is rejected.
+     * @param  {Function} always - Defines the callback function and triggers when the Promise is resolved or rejected.
+     */ DataManager.prototype.executeQuery = function(query, done, fail, always) {
+        var _this = this;
+        var makeRequest = 'makeRequest';
+        if (this.dataSource.enablePersistence && this.dataSource.id) query = this.setPersistQuery(query);
+        if (typeof query === 'function') {
+            always = fail;
+            fail = done;
+            done = query;
+            query = null;
+        }
+        if (!query) query = this.defaultQuery;
+        if (!(query instanceof (0, _query.Query))) (0, _util.DataUtil).throwError('DataManager - executeQuery() : A query is required to execute');
+        var deffered = new Deferred();
+        var args = {
+            query: query
+        };
+        if (!this.dataSource.offline && this.dataSource.url !== undefined && this.dataSource.url !== '' || !(0, _ej2Base.isNullOrUndefined)(this.adaptor[makeRequest]) || this.isCustomDataAdaptor(this.adaptor)) {
+            var result = this.adaptor.processQuery(this, query);
+            if (!(0, _ej2Base.isNullOrUndefined)(this.adaptor[makeRequest])) this.adaptor[makeRequest](result, deffered, args, query);
+            else if (!(0, _ej2Base.isNullOrUndefined)(result.url) || this.isCustomDataAdaptor(this.adaptor)) {
+                this.requests = [];
+                this.makeRequest(result, deffered, args, query);
+            } else {
+                args = DataManager.getDeferedArgs(query, result, args);
+                deffered.resolve(args);
             }
+        } else DataManager.nextTick(function() {
+            var res = _this.executeLocal(query);
+            args = DataManager.getDeferedArgs(query, res, args);
+            deffered.resolve(args);
         });
-        return this;
+        if (done || fail) deffered.promise.then(done, fail);
+        if (always) deffered.promise.then(always, always);
+        return deffered.promise;
     };
-    /**
-     * Sorts data in descending order.
-     *
-     * @param  {string} fieldName - Defines the column field.
-     */ Query.prototype.sortByDesc = function(fieldName) {
-        return this.sortBy(fieldName, 'descending');
+    DataManager.getDeferedArgs = function(query, result, args) {
+        if (query.isCountRequired) {
+            args.result = result.result;
+            args.count = result.count;
+            args.aggregates = result.aggregates;
+        } else args.result = result;
+        return args;
     };
-    /**
-     * Groups data with the given field name.
-     *
-     * @param {string} fieldName - Defines the column field.
-     * @param fn
-     * @param format
-     */ Query.prototype.group = function(fieldName, fn, format) {
-        this.sortBy(fieldName, null, true);
-        this.queries.push({
-            fn: 'onGroup',
-            e: {
-                fieldName: fieldName,
-                comparer: fn ? fn : null,
-                format: format ? format : null
+    DataManager.nextTick = function(fn) {
+        /* eslint-disable @typescript-eslint/no-explicit-any */ // tslint:disable-next-line:no-any
+        (window.setImmediate || window.setTimeout)(fn, 0);
+    /* eslint-enable @typescript-eslint/no-explicit-any */ };
+    DataManager.prototype.extendRequest = function(url, fnSuccess, fnFail) {
+        return (0, _ej2Base.extend)({}, {
+            type: 'GET',
+            dataType: this.dataSource.dataType,
+            crossDomain: this.dataSource.crossDomain,
+            jsonp: this.dataSource.jsonp,
+            cache: true,
+            processData: false,
+            onSuccess: fnSuccess,
+            onFailure: fnFail
+        }, url);
+    };
+    // tslint:disable-next-line:max-func-body-length
+    DataManager.prototype.makeRequest = function(url, deffered, args, query) {
+        var _this = this;
+        var isSelector = !!query.subQuerySelector;
+        var fnFail = function(e) {
+            args.error = e;
+            deffered.reject(args);
+        };
+        var process = function(data, count, xhr, request, actual, aggregates, virtualSelectRecords) {
+            args.xhr = xhr;
+            args.count = count ? parseInt(count.toString(), 10) : 0;
+            args.result = data;
+            args.request = request;
+            args.aggregates = aggregates;
+            args.actual = actual;
+            args.virtualSelectRecords = virtualSelectRecords;
+            deffered.resolve(args);
+        };
+        var fnQueryChild = function(data, selector) {
+            var subDeffer = new Deferred();
+            var childArgs = {
+                parent: args
+            };
+            query.subQuery.isChild = true;
+            var subUrl = _this.adaptor.processQuery(_this, query.subQuery, data ? _this.adaptor.processResponse(data) : selector);
+            var childReq = _this.makeRequest(subUrl, subDeffer, childArgs, query.subQuery);
+            if (!isSelector) subDeffer.then(function(subData) {
+                if (data) {
+                    (0, _util.DataUtil).buildHierarchy(query.subQuery.fKey, query.subQuery.fromTable, data, subData, query.subQuery.key);
+                    process(data, subData.count, subData.xhr);
+                }
+            }, fnFail);
+            return childReq;
+        };
+        var fnSuccess = function(data, request) {
+            if (_this.isGraphQLAdaptor(_this.adaptor)) {
+                // tslint:disable-next-line:no-string-literal
+                if (!(0, _ej2Base.isNullOrUndefined)(data['errors'])) // tslint:disable-next-line:no-string-literal
+                return fnFail(data['errors'], request);
             }
-        });
-        return this;
-    };
-    /**
-     * Gets data based on the given page index and size.
-     *
-     * @param  {number} pageIndex - Defines the current page index.
-     * @param  {number} pageSize - Defines the no of records per page.
-     */ Query.prototype.page = function(pageIndex, pageSize) {
-        this.queries.push({
-            fn: 'onPage',
-            e: {
-                pageIndex: pageIndex,
-                pageSize: pageSize
+            if (_this.isCustomDataAdaptor(_this.adaptor)) request = (0, _ej2Base.extend)({}, _this.fetchReqOption, request);
+            if (request.contentType.indexOf('xml') === -1 && _this.dateParse) data = (0, _util.DataUtil).parse.parseJson(data);
+            var result = _this.adaptor.processResponse(data, _this, query, request.fetchRequest, request);
+            var count = 0;
+            var aggregates = null;
+            var virtualSelectRecords = 'virtualSelectRecords';
+            var virtualRecords = data[virtualSelectRecords];
+            if (query.isCountRequired) {
+                count = result.count;
+                aggregates = result.aggregates;
+                result = result.result;
             }
-        });
-        return this;
-    };
-    /**
-     * Gets data based on the given start and end index.
-     *
-     * @param  {number} start - Defines the start index of the datasource.
-     * @param  {number} end - Defines the end index of the datasource.
-     */ Query.prototype.range = function(start, end) {
-        this.queries.push({
-            fn: 'onRange',
-            e: {
-                start: start,
-                end: end
+            if (!query.subQuery) {
+                process(result, count, request.fetchRequest, request.type, data, aggregates, virtualRecords);
+                return;
             }
-        });
-        return this;
+            if (!isSelector) fnQueryChild(result, request);
+        };
+        var req = this.extendRequest(url, fnSuccess, fnFail);
+        if (!this.isCustomDataAdaptor(this.adaptor)) {
+            var fetch_1 = new (0, _ej2Base.Fetch)(req);
+            fetch_1.beforeSend = function() {
+                _this.beforeSend(fetch_1.fetchRequest, fetch_1);
+            };
+            req = fetch_1.send();
+            req.catch(function(e) {
+                return true;
+            }); // to handle failure remote requests.
+            this.requests.push(fetch_1);
+        } else {
+            this.fetchReqOption = req;
+            var request = req;
+            this.adaptor.options.getData({
+                data: request.data,
+                onSuccess: request.onSuccess,
+                onFailure: request.onFailure
+            });
+        }
+        if (isSelector) {
+            var promise = void 0;
+            var res = query.subQuerySelector.call(this, {
+                query: query.subQuery,
+                parent: query
+            });
+            if (res && res.length) {
+                promise = Promise.all([
+                    req,
+                    fnQueryChild(null, res)
+                ]);
+                promise.then(function() {
+                    var args = [];
+                    for(var _i = 0; _i < arguments.length; _i++)args[_i] = arguments[_i];
+                    var result = args[0];
+                    var pResult = _this.adaptor.processResponse(result[0], _this, query, _this.requests[0].fetchRequest, _this.requests[0]);
+                    var count = 0;
+                    if (query.isCountRequired) {
+                        count = pResult.count;
+                        pResult = pResult.result;
+                    }
+                    var cResult = _this.adaptor.processResponse(result[1], _this, query.subQuery, _this.requests[1].fetchRequest, _this.requests[1]);
+                    count = 0;
+                    if (query.subQuery.isCountRequired) {
+                        count = cResult.count;
+                        cResult = cResult.result;
+                    }
+                    (0, _util.DataUtil).buildHierarchy(query.subQuery.fKey, query.subQuery.fromTable, pResult, cResult, query.subQuery.key);
+                    isSelector = false;
+                    process(pResult, count, _this.requests[0].fetchRequest);
+                });
+            } else isSelector = false;
+        }
+        return req;
     };
-    /**
-     * Gets data from the top of the data source based on given number of records count.
-     *
-     * @param  {number} nos - Defines the no of records to retrieve from datasource.
-     */ Query.prototype.take = function(nos) {
-        this.queries.push({
-            fn: 'onTake',
-            e: {
-                nos: nos
+    DataManager.prototype.beforeSend = function(request, settings) {
+        this.adaptor.beforeSend(this, request, settings);
+        var headers = this.dataSource.headers;
+        var props;
+        for(var i = 0; headers && i < headers.length; i++){
+            props = [];
+            var keys = Object.keys(headers[i]);
+            for(var _i = 0, keys_1 = keys; _i < keys_1.length; _i++){
+                var prop = keys_1[_i];
+                props.push(prop);
+                request.headers.set(prop, headers[i][prop]);
             }
-        });
-        return this;
+        }
     };
     /**
-     * Skips data with given number of records count from the top of the data source.
+     * Save bulk changes to the given table name.
+     * User can add a new record, edit an existing record, and delete a record at the same time.
+     * If the datasource from remote, then updated in a single post.
      *
-     * @param  {number} nos - Defines the no of records skip in the datasource.
-     */ Query.prototype.skip = function(nos) {
-        this.queries.push({
-            fn: 'onSkip',
-            e: {
-                nos: nos
+     * @param {Object} changes - Defines the CrudOptions.
+     * @param {string} key - Defines the column field.
+     * @param {string|Query} tableName - Defines the table name.
+     * @param {Query} query - Sets default query for the DataManager.
+     * @param original
+     */ DataManager.prototype.saveChanges = function(changes, key, tableName, query, original) {
+        var _this = this;
+        if (tableName instanceof (0, _query.Query)) {
+            query = tableName;
+            tableName = null;
+        }
+        var args = {
+            url: tableName,
+            key: key || this.dataSource.key
+        };
+        var req = this.adaptor.batchRequest(this, changes, args, query || new (0, _query.Query)(), original);
+        var dofetchRequest = 'dofetchRequest';
+        if (this.dataSource.offline) return req;
+        if (!(0, _ej2Base.isNullOrUndefined)(this.adaptor[dofetchRequest])) return this.adaptor[dofetchRequest](req);
+        else if (!this.isCustomDataAdaptor(this.adaptor)) {
+            var deff_1 = new Deferred();
+            var fetch_2 = new (0, _ej2Base.Fetch)(req);
+            fetch_2.beforeSend = function() {
+                _this.beforeSend(fetch_2.fetchRequest, fetch_2);
+            };
+            fetch_2.onSuccess = function(data, request) {
+                if (_this.isGraphQLAdaptor(_this.adaptor)) // tslint:disable-next-line:no-string-literal
+                {
+                    if (!(0, _ej2Base.isNullOrUndefined)(data['errors'])) // tslint:disable-next-line:no-string-literal
+                    fetch_2.onFailure(JSON.stringify(data['errors']));
+                }
+                deff_1.resolve(_this.adaptor.processResponse(data, _this, null, request.fetchRequest, request, changes, args));
+            };
+            fetch_2.onFailure = function(e) {
+                deff_1.reject([
+                    {
+                        error: e
+                    }
+                ]);
+            };
+            fetch_2.send().catch(function(e) {
+                return true;
+            }); // to handle the failure requests.
+            return deff_1.promise;
+        } else return this.dofetchRequest(req, this.adaptor.options.batchUpdate);
+    };
+    /**
+     * Inserts new record in the given table.
+     *
+     * @param {Object} data - Defines the data to insert.
+     * @param {string|Query} tableName - Defines the table name.
+     * @param {Query} query - Sets default query for the DataManager.
+     * @param position
+     */ DataManager.prototype.insert = function(data, tableName, query, position) {
+        if (tableName instanceof (0, _query.Query)) {
+            query = tableName;
+            tableName = null;
+        }
+        var req = this.adaptor.insert(this, data, tableName, query, position);
+        var dofetchRequest = 'dofetchRequest';
+        if (this.dataSource.offline) return req;
+        if (!(0, _ej2Base.isNullOrUndefined)(this.adaptor[dofetchRequest])) return this.adaptor[dofetchRequest](req);
+        else return this.dofetchRequest(req, this.adaptor.options.addRecord);
+    };
+    /**
+     * Removes data from the table with the given key.
+     *
+     * @param  {string} keyField - Defines the column field.
+     * @param  {Object} value - Defines the value to find the data in the specified column.
+     * @param  {string|Query} tableName - Defines the table name
+     * @param  {Query} query - Sets default query for the DataManager.
+     */ DataManager.prototype.remove = function(keyField, value, tableName, query) {
+        if (typeof value === 'object') value = (0, _util.DataUtil).getObject(keyField, value);
+        if (tableName instanceof (0, _query.Query)) {
+            query = tableName;
+            tableName = null;
+        }
+        var res = this.adaptor.remove(this, keyField, value, tableName, query);
+        var dofetchRequest = 'dofetchRequest';
+        if (this.dataSource.offline) return res;
+        if (!(0, _ej2Base.isNullOrUndefined)(this.adaptor[dofetchRequest])) return this.adaptor[dofetchRequest](res);
+        else {
+            var remove = this.adaptor.options.deleteRecord;
+            return this.dofetchRequest(res, remove);
+        }
+    };
+    /**
+     * Updates existing record in the given table.
+     *
+     * @param {string} keyField - Defines the column field.
+     * @param {Object} value - Defines the value to find the data in the specified column.
+     * @param {string|Query} tableName - Defines the table name
+     * @param {Query} query - Sets default query for the DataManager.
+     * @param original
+     */ DataManager.prototype.update = function(keyField, value, tableName, query, original) {
+        if (tableName instanceof (0, _query.Query)) {
+            query = tableName;
+            tableName = null;
+        }
+        var res = this.adaptor.update(this, keyField, value, tableName, query, original);
+        var dofetchRequest = 'dofetchRequest';
+        if (this.dataSource.offline) return res;
+        if (!(0, _ej2Base.isNullOrUndefined)(this.adaptor[dofetchRequest])) return this.adaptor[dofetchRequest](res);
+        else {
+            var update = this.adaptor.options.updateRecord;
+            return this.dofetchRequest(res, update);
+        }
+    };
+    DataManager.prototype.isCustomDataAdaptor = function(dataSource) {
+        return this.adaptor.getModuleName && this.adaptor.getModuleName() === 'CustomDataAdaptor';
+    };
+    DataManager.prototype.isGraphQLAdaptor = function(dataSource) {
+        return this.adaptor.getModuleName && this.adaptor.getModuleName() === 'GraphQLAdaptor';
+    };
+    DataManager.prototype.successFunc = function(record, request) {
+        if (this.isGraphQLAdaptor(this.adaptor)) {
+            var data = JSON.parse(record);
+            // tslint:disable-next-line:no-string-literal
+            if (!(0, _ej2Base.isNullOrUndefined)(data['errors'])) // tslint:disable-next-line:no-string-literal
+            this.failureFunc(JSON.stringify(data['errors']));
+        }
+        if (this.isCustomDataAdaptor(this.adaptor)) request = (0, _ej2Base.extend)({}, this.fetchReqOption, request);
+        try {
+            (0, _util.DataUtil).parse.parseJson(record);
+        } catch (e) {
+            record = [];
+        }
+        record = this.adaptor.processResponse((0, _util.DataUtil).parse.parseJson(record), this, null, request.fetchRequest, request);
+        this.fetchDeffered.resolve(record);
+    };
+    DataManager.prototype.failureFunc = function(e) {
+        this.fetchDeffered.reject([
+            {
+                error: e
             }
-        });
-        return this;
+        ]);
     };
-    /**
-     * Selects specified columns from the data source.
-     *
-     * @param  {string|string[]} fieldNames - Defines the collection of column fields.
-     */ Query.prototype.select = function(fieldNames) {
-        if (typeof fieldNames === 'string') fieldNames = [].slice.call([
-            fieldNames
-        ], 0);
-        this.queries.push({
-            fn: 'onSelect',
-            e: {
-                fieldNames: fieldNames
-            }
-        });
-        return this;
+    DataManager.prototype.dofetchRequest = function(res, fetchFunc) {
+        var _this = this;
+        res = (0, _ej2Base.extend)({}, {
+            type: 'POST',
+            contentType: 'application/json; charset=utf-8',
+            processData: false
+        }, res);
+        this.fetchDeffered = new Deferred();
+        if (!this.isCustomDataAdaptor(this.adaptor)) {
+            var fetch_3 = new (0, _ej2Base.Fetch)(res);
+            fetch_3.beforeSend = function() {
+                _this.beforeSend(fetch_3.fetchRequest, fetch_3);
+            };
+            fetch_3.onSuccess = this.successFunc.bind(this);
+            fetch_3.onFailure = this.failureFunc.bind(this);
+            fetch_3.send().catch(function(e) {
+                return true;
+            }); // to handle the failure requests.
+        } else {
+            this.fetchReqOption = res;
+            fetchFunc.call(this, {
+                data: res.data,
+                onSuccess: this.successFunc.bind(this),
+                onFailure: this.failureFunc.bind(this)
+            });
+        }
+        return this.fetchDeffered.promise;
     };
-    /**
-     * Gets the records in hierarchical relationship from two tables. It requires the foreign key to relate two tables.
-     *
-     * @param  {Query} query - Defines the query to relate two tables.
-     * @param  {Function} selectorFn - Defines the custom function to select records.
-     */ Query.prototype.hierarchy = function(query, selectorFn) {
-        this.subQuerySelector = selectorFn;
-        this.subQuery = query;
-        return this;
+    DataManager.prototype.clearPersistence = function() {
+        window.removeEventListener('unload', this.setPersistData.bind(this));
+        this.dataSource.enablePersistence = false;
+        this.persistQuery = {};
+        window.localStorage.setItem(this.dataSource.id, '[]');
     };
-    /**
-     * Sets the foreign key which is used to get data from the related table.
-     *
-     * @param  {string} key - Defines the foreign key.
-     */ Query.prototype.foreignKey = function(key) {
-        this.fKey = key;
-        return this;
-    };
-    /**
-     * It is used to get total number of records in the DataManager execution result.
-     */ Query.prototype.requiresCount = function() {
-        this.isCountRequired = true;
-        return this;
-    };
-    //type - sum, avg, min, max
-    /**
-     * Aggregate the data with given type and field name.
-     *
-     * @param  {string} type - Defines the aggregate type.
-     * @param  {string} field - Defines the column field to aggregate.
-     */ Query.prototype.aggregate = function(type, field) {
-        this.queries.push({
-            fn: 'onAggregates',
-            e: {
-                field: field,
-                type: type
-            }
-        });
-        return this;
-    };
-    /**
-     * Pass array of filterColumn query for performing filter operation.
-     *
-     * @param  {QueryOptions[]} queries
-     * @param  {string} name
-     * @hidden
-     */ Query.filterQueries = function(queries, name) {
-        return queries.filter(function(q) {
-            return q.fn === name;
-        });
-    };
-    /**
-     * To get the list of queries which is already filtered in current data source.
-     *
-     * @param  {Object[]} queries
-     * @param  {string[]} singles
-     * @hidden
-     */ Query.filterQueryLists = function(queries, singles) {
-        var filtered = queries.filter(function(q) {
-            return singles.indexOf(q.fn) !== -1;
-        });
-        var res = {};
-        for(var i = 0; i < filtered.length; i++)if (!res[filtered[i].fn]) res[filtered[i].fn] = filtered[i].e;
-        return res;
-    };
-    return Query;
+    return DataManager;
 }();
 /**
- * Predicate class is used to generate complex filter criteria.
- * This will be used by DataManager to perform multiple filtering operation.
- */ var Predicate = /** @class */ function() {
-    /**
-     * Constructor for Predicate class.
-     *
-     * @param {string|Predicate} field
-     * @param {string} operator
-     * @param {string|number|boolean|Predicate|Predicate[]} value
-     * @param {boolean=false} ignoreCase
-     * @param ignoreAccent
-     * @param {boolean} matchCase
-     * @hidden
-     */ function Predicate(field, operator, value, ignoreCase, ignoreAccent, matchCase) {
-        if (ignoreCase === void 0) ignoreCase = false;
-        /** @hidden */ this.ignoreAccent = false;
-        /** @hidden */ this.isComplex = false;
-        if (typeof field === 'string') {
-            this.field = field;
-            this.operator = operator.toLowerCase();
-            this.value = value;
-            this.matchCase = matchCase;
-            this.ignoreCase = ignoreCase;
-            this.ignoreAccent = ignoreAccent;
-            this.isComplex = false;
-            this.comparer = (0, _util.DataUtil).fnOperators.processOperator(this.operator);
-        } else if (field instanceof Predicate && value instanceof Predicate || value instanceof Array) {
-            this.isComplex = true;
-            this.condition = operator.toLowerCase();
-            this.predicates = [
-                field
-            ];
-            this.matchCase = field.matchCase;
-            this.ignoreCase = field.ignoreCase;
-            this.ignoreAccent = field.ignoreAccent;
-            if (value instanceof Array) [].push.apply(this.predicates, value);
-            else this.predicates.push(value);
-        }
-        return this;
+ * Deferred is used to handle asynchronous operation.
+ */ var Deferred = /** @class */ function() {
+    function Deferred() {
+        var _this = this;
+        /**
+         * Promise is an object that represents a value that may not be available yet, but will be resolved at some point in the future.
+         */ this.promise = new Promise(function(resolve, reject) {
+            _this.resolve = resolve;
+            _this.reject = reject;
+        });
+        /**
+         * Defines the callback function triggers when the Deferred object is resolved.
+         */ this.then = this.promise.then.bind(this.promise);
+        /**
+         * Defines the callback function triggers when the Deferred object is rejected.
+         */ this.catch = this.promise.catch.bind(this.promise);
     }
-    /**
-     * Adds n-number of new predicates on existing predicate with “and” condition.
-     *
-     * @param  {Object[]} args - Defines the collection of predicates.
-     */ Predicate.and = function() {
-        var args = [];
-        for(var _i = 0; _i < arguments.length; _i++)args[_i] = arguments[_i];
-        return Predicate.combinePredicates([].slice.call(args, 0), 'and');
-    };
-    /**
-     * Adds new predicate on existing predicate with “and” condition.
-     *
-     * @param {string} field - Defines the column field.
-     * @param {string} operator - Defines the operator how to filter data.
-     * @param {string} value - Defines the values to match with data.
-     * @param {boolean} ignoreCase? - If ignore case set to false, then filter data with exact match or else
-     * filter data with case insensitive.
-     * @param ignoreCase
-     * @param ignoreAccent
-     */ Predicate.prototype.and = function(field, operator, value, ignoreCase, ignoreAccent) {
-        return Predicate.combine(this, field, operator, value, 'and', ignoreCase, ignoreAccent);
-    };
-    /**
-     * Adds n-number of new predicates on existing predicate with “or” condition.
-     *
-     * @param  {Object[]} args - Defines the collection of predicates.
-     */ Predicate.or = function() {
-        var args = [];
-        for(var _i = 0; _i < arguments.length; _i++)args[_i] = arguments[_i];
-        return Predicate.combinePredicates([].slice.call(args, 0), 'or');
-    };
-    /**
-     * Adds new predicate on existing predicate with “or” condition.
-     *
-     * @param {string} field - Defines the column field.
-     * @param {string} operator - Defines the operator how to filter data.
-     * @param {string} value - Defines the values to match with data.
-     * @param {boolean} ignoreCase? - If ignore case set to false, then filter data with exact match or else
-     * filter data with case insensitive.
-     * @param ignoreCase
-     * @param ignoreAccent
-     */ Predicate.prototype.or = function(field, operator, value, ignoreCase, ignoreAccent) {
-        return Predicate.combine(this, field, operator, value, 'or', ignoreCase, ignoreAccent);
-    };
-    /**
-     * Adds n-number of new predicates on existing predicate with “and not” condition.
-     *
-     * @param  {Object[]} args - Defines the collection of predicates.
-     */ Predicate.ornot = function() {
-        var args = [];
-        for(var _i = 0; _i < arguments.length; _i++)args[_i] = arguments[_i];
-        return Predicate.combinePredicates([].slice.call(args, 0), 'or not');
-    };
-    /**
-     * Adds new predicate on existing predicate with “and not” condition.
-     *
-     * @param {string} field - Defines the column field.
-     * @param {string} operator - Defines the operator how to filter data.
-     * @param {string} value - Defines the values to match with data.
-     * @param {boolean} ignoreCase? - If ignore case set to false, then filter data with exact match or else
-     * filter data with case insensitive.
-     * @param ignoreCase
-     * @param ignoreAccent
-     */ Predicate.prototype.ornot = function(field, operator, value, ignoreCase, ignoreAccent) {
-        return Predicate.combine(this, field, operator, value, 'ornot', ignoreCase, ignoreAccent);
-    };
-    /**
-     * Adds n-number of new predicates on existing predicate with “and not” condition.
-     *
-     * @param  {Object[]} args - Defines the collection of predicates.
-     */ Predicate.andnot = function() {
-        var args = [];
-        for(var _i = 0; _i < arguments.length; _i++)args[_i] = arguments[_i];
-        return Predicate.combinePredicates([].slice.call(args, 0), 'and not');
-    };
-    /**
-     * Adds new predicate on existing predicate with “and not” condition.
-     *
-     * @param {string} field - Defines the column field.
-     * @param {string} operator - Defines the operator how to filter data.
-     * @param {string} value - Defines the values to match with data.
-     * @param {boolean} ignoreCase? - If ignore case set to false, then filter data with exact match or else
-     * filter data with case insensitive.
-     * @param ignoreCase
-     * @param ignoreAccent
-     */ Predicate.prototype.andnot = function(field, operator, value, ignoreCase, ignoreAccent) {
-        return Predicate.combine(this, field, operator, value, 'andnot', ignoreCase, ignoreAccent);
-    };
-    /**
-     * Converts plain JavaScript object to Predicate object.
-     *
-     * @param  {Predicate[]|Predicate} json - Defines single or collection of Predicate.
-     */ Predicate.fromJson = function(json) {
-        if (json instanceof Array) {
-            var res = [];
-            for(var i = 0, len = json.length; i < len; i++)res.push(this.fromJSONData(json[i]));
-            return res;
-        }
-        var pred = json;
-        return this.fromJSONData(pred);
-    };
-    /**
-     * Validate the record based on the predicates.
-     *
-     * @param  {Object} record - Defines the datasource record.
-     */ Predicate.prototype.validate = function(record) {
-        var predicate = this.predicates ? this.predicates : [];
-        var ret;
-        var isAnd;
-        if (!this.isComplex && this.comparer) {
-            if (this.condition && this.condition.indexOf('not') !== -1) {
-                this.condition = this.condition.split('not')[0] === '' ? undefined : this.condition.split('not')[0];
-                return !this.comparer.call(this, (0, _util.DataUtil).getObject(this.field, record), this.value, this.ignoreCase, this.ignoreAccent);
-            } else return this.comparer.call(this, (0, _util.DataUtil).getObject(this.field, record), this.value, this.ignoreCase, this.ignoreAccent);
-        }
-        if (this.condition && this.condition.indexOf('not') !== -1) isAnd = this.condition.indexOf('and') !== -1;
-        else isAnd = this.condition === 'and';
-        for(var i = 0; i < predicate.length; i++){
-            if (i > 0 && this.condition && this.condition.indexOf('not') !== -1) predicate[i].condition = predicate[i].condition ? predicate[i].condition + 'not' : 'not';
-            ret = predicate[i].validate(record);
-            if (isAnd) {
-                if (!ret) return false;
-            } else {
-                if (ret) return true;
-            }
-        }
-        return isAnd;
-    };
-    /**
-     * Converts predicates to plain JavaScript.
-     * This method is uses Json stringify when serializing Predicate object.
-     */ Predicate.prototype.toJson = function() {
-        var predicates;
-        var p;
-        if (this.isComplex) {
-            predicates = [];
-            p = this.predicates;
-            for(var i = 0; i < p.length; i++)predicates.push(p[i].toJson());
-        }
-        return {
-            isComplex: this.isComplex,
-            field: this.field,
-            operator: this.operator,
-            value: this.value,
-            ignoreCase: this.ignoreCase,
-            ignoreAccent: this.ignoreAccent,
-            condition: this.condition,
-            predicates: predicates,
-            matchCase: this.matchCase
-        };
-    };
-    Predicate.combinePredicates = function(predicates, operator) {
-        if (predicates.length === 1) {
-            if (!(predicates[0] instanceof Array)) return predicates[0];
-            predicates = predicates[0];
-        }
-        return new Predicate(predicates[0], operator, predicates.slice(1));
-    };
-    Predicate.combine = function(pred, field, operator, value, condition, ignoreCase, ignoreAccent) {
-        if (field instanceof Predicate) return Predicate[condition](pred, field);
-        if (typeof field === 'string') return Predicate[condition](pred, new Predicate(field, operator, value, ignoreCase, ignoreAccent));
-        return (0, _util.DataUtil).throwError('Predicate - ' + condition + ' : invalid arguments');
-    };
-    Predicate.fromJSONData = function(json) {
-        var preds = json.predicates || [];
-        var len = preds.length;
-        var predicates = [];
-        var result;
-        for(var i = 0; i < len; i++)predicates.push(this.fromJSONData(preds[i]));
-        if (!json.isComplex) result = new Predicate(json.field, json.operator, json.value, json.ignoreCase, json.ignoreAccent);
-        else result = new Predicate(predicates[0], json.condition, predicates.slice(1));
-        return result;
-    };
-    return Predicate;
+    return Deferred;
 }();
 
-},{"./util":"gxRLw","@syncfusion/ej2-base":"jouLx","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"jWOD4":[function(require,module,exports,__globalThis) {
+},{"@syncfusion/ej2-base":"jouLx","./util":"gxRLw","./query":"60VOS","./adaptors":"jWOD4","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"jWOD4":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "Adaptor", ()=>Adaptor);
@@ -26495,7 +26495,7 @@ function compileTemplate(template) {
     return undefined;
 }
 
-},{"@syncfusion/ej2-base":"jouLx","@syncfusion/ej2-data":[["DataManager","s69wZ"],["Query","60VOS"]],"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"a8dM5":[function(require,module,exports,__globalThis) {
+},{"@syncfusion/ej2-base":"jouLx","@syncfusion/ej2-data":[["Query","60VOS"],["DataManager","s69wZ"]],"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"a8dM5":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 /**
@@ -29849,10 +29849,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("c4174478216bd64c").render;
     script.staticRenderFns = require("c4174478216bd64c").staticRenderFns;
-    script._scopeId = "data-v-4c938b";
+    script._scopeId = "data-v-3eb1c3";
     script.__cssModules = require("9da22d738407dfe5").default;
     require("3eaae343ee6e429d").default(script);
-    script.__scopeId = 'data-v-4c938b';
+    script.__scopeId = 'data-v-3eb1c3';
     script.__file = "createNodes.vue";
 };
 initialize();
@@ -29946,10 +29946,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("9a02d259752e7ddd").render;
     script.staticRenderFns = require("9a02d259752e7ddd").staticRenderFns;
-    script._scopeId = "data-v-52d233";
+    script._scopeId = "data-v-723d87";
     script.__cssModules = require("31a6de5edfd5cc04").default;
     require("aa9ecf94681e50b0").default(script);
-    script.__scopeId = 'data-v-52d233';
+    script.__scopeId = 'data-v-723d87';
     script.__file = "selectToCreate.vue";
 };
 initialize();
@@ -30227,10 +30227,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("d740321d07f6b462").render;
     script.staticRenderFns = require("d740321d07f6b462").staticRenderFns;
-    script._scopeId = "data-v-66d456";
+    script._scopeId = "data-v-ce277b";
     script.__cssModules = require("45cbe7f765d1f8f1").default;
     require("a3b02a9acba722d").default(script);
-    script.__scopeId = 'data-v-66d456';
+    script.__scopeId = 'data-v-ce277b';
     script.__file = "monitoringPanel.vue";
 };
 initialize();

@@ -1,8 +1,8 @@
-.title[data-v-b4533a] {
+.title[data-v-0ce7b8] {
   text-align: center;
 }
 
-.dialogContainer[data-v-b4533a] {
+.dialogContainer[data-v-0ce7b8] {
   justify-content: space-around;
   margin: auto;
   display: flex;
@@ -10,14 +10,14 @@
   height: calc(100% - 30px) !important;
 }
 
-.dialogContainer .content[data-v-b4533a] {
+.dialogContainer .content[data-v-0ce7b8] {
   border: 1px solid gray;
   border-radius: 5px;
   width: calc(50% - 10px);
   height: calc(100% - 2px);
 }
 
-.dialogContainer .content .title[data-v-b4533a] {
+.dialogContainer .content .title[data-v-0ce7b8] {
   text-transform: capitalize;
   border-bottom: 1px solid gray;
   justify-content: center;
@@ -27,22 +27,22 @@
   display: flex;
 }
 
-.dialogContainer .content .list[data-v-b4533a] {
+.dialogContainer .content .list[data-v-0ce7b8] {
   width: 100%;
   height: calc(100% - 40px);
   overflow: auto;
 }
 
-.selectDevice[data-v-b4533a] {
+.selectDevice[data-v-0ce7b8] {
   height: 100%;
   overflow: auto;
 }
 
-.selected[data-v-b4533a] {
+.selected[data-v-0ce7b8] {
   background-color: #00f;
 }
 
-.dialogContent[data-v-939d74] {
+.dialogContent[data-v-814a76] {
   min-width: 400px;
 }
 /*# sourceMappingURL=spinal-env-viewer-plugin-device-organizer.e39c3f03.css.map */

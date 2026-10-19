@@ -921,10 +921,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("88fd1f67f96321cd").render;
     script.staticRenderFns = require("88fd1f67f96321cd").staticRenderFns;
-    script._scopeId = "data-v-8e8477";
+    script._scopeId = "data-v-559772";
     script.__cssModules = require("bb60b98095020f65").default;
     require("e01e91ef773d855").default(script);
-    script.__scopeId = 'data-v-8e8477';
+    script.__scopeId = 'data-v-559772';
     script.__file = "addDevices.vue";
 };
 initialize();
@@ -2853,8 +2853,10 @@ var _spinalCoreConnectorjsType = require("spinal-core-connectorjs_type");
 var _deviceHelper = require("./build/DeviceHelper");
 var _spinalModelGraph = require("spinal-model-graph");
 var _fs = require("fs");
-const xml2js = require("72a4c164429e014b");
-const axios = require("10e04e0f3d4fda36");
+var _xml2Js = require("xml2js");
+var _xml2JsDefault = parcelHelpers.interopDefault(_xml2Js);
+var _axios = require("axios");
+var _axiosDefault = parcelHelpers.interopDefault(_axios);
 class FileExplorer {
     static async getDirectory(selectedNode) {
         if (selectedNode != undefined) {
@@ -2934,10 +2936,10 @@ class FileExplorer {
         return new Promise(async (resolve, reject)=>{
             xmlFile._ptr.load((path)=>{
                 const server_id = path._server_id;
-                axios.get(`/sceen/_?u=${server_id}`, {
+                (0, _axiosDefault.default).get(`/sceen/_?u=${server_id}`, {
                     responseEncoding: 'utf8'
                 }).then((data)=>{
-                    xml2js.parseStringPromise(data.data, {
+                    (0, _xml2JsDefault.default).parseStringPromise(data.data, {
                         mergeAttrs: true,
                         explicitArray: false,
                         preserveWhitespace: true
@@ -2969,7 +2971,7 @@ class FileExplorer {
     // analyse du fichier BOG
     static async parseBOGFile(xmlFile) {
         return new Promise((resolve, reject)=>{
-            xml2js.parseStringPromise(xmlFile, {
+            (0, _xml2JsDefault.default).parseStringPromise(xmlFile, {
                 mergeAttrs: true,
                 explicitArray: false
             }).then((result)=>{
@@ -3057,7 +3059,7 @@ class FileExplorer {
     }
 }
 
-},{"spinal-env-viewer-graph-service":"9LAk7","spinal-models-documentation":"fpBvO","spinal-core-connectorjs_type":"1A32E","./build/DeviceHelper":"hLZpu","spinal-model-graph":"b87gp","fs":"eoH60","72a4c164429e014b":"dXUyc","10e04e0f3d4fda36":"kooH4","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"eoH60":[function(require,module,exports,__globalThis) {
+},{"spinal-env-viewer-graph-service":"9LAk7","spinal-models-documentation":"fpBvO","spinal-core-connectorjs_type":"1A32E","./build/DeviceHelper":"hLZpu","spinal-model-graph":"b87gp","fs":"eoH60","xml2js":"dXUyc","axios":"kooH4","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"eoH60":[function(require,module,exports,__globalThis) {
 "use strict";
 
 },{}],"dXUyc":[function(require,module,exports,__globalThis) {
@@ -7056,8 +7058,8 @@ var Buffer = require("e8399c94bace2e95").Buffer;
     };
     // this really needs to be replaced with character classes.
     // XML allows all manner of ridiculous numbers and digits.
-    var CDATA = '[CDATA[';
-    var DOCTYPE = 'DOCTYPE';
+    var CDATAre = /^\[CDATA\[$/i;
+    var DOCTYPEre = /^DOCTYPE$/i;
     var XML_NAMESPACE = 'http://www.w3.org/XML/1998/namespace';
     var XMLNS_NAMESPACE = 'http://www.w3.org/2000/xmlns/';
     var rootNS = {
@@ -7128,14 +7130,14 @@ var Buffer = require("e8399c94bace2e95").Buffer;
         SCRIPT: S++,
         SCRIPT_ENDING: S++
     };
-    sax.XML_ENTITIES = {
+    sax.XML_ENTITIES = Object.assign(Object.create(null), {
         amp: '&',
         gt: '>',
         lt: '<',
         quot: '"',
         apos: "'"
-    };
-    sax.ENTITIES = {
+    });
+    sax.ENTITIES = Object.assign(Object.create(null), {
         amp: '&',
         gt: '>',
         lt: '<',
@@ -7389,7 +7391,7 @@ var Buffer = require("e8399c94bace2e95").Buffer;
         clubs: 9827,
         hearts: 9829,
         diams: 9830
-    };
+    });
     Object.keys(sax.ENTITIES).forEach(function(key) {
         var e = sax.ENTITIES[key];
         var s = typeof e === 'number' ? String.fromCharCode(e) : e;
@@ -7668,11 +7670,20 @@ var Buffer = require("e8399c94bace2e95").Buffer;
             }
         }
         entity = entity.replace(/^0+/, '');
-        if (isNaN(num) || numStr.toLowerCase() !== entity || num < 0 || num > 0x10ffff) {
+        if (isNaN(num) || numStr.toLowerCase() !== entity || num < 0 || num > 0x10ffff || !isXmlChar(num)) {
             strictFail(parser, 'Invalid character entity');
             return '&' + parser.entity + ';';
         }
         return String.fromCodePoint(num);
+    }
+    // Returns true if `num` is a code point that matches the XML `Char`
+    // production, false otherwise. Character references that resolve to a
+    // character outside this range (e.g. surrogates or restricted control
+    // characters) are not well-formed.
+    // https://www.w3.org/TR/REC-xml/#NT-Char
+    // https://www.w3.org/TR/REC-xml/#wf-Legalchar
+    function isXmlChar(num) {
+        return num === 0x9 || num === 0xa || num === 0xd || num >= 0x20 && num <= 0xd7ff || num >= 0xe000 && num <= 0xfffd || num >= 0x10000 && num <= 0x10ffff;
     }
     function beginWhiteSpace(parser, c) {
         if (c === '<') {
@@ -7792,12 +7803,12 @@ var Buffer = require("e8399c94bace2e95").Buffer;
                         parser.state = S.DOCTYPE_DTD;
                         parser.doctype += '<!' + parser.sgmlDecl + c;
                         parser.sgmlDecl = '';
-                    } else if ((parser.sgmlDecl + c).toUpperCase() === CDATA) {
+                    } else if (CDATAre.test(parser.sgmlDecl + c)) {
                         emitNode(parser, 'onopencdata');
                         parser.state = S.CDATA;
                         parser.sgmlDecl = '';
                         parser.cdata = '';
-                    } else if ((parser.sgmlDecl + c).toUpperCase() === DOCTYPE) {
+                    } else if (DOCTYPEre.test(parser.sgmlDecl + c)) {
                         parser.state = S.DOCTYPE;
                         if (parser.doctype || parser.sawRoot) strictFail(parser, 'Inappropriately located doctype declaration');
                         parser.doctype = '';
@@ -8514,10 +8525,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("4c8fb8d05c9c9f57").render;
     script.staticRenderFns = require("4c8fb8d05c9c9f57").staticRenderFns;
-    script._scopeId = "data-v-e2d137";
+    script._scopeId = "data-v-003efd";
     script.__cssModules = require("234bec5758f896dd").default;
     require("2011a440eee41cc7").default(script);
-    script.__scopeId = 'data-v-e2d137';
+    script.__scopeId = 'data-v-003efd';
     script.__file = "addDeviceProfiles.vue";
 };
 initialize();
@@ -8668,10 +8679,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("9bf3bc0da4475b32").render;
     script.staticRenderFns = require("9bf3bc0da4475b32").staticRenderFns;
-    script._scopeId = "data-v-787e84";
+    script._scopeId = "data-v-e338ff";
     script.__cssModules = require("f268865a932ec739").default;
     require("1bc64a3f4626a812").default(script);
-    script.__scopeId = 'data-v-787e84';
+    script.__scopeId = 'data-v-e338ff';
     script.__file = "itemList.vue";
 };
 initialize();
@@ -9379,10 +9390,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("ee7747d7af65f7a8").render;
     script.staticRenderFns = require("ee7747d7af65f7a8").staticRenderFns;
-    script._scopeId = "data-v-92b614";
+    script._scopeId = "data-v-7257ce";
     script.__cssModules = require("f74438b2ff4a5f66").default;
     require("40ceb47cf7f1dd75").default(script);
-    script.__scopeId = 'data-v-92b614';
+    script.__scopeId = 'data-v-7257ce';
     script.__file = "ItemDetail.vue";
 };
 initialize();
@@ -10148,10 +10159,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("37df58208c28b650").render;
     script.staticRenderFns = require("37df58208c28b650").staticRenderFns;
-    script._scopeId = "data-v-0ab1f4";
+    script._scopeId = "data-v-c63626";
     script.__cssModules = require("9cd3138b72d16212").default;
     require("da62ef87d9c627cf").default(script);
-    script.__scopeId = 'data-v-0ab1f4';
+    script.__scopeId = 'data-v-c63626';
     script.__file = "monitoringDetails.vue";
 };
 initialize();
@@ -10508,10 +10519,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("1ea9d8efdc1ba6da").render;
     script.staticRenderFns = require("1ea9d8efdc1ba6da").staticRenderFns;
-    script._scopeId = "data-v-b2d8ff";
+    script._scopeId = "data-v-a58993";
     script.__cssModules = require("7b8c4eeb3551659b").default;
     require("ffc63e92c991ad68").default(script);
-    script.__scopeId = 'data-v-b2d8ff';
+    script.__scopeId = 'data-v-a58993';
     script.__file = "itemSupervision.vue";
 };
 initialize();
@@ -11512,10 +11523,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("1ca31e4d192d6554").render;
     script.staticRenderFns = require("1ca31e4d192d6554").staticRenderFns;
-    script._scopeId = "data-v-782e4d";
+    script._scopeId = "data-v-1ffe44";
     script.__cssModules = require("db1f7abccf9fd12d").default;
     require("8207fadf98624cb2").default(script);
-    script.__scopeId = 'data-v-782e4d';
+    script.__scopeId = 'data-v-1ffe44';
     script.__file = "globalSupervision.vue";
 };
 initialize();
@@ -12242,10 +12253,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("9a97313b3d3843b").render;
     script.staticRenderFns = require("9a97313b3d3843b").staticRenderFns;
-    script._scopeId = "data-v-11009b";
+    script._scopeId = "data-v-e9dcc9";
     script.__cssModules = require("1c71f49a4fc7bfc4").default;
     require("bc75e9340295c677").default(script);
-    script.__scopeId = 'data-v-11009b';
+    script.__scopeId = 'data-v-e9dcc9';
     script.__file = "ShowBacnetValue.vue";
 };
 initialize();
@@ -12454,10 +12465,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("82e784f8b4a3d93a").render;
     script.staticRenderFns = require("82e784f8b4a3d93a").staticRenderFns;
-    script._scopeId = "data-v-abb49f";
+    script._scopeId = "data-v-e7b848";
     script.__cssModules = require("f8f23141d193d9e5").default;
     require("e6a757ef2435c199").default(script);
-    script.__scopeId = 'data-v-abb49f';
+    script.__scopeId = 'data-v-e7b848';
     script.__file = "LinkComponent.vue";
 };
 initialize();
@@ -12512,10 +12523,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("a2a8744b69190f7d").render;
     script.staticRenderFns = require("a2a8744b69190f7d").staticRenderFns;
-    script._scopeId = "data-v-583248";
+    script._scopeId = "data-v-fa2645";
     script.__cssModules = require("7022ba685a82b2a1").default;
     require("c940503956cc622d").default(script);
-    script.__scopeId = 'data-v-583248';
+    script.__scopeId = 'data-v-fa2645';
     script.__file = "linkToGroupTemplate.vue";
 };
 initialize();
@@ -12788,10 +12799,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("9676fccf61ee5e64").render;
     script.staticRenderFns = require("9676fccf61ee5e64").staticRenderFns;
-    script._scopeId = "data-v-e7c78a";
+    script._scopeId = "data-v-528881";
     script.__cssModules = require("fe1bba2623e362fa").default;
     require("f4b0df95f01c4ce5").default(script);
-    script.__scopeId = 'data-v-e7c78a';
+    script.__scopeId = 'data-v-528881';
     script.__file = "updateDeviceProfile.vue";
 };
 initialize();
@@ -13095,10 +13106,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("64fb54adf010bf85").render;
     script.staticRenderFns = require("64fb54adf010bf85").staticRenderFns;
-    script._scopeId = "data-v-497c83";
+    script._scopeId = "data-v-a74a11";
     script.__cssModules = require("a8018f52f799be35").default;
     require("5693cad0be57e6fa").default(script);
-    script.__scopeId = 'data-v-497c83';
+    script.__scopeId = 'data-v-a74a11';
     script.__file = "selectItemsComponent.vue";
 };
 initialize();

@@ -259,6 +259,7 @@ parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerContextMenuService = require("spinal-env-viewer-context-menu-service");
 // import networkService from "../../services"
 var _spinalEnvViewerPluginNetworkTreeService = require("spinal-env-viewer-plugin-network-tree-service");
+var _constants = require("../../js/constants");
 const { spinalPanelManagerService } = require("d1c2ff6c40729dea");
 const SIDEBAR = "GraphManagerSideBar";
 class CreateNetWork extends (0, _spinalEnvViewerContextMenuService.SpinalContextApp) {
@@ -283,7 +284,7 @@ class CreateNetWork extends (0, _spinalEnvViewerContextMenuService.SpinalContext
             context: option.context,
             createContext: false
         };
-        spinalPanelManagerService.openPanel('createNetworkDialog', dialogParams);
+        spinalPanelManagerService.openPanel((0, _constants.CREATE_NETWORK_DIALOG), dialogParams);
     }
 }
 const createNetworkBtn = new CreateNetWork();
@@ -292,7 +293,7 @@ const createNetworkBtn = new CreateNetWork();
 ]);
 exports.default = createNetworkBtn;
 
-},{"spinal-env-viewer-context-menu-service":"3h19D","d1c2ff6c40729dea":"egTXY","spinal-env-viewer-plugin-network-tree-service":"aaFv2","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"egTXY":[function(require,module,exports,__globalThis) {
+},{"spinal-env-viewer-context-menu-service":"3h19D","d1c2ff6c40729dea":"egTXY","spinal-env-viewer-plugin-network-tree-service":"aaFv2","../../js/constants":"dk4iP","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"egTXY":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -545,10 +546,36 @@ function getDialog() {
     };
 };
 
-},{}],"enJlp":[function(require,module,exports,__globalThis) {
+},{}],"dk4iP":[function(require,module,exports,__globalThis) {
+// DIALOGS
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "CREATE_NETWORK_DIALOG", ()=>CREATE_NETWORK_DIALOG);
+parcelHelpers.export(exports, "LINK_AUTOMATE_TO_PROFIL_DIALOG", ()=>LINK_AUTOMATE_TO_PROFIL_DIALOG);
+parcelHelpers.export(exports, "CONFIRM_UNLIK_PROFIL_DIALOG", ()=>CONFIRM_UNLIK_PROFIL_DIALOG);
+parcelHelpers.export(exports, "EDIT_AUTOMATE_LINK_DIALOG", ()=>EDIT_AUTOMATE_LINK_DIALOG);
+parcelHelpers.export(exports, "PERSONALIZED_ATTRIBUTE_DIALOG", ()=>PERSONALIZED_ATTRIBUTE_DIALOG);
+parcelHelpers.export(exports, "PERSONALIZE_NAMING_CONVENTION", ()=>PERSONALIZE_NAMING_CONVENTION);
+parcelHelpers.export(exports, "LINK_TO_GTB_DIALOG", ()=>LINK_TO_GTB_DIALOG);
+parcelHelpers.export(exports, "EDIT_LINK_TO_GTB_DEVICE", ()=>EDIT_LINK_TO_GTB_DEVICE);
+parcelHelpers.export(exports, "GENERATE_AUTOMATE_CONTEXT_PANEL", ()=>GENERATE_AUTOMATE_CONTEXT_PANEL);
+parcelHelpers.export(exports, "NETWORK_TREE_DETAIL_PANEL", ()=>NETWORK_TREE_DETAIL_PANEL);
+const CREATE_NETWORK_DIALOG = "networkTree_createNetworkDialog";
+const LINK_AUTOMATE_TO_PROFIL_DIALOG = "networkTree_linkAutomateToProfilDialog";
+const CONFIRM_UNLIK_PROFIL_DIALOG = "networkTree_confirmUnlikProfilDialog";
+const EDIT_AUTOMATE_LINK_DIALOG = "networkTree_editAutomateLinkDialog";
+const PERSONALIZED_ATTRIBUTE_DIALOG = "networkTree_personalizedAttributeDialog";
+const PERSONALIZE_NAMING_CONVENTION = "networkTree_personalizeNamingConvention";
+const LINK_TO_GTB_DIALOG = "networkTree_linkToGtbDialog";
+const EDIT_LINK_TO_GTB_DEVICE = "networkTree_editLinkToGTBDevice";
+const GENERATE_AUTOMATE_CONTEXT_PANEL = "networkTree_generateAutomateContextPanel";
+const NETWORK_TREE_DETAIL_PANEL = "networkTree_networkTreeDetailPanel";
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"enJlp":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerContextMenuService = require("spinal-env-viewer-context-menu-service");
+var _constants = require("../../js/constants");
 const { spinalPanelManagerService } = require("46db2e077e2275aa");
 const HEADERBAR = "GraphManagerTopBar";
 class CreateNetWorkContext extends (0, _spinalEnvViewerContextMenuService.SpinalContextApp) {
@@ -569,7 +596,7 @@ class CreateNetWorkContext extends (0, _spinalEnvViewerContextMenuService.Spinal
             label: "Enter context name",
             createContext: true
         };
-        spinalPanelManagerService.openPanel('createNetworkDialog', dialogParams);
+        spinalPanelManagerService.openPanel((0, _constants.CREATE_NETWORK_DIALOG), dialogParams);
     }
 }
 const createNetworkContextBtn = new CreateNetWorkContext();
@@ -578,7 +605,7 @@ const createNetworkContextBtn = new CreateNetWorkContext();
 ]);
 exports.default = createNetworkContextBtn;
 
-},{"spinal-env-viewer-context-menu-service":"3h19D","46db2e077e2275aa":"egTXY","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"4igct":[function(require,module,exports,__globalThis) {
+},{"spinal-env-viewer-context-menu-service":"3h19D","../../js/constants":"dk4iP","46db2e077e2275aa":"egTXY","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"4igct":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerContextMenuService = require("spinal-env-viewer-context-menu-service");
@@ -622,6 +649,7 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerContextMenuService = require("spinal-env-viewer-context-menu-service");
 var _spinalEnvViewerPanelManagerService = require("spinal-env-viewer-panel-manager-service");
+var _constants = require("../../js/constants");
 // import spinalNetworkTreeService from "../../services";
 var _spinalEnvViewerPluginNetworkTreeService = require("spinal-env-viewer-plugin-network-tree-service");
 const SIDEBAR = "GraphManagerSideBar";
@@ -641,7 +669,7 @@ class GenerateAutomateContext extends (0, _spinalEnvViewerContextMenuService.Spi
         return Promise.resolve(-1);
     }
     action(option) {
-        (0, _spinalEnvViewerPanelManagerService.spinalPanelManagerService).openPanel("generateAutomateContextPanel", {
+        (0, _spinalEnvViewerPanelManagerService.spinalPanelManagerService).openPanel((0, _constants.GENERATE_AUTOMATE_CONTEXT_PANEL), {
             context: option.context.get(),
             selectedNode: option.selectedNode.get()
         });
@@ -653,7 +681,7 @@ const generateAutomateContext = new GenerateAutomateContext();
 ]);
 exports.default = generateAutomateContext;
 
-},{"spinal-env-viewer-context-menu-service":"3h19D","spinal-env-viewer-panel-manager-service":"egTXY","spinal-env-viewer-plugin-network-tree-service":"aaFv2","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"6XjQ7":[function(require,module,exports,__globalThis) {
+},{"spinal-env-viewer-context-menu-service":"3h19D","spinal-env-viewer-panel-manager-service":"egTXY","../../js/constants":"dk4iP","spinal-env-viewer-plugin-network-tree-service":"aaFv2","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"6XjQ7":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2024 SpinalCom - www.spinalcom.com
  * 
@@ -784,7 +812,7 @@ class ClearAutomateContent extends (0, _spinalEnvViewerContextMenuService.Spinal
         return Promise.resolve(-1);
     }
     async action(option) {
-        // spinalPanelManagerService.openPanel("generateAutomateContextPanel", {
+        // spinalPanelManagerService.openPanel("networkTree_generateAutomateContextPanel", {
         //    context: option.context.get(),
         //    selectedNode: option.selectedNode.get()
         // });
@@ -839,6 +867,7 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerContextMenuService = require("spinal-env-viewer-context-menu-service");
 var _spinalEnvViewerPanelManagerService = require("spinal-env-viewer-panel-manager-service");
+var _constants = require("../../js/constants");
 var _spinalEnvViewerPluginNetworkTreeService = require("spinal-env-viewer-plugin-network-tree-service");
 var _spinalEnvViewerGraphService = require("spinal-env-viewer-graph-service");
 const SIDEBAR = "GraphManagerSideBar";
@@ -868,7 +897,7 @@ class LinkAutomateToProfil extends (0, _spinalEnvViewerContextMenuService.Spinal
     async action(option) {
         let contextId = option.context.id.get();
         let nodeId = option.selectedNode.id.get();
-        (0, _spinalEnvViewerPanelManagerService.spinalPanelManagerService).openPanel("linkAutomateToProfilDialog", {
+        (0, _spinalEnvViewerPanelManagerService.spinalPanelManagerService).openPanel((0, _constants.LINK_AUTOMATE_TO_PROFIL_DIALOG), {
             contextId,
             nodeId
         });
@@ -880,7 +909,7 @@ const linkAutomateToProfil = new LinkAutomateToProfil();
 ]);
 exports.default = linkAutomateToProfil;
 
-},{"spinal-env-viewer-context-menu-service":"3h19D","spinal-env-viewer-panel-manager-service":"egTXY","spinal-env-viewer-plugin-network-tree-service":"aaFv2","spinal-env-viewer-graph-service":"9LAk7","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"79nAa":[function(require,module,exports,__globalThis) {
+},{"spinal-env-viewer-context-menu-service":"3h19D","spinal-env-viewer-panel-manager-service":"egTXY","../../js/constants":"dk4iP","spinal-env-viewer-plugin-network-tree-service":"aaFv2","spinal-env-viewer-graph-service":"9LAk7","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"79nAa":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerContextMenuService = require("spinal-env-viewer-context-menu-service");
@@ -888,8 +917,9 @@ var _spinalEnvViewerGraphService = require("spinal-env-viewer-graph-service");
 // import utilities from "../../js/utilities";
 // import spinalNetworkTreeService from "../../services";
 var _spinalEnvViewerPluginNetworkTreeService = require("spinal-env-viewer-plugin-network-tree-service");
+var _constants = require("../../js/constants");
 var _spinalEnvViewerPanelManagerService = require("spinal-env-viewer-panel-manager-service");
-var _constants = require("spinal-env-viewer-plugin-forge/dist/Constants");
+var _constants1 = require("spinal-env-viewer-plugin-forge/dist/Constants");
 const SIDEBAR = "GraphManagerSideBar";
 const editLinkIcon = require("ba8cdd89170c2a8d");
 class EditAutomateLink extends (0, _spinalEnvViewerContextMenuService.SpinalContextApp) {
@@ -915,7 +945,7 @@ class EditAutomateLink extends (0, _spinalEnvViewerContextMenuService.SpinalCont
         let nodeId = option.selectedNode.id.get();
         // const data = await utilities.getDeviceAndProfilData(nodeId)
         // const data = await LinkNetworkTreeService.getDeviceAndProfilData(nodeId);
-        (0, _spinalEnvViewerPanelManagerService.spinalPanelManagerService).openPanel("editAutomateLinkDialog", {
+        (0, _spinalEnvViewerPanelManagerService.spinalPanelManagerService).openPanel((0, _constants.EDIT_AUTOMATE_LINK_DIALOG), {
             contextId,
             nodeId
         });
@@ -927,13 +957,14 @@ const editAutomateLink = new EditAutomateLink();
 ]);
 exports.default = editAutomateLink;
 
-},{"spinal-env-viewer-context-menu-service":"3h19D","spinal-env-viewer-graph-service":"9LAk7","spinal-env-viewer-plugin-network-tree-service":"aaFv2","spinal-env-viewer-panel-manager-service":"egTXY","spinal-env-viewer-plugin-forge/dist/Constants":"2MD19","ba8cdd89170c2a8d":"kiZD3","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"kiZD3":[function() {},{}],"gxFrA":[function(require,module,exports,__globalThis) {
+},{"spinal-env-viewer-context-menu-service":"3h19D","spinal-env-viewer-graph-service":"9LAk7","spinal-env-viewer-plugin-network-tree-service":"aaFv2","../../js/constants":"dk4iP","spinal-env-viewer-panel-manager-service":"egTXY","spinal-env-viewer-plugin-forge/dist/Constants":"2MD19","ba8cdd89170c2a8d":"kiZD3","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"kiZD3":[function() {},{}],"gxFrA":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerContextMenuService = require("spinal-env-viewer-context-menu-service");
 var _spinalEnvViewerGraphService = require("spinal-env-viewer-graph-service");
 var _spinalEnvViewerPanelManagerService = require("spinal-env-viewer-panel-manager-service");
-var _constants = require("spinal-env-viewer-plugin-forge/dist/Constants");
+var _constants = require("../../js/constants");
+var _constants1 = require("spinal-env-viewer-plugin-forge/dist/Constants");
 // import spinalNetworkTreeService from "../../services";
 // import utilities from "../../js/utilities";
 var _spinalEnvViewerPluginNetworkTreeService = require("spinal-env-viewer-plugin-network-tree-service");
@@ -973,7 +1004,7 @@ class UnLinkAutomateToProfil extends (0, _spinalEnvViewerContextMenuService.Spin
     async action(option) {
         let contextId = option.context.id.get();
         let nodeId = option.selectedNode.id.get();
-        (0, _spinalEnvViewerPanelManagerService.spinalPanelManagerService).openPanel("confirmUnlikProfilDialog", {
+        (0, _spinalEnvViewerPanelManagerService.spinalPanelManagerService).openPanel((0, _constants.CONFIRM_UNLIK_PROFIL_DIALOG), {
             contextId,
             nodeId
         });
@@ -985,12 +1016,13 @@ const unLinkAutomateToProfil = new UnLinkAutomateToProfil();
 ]);
 exports.default = unLinkAutomateToProfil;
 
-},{"spinal-env-viewer-context-menu-service":"3h19D","spinal-env-viewer-graph-service":"9LAk7","spinal-env-viewer-panel-manager-service":"egTXY","spinal-env-viewer-plugin-forge/dist/Constants":"2MD19","spinal-env-viewer-plugin-network-tree-service":"aaFv2","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"fDr10":[function(require,module,exports,__globalThis) {
+},{"spinal-env-viewer-context-menu-service":"3h19D","spinal-env-viewer-graph-service":"9LAk7","spinal-env-viewer-panel-manager-service":"egTXY","../../js/constants":"dk4iP","spinal-env-viewer-plugin-forge/dist/Constants":"2MD19","spinal-env-viewer-plugin-network-tree-service":"aaFv2","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"fDr10":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerContextMenuService = require("spinal-env-viewer-context-menu-service");
 var _spinalEnvViewerPanelManagerService = require("spinal-env-viewer-panel-manager-service");
-var _constants = require("spinal-env-viewer-plugin-forge/dist/Constants");
+var _constants = require("../../js/constants");
+var _constants1 = require("spinal-env-viewer-plugin-forge/dist/Constants");
 // import spinalNetworkTreeService from "../../services";
 var _spinalEnvViewerPluginNetworkTreeService = require("spinal-env-viewer-plugin-network-tree-service");
 const SIDEBAR = "GraphManagerSideBar";
@@ -1008,7 +1040,7 @@ class LinkToGTBNetworkBtn extends (0, _spinalEnvViewerContextMenuService.SpinalC
         const contextType = option.context.type.get();
         // const isAutomate = option.selectedNode.isAutomate && option.selectedNode.isAutomate.get()
         if (contextType !== (0, _spinalEnvViewerPluginNetworkTreeService.CONSTANTS).CONTEXT_TYPE) return Promise.resolve(-1);
-        if (type === (0, _constants.BIM_OBJECT_TYPE) && !nodeIsAutomate(option.selectedNode)) return Promise.resolve(-1);
+        if (type === (0, _constants1.BIM_OBJECT_TYPE) && !nodeIsAutomate(option.selectedNode)) return Promise.resolve(-1);
         return Promise.resolve(true);
     }
     async action(option) {
@@ -1020,7 +1052,7 @@ class LinkToGTBNetworkBtn extends (0, _spinalEnvViewerContextMenuService.SpinalC
         //   } else {
         //     automates = await SpinalGraphService.getChildren(nodeId, [spinalNetworkTreeService.constants.NETWORK_BIMOJECT_RELATION])
         //   }
-        (0, _spinalEnvViewerPanelManagerService.spinalPanelManagerService).openPanel("linkToGtbDialog", {
+        (0, _spinalEnvViewerPanelManagerService.spinalPanelManagerService).openPanel((0, _constants.LINK_TO_GTB_DIALOG), {
             // automates
             nodeId,
             contextId
@@ -1029,7 +1061,7 @@ class LinkToGTBNetworkBtn extends (0, _spinalEnvViewerContextMenuService.SpinalC
 }
 const nodeIsAutomate = (selectedNode)=>{
     const type = selectedNode.type.get();
-    if (type === (0, _constants.BIM_OBJECT_TYPE)) return selectedNode.isAutomate && selectedNode.isAutomate.get();
+    if (type === (0, _constants1.BIM_OBJECT_TYPE)) return selectedNode.isAutomate && selectedNode.isAutomate.get();
     return false;
 };
 const linkToGTBNetworkBtn = new LinkToGTBNetworkBtn();
@@ -1038,10 +1070,11 @@ const linkToGTBNetworkBtn = new LinkToGTBNetworkBtn();
 ]);
 exports.default = linkToGTBNetworkBtn;
 
-},{"spinal-env-viewer-context-menu-service":"3h19D","spinal-env-viewer-panel-manager-service":"egTXY","spinal-env-viewer-plugin-forge/dist/Constants":"2MD19","spinal-env-viewer-plugin-network-tree-service":"aaFv2","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"kfWGv":[function(require,module,exports,__globalThis) {
+},{"spinal-env-viewer-context-menu-service":"3h19D","spinal-env-viewer-panel-manager-service":"egTXY","../../js/constants":"dk4iP","spinal-env-viewer-plugin-forge/dist/Constants":"2MD19","spinal-env-viewer-plugin-network-tree-service":"aaFv2","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"kfWGv":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _vue = require("vue");
 var _vueDefault = parcelHelpers.interopDefault(_vue);
+var _constants = require("../../js/constants");
 var _dialogVue = require("./network_dialogs/dialog.vue");
 var _dialogVueDefault = parcelHelpers.interopDefault(_dialogVue);
 var _linkAutomateToProfilVue = require("./link_to_virtual_profil/linkAutomateToProfil.vue");
@@ -1062,49 +1095,49 @@ var _confirmLinkToGTBVueDefault = parcelHelpers.interopDefault(_confirmLinkToGTB
 const { SpinalMountExtention } = require("638bed06d949a1b3");
 const dialogs = [
     {
-        name: "createNetworkDialog",
+        name: (0, _constants.CREATE_NETWORK_DIALOG),
         vueMountComponent: (0, _vueDefault.default).extend((0, _dialogVueDefault.default)),
         parentContainer: document.body
     },
     {
-        name: "linkAutomateToProfilDialog",
+        name: (0, _constants.LINK_AUTOMATE_TO_PROFIL_DIALOG),
         vueMountComponent: (0, _vueDefault.default).extend((0, _linkAutomateToProfilVueDefault.default)),
         parentContainer: document.body
     },
     {
-        name: "confirmUnlikProfilDialog",
+        name: (0, _constants.CONFIRM_UNLIK_PROFIL_DIALOG),
         vueMountComponent: (0, _vueDefault.default).extend((0, _confirmUnlikProfilVueDefault.default)),
         parentContainer: document.body
     },
     {
-        name: "editAutomateLinkDialog",
+        name: (0, _constants.EDIT_AUTOMATE_LINK_DIALOG),
         vueMountComponent: (0, _vueDefault.default).extend((0, _editLinksDialogVueDefault.default)),
         parentContainer: document.body
     },
     {
-        name: "personalizedAttributeDialog",
+        name: (0, _constants.PERSONALIZED_ATTRIBUTE_DIALOG),
         vueMountComponent: (0, _vueDefault.default).extend((0, _personalizedAttributeDialogVueDefault.default)),
         parentContainer: document.body
     },
     {
-        name: "personalizeNamingConvention",
+        name: (0, _constants.PERSONALIZE_NAMING_CONVENTION),
         vueMountComponent: (0, _vueDefault.default).extend((0, _personalizeNamingConventionVueDefault.default)),
         parentContainer: document.body
     },
     {
-        name: "linkToGtbDialog",
+        name: (0, _constants.LINK_TO_GTB_DIALOG),
         vueMountComponent: (0, _vueDefault.default).extend((0, _linkToGtbDialogVueDefault.default)),
         parentContainer: document.body
     },
     {
-        name: "editLinkToGTBDevice",
+        name: (0, _constants.EDIT_LINK_TO_GTB_DEVICE),
         vueMountComponent: (0, _vueDefault.default).extend((0, _confirmLinkToGTBVueDefault.default)),
         parentContainer: document.body
     }
 ];
 for(let index = 0; index < dialogs.length; index++)SpinalMountExtention.mount(dialogs[index]);
 
-},{"vue":"hO3OD","638bed06d949a1b3":"egTXY","./network_dialogs/dialog.vue":"8xKyi","./link_to_virtual_profil/linkAutomateToProfil.vue":"3jRkj","./link_to_virtual_profil/confirmUnlikProfil.vue":"jJQwh","./link_to_virtual_profil/editLinksDialog.vue":"c1YCK","./network_dialogs/personalizedAttributeDialog.vue":"4c8DI","./network_dialogs/personalizeNamingConvention.vue":"aLfp9","./link_to_gtb/linkToGtbDialog.vue":"9rn9T","./link_to_gtb/confirmLinkToGTB.vue":"gRPcJ","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"8xKyi":[function(require,module,exports,__globalThis) {
+},{"vue":"hO3OD","638bed06d949a1b3":"egTXY","../../js/constants":"dk4iP","./network_dialogs/dialog.vue":"8xKyi","./link_to_virtual_profil/linkAutomateToProfil.vue":"3jRkj","./link_to_virtual_profil/confirmUnlikProfil.vue":"jJQwh","./link_to_virtual_profil/editLinksDialog.vue":"c1YCK","./network_dialogs/personalizedAttributeDialog.vue":"4c8DI","./network_dialogs/personalizeNamingConvention.vue":"aLfp9","./link_to_gtb/linkToGtbDialog.vue":"9rn9T","./link_to_gtb/confirmLinkToGTB.vue":"gRPcJ","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"8xKyi":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
@@ -1113,9 +1146,9 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("730a130575b76379").render;
     script.staticRenderFns = require("730a130575b76379").staticRenderFns;
-    script._scopeId = "data-v-1d6e0b";
+    script._scopeId = "data-v-68018c";
     require("eab508ee32b20141").default(script);
-    script.__scopeId = 'data-v-1d6e0b';
+    script.__scopeId = 'data-v-68018c';
     script.__file = "dialog.vue";
 };
 initialize();
@@ -1127,7 +1160,7 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerPluginNetworkTreeService = require("spinal-env-viewer-plugin-network-tree-service");
 var scriptExports = {
-    name: "createNetworkDialog",
+    name: "createNetworkDialogComponent",
     props: [
         "onFinised"
     ],
@@ -1265,10 +1298,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("8297c01292c7cd77").render;
     script.staticRenderFns = require("8297c01292c7cd77").staticRenderFns;
-    script._scopeId = "data-v-e284e2";
+    script._scopeId = "data-v-48488f";
     script.__cssModules = require("4183691c538b8910").default;
     require("394bd612ede59e08").default(script);
-    script.__scopeId = 'data-v-e284e2';
+    script.__scopeId = 'data-v-48488f';
     script.__file = "linkAutomateToProfil.vue";
 };
 initialize();
@@ -1811,10 +1844,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("e23aef5cfec5827d").render;
     script.staticRenderFns = require("e23aef5cfec5827d").staticRenderFns;
-    script._scopeId = "data-v-be9878";
+    script._scopeId = "data-v-fb754f";
     script.__cssModules = require("eb83d506f7a51bb1").default;
     require("d7700fef2c73b7d").default(script);
-    script.__scopeId = 'data-v-be9878';
+    script.__scopeId = 'data-v-fb754f';
     script.__file = "LinkComponent.vue";
 };
 initialize();
@@ -1869,10 +1902,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("d2b20b9299ffa2b6").render;
     script.staticRenderFns = require("d2b20b9299ffa2b6").staticRenderFns;
-    script._scopeId = "data-v-4913a4";
+    script._scopeId = "data-v-9581a3";
     script.__cssModules = require("19ba773085da12d1").default;
     require("85e321a035b77700").default(script);
-    script.__scopeId = 'data-v-4913a4';
+    script.__scopeId = 'data-v-9581a3';
     script.__file = "linkToGroupTemplate.vue";
 };
 initialize();
@@ -2034,10 +2067,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("2f46b156e55c5b92").render;
     script.staticRenderFns = require("2f46b156e55c5b92").staticRenderFns;
-    script._scopeId = "data-v-4e3681";
+    script._scopeId = "data-v-9e5c05";
     script.__cssModules = require("fc49dcf1962cf8d8").default;
     require("5081cad7ebe99d6c").default(script);
-    script.__scopeId = 'data-v-4e3681';
+    script.__scopeId = 'data-v-9e5c05';
     script.__file = "resultComponent.vue";
 };
 initialize();
@@ -2047,6 +2080,7 @@ exports.default = script;
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerPanelManagerService = require("spinal-env-viewer-panel-manager-service");
+var _constants = require("../../../js/constants");
 // import Vue from "vue";
 // Vue.forceUpdate();
 var scriptExports = {
@@ -2061,7 +2095,7 @@ var scriptExports = {
     },
     methods: {
         editLink () {
-            (0, _spinalEnvViewerPanelManagerService.spinalPanelManagerService).openPanel("editAutomateLinkDialog", {
+            (0, _spinalEnvViewerPanelManagerService.spinalPanelManagerService).openPanel((0, _constants.EDIT_AUTOMATE_LINK_DIALOG), {
                 data: this.results,
                 nodeId: this.results.automate.id,
                 callback: (dataEdited)=>{
@@ -2081,7 +2115,7 @@ var scriptExports = {
 var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"spinal-env-viewer-panel-manager-service":"egTXY","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"2qYAl":[function(require,module,exports,__globalThis) {
+},{"spinal-env-viewer-panel-manager-service":"egTXY","../../../js/constants":"dk4iP","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"2qYAl":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
@@ -2348,10 +2382,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("8fccbbab8a37de33").render;
     script.staticRenderFns = require("8fccbbab8a37de33").staticRenderFns;
-    script._scopeId = "data-v-3b500b";
+    script._scopeId = "data-v-583298";
     script.__cssModules = require("6b29dfe7366b61ba").default;
     require("2ede9cda74297d80").default(script);
-    script.__scopeId = 'data-v-3b500b';
+    script.__scopeId = 'data-v-583298';
     script.__file = "confirmUnlikProfil.vue";
 };
 initialize();
@@ -2634,10 +2668,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("6a76f32260b50b06").render;
     script.staticRenderFns = require("6a76f32260b50b06").staticRenderFns;
-    script._scopeId = "data-v-4eecf3";
+    script._scopeId = "data-v-14b1e9";
     script.__cssModules = require("63a5c1aa2c3acc54").default;
     require("396da377d6c5f9cd").default(script);
-    script.__scopeId = 'data-v-4eecf3';
+    script.__scopeId = 'data-v-14b1e9';
     script.__file = "editLinksDialog.vue";
 };
 initialize();
@@ -2709,10 +2743,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("2a61a6547201adc3").render;
     script.staticRenderFns = require("2a61a6547201adc3").staticRenderFns;
-    script._scopeId = "data-v-ffbf85";
+    script._scopeId = "data-v-6c422f";
     script.__cssModules = require("68955a3498ac5c38").default;
     require("ec37eaeda824b53e").default(script);
-    script.__scopeId = 'data-v-ffbf85';
+    script.__scopeId = 'data-v-6c422f';
     script.__file = "editLinks.vue";
 };
 initialize();
@@ -3131,10 +3165,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("728ba785e63f9703").render;
     script.staticRenderFns = require("728ba785e63f9703").staticRenderFns;
-    script._scopeId = "data-v-c4601c";
+    script._scopeId = "data-v-fe1475";
     script.__cssModules = require("732a8e6188d94707").default;
     require("f0677dc836896c62").default(script);
-    script.__scopeId = 'data-v-c4601c';
+    script.__scopeId = 'data-v-fe1475';
     script.__file = "personalizedAttributeDialog.vue";
 };
 initialize();
@@ -3245,10 +3279,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("6cf183a77759acb8").render;
     script.staticRenderFns = require("6cf183a77759acb8").staticRenderFns;
-    script._scopeId = "data-v-787510";
+    script._scopeId = "data-v-0c321c";
     script.__cssModules = require("9fe5f60dbadd6d9f").default;
     require("ba29e279f3f9e303").default(script);
-    script.__scopeId = 'data-v-787510';
+    script.__scopeId = 'data-v-0c321c';
     script.__file = "SpinalCodeMirror.vue";
 };
 initialize();
@@ -19070,10 +19104,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("d8c4f1237e014116").render;
     script.staticRenderFns = require("d8c4f1237e014116").staticRenderFns;
-    script._scopeId = "data-v-b4b423";
+    script._scopeId = "data-v-f3e914";
     script.__cssModules = require("54b9128f4b62bdbe").default;
     require("9d41ccc06d40f597").default(script);
-    script.__scopeId = 'data-v-b4b423';
+    script.__scopeId = 'data-v-f3e914';
     script.__file = "personalizeNamingConvention.vue";
 };
 initialize();
@@ -19236,10 +19270,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("5d1d6b1e34c98bbc").render;
     script.staticRenderFns = require("5d1d6b1e34c98bbc").staticRenderFns;
-    script._scopeId = "data-v-60f96f";
+    script._scopeId = "data-v-56e6d5";
     script.__cssModules = require("563e79239cd0905").default;
     require("5d4605d094161727").default(script);
-    script.__scopeId = 'data-v-60f96f';
+    script.__scopeId = 'data-v-56e6d5';
     script.__file = "linkToGtbDialog.vue";
 };
 initialize();
@@ -19841,10 +19875,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("dd29c38949f2f735").render;
     script.staticRenderFns = require("dd29c38949f2f735").staticRenderFns;
-    script._scopeId = "data-v-555609";
+    script._scopeId = "data-v-11d7ad";
     script.__cssModules = require("3966c533931dbc3f").default;
     require("5532f6928b5262dc").default(script);
-    script.__scopeId = 'data-v-555609';
+    script.__scopeId = 'data-v-11d7ad';
     script.__file = "confirmLinkToGTB.vue";
 };
 initialize();
@@ -19912,10 +19946,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("298ed84a989a440a").render;
     script.staticRenderFns = require("298ed84a989a440a").staticRenderFns;
-    script._scopeId = "data-v-079095";
+    script._scopeId = "data-v-cfcb4f";
     script.__cssModules = require("4fc3099cf12646ad").default;
     require("e60a990dc63c6143").default(script);
-    script.__scopeId = 'data-v-079095';
+    script.__scopeId = 'data-v-cfcb4f';
     script.__file = "configuration.vue";
 };
 initialize();
@@ -20353,13 +20387,14 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _vue = require("vue");
 var _vueDefault = parcelHelpers.interopDefault(_vue);
 var _spinalEnvViewerPanelManagerServiceSpinalforgeextention = require("spinal-env-viewer-panel-manager-service_spinalforgeextention");
+var _constants = require("../../js/constants");
 var _generateAutomateContextVue = require("./generateAutomateContext.vue");
 var _generateAutomateContextVueDefault = parcelHelpers.interopDefault(_generateAutomateContextVue);
 var _detailPanelVue = require("./detailPanel.vue");
 var _detailPanelVueDefault = parcelHelpers.interopDefault(_detailPanelVue);
 const panels = [
     {
-        name: "generateAutomateContextPanel",
+        name: (0, _constants.GENERATE_AUTOMATE_CONTEXT_PANEL),
         vueMountComponent: (0, _vueDefault.default).extend((0, _generateAutomateContextVueDefault.default)),
         panel: {
             title: "Generate Automate",
@@ -20371,7 +20406,7 @@ const panels = [
         }
     },
     {
-        name: "networkTreeDetailPanel",
+        name: (0, _constants.NETWORK_TREE_DETAIL_PANEL),
         vueMountComponent: (0, _vueDefault.default).extend((0, _detailPanelVueDefault.default)),
         panel: {
             title: "Network tree detail panel",
@@ -20388,7 +20423,7 @@ for (const element of panels){
     (0, _spinalEnvViewerPanelManagerServiceSpinalforgeextention.SpinalForgeExtention).registerExtention(element.name, panelExtension);
 }
 
-},{"vue":"hO3OD","spinal-env-viewer-panel-manager-service_spinalforgeextention":"fYcpE","./generateAutomateContext.vue":"dPThr","./detailPanel.vue":"kSTZI","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"fYcpE":[function(require,module,exports,__globalThis) {
+},{"vue":"hO3OD","spinal-env-viewer-panel-manager-service_spinalforgeextention":"fYcpE","../../js/constants":"dk4iP","./generateAutomateContext.vue":"dPThr","./detailPanel.vue":"kSTZI","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"fYcpE":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
  *
@@ -20661,10 +20696,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("84571788a217ffac").render;
     script.staticRenderFns = require("84571788a217ffac").staticRenderFns;
-    script._scopeId = "data-v-44dddf";
+    script._scopeId = "data-v-34db89";
     script.__cssModules = require("8c19a545434bfbe3").default;
     require("ac78cafaf4bc9de5").default(script);
-    script.__scopeId = 'data-v-44dddf';
+    script.__scopeId = 'data-v-34db89';
     script.__file = "generateAutomateContext.vue";
 };
 initialize();
@@ -20789,10 +20824,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("298ffae9827df5fb").render;
     script.staticRenderFns = require("298ffae9827df5fb").staticRenderFns;
-    script._scopeId = "data-v-fb7293";
+    script._scopeId = "data-v-e7c390";
     script.__cssModules = require("63e6991408ee2d15").default;
     require("3626fe00e4bce521").default(script);
-    script.__scopeId = 'data-v-fb7293';
+    script.__scopeId = 'data-v-e7c390';
     script.__file = "configurationStep.vue";
 };
 initialize();
@@ -20801,8 +20836,9 @@ exports.default = script;
 },{"ca9be650d0c3b6dc":"keqZt","298ffae9827df5fb":"agq8v","63e6991408ee2d15":"jLgKL","3626fe00e4bce521":"hMjWn","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"keqZt":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-var _attributeConfig = require("../../../js/attributeConfig");
 var _spinalEnvViewerPanelManagerService = require("spinal-env-viewer-panel-manager-service");
+var _constants = require("../../../js/constants");
+// import { spinalPanelManagerService } from "spinal-env-viewer-panel-manager-service";
 var scriptExports = {
     name: "configuration",
     props: {
@@ -20812,7 +20848,7 @@ var scriptExports = {
         attribute: {}
     },
     data () {
-        this.radios = (0, _attributeConfig.DEFAULT_VALUES);
+        this.radios = DEFAULT_VALUES;
         return {
             attributeConfigSelected: "",
             isLoaded: true
@@ -20829,7 +20865,7 @@ var scriptExports = {
         //   this.$emit("next", { id: "first", index: "second" });
         // }
         personalized () {
-            (0, _spinalEnvViewerPanelManagerService.spinalPanelManagerService).openPanel("personalizedAttributeDialog", {
+            (0, _spinalEnvViewerPanelManagerService.spinalPanelManagerService).openPanel((0, _constants.PERSONALIZED_ATTRIBUTE_DIALOG), {
                 isPersonalized: this.attributeConfigSelected == -1,
                 attribute: this.attribute,
                 callback: (useRegex, res)=>{
@@ -20866,57 +20902,7 @@ var scriptExports = {
 var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"../../../js/attributeConfig":"8AOYd","spinal-env-viewer-panel-manager-service":"egTXY","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"8AOYd":[function(require,module,exports,__globalThis) {
-// export const PLC_ATTR = 'PLC';
-// export const OBJECT_ATTR = 'OBJ';
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "DEFAULT_VALUES", ()=>DEFAULT_VALUES);
-var _spinalEnvViewerPluginNetworkTreeService = require("spinal-env-viewer-plugin-network-tree-service");
-const DEFAULT_VALUES = Object.freeze([
-    {
-        id: 0,
-        name: "Object controlled attribute value must contains PLC attribute value",
-        isRegex: true,
-        select: (0, _spinalEnvViewerPluginNetworkTreeService.CONSTANTS).OBJECT_ATTR,
-        value: (0, _spinalEnvViewerPluginNetworkTreeService.CONSTANTS).PLC_ATTR,
-        flags: [
-            'i'
-        ]
-    },
-    {
-        id: 1,
-        name: "Object controlled attribute value must starts with the PLC attribute value",
-        isRegex: true,
-        select: (0, _spinalEnvViewerPluginNetworkTreeService.CONSTANTS).OBJECT_ATTR,
-        value: `^${(0, _spinalEnvViewerPluginNetworkTreeService.CONSTANTS).PLC_ATTR}`,
-        flags: [
-            'i'
-        ]
-    },
-    {
-        id: 2,
-        name: "Object controlled attribute value must equal to the PLC attribute value",
-        isRegex: true,
-        select: (0, _spinalEnvViewerPluginNetworkTreeService.CONSTANTS).OBJECT_ATTR,
-        value: `^${(0, _spinalEnvViewerPluginNetworkTreeService.CONSTANTS).PLC_ATTR}$`,
-        flags: [
-            'i'
-        ]
-    },
-    {
-        id: 3,
-        name: "Object controlled attribute value must ends with the PLC attribute value",
-        isRegex: true,
-        select: (0, _spinalEnvViewerPluginNetworkTreeService.CONSTANTS).OBJECT_ATTR,
-        value: `${(0, _spinalEnvViewerPluginNetworkTreeService.CONSTANTS).PLC_ATTR}$`,
-        flags: [
-            'i'
-        ]
-    }
-]);
-
-},{"spinal-env-viewer-plugin-network-tree-service":"aaFv2","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"agq8v":[function(require,module,exports,__globalThis) {
+},{"spinal-env-viewer-panel-manager-service":"egTXY","../../../js/constants":"dk4iP","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"agq8v":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
@@ -21011,10 +20997,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("509024ffde84d942").render;
     script.staticRenderFns = require("509024ffde84d942").staticRenderFns;
-    script._scopeId = "data-v-b8d3b7";
+    script._scopeId = "data-v-af4967";
     script.__cssModules = require("e1f1ebbd48ff2d2a").default;
     require("3bb7ddc847b19957").default(script);
-    script.__scopeId = 'data-v-b8d3b7';
+    script.__scopeId = 'data-v-af4967';
     script.__file = "launchStep.vue";
 };
 initialize();
@@ -21386,10 +21372,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("d5265ceeb04784b6").render;
     script.staticRenderFns = require("d5265ceeb04784b6").staticRenderFns;
-    script._scopeId = "data-v-f6c77a";
+    script._scopeId = "data-v-e3ea80";
     script.__cssModules = require("128777ec4a20de93").default;
     require("c3f3ab1734951b35").default(script);
-    script.__scopeId = 'data-v-f6c77a';
+    script.__scopeId = 'data-v-e3ea80';
     script.__file = "selectionStep.vue";
 };
 initialize();
@@ -21840,10 +21826,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("9ada1ab7bb26b167").render;
     script.staticRenderFns = require("9ada1ab7bb26b167").staticRenderFns;
-    script._scopeId = "data-v-4734bd";
+    script._scopeId = "data-v-1d00cd";
     script.__cssModules = require("f01c2045c9b63151").default;
     require("73039832046f2ac6").default(script);
-    script.__scopeId = 'data-v-4734bd';
+    script.__scopeId = 'data-v-1d00cd';
     script.__file = "namingConventionStep.vue";
 };
 initialize();
@@ -21853,6 +21839,7 @@ exports.default = script;
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _spinalEnvViewerPanelManagerService = require("spinal-env-viewer-panel-manager-service");
+var _constants = require("../../../js/constants");
 var scriptExports = {
     name: "namingConventionStep",
     props: {
@@ -21863,7 +21850,7 @@ var scriptExports = {
     },
     methods: {
         personalized () {
-            (0, _spinalEnvViewerPanelManagerService.spinalPanelManagerService).openPanel("personalizeNamingConvention", {
+            (0, _spinalEnvViewerPanelManagerService.spinalPanelManagerService).openPanel((0, _constants.PERSONALIZE_NAMING_CONVENTION), {
                 config: this.config,
                 callback: (argFunction)=>{
                     this.config.useAttrValue = false;
@@ -21876,7 +21863,7 @@ var scriptExports = {
 var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"spinal-env-viewer-panel-manager-service":"egTXY","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"3F9qd":[function(require,module,exports,__globalThis) {
+},{"spinal-env-viewer-panel-manager-service":"egTXY","../../../js/constants":"dk4iP","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"3F9qd":[function(require,module,exports,__globalThis) {
 var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
@@ -22111,10 +22098,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("cb8cca1d6aee716d").render;
     script.staticRenderFns = require("cb8cca1d6aee716d").staticRenderFns;
-    script._scopeId = "data-v-2abcd3";
+    script._scopeId = "data-v-9ab44a";
     script.__cssModules = require("21e70be1bfe1ac20").default;
     require("b2d7151347fe9d59").default(script);
-    script.__scopeId = 'data-v-2abcd3';
+    script.__scopeId = 'data-v-9ab44a';
     script.__file = "detailPanel.vue";
 };
 initialize();
@@ -22130,6 +22117,7 @@ var _spinalEnvViewerPluginExcelManagerServiceDefault = parcelHelpers.interopDefa
 var _fileSaver = require("file-saver");
 var _fileSaverDefault = parcelHelpers.interopDefault(_fileSaver);
 const { spinalPanelManagerService } = require("19df97304b53e586");
+const { NETWORK_TREE_DETAIL_PANEL } = require("804296009b511e35");
 var scriptExports = {
     name: "networkTreeDetailPanel",
     data () {
@@ -22144,7 +22132,7 @@ var scriptExports = {
         },
         closed () {},
         setTitle (title) {
-            spinalPanelManagerService.panels.networkTreeDetailPanel.panel.setTitle(title);
+            spinalPanelManagerService.panels[NETWORK_TREE_DETAIL_PANEL].panel.setTitle(title);
         },
         getAllData (contextId) {
             // return spinalNetworktree
@@ -22245,7 +22233,7 @@ var scriptExports = {
 var options = typeof scriptExports === 'function' ? scriptExports.options : scriptExports;
 exports.default = options; // parcel transformer vue2 compiler hack
 
-},{"19df97304b53e586":"egTXY","spinal-env-viewer-plugin-network-tree-service":"aaFv2","spinal-env-viewer-plugin-excel-manager-service":"5y3Gh","file-saver":"apCnQ","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"apCnQ":[function(require,module,exports,__globalThis) {
+},{"19df97304b53e586":"egTXY","804296009b511e35":"dk4iP","spinal-env-viewer-plugin-network-tree-service":"aaFv2","spinal-env-viewer-plugin-excel-manager-service":"5y3Gh","file-saver":"apCnQ","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"apCnQ":[function(require,module,exports,__globalThis) {
 var global = arguments[3];
 (function(a, b) {
     if ("function" == typeof define && define.amd) define([], b);

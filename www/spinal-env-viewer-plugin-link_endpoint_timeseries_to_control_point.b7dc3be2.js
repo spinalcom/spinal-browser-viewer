@@ -780,10 +780,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("2bb2a8999f597104").render;
     script.staticRenderFns = require("2bb2a8999f597104").staticRenderFns;
-    script._scopeId = "data-v-ce5558";
+    script._scopeId = "data-v-4a3a6c";
     script.__cssModules = require("1475d2a9522ce925").default;
     require("9a123931a7d2f9c").default(script);
-    script.__scopeId = 'data-v-ce5558';
+    script.__scopeId = 'data-v-4a3a6c';
     script.__file = "LinkEndpointTimeseriesToControlPoint.vue";
 };
 initialize();
@@ -807,7 +807,10 @@ var scriptExports = {
             cpFilterPattern: '',
             useCPRegexp: false,
             endpointFilterRegexpPattern: '',
-            loadingLink: false
+            chunkSize: 20,
+            loadingLink: false,
+            notifMsg: '',
+            errorMsgs: []
         };
     },
     methods: {
@@ -850,12 +853,25 @@ var scriptExports = {
             return childTreeNodes;
         },
         async startLink () {
+            this.notifMsg = '';
+            this.errorMsgs = [];
+            if (this.chunkSize < 1) {
+                this.notifMsg = 'Chunk size must be greater than 0.';
+                return;
+            }
             this.loadingLink = true;
             try {
-                await (0, _startLinkTSEndpointToCP.StartLinkTSEndpointToCP)(this.treeSelection, (0, _getNodeByServerId.getNodeByServerId)(this.contextId), this.cpProfileName, this.cpFilterPattern, this.useCPRegexp, this.endpointFilterRegexpPattern);
+                const errors = await (0, _startLinkTSEndpointToCP.StartLinkTSEndpointToCP)(this.treeSelection, (0, _getNodeByServerId.getNodeByServerId)(this.contextId), this.cpProfileName, this.cpFilterPattern, this.useCPRegexp, this.endpointFilterRegexpPattern, this.chunkSize, (step, progress, total)=>{
+                    console.log(`Step: ${step}, Progress: ${progress}, Total: ${total}`);
+                    this.notifMsg = 'Linking in progress... Step: ' + (step + 1) + '/2, Progress: ' + progress + '/' + total;
+                });
+                if (errors.length > 0) this.notifMsg = 'Linking process completed with some errors. Check the error messages below.';
+                else this.notifMsg = 'Linking process completed successfully.';
+                this.errorMsgs = errors;
             } catch (error) {
                 this.loadingLink = false;
                 console.error('Error during linking process', error);
+                this.notifMsg = `Error during linking process: ${error.message}`;
                 return;
             }
             this.loadingLink = false;
@@ -931,7 +947,18 @@ function getNodeByServerId(serverId) {
  * <http://resources.spinalcom.com/licenses.pdf>.
  */ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "StartLinkTSEndpointToCP", ()=>StartLinkTSEndpointToCP);
+/**
+ * Link time series of endpoints to control points based on specified filters.
+ * @export
+ * @param {*} ids
+ * @param {*} context
+ * @param {*} cpProfileName
+ * @param {*} cpFilterPattern
+ * @param {*} useCPRegexp
+ * @param {*} endpointFilterRegexpPattern
+ * @param {*} chunkSize
+ * @param {(step: number, progress: number, total: number) => void} callbackProgress
+ */ parcelHelpers.export(exports, "StartLinkTSEndpointToCP", ()=>StartLinkTSEndpointToCP);
 var _getNodeByServerId = require("./getNodeByServerId");
 var _spinalTimeSerieInst = require("./SpinalTimeSerieInst");
 var _spinalEnvViewerGraphService = require("spinal-env-viewer-graph-service");
@@ -943,11 +970,13 @@ const NODE_FIND_EP_RELATIONTIONS_NAME = [
     'hasBmsEndpointGroup'
 ];
 const HAS_TIME_SERIES_RELATIONTION_NAME = 'hasTimeSeries';
-async function StartLinkTSEndpointToCP(ids, context, cpProfileName, cpFilterPattern, useCPRegexp, endpointFilterRegexpPattern) {
+async function StartLinkTSEndpointToCP(ids, context, cpProfileName, cpFilterPattern, useCPRegexp, endpointFilterRegexpPattern, chunkSize, callbackProgress) {
     const nodes = await loadNodeLeafFromIds(ids, context);
     console.log('leafNodes loaded', nodes);
-    for(let i = 0; i < nodes.length; i += 30){
-        const chunk = nodes.slice(i, i + 30);
+    callbackProgress?.(1, 0, nodes.length);
+    const errors = [];
+    for(let i = 0; i < nodes.length; i += chunkSize){
+        const chunk = nodes.slice(i, i + chunkSize);
         await Promise.all(chunk.map(async (node, idx)=>{
             const globalIdx = i + idx;
             console.log(globalIdx + 1, '/', nodes.length);
@@ -969,9 +998,12 @@ async function StartLinkTSEndpointToCP(ids, context, cpProfileName, cpFilterPatt
                 await cpMatchingEndpoint.addChild(epTsNode, HAS_TIME_SERIES_RELATIONTION_NAME, 'PtrLst');
             } catch (error) {
                 console.error(error);
+                errors.push(error?.message);
             }
+            callbackProgress?.(1, globalIdx + 1, nodes.length);
         }));
     }
+    return errors;
 }
 async function getEndpoint(node, endpointFilterRegexpPattern) {
     const regex = new RegExp(endpointFilterRegexpPattern);
@@ -994,7 +1026,14 @@ async function handleLoadEP(node, endpointFilterRegexpPattern) {
         epTsNode: tsNodes[0]
     };
 }
-async function handleLoadCP(node, cpProfileName, cpFilterPattern, useCPRegexp) {
+/**
+ *
+ * @param {*} node
+ * @param {*} cpProfileName
+ * @param {*} cpFilterPattern
+ * @param {*} useCPRegexp
+ * @return {*} 
+ */ async function handleLoadCP(node, cpProfileName, cpFilterPattern, useCPRegexp) {
     const controlPoints = await node.getChildren([
         NODE_HAS_CP_RELATIONTION_NAME
     ]);
@@ -1029,7 +1068,13 @@ async function handleLoadCP(node, cpProfileName, cpFilterPattern, useCPRegexp) {
         cpMatchingEndpoint
     };
 }
-async function loadNodeLeafFromIds(ids, context) {
+/**
+ * Load leaf nodes from an array of node IDs within a specific context.
+ * @param {*} ids
+ * @param {*} context
+ * @param {(step: number, progress: number, total: number) => void} callbackProgress
+ * @return {*} 
+ */ async function loadNodeLeafFromIds(ids, context, callbackProgress) {
     const startingNodes = ids.map((id)=>{
         const ids = id.split('.');
         const idString = ids[ids.length - 1];
@@ -1044,10 +1089,12 @@ async function loadNodeLeafFromIds(ids, context) {
             for (const child of children)await getChildrenRec(child, res);
         } else res.push(node);
     };
+    callbackProgress?.(0, 0, startingNodes.length);
     for(let i = 0; i < startingNodes.length; i += 20){
         console.log(`loading leaf nodes ${i} to ${i + 20} / ${startingNodes.length}`);
         const chunk = startingNodes.slice(i, i + 20);
         await Promise.all(chunk.map((node)=>getChildrenRec(node, nodes)));
+        callbackProgress?.(0, i + chunk.length, startingNodes.length);
     }
     return nodes;
 }
@@ -1232,6 +1279,28 @@ var render = function() {
                     }
                 }),
                 _vm._v(" "),
+                _c('v-divider', {
+                    staticClass: "my-2"
+                }),
+                _vm._v(" "),
+                _c('v-text-field', {
+                    attrs: {
+                        "type": "number",
+                        "label": "number of endpoints link per Batch",
+                        "min": 1,
+                        "max": 100,
+                        "step": 1,
+                        "required": ""
+                    },
+                    model: {
+                        value: _vm.chunkSize,
+                        callback: function($$v) {
+                            _vm.chunkSize = $$v;
+                        },
+                        expression: "chunkSize"
+                    }
+                }),
+                _vm._v(" "),
                 _c('v-btn', {
                     attrs: {
                         "disabled": _vm.disableStart,
@@ -1242,7 +1311,28 @@ var render = function() {
                     }
                 }, [
                     _vm._v("Start")
-                ])
+                ]),
+                _vm._v(" "),
+                _vm.notifMsg ? _c('div', {
+                    staticClass: "plugin-LinkEndpointToControlPoint-notif spinal-scrollbar"
+                }, [
+                    _vm._v("\n        " + _vm._s(_vm.notifMsg) + "\n\n        "),
+                    _vm.errorMsgs.length > 0 ? _c('div', {
+                        staticClass: "error-messages"
+                    }, [
+                        _c('p', [
+                            _vm._v("Errors:")
+                        ]),
+                        _vm._v(" "),
+                        _c('ul', _vm._l(_vm.errorMsgs, function(errorMsg, index) {
+                            return _c('li', {
+                                key: index
+                            }, [
+                                _vm._v("\n              " + _vm._s(errorMsg) + "\n            ")
+                            ]);
+                        }), 0)
+                    ]) : _vm._e()
+                ]) : _vm._e()
             ], 1)
         ], 1)
     ], 1);

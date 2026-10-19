@@ -6480,10 +6480,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("8a4954974a3e2a08").render;
     script.staticRenderFns = require("8a4954974a3e2a08").staticRenderFns;
-    script._scopeId = "data-v-e30921";
+    script._scopeId = "data-v-aadfa6";
     script.__cssModules = require("f5f81ab60053088e").default;
     require("7e9898e9b122e745").default(script);
-    script.__scopeId = 'data-v-e30921';
+    script.__scopeId = 'data-v-aadfa6';
     script.__file = "App.vue";
 };
 initialize();
@@ -6534,10 +6534,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("f15864c5c5402877").render;
     script.staticRenderFns = require("f15864c5c5402877").staticRenderFns;
-    script._scopeId = "data-v-5d934f";
+    script._scopeId = "data-v-c4aef8";
     script.__cssModules = require("860cf64167baff16").default;
     require("2931b2c99cae818c").default(script);
-    script.__scopeId = 'data-v-5d934f';
+    script.__scopeId = 'data-v-c4aef8';
     script.__file = "SpinalHeader.vue";
 };
 initialize();
@@ -17565,6 +17565,16 @@ const SpinalNode_1 = require("afcc7089e763b94b");
      */ getChildrenInContext(context = this) {
         return super.getChildrenInContext(context);
     }
+    /**
+     * Checks if the context is the same as the current one or if it is a parent context.
+     * @override
+     * @param {SpinalContext<any>} context
+     * @return {*}  {boolean}
+     * @memberof SpinalContext
+     */ belongsToContext(context) {
+        if (this === context) return true;
+        return super.belongsToContext(context);
+    }
 }
 exports.SpinalContext = SpinalContext;
 spinal_core_connectorjs_1.spinalCore.register_models([
@@ -21955,7 +21965,8 @@ var Obj_1 = require("4781075c7d59902e");
             n = Number(value);
             if (isNaN(n)) console.log("Don't know how to transform ".concat(value, " to a Val"));
         } else if (value instanceof Val) n = value._data;
-        else n = value;
+        else if (typeof value === 'number') n = value;
+        else throw new Error("Don't know how to transform ".concat(value, " to a Val"));
         if (this._data !== n) {
             this._data = n;
             return true;
@@ -33871,7 +33882,7 @@ function loadPlugins() {
     return Promise.all(plugins);
 }
 
-},{"ea68c71bce484b63":"Wneyd","bb7100ef7768402e":"h25Tz","c8a599eab9003e7f":"gnNef","ee396b67347df231":"d0vjp","5f6cbb2944012b0f":"7t61C","b84dd777bb325cf1":"85mgd","c2ba6b18b8151d21":"awcKZ","d64d2a7528d44624":"7hpxv","9f5512dc0596184a":"iFGyc","4b5adcfbfc855b74":"4KwsC","5c301518a9c26313":"iq2cU","d816ae225c2ab1ad":"FTNXM","53ddbaae0002dcfb":"k9rw4","fc52d4c8c36bc18d":"c8YNj","47fb03a6b741f67f":"11kYL","4a4c341d5c7ed426":"8wJSd","7b01b5a572917b38":"bmyQc","1612af2b62f4c0a3":"b7EYR","beed4ed04c1cab89":"4Wapq","4d6ed4021b396bd3":"ayFt5","7913f673e6d53237":"1KTZw","4098dfb20490fb50":"6MPFa","22f854ac869f52eb":"4wazW","1ad3675196a5c8f3":"5Howb","a955497571196aa4":"2agui","a3e770e2afc86c98":"d8Le1","e6304bb85d6a6d90":"1hNfe","3bba9dfa8074586b":"gEOMO","7d0023d01aab58c8":"7ARrN","37c4d9afaa8b4a52":"dQTlu","5abbe4913e45efb3":"5ruj3","8175efe9b73ee4f7":"aiwgR","82d0938a4a0d09eb":"fG57R","eec411b0f30748fb":"gCRN5","43374e17a0ef3fea":"7qvyP","95cbfda1dacb984e":"ave3M","4406a412e631b4c2":"1ZN0J","4336b6b2011a3943":"hg8l6","9a8375d088be15fb":"9Wcsr","a5d24965e4527bfc":"lyZ7i","82d6c2774fae243f":"7K918","779248971d4ee820":"gqX3p","ef8fc96d66c126e6":"97EkP","5469d7d18905b206":"enLR7","bec10797dede5343":"c2ehi","2ebde0595500e9f5":"l4Y9i","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"Wneyd":[function(require,module,exports,__globalThis) {
+},{"ea68c71bce484b63":"Wneyd","bb7100ef7768402e":"h25Tz","c8a599eab9003e7f":"gnNef","ee396b67347df231":"d0vjp","5f6cbb2944012b0f":"7t61C","b84dd777bb325cf1":"85mgd","c2ba6b18b8151d21":"awcKZ","d64d2a7528d44624":"7hpxv","9f5512dc0596184a":"iFGyc","4b5adcfbfc855b74":"4KwsC","5c301518a9c26313":"iq2cU","d816ae225c2ab1ad":"FTNXM","53ddbaae0002dcfb":"k9rw4","fc52d4c8c36bc18d":"c8YNj","47fb03a6b741f67f":"11kYL","4a4c341d5c7ed426":"8wJSd","7b01b5a572917b38":"bmyQc","1612af2b62f4c0a3":"b7EYR","beed4ed04c1cab89":"4Wapq","4d6ed4021b396bd3":"hfwbp","7913f673e6d53237":"1KTZw","4098dfb20490fb50":"6MPFa","22f854ac869f52eb":"7oWC3","1ad3675196a5c8f3":"dx21c","a955497571196aa4":"2agui","a3e770e2afc86c98":"d8Le1","e6304bb85d6a6d90":"1hNfe","3bba9dfa8074586b":"gEOMO","7d0023d01aab58c8":"80VM1","37c4d9afaa8b4a52":"dQTlu","5abbe4913e45efb3":"5ruj3","8175efe9b73ee4f7":"aiwgR","82d0938a4a0d09eb":"fG57R","eec411b0f30748fb":"gCRN5","43374e17a0ef3fea":"7qvyP","95cbfda1dacb984e":"ave3M","4406a412e631b4c2":"1ZN0J","4336b6b2011a3943":"hg8l6","9a8375d088be15fb":"ny5QS","a5d24965e4527bfc":"lyZ7i","82d6c2774fae243f":"7K918","779248971d4ee820":"gqX3p","ef8fc96d66c126e6":"97EkP","5469d7d18905b206":"9Y1uk","bec10797dede5343":"c2ehi","2ebde0595500e9f5":"jeYvU","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"Wneyd":[function(require,module,exports,__globalThis) {
 module.exports = Promise.all([
     import("7V1HE"),
     import("wsJF6"),
@@ -34031,12 +34042,12 @@ module.exports = Promise.all([
     import("7egWB")
 ]).then(()=>module.bundle.root('kGMaE'));
 
-},{}],"ayFt5":[function(require,module,exports,__globalThis) {
+},{}],"hfwbp":[function(require,module,exports,__globalThis) {
 module.exports = Promise.all([
     import("gIMSh"),
-    import("hIB4s"),
+    import("fWNM6"),
     import("aoXSw"),
-    require("53098c4355cbd0da")(import.meta.resolve("aYdVV")),
+    require("a464ed7bf4d42351")(import.meta.resolve("aYdVV")),
     import("cKNiK"),
     import("jP44U"),
     import("krVo4"),
@@ -34047,7 +34058,7 @@ module.exports = Promise.all([
     import("ao8li")
 ]).then(()=>module.bundle.root('jYqr3'));
 
-},{"53098c4355cbd0da":"jGGMa"}],"1KTZw":[function(require,module,exports,__globalThis) {
+},{"a464ed7bf4d42351":"jGGMa"}],"1KTZw":[function(require,module,exports,__globalThis) {
 module.exports = Promise.all([
     require("f9c0787ccfdfa942")(import.meta.resolve("3E0v5")),
     import("f1myU"),
@@ -34069,13 +34080,13 @@ module.exports = Promise.all([
     import("bWFXc")
 ]).then(()=>module.bundle.root('5AlIa'));
 
-},{"3dbcccafa9550ec3":"jGGMa"}],"4wazW":[function(require,module,exports,__globalThis) {
+},{"3dbcccafa9550ec3":"jGGMa"}],"7oWC3":[function(require,module,exports,__globalThis) {
 module.exports = Promise.all([
     import("2WuKd"),
     import("8mzNY"),
-    require("75d8ae1905ee48e5")(import.meta.resolve("2sZwR")),
+    require("2abcbe3d5f02005e")(import.meta.resolve("2sZwR")),
     import("gIMSh"),
-    import("hIB4s"),
+    import("fWNM6"),
     import("aoXSw"),
     import("cKNiK"),
     import("jP44U"),
@@ -34087,11 +34098,11 @@ module.exports = Promise.all([
     import("4BquF")
 ]).then(()=>module.bundle.root('82Vlz'));
 
-},{"75d8ae1905ee48e5":"jGGMa"}],"5Howb":[function(require,module,exports,__globalThis) {
+},{"2abcbe3d5f02005e":"jGGMa"}],"dx21c":[function(require,module,exports,__globalThis) {
 module.exports = Promise.all([
-    require("b98fc5e261c83559")(import.meta.resolve("5LfiF")),
+    require("69e1016382c976aa")(import.meta.resolve("5LfiF")),
     import("gIMSh"),
-    import("hIB4s"),
+    import("fWNM6"),
     import("aoXSw"),
     import("fESzN"),
     import("jP44U"),
@@ -34102,7 +34113,7 @@ module.exports = Promise.all([
     import("gGmDD")
 ]).then(()=>module.bundle.root('frKwp'));
 
-},{"b98fc5e261c83559":"jGGMa"}],"2agui":[function(require,module,exports,__globalThis) {
+},{"69e1016382c976aa":"jGGMa"}],"2agui":[function(require,module,exports,__globalThis) {
 module.exports = Promise.all([
     import("cyFI9"),
     import("wsJF6"),
@@ -34131,13 +34142,13 @@ module.exports = Promise.all([
     import("iQX2F")
 ]).then(()=>module.bundle.root('fJBgo'));
 
-},{}],"7ARrN":[function(require,module,exports,__globalThis) {
+},{}],"80VM1":[function(require,module,exports,__globalThis) {
 module.exports = Promise.all([
-    require("4ec9267e9d169a82")(import.meta.resolve("hywYD")),
+    require("a32dc559736df5e1")(import.meta.resolve("hywYD")),
     import("2WuKd"),
     import("8mzNY"),
     import("gIMSh"),
-    import("hIB4s"),
+    import("fWNM6"),
     import("aoXSw"),
     import("f1myU"),
     import("jP44U"),
@@ -34147,7 +34158,7 @@ module.exports = Promise.all([
     import("9Yi1z")
 ]).then(()=>module.bundle.root('3h7ar'));
 
-},{"4ec9267e9d169a82":"jGGMa"}],"dQTlu":[function(require,module,exports,__globalThis) {
+},{"a32dc559736df5e1":"jGGMa"}],"dQTlu":[function(require,module,exports,__globalThis) {
 module.exports = Promise.all([
     require("8da2c1333007d22f")(import.meta.resolve("eEodu")),
     import("cyFI9"),
@@ -34227,13 +34238,13 @@ module.exports = Promise.all([
     import("4m3pv")
 ]).then(()=>module.bundle.root('gFtD5'));
 
-},{}],"9Wcsr":[function(require,module,exports,__globalThis) {
+},{}],"ny5QS":[function(require,module,exports,__globalThis) {
 module.exports = Promise.all([
-    import("fCDCw"),
-    require("2db17e6ba6c90101")(import.meta.resolve("jXOBQ")),
+    import("cZtUD"),
+    require("fab2192abf00a941")(import.meta.resolve("jXOBQ")),
     import("2WuKd"),
     import("gIMSh"),
-    import("hIB4s"),
+    import("fWNM6"),
     import("cKNiK"),
     import("jP44U"),
     import("7V1HE"),
@@ -34242,7 +34253,7 @@ module.exports = Promise.all([
     import("2Mab1")
 ]).then(()=>module.bundle.root('6rjbb'));
 
-},{"2db17e6ba6c90101":"jGGMa"}],"lyZ7i":[function(require,module,exports,__globalThis) {
+},{"fab2192abf00a941":"jGGMa"}],"lyZ7i":[function(require,module,exports,__globalThis) {
 module.exports = Promise.all([
     import("cyFI9"),
     import("wsJF6"),
@@ -34272,12 +34283,12 @@ module.exports = Promise.all([
     import("8DnC4")
 ]).then(()=>module.bundle.root('e62zr'));
 
-},{"f7e78176e2e4ce91":"jGGMa"}],"enLR7":[function(require,module,exports,__globalThis) {
+},{"f7e78176e2e4ce91":"jGGMa"}],"9Y1uk":[function(require,module,exports,__globalThis) {
 module.exports = Promise.all([
-    require("15caddfb0c5e5f29")(import.meta.resolve("5VTUi")),
+    require("2015f139d5e41fc6")(import.meta.resolve("5VTUi")),
     import("8mzNY"),
     import("gIMSh"),
-    import("hIB4s"),
+    import("fWNM6"),
     import("cKNiK"),
     import("jP44U"),
     import("7V1HE"),
@@ -34286,7 +34297,7 @@ module.exports = Promise.all([
     import("7kKev")
 ]).then(()=>module.bundle.root('f4luG'));
 
-},{"15caddfb0c5e5f29":"jGGMa"}],"c2ehi":[function(require,module,exports,__globalThis) {
+},{"2015f139d5e41fc6":"jGGMa"}],"c2ehi":[function(require,module,exports,__globalThis) {
 module.exports = Promise.all([
     require("be948943b97a1390")(import.meta.resolve("exD4D")),
     import("7V1HE"),
@@ -34295,13 +34306,13 @@ module.exports = Promise.all([
     import("g06DB")
 ]).then(()=>module.bundle.root('aeSh6'));
 
-},{"be948943b97a1390":"jGGMa"}],"l4Y9i":[function(require,module,exports,__globalThis) {
+},{"be948943b97a1390":"jGGMa"}],"jeYvU":[function(require,module,exports,__globalThis) {
 module.exports = Promise.all([
-    require("ee7a88b9231ee70")(import.meta.resolve("7EflI")),
-    import("fCDCw"),
+    require("5c4419483b24b1f5")(import.meta.resolve("7EflI")),
+    import("cZtUD"),
     import("8mzNY"),
     import("gIMSh"),
-    import("hIB4s"),
+    import("fWNM6"),
     import("aoXSw"),
     import("jP44U"),
     import("7V1HE"),
@@ -34310,7 +34321,7 @@ module.exports = Promise.all([
     import("b7NyO")
 ]).then(()=>module.bundle.root('jxQie'));
 
-},{"ee7a88b9231ee70":"jGGMa"}],"gGFOY":[function(require,module,exports,__globalThis) {
+},{"5c4419483b24b1f5":"jGGMa"}],"gGFOY":[function(require,module,exports,__globalThis) {
 /*
  * Copyright 2023 SpinalCom - www.spinalcom.com
  * 
@@ -34429,10 +34440,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("916fa259fe30666e").render;
     script.staticRenderFns = require("916fa259fe30666e").staticRenderFns;
-    script._scopeId = "data-v-25468c";
+    script._scopeId = "data-v-c94f51";
     script.__cssModules = require("56eb4e284f8b3894").default;
     require("beb4c03649748572").default(script);
-    script.__scopeId = 'data-v-25468c';
+    script.__scopeId = 'data-v-c94f51';
     script.__file = "SpinalRightSideBar.vue";
 };
 initialize();
@@ -34569,10 +34580,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("26c913c77b0247bb").render;
     script.staticRenderFns = require("26c913c77b0247bb").staticRenderFns;
-    script._scopeId = "data-v-acac21";
+    script._scopeId = "data-v-199bec";
     script.__cssModules = require("a72a18810bdcf0e8").default;
     require("e798b9c6491834ed").default(script);
-    script.__scopeId = 'data-v-acac21';
+    script.__scopeId = 'data-v-199bec';
     script.__file = "MainContent.vue";
 };
 initialize();
@@ -34647,10 +34658,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("2fe5242471f6f2a8").render;
     script.staticRenderFns = require("2fe5242471f6f2a8").staticRenderFns;
-    script._scopeId = "data-v-74ca6d";
+    script._scopeId = "data-v-9016ed";
     script.__cssModules = require("114ea14a046320d0").default;
     require("441825600126f0a0").default(script);
-    script.__scopeId = 'data-v-74ca6d';
+    script.__scopeId = 'data-v-9016ed';
     script.__file = "SpinalForgeViewerVue.vue";
 };
 initialize();
@@ -96528,10 +96539,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("bd101fdfcf8b51b7").render;
     script.staticRenderFns = require("bd101fdfcf8b51b7").staticRenderFns;
-    script._scopeId = "data-v-43c609";
+    script._scopeId = "data-v-73bdd7";
     script.__cssModules = require("5a85c2fafdd976b0").default;
     require("8fc68798d40df9d6").default(script);
-    script.__scopeId = 'data-v-43c609';
+    script.__scopeId = 'data-v-73bdd7';
     script.__file = "index.vue";
 };
 initialize();
@@ -100562,10 +100573,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("272043accf9dbab4").render;
     script.staticRenderFns = require("272043accf9dbab4").staticRenderFns;
-    script._scopeId = "data-v-0266c3";
+    script._scopeId = "data-v-22695b";
     script.__cssModules = require("ff3b138ad3d0ce8b").default;
     require("87f58cbb546e25cc").default(script);
-    script.__scopeId = 'data-v-0266c3';
+    script.__scopeId = 'data-v-22695b';
     script.__file = "index.vue";
 };
 initialize();
@@ -100671,10 +100682,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("b102bd0c122f01be").render;
     script.staticRenderFns = require("b102bd0c122f01be").staticRenderFns;
-    script._scopeId = "data-v-737f00";
+    script._scopeId = "data-v-2020de";
     script.__cssModules = require("5d5d7825bfe94295").default;
     require("7bbd150dcbefdb40").default(script);
-    script.__scopeId = 'data-v-737f00';
+    script.__scopeId = 'data-v-2020de';
     script.__file = "index.vue";
 };
 initialize();
@@ -100904,10 +100915,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("87c356fe0a95691d").render;
     script.staticRenderFns = require("87c356fe0a95691d").staticRenderFns;
-    script._scopeId = "data-v-566f19";
+    script._scopeId = "data-v-34a029";
     script.__cssModules = require("5dac050640d6e3d2").default;
     require("5c76aecf15b28e60").default(script);
-    script.__scopeId = 'data-v-566f19';
+    script.__scopeId = 'data-v-34a029';
     script.__file = "index.vue";
 };
 initialize();
@@ -101222,10 +101233,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("c11508286ecdc7f9").render;
     script.staticRenderFns = require("c11508286ecdc7f9").staticRenderFns;
-    script._scopeId = "data-v-26e0f5";
+    script._scopeId = "data-v-f69393";
     script.__cssModules = require("8559e5b9d2959314").default;
     require("d742ed1bf67287e").default(script);
-    script.__scopeId = 'data-v-26e0f5';
+    script.__scopeId = 'data-v-f69393';
     script.__file = "index.vue";
 };
 initialize();
@@ -102125,10 +102136,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("ea32684f08b557c2").render;
     script.staticRenderFns = require("ea32684f08b557c2").staticRenderFns;
-    script._scopeId = "data-v-15b1f2";
+    script._scopeId = "data-v-c2aa7e";
     script.__cssModules = require("9c850144cb82f45").default;
     require("5e3539a93558a705").default(script);
-    script.__scopeId = 'data-v-15b1f2';
+    script.__scopeId = 'data-v-c2aa7e';
     script.__file = "RangeShortcuts.vue";
 };
 initialize();
@@ -102383,10 +102394,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("424be3aa1ee5adee").render;
     script.staticRenderFns = require("424be3aa1ee5adee").staticRenderFns;
-    script._scopeId = "data-v-bbaa30";
+    script._scopeId = "data-v-8141d8";
     script.__cssModules = require("2f2c16a4dd2846ae").default;
     require("9bd7b542c538f936").default(script);
-    script.__scopeId = 'data-v-bbaa30';
+    script.__scopeId = 'data-v-8141d8';
     script.__file = "YearMonthSelector.vue";
 };
 initialize();
@@ -102575,10 +102586,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("937e71b61efbebe").render;
     script.staticRenderFns = require("937e71b61efbebe").staticRenderFns;
-    script._scopeId = "data-v-72fb88";
+    script._scopeId = "data-v-47f6fe";
     script.__cssModules = require("17b25bdefd5c75be").default;
     require("ddb482ec6966599").default(script);
-    script.__scopeId = 'data-v-72fb88';
+    script.__scopeId = 'data-v-47f6fe';
     script.__file = "WeekDays.vue";
 };
 initialize();
@@ -103043,10 +103054,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("a47c400461da77bb").render;
     script.staticRenderFns = require("a47c400461da77bb").staticRenderFns;
-    script._scopeId = "data-v-ddfc68";
+    script._scopeId = "data-v-ba3b5c";
     script.__cssModules = require("4324b2dee77e19b").default;
     require("751fe44336a7c3e7").default(script);
-    script.__scopeId = 'data-v-ddfc68';
+    script.__scopeId = 'data-v-ba3b5c';
     script.__file = "TimePicker.vue";
 };
 initialize();
@@ -103524,10 +103535,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("77bc5911373e968").render;
     script.staticRenderFns = require("77bc5911373e968").staticRenderFns;
-    script._scopeId = "data-v-51571a";
+    script._scopeId = "data-v-eeb5a9";
     script.__cssModules = require("1c0bd8dbeab9fe40").default;
     require("2bc0772985a81dfe").default(script);
-    script.__scopeId = 'data-v-51571a';
+    script.__scopeId = 'data-v-eeb5a9';
     script.__file = "HeaderPicker.vue";
 };
 initialize();
@@ -103788,10 +103799,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("1d782928a3ec2b42").render;
     script.staticRenderFns = require("1d782928a3ec2b42").staticRenderFns;
-    script._scopeId = "data-v-ecc9d9";
+    script._scopeId = "data-v-ebf2bc";
     script.__cssModules = require("e382118ef92455d3").default;
     require("bdabea3bbbc84f94").default(script);
-    script.__scopeId = 'data-v-ecc9d9';
+    script.__scopeId = 'data-v-ebf2bc';
     script.__file = "ButtonValidate.vue";
 };
 initialize();

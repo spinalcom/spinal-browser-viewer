@@ -528,9 +528,9 @@ parcelHelpers.export(exports, "MOVE_DEVICES_PANEL_NAME", ()=>MOVE_DEVICES_PANEL_
 parcelHelpers.export(exports, "NETWORK_DIALOG", ()=>NETWORK_DIALOG);
 parcelHelpers.export(exports, "ENDPOINT_DIALOG", ()=>ENDPOINT_DIALOG);
 parcelHelpers.export(exports, "SIDEBAR", ()=>SIDEBAR);
-const MOVE_DEVICES_PANEL_NAME = 'MoveDevicesPanel';
-const NETWORK_DIALOG = "createNetworkDialog";
-const ENDPOINT_DIALOG = "createEndpointDialog";
+const MOVE_DEVICES_PANEL_NAME = 'organizer_MoveDevicesPanel';
+const NETWORK_DIALOG = "organizer_createNetworkDialog";
+const ENDPOINT_DIALOG = "organizer_createEndpointDialog";
 const SIDEBAR = "GraphManagerSideBar";
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"ewGBw":[function(require,module,exports,__globalThis) {
@@ -965,10 +965,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("422f7e851f629d84").render;
     script.staticRenderFns = require("422f7e851f629d84").staticRenderFns;
-    script._scopeId = "data-v-b4533a";
+    script._scopeId = "data-v-0ce7b8";
     script.__cssModules = require("306edb5981471168").default;
     require("e129aefdf69454a9").default(script);
-    script.__scopeId = 'data-v-b4533a';
+    script.__scopeId = 'data-v-0ce7b8';
     script.__file = "moveDevicesPanel.vue";
 };
 initialize();
@@ -1289,10 +1289,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("923b8ffbaab67c43").render;
     script.staticRenderFns = require("923b8ffbaab67c43").staticRenderFns;
-    script._scopeId = "data-v-c41af9";
+    script._scopeId = "data-v-726779";
     script.__cssModules = require("ef9a8a0ee82f1698").default;
     require("529e4232a4780961").default(script);
-    script.__scopeId = 'data-v-c41af9';
+    script.__scopeId = 'data-v-726779';
     script.__file = "createNetworkDialog.vue";
 };
 initialize();
@@ -1437,10 +1437,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("50e49baa5679ff38").render;
     script.staticRenderFns = require("50e49baa5679ff38").staticRenderFns;
-    script._scopeId = "data-v-939d74";
+    script._scopeId = "data-v-814a76";
     script.__cssModules = require("338ab47e2c050424").default;
     require("ccef9eebdfeed405").default(script);
-    script.__scopeId = 'data-v-939d74';
+    script.__scopeId = 'data-v-814a76';
     script.__file = "createEndpointDialog.vue";
 };
 initialize();

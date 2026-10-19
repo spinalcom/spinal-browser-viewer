@@ -11068,6 +11068,7 @@ var defaults = {
     charsetSentinel: false,
     commaRoundTrip: false,
     delimiter: '&',
+    depth: Infinity,
     encode: true,
     encodeDotInKeys: false,
     encoder: utils.encode,
@@ -11087,8 +11088,9 @@ var isNonNullishPrimitive = function isNonNullishPrimitive(v) {
     return typeof v === 'string' || typeof v === 'number' || typeof v === 'boolean' || typeof v === 'symbol' || typeof v === 'bigint';
 };
 var sentinel = {};
-var stringify = function stringify(object, prefix, generateArrayPrefix, commaRoundTrip, allowEmptyArrays, strictNullHandling, skipNulls, encodeDotInKeys, encoder, filter, sort, allowDots, serializeDate, format, formatter, encodeValuesOnly, charset, sideChannel) {
+var stringify = function stringify(object, prefix, generateArrayPrefix, commaRoundTrip, allowEmptyArrays, strictNullHandling, skipNulls, encodeDotInKeys, encoder, filter, sort, allowDots, serializeDate, format, formatter, encodeValuesOnly, charset, sideChannel, depth, currentDepth) {
     var obj = object;
+    if (currentDepth > depth) throw new RangeError('Input depth exceeded depth option of ' + depth);
     var tmpSc = sideChannel;
     var step = 0;
     var findFlag = false;
@@ -11102,8 +11104,8 @@ var stringify = function stringify(object, prefix, generateArrayPrefix, commaRou
         }
         if (typeof tmpSc.get(sentinel) === 'undefined') step = 0;
     }
-    if (typeof filter === 'function') obj = filter(prefix, obj);
-    else if (obj instanceof Date) obj = serializeDate(obj);
+    obj = typeof filter === 'function' ? filter(prefix, obj) : obj;
+    if (obj instanceof Date) obj = serializeDate(obj);
     else if (generateArrayPrefix === 'comma' && isArray(obj)) obj = utils.maybeMap(obj, function(value) {
         if (value instanceof Date) return serializeDate(value);
         return value;
@@ -11129,11 +11131,11 @@ var stringify = function stringify(object, prefix, generateArrayPrefix, commaRou
     if (generateArrayPrefix === 'comma' && isArray(obj)) {
         // we need to join elements in
         if (encodeValuesOnly && encoder) obj = utils.maybeMap(obj, function(v) {
-            return v == null ? v : encoder(v);
+            return v == null ? v : encoder(v, defaults.encoder, charset, 'value', format);
         });
         objKeys = [
             {
-                value: obj.length > 0 ? obj.join(',') || null : void 0
+                value: obj.length > 0 ? utils.toCoercible(obj).join(',') || null : void 0
             }
         ];
     } else if (isArray(filter)) objKeys = filter;
@@ -11141,9 +11143,9 @@ var stringify = function stringify(object, prefix, generateArrayPrefix, commaRou
         var keys = Object.keys(obj);
         objKeys = sort ? keys.sort(sort) : keys;
     }
-    var encodedPrefix = encodeDotInKeys ? String(prefix).replace(/\./g, '%2E') : String(prefix);
+    var encodedPrefix = String(prefix);
     var adjustedPrefix = commaRoundTrip && isArray(obj) && obj.length === 1 ? encodedPrefix + '[]' : encodedPrefix;
-    if (allowEmptyArrays && isArray(obj) && obj.length === 0) return adjustedPrefix + '[]';
+    if (allowEmptyArrays && isArray(obj) && obj.length === 0 && Object.keys(obj).length === 0) return adjustedPrefix + '[]';
     for(var j = 0; j < objKeys.length; ++j){
         var key = objKeys[j];
         var value = typeof key === 'object' && key && typeof key.value !== 'undefined' ? key.value : obj[key];
@@ -11153,7 +11155,7 @@ var stringify = function stringify(object, prefix, generateArrayPrefix, commaRou
         sideChannel.set(object, step);
         var valueSideChannel = getSideChannel();
         valueSideChannel.set(sentinel, sideChannel);
-        pushToArray(values, stringify(value, keyPrefix, generateArrayPrefix, commaRoundTrip, allowEmptyArrays, strictNullHandling, skipNulls, encodeDotInKeys, generateArrayPrefix === 'comma' && encodeValuesOnly && isArray(obj) ? null : encoder, filter, sort, allowDots, serializeDate, format, formatter, encodeValuesOnly, charset, valueSideChannel));
+        pushToArray(values, stringify(value, keyPrefix, generateArrayPrefix, commaRoundTrip, allowEmptyArrays, strictNullHandling, skipNulls, encodeDotInKeys, generateArrayPrefix === 'comma' && encodeValuesOnly && isArray(obj) ? null : encoder, filter, sort, allowDots, serializeDate, format, formatter, encodeValuesOnly, charset, valueSideChannel, depth, currentDepth + 1));
     }
     return values;
 };
@@ -11173,7 +11175,7 @@ var normalizeStringifyOptions = function normalizeStringifyOptions(opts) {
     var filter = defaults.filter;
     if (typeof opts.filter === 'function' || isArray(opts.filter)) filter = opts.filter;
     var arrayFormat;
-    if (opts.arrayFormat in arrayPrefixGenerators) arrayFormat = opts.arrayFormat;
+    if (has.call(arrayPrefixGenerators, opts.arrayFormat)) arrayFormat = opts.arrayFormat;
     else if ('indices' in opts) arrayFormat = opts.indices ? 'indices' : 'repeat';
     else arrayFormat = defaults.arrayFormat;
     if ('commaRoundTrip' in opts && typeof opts.commaRoundTrip !== 'boolean') throw new TypeError('`commaRoundTrip` must be a boolean, or absent');
@@ -11187,6 +11189,7 @@ var normalizeStringifyOptions = function normalizeStringifyOptions(opts) {
         charsetSentinel: typeof opts.charsetSentinel === 'boolean' ? opts.charsetSentinel : defaults.charsetSentinel,
         commaRoundTrip: !!opts.commaRoundTrip,
         delimiter: typeof opts.delimiter === 'undefined' ? defaults.delimiter : opts.delimiter,
+        depth: typeof opts.depth === 'number' ? opts.depth : defaults.depth,
         encode: typeof opts.encode === 'boolean' ? opts.encode : defaults.encode,
         encodeDotInKeys: typeof opts.encodeDotInKeys === 'boolean' ? opts.encodeDotInKeys : defaults.encodeDotInKeys,
         encoder: typeof opts.encoder === 'function' ? opts.encoder : defaults.encoder,
@@ -11224,7 +11227,8 @@ module.exports = function(object, opts) {
         if (typeof key === 'undefined' || key === null) continue;
         var value = obj[key];
         if (options.skipNulls && value === null) continue;
-        pushToArray(keys, stringify(value, key, generateArrayPrefix, commaRoundTrip, options.allowEmptyArrays, options.strictNullHandling, options.skipNulls, options.encodeDotInKeys, options.encode ? options.encoder : null, options.filter, options.sort, options.allowDots, options.serializeDate, options.format, options.formatter, options.encodeValuesOnly, options.charset, sideChannel));
+        var encodedKey = options.encodeDotInKeys ? String(key).replace(/\./g, '%2E') : String(key);
+        pushToArray(keys, stringify(value, encodedKey, generateArrayPrefix, commaRoundTrip, options.allowEmptyArrays, options.strictNullHandling, options.skipNulls, options.encodeDotInKeys, options.encode ? options.encoder : null, options.filter, options.sort, options.allowDots, options.serializeDate, options.format, options.formatter, options.encodeValuesOnly, options.charset, sideChannel, options.depth, 0));
     }
     var joined = keys.join(options.delimiter);
     var prefix = options.addQueryPrefix === true ? '?' : '';
@@ -11869,6 +11873,19 @@ var getMaxIndex = function getMaxIndex(obj) {
 var setMaxIndex = function setMaxIndex(obj, maxIndex) {
     overflowChannel.set(obj, maxIndex);
 };
+// Track containers produced by a `strictMerge` conflict wrap, and their current max numeric index,
+// so repeated conflicts on one path append instead of nesting a new wrapper each time
+var conflictChannel = getSideChannel();
+var markConflict = function markConflict(obj, maxIndex) {
+    conflictChannel.set(obj, maxIndex);
+    return obj;
+};
+var isConflict = function isConflict(obj) {
+    return conflictChannel.has(obj);
+};
+var getConflictIndex = function getConflictIndex(obj) {
+    return conflictChannel.get(obj);
+};
 var hexTable = function() {
     var array = [];
     for(var i = 0; i < 256; ++i)array[array.length] = '%' + ((i < 16 ? '0' : '') + i.toString(16)).toUpperCase();
@@ -11901,6 +11918,26 @@ var setProperty = function setProperty(obj, key, value) {
     });
     else obj[key] = value;
 };
+var maxNumericIndex = function maxNumericIndex(obj, min) {
+    var max = min;
+    var keys = Object.keys(obj);
+    for(var i = 0; i < keys.length; ++i){
+        var num = parseInt(keys[i], 10);
+        if (String(num) === keys[i] && num > max) max = num;
+    }
+    return max;
+};
+var limitedPair = function limitedPair(first, second, options) {
+    var pair = [
+        first,
+        second
+    ];
+    if (options && typeof options.arrayLimit === 'number' && pair.length > options.arrayLimit) {
+        if (options.throwOnLimitExceeded) throw new RangeError('Array limit exceeded. Only ' + options.arrayLimit + ' element' + (options.arrayLimit === 1 ? '' : 's') + ' allowed in an array.');
+        return markOverflow(arrayToObject(pair, options), 1);
+    }
+    return pair;
+};
 var merge = function merge(target, source, options) {
     /* eslint no-param-reassign: 0 */ if (!source) return target;
     if (typeof source !== 'object' && typeof source !== 'function') {
@@ -11917,15 +11954,16 @@ var merge = function merge(target, source, options) {
                 var newIndex = getMaxIndex(target) + 1;
                 target[newIndex] = source;
                 setMaxIndex(target, newIndex);
-            } else if (options && options.strictMerge) return [
-                target,
-                source
-            ];
-            else if (options && (options.plainObjects || options.allowPrototypes) || !has.call(Object.prototype, source)) target[source] = true;
-        } else return [
-            target,
-            source
-        ];
+            } else if (options && options.strictMerge && isConflict(target)) {
+                var nextConflict = getConflictIndex(target) + 1;
+                if (options.throwOnLimitExceeded && typeof options.arrayLimit === 'number' && nextConflict >= options.arrayLimit) throw new RangeError('Array limit exceeded. Only ' + options.arrayLimit + ' element' + (options.arrayLimit === 1 ? '' : 's') + ' allowed in an array.');
+                target[nextConflict] = source;
+                markConflict(target, nextConflict);
+            } else if (options && options.strictMerge) {
+                var conflict = limitedPair(target, source, options);
+                return isArray(conflict) ? markConflict(conflict, 1) : conflict;
+            } else if (options && (options.plainObjects || options.allowPrototypes) || !has.call(Object.prototype, source)) target[source] = true;
+        } else return limitedPair(target, source, options);
         return target;
     }
     if (!target || typeof target !== 'object') {
@@ -11954,7 +11992,11 @@ var merge = function merge(target, source, options) {
         return combined;
     }
     var mergeTarget = target;
-    if (isArray(target) && !isArray(source)) mergeTarget = arrayToObject(target, options);
+    if (isArray(target) && !isArray(source)) {
+        mergeTarget = arrayToObject(target, options);
+        if (isConflict(target)) // the array may have grown past its last conflict, so continue after its last index
+        markConflict(mergeTarget, target.length - 1);
+    }
     if (isArray(target) && isArray(source)) {
         source.forEach(function(item, i) {
             if (has.call(target, i)) {
@@ -11973,10 +12015,14 @@ var merge = function merge(target, source, options) {
         var value = source[key];
         if (has.call(acc, key)) setProperty(acc, key, merge(acc[key], value, options));
         else setProperty(acc, key, value);
-        if (isOverflow(source) && !isOverflow(acc)) markOverflow(acc, getMaxIndex(source));
+        if (isOverflow(source) && !isOverflow(acc)) markOverflow(acc, maxNumericIndex(acc, getMaxIndex(source)));
         if (isOverflow(acc)) {
             var keyNum = parseInt(key, 10);
             if (String(keyNum) === key && keyNum >= 0 && keyNum > getMaxIndex(acc)) setMaxIndex(acc, keyNum);
+        }
+        if (isConflict(acc)) {
+            var conflictKey = parseInt(key, 10);
+            if (String(conflictKey) === key && conflictKey > getConflictIndex(acc)) markConflict(acc, conflictKey);
         }
         return acc;
     }, mergeTarget);
@@ -11988,6 +12034,10 @@ var assign = function assignSingleSource(target, source) {
     }, target);
 };
 var decode = function(str, defaultDecoder, charset) {
+    // With no `%` there is no escape to expand, in either charset: `unescape` has
+    // nothing to match, and `decodeURIComponent` is the identity on such a string
+    // (and cannot throw). So only `+` -> ' ' remains, and often not even that.
+    if (typeof str === 'string' && str.indexOf('%') === -1) return str.indexOf('+') === -1 ? str : str.replace(/\+/g, ' ');
     var strWithoutPlus = str.replace(/\+/g, ' ');
     if (charset === 'iso-8859-1') // unescape never throws, no try...catch needed:
     return strWithoutPlus.replace(/%[0-9a-f]{2}/gi, unescape);
@@ -11998,6 +12048,41 @@ var decode = function(str, defaultDecoder, charset) {
         return strWithoutPlus;
     }
 };
+var hasToPrimitive = typeof Symbol === 'function' && typeof Symbol.toPrimitive === 'symbol';
+var arrayJoin = Array.prototype.join;
+var arrayToString = Array.prototype.toString;
+var objectToString = Object.prototype.toString;
+// an object with no callable toString (eg, from JSON, or null-prototype) would make String() or join() throw,
+// so it becomes its primitive valueOf or else Object.prototype.toString; arrays are walked like join walks them,
+// copied only once an element changes, with an array already being joined becoming '' as engines do for cycles
+var toCoercible = function toCoercible(value, joining) {
+    if (!value || typeof value !== 'object' && typeof value !== 'function') return value;
+    if (hasToPrimitive && value[Symbol.toPrimitive] != null) return value;
+    if (isArray(value) && value.toString === arrayToString && value.join === arrayJoin) {
+        var ancestors = joining || getSideChannel();
+        if (ancestors.has(value)) return '';
+        ancestors.set(value, true);
+        var copy;
+        for(var i = 0; i < value.length; i += 1){
+            var item = value[i];
+            var coerced = toCoercible(item, ancestors);
+            if (!copy && coerced !== item) {
+                copy = [];
+                for(var j = 0; j < i; j += 1)copy[j] = value[j];
+            }
+            if (copy) copy[i] = coerced;
+        }
+        ancestors['delete'](value);
+        return copy || value;
+    }
+    if (typeof value.toString === 'function') return value;
+    var valueOf = value.valueOf;
+    if (typeof valueOf === 'function') {
+        var primitive = valueOf.call(value);
+        if (!primitive || typeof primitive !== 'object' && typeof primitive !== 'function') return String(primitive);
+    }
+    return objectToString.call(value);
+};
 var limit = 1024;
 /* eslint operator-linebreak: [2, "before"] */ var encode = function encode(str, defaultEncoder, charset, kind, format) {
     // This code was originally written by Brian White (mscdex) for the io.js core querystring library.
@@ -12005,10 +12090,12 @@ var limit = 1024;
     if (str.length === 0) return str;
     var string = str;
     if (typeof str === 'symbol') string = Symbol.prototype.toString.call(str);
-    else if (typeof str !== 'string') string = String(str);
-    if (charset === 'iso-8859-1') return escape(string).replace(/%u[0-9a-f]{4}/gi, function($0) {
+    else if (typeof str !== 'string') string = String(toCoercible(str));
+    if (charset === 'iso-8859-1') // `escape` leaves `+` untouched, but a literal `+` is decoded back to a space,
+    // so it must be percent-encoded to round-trip (the utf-8 path already does this).
+    return escape(string).replace(/%u[0-9a-f]{4}/gi, function($0) {
         return '%26%23' + parseInt($0.slice(2), 16) + '%3B';
-    });
+    }).replace(/\+/g, '%2B');
     var out = '';
     for(var j = 0; j < string.length; j += limit){
         var segment = string.length >= limit ? string.slice(j, j + limit) : string;
@@ -12088,14 +12175,23 @@ var isRegExp = function isRegExp(obj) {
 };
 var isBuffer = function isBuffer(obj) {
     if (!obj || typeof obj !== 'object') return false;
-    return !!(obj.constructor && obj.constructor.isBuffer && obj.constructor.isBuffer(obj));
+    return !!(obj.constructor && typeof obj.constructor.isBuffer === 'function' && obj.constructor.isBuffer(obj));
 };
 var combine = function combine(a, b, arrayLimit, plainObjects, throwOnLimitExceeded) {
     // If 'a' is already an overflow object, add to it
     if (isOverflow(a)) {
         if (throwOnLimitExceeded) throw new RangeError('Array limit exceeded. Only ' + arrayLimit + ' element' + (arrayLimit === 1 ? '' : 's') + ' allowed in an array.');
-        var newIndex = getMaxIndex(a) + 1;
-        a[newIndex] = b;
+        // spread `b` one level, matching the `[].concat(a, b)` used below, so a
+        // collection appended to an already-overflowed object is flattened
+        // rather than nested under a single index
+        var bValues = isArray(b) ? b : [
+            b
+        ];
+        var newIndex = getMaxIndex(a);
+        for(var i = 0; i < bValues.length; ++i){
+            newIndex += 1;
+            a[newIndex] = bValues[i];
+        }
         setMaxIndex(a, newIndex);
         return a;
     }
@@ -12128,7 +12224,8 @@ module.exports = {
     isRegExp: isRegExp,
     markOverflow: markOverflow,
     maybeMap: maybeMap,
-    merge: merge
+    merge: merge,
+    toCoercible: toCoercible
 };
 
 },{"7adf3674f81a2c87":"85SVc","9d37e4d02d129a0":"eaiEg","60842e1c0bd9db9f":"lLFQB"}],"85SVc":[function(require,module,exports,__globalThis) {
@@ -12155,9 +12252,58 @@ module.exports = {
 
 },{}],"lFcAo":[function(require,module,exports,__globalThis) {
 'use strict';
+var getSideChannel = require("b6ca9300e615b675");
 var utils = require("e76649c95dd0e736");
 var has = Object.prototype.hasOwnProperty;
 var isArray = Array.isArray;
+var getPrototypeOf = Object.getPrototypeOf;
+var isPlainContainer = function isPlainContainer(value) {
+    if (!value || typeof value !== 'object') return false;
+    if (isArray(value)) return true;
+    var proto = getPrototypeOf(value);
+    return proto === Object.prototype || proto === null;
+};
+var emptyCopyOf = function emptyCopyOf(value) {
+    if (isArray(value)) {
+        var arr = [];
+        arr.length = value.length;
+        return arr;
+    }
+    return getPrototypeOf(value) === null ? {
+        __proto__: null
+    } : {};
+};
+// `merge` and `compact` modify the containers they are given, so copy the caller's arrays and plain objects first
+var copyInput = function copyInput(input) {
+    var copies = getSideChannel();
+    var result = {};
+    var queue = [
+        {
+            source: input,
+            target: result
+        }
+    ];
+    for(var i = 0; i < queue.length; ++i){
+        var source = queue[i].source;
+        var target = queue[i].target;
+        var keys = Object.keys(source);
+        for(var j = 0; j < keys.length; ++j){
+            var value = source[keys[j]];
+            if (isPlainContainer(value)) {
+                if (!copies.has(value)) {
+                    var copy = emptyCopyOf(value);
+                    copies.set(value, copy);
+                    queue[queue.length] = {
+                        source: value,
+                        target: copy
+                    };
+                }
+                target[keys[j]] = copies.get(value);
+            } else target[keys[j]] = value;
+        }
+    }
+    return result;
+};
 var defaults = {
     allowDots: false,
     allowEmptyArrays: false,
@@ -12187,9 +12333,9 @@ var interpretNumericEntities = function(str) {
         return String.fromCharCode(parseInt(numberStr, 10));
     });
 };
-var parseArrayValue = function(val, options, currentArrayLength, isFlatArrayValue) {
+var parseArrayValue = function(val, options, currentArrayLength) {
     if (val && typeof val === 'string' && options.comma && val.indexOf(',') > -1) {
-        if (isFlatArrayValue && options.throwOnLimitExceeded) {
+        if (options.throwOnLimitExceeded) {
             var commaCount = 0;
             var commaIndex = val.indexOf(',');
             while(commaIndex > -1){
@@ -12236,6 +12382,8 @@ var parseValues = function parseQueryStringValues(str, options) {
         var part = parts[i];
         var bracketEqualsPos = part.indexOf(']=');
         var pos = bracketEqualsPos === -1 ? part.indexOf('=') : bracketEqualsPos + 1;
+        // `[]` belongs to the key, so look for it at the split point, not anywhere in the part
+        var isEmptyBracketKey = pos > 1 && part.slice(pos - 2, pos) === '[]';
         var key;
         var val;
         if (pos === -1) {
@@ -12243,18 +12391,18 @@ var parseValues = function parseQueryStringValues(str, options) {
             val = options.strictNullHandling ? null : '';
         } else {
             key = options.decoder(part.slice(0, pos), defaults.decoder, charset, 'key');
-            if (key !== null) val = utils.maybeMap(parseArrayValue(part.slice(pos + 1), options, isArray(obj[key]) ? obj[key].length : 0, part.indexOf('[]=') === -1), function(encodedVal) {
+            if (key !== null) val = utils.maybeMap(parseArrayValue(part.slice(pos + 1), options, isArray(obj[key]) ? obj[key].length : 0), function(encodedVal) {
                 return options.decoder(encodedVal, defaults.decoder, charset, 'value');
             });
         }
         if (val && options.interpretNumericEntities && charset === 'iso-8859-1') val = interpretNumericEntities(String(val));
-        if (part.indexOf('[]=') > -1) val = isArray(val) ? [
+        if (isEmptyBracketKey) val = isArray(val) ? [
             val
         ] : val;
         if (options.comma && isArray(val) && val.length > options.arrayLimit) val = utils.combine([], val, options.arrayLimit, options.plainObjects, options.throwOnLimitExceeded);
         if (key !== null) {
             var existing = has.call(obj, key);
-            if (existing && (options.duplicates === 'combine' || part.indexOf('[]=') > -1)) obj[key] = utils.combine(obj[key], val, options.arrayLimit, options.plainObjects, options.throwOnLimitExceeded);
+            if (existing && (options.duplicates === 'combine' || isEmptyBracketKey)) obj[key] = utils.combine(obj[key], val, options.arrayLimit, options.plainObjects, options.throwOnLimitExceeded);
             else if (!existing || options.duplicates === 'last') obj[key] = val;
         }
     }
@@ -12298,10 +12446,37 @@ var parseObject = function(chain, val, options, valuesParsed) {
     }
     return leaf;
 };
+// Behaves like `key.replace(/\.([^.[]+)/g, '[$1]')`, but only rewrites a dot
+// that sits at bracket depth 0. A literal dot already inside a `[...]` segment
+// is left untouched instead of corrupting the key (e.g. "outer[a.b]"). (#617)
+var topLevelDotsToBrackets = function topLevelDotsToBrackets(key) {
+    var result = '';
+    var depth = 0;
+    for(var i = 0; i < key.length; i += 1){
+        var cu = key.charCodeAt(i);
+        if (cu === 0x5B) {
+            depth += 1;
+            result += '[';
+        } else if (cu === 0x5D) {
+            if (depth > 0) depth -= 1;
+            result += ']';
+        } else if (cu === 0x2E // '.'
+         && depth === 0 && i + 1 < key.length && key.charCodeAt(i + 1) !== 0x2E // not another '.'
+         && key.charCodeAt(i + 1) !== 0x5B // not '['
+        ) {
+            var start = i + 1;
+            var j = start;
+            while(j < key.length && key.charCodeAt(j) !== 0x2E && key.charCodeAt(j) !== 0x5B)j += 1;
+            result += '[' + key.slice(start, j) + ']';
+            i = j - 1;
+        } else result += key.charAt(i);
+    }
+    return result;
+};
 // Split a key like "a[b][c[]]" into ['a', '[b]', '[c[]]'] while preserving
 // qs parse semantics for depth/prototype guards.
 var splitKeyIntoSegments = function splitKeyIntoSegments(originalKey, options) {
-    var key = options.allowDots ? originalKey.replace(/\.([^.[]+)/g, '[$1]') : originalKey;
+    var key = options.allowDots ? topLevelDotsToBrackets(originalKey) : originalKey;
     // depth <= 0 keeps the whole key as one segment
     if (options.depth <= 0) {
         if (!options.plainObjects && has.call(Object.prototype, key)) {
@@ -12407,7 +12582,7 @@ module.exports = function(str, opts) {
     if (str === '' || str === null || typeof str === 'undefined') return options.plainObjects ? {
         __proto__: null
     } : {};
-    var tempObj = typeof str === 'string' ? parseValues(str, options) : str;
+    var tempObj = typeof str === 'string' ? parseValues(str, options) : copyInput(str);
     var obj = options.plainObjects ? {
         __proto__: null
     } : {};
@@ -12422,7 +12597,7 @@ module.exports = function(str, opts) {
     return utils.compact(obj);
 };
 
-},{"e76649c95dd0e736":"4Zvho"}],"bCHaQ":[function(require,module,exports,__globalThis) {
+},{"b6ca9300e615b675":"eaiEg","e76649c95dd0e736":"4Zvho"}],"bCHaQ":[function(require,module,exports,__globalThis) {
 "use strict";
 /*
  * Copyright 2018 SpinalCom - www.spinalcom.com
@@ -12659,10 +12834,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("79603633ea371214").render;
     script.staticRenderFns = require("79603633ea371214").staticRenderFns;
-    script._scopeId = "data-v-f50035";
+    script._scopeId = "data-v-3415f1";
     script.__cssModules = require("c9d76c18c5788e98").default;
     require("4764d454bdec37fa").default(script);
-    script.__scopeId = 'data-v-f50035';
+    script.__scopeId = 'data-v-3415f1';
     script.__file = "createContextDialog.vue";
 };
 initialize();
@@ -12834,10 +13009,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("148f7f85916fa99f").render;
     script.staticRenderFns = require("148f7f85916fa99f").staticRenderFns;
-    script._scopeId = "data-v-1da401";
+    script._scopeId = "data-v-137aed";
     script.__cssModules = require("18d6b8a71ffa0673").default;
     require("765c69e92bfcf808").default(script);
-    script.__scopeId = 'data-v-1da401';
+    script.__scopeId = 'data-v-137aed';
     script.__file = "sortable-list.vue";
 };
 initialize();
@@ -12899,10 +13074,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("43addf22ab5ff52b").render;
     script.staticRenderFns = require("43addf22ab5ff52b").staticRenderFns;
-    script._scopeId = "data-v-99ff4b";
+    script._scopeId = "data-v-d051ef";
     script.__cssModules = require("b5151400238568ba").default;
     require("dc4f3bfb5f2f9a3e").default(script);
-    script.__scopeId = 'data-v-99ff4b';
+    script.__scopeId = 'data-v-d051ef';
     script.__file = "addItemsPopover.vue";
 };
 initialize();
@@ -13352,10 +13527,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("d65a7c438c4cbc2b").render;
     script.staticRenderFns = require("d65a7c438c4cbc2b").staticRenderFns;
-    script._scopeId = "data-v-216d9a";
+    script._scopeId = "data-v-745301";
     script.__cssModules = require("f4102860c351f73e").default;
     require("e6f886d3ba47a944").default(script);
-    script.__scopeId = 'data-v-216d9a';
+    script.__scopeId = 'data-v-745301';
     script.__file = "createEntityDialog.vue";
 };
 initialize();
@@ -13557,10 +13732,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("627298b955099f43").render;
     script.staticRenderFns = require("627298b955099f43").staticRenderFns;
-    script._scopeId = "data-v-2ec450";
+    script._scopeId = "data-v-e6abd0";
     script.__cssModules = require("cc43dd29276c16a3").default;
     require("8a421bcfa6ff918c").default(script);
-    script.__scopeId = 'data-v-2ec450';
+    script.__scopeId = 'data-v-e6abd0';
     script.__file = "createAnalyticDialog.vue";
 };
 initialize();
@@ -14109,9 +14284,9 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("a2886d4834b780f6").render;
     script.staticRenderFns = require("a2886d4834b780f6").staticRenderFns;
-    script._scopeId = "data-v-cc0acf";
+    script._scopeId = "data-v-c4e794";
     require("2e65fd3ada512a11").default(script);
-    script.__scopeId = 'data-v-cc0acf';
+    script.__scopeId = 'data-v-c4e794';
     script.__file = "analyticName.vue";
 };
 initialize();
@@ -14346,9 +14521,9 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("df91edfc020a44ec").render;
     script.staticRenderFns = require("df91edfc020a44ec").staticRenderFns;
-    script._scopeId = "data-v-8cd933";
+    script._scopeId = "data-v-a1f15f";
     require("a9d15aa6691f2297").default(script);
-    script.__scopeId = 'data-v-8cd933';
+    script.__scopeId = 'data-v-a1f15f';
     script.__file = "followedEntity.vue";
 };
 initialize();
@@ -14426,10 +14601,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("fc571b523ea36ce0").render;
     script.staticRenderFns = require("fc571b523ea36ce0").staticRenderFns;
-    script._scopeId = "data-v-8a87fc";
+    script._scopeId = "data-v-56c21c";
     script.__cssModules = require("aec4895752613f80").default;
     require("ebf5fd019ba261a1").default(script);
-    script.__scopeId = 'data-v-8a87fc';
+    script.__scopeId = 'data-v-56c21c';
     script.__file = "linkToEntity.vue";
 };
 initialize();
@@ -15085,10 +15260,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("5966b8a4206d51fe").render;
     script.staticRenderFns = require("5966b8a4206d51fe").staticRenderFns;
-    script._scopeId = "data-v-99f33a";
+    script._scopeId = "data-v-6d7dcc";
     script.__cssModules = require("935875a4c72e9f38").default;
     require("30fc33d99f7ca241").default(script);
-    script.__scopeId = 'data-v-99f33a';
+    script.__scopeId = 'data-v-6d7dcc';
     script.__file = "linkerTemplate.vue";
 };
 initialize();
@@ -15316,10 +15491,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("c11d4a91a08d9ceb").render;
     script.staticRenderFns = require("c11d4a91a08d9ceb").staticRenderFns;
-    script._scopeId = "data-v-f24325";
+    script._scopeId = "data-v-2202c0";
     script.__cssModules = require("2c27762d2d96d6b4").default;
     require("79d30b5f3442688a").default(script);
-    script.__scopeId = 'data-v-f24325';
+    script.__scopeId = 'data-v-2202c0';
     script.__file = "linkToSpatialEntity.vue";
 };
 initialize();
@@ -15554,10 +15729,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("ebd8d57fe5144b69").render;
     script.staticRenderFns = require("ebd8d57fe5144b69").staticRenderFns;
-    script._scopeId = "data-v-142b1a";
+    script._scopeId = "data-v-94e949";
     script.__cssModules = require("6adae82734d05a29").default;
     require("328ff90a8667f2ff").default(script);
-    script.__scopeId = 'data-v-142b1a';
+    script.__scopeId = 'data-v-94e949';
     script.__file = "linkToContext.vue";
 };
 initialize();
@@ -15821,10 +15996,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("fb86fb1561a4eb5b").render;
     script.staticRenderFns = require("fb86fb1561a4eb5b").staticRenderFns;
-    script._scopeId = "data-v-e40a92";
+    script._scopeId = "data-v-52cab7";
     script.__cssModules = require("f37bf822f7eef2d8").default;
     require("d131062c24ad9ae5").default(script);
-    script.__scopeId = 'data-v-e40a92';
+    script.__scopeId = 'data-v-52cab7';
     script.__file = "inputConfiguration.vue";
 };
 initialize();
@@ -15974,10 +16149,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("174e7b05869e11a9").render;
     script.staticRenderFns = require("174e7b05869e11a9").staticRenderFns;
-    script._scopeId = "data-v-ef1b06";
+    script._scopeId = "data-v-9023b4";
     script.__cssModules = require("1288094a95e27ca4").default;
     require("7368bf4ac5988e14").default(script);
-    script.__scopeId = 'data-v-ef1b06';
+    script.__scopeId = 'data-v-9023b4';
     script.__file = "previewDialog.vue";
 };
 initialize();
@@ -16386,10 +16561,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("49da852768d78444").render;
     script.staticRenderFns = require("49da852768d78444").staticRenderFns;
-    script._scopeId = "data-v-554f4d";
+    script._scopeId = "data-v-52e2a8";
     script.__cssModules = require("b39680976e629309").default;
     require("c3be97543a3ed817").default(script);
-    script.__scopeId = 'data-v-554f4d';
+    script.__scopeId = 'data-v-52e2a8';
     script.__file = "triggerConfiguration.vue";
 };
 initialize();
@@ -16466,10 +16641,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("c4b4fddc6076f5c").render;
     script.staticRenderFns = require("c4b4fddc6076f5c").staticRenderFns;
-    script._scopeId = "data-v-1aee9f";
+    script._scopeId = "data-v-50a753";
     script.__cssModules = require("1bb6326be9835e1").default;
     require("634f54cafa2b3756").default(script);
-    script.__scopeId = 'data-v-1aee9f';
+    script.__scopeId = 'data-v-50a753';
     script.__file = "cronHelpDialog.vue";
 };
 initialize();
@@ -16861,10 +17036,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("ac88efc713ea1b8e").render;
     script.staticRenderFns = require("ac88efc713ea1b8e").staticRenderFns;
-    script._scopeId = "data-v-605333";
+    script._scopeId = "data-v-84a9e7";
     script.__cssModules = require("ee766329a47d2e89").default;
     require("615b599c90b8c4dd").default(script);
-    script.__scopeId = 'data-v-605333';
+    script.__scopeId = 'data-v-84a9e7';
     script.__file = "algorithmConfiguration.vue";
 };
 initialize();
@@ -17065,9 +17240,9 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("dd38818ea3b69c13").render;
     script.staticRenderFns = require("dd38818ea3b69c13").staticRenderFns;
-    script._scopeId = "data-v-0e819e";
+    script._scopeId = "data-v-815eb4";
     require("a00646bce0539e1e").default(script);
-    script.__scopeId = 'data-v-0e819e';
+    script.__scopeId = 'data-v-815eb4';
     script.__file = "resultConfiguration.vue";
 };
 initialize();
@@ -17672,10 +17847,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("7c58b3461bf9c840").render;
     script.staticRenderFns = require("7c58b3461bf9c840").staticRenderFns;
-    script._scopeId = "data-v-bbdec2";
+    script._scopeId = "data-v-419292";
     script.__cssModules = require("a117151e03e8bca0").default;
     require("52ee573fb9bbe7f9").default(script);
-    script.__scopeId = 'data-v-bbdec2';
+    script.__scopeId = 'data-v-419292';
     script.__file = "IODependencies.vue";
 };
 initialize();
@@ -17742,10 +17917,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("3f4905037d909310").render;
     script.staticRenderFns = require("3f4905037d909310").staticRenderFns;
-    script._scopeId = "data-v-ceecef";
+    script._scopeId = "data-v-05b195";
     script.__cssModules = require("cc903ab60d3a7548").default;
     require("c950a0cfb7a97d39").default(script);
-    script.__scopeId = 'data-v-ceecef';
+    script.__scopeId = 'data-v-05b195';
     script.__file = "inputSelectionTable.vue";
 };
 initialize();
@@ -18241,9 +18416,9 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("c82c8a04709c5c39").render;
     script.staticRenderFns = require("c82c8a04709c5c39").staticRenderFns;
-    script._scopeId = "data-v-ba85a8";
+    script._scopeId = "data-v-9a0e1a";
     require("7bdb5b575d989e53").default(script);
-    script.__scopeId = 'data-v-ba85a8';
+    script.__scopeId = 'data-v-9a0e1a';
     script.__file = "configuration.vue";
 };
 initialize();
@@ -18765,10 +18940,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("b92ecc6f89af854c").render;
     script.staticRenderFns = require("b92ecc6f89af854c").staticRenderFns;
-    script._scopeId = "data-v-dbe495";
+    script._scopeId = "data-v-9d1c7c";
     script.__cssModules = require("f78316d3492726cb").default;
     require("c88d640afaf2a223").default(script);
-    script.__scopeId = 'data-v-dbe495';
+    script.__scopeId = 'data-v-9d1c7c';
     script.__file = "summary.vue";
 };
 initialize();
@@ -19258,10 +19433,10 @@ let initialize = ()=>{
     if (script.__esModule) script = script.default;
     script.render = require("3fdf391e9c73cd5").render;
     script.staticRenderFns = require("3fdf391e9c73cd5").staticRenderFns;
-    script._scopeId = "data-v-19c5d7";
+    script._scopeId = "data-v-03c1c9";
     script.__cssModules = require("f93af72822295694").default;
     require("217d35c413f75cf6").default(script);
-    script.__scopeId = 'data-v-19c5d7';
+    script.__scopeId = 'data-v-03c1c9';
     script.__file = "modifyAnalyticDialog.vue";
 };
 initialize();
